@@ -1,0 +1,53 @@
+{
+  "name": "@cyberskill/design-system",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "CyberSkill Design System v1.0 — atomic React component library + wiki SPA",
+  "packageManager": "pnpm@10.33.2",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "typecheck": "tsc -b --noEmit",
+    "lint": "eslint src --ext .ts,.tsx",
+    "build:design-md": "node scripts/build-design-md.mjs",
+    "check:design-md": "node scripts/build-design-md.mjs --check",
+    "build:tokens": "node scripts/build-tokens.mjs",
+    "build:cdn": "node scripts/build-cdn.mjs",
+    "pre-review": "node scripts/pre-review.mjs",
+    "coverage:check": "node scripts/check-coverage.mjs",
+    "check:bundle-size": "node scripts/check-bundle-size.mjs",
+    "check:doc-freshness": "node scripts/check-doc-freshness.mjs",
+    "check:apca": "node scripts/check-apca.mjs",
+    "ci": "pnpm typecheck && pnpm lint && pnpm check:design-md && pnpm pre-review && pnpm coverage:check && pnpm check:bundle-size && pnpm check:doc-freshness && pnpm check:apca && pnpm build:tokens",
+    "build:packages": "pnpm -r --filter './packages/*' build",
+    "test:packages": "pnpm -r --filter './packages/*' test"
+  },
+  "dependencies": {
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
+    "react-markdown": "10.1.0",
+    "remark-gfm": "4.0.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "10.3.5",
+    "@storybook/addon-themes": "10.3.5",
+    "@storybook/react": "10.3.5",
+    "@storybook/react-vite": "10.3.5",
+    "@tailwindcss/vite": "4.2.4",
+    "@types/node": "25.6.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.1",
+    "storybook": "10.3.5",
+    "tailwindcss": "4.2.4",
+    "typescript": "6.0.3",
+    "vite": "8.0.10"
+  }
+}

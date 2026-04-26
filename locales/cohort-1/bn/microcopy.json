@@ -1,0 +1,48 @@
+{
+  "$schema": "../../_schema/microcopy.schema.json",
+  "$locale": "bn",
+  "$direction": "ltr",
+  "$status": "stub — awaiting native steward review",
+  "$plural_rules": "Bengali: 2 categories (one, other)",
+  "$script": "Bengali (ben). Complex script — verify Be Vietnam Pro fallback handles it; otherwise specify Noto Sans Bengali fallback.",
+  "$canonical_source": "../../../docs/part-14-content-design.md §2 microcopy patterns",
+
+  "common": {
+    "save":             "{TODO: native review — সংরক্ষণ}",
+    "cancel":           "{TODO: native review — বাতিল}",
+    "delete":           "{TODO: native review — মুছুন}",
+    "edit":             "{TODO: native review — সম্পাদনা}",
+    "close":            "{TODO: native review — বন্ধ করুন}",
+    "ok":               "{TODO: native review — ঠিক আছে}",
+    "yes":              "{TODO: native review — হ্যাঁ}",
+    "no":               "{TODO: native review — না}",
+    "loading":          "{TODO: native review — লোড হচ্ছে…}",
+    "search":           "{TODO: native review — অনুসন্ধান}"
+  },
+
+  "errors": {
+    "generic":          "{TODO: native review}",
+    "network":          "{TODO: native review}",
+    "validation":       "{TODO: native review}",
+    "permission":       "{TODO: native review}"
+  },
+
+  "empty_states": {
+    "no_results":       "{TODO: native review}",
+    "no_data":          "{TODO: native review}",
+    "first_run":        "{TODO: native review}"
+  },
+
+  "auth": {
+    "sign_in":          "{TODO: native review}",
+    "sign_out":         "{TODO: native review}",
+    "register":         "{TODO: native review}",
+    "forgot_password":  "{TODO: native review}"
+  },
+
+  "$cultural_notes": {
+    "regional_variation": "Bangladesh Bengali differs from West Bengal / India Bengali in some idiomatic usage. Steward should specify which target (default: Bangladesh, larger SaaS market).",
+    "formality": "Tier-1 plain-language uses 'tumi' (informal you); customer-facing default uses 'apni' (formal you).",
+    "numerals": "Bengali script has its own digits (০–৯). The doctrine's `font.family.ui.lnum` (lining numerals) is preferred for data tables; native digits for prose."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format-2025-10/schema.json",
+  "$description": "Spacing tokens with density variants (compact/cozy/comfortable). v1.0.0.",
+  "space": {
+    "0": { "$value": "0", "$type": "dimension" },
+    "1": { "$value": "4px",  "$type": "dimension", "$extensions": { "com.cyberskill.density": { "compact": "2px",  "cozy": "4px",  "comfortable": "6px" } } },
+    "2": { "$value": "8px",  "$type": "dimension", "$extensions": { "com.cyberskill.density": { "compact": "6px",  "cozy": "8px",  "comfortable": "12px" } } },
+    "3": { "$value": "12px", "$type": "dimension", "$extensions": { "com.cyberskill.density": { "compact": "10px", "cozy": "12px", "comfortable": "16px" } } },
+    "4": { "$value": "16px", "$type": "dimension", "$extensions": { "com.cyberskill.density": { "compact": "12px", "cozy": "16px", "comfortable": "20px" } } },
+    "5": { "$value": "20px", "$type": "dimension", "$extensions": { "com.cyberskill.density": { "compact": "16px", "cozy": "20px", "comfortable": "24px" } } },
+    "6": { "$value": "24px", "$type": "dimension", "$extensions": { "com.cyberskill.density": { "compact": "20px", "cozy": "24px", "comfortable": "32px" } } },
+    "8": { "$value": "32px", "$type": "dimension" },
+    "10":{ "$value": "40px", "$type": "dimension" },
+    "12":{ "$value": "48px", "$type": "dimension" },
+    "16":{ "$value": "64px", "$type": "dimension" },
+    "20":{ "$value": "80px", "$type": "dimension" }
+  },
+  "control": {
+    "height": {
+      "sm": { "$value": "32px", "$type": "dimension", "$extensions": { "com.cyberskill.density": { "compact": "24px", "cozy": "32px", "comfortable": "40px" } } },
+      "md": { "$value": "40px", "$type": "dimension", "$extensions": { "com.cyberskill.density": { "compact": "32px", "cozy": "40px", "comfortable": "48px" } } },
+      "lg": { "$value": "48px", "$type": "dimension", "$extensions": { "com.cyberskill.density": { "compact": "40px", "cozy": "48px", "comfortable": "56px" } } }
+    }
+  },
+  "radius": {
+    "xs":  { "$value": "2px",  "$type": "dimension" },
+    "sm":  { "$value": "4px",  "$type": "dimension" },
+    "md":  { "$value": "6px",  "$type": "dimension" },
+    "lg":  { "$value": "8px",  "$type": "dimension" },
+    "xl":  { "$value": "12px", "$type": "dimension" },
+    "2xl": { "$value": "16px", "$type": "dimension" },
+    "full":{ "$value": "9999px","$type": "dimension" }
+  }
+}

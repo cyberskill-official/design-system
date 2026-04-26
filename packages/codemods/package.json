@@ -1,0 +1,22 @@
+{
+  "name": "@cyberskill/codemods",
+  "version": "1.0.0",
+  "description": "Migration codemods: Material → CyberSkill, Polaris → CyberSkill, Carbon → CyberSkill. Per audit §14.16 expansion.",
+  "type": "module",
+  "main": "./src/index.mjs",
+  "bin": {
+    "cs-codemod": "./src/cli.mjs"
+  },
+  "exports": {
+    ".": "./src/index.mjs",
+    "./material": "./src/material-to-cyberskill.mjs",
+    "./polaris": "./src/polaris-to-cyberskill.mjs",
+    "./carbon": "./src/carbon-to-cyberskill.mjs"
+  },
+  "files": ["src", "README.md"],
+  "scripts": {
+    "test": "node --test src/*.test.mjs"
+  },
+  "keywords": ["codemod", "migration", "design-system", "material-ui", "polaris", "carbon"],
+  "license": "MIT"
+}

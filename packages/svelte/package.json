@@ -1,0 +1,26 @@
+{
+  "name": "@cyberskill/svelte",
+  "version": "1.0.0",
+  "description": "Svelte 5+ runes wrappers around @cyberskill/web-components. Per RFC 2026-003.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./button": "./src/Button.svelte",
+    "./stores": "./src/stores.ts"
+  },
+  "files": ["src", "README.md"],
+  "scripts": {
+    "build": "echo 'No build step — Wave 2 ships .svelte source. Wave 3 adds vite-build.'"
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "dependencies": {
+    "@cyberskill/primitives": "workspace:*",
+    "@cyberskill/web-components": "workspace:*",
+    "@cyberskill/tokens": "workspace:*"
+  },
+  "keywords": ["svelte", "svelte5", "design-system"],
+  "license": "MIT"
+}

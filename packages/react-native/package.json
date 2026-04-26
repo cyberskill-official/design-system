@@ -1,0 +1,27 @@
+{
+  "name": "@cyberskill/react-native",
+  "version": "1.0.0",
+  "description": "React Native primitives for the CyberSkill Design System. Per RFC 2026-003 + §14.7 expansion (RN cross-platform compatibility).",
+  "type": "module",
+  "main": "./src/index.tsx",
+  "exports": {
+    ".": "./src/index.tsx",
+    "./button": "./src/Button.tsx",
+    "./theme": "./src/ThemeProvider.tsx",
+    "./tokens": "./src/tokens.ts"
+  },
+  "files": ["src", "README.md"],
+  "scripts": {
+    "build": "echo 'No build step — Phase 3 ships TSX source. Phase 4 adds RN bundler.'"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-native": ">=0.74"
+  },
+  "dependencies": {
+    "@cyberskill/primitives": "workspace:*",
+    "@cyberskill/tokens": "workspace:*"
+  },
+  "keywords": ["react-native", "design-system", "ios", "android"],
+  "license": "MIT"
+}

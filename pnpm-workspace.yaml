@@ -1,0 +1,22 @@
+packages:
+  - 'packages/*'
+
+# Per RFC 2026-003 (framework-agnostic architecture), the doctrine ships
+# multiple packages on a shared monorepo. This file declares the workspace
+# membership so pnpm can resolve workspace:* dependencies between packages.
+#
+# Wave 1 (shipped 2026-04-26):
+#   - @cyberskill/tokens          — DTCG token sources + multi-platform build
+#   - @cyberskill/primitives      — headless behaviour layer (RFC 2026-003)
+#   - @cyberskill/web-components  — styled custom elements (RFC 2026-003)
+#   - @cyberskill/react           — React wrapper (RFC 2026-003)
+#   - @cyberskill/theme-generator — theme-from-logo CLI (RFC 2026-004)
+#   - @cyberskill/mcp-server      — read-only MCP server
+#
+# Wave 2 (Q1 2027):
+#   - @cyberskill/vue
+#   - @cyberskill/svelte
+#   - @cyberskill/themes
+#
+# The wiki SPA (the design system's own showcase, at the repo root) is
+# not yet a workspace member — Phase 2 Wave 2 migrates it.

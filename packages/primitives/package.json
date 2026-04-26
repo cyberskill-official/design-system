@@ -1,0 +1,20 @@
+{
+  "name": "@cyberskill/primitives",
+  "version": "1.0.0",
+  "description": "Headless behaviour primitives for the CyberSkill Design System. Framework-agnostic — see RFC 2026-003.",
+  "type": "module",
+  "main": "./src/index.mjs",
+  "exports": {
+    ".": "./src/index.mjs",
+    "./disclosure": "./src/use-disclosure.mjs",
+    "./focus-trap": "./src/use-focus-trap.mjs",
+    "./tabs": "./src/use-tabs.mjs"
+  },
+  "files": ["src", "README.md"],
+  "scripts": {
+    "build": "echo 'No build step — primitives ship as ESM source. TS types live in src/*.d.ts.'",
+    "test": "node --test src/*.test.mjs"
+  },
+  "keywords": ["headless", "primitives", "a11y", "design-system"],
+  "license": "MIT"
+}

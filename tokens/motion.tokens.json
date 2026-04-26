@@ -1,0 +1,16 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format-2025-10/schema.json",
+  "$description": "Motion tokens. Honours prefers-reduced-motion.",
+  "motion": {
+    "duration": {
+      "fast":     { "$value": "100ms", "$type": "duration" },
+      "quick":    { "$value": "150ms", "$type": "duration" },
+      "standard": { "$value": "250ms", "$type": "duration" },
+      "slow":     { "$value": "400ms", "$type": "duration" }
+    },
+    "easing": {
+      "standard":   { "$value": "cubic-bezier(0.2, 0.8, 0.2, 1)",  "$type": "cubicBezier" },
+      "emphasised": { "$value": "cubic-bezier(0.16, 1, 0.3, 1)",   "$type": "cubicBezier" }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@cyberskill/mcp-server",
+  "version": "1.0.0",
+  "description": "Read-only MCP server exposing CyberSkill design tokens, components, and doctrine parts to AI agents. Closes A10.1 read-only path.",
+  "type": "module",
+  "main": "./src/server.mjs",
+  "bin": {
+    "cs-mcp-server": "./src/server.mjs"
+  },
+  "files": ["src", "README.md"],
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node --test src/*.test.mjs"
+  },
+  "keywords": ["mcp", "anthropic", "ai-agents", "design-system"],
+  "license": "MIT"
+}

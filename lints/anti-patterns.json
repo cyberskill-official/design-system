@@ -1,0 +1,56 @@
+{
+  "$schema": "./schema.json",
+  "$description": "Architectural anti-patterns the doctrine forbids in code and content. Source: Part 1 §16. Any addition requires a Doctrine RFC per 00-audit-and-roadmap.md §12.2.",
+  "$version": "1.0.0",
+  "$sources": ["Design System/docs/part-1-foundations.md §16"],
+  "code": [
+    {
+      "id": "raw-hex-colour",
+      "pattern": "#[0-9a-fA-F]{3,8}\\b",
+      "exclude_files": ["**/tokens/*.tokens.json", "**/dist/**", "**/_legacy/**", "**/themes/*.css"],
+      "exclude_inline": ["//.*#[0-9a-fA-F]{3,8}", "/\\*.*#[0-9a-fA-F]{3,8}.*\\*/"],
+      "severity": "warn",
+      "message": "Raw hex colour found. Use a token reference: var(--cs-color-...) or import from @cyberskill/tokens.",
+      "doctrine": "Part 2 §1 (OKLCH foundation), Part 1 §16, RFC 2026-005 lint #1"
+    },
+    {
+      "id": "raw-px-style",
+      "pattern": "\\b\\d+px\\b",
+      "exclude_files": ["**/tokens/*.tokens.json", "**/dist/**", "**/_legacy/**", "**/*.css"],
+      "exclude_inline": [],
+      "severity": "warn",
+      "message": "Raw px in a style prop. Use a space token (--cs-space-N) or layout token.",
+      "doctrine": "Part 2 §11 (spacing system), Part 20 (layout primitives)"
+    },
+    {
+      "id": "raw-ms-duration",
+      "pattern": "(?<![:\\w])\\d+ms\\b",
+      "exclude_files": ["**/tokens/*.tokens.json", "**/dist/**", "**/_legacy/**", "**/*.css"],
+      "severity": "warn",
+      "message": "Raw ms duration. Use a motion token: motion.duration.{fast|quick|standard|slow}.",
+      "doctrine": "Part 2 §7 (motion contract)"
+    },
+    {
+      "id": "div-as-button",
+      "pattern": "<div\\s+[^>]*onClick=",
+      "severity": "block",
+      "message": "Interactive <div> with onClick. Use <button> or @cyberskill/react Button — fails WCAG 2.1.1 Keyboard.",
+      "doctrine": "Part 5 §2 (87 SC mapping), Part 5 §21.5 anti-pattern #8"
+    },
+    {
+      "id": "missing-alt-on-img",
+      "pattern": "<img\\s+(?![^>]*alt=)[^>]*src=",
+      "severity": "block",
+      "message": "<img> without alt attribute. Provide alt text or alt=\"\" for decorative images — WCAG 1.1.1.",
+      "doctrine": "Part 5 §1 (WCAG 2.2 baseline)"
+    }
+  ],
+  "doc": [
+    {
+      "id": "broken-section-ref",
+      "pattern": "§\\d+\\.\\d+(?:\\.\\d+)?",
+      "severity": "info",
+      "message": "Section reference detected. Cross-reference walker (RFC 2026-005 lint #4) verifies these exist."
+    }
+  ]
+}

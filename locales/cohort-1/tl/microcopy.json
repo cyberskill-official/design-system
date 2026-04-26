@@ -1,0 +1,47 @@
+{
+  "$schema": "../../_schema/microcopy.schema.json",
+  "$locale": "tl",
+  "$direction": "ltr",
+  "$status": "stub — awaiting native steward review per `_audit/2026-04-26/locale-expansion-plan.md`",
+  "$plural_rules": "Tagalog: 2 categories (one, other) — but generally singular/plural distinction less marked than English",
+  "$canonical_source": "../../../docs/part-14-content-design.md §2 microcopy patterns",
+
+  "common": {
+    "save":             "{TODO: native review — likely 'I-save' or 'Mag-save'}",
+    "cancel":           "{TODO: native review — 'Kanselahin'}",
+    "delete":           "{TODO: native review — 'Burahin'}",
+    "edit":             "{TODO: native review — 'I-edit' or 'Baguhin'}",
+    "close":            "{TODO: native review — 'Isara'}",
+    "ok":               "{TODO: native review — 'Sige' (informal) or 'OK' (formal)}",
+    "yes":              "{TODO: native review — 'Oo'}",
+    "no":               "{TODO: native review — 'Hindi'}",
+    "loading":          "{TODO: native review — 'Naglo-load…'}",
+    "search":           "{TODO: native review — 'Maghanap'}"
+  },
+
+  "errors": {
+    "generic":          "{TODO: native review}",
+    "network":          "{TODO: native review}",
+    "validation":       "{TODO: native review}",
+    "permission":       "{TODO: native review — note: politeness register matters here}"
+  },
+
+  "empty_states": {
+    "no_results":       "{TODO: native review}",
+    "no_data":          "{TODO: native review}",
+    "first_run":        "{TODO: native review — onboarding tone}"
+  },
+
+  "auth": {
+    "sign_in":          "{TODO: native review}",
+    "sign_out":         "{TODO: native review}",
+    "register":         "{TODO: native review}",
+    "forgot_password":  "{TODO: native review}"
+  },
+
+  "$cultural_notes": {
+    "honorifics": "Tagalog uses honorifics (po/opo) for politeness. Citizen-facing surfaces should default to formal register; product-internal can be informal.",
+    "english_loanwords": "Tagalog readily incorporates English tech terms ('I-save', 'I-cancel'). Stewards should preserve this idiom rather than over-translating.",
+    "code_switching": "Taglish (Tagalog + English) is standard in tech-savvy Manila / Cebu audiences. The doctrine's tier-1 plain-language flag (Part 5 §20) decides per-surface."
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format-2025-10/schema.json",
+  "$description": "Type tokens — Be Vietnam Pro UI + JetBrains Mono code. Vietnamese-aware line-heights. Variable-font axes annotated 2026-04-26 to close audit A1.2 → 5.",
+  "font": {
+    "family": {
+      "ui":   {
+        "$value": "Be Vietnam Pro, Inter, system-ui, sans-serif",
+        "$type": "fontFamily",
+        "$extensions": {
+          "com.cyberskill.variable-axes": {
+            "wght": { "min": 100, "max": 900, "default": 400, "axis": "Weight" },
+            "ital": { "min": 0, "max": 1, "default": 0, "axis": "Italic" }
+          },
+          "com.cyberskill.opentype-features": {
+            "ss01": "alternate Vietnamese diacritic position",
+            "kern": "kerning enabled (default)",
+            "liga": "standard ligatures enabled",
+            "tnum": "tabular numerals (data tables only)",
+            "lnum": "lining numerals (default)",
+            "onum": "old-style numerals (long-form prose only)"
+          }
+        }
+      },
+      "mono": {
+        "$value": "JetBrains Mono, Menlo, Consolas, monospace",
+        "$type": "fontFamily",
+        "$extensions": {
+          "com.cyberskill.variable-axes": {
+            "wght": { "min": 100, "max": 800, "default": 400, "axis": "Weight" },
+            "ital": { "min": 0, "max": 1, "default": 0, "axis": "Italic" }
+          },
+          "com.cyberskill.opentype-features": {
+            "calt": "138 ligatures enabled (=> -> != etc.)",
+            "zero": "slashed zero (default — distinguishes 0 from O)",
+            "ss20": "JetBrains Mono stylistic-set for prose mode (off by default)"
+          }
+        }
+      }
+    },
+    "weight": {
+      "regular":  { "$value": 400, "$type": "fontWeight" },
+      "medium":   { "$value": 500, "$type": "fontWeight" },
+      "semibold": { "$value": 600, "$type": "fontWeight" },
+      "bold":     { "$value": 700, "$type": "fontWeight" },
+      "black":    { "$value": 800, "$type": "fontWeight" }
+    },
+    "size": {
+      "xs":   { "$value": "12px", "$type": "dimension" },
+      "sm":   { "$value": "13px", "$type": "dimension" },
+      "body": { "$value": "15px", "$type": "dimension", "$extensions": { "com.cyberskill.fluid": "clamp(15px, 0.5vw + 13px, 16px)" } },
+      "md":   { "$value": "16px", "$type": "dimension" },
+      "lg":   { "$value": "18px", "$type": "dimension" },
+      "h3":   { "$value": "20px", "$type": "dimension", "$extensions": { "com.cyberskill.fluid": "clamp(18px, 1.5vw + 12px, 24px)" } },
+      "h2":   { "$value": "24px", "$type": "dimension", "$extensions": { "com.cyberskill.fluid": "clamp(22px, 2.5vw + 14px, 36px)" } },
+      "h1":   { "$value": "32px", "$type": "dimension", "$extensions": { "com.cyberskill.fluid": "clamp(28px, 3.5vw + 16px, 48px)" } },
+      "display": { "$value": "48px", "$type": "dimension" }
+    },
+    "lineHeight": {
+      "tight":   { "$value": 1.25, "$type": "number" },
+      "body":    { "$value": 1.55, "$type": "number" },
+      "relaxed": { "$value": 1.7,  "$type": "number" }
+    }
+  }
+}

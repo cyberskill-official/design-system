@@ -1,0 +1,25 @@
+{
+  "name": "@cyberskill/spatial",
+  "version": "1.0.0",
+  "description": "Spatial / immersive primitives for the CyberSkill Design System. Per RFC 2026-006 + audit §14.20 expansion. Closes A6.6 / B3.7 → 4 path.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./tokens": "./src/depth-tokens.ts",
+    "./primitives": "./src/primitives.ts"
+  },
+  "files": ["src", "README.md"],
+  "scripts": {
+    "build": "echo 'No build step — Phase 4 ships TS source. Phase 5 wires platform-native bundling.'"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "dependencies": {
+    "@cyberskill/primitives": "workspace:*",
+    "@cyberskill/tokens": "workspace:*"
+  },
+  "keywords": ["spatial", "vision-os", "ar", "vr", "wear-os", "design-system"],
+  "license": "MIT"
+}

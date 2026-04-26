@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+/* ============================================================
+ * CyberSkill Design System — Tailwind v4 theme block
+ * Compiled from /tokens/*.tokens.json (DTCG 2025.10).
+ * ============================================================ */
+
+@theme {
+  /* — Brand anchors (immutable per Part 1 §3) — */
+  --color-umber:        #45210E;
+  --color-umber-dark:   #2A1505;
+  --color-umber-light:  #6B3A1E;
+  --color-umber-deep:   #1C0E04;
+  --color-ochre:        #F4BA17;
+  --color-ochre-dark:   #C49810;
+  --color-ochre-light:  #FAD158;
+  --color-ochre-subtle: #FBE5A6;
+  --color-warm:         #FAF6F1;
+  --color-bone:         #EAE2D2;
+  --color-stone:        #8B7355;
+
+  /* — Semantic — */
+  --color-success:        #3A7D44;
+  --color-success-subtle: #E5F0E7;
+  --color-warning:        #A87411;
+  --color-warning-subtle: #FBE5A6;
+  --color-danger:         #B33B19;
+  --color-danger-subtle:  #F8D6CC;
+  --color-info:           #2B6CB0;
+  --color-info-subtle:    #D8E5F1;
+
+  /* — Surface mappings (CSS vars below for runtime theme switching) — */
+  --color-surface:        var(--cs-color-surface-default);
+  --color-surface-subtle: var(--cs-color-surface-subtle);
+  --color-surface-raised: var(--cs-color-surface-raised);
+  --color-text:           var(--cs-color-text-default);
+  --color-text-muted:     var(--cs-color-text-muted);
+  --color-accent:         var(--cs-color-accent-default);
+  --color-accent-subtle:  var(--cs-color-accent-subtle);
+  --color-border:         var(--cs-color-border-default);
+  --color-border-subtle:  var(--cs-color-border-subtle);
+
+  /* — Typography — */
+  --font-sans: "Be Vietnam Pro", Inter, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", Menlo, Consolas, monospace;
+
+  /* Micro / small added 2026-04-26 (Phase 4 A2 migration). For badges,
+     glyphs, footnotes that the doctrine's xs (12px) is too large for. */
+  --text-micro:   10px;
+  --text-small:   11px;
+  --text-xs:      12px;
+  --text-sm:      13px;
+  --text-body:    15px;
+  --text-md:      16px;
+  --text-lg:      18px;
+  --text-h3:      20px;
+  --text-h2:      24px;
+  --text-h1:      32px;
+  --text-h1-lg:   44px;  /* HomeView hero headline; below display (48px) */
+  --text-h1-sm:   28px;  /* HomeView KPI numerals */
+  --text-display: 48px;
+
+  /* — Spacing (uses runtime CSS vars for density override) — */
+  --spacing-cs1:  var(--cs-space-1);
+  --spacing-cs2:  var(--cs-space-2);
+  --spacing-cs3:  var(--cs-space-3);
+  --spacing-cs4:  var(--cs-space-4);
+  --spacing-cs5:  var(--cs-space-5);
+  --spacing-cs6:  var(--cs-space-6);
+  --spacing-cs8:  var(--cs-space-8);
+  --spacing-cs10: var(--cs-space-10);
+  --spacing-cs12: var(--cs-space-12);
+  --spacing-cs16: var(--cs-space-16);
+
+  /* — Radii — */
+  --radius-sm:   4px;
+  --radius-md:   6px;
+  --radius-lg:   8px;
+  --radius-xl:  12px;
+  --radius-full: 9999px;
+
+  /* — Shadows — */
+  --shadow-cs:    0 1px 2px rgba(42,21,5,0.06);
+  --shadow-cs-md: 0 4px 12px rgba(42,21,5,0.08);
+  --shadow-cs-lg: 0 12px 24px rgba(42,21,5,0.12);
+}
+
+/* Dark variant: tell Tailwind to use [data-theme="dark"] for the dark: variant */
+@variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ============================================================
+ * Runtime CSS variables — themed via [data-theme] on <html>.
+ * Density is overridden via [data-density].
+ * ============================================================ */
+
+:root {
+  --cs-color-surface-default:  #FAF6F1;
+  --cs-color-surface-subtle:   #F4EFE6;
+  --cs-color-surface-raised:   #FFFFFF;
+  --cs-color-text-default:     #2A1505;
+  --cs-color-text-muted:       #8B7355;
+  --cs-color-accent-default:   #F4BA17;
+  --cs-color-accent-subtle:    #FBE5A6;
+  --cs-color-border-default:   #D7CFC0;
+  --cs-color-border-subtle:    #EAE2D2;
+  --cs-color-focus-ring:       #F4BA17;
+
+  --cs-space-1:  4px;
+  --cs-space-2:  8px;
+  --cs-space-3:  12px;
+  --cs-space-4:  16px;
+  --cs-space-5:  20px;
+  --cs-space-6:  24px;
+  --cs-space-8:  32px;
+  --cs-space-10: 40px;
+  --cs-space-12: 48px;
+  --cs-space-16: 64px;
+
+  --cs-shell-sidebar-left:  240px;
+  --cs-shell-sidebar-right: 260px;
+  --cs-shell-header-height: 56px;
+}
+
+[data-theme='dark'] {
+  --cs-color-surface-default:  #1C0E04;
+  --cs-color-surface-subtle:   #2A1505;
+  --cs-color-surface-raised:   #3F2515;
+  --cs-color-text-default:     #FAF6F1;
+  --cs-color-text-muted:       #BFAE94;
+  --cs-color-border-default:   #3F2515;
+  --cs-color-border-subtle:    #2A1505;
+}
+[data-theme='hc'] {
+  --cs-color-surface-default:  #000;
+  --cs-color-surface-subtle:   #0A0A0A;
+  --cs-color-surface-raised:   #000;
+  --cs-color-text-default:     #FFF;
+  --cs-color-text-muted:       #CCC;
+  --cs-color-accent-default:   #FFD400;
+  --cs-color-border-default:   #FFF;
+  --cs-color-border-subtle:    #FFF;
+}
+[data-theme='sepia'] {
+  --cs-color-surface-default:  #F4ECDC;
+  --cs-color-surface-subtle:   #EAE0CB;
+  --cs-color-surface-raised:   #F8F1E2;
+  --cs-color-text-default:     #3D2A14;
+  --cs-color-text-muted:       #7C6443;
+  --cs-color-accent-default:   #C49810;
+  --cs-color-border-default:   #C9B895;
+}
+
+[data-density='compact'] {
+  --cs-space-1: 3px; --cs-space-2: 6px; --cs-space-3: 9px;
+  --cs-space-4: 12px; --cs-space-5: 15px; --cs-space-6: 18px;
+  --cs-space-8: 24px; --cs-space-10: 30px; --cs-space-12: 36px;
+}
+[data-density='comfortable'] {
+  --cs-space-1: 5px; --cs-space-2: 10px; --cs-space-3: 15px;
+  --cs-space-4: 20px; --cs-space-5: 25px; --cs-space-6: 30px;
+  --cs-space-8: 40px; --cs-space-10: 50px; --cs-space-12: 60px;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { margin: 0; padding: 0; height: 100%; }
+body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--cs-color-text-default);
+  background: var(--cs-color-surface-default);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img, svg { max-width: 100%; display: block; }
+button, input, select, textarea { font: inherit; color: inherit; }

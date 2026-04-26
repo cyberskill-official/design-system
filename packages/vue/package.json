@@ -1,0 +1,26 @@
+{
+  "name": "@cyberskill/vue",
+  "version": "1.0.0",
+  "description": "Vue 3.5+ Composition-API wrappers around @cyberskill/web-components. Per RFC 2026-003.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./button": "./src/Button.vue",
+    "./composables": "./src/composables.ts"
+  },
+  "files": ["src", "README.md"],
+  "scripts": {
+    "build": "echo 'No build step — Wave 2 ships .vue source. Wave 3 adds vite-build.'"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "dependencies": {
+    "@cyberskill/primitives": "workspace:*",
+    "@cyberskill/web-components": "workspace:*",
+    "@cyberskill/tokens": "workspace:*"
+  },
+  "keywords": ["vue", "vue3", "design-system", "component-library"],
+  "license": "MIT"
+}

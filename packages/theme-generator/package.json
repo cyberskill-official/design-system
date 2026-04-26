@@ -1,0 +1,22 @@
+{
+  "name": "@cyberskill/theme-generator",
+  "version": "1.0.0",
+  "description": "Generate a contrast-validated DTCG theme overlay from a logo or primary brand colour. Per RFC 2026-004.",
+  "type": "module",
+  "main": "./src/index.mjs",
+  "bin": {
+    "cs-theme-generator": "./src/cli.mjs"
+  },
+  "exports": {
+    ".": "./src/index.mjs",
+    "./extract": "./src/extract.mjs",
+    "./validate": "./src/validate.mjs",
+    "./emit": "./src/emit.mjs"
+  },
+  "files": ["src", "README.md"],
+  "scripts": {
+    "test": "node --test src/*.test.mjs"
+  },
+  "keywords": ["theme", "design-tokens", "oklch", "white-label", "design-system"],
+  "license": "MIT"
+}
