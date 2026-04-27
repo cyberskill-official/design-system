@@ -110,10 +110,10 @@ jobs:
         with:
           name: audit-reports
           path: |
-            docs/_audit/coverage.json
-            docs/_audit/bundle-size.json
-            docs/_audit/doc-freshness.json
-            docs/_audit/doc-freshness.md
+            doctrine/meta/audits/coverage.json
+            doctrine/meta/audits/bundle-size.json
+            doctrine/meta/audits/doc-freshness.json
+            doctrine/meta/audits/doc-freshness.md
           retention-days: 90
 
   build-tokens:

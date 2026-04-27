@@ -31,7 +31,7 @@ Phases run mostly sequentially but **W1, W2, W3** within Phase 6 can overlap. Ph
 ### Wave 1 — Doctrine consolidation (mostly done)
 
 1. **Cleanup pass** ✅ DONE — `_legacy/`, passed audit folder, OS cruft removed.
-2. **Single-file audit template** ✅ DONE — [`Templates/audit/audit-report-template.md`](../Templates/audit/audit-report-template.md).
+2. **Single-file audit template** ✅ DONE — [`templates/audit/audit-report-template.md`](./templates/audit/audit-report-template.md).
 3. **Consolidate 2026-04-27 audit** ✅ DONE — [`audit-report-2026-04-27.md`](./audit-report-2026-04-27.md).
 4. **Standalone DESIGN.md generator** ✅ DONE — `scripts/build-design-md.mjs` reads only `docs/` + `tokens/`.
 5. **Reference cleanup** ✅ DONE — 1,094 bare-Part refs linkified, 36 audit-history attribution lines stripped.
@@ -62,7 +62,7 @@ Phases run mostly sequentially but **W1, W2, W3** within Phase 6 can overlap. Ph
    - Done when: case study page is live; before/after metrics are quantified (token coverage, story coverage, bundle size, dev velocity).
 2. **First external contribution** — invite at least 3 friends-of-the-firm to file a small PR (typo, doc fix, new microcopy). Walk them through the contribution flow.
    - Done when: 3 external PRs have been merged; CONTRIBUTING.md has been validated by an outsider.
-3. **Practitioner survey — first run** — distribute `Templates/research-ops/practitioner-survey.md` to internal team + 10 friendly designers/developers. Compile results.
+3. **Practitioner survey — first run** — distribute `templates/research-ops/practitioner-survey.md` to internal team + 10 friendly designers/developers. Compile results.
    - Done when: ≥10 responses logged; B.10.5 NPS/CSAT/CES has real data.
 4. **Adoption leaderboard — first quarterly snapshot** — per the spec in `docs/_audit/adoption-leaderboard-spec.md` (regenerate from `00-audit-and-roadmap.md` if removed). Track per-product coverage.
    - Done when: snapshot exists; first dated entry committed.
@@ -105,7 +105,7 @@ Phases run mostly sequentially but **W1, W2, W3** within Phase 6 can overlap. Ph
    - Done when: A.7.5 time-to-ship has 2 data points; can compute delta.
 2. **Friend-of-the-firm migrations** — recruit 3 external teams (start-ups, agencies) to migrate to the system in exchange for free founder support + named case studies.
    - Done when: 3 named adopters with public case studies.
-3. **Telemetry-driven A/B tests** — first pre-registered A/B test using `Templates/research-ops/pre-registration-template.md`. Topic suggestion: locale microcopy variants for the cohort-1 stub locales.
+3. **Telemetry-driven A/B tests** — first pre-registered A/B test using `templates/research-ops/pre-registration-template.md`. Topic suggestion: locale microcopy variants for the cohort-1 stub locales.
    - Done when: pre-registration filed; test executed; results published with effect size + CI.
 
 **Audit lift after Phase 7:** A.7 +4–6 pp, A.8 +2 pp, B.8 +3–4 pp, B.10 +2 pp, A.4 contribution-rate +1–2 pp ≈ **+3–5 pp combined**.

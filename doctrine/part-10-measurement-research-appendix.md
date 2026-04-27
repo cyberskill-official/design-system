@@ -706,7 +706,7 @@ A feature may map to all 5 HEART dimensions or to a subset — but every feature
 
 ```
 {product-repo}/specs/{feature}.md   ← per-feature map (lives with the feature)
-{ds-repo}/Design System/docs/_audit/heart-maps/   ← per-product cluster aggregate (this repo)
+{ds-repo}/Design System/meta/audits/heart-maps/   ← per-product cluster aggregate (this repo)
 ```
 
 **Cadence:** Maps are reviewed quarterly per §16.7 below. Map drift (signals firing but goals unmet, or metrics moving without signal causation) triggers a research investigation (§16.4).
@@ -769,11 +769,11 @@ The audit scored B1.3 at 3/5 because the doctrine references ResearchOps but doe
 
 | # | Pillar | What it owns | Source of truth | Owner |
 |---|---|---|---|---|
-| 1 | **Environment** | Tools, accounts, hardware, recording infrastructure | `Design System/Templates/research-ops/` | DesignOps Lead |
+| 1 | **Environment** | Tools, accounts, hardware, recording infrastructure | `meta/templates/research-ops/` | DesignOps Lead |
 | 2 | **Scope** | What research is done, what is not, why | This Part 10 | Research Lead |
 | 3 | **Recruitment** | Participant sourcing, screening, panels | Recruiting playbook (§14.10 expansion) | Research Lead + DesignOps Lead |
 | 4 | **Governance** | Ethics, consent, data handling, retention | [Part 8](part-8-governance-legal-commerce.md) §5 (PDPL) + [Part 6](part-6-ai-ethics-sustainability.md) §3 (AI ethics) | General Counsel |
-| 5 | **Tools** | Specific tooling: Dovetail / Condens / Loom / Zoom | `Design System/Templates/research-ops/tools.md` | DesignOps Lead |
+| 5 | **Tools** | Specific tooling: Dovetail / Condens / Loom / Zoom | `meta/templates/research-ops/tools.md` | DesignOps Lead |
 | 6 | **Knowledge** | Searchable insight repository | §16.6 below | Research Lead |
 | 7 | **Advocacy** | Sharing research findings across the company | Quarterly research presentations + this repository | Research Lead |
 | 8 | **Admin** | Budget, vendor contracts, compliance audits | DesignOps Lead seat | DesignOps Lead |
@@ -855,7 +855,7 @@ The HEART maps + correlation snapshots + continuous-discovery rollups + experime
 
 **Attendance:** Research Lead (chair), DesignOps Lead, Engineering Lead, Founder.
 
-**Document structure** (`Design System/docs/_audit/research-quarterly/{YYYY-Q}.md`):
+**Document structure** (`Design System/meta/audits/research-quarterly/{YYYY-Q}.md`):
 
 1. HEART scorecard — current vs target across all dimensions, all active products.
 2. Correlation snapshot — the four anchor correlations from §16.2.

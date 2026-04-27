@@ -715,7 +715,7 @@ For surfaces that may be encountered in distressed states (medical diagnoses, le
 
 Audit A8.7 / §14.5 expansion: per-component compliance with voice navigation (iOS Voice Control, Android Voice Access, Dragon NaturallySpeaking, Talon Voice) and switch-control. The matrix is the proof.
 
-The matrix lives at `Design System/docs/_audit/voice-switch-control-matrix.md` and is updated per release. Each Tier-1 / Tier-2 component declares:
+The matrix lives at `Design System/meta/audits/voice-switch-control-matrix.md` and is updated per release. Each Tier-1 / Tier-2 component declares:
 
 | Field | Values |
 |---|---|

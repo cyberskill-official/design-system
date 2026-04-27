@@ -3,8 +3,8 @@
   "$description": "Phrases the doctrine forbids in customer-facing or doctrine-internal copy. Sources: Part 1 §16 (anti-patterns) and Part 14 §2.3 (banned phrases). Any addition requires a Doctrine RFC per 00-audit-and-roadmap.md §12.2.",
   "$version": "1.0.0",
   "$sources": [
-    "Design System/docs/part-1-foundations.md §16",
-    "Design System/docs/part-14-content-design.md §2.3"
+    "Design System/doctrine/part-1-foundations.md §16",
+    "Design System/doctrine/part-14-content-design.md §2.3"
   ],
   "block": [
     {

@@ -14,7 +14,7 @@
  *   pnpm check:bundle-size
  *   pnpm check:bundle-size --json
  *
- * Output: docs/_audit/bundle-size.json (trended over time)
+ * Output: meta/audits/bundle-size.json (trended over time)
  *
  * Zero-dep Node ESM.
  */
@@ -27,7 +27,7 @@ import { gzipSync } from 'node:zlib';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const PKGS = resolve(ROOT, 'packages');
-const OUT = resolve(ROOT, 'docs/_audit/bundle-size.json');
+const OUT = resolve(ROOT, 'meta/audits/bundle-size.json');
 
 const args = process.argv.slice(2);
 const opts = { json: args.includes('--json') };

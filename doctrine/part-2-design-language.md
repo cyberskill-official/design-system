@@ -1499,7 +1499,7 @@ Style Dictionary emits a `@media (color-gamut: p3) { ... }` CSS block for each t
 
 ### 27.5 Print colour management — pointer
 
-Print is out of scope for the runtime token system (sRGB → CMYK conversion happens in the print pipeline, not in `tokens/`). For brand-applied collateral, see [Part 19](part-19-vertical-packs.md) §X (Templates folder) — `Templates/print/cmyk-spot.icc` is the colour profile of record.
+Print is out of scope for the runtime token system (sRGB → CMYK conversion happens in the print pipeline, not in `tokens/`). For brand-applied collateral, see [Part 19](part-19-vertical-packs.md) §X (Templates folder) — `meta/templates/print/cmyk-spot.icc` is the colour profile of record.
 
 ### 27.6 Audit-score impact summary
 

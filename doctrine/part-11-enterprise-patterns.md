@@ -662,7 +662,7 @@ Each template below is a 1.20-style spec with anatomy, slots, variants, accessib
 
 **Tokens.** `space.dashboard.gap`, `radius.widget`, `surface.dashboard.background`.
 
-**Examples in.** DemoApps/dashboard/, Marketing site/templates/dashboard.
+**Examples in.** DemoApps/dashboard/, Marketing sit../meta/templates/dashboard.
 
 **Don't.**
 
@@ -1298,9 +1298,9 @@ For each template, the design system ships:
 
 | Asset | Where |
 |---|---|
-| Figma template | `/figma-library/templates/` |
-| React reference | `/packages/templates/{template}/` |
-| Storybook story | `/storybook/templates/{template}/` |
+| Figma template | `/figma-librar../meta/templates/` |
+| React reference | `/package../meta/templates/{template}/` |
+| Storybook story | `/storyboo../meta/templates/{template}/` |
 | Documentation page | docs site ([Part 18](part-18-docs-site.md)) |
 | Production reference | At least one CyberSkill product or customer engagement |
 

@@ -78,7 +78,7 @@ jobs:
       - name: Append release row to audit history
         run: |
           echo "[release] Audit history register update — Phase 2 Wave 2 wires."
-          # Hook into _audit/_history.md per §10.7 of the framework.
+          # Hook into meta/audits/_history.md per §10.7 of the framework.
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2

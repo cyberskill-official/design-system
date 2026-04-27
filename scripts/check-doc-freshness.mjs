@@ -7,11 +7,11 @@
  * A3.7 → 4. Reports per-part:
  *   - file size
  *   - last-modified mtime (filesystem)
- *   - last-mentioned-in-RFC (heuristic: searches docs/RFCs/ for filename)
+ *   - last-mentioned-in-RFC (heuristic: searches doctrine/RFCs/ for filename)
  *   - presence of each Diátaxis quadrant (per Part 18 §19)
  *   - count of cross-reference targets vs broken links
  *
- * Output: docs/_audit/doc-freshness.json + a markdown report stub.
+ * Output: meta/audits/doc-freshness.json + a markdown report stub.
  *
  * Zero-dep Node ESM.
  */
@@ -22,10 +22,10 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
-const DOCS = resolve(ROOT, 'docs');
-const RFCS = resolve(DOCS, 'RFCs');
-const OUT_JSON = resolve(DOCS, '_audit/doc-freshness.json');
-const OUT_MD = resolve(DOCS, '_audit/doc-freshness.md');
+const DOCS = resolve(ROOT, 'doctrine');
+const RFCS = resolve(ROOT, 'meta/rfcs');
+const OUT_JSON = resolve(ROOT, 'meta/audits/doc-freshness.json');
+const OUT_MD = resolve(ROOT, 'meta/audits/doc-freshness.md');
 
 const args = process.argv.slice(2);
 const opts = { json: args.includes('--json') };

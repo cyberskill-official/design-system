@@ -1,6 +1,6 @@
 # Deployment — wiki SPA
 
-*Per first-product-migration-plan.md sub-phase A6 (RUM + telemetry). Phase 4 Wave 2 ships the deploy config; Phase 4 Wave 3 ships once the founder approves the public-facing domain.*
+*Public-deploy runbook for the wiki SPA. Ships the deploy config; goes live once the founder approves the public-facing domain.*
 
 ---
 
@@ -115,6 +115,6 @@ The wiki SPA is fully static. Phase 4 Wave 3 (when analytics ships) may add:
 
 ## Doctrine references
 
-- `first-product-migration-plan.md` — A6 (RUM + telemetry sub-phase)
-- `Design System/docs/00-audit-and-roadmap.md` §6 B.8 (Performance & CWV criteria)
-- `_audit/2026-04-26/audit-report.md` § "Open questions for human review" — A6 deploy approval gate
+- [`docs/00-audit-and-roadmap.md`](docs/00-audit-and-roadmap.md) — audit framework pointer + canonical anchor immutables
+- [`docs/_audit/audit-report-2026-04-27.md`](docs/_audit/audit-report-2026-04-27.md) — latest audit; B.8 Performance & CWV scores gated on this deploy going live
+- [`docs/_audit/improvement-plan.md`](docs/_audit/improvement-plan.md) — Phase 6 Wave 2 step "Wiki SPA public deploy"

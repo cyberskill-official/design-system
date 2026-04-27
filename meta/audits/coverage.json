@@ -1,0 +1,231 @@
+{
+  "generated": "2026-04-27T07:20:55.660Z",
+  "scanned": 76,
+  "src_root": "src",
+  "components": {
+    "total": 27,
+    "by_tier": {
+      "atoms": 9,
+      "molecules": 4,
+      "organisms": 14
+    },
+    "inventory": {
+      "atoms/Avatar": {
+        "tier": "atoms",
+        "name": "Avatar",
+        "hasIndex": true,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "atoms/Button": {
+        "tier": "atoms",
+        "name": "Button",
+        "hasIndex": true,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "atoms/Colour": {
+        "tier": "atoms",
+        "name": "Colour",
+        "hasIndex": false,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "atoms/Input": {
+        "tier": "atoms",
+        "name": "Input",
+        "hasIndex": true,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "atoms/Label": {
+        "tier": "atoms",
+        "name": "Label",
+        "hasIndex": true,
+        "hasStory": true,
+        "hasShowcase": false
+      },
+      "atoms/Logo": {
+        "tier": "atoms",
+        "name": "Logo",
+        "hasIndex": false,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "atoms/Tag": {
+        "tier": "atoms",
+        "name": "Tag",
+        "hasIndex": true,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "atoms/Tokens": {
+        "tier": "atoms",
+        "name": "Tokens",
+        "hasIndex": false,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "atoms/Typography": {
+        "tier": "atoms",
+        "name": "Typography",
+        "hasIndex": false,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "molecules/Banner": {
+        "tier": "molecules",
+        "name": "Banner",
+        "hasIndex": true,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "molecules/Card": {
+        "tier": "molecules",
+        "name": "Card",
+        "hasIndex": true,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "molecules/Field": {
+        "tier": "molecules",
+        "name": "Field",
+        "hasIndex": true,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "molecules/KpiCard": {
+        "tier": "molecules",
+        "name": "KpiCard",
+        "hasIndex": true,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "organisms/AppHeader": {
+        "tier": "organisms",
+        "name": "AppHeader",
+        "hasIndex": true,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "organisms/AppSidebar": {
+        "tier": "organisms",
+        "name": "AppSidebar",
+        "hasIndex": true,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "organisms/BulkActions": {
+        "tier": "organisms",
+        "name": "BulkActions",
+        "hasIndex": false,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "organisms/Calendar": {
+        "tier": "organisms",
+        "name": "Calendar",
+        "hasIndex": false,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "organisms/CommandPalette": {
+        "tier": "organisms",
+        "name": "CommandPalette",
+        "hasIndex": false,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "organisms/DangerConfirm": {
+        "tier": "organisms",
+        "name": "DangerConfirm",
+        "hasIndex": false,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "organisms/DataTable": {
+        "tier": "organisms",
+        "name": "DataTable",
+        "hasIndex": true,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "organisms/EmptyState": {
+        "tier": "organisms",
+        "name": "EmptyState",
+        "hasIndex": true,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "organisms/FilterBar": {
+        "tier": "organisms",
+        "name": "FilterBar",
+        "hasIndex": false,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "organisms/Kanban": {
+        "tier": "organisms",
+        "name": "Kanban",
+        "hasIndex": false,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "organisms/Notifications": {
+        "tier": "organisms",
+        "name": "Notifications",
+        "hasIndex": false,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "organisms/OnboardingChecklist": {
+        "tier": "organisms",
+        "name": "OnboardingChecklist",
+        "hasIndex": false,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "organisms/RecordTimeline": {
+        "tier": "organisms",
+        "name": "RecordTimeline",
+        "hasIndex": false,
+        "hasStory": true,
+        "hasShowcase": true
+      },
+      "organisms/RichTextEditor": {
+        "tier": "organisms",
+        "name": "RichTextEditor",
+        "hasIndex": false,
+        "hasStory": true,
+        "hasShowcase": true
+      }
+    }
+  },
+  "token_coverage": {
+    "pct": 0.848295059151009,
+    "token_refs": 77,
+    "tw_token_utils": 1142,
+    "token_aware_total": 1219,
+    "raw_hex": 100,
+    "raw_px": 118,
+    "raw_ms": 0,
+    "tokenable_total": 1437
+  },
+  "component_coverage": {
+    "pct": 0.3333333333333333,
+    "system_markup": 3,
+    "raw_markup": 6,
+    "notes": "Counts only views/ + App.tsx + main.tsx (per migration plan A4). Raw <button> / <input> in atom IMPLEMENTATIONS is expected and not a violation."
+  },
+  "story_coverage": {
+    "pct": 1,
+    "components_with_stories": 27,
+    "components_total": 27,
+    "missing": []
+  },
+  "audit_targets": {
+    "A7.1 (coverage % tracked)": 4,
+    "A2.4 (variant & state coverage)": 5,
+    "A5.4 (Storybook)": 5
+  }
+}

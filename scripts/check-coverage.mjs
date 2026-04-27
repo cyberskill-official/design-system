@@ -25,7 +25,7 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const SRC = resolve(ROOT, 'src');
-const OUT = resolve(ROOT, 'docs/_audit/coverage.json');
+const OUT = resolve(ROOT, 'meta/audits/coverage.json');
 
 if (!resolve(dirname(OUT))) mkdirSync(dirname(OUT), { recursive: true });
 

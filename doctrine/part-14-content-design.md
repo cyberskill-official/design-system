@@ -764,7 +764,7 @@ notifications:
 
 ## 7. Per-template microcopy (C4)
 
-For each template in [Part 11](part-11-enterprise-patterns.md), an opinionated default microcopy set lives in `/packages/content/templates/`. Product teams override per their domain.
+For each template in [Part 11](part-11-enterprise-patterns.md), an opinionated default microcopy set lives in `/packages/conten../meta/templates/`. Product teams override per their domain.
 
 ### 7.1 SettingsTemplate
 

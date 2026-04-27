@@ -2,7 +2,7 @@
   "$schema": "./schema.json",
   "$description": "Architectural anti-patterns the doctrine forbids in code and content. Source: Part 1 §16. Any addition requires a Doctrine RFC per 00-audit-and-roadmap.md §12.2.",
   "$version": "1.0.0",
-  "$sources": ["Design System/docs/part-1-foundations.md §16"],
+  "$sources": ["Design System/doctrine/part-1-foundations.md §16"],
   "code": [
     {
       "id": "raw-hex-colour",

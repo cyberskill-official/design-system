@@ -11,7 +11,7 @@
 // pairings; emits APCA Lc values and flags any that fall below the 3.0
 // readiness floor (Lc 60 for body text; Lc 45 for large UI).
 //
-// Output: docs/_audit/apca-contrast.json
+// Output: meta/audits/apca-contrast.json
 //
 // Zero-dep Node ESM. Implements the published APCA-W3 0.1.9 algorithm.
 
@@ -22,7 +22,7 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const TOKENS = resolve(ROOT, 'tokens/colour.tokens.json');
-const OUT = resolve(ROOT, 'docs/_audit/apca-contrast.json');
+const OUT = resolve(ROOT, 'meta/audits/apca-contrast.json');
 
 // ─── APCA-W3 (sRGB) — published 0.1.9 reference implementation ─────────
 

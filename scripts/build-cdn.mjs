@@ -70,7 +70,7 @@ let combinedSrc = `/*!
  * CyberSkill Design System — CDN bundle
  * Version: ${version}
  * Generated: ${new Date().toISOString()}
- * License: see Design System/docs/00-audit-and-roadmap.md §17
+ * License: see Design System/doctrine/00-audit-and-roadmap.md §17
  *
  * Per RFC 2026-002 (CDN distribution architecture). This is a single-file
  * concatenation of @cyberskill/web-components + dependencies, suitable for

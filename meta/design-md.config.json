@@ -1,0 +1,21 @@
+{
+  "system_name": "CyberSkill",
+  "system_url": "https://cyberskill.world",
+  "doctrine_dir": "doctrine",
+  "tokens_dir": "tokens",
+  "output_dir": ".",
+  "digest_max_chars_per_part": 10000,
+  "anchors": [
+    { "name": "Slogan", "value": "Hiện Thực Hoá Ý Chí (VN) / Turn Your Will Into Real (EN)" },
+    { "name": "Primary brand colour", "value": "Umber" },
+    { "name": "Secondary / accent", "value": "Ochre" },
+    { "name": "Voice axes", "value": "warm · direct · honest · respectful" },
+    { "name": "Typography family policy", "value": "system-stack-first; variable axes annotated in tokens" },
+    { "name": "Vietnamese-first commitment", "value": "every UI string ships a VN counterpart or an explicit deferral note" }
+  ],
+  "rules_extensions": [
+    "**Never modify the Vietnamese-first commitment.** Every UI string ships a VN counterpart or an explicit deferral note (per part-5 §7).",
+    "**Never produce content violating CyberSkill voice principles** (warm · direct · honest · respectful) declared in part-1 §3.",
+    "**Anchor immutables for CyberSkill** (slogan, Umber, Ochre, fonts, voice axes) are out-of-scope for any agent fix and require an A2 RFC."
+  ]
+}
