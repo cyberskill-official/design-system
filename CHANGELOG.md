@@ -14,7 +14,28 @@ The format is [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the s
 
 ## [Unreleased]
 
-Next-cycle items proposed but not yet accepted; tracked in `meta/audits/improvement-plan.md`.
+Next-cycle items proposed but not yet accepted. Tracking is local-only — re-run the audit framework to regenerate the improvement plan.
+
+---
+
+## [1.0.7] — 2026-05-04
+
+### Changed
+- **Distribution model formalised: three canonical files only.** The shipped repo is `README.md` + `DESIGN.md` + `CHANGELOG.md` at the root. Everything else is local working state, gitignored, and regenerable.
+- **`.gitignore` extended** to exclude `meta/` (audit framework outputs), `.cyberos-memory/` (BRAIN protocol agent memory), `_audit/` (framework scaffolding), `.tmp.*.part` (atomic-write temps), `Thumbs.db`. The local working state never travels with the repo.
+- **`README.md` §1 + §2 + §4.2 + §5.4 + §7 + §9.2 + §10 + §12.1 rewritten** to make the canonical-three-files model explicit. Audit outputs are now described as local-only / regenerable — the canonical record of what changed lands in `CHANGELOG.md`.
+- **`README.md` §1 layout table split** into "ships everywhere" (3 files) and "local-only working state" (gitignored). Distribution rule is explicit: downstream projects copy only the three top-level Markdown files.
+
+### Removed
+- **`meta/` folder removed from the working tree.** Audit reports, history register, improvement plan, and research artefacts are regenerable by running the framework's SCAN/FIX prompts against the current `DESIGN.md`.
+
+### Why
+Audit framework outputs are derivative — they're a snapshot of `DESIGN.md` at a point in time, scored against the framework's 125 criteria. Carrying them in the repo confused readers about what the doctrine *is* (the spec) versus what was *measured* against the spec. The canonical record of decisions lives in `CHANGELOG.md`; the doctrine itself lives in `DESIGN.md`; the audit cycle reproduces the rest deterministically.
+
+### Audit
+- No re-audit required: this is a packaging / distribution change, not a doctrine change.
+- Combined score remains **80.3%**, Tier **L3**, all 7 enterprise-grade floors pass.
+- Anchor immutables untouched.
 
 ---
 

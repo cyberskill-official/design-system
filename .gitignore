@@ -1,2 +1,15 @@
-.cyberos-memory
+# BRAIN protocol — local agent memory store (per AGENTS.md / CLAUDE.md)
+.cyberos-memory/
+
+# Audit framework — local working outputs, regenerable from
+#   github.com/cyberskill-official/design-system-audit-framework.
+# Re-run a SCAN audit any time you need fresh reports.
+meta/
+_audit/
+
+# Atomic-write temp files (BRAIN protocol §4.4)
+.tmp.*.part
+
+# OS junk
 .DS_Store
+Thumbs.db

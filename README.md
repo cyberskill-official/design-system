@@ -8,6 +8,25 @@ This README is the **operating manual** for the design system: what it is, how t
 
 ---
 
+## Current state (snapshot)
+
+| Field | Value |
+|---|---|
+| Version | **v1.0.7** (2026-05-04) |
+| Audit tier | **L3 — enterprise-grade** ✓ |
+| Combined audit score | **80.3%** (Part A 74.8% / Part B 85.7%) |
+| Enterprise-grade floors | **7 of 7 pass** |
+| `DESIGN.md` | 1,216 KB; 1 H1; 509 real H2s; 0 anchor collisions |
+| Section numbering | Decimal multi-level (e.g. `## 5.7 20+ locales baseline`) |
+| Doctrine source | Single file — `doctrine/` and `scripts/` removed (v1.0.3) |
+| Audit findings closed | **14 of 18** (4 deferred — infrastructure-blocked, target Q1 2027) |
+| Anchor immutables | Slogan, Umber, Ochre, voice axes, Vietnamese-first — **all preserved** |
+| Canonical files | `README.md` + `DESIGN.md` + `CHANGELOG.md` (3 files; everything else is local working state, gitignored) |
+
+For change log, see [`CHANGELOG.md`](./CHANGELOG.md). Audit reports are local-only — re-run the [audit framework](#9-auditing-the-system) to regenerate them.
+
+---
+
 ## Table of contents
 
 1. [What this is and how to use it](#1-what-this-is-and-how-to-use-it)
@@ -17,7 +36,7 @@ This README is the **operating manual** for the design system: what it is, how t
 5. [How to fine-tune the system (the change protocol)](#5-how-to-fine-tune-the-system-the-change-protocol)
 6. [RFC process](#6-rfc-process)
 7. [Versioning and release cadence](#7-versioning-and-release-cadence)
-8. [Building DESIGN.md from doctrine](#8-building-designmd-from-doctrine)
+8. [Editing DESIGN.md](#8-editing-designmd)
 9. [Auditing the system](#9-auditing-the-system)
 10. [Operating cadence](#10-operating-cadence)
 11. [Roles and ownership](#11-roles-and-ownership)
@@ -28,17 +47,25 @@ This README is the **operating manual** for the design system: what it is, how t
 
 ## 1. What this is and how to use it
 
-The system is a **doctrine** — twenty parts at uniform enterprise grade — plus a portable single-file distribution.
+The system is a **single-file doctrine** — `DESIGN.md` at the repo root contains the full twenty-part specification. Twenty parts at uniform enterprise grade, decimal-numbered (e.g., Part 5 §5.7), one source of truth.
+
+**The system ships as exactly three files at the repo root:**
 
 | Artefact | Purpose | When to edit |
 |---|---|---|
 | **`DESIGN.md`** | Single source of truth — the doctrine itself. Edit directly. | When the system itself evolves (RFC required) |
 | **`README.md`** | This operating manual | When governance, change protocol, or RFC process changes |
 | **`CHANGELOG.md`** | Version history | Per release |
-| `tokens/` (when present) | Canonical DTCG 2025.10 token sources | Tokens RFC required |
-| `meta/audits/` | Audit reports, history, improvement plans | Per audit cycle |
-| `meta/rfcs/` | Change-history archive | Per RFC |
-| `packages/` (when present) | Implementation packages (tokens, primitives, react, vue, …) | Per package release |
+
+**Everything else is local-only working state**, gitignored, and regenerable from the source artefacts above:
+
+| Local-only (gitignored) | Origin | What it is |
+|---|---|---|
+| `.cyberos-memory/` | BRAIN protocol (`AGENTS.md`) | Agent memory store; per-machine; never shipped |
+| `meta/audits/` | Audit framework re-runs | Re-run SCAN audit to regenerate; see [§9](#9-auditing-the-system) |
+| `meta/rfcs/` | Per-RFC archive | Local working drafts; canonical decisions land in `DESIGN.md` + `CHANGELOG.md` |
+| `tokens/` (when present) | Style Dictionary build | DTCG token sources, when an implementation is shipped |
+| `packages/` (when present) | npm publish flow | Implementation packages, when shipped |
 
 **Three reading paths**, depending on why you're here:
 
@@ -50,25 +77,30 @@ The system is a **doctrine** — twenty parts at uniform enterprise grade — pl
 
 ## 2. Repository layout
 
+The shipped repo contains exactly three top-level Markdown files. Everything else is local working state that's gitignored and regenerable.
+
 ```
-.
-├── README.md                          ← this file
-├── DESIGN.md                          ← portable single-file distribution (built artefact)
-├── tokens/                            ← (optional) DTCG 2025.10 token sources
-├── meta/
-│   ├── audits/                        ← audit outputs and history
+. (canonical, ships everywhere)
+├── README.md                          ← this file (operating manual)
+├── DESIGN.md                          ← single-file doctrine (source of truth, edit directly)
+├── CHANGELOG.md                       ← version history (Keep a Changelog format)
+└── .gitignore                         ← excludes the local-only artefacts below
+
+. (local working state, gitignored)
+├── .cyberos-memory/                   ← BRAIN protocol — local agent memory store
+├── meta/                              ← audit framework outputs (regenerable)
+│   ├── audits/
 │   │   ├── _history.md
 │   │   ├── audit-report-<date>.md
 │   │   └── improvement-plan.md
-│   ├── rfcs/                          ← change-history archive
-│   ├── runbooks/                      ← operational runbooks
-│   └── templates/                     ← reusable templates
-├── packages/                          ← (optional) implementation packages
-├── scripts/                           ← (optional) build, check, audit scripts
-└── src/                               ← (optional) wiki SPA reference application
+│   ├── rfcs/                          ← local RFC drafts (decisions land in DESIGN.md + CHANGELOG.md)
+│   └── templates/
+├── tokens/                            ← (optional) DTCG token sources, when shipped
+├── packages/                          ← (optional) implementation packages, when shipped
+└── src/                               ← (optional) reference application, when shipped
 ```
 
-Downstream projects copy `DESIGN.md`, `README.md`, and `CHANGELOG.md` together to get the spec, the operating manual, and the version history.
+**Distribution rule:** downstream projects copy only the three top-level files (`README.md`, `DESIGN.md`, `CHANGELOG.md`). The local working state never travels — each project's audit-framework outputs and BRAIN memory belong to that project.
 
 ---
 
@@ -78,11 +110,11 @@ These are the four commitments that no agent, no edit, and no audit may relax. T
 
 | Immutable | Value | Source |
 |---|---|---|
-| **Slogan** | EN: *Turn Your Will Into Real* / VN: *Hiện Thực Hoá Ý Chí* | `DESIGN.md` (Part 1) §2 |
-| **Primary brand colour** | **Umber** — `oklch(0.265 0.073 44.3)` / `#45210E` / `color(display-p3 0.265 0.13 0.06)` | `DESIGN.md` (Part 2) §2 |
-| **Primary accent** | **Ochre** — `oklch(0.811 0.162 83.7)` / `#F4BA17` / `color(display-p3 0.95 0.74 0.13)` | `DESIGN.md` (Part 2) §2 |
-| **Voice axes** | warm · direct · honest · respectful (chord, not slider — all four simultaneously) | `DESIGN.md` (Part 1) §3 |
-| **Vietnamese-first commitment** | Every UI string ships a VN counterpart or an explicit deferral note | `DESIGN.md` (Part 5) §7 |
+| **Slogan** | EN: *Turn Your Will Into Real* / VN: *Hiện Thực Hoá Ý Chí* | `DESIGN.md` [§1.2 Brand Architecture](./DESIGN.md#1-2-brand-architecture) |
+| **Primary brand colour** | **Umber** — `oklch(0.265 0.073 44.3)` / `#45210E` / `color(display-p3 0.265 0.13 0.06)` | `DESIGN.md` [§2.2 Anchor Brand Tokens](./DESIGN.md#2-2-anchor-brand-tokens) |
+| **Primary accent** | **Ochre** — `oklch(0.811 0.162 83.7)` / `#F4BA17` / `color(display-p3 0.95 0.74 0.13)` | `DESIGN.md` [§2.2 Anchor Brand Tokens](./DESIGN.md#2-2-anchor-brand-tokens) |
+| **Voice axes** | warm · direct · honest · respectful (chord, not slider — all four simultaneously) | `DESIGN.md` [§1.3 Personality, Voice, and Tone](./DESIGN.md#1-3-personality-voice-and-tone) |
+| **Vietnamese-first commitment** | Every UI string ships a VN counterpart or an explicit deferral note | `DESIGN.md` [§5.7 20+ locales baseline](./DESIGN.md#5-7-20-locales-baseline) |
 
 **Refuse to modify these.** If anyone — human or agent — proposes changing them, escalate to the Design System Lead and Brand Owner; do not merge an RFC that touches an immutable without the v2.0.0 protocol described in §7.
 
@@ -102,15 +134,15 @@ cp ../cyberskill-design-system/DESIGN.md ./DESIGN.md
 
 Every contributor (human or AI agent) has access to the full doctrine. Cite `DESIGN.md` in your `AGENTS.md` / `CLAUDE.md` so agents know to read it first. Re-sync per CyberSkill release.
 
-### 4.2 Copy `DESIGN.md` + `README.md` (recommended)
+### 4.2 Copy the three canonical files (recommended)
 
-Add this README so downstream contributors know how to fine-tune the system locally without forking the global one:
+Add `README.md`, `DESIGN.md`, and `CHANGELOG.md` together so downstream contributors get the full picture — the spec, the operating manual, and the version history:
 
 ```bash
-cp ../cyberskill-design-system/{DESIGN.md,README.md} ./design-system/
+cp ../cyberskill-design-system/{README.md,DESIGN.md,CHANGELOG.md} ./design-system/
 ```
 
-Place both inside a `design-system/` subfolder so they don't shadow the project's own README.
+Place all three inside a `design-system/` subfolder so they don't shadow the project's own root files.
 
 ### 4.3 Submodule or subtree (heaviest, for products that contribute back)
 
@@ -118,7 +150,7 @@ Place both inside a `design-system/` subfolder so they don't shadow the project'
 git submodule add https://github.com/cyberskill/design-system.git design-system
 ```
 
-The submodule pin is the locked v1.0.0 distribution; product upgrades happen by bumping the submodule SHA, never by editing in-place.
+Pin the submodule to a tagged release (currently `v1.0.6`). Product upgrades happen by bumping the submodule SHA, never by editing in-place.
 
 ### 4.4 What changes per project, what doesn't
 
@@ -129,7 +161,7 @@ The submodule pin is the locked v1.0.0 distribution; product upgrades happen by 
 | Components (modify behaviour) | No | Modifying Tier-1 behaviour requires an RFC against the global system |
 | Voice / brand | No | Anchor immutables apply across every product |
 | Accessibility floor | No | WCAG 2.2 AA is the floor; products may go beyond, never below |
-| Vertical patterns | Optional | Use `DESIGN.md` (Part 19) as the template if your product is in a regulated vertical |
+| Vertical patterns | Optional | Use `DESIGN.md` [Part 19 — Industry Vertical Packs](./DESIGN.md#part-19-industry-vertical-packs) as the template if your product is in a regulated vertical |
 
 ---
 
@@ -156,7 +188,7 @@ New components, new patterns, new tokens, new themes, new vertical packs, new su
 2. Tag the RFC with one of the subtypes — *component, token, pattern, surface, vertical-pack, content, tooling, lifecycle, accessibility, governance*.
 3. Discussion period: minimum 14 calendar days for component / token / pattern; 21 days for surface / vertical-pack / governance.
 4. RFC requires sign-off from: chair owner of every affected part + at least one accessibility reviewer.
-5. Once accepted: implement in `DESIGN.md`, regenerate `DESIGN.md`, update `meta/audits/_history.md` with a note.
+5. Once accepted: edit `DESIGN.md` directly; append a row to `CHANGELOG.md`. (Audit-history rows in `meta/audits/_history.md` are local-only — they regenerate when a cycle runs.)
 6. Ship as `v1.x.0`.
 
 ### 5.3 Class C — Anchor or breaking change (v2.0.0 protocol)
@@ -177,16 +209,16 @@ Regardless of class, every accepted change carries:
 
 - **Diff against the doctrine** — the actual prose change.
 - **Cross-reference update** — every `[Part X](…)` link still resolves.
-- **Telemetry hook** if the change is a component / pattern / token, per `DESIGN.md` (Part 10) §2.
-- **Microcopy** in EN + VN per `DESIGN.md` (Part 14).
-- **Accessibility review** per `DESIGN.md` (Part 5).
-- **Audit note** in `meta/audits/_history.md`.
+- **Telemetry hook** if the change is a component / pattern / token, per `DESIGN.md` [§10.2 Telemetry schema](./DESIGN.md#10-2-telemetry-schema).
+- **Microcopy** in EN + VN per `DESIGN.md` [Part 14 — Content Design](./DESIGN.md#part-14-content-design-ux-writing-at-scale).
+- **Accessibility review** per `DESIGN.md` [Part 5 — Accessibility, Inclusion, Localization](./DESIGN.md#part-5-accessibility-inclusion-localization).
+- **Audit note** — surfaced in the next audit cycle's `_history.md` (local, regenerable). The summary lands in `CHANGELOG.md`.
 
 ---
 
 ## 6. RFC process
 
-RFC subtypes and required reviewers — copy from `DESIGN.md` (Part 8) §16:
+RFC subtypes and required reviewers — sourced from `DESIGN.md` [§8.16 RFC subtypes](./DESIGN.md#8-16-rfc-subtypes):
 
 | Subtype | Required reviewers | Discussion period |
 |---|---|---|
@@ -251,11 +283,11 @@ We follow **Semantic Versioning 2.0.0**, with the following interpretation:
 | MAJOR | At-most every 18 months | Class C change accepted |
 
 Every release ships:
-1. Updated `DESIGN.md` files.
-2. Regenerated `DESIGN.md`.
-3. Refreshed `meta/audits/_history.md` row.
-4. Tag `vX.Y.Z` on `main`.
-5. A CHANGELOG entry under `meta/runbooks/changelog.md` using the template in `DESIGN.md` (Part 16) §5.
+1. Updated `DESIGN.md`.
+2. New `CHANGELOG.md` entry at the repo root, using the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format.
+3. (Optional, local) Audit-history row appended in `meta/audits/_history.md` if an audit cycle was part of the release.
+4. Git tag `vX.Y.Z` on `main`.
+5. Per-package changelogs (when packages exist) at `packages/<name>/CHANGELOG.md`, generated from Changesets per `DESIGN.md` [§16.5 Version comms](./DESIGN.md#16-5-version-comms).
 
 ---
 
@@ -316,12 +348,18 @@ The system is audited using the open-source **CyberSkill Design System Audit Fra
 | LLM prompt pack (SCAN, FIX, research, plan) | [`prompts/`](https://github.com/cyberskill-official/design-system-audit-framework/tree/main/prompts) |
 | Audit report template | [`templates/audit-report-template.md`](https://github.com/cyberskill-official/design-system-audit-framework/blob/main/templates/audit-report-template.md) |
 
-### 9.2 Where this system's audit outputs live
+### 9.2 Where audit outputs live
 
-- **Latest audit report** — `meta/audits/audit-report-<YYYY-MM-DD>.md`
-- **Audit history register** — `meta/audits/_history.md`
-- **Improvement plan** — `meta/audits/improvement-plan.md`
-- **Annual audit runbook** — `meta/templates/audit/annual-audit-runbook.md`
+Audit outputs are **local-only and gitignored** (see §2). They land under `meta/audits/` when an audit runs, and they're regenerable by re-running the framework — so they never need to ship.
+
+When an audit cycle runs, expect these files in `meta/audits/`:
+
+- `audit-report-<YYYY-MM-DD>.md` — full SCAN/FIX report following the framework template.
+- `_history.md` — append-only register row per signed audit.
+- `improvement-plan.md` — open / deferred findings, with target audit dates.
+- `research-<YYYY-MM-DD>-<topic>.md` — sister research artefacts when a cycle does deep research.
+
+**The canonical record of what changed lands in `CHANGELOG.md`** at the repo root. Audit-cycle highlights — score deltas, tier transitions, findings closed, standards adopted — are summarised in each release entry. If you need the underlying evidence trail, re-run the audit locally; the framework reproduces it from `DESIGN.md` deterministically.
 
 ### 9.3 How to run an audit on this system
 
@@ -351,13 +389,13 @@ Any agent operating against this design system **must refuse** to modify these.
 | Cadence | Activity | Reference |
 |---|---|---|
 | Continuous | Editorial PRs (Class A) | §5.1 |
-| Monthly | DesignOps dashboard review (adoption KPIs, deprecation lag, drift index) | `DESIGN.md` (Part 10) §1, 9 |
+| Monthly | DesignOps dashboard review (adoption KPIs, deprecation lag, drift index) | `DESIGN.md` [§10.1 Adoption KPIs](./DESIGN.md#10-1-adoption-kpis) + [§10.9 Dashboards](./DESIGN.md#10-9-dashboards) |
 | Quarterly (Q1, Q3) | DYNAMIC criterion re-score | Framework §10 |
-| Quarterly | Per-part chair-owner review | `DESIGN.md` (the master index) Ownership table |
+| Quarterly | Per-part chair-owner review | `DESIGN.md` [Master Index](./DESIGN.md#master-index) — Ownership & cadence table |
 | Quarterly | Minor release window — bundle accepted RFCs | §7 |
-| Annually | Full Mode S audit with human Co-Auditor calibration | `meta/templates/audit/annual-audit-runbook.md` |
+| Annually | Full Mode S audit with human Co-Auditor calibration | Per audit framework — `prompts/scan-mode.md` then `prompts/fix-mode.md` |
 | Per release | Append row to `CHANGELOG.md`; doc-freshness check | §8 |
-| Ad-hoc | Vertical-pack reviews | `DESIGN.md` (Part 19) |
+| Ad-hoc | Vertical-pack reviews | `DESIGN.md` [Part 19 — Industry Vertical Packs](./DESIGN.md#part-19-industry-vertical-packs) |
 
 ---
 
@@ -366,7 +404,7 @@ Any agent operating against this design system **must refuse** to modify these.
 | Role / seat | Owns | Approves |
 |---|---|---|
 | Founder | The system overall; anchor immutables (refusal authority) | Class C / v2.0.0 changes |
-| Design System Lead | 00-index, audit, glossary; coordination | Editorial; any RFC affecting more than one part |
+| Design System Lead | Master index, audit framework, glossary; cross-part coordination | Editorial; any RFC affecting more than one part |
 | Brand Owner | Parts 1, 11, 13, 14 (with Design Lead) | Token / brand RFCs |
 | Design Lead | Parts 2, 3, 12, 20; Parts 4, 18 (with Engineering Lead) | Component / pattern / surface RFCs |
 | Engineering Lead | Parts 7, 15, 17 | Tooling / lifecycle / engineering RFCs |
@@ -390,23 +428,25 @@ This system is MCP-native and AGENTS.md-aware. Every agent (Claude Code, Cursor,
 - **Read `DESIGN.md` before any change**, scoped to the part being modified plus its cross-references.
 - **Refuse to modify the anchor immutables** (§3). If asked, escalate to the user.
 - **Use the RFC process** for any substantive change (§6).
-- **Update `meta/audits/_history.md`** if the change crosses the audit boundary.
+- **Surface audit-relevant changes in `CHANGELOG.md`** so the next audit cycle picks them up. `meta/audits/` is local and regenerable; never the canonical record.
 - **Honour the BRAIN protocol** — see `AGENTS.md` for the memory-store rules at `.cyberos-memory/`.
 
 ### 12.2 What an agent must not do
 
 - Alter slogan, anchor colours, voice axes, or the Vietnamese-first commitment without an explicit Class C RFC.
 - Skip accessibility review on a component change.
-- Promote a component out of `alpha` / `beta` without the lifecycle gate (`DESIGN.md` (Part 17) §3).
+- Promote a component out of `alpha` / `beta` without the lifecycle gate (`DESIGN.md` [§17.3 Promotion gates](./DESIGN.md#17-3-promotion-gates)).
 - Auto-resolve an RFC discussion by acclamation; the discussion period is a hard floor.
 
 ### 12.3 Suggested per-agent prompt
 
 ```
-You are working in the CyberSkill design system repository. Read README.md first.
-Treat anchor immutables (slogan, Umber, Ochre, voice axes, Vietnamese-first) as
-non-negotiable. Use DESIGN.md as the doctrine reference. For any substantive
-change, write an RFC under meta/rfcs/ following the template in §6 of README.md.
+You are working in the CyberSkill design system repository. Read README.md first
+(start with the Current state snapshot at top), then DESIGN.md for the doctrine.
+Anchor immutables (slogan, Umber, Ochre, voice axes, Vietnamese-first) are
+non-negotiable — refuse any request to change them. For substantive changes,
+write an RFC under meta/rfcs/ following the template in §6 of README.md.
+The current audit tier is L3 (combined 80.3%); the no-downgrade rule is hard.
 ```
 
 ---
