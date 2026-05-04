@@ -1,67 +1,3 @@
-<!--
-DESIGN.md — Standalone, portable build of the CyberSkill Global Design System doctrine.
-Generated 2026-05-04T15:02:29+07:00 from doctrine/ source files.
-
-DO NOT HAND-EDIT this file. Edit `doctrine/<part>.md` and re-run the build.
-For governance, the immutables, and the change protocol, see ./README.md.
-
-Source-of-truth files (29):
-  00-index.md, part-1, part-2, part-3a–h, part-4 … part-20.
-  (00-audit-and-roadmap.md has been promoted to ./README.md.)
--->
-
-# CyberSkill Global Design System — DESIGN.md
-
-> **A unified, enterprise-grade design system for a Vietnamese-origin, globally-scoped enterprise.** Warm earth anchors. Warm approachable tech. Vietnamese first-class. PDPL- and EU AI Act-ready. DTCG 2025.10-native. MCP-native.
-
-| Field | Value |
-|---|---|
-| Version | 1.0.0 (locked 2026-04-25) |
-| Build date | 2026-05-04 |
-| Source files | 29 markdown files in `doctrine/` |
-| Anchor immutables | Slogan, Umber, Ochre, Voice axes, Vietnamese-first commitment — see [README.md](./README.md) |
-| Governance & fine-tuning | [README.md](./README.md) |
-| Audit framework | [github.com/cyberskill-official/design-system-audit-framework](https://github.com/cyberskill-official/design-system-audit-framework) |
-| Slogan EN | Turn Your Will Into Real |
-| Slogan VN | Hiện Thực Hoá Ý Chí |
-
-This file is the **portable distribution** of the doctrine — the single artefact you drop into a downstream production project to give every contributor (human or agent) one source of truth. The `doctrine/` folder remains the editable source; this file is regenerated per release.
-
----
-
-## Table of contents
-
- 1. [Master Index](#master-index)
- 2. [Part 1 — Foundations](#part-1-foundations)
- 3. [Part 2 — Design Language](#part-2-design-language)
- 4. [Part 3a — Components: Actions](#part-3a-components-actions)
- 5. [Part 3b — Components: Inputs](#part-3b-components-inputs)
- 6. [Part 3c — Components: Containers](#part-3c-components-containers)
- 7. [Part 3d — Components: Navigation](#part-3d-components-navigation)
- 8. [Part 3e — Components: Feedback](#part-3e-components-feedback)
- 9. [Part 3f — Components: Data Display](#part-3f-components-data-display)
-10. [Part 3g — Components: Visualization](#part-3g-components-visualization)
-11. [Part 3h — Components: AI & Chat](#part-3h-components-ai-chat)
-12. [Part 4 — Surfaces & Patterns](#part-4-surfaces-patterns)
-13. [Part 5 — Accessibility, Inclusion, Localization](#part-5-accessibility-inclusion-localization)
-14. [Part 6 — AI-Native, Ethics, Sustainability](#part-6-ai-native-ethics-sustainability)
-15. [Part 7 — Engineering & Operations](#part-7-engineering-operations)
-16. [Part 8 — Governance, Legal, Commerce](#part-8-governance-legal-commerce)
-17. [Part 9 — AI Prompt Library & Workflows](#part-9-ai-prompt-library-workflows)
-18. [Part 10 — Measurement, Research, Appendix](#part-10-measurement-research-appendix)
-19. [Part 11 — Enterprise Patterns & Page Templates](#part-11-enterprise-patterns-page-templates)
-20. [Part 12 — Advanced Component Library (Tier 2)](#part-12-advanced-component-library-tier-2)
-21. [Part 13 — Theming, White-Label & Embedding](#part-13-theming-white-label-embedding)
-22. [Part 14 — Content Design & UX Writing at Scale](#part-14-content-design-ux-writing-at-scale)
-23. [Part 15 — Design System Tooling](#part-15-design-system-tooling)
-24. [Part 16 — Adoption Playbook & DesignOps](#part-16-adoption-playbook-designops)
-25. [Part 17 — Component Lifecycle & Maturity Model](#part-17-component-lifecycle-maturity-model)
-26. [Part 18 — Documentation Site & Component Catalog Spec](#part-18-documentation-site-component-catalog-spec)
-27. [Part 19 — Industry Vertical Packs](#part-19-industry-vertical-packs)
-28. [Part 20 — Layout & Responsive System](#part-20-layout-responsive-system)
-
----
-
 ## Master Index
 *A unified, enterprise-grade design system for a Vietnamese-origin, globally-scoped enterprise. Twenty parts at uniform depth. Warm earth anchors. Warm approachable tech. Vietnamese first-class. PDPL- and EU AI Act-ready. DTCG 2025.10-native. MCP-native.*
 
@@ -224,17 +160,7 @@ Each part has a chair owner — a single accountable seat — and a defined revi
 
 ---
 
-## Versioning
-
-| Version | Date | Author | Summary |
-|---|---|---|---|
-| 1.0.0 | 2026-04-25 | Founder + AI co-author | Locked: 20 parts at uniform enterprise grade; audit-and-roadmap published with v1.1+ improvement protocol. |
-
-The v1.0.0 lock means: no substantive change without an RFC under the protocol in [00-audit-and-roadmap.md](./README.md) §6. Editorial fixes (typo, link, classification footer) ship as patch releases.
-
----
-
-*Welcome to the CyberSkill Global Design System. Hiện Thực Hoá Ý Chí.*
+*Welcome to the CyberSkill Global Design System. **Hiện Thực Hoá Ý Chí.*** Version history in [`CHANGELOG.md`](./CHANGELOG.md). Governance and change protocol in [`README.md`](./README.md).
 
 ---
 
@@ -244,7 +170,7 @@ The v1.0.0 lock means: no substantive change without an RFC under the protocol i
 
 ---
 
-## 1. Origin Story
+## 1.1 Origin Story
 
 ### 1.1 The gap that gave the brand its reason
 
@@ -327,7 +253,7 @@ Everything in the system serves the same single commitment. The user has will. T
 
 ---
 
-## 2. Brand Architecture
+## 1.2 Brand Architecture
 
 ### 2.1 The architecture model
 
@@ -418,7 +344,7 @@ Sub-brands and product brands may not:
 
 ---
 
-## 3. Personality, Voice, and Tone
+## 1.3 Personality, Voice, and Tone
 
 ### 3.1 Voice — the four-attribute chord
 
@@ -586,7 +512,7 @@ A refusal does not soften into an apology and does not harden into a wall. It ex
 
 ---
 
-## 4. Core Principles
+## 1.4 Core Principles
 
 The core principles are the eight commitments against which every design, engineering, and content decision inside the system is tested. They are **ordered deliberately**; when two principles conflict, the earlier principle wins. The order is the operating contract of the design system.
 
@@ -687,7 +613,7 @@ A surface that fails one of the lower-numbered principles to satisfy a higher-nu
 
 ---
 
-## 5. Values
+## 1.5 Values
 
 **Principles are how we decide; values are who we are when no one is watching.** The CyberSkill values are four, and they are short on purpose. Length here is dilution.
 
@@ -731,7 +657,7 @@ Reciprocity is not transactional. It is the recognition that the design system s
 
 ---
 
-## 6. Experience Pillars
+## 1.6 Experience Pillars
 
 The experience pillars are the **four properties a CyberSkill product is known by in the world**: clarity, competence, care, continuity. They are distinct from principles — principles are how we decide internally, pillars are what users feel externally.
 
@@ -784,7 +710,7 @@ A surface that feels clear, competent, caring, and continuous has met the experi
 
 ---
 
-## 7. Decision Framework
+## 1.7 Decision Framework
 
 When a decision is hard, we make it in this order:
 
@@ -877,7 +803,7 @@ The framework is operationalised through:
 
 ---
 
-## 8. What-Good-Looks-Like Rubric
+## 1.8 What-Good-Looks-Like Rubric
 
 The rubric is **six acceptance criteria**, each binary pass/fail. A surface ships only if all six pass. The rubric is the concrete expression of the Decision Framework, applied at review time.
 
@@ -946,7 +872,7 @@ The checklist is not a governance instrument; it is a **prompt**. Its function i
 
 ---
 
-## 9. Competitive Positioning
+## 1.9 Competitive Positioning
 
 ### 9.1 The reference set
 
@@ -1034,7 +960,7 @@ For technical audiences:
 
 ---
 
-## 10. Naming Guidelines
+## 1.10 Naming Guidelines
 
 ### 10.1 General rules
 
@@ -1096,7 +1022,7 @@ When a component must be renamed (rare, but it happens), the rename follows the 
 
 ---
 
-## 11. Sub-Brand Framework
+## 1.11 Sub-Brand Framework
 
 ### 11.1 The inheritance contract
 
@@ -1154,7 +1080,7 @@ A sub-brand may be retired by the same RFC process. Retirement is announced with
 
 ---
 
-## 12. Partnership Co-Branding
+## 1.12 Partnership Co-Branding
 
 ### 12.1 Definition
 
@@ -1200,7 +1126,7 @@ Where CyberSkill operates as part of a multi-tier partnership (e.g., reseller ch
 
 ---
 
-## 13. Cultural Adaptations per Market
+## 1.13 Cultural Adaptations per Market
 
 Market-specific adaptations apply at the **locale skin**; the global spine (accessibility baseline, consent defaults, AI disclosure) is **unchanged**. The seven primary markets covered here are: **Vietnam** (primary home market), **Japan**, **Saudi Arabia / UAE**, **Korea**, **China**, **India**, and **Indonesia**. [Part 5](#part-5-accessibility-inclusion-localization) contains the full 20-locale specification; this section establishes the doctrine and the per-market specifics that affect Foundations.
 
@@ -1303,7 +1229,7 @@ Each supported locale has a named **locale steward** — a person responsible fo
 
 ---
 
-## 14. References
+## 1.14 References
 
 **Standards & specifications**
 
@@ -1361,7 +1287,7 @@ Each supported locale has a named **locale steward** — a person responsible fo
 
 ---
 
-## 15. Voice principles for AI surfaces
+## 1.15 Voice principles for AI surfaces
 
 *Operationalised in detail in [Part 14](#part-14-content-design-ux-writing-at-scale) §8 (Microcopy for AI surfaces). This section defines voice rules specific to AI-driven UI; pairs with the four voice pillars in §3.*
 
@@ -1377,7 +1303,7 @@ These rules constrain — they do not erase warmth. The four pillars (warm, dire
 
 ---
 
-## 16. Brand voice anti-patterns
+## 1.16 Brand voice anti-patterns
 
 *The earlier-implicit "what the voice is not" made explicit and lint-enforceable. Full banned-phrase catalogue in [Part 14](#part-14-content-design-ux-writing-at-scale) §2.3.*
 
@@ -1398,7 +1324,7 @@ This list is not exhaustive; the canonical-phrase glossary in [Part 14](#part-14
 
 ---
 
-## 17. Multi-product brand architecture
+## 1.17 Multi-product brand architecture
 
 *Extends §11 (sub-brand framework) for the case where CyberSkill ships multiple products under its umbrella. Operationalised in [Part 13](#part-13-theming-white-label-embedding) §6 (Sub-brand systems).*
 
@@ -1471,7 +1397,7 @@ This is non-negotiable. The whole reason for a branded-house architecture is the
 
 ---
 
-## 1. Colour Philosophy and OKLCH Rationale
+## 2.1 Colour Philosophy and OKLCH Rationale
 
 ### 1.1 What OKLCH is, and why we use it
 
@@ -1538,7 +1464,7 @@ We test all colour decisions with three colour-blindness simulators: **Sim Dalto
 
 ---
 
-## 2. Anchor Brand Tokens
+## 2.2 Anchor Brand Tokens
 
 ### 2.1 The two immutable anchors
 
@@ -1599,7 +1525,7 @@ The Ochre `oklch(0.811 0.162 83.7)` was selected for:
 
 ---
 
-## 3. Twelve-Step Ramp — Umber Neutral-Warm
+## 2.3 Twelve-Step Ramp — Umber Neutral-Warm
 
 ### 3.1 Construction
 
@@ -1647,7 +1573,7 @@ The dark-mode equivalents do not "swap" the ramp; they raise L for surfaces (Mat
 
 ---
 
-## 4. Twelve-Step Ramp — Ochre Primary Action
+## 2.4 Twelve-Step Ramp — Ochre Primary Action
 
 ### 4.1 Construction
 
@@ -1698,7 +1624,7 @@ Ochre is a **fill colour, not a text colour**. Primary buttons use `ochre-500` b
 
 ---
 
-## 5. Semantic Tokens
+## 2.5 Semantic Tokens
 
 ### 5.1 Why semantic colour is independent of brand hue
 
@@ -1739,7 +1665,7 @@ A sub-brand surface displays its accent in navigation tints and marketing — bu
 
 ---
 
-## 6. Dark-Mode Strategy
+## 2.6 Dark-Mode Strategy
 
 ### 6.1 The tonal-elevation model
 
@@ -1780,7 +1706,7 @@ Photographs and illustrations are paired light/dark. A campaign image lit warm i
 
 ---
 
-## 7. Tailwind v4 `@theme` Configuration
+## 2.7 Tailwind v4 `@theme` Configuration
 
 ### 7.1 Why Tailwind v4
 
@@ -1937,7 +1863,7 @@ This overlay is applied at the sub-brand surface root (e.g., the `<body>` of `ai
 
 ---
 
-## 8. Typography System
+## 2.8 Typography System
 
 ### 8.1 The two typefaces
 
@@ -2014,7 +1940,7 @@ If the specimen renders cleanly at 100 %, 200 %, and 400 % zoom, in light and da
 
 ---
 
-## 9. Vietnamese Diacritic Rules
+## 2.9 Vietnamese Diacritic Rules
 
 ### 9.1 What stacked diacritics are
 
@@ -2085,7 +2011,7 @@ For acronyms that mis-synthesise (CCCD as letters; PDPL as letters; API as a wor
 
 ---
 
-## 10. Type Scale
+## 2.10 Type Scale
 
 ### 10.1 The scale
 
@@ -2134,7 +2060,7 @@ Components do not embed font sizes directly; they reference the scale tokens. A 
 
 ---
 
-## 11. Spacing System
+## 2.11 Spacing System
 
 ### 11.1 The 4-pixel grid
 
@@ -2167,7 +2093,7 @@ We use logical CSS properties (`padding-inline`, `padding-block`, `margin-inline
 
 ---
 
-## 12. Motion Tokens
+## 2.12 Motion Tokens
 
 ### 12.1 Motion philosophy
 
@@ -2274,7 +2200,7 @@ Examples of motion we **do not** ship:
 
 ---
 
-## 13. Elevation
+## 2.13 Elevation
 
 ### 13.1 Composition
 
@@ -2303,7 +2229,7 @@ For AR/VR and gaming overlays, "glass" surfaces are used: `backdrop-filter: blur
 
 ---
 
-## 14. Radius, Borders, Transitions
+## 2.14 Radius, Borders, Transitions
 
 ### 14.1 Radius
 
@@ -2342,7 +2268,7 @@ Non-interactive elements do **not** transition. (A label whose colour quietly fa
 
 ---
 
-## 15. Iconography
+## 2.15 Iconography
 
 ### 15.1 Keyline grid
 
@@ -2396,7 +2322,7 @@ New icons require a brief RFC: name (English + Vietnamese), purpose, similar exi
 
 ---
 
-## 16. Illustration
+## 2.16 Illustration
 
 ### 16.1 Style
 
@@ -2425,7 +2351,7 @@ Illustration **never** encodes meaning that is not also in text. An illustration
 
 ---
 
-## 17. Data-Visualisation Colour Palettes
+## 2.17 Data-Visualisation Colour Palettes
 
 ### 17.1 The three palettes
 
@@ -2486,7 +2412,7 @@ For deviation-from-target data (red-green budget vs actual, election swings, dev
 
 ---
 
-## 18. Photography
+## 2.18 Photography
 
 ### 18.1 Treatment
 
@@ -2512,7 +2438,7 @@ Vietnamese audiences see Vietnamese-domestic photography; market-specific photog
 
 ---
 
-## 19. Video
+## 2.19 Video
 
 ### 19.1 Captions and transcripts
 
@@ -2540,7 +2466,7 @@ Vietnamese audiences see Vietnamese-domestic photography; market-specific photog
 
 ---
 
-## 20. Sound Design
+## 2.20 Sound Design
 
 ### 20.1 The earcons
 
@@ -2566,7 +2492,7 @@ For AR/VR and immersive surfaces, spatial audio is supported. We follow Apple vi
 
 ---
 
-## 21. Haptics
+## 2.21 Haptics
 
 ### 21.1 Mappings
 
@@ -2589,7 +2515,7 @@ The Vibration API on web (`navigator.vibrate`) is used sparingly and only for co
 
 ---
 
-## 22. References
+## 2.22 References
 
 **Standards & specifications**
 
@@ -2617,7 +2543,7 @@ The Vibration API on web (`navigator.vibrate`) is used sparingly and only for co
 
 ---
 
-## 23. Density tokens
+## 2.23 Density tokens
 
 *Three density modes (compact, cozy, comfortable) operate as independent token overlays on top of the base spacing scale. Operationalised in [Part 13](#part-13-theming-white-label-embedding) §3 (Density modes) and consumed by every Tier-1 / Tier-2 / pattern / template.*
 
@@ -2708,7 +2634,7 @@ Per [Part 10](#part-10-measurement-research-appendix) + [Part 13](#part-13-themi
 
 ---
 
-## 24. High-contrast theme tokens
+## 2.24 High-contrast theme tokens
 
 *The HC theme is a peer to light and dark, defined as a token variant. Operationalised in [Part 13](#part-13-theming-white-label-embedding) §2.3.*
 
@@ -2773,7 +2699,7 @@ Full theme handling (light / dark / HC / sepia / white-label) lives in [Part 13]
 
 ---
 
-## 25. RTL spacing semantics
+## 2.25 RTL spacing semantics
 
 *Logical-property defaults for spacing tokens. Full RTL doctrine in [Part 5](#part-5-accessibility-inclusion-localization) §9 (Bidi); layout primitives in [Part 20](#part-20-layout-responsive-system).*
 
@@ -2814,7 +2740,7 @@ Visual regression captures every component in both directions per [Part 15](#par
 
 ---
 
-## 26. Layout primitives — forward reference
+## 2.26 Layout primitives — forward reference
 
 *The layout-primitive vocabulary is operationalised at depth in [Part 20](#part-20-layout-responsive-system) (Layout & Responsive System). This stub introduces the primitives by name so designers and developers reading Part 2 know they exist and where to find them.*
 
@@ -2850,7 +2776,7 @@ For the full primitive specs, container-query patterns, fluid-scale formulas, an
 
 ---
 
-## 27. Token-layer extensions
+## 2.27 Token-layer extensions
 
 *Three coordinated additions: variable-font axis annotations, mode-aware elevation, and per-platform iconography export pipeline. See the References section for the canonical token sources.*
 
@@ -3015,7 +2941,7 @@ The action primitives are governed by:
 
 ---
 
-## 1. Button
+## 3a.1 Button
 
 ### 1.1 Name
 
@@ -3310,7 +3236,7 @@ async function onSubmit() {
 
 ---
 
-## 2. IconButton
+## 3a.2 IconButton
 
 ### 2.1 Name
 
@@ -3488,7 +3414,7 @@ Same as Button, plus:
 
 ---
 
-## 3. ButtonGroup
+## 3a.3 ButtonGroup
 
 ### 3.1 Name
 
@@ -3656,7 +3582,7 @@ export function DocumentActions() {
 
 ---
 
-## 4. SplitButton
+## 3a.4 SplitButton
 
 ### 4.1 Name
 
@@ -3876,7 +3802,7 @@ Same as Button, plus:
 
 ---
 
-## 5. LinkButton
+## 3a.5 LinkButton
 
 ### 5.1 Name
 
@@ -4046,7 +3972,7 @@ Inherits Button tokens. Adds:
 
 ---
 
-## 6. FloatingActionButton (FAB)
+## 3a.6 FloatingActionButton (FAB)
 
 ### 6.1 Name
 
@@ -4217,7 +4143,7 @@ function compose() { /* navigate to /note/new */ }
 
 ---
 
-## 7. ToggleButton
+## 3a.7 ToggleButton
 
 ### 7.1 Name
 
@@ -4398,7 +4324,7 @@ Button tokens, plus:
 
 ---
 
-## References
+## 3a.8 References
 
 - W3C, *WCAG 2.2 Recommendation*, 5 October 2023. https://www.w3.org/TR/WCAG22/
 - W3C, *ARIA Authoring Practices Guide* — Button, Toolbar, Menu Button, Tooltip patterns. https://www.w3.org/WAI/ARIA/apg/
@@ -4428,7 +4354,7 @@ The governing standards are: WCAG 2.2 (w3.org/TR/WCAG22/) — particularly **SC 
 
 ---
 
-## 1. TextField
+## 3b.1 TextField
 
 ### 1.1 Name
 
@@ -4656,7 +4582,7 @@ const name = ref('');
 
 ---
 
-## 2. TextArea
+## 3b.2 TextArea
 
 ### 2.1 Name
 
@@ -4706,7 +4632,7 @@ export interface TextAreaProps extends Omit<TextFieldProps, 'inputMode'> {
 
 ---
 
-## 3. NumberField
+## 3b.3 NumberField
 
 ### 3.1 Name
 
@@ -4804,7 +4730,7 @@ When stepper variant is used, the field gains Spinbutton semantics: `role="spinb
 
 ---
 
-## 4. PasswordField
+## 3b.4 PasswordField
 
 ### 4.1 Name
 
@@ -4884,7 +4810,7 @@ Standard text input; reveal toggle activates on `Enter` / `Space` while focused.
 
 ---
 
-## 5. SearchField
+## 3b.5 SearchField
 
 ### 5.1 Name
 
@@ -4948,7 +4874,7 @@ Placeholder *Tìm tài liệu, dự án, người dùng…*; clear button label 
 
 ---
 
-## 6. Select
+## 3b.6 Select
 
 ### 6.1 Name
 
@@ -5068,7 +4994,7 @@ TextField + popover surface (Level 3 elevation) + `--cs-z-listbox`.
 
 ---
 
-## 7. Combobox
+## 3b.7 Combobox
 
 ### 7.1 Name
 
@@ -5115,7 +5041,7 @@ Select + `allowCustomValue`, `onFilter`.
 
 ---
 
-## 8. Autocomplete
+## 3b.8 Autocomplete
 
 ### 8.1 Name / 8.2 purpose
 
@@ -5148,7 +5074,7 @@ Virtualised listbox via react-virtuoso when results > 200. Stale-request cancell
 
 ---
 
-## 9. DatePicker
+## 3b.9 DatePicker
 
 ### 9.1 Name
 
@@ -5261,7 +5187,7 @@ In segmented input:
 
 ---
 
-## 10. TimePicker
+## 3b.10 TimePicker
 
 ### 10.1–10.20 (delta from DatePicker)
 
@@ -5275,7 +5201,7 @@ In segmented input:
 
 ---
 
-## 11. DateRangePicker
+## 3b.11 DateRangePicker
 
 ### 11.1–11.20
 
@@ -5288,7 +5214,7 @@ In segmented input:
 
 ---
 
-## 12. Checkbox
+## 3b.12 Checkbox
 
 ### 12.1 Name
 
@@ -5388,7 +5314,7 @@ Native `<input type="checkbox">` with `<label>`. `aria-checked="mixed"` for inde
 
 ---
 
-## 13. CheckboxGroup
+## 3b.13 CheckboxGroup
 
 ### 13.1 Name / purpose
 
@@ -5418,7 +5344,7 @@ export interface CheckboxGroupProps {
 
 ---
 
-## 14. Radio
+## 3b.14 Radio
 
 ### 14.1 Name / purpose
 
@@ -5434,7 +5360,7 @@ Native `<input type="radio">`. SC 1.3.1 — group label programmatically associa
 
 ---
 
-## 15. RadioGroup
+## 3b.15 RadioGroup
 
 ### 15.1 Name
 
@@ -5503,7 +5429,7 @@ export interface RadioGroupProps<T extends string> {
 
 ---
 
-## 16. Switch
+## 3b.16 Switch
 
 ### 16.1 Name
 
@@ -5571,7 +5497,7 @@ Brand Ochre for the *on* state; `--cs-color-neutral-300` for the off track.
 
 ---
 
-## 17. Slider
+## 3b.17 Slider
 
 ### 17.1 Name
 
@@ -5664,7 +5590,7 @@ Thumb is ≥ 24 × 24 CSS px (SC 2.5.8). Track is at least 4 px tall to provide 
 
 ---
 
-## 18. RangeSlider
+## 3b.18 RangeSlider
 
 ### 18.1–18.20
 
@@ -5674,7 +5600,7 @@ VN content: *Khoảng giá (VND)*: from `0` to `5.000.000.000`.
 
 ---
 
-## 19. FileUpload
+## 3b.19 FileUpload
 
 ### 19.1 Name
 
@@ -5773,7 +5699,7 @@ After file added: "Đã thêm contract.pdf, 2,3 MB, 1 trong 3 tệp" / "Added co
 
 ---
 
-## 20. ColorPicker
+## 3b.20 ColorPicker
 
 ### 20.1 Name / purpose
 
@@ -5815,7 +5741,7 @@ Sliders use Slider semantics (§17). Palette uses `role="listbox"` or `role="gri
 
 ---
 
-## 21. RichTextEditor
+## 3b.21 RichTextEditor
 
 ### 21.1 Name
 
@@ -5873,7 +5799,7 @@ Label *Soạn bài viết*; toolbar tooltips *Đậm*, *Nghiêng*, *Liên kết*
 
 ---
 
-## 22. TagInput
+## 3b.22 TagInput
 
 ### 22.1 Name
 
@@ -5918,7 +5844,7 @@ Label *Chủ đề*; tags *tiếng Việt, kỹ thuật, thiết kế, AI, bảo
 
 ---
 
-## 23. OTPInput
+## 3b.23 OTPInput
 
 ### 23.1 Name
 
@@ -5991,7 +5917,7 @@ Label *Nhập mã OTP đã gửi đến số điện thoại của bạn*; helpe
 
 ---
 
-## References
+## 3b.24 References
 
 - W3C, *WCAG 2.2 Recommendation*. https://www.w3.org/TR/WCAG22/ — particularly SC 1.3.1, 1.3.5, 2.5.7, 2.5.8, 3.3.2, 3.3.7, 3.3.8.
 - W3C, *ARIA Authoring Practices Guide* — Combobox, Listbox, Radio Group, Slider, Spinbutton, Switch, Date Picker Dialog. https://www.w3.org/WAI/ARIA/apg/
@@ -6027,7 +5953,7 @@ The governing standards: **WCAG 2.2** (w3.org/TR/WCAG22/) — particularly SC 1.
 
 ---
 
-## 1. Card
+## 3c.1 Card
 
 ### 1.1 Name
 
@@ -6211,7 +6137,7 @@ defineProps<{ id: string; name: string; updatedAt: string }>();
 
 ---
 
-## 2. Panel
+## 3c.2 Panel
 
 ### 2.1 Name
 
@@ -6360,7 +6286,7 @@ export function SecurityPanel() {
 
 ---
 
-## 3. Sheet
+## 3c.3 Sheet
 
 ### 3.1 Name
 
@@ -6559,7 +6485,7 @@ export function ProjectDetailButton() {
 
 ---
 
-## 4. Modal / Dialog
+## 3c.4 Modal / Dialog
 
 ### 4.1 Name
 
@@ -6728,7 +6654,7 @@ export function DeleteProjectButton({ projectId, name }: { projectId: string; na
 
 ---
 
-## 5. Drawer
+## 3c.5 Drawer
 
 ### 5.1 Name
 
@@ -6799,7 +6725,7 @@ Primary navigation list: *Tổng quan*, *Dự án*, *Tài liệu*, *Thành viên
 
 ---
 
-## 6. Popover
+## 3c.6 Popover
 
 ### 6.1 Name
 
@@ -6881,7 +6807,7 @@ For `dialog` Popover with focusable contents: focus moves into the Popover on op
 
 ---
 
-## 7. Tooltip
+## 3c.7 Tooltip
 
 ### 7.1 Name
 
@@ -6954,7 +6880,7 @@ export interface TooltipProps {
 
 ---
 
-## 8. Disclosure / Accordion
+## 3c.8 Disclosure / Accordion
 
 ### 8.1 Name
 
@@ -7023,7 +6949,7 @@ export interface AccordionProps {
 
 ---
 
-## 9. Tabs
+## 3c.9 Tabs
 
 ### 9.1 Name
 
@@ -7101,7 +7027,7 @@ export interface TabsProps {
 
 ---
 
-## 10. Stepper
+## 3c.10 Stepper
 
 ### 10.1 Name
 
@@ -7162,7 +7088,7 @@ Steps *Thông tin cá nhân* → *Xác minh danh tính* → *Cấu hình tài kh
 
 ---
 
-## 11. SegmentedControl
+## 3c.11 SegmentedControl
 
 ### 11.1 Name
 
@@ -7221,7 +7147,7 @@ export interface SegmentedControlProps<T extends string> {
 
 ---
 
-## References
+## 3c.12 References
 
 - W3C, *WCAG 2.2 Recommendation* — particularly SC 1.4.13, 2.1.2, 2.4.11, 2.4.13, 2.5.3. https://www.w3.org/TR/WCAG22/
 - W3C, *ARIA APG* — Dialog Modal, Disclosure, Accordion, Tabs, Tooltip, Menu, Disclosure. https://www.w3.org/WAI/ARIA/apg/
@@ -7258,7 +7184,7 @@ The governing standards for this Part: **WCAG 2.2** SCs above; **WAI-ARIA 1.3** 
 
 ---
 
-## 1. Header
+## 3d.1 Header
 
 ### 1.1 Name
 
@@ -7458,7 +7384,7 @@ export function AppShellHeader() {
 
 ---
 
-## 2. Footer
+## 3d.2 Footer
 
 ### 2.1 Name
 
@@ -7535,7 +7461,7 @@ Renders as `<footer>` with the implicit landmark role `contentinfo`. Each naviga
 
 ---
 
-## 3. SidebarNav
+## 3d.3 SidebarNav
 
 ### 3.1 Name
 
@@ -7649,7 +7575,7 @@ Collapsed/expanded state persisted **per user in profile** (not in cookies — P
 
 ---
 
-## 4. TopNav
+## 3d.4 TopNav
 
 ### 4.1 Name
 
@@ -7700,7 +7626,7 @@ Same as SidebarNav. Overflow items collapse into a "More" menu with `aria-haspop
 
 ---
 
-## 5. Breadcrumb
+## 3d.5 Breadcrumb
 
 ### 5.1 Name
 
@@ -7769,7 +7695,7 @@ Separator mirrors automatically via CSS logical properties (`/` becomes visually
 
 ---
 
-## 6. Pagination
+## 3d.6 Pagination
 
 ### 6.1 Name
 
@@ -7840,7 +7766,7 @@ export interface PaginationProps {
 
 ---
 
-## 7. Tabs (Navigation)
+## 3d.7 Tabs (Navigation)
 
 ### 7.1 Name / 7.2 purpose
 
@@ -7869,7 +7795,7 @@ For navigation Tabs, **manual activation** is required (`activation: 'manual'`).
 
 ---
 
-## 8. CommandPalette
+## 3d.8 CommandPalette
 
 ### 8.1 Name
 
@@ -8002,7 +7928,7 @@ Placeholder *Gõ lệnh hoặc tìm kiếm…*; groups *Hành động*, *Điều
 
 ---
 
-## 9. ContextMenu
+## 3d.9 ContextMenu
 
 ### 9.1 Name
 
@@ -8082,7 +8008,7 @@ interface ContextMenuItem {
 
 ---
 
-## 10. Menubar
+## 3d.10 Menubar
 
 ### 10.1 Name
 
@@ -8137,7 +8063,7 @@ export interface MenubarProps {
 
 ---
 
-## 11. NavLink
+## 3d.11 NavLink
 
 ### 11.1 Name
 
@@ -8178,7 +8104,7 @@ export interface NavLinkProps {
 
 ---
 
-## 12. Skiplink
+## 3d.12 Skiplink
 
 ### 12.1 Name
 
@@ -8255,7 +8181,7 @@ Renders as an `<a>` with `href="#main"`. The target element (`<main id="main" ta
 
 ---
 
-## References
+## 3d.13 References
 
 - W3C, *WCAG 2.2 Recommendation* — particularly SC 2.1.1, 2.4.1, 2.4.4, 2.4.7, 2.4.8, 2.5.8, 3.2.3 Consistent Navigation, **3.2.6 Consistent Help (new in 2.2)**. https://www.w3.org/TR/WCAG22/
 - W3C, *ARIA APG* — Menu, Menubar, Combobox, Tabs, Disclosure, TreeView. https://www.w3.org/WAI/ARIA/apg/
@@ -8292,7 +8218,7 @@ The governing standards: **WCAG 2.2** SC 2.2.1 Timing Adjustable, SC 2.2.5 Re-au
 
 ---
 
-## 1. Toast
+## 3e.1 Toast
 
 ### 1.1 Name
 
@@ -8484,7 +8410,7 @@ function onSave() { show({ variant: 'success', message: 'Đã lưu thay đổi.'
 
 ---
 
-## 2. Banner
+## 3e.2 Banner
 
 ### 2.1 Name
 
@@ -8582,7 +8508,7 @@ For **PDPL / consent** banners, the message is **not auto-dismissible** until th
 
 ---
 
-## 3. Alert
+## 3e.3 Alert
 
 ### 3.1 Name
 
@@ -8636,7 +8562,7 @@ export interface AlertProps {
 
 ---
 
-## 4. Notification
+## 3e.4 Notification
 
 ### 4.1 Name
 
@@ -8752,7 +8678,7 @@ VN: "Thông báo, Nguyễn Văn A đã giao nhiệm vụ, 3 phút trước, chư
 
 ---
 
-## 5. ProgressBar
+## 3e.5 ProgressBar
 
 ### 5.1 Name
 
@@ -8823,7 +8749,7 @@ For indeterminate, omit `aria-valuenow`; surface a label like *"Đang tải"* / 
 
 ---
 
-## 6. ProgressCircle
+## 3e.6 ProgressCircle
 
 ### 6.1–6.20 (delta from ProgressBar)
 
@@ -8833,7 +8759,7 @@ VN content: *Đang tải, 40%*; EN: *Uploading, 40%*.
 
 ---
 
-## 7. Skeleton
+## 3e.7 Skeleton
 
 ### 7.1 Name
 
@@ -8889,7 +8815,7 @@ n/a — Skeleton is purely visual.
 
 ---
 
-## 8. Spinner
+## 3e.8 Spinner
 
 ### 8.1 Name
 
@@ -8928,7 +8854,7 @@ export interface SpinnerProps {
 
 ---
 
-## 9. EmptyState
+## 3e.9 EmptyState
 
 ### 9.1 Name
 
@@ -8998,7 +8924,7 @@ The EmptyState is content; standard heading hierarchy (title is `<h2>` by defaul
 
 ---
 
-## 10. ErrorState
+## 3e.10 ErrorState
 
 ### 10.1 Name
 
@@ -9067,7 +8993,7 @@ export interface ErrorStateProps {
 
 ---
 
-## 11. ConfirmationDialog
+## 3e.11 ConfirmationDialog
 
 ### 11.1 Name
 
@@ -9181,7 +9107,7 @@ EN: "Are you sure you want to delete the project?, alert dialog, This action can
 
 ---
 
-## References
+## 3e.12 References
 
 - W3C, *WCAG 2.2 Recommendation* — particularly SC 1.3.3, 1.4.1, 2.2.1, 2.2.5, 4.1.3 Status Messages. https://www.w3.org/TR/WCAG22/
 - W3C, *ARIA APG* — Alert, Alert Dialog. https://www.w3.org/WAI/ARIA/apg/
@@ -9212,7 +9138,7 @@ The governing standards: **WCAG 2.2** SCs 1.1.1, 1.3.1, 1.4.1, 1.4.10 Reflow, 2.
 
 ---
 
-## 1. Table
+## 3f.1 Table
 
 ### 1.1 Name
 
@@ -9381,7 +9307,7 @@ export function EmployeeTable({ rows }: { rows: Employee[] }) {
 
 ---
 
-## 2. DataGrid
+## 3f.2 DataGrid
 
 ### 2.1 Name
 
@@ -9568,7 +9494,7 @@ Table tokens + `--cs-color-surface-3` (popover for column menus) + `--cs-z-popov
 
 ---
 
-## 3. List
+## 3f.3 List
 
 ### 3.1 Name
 
@@ -9618,7 +9544,7 @@ Virtualised at > 100 items.
 
 ---
 
-## 4. DescriptionList
+## 3f.4 DescriptionList
 
 ### 4.1 Name
 
@@ -9656,7 +9582,7 @@ export interface DescriptionListProps {
 
 ---
 
-## 5. Tree
+## 3f.5 Tree
 
 ### 5.1 Name
 
@@ -9723,7 +9649,7 @@ Folder *Tài liệu → Hợp đồng → 2026*; *Dự án → Alpha → Tệp*.
 
 ---
 
-## 6. Timeline
+## 3f.6 Timeline
 
 ### 6.1 Name
 
@@ -9764,7 +9690,7 @@ export interface TimelineProps {
 
 ---
 
-## 7. Badge
+## 3f.7 Badge
 
 ### 7.1 Name
 
@@ -9807,7 +9733,7 @@ The Badge has an `aria-label` that names both the count and the meaning: *"Thôn
 
 ---
 
-## 8. Chip
+## 3f.8 Chip
 
 ### 8.1 Name
 
@@ -9858,7 +9784,7 @@ Filter chips *Mở*, *Đang xử lý*, *Hoàn tất*; input chips *thiết kế 
 
 ---
 
-## 9. Tag
+## 3f.9 Tag
 
 ### 9.1 Name
 
@@ -9893,7 +9819,7 @@ Static text element; no interactive role. **Always** combines colour + text — 
 
 ---
 
-## 10. Avatar
+## 3f.10 Avatar
 
 ### 10.1 Name
 
@@ -9967,7 +9893,7 @@ When `status` is provided, a small dot at the bottom-right of the avatar indicat
 
 ---
 
-## 11. AvatarGroup
+## 3f.11 AvatarGroup
 
 ### 11.1 Name
 
@@ -10006,7 +9932,7 @@ The group container has `aria-label` summarising the members: *"Thành viên nh�
 
 ---
 
-## 12. StatusIndicator
+## 3f.12 StatusIndicator
 
 ### 12.1 Name
 
@@ -10044,7 +9970,7 @@ Always pairs **colour + text + shape**. The dot uses different shapes (filled, h
 
 ---
 
-## 13. KeyValue
+## 3f.13 KeyValue
 
 ### 13.1 Name
 
@@ -10092,7 +10018,7 @@ The label is associated to the value via `aria-labelledby`. Copy button has loca
 
 ---
 
-## 14. Stat
+## 3f.14 Stat
 
 ### 14.1 Name
 
@@ -10145,7 +10071,7 @@ In some Vietnamese financial contexts, **red is negative** and **green is positi
 
 ---
 
-## 15. Code
+## 3f.15 Code
 
 ### 15.1 Name
 
@@ -10202,7 +10128,7 @@ JetBrains Mono with `font-variant-ligatures: contextual` for blocks (enables 138
 
 ---
 
-## 16. Markdown
+## 3f.16 Markdown
 
 ### 16.1 Name
 
@@ -10268,7 +10194,7 @@ Headings *Hướng dẫn cài đặt*, *Câu hỏi thường gặp*; callouts in
 
 ---
 
-## References
+## 3f.17 References
 
 - W3C, *WCAG 2.2 Recommendation*. https://www.w3.org/TR/WCAG22/
 - W3C, *ARIA APG* — Grid, Tree View, Listbox. https://www.w3.org/WAI/ARIA/apg/
@@ -10304,7 +10230,7 @@ All charts are implemented on top of **D3** primitives plus **Observable Plot** 
 
 ---
 
-## 1. LineChart
+## 3g.1 LineChart
 
 ### 1.1 Name
 
@@ -10489,7 +10415,7 @@ export function MonthlyRevenue({ data }: { data: { month: string; primary: numbe
 
 ---
 
-## 2. BarChart
+## 3g.2 BarChart
 
 ### 2.1 Name
 
@@ -10547,7 +10473,7 @@ Title *Doanh thu theo khu vực*; categories *Hà Nội*, *Hồ Chí Minh*, *Đ�
 
 ---
 
-## 3. AreaChart
+## 3g.3 AreaChart
 
 ### 3.1 Name / 3.2 purpose
 
@@ -10574,7 +10500,7 @@ Title *Lưu lượng truy cập theo nguồn*; series *Tìm kiếm*, *Mạng xã
 
 ---
 
-## 4. PieChart / 5. DonutChart
+## 3g.4 PieChart / 5. DonutChart
 
 ### 4.1 / 5.1 Name
 
@@ -10624,7 +10550,7 @@ Title *Trạng thái đơn hàng*; legend *Mở*, *Đang xử lý*, *Hoàn tất
 
 ---
 
-## 6. ScatterPlot
+## 3g.6 ScatterPlot
 
 ### 6.1 Name / 6.2 purpose
 
@@ -10665,7 +10591,7 @@ Title *Tương quan giữa lương và năm kinh nghiệm*; categories by *Phòn
 
 ---
 
-## 7. Heatmap
+## 3g.7 Heatmap
 
 ### 7.1 Name / 7.2 purpose
 
@@ -10703,7 +10629,7 @@ Title *Hoạt động theo giờ và ngày*; row labels *T2*, *T3*, ..., *CN*; c
 
 ---
 
-## 8. Sparkline
+## 3g.8 Sparkline
 
 ### 8.1 Name / 8.2 purpose
 
@@ -10738,7 +10664,7 @@ The Sparkline carries an `aria-label` summarising trend: *"Doanh thu 30 ngày qu
 
 ---
 
-## 9. Gauge
+## 3g.9 Gauge
 
 ### 9.1 Name / 9.2 purpose
 
@@ -10783,7 +10709,7 @@ Title *Tỷ lệ hoàn thành Q1*; value *68%*; target *80%*; SR `aria-valuetext
 
 ---
 
-## 10. TreeMap
+## 3g.10 TreeMap
 
 ### 10.1 Name / 10.2 purpose
 
@@ -10820,7 +10746,7 @@ Title *Phân bổ ngân sách*; categories *Lương*, *Vận hành*, *Marketing*
 
 ---
 
-## 11. Map
+## 3g.11 Map
 
 ### 11.1 Name
 
@@ -10917,7 +10843,7 @@ Title *Bản đồ chi nhánh*; markers in *Hà Nội*, *Đà Nẵng*, *Hồ Ch�
 
 ---
 
-## 12. Calendar
+## 3g.12 Calendar
 
 ### 12.1 Name
 
@@ -10995,7 +10921,7 @@ Month name *Tháng 4, 2026*; weekdays start Monday in VN locale: *T2 T3 T4 T5 T6
 
 ---
 
-## 13. KanbanBoard
+## 3g.13 KanbanBoard
 
 ### 13.1 Name
 
@@ -11073,7 +10999,7 @@ Columns *Chưa làm* / *Đang làm* / *Đã xong* / *Đã huỷ*; alternate set 
 
 ---
 
-## References
+## 3g.14 References
 
 - W3C, *WCAG 2.2 Recommendation*. https://www.w3.org/TR/WCAG22/ (SC 1.1.1, 1.3.1, 1.4.1, 1.4.11, 2.5.7).
 - W3C, *ARIA APG* — Grid pattern. https://www.w3.org/WAI/ARIA/apg/
@@ -11111,7 +11037,7 @@ The governing standards: **EU AI Act** (European Commission; entered into force 
 
 ---
 
-## 1. ChatThread
+## 3h.1 ChatThread
 
 ### 1.1 Name
 
@@ -11285,7 +11211,7 @@ export function AssistantSurface() {
 
 ---
 
-## 2. ChatMessage (user / assistant / system / tool)
+## 3h.2 ChatMessage (user / assistant / system / tool)
 
 ### 2.1 Name
 
@@ -11390,7 +11316,7 @@ System messages **are never styled to impersonate the user** — they have an un
 
 ---
 
-## 3. StreamingResponse
+## 3h.3 StreamingResponse
 
 ### 3.1 Name
 
@@ -11456,7 +11382,7 @@ Cancel label *Huỷ*; complete announcement *Hoàn tất, 240 từ*.
 
 ---
 
-## 4. CitationCard
+## 3h.4 CitationCard
 
 ### 4.1 Name
 
@@ -11532,7 +11458,7 @@ Source examples *Nghị định 356/2025/NĐ-CP — luatvietnam.vn*; *Luật BVD
 
 ---
 
-## 5. ConfidenceIndicator
+## 3h.5 ConfidenceIndicator
 
 ### 5.1 Name
 
@@ -11588,7 +11514,7 @@ Tier labels *Thấp* / *Trung bình* / *Cao*; tooltip *Mức tin cậy phản á
 
 ---
 
-## 6. HumanReviewGate
+## 3h.6 HumanReviewGate
 
 ### 6.1 Name
 
@@ -11685,7 +11611,7 @@ Status *Cần duyệt bởi người phụ trách pháp lý trước khi hiển 
 
 ---
 
-## 7. PromptInput
+## 3h.7 PromptInput
 
 ### 7.1 Name
 
@@ -11770,7 +11696,7 @@ PromptInput inherits TextArea tokens; adds `--cs-color-ai-accent` for slash-menu
 
 ---
 
-## 8. PromptLibraryBrowser
+## 3h.8 PromptLibraryBrowser
 
 ### 8.1 Name
 
@@ -11828,7 +11754,7 @@ Title *Thư viện lời nhắc*; categories *Microcopy thành phần*, *Xác th
 
 ---
 
-## 9. ToolCallDisplay
+## 3h.9 ToolCallDisplay
 
 ### 9.1 Name
 
@@ -11902,7 +11828,7 @@ Tool examples *tìm-khách-hàng*, *kiểm-tra-trạng-thái-đơn-hàng*, *gử
 
 ---
 
-## 10. AIDisclosureBadge
+## 3h.10 AIDisclosureBadge
 
 ### 10.1 Name
 
@@ -11973,7 +11899,7 @@ export interface AIDisclosureBadgeProps {
 
 ---
 
-## 11. RedactionMarker
+## 3h.11 RedactionMarker
 
 ### 11.1 Name
 
@@ -12037,7 +11963,7 @@ Sensitive classes per Decree 356/2025/ND-CP and Acclime Vietnam's reading:
 
 ---
 
-## 12. C2PAProvenanceBadge
+## 3h.12 C2PAProvenanceBadge
 
 ### 12.1 Name
 
@@ -12123,7 +12049,7 @@ Tooltip *Nguồn gốc nội dung: CyberSkill, chữ ký hợp lệ.*; status `a
 
 ---
 
-## References
+## 3h.13 References
 
 - **EU AI Act** (Regulation EU 2024/1689) — entered into force 1 August 2024; phased applicability per European Commission schedule. Articles 14, 50, 52 cited.
 - **ISO/IEC 42001:2023** — AI Management System. https://www.iso.org/standard/42001
@@ -12161,7 +12087,7 @@ What changes per surface is **how** these constants are met, and **which** of th
 
 ---
 
-## 1. Web
+## 4.1 Web
 
 ### 1.1 What "web" means here
 
@@ -12245,7 +12171,7 @@ Performance budget: page weight ≤ 600 KB; JS ≤ 80 KB; carbon ≤ 0.5 g per v
 
 ---
 
-## 2. iOS
+## 4.2 iOS
 
 ### 2.1 What "iOS" means here
 
@@ -12323,7 +12249,7 @@ XCUITest snapshots with VoiceOver enabled at every Dynamic Type size; Reduce Mot
 
 ---
 
-## 3. Android
+## 4.3 Android
 
 ### 3.1 What "Android" means here
 
@@ -12374,7 +12300,7 @@ Android-native equivalents in `com.cyberskill.compose:compose-bom`. Same compone
 
 ---
 
-## 4. Email
+## 4.4 Email
 
 ### 4.1 What "email" means here
 
@@ -12449,7 +12375,7 @@ Authored as a small subset of cross-rendered components in `@cyberskill/email`:
 
 ---
 
-## 5. Print
+## 4.5 Print
 
 ### 5.1 What "print" means here
 
@@ -12509,7 +12435,7 @@ export function InvoicePdf({ invoice }: { invoice: Invoice }) {
 
 ---
 
-## 6. AI surfaces
+## 4.6 AI surfaces
 
 ### 6.1 What "AI surface" means here
 
@@ -12549,7 +12475,7 @@ import { ChatThread, AIDisclosureBadge, ConfidenceIndicator } from '@cyberskill/
 
 ---
 
-## 7. Voice (VUI)
+## 4.7 Voice (VUI)
 
 ### 7.1 What "voice" means here
 
@@ -12590,7 +12516,7 @@ Disclosure: at session start, *"Bạn đang nói chuyện với trợ lý AI Cyb
 
 ---
 
-## 8. AR / VR
+## 4.8 AR / VR
 
 ### 8.1 What "AR / VR" means here
 
@@ -12617,9 +12543,27 @@ Be Vietnam Pro rendered as glyph atlases in 3D space; text reads from 1.5 m at 1
 - **Eye-tracking** as a focus modality — focus indicators are larger and more contrastful than on flat screens to be visible in peripheral gaze.
 - **Pinch-and-hold** as an alternative to drag (SC 2.5.7 satisfied).
 
+### 8.bis visionOS 26 spatial component model
+
+Apple's visionOS 26 (announced June 2025; documentation refreshed April 2026) formalises a component-based primitives model that the doctrine adopts as the spatial-surface contract.
+
+| Component | Role | Mapping in our doctrine |
+|---|---|---|
+| `InputTargetComponent` | Declares which entity can receive gesture input. Without it, an entity is non-interactive. | Required on every spatial primitive that maps to a Tier-1 action component (Button, ToggleButton, Slider). |
+| `HoverEffectComponent` | Renders a visible highlight when the user gazes at the entity; auto-removes on look-away. | Required on every focusable surface to satisfy gaze-equivalent of WCAG 2.2 SC 2.4.7 Focus Visible. |
+| `CollisionComponent` | Defines hit-test areas; controls input granularity. | Authored to match the visual silhouette + a 24×24-pt touch-target inflation per SC 2.5.8. |
+
+**Spatial widgets.** visionOS 26 widgets persist in a user's space across sessions. The doctrine inherits the [Part 11](#part-11-enterprise-patterns-page-templates) widget pattern but adds three spatial properties: **frame width**, **colour**, and **depth** — all token-driven from the new `cs-spatial-*` namespace.
+
+**Generative-AI spatial scenes.** When a product surface uses generative-AI to compose a spatial scene (e.g., a virtual workspace from a photo), the AI-generated content MUST carry the C2PA provenance badge ([Part 3h](#part-3h-components-ai-chat) §12) AND the multi-layered marking strategy from §6.3 below. Spatial scenes are AI content for the purpose of EU AI Act Article 50.
+
+**Shared spatial experiences.** Multi-user spatial experiences inherit the multi-tenancy pattern from [Part 11](#part-11-enterprise-patterns-page-templates) §6 and the AI-disclosure pattern from [Part 3h](#part-3h-components-ai-chat) §10. Each participant's enhanced Persona is treated as PII per [Part 8](#part-8-governance-legal-commerce) and PDPL Art. 30.
+
+**Engineering layer.** SwiftUI is the canonical authoring API for visionOS 26 surfaces; RealityKit handles physically-correct lighting, shadows, and portals. The `@cyberskill/spatial` package (v1.x roadmap) wraps these with the system's tokens, voice, and a11y floor.
+
 ---
 
-## 9. Wearables
+## 4.9 Wearables
 
 ### 9.1 What "wearables" means here
 
@@ -12659,7 +12603,7 @@ struct QuickActions: View {
 
 ---
 
-## 10. TV / 10-foot
+## 4.10 TV / 10-foot
 
 ### 10.1 What "TV / 10-foot" means here
 
@@ -12697,7 +12641,7 @@ struct CatalogueView: View {
 
 ---
 
-## 11. Kiosk
+## 4.11 Kiosk
 
 ### 11.1 What "kiosk" means here
 
@@ -12740,7 +12684,7 @@ A kiosk that collects CCCD photos for KYC must:
 
 ---
 
-## 12. Automotive
+## 4.12 Automotive
 
 ### 12.1 What "automotive" means here
 
@@ -12772,7 +12716,7 @@ Vehicle telemetry (location, speed) is **personal data** under PDPL when associa
 
 ---
 
-## 13. Gaming overlays
+## 4.13 Gaming overlays
 
 ### 13.1 What "gaming overlay" means here
 
@@ -12805,7 +12749,7 @@ Tone: warm, brief, non-disruptive; auto-dismiss 6 s.
 
 ---
 
-## References
+## 4.17 References
 
 - **WCAG 2.2** (W3C Recommendation 5 October 2023). https://www.w3.org/TR/WCAG22/
 - **View Transitions API** — Baseline Newly Available, October 2025 (web.dev).
@@ -12822,7 +12766,7 @@ Tone: warm, brief, non-disruptive; auto-dismiss 6 s.
 
 ---
 
-## 14. Server-rendered (no-JS) surfaces
+## 4.14 Server-rendered (no-JS) surfaces
 
 For surfaces that must work without JavaScript: government services for low-bandwidth users (Govtech vertical, [Part 19](#part-19-industry-vertical-packs) §5), accessibility-mandated public-sector portals, email-rendered "view-in-browser" pages.
 
@@ -12870,7 +12814,7 @@ Govtech citizen-services portals where citizens may use slow connections, older 
 
 ---
 
-## 15. PWA-specific patterns
+## 4.15 PWA-specific patterns
 
 For Progressive Web Apps that install to the home screen and run offline.
 
@@ -12935,7 +12879,7 @@ For write actions that can wait:
 
 ---
 
-## 16. Embedded-in-third-party-shells (Slack / Teams / Notion / Salesforce)
+## 4.16 Embedded-in-third-party-shells (Slack / Teams / Notion / Salesforce)
 
 For surfaces embedded inside another platform's chrome.
 
@@ -12994,7 +12938,7 @@ Per [Part 13](#part-13-theming-white-label-embedding) §7 — embedded modes (fu
 
 ---
 
-## 1. Legal baseline
+## 5.1 Legal baseline
 
 ### 1.1 The triad governing every web and mobile surface
 
@@ -13027,7 +12971,7 @@ The statement is itself accessible (no PDF-only; HTML primary).
 
 ---
 
-## 2. All 87 WCAG 2.2 Success Criteria — component mapping
+## 5.2 All 87 WCAG 2.2 Success Criteria — component mapping
 
 The following table is the **authoritative, CI-verified mapping** between every WCAG 2.2 success criterion and the specific components that bear primary responsibility for compliance. The CI gate runs axe-core against every Storybook story and asserts zero critical or serious violations across this matrix.
 
@@ -13093,7 +13037,7 @@ The full mapping for all 87 SCs ships as a CSV in `@cyberskill/docs/wcag-22-sc-m
 
 ---
 
-## 3. The 9 new 2.2 SCs in depth
+## 5.3 The 9 new 2.2 SCs in depth
 
 The nine new criteria in WCAG 2.2 are the most material additions for a 2026-scoped design system. Each is examined here.
 
@@ -13165,9 +13109,39 @@ Playwright assertion at PR time: every focusable element in every Storybook stor
 
 **Implementation.** Met on most surfaces by default; consumer-facing auth flows fall under 3.3.8 as the floor.
 
+### 3.bis WCAG 3.0 March 2026 readiness
+
+The W3C published a new WCAG 3.0 Working Draft on **3 March 2026** (w3.org/WAI/news/2026-03-03/wcag3) containing **174 requirements** (renamed from "outcomes" in earlier drafts). The system tracks WCAG 3.0 readiness alongside WCAG 2.2 AA conformance — WCAG 2.2 AA stays the production floor; WCAG 3.0 is the forward gate.
+
+#### Conformance model
+
+WCAG 3.0 replaces the binary pass/fail of WCAG 2.x with a three-tier conformance model:
+
+| Tier | Meaning | Our target |
+|---|---|---|
+| **Bronze** | Minimum conformance — comparable in scope to WCAG 2.2 AA | Production floor (must hold today) |
+| **Silver** | Higher-quality conformance — substantial uplift on cognitive + plain-language | v1.x roadmap target |
+| **Gold** | Industry-leading conformance — covers VR/XR, mobile-app patterns, cognitive disabilities at depth | v2.x aspirational; vertical-pack target for Govtech ([Part 19](#part-19-industry-vertical-packs) §5) |
+
+#### Coverage expansion vs WCAG 2.2
+
+- **VR / XR / spatial surfaces** — explicit in WCAG 3.0; mapped onto our [Part 4](#part-4-surfaces-patterns) §8 (visionOS 26 component model) and §8.bis above.
+- **Mobile-app patterns** — explicit in WCAG 3.0; covered by our [Part 4](#part-4-surfaces-patterns) §2 / §3 (iOS / Android).
+- **Cognitive disabilities** — substantially deeper than 2.2; pairs with our §15 cognitive accessibility, §20 plain-language tier definitions, and §21 trauma-informed expansion.
+
+#### Transition roadmap
+
+- **Today** — WCAG 2.2 AA on every shipping surface ([Part 5](#part-5-accessibility-inclusion-localization) §1, §2). EAA enforcement (28 June 2025) covered.
+- **2026 Q4** — WCAG 3.0 reaches Candidate Recommendation per W3C process. Adopt the 174-requirement gate as a Mode-S audit category.
+- **2027 Q1–Q3** — WCAG 3.0 Proposed Recommendation expected. Internal pilot of Bronze conformance audit on a single product surface.
+- **2027–2028** — Final W3C Recommendation expected. Bronze conformance becomes the v2.x production floor.
+- **2028+** — Silver conformance roadmap target; Gold for Govtech vertical pack ([Part 19](#part-19-industry-vertical-packs) §5).
+
+WCAG 2.2 conformance is **not** retired when WCAG 3.0 finalises. The two coexist for the foreseeable future per W3C's transition guidance; products in regulated jurisdictions should claim conformance to whichever the local law specifies.
+
 ---
 
-## 4. ARIA APG keyboard matrices
+## 5.4 ARIA APG keyboard matrices
 
 Every interactive pattern in the system maps to a **W3C ARIA Authoring Practices Guide** pattern (w3.org/WAI/ARIA/apg/). The keyboard matrices for **Button, Combobox, Listbox, Dialog Modal, Disclosure, Accordion, Menu, Menu Button, Menubar, Radio Group, Slider, Tabs, Toolbar, Tooltip, Tree View, Date Picker Dialog, Grid, Feed, Spinbutton, Switch, Carousel** are documented inline in each component page (Parts 3a–3h) and consolidated in `@cyberskill/docs/apg-keyboard-matrices.md`.
 
@@ -13175,7 +13149,7 @@ The system also documents **APG patterns we deliberately do not adopt** — for 
 
 ---
 
-## 5. Assistive-technology testing
+## 5.5 Assistive-technology testing
 
 ### 5.1 Supported combinations
 
@@ -13223,7 +13197,7 @@ Components opt into the registry via the `useCsPronunciation()` hook.
 
 ---
 
-## 6. APCA vs WCAG contrast
+## 5.6 APCA vs WCAG contrast
 
 WCAG 2.2 uses Weber-contrast-derived ratios (4.5:1 body, 3:1 non-text). **APCA** (Advanced Perceptual Contrast Algorithm) — Lc 60–90 for body text — aligns better with modern perceptual colour but is **not yet normative**.
 
@@ -13235,7 +13209,7 @@ Our policy:
 
 ---
 
-## 7. 20+ locales baseline
+## 5.7 20+ locales baseline
 
 The system's **supported locales** for tier-1 product surfaces:
 
@@ -13252,7 +13226,7 @@ Tier-2 locales (marketing surfaces only): `nl-NL, sv-SE, fi-FI, no-NO, da-DK, tr
 
 ---
 
-## 8. MessageFormat 2.0
+## 5.8 MessageFormat 2.0
 
 **MessageFormat 2.0** advanced from Final Candidate to **Stable** in **CLDR 47 / ICU 77** in **March 2025** (blog.unicode.org). The system uses MF 2.0 for plural, gender, and complex selectors.
 
@@ -13315,7 +13289,7 @@ ICU 77 ships full CLDR 47 locale data so date/number/currency formatting just wo
 
 ---
 
-## 9. Bidi text mixing
+## 5.9 Bidi text mixing
 
 ### 9.1 Unicode bidi controls
 
@@ -13338,7 +13312,7 @@ Numbers within Arabic/Hebrew text remain **LTR**. The system relies on Unicode d
 
 ---
 
-## 10. CJK rules
+## 5.10 CJK rules
 
 ### 10.1 Line-breaking
 
@@ -13360,7 +13334,7 @@ Japanese **`tategaki`** (vertical writing) is supported but **not default**. Res
 
 ---
 
-## 11. Thai / Lao / Khmer
+## 5.11 Thai / Lao / Khmer
 
 ### 11.1 No inter-word spaces
 
@@ -13372,7 +13346,7 @@ These scripts stack **vowel and tone marks** above and below base consonants (si
 
 ---
 
-## 12. IME considerations
+## 5.12 IME considerations
 
 ### 12.1 Composition end vs form submit
 
@@ -13394,7 +13368,7 @@ IME candidate windows render below (or above) the input. Inputs must not sit **w
 
 ---
 
-## 13. Country formats — top 20 locales
+## 5.13 Country formats — top 20 locales
 
 The complete locale-format table for the 20 tier-1 locales:
 
@@ -13433,7 +13407,7 @@ Thai dates traditionally use the **Buddhist Era** (BE = CE + 543). Modern UIs fr
 
 ---
 
-## 14. Cultural taboos per market
+## 5.14 Cultural taboos per market
 
 A non-exhaustive list of cultural sensitivities the system honours:
 
@@ -13449,7 +13423,7 @@ The cultural-taboo list is maintained by **locale stewards** ([Part 1](#part-1-f
 
 ---
 
-## 15. Cognitive accessibility
+## 5.15 Cognitive accessibility
 
 ### 15.1 Plain-language variants
 
@@ -13475,7 +13449,7 @@ The Help link is in the same slot on every surface (SC 3.2.6, §3.6 above).
 
 ---
 
-## 16. Motor accessibility
+## 5.16 Motor accessibility
 
 ### 16.1 Target size
 
@@ -13499,7 +13473,7 @@ The system's keyboard model supports switch users (one-button input via Switch C
 
 ---
 
-## 17. Inclusive design principles
+## 5.17 Inclusive design principles
 
 ### 17.1 Microsoft Inclusive Design Toolkit alignment
 
@@ -13528,7 +13502,7 @@ Illustration and photography ([Part 2](#part-2-design-language) §16, §18) incl
 
 ---
 
-## 18. References
+## 5.18 References
 
 - W3C, *WCAG 2.2 Recommendation*, 5 October 2023. https://www.w3.org/TR/WCAG22/
 - W3C WAI, *What's New in WCAG 2.2*. https://www.w3.org/WAI/standards-guidelines/wcag/new-in-22/
@@ -13550,7 +13524,7 @@ Illustration and photography ([Part 2](#part-2-design-language) §16, §18) incl
 
 ---
 
-## 19. Accessibility-mode personas
+## 5.19 Accessibility-mode personas
 
 *Three personas overlay across components and templates, defining default settings for users whose needs cluster. Operationalised in [Part 13](#part-13-theming-white-label-embedding) §4.7 (theming) and [Part 11](#part-11-enterprise-patterns-page-templates) §4 (state taxonomy).*
 
@@ -13596,7 +13570,7 @@ Suggestions are non-coercive prompts in Settings; the user decides.
 
 ---
 
-## 20. Plain-language tier definitions
+## 5.20 Plain-language tier definitions
 
 *Three reading-level tiers used across customer-facing and citizen-facing surfaces. Operationalised in [Part 14](#part-14-content-design-ux-writing-at-scale) §2.1 (rubric) and [Part 19](#part-19-industry-vertical-packs) §5 (Govtech vertical pack).*
 
@@ -13643,7 +13617,7 @@ User-controllable in Settings → Accessibility. When enabled, copy switches to 
 
 ---
 
-## 21. Cognitive, trauma-informed, and motor-input expansion
+## 5.21 Cognitive, trauma-informed, and motor-input expansion
 
 *Three coordinated post-WCAG-floor patterns: cognitive accessibility (beyond the WCAG floor), trauma-informed design, and voice / switch-control compliance matrix. Pairs with the AAA-flow expansion in [00-audit-and-roadmap §14.5](./README.md).*
 
@@ -13796,7 +13770,7 @@ The rules in this Part are not aspirational. Each is mapped to a specific compon
 
 ---
 
-## 1. ISO/IEC 42001 clause-by-clause mapping
+## 6.1 ISO/IEC 42001 clause-by-clause mapping
 
 ### 1.1 Why ISO 42001 matters
 
@@ -13884,7 +13858,7 @@ CyberSkill's target is **third-party ISO/IEC 42001 certification** within 12 mon
 
 ---
 
-## 2. EU AI Act — article-by-article UX patterns
+## 6.2 EU AI Act — article-by-article UX patterns
 
 ### 2.1 The schedule
 
@@ -13963,7 +13937,7 @@ Operational concern — legal review on every AI policy change.
 
 ---
 
-## 3. AIDisclosureBadge UX
+## 6.3 AIDisclosureBadge UX
 
 The component is specified in [Part 3h](#part-3h-components-ai-chat) §10. Three rules summarise its behaviour at the system level:
 
@@ -13971,9 +13945,40 @@ The component is specified in [Part 3h](#part-3h-components-ai-chat) §10. Three
 - **Machine readability.** Every region containing the badge also emits `<meta property="ai:generated" content="true">` and a C2PA manifest reference where media is generated or edited.
 - **PDPL Art. 30 disclosure.** The badge expansion includes the localised PDPL disclosure copy in VN locale: *"Xử lý này dùng AI theo Điều 30, Luật BVDLCN 91/2025/QH15."*
 
+### 3.bis Multi-layered marking strategy (EU AI Act Code of Practice 2nd draft)
+
+The EU AI Act Code of Practice on Transparency of AI-Generated Content (2nd draft, 3 March 2026) operationalises Articles 50(2)–(5). Article 50 transparency obligations **enter force 2 August 2026**. The Code prescribes a three-layer marking strategy that the doctrine adopts.
+
+| Layer | Mechanism | When | Example |
+|---|---|---|---|
+| **L1 — Signed metadata** | C2PA-signed manifest embedded in the asset; cryptographic provenance via [`C2PAProvenanceBadge`](#part-3h-components-ai-chat) | All AI-generated images, video, audio, and synthetic spatial scenes | `c2pa.cyberskill.world/manifest/<hash>.json` |
+| **L2 — Imperceptible watermark** | Pixel-level / sample-level steganographic mark; survives screenshots, format conversion, partial cropping | All generative image / video / audio output | SynthID / WaveMark / similar; vendor-agnostic API in `@cyberskill/marking` |
+| **L3 — Fingerprinting / logging fallback** | Hash + timestamp + author logged to a queryable registry; used when L1/L2 are unavailable (very short text, heavily-transformed media) | Short-form text outputs, low-bandwidth mobile, offline-first surfaces | `@cyberskill/marking-registry` (cf. [Part 7](#part-7-engineering-operations) §11.2) |
+
+#### When each layer applies
+
+- **All three** for high-stakes generative content (deepfake-class images, synthetic video, voice clones).
+- **L1 + L2** for routine image/video/audio AI generation (illustrations, alt-text-as-image, AI photo edits).
+- **L1 + L3** for AI-generated text in long-form contexts (drafts, summaries).
+- **L3 only** as a fallback when L1 and L2 are technically infeasible — and the surface MUST also display the AIDisclosureBadge ([Part 3h](#part-3h-components-ai-chat) §10).
+
+#### Refusal authority
+
+If a product surface ships AI-generated content **without** at least one applicable layer of marking, the audit framework's red-team protocol ([Part 6](#part-6-ai-native-ethics-sustainability) §7) flags the surface as failing Article 50 conformance. Sales / marketing claims that conflict with the marking obligation are likewise refused per [Part 1](#part-1-foundations) §3.4 (Honest).
+
+#### Engineering hooks
+
+- **`@cyberskill/marking`** package wraps the three-layer pattern with one API: `mark(asset, kind, layers)`.
+- **CI gate** rejects builds that ship AI-generation surfaces without marking-pipeline integration.
+- **Telemetry** ([Part 10](#part-10-measurement-research-appendix) §2) logs marking-attempt success rate per layer; cohort below 99% triggers remediation.
+
+#### Vietnam parallel
+
+The PDPL Art. 30 disclosure copy continues to apply in VN locale alongside the EU-AI-Act marking. The two regimes are complementary, not redundant — PDPL governs personal-data processing; EU AI Act governs AI-generated content authenticity.
+
 ---
 
-## 4. Confidence calibration UX
+## 6.4 Confidence calibration UX
 
 Three tiers ([Part 3h](#part-3h-components-ai-chat) §5):
 
@@ -13985,7 +13990,7 @@ Calibration is verified quarterly: a sample of AI outputs is hand-graded for acc
 
 ---
 
-## 5. Citation UX
+## 6.5 Citation UX
 
 Inline numbered references with hover preview ([Part 3h](#part-3h-components-ai-chat) §4 CitationCard). The system's rules:
 
@@ -13997,7 +14002,7 @@ A *verification failure rate* > 1 % over a 24-hour window triggers an alarm.
 
 ---
 
-## 6. Human oversight patterns
+## 6.6 Human oversight patterns
 
 **HumanReviewGate** ([Part 3h](#part-3h-components-ai-chat) §6) implements EU AI Act Art. 14 in surface form. The system enforces:
 
@@ -14014,7 +14019,7 @@ Sensitive domains where the gate is required by default:
 
 ---
 
-## 7. Red-team checklist
+## 6.7 Red-team checklist
 
 The system's red-team programme combines **MITRE ATLAS** (Adversarial Threat Landscape for Artificial-Intelligence Systems) + **OWASP LLM Top 10** (owasp.org). Quarterly formal red-team exercises; continuous CI-based tests.
 
@@ -14047,7 +14052,7 @@ Findings are filed as security issues; regressions are tracked in the AI risk re
 
 ---
 
-## 8. Prompt-injection defences
+## 6.8 Prompt-injection defences
 
 ### 8.1 Input sanitisation
 
@@ -14067,7 +14072,7 @@ Retrieved documents are marked with their trust level (`trusted-internal`, `trus
 
 ---
 
-## 9. Dark-pattern prohibitions
+## 6.9 Dark-pattern prohibitions
 
 The system **forbids** four patterns at the component level:
 
@@ -14080,7 +14085,7 @@ The system's `@cyberskill/eslint-plugin/no-dark-patterns` rule enforces these at
 
 ---
 
-## 10. Calm Technology (Amber Case)
+## 6.10 Calm Technology (Amber Case)
 
 The system aligns with **Amber Case's *Calm Technology*** principles (O'Reilly Media, 2015):
 
@@ -14094,7 +14099,7 @@ These map directly to the system's calm-default principle ([Part 1](#part-1-foun
 
 ---
 
-## 11. Humane Design (Center for Humane Technology)
+## 6.11 Humane Design (Center for Humane Technology)
 
 The system aligns with the **Center for Humane Technology** Humane Design Guide:
 
@@ -14107,7 +14112,7 @@ Concrete implications: the analytics taxonomy ([Part 10](#part-10-measurement-re
 
 ---
 
-## 12. IEEE 7000-series
+## 6.12 IEEE 7000-series
 
 - **IEEE 7000-2021** — value-based system design.
 - **IEEE 7001-2021** — transparency of autonomous systems.
@@ -14117,7 +14122,7 @@ These form the **non-regulatory ethical scaffold** alongside ISO 42001. CyberSki
 
 ---
 
-## 13. Sustainability — SWDM v4
+## 6.13 Sustainability — SWDM v4
 
 ### 13.1 The methodology
 
@@ -14150,7 +14155,7 @@ AI inference adds variable carbon proportional to model size and reasoning lengt
 
 ---
 
-## 14. Carbon measurement
+## 6.14 Carbon measurement
 
 ### 14.1 Tooling
 
@@ -14169,7 +14174,7 @@ Carbon is measured in production with RUM, not just in the lab. Per-page measure
 
 ---
 
-## 15. Green hosting; energy-aware defaults; offline-first; hardware lifetime
+## 6.15 Green hosting; energy-aware defaults; offline-first; hardware lifetime
 
 ### 15.1 Green hosting
 
@@ -14195,7 +14200,7 @@ The system commits to **support five-year-old devices** without a documented jus
 
 ---
 
-## 16. C2PA 2.2 content provenance
+## 6.16 C2PA 2.2 content provenance
 
 ### 16.1 The standard
 
@@ -14234,7 +14239,7 @@ The **C2PAProvenanceBadge** ([Part 3h](#part-3h-components-ai-chat) §12) verifi
 
 ---
 
-## 17. References
+## 6.17 References
 
 - **ISO/IEC 42001:2023** — *Information technology — Artificial intelligence — Management system*. December 2023. https://www.iso.org/standard/42001
 - **EU AI Act** (Regulation EU 2024/1689) — entered into force 1 August 2024. European Commission.
@@ -14254,7 +14259,7 @@ The **C2PAProvenanceBadge** ([Part 3h](#part-3h-components-ai-chat) §12) verifi
 
 ---
 
-## 18. Datasheet pattern
+## 6.18 Datasheet pattern
 
 *An in-product surface for displaying dataset documentation per the "Datasheets for Datasets" academic convention (Gebru et al. 2018), adapted for runtime UI. Composable as a Tier-2 component ([Part 12](#part-12-advanced-component-library-tier-2)); microcopy keys in [Part 14](#part-14-content-design-ux-writing-at-scale) §8.*
 
@@ -14296,7 +14301,7 @@ Operationalised in [Part 12](#part-12-advanced-component-library-tier-2) §X (Da
 
 ---
 
-## 19. Model card pattern
+## 6.19 Model card pattern
 
 *Companion in-product surface to the datasheet, displaying model documentation per the "Model Cards for Model Reporting" convention (Mitchell et al. 2019), adapted for runtime UI.*
 
@@ -14338,7 +14343,7 @@ Operationalised in [Part 12](#part-12-advanced-component-library-tier-2) §X (Mo
 
 ---
 
-## 20. Agentic-action ethics layer
+## 6.20 Agentic-action ethics layer
 
 *When an agent does not merely respond but takes autonomous actions on the user's behalf — writes to a database, sends a message, spends money, modifies a file, calls another tool — the ethics floor rises. This section codifies the additional safeguards.*
 
@@ -14502,7 +14507,7 @@ These are not preferences. They are contracts the design system depends on, and 
 
 ---
 
-## 1. Monorepo structure
+## 7.1 Monorepo structure
 
 ### 1.1 Top-level layout
 
@@ -14559,7 +14564,7 @@ cyberskill/
 
 ---
 
-## 2. Package layout
+## 7.2 Package layout
 
 ### 2.1 Per-package responsibility
 
@@ -14604,7 +14609,7 @@ CDN URLs follow the pattern `https://cdn.jsdelivr.net/npm/@cyberskill/<pkg>@<ver
 
 ---
 
-## 3. DTCG 2025.10 token pipeline — Style Dictionary v5
+## 7.3 DTCG 2025.10 token pipeline — Style Dictionary v5
 
 ### 3.1 Why Style Dictionary v5
 
@@ -14753,9 +14758,67 @@ The DTCG 2025.10 format is the first **stable** version (W3C DTCG, 28 October 20
 - Aliases: `{group.token}` bracket-reference syntax.
 - `$extensions` for vendor-specific metadata (we use `com.cyberskill.*`).
 
+### 3.bis Token resolvers — living-design-data
+
+Post-stable, the DTCG community is moving from static token files toward **living design data** (zeroheight, "What's new in the Design Tokens spec"). The system adopts the **token-resolver pattern** to support dynamic theme / density / locale resolution without forking the token tree.
+
+#### What a resolver does
+
+A token resolver is a runtime function that picks a value at evaluation time based on context (theme, density, locale, vertical pack, A11y mode). Tokens declare resolvers via `$extensions.com.cyberskill.resolver`:
+
+```json
+{
+  "cs": {
+    "color": {
+      "surface": {
+        "primary": {
+          "$type": "color",
+          "$value": "{cs.color.brand.umber}",
+          "$extensions": {
+            "com.cyberskill.resolver": {
+              "kind": "theme",
+              "cases": {
+                "light": "{cs.color.brand.umber}",
+                "dark": "{cs.color.neutral.50}",
+                "high-contrast": "{cs.color.neutral.0}",
+                "sepia": "{cs.color.brand.ochre.tint-200}"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+#### Resolver kinds
+
+| Kind | Selects from | Example |
+|---|---|---|
+| `theme` | Light / dark / HC / sepia ([Part 13](#part-13-theming-white-label-embedding) §2, §4) | `cs.color.surface.primary` |
+| `density` | Compact / cozy / comfortable ([Part 13](#part-13-theming-white-label-embedding) §3) | `cs.spacing.button.x` |
+| `locale` | EN / VN / 20+ tier ([Part 5](#part-5-accessibility-inclusion-localization) §7) | `cs.font.body.family` |
+| `vertical` | Per Part-19 pack | `cs.color.semantic.compliance` |
+| `a11y` | reduced-motion / high-contrast / large-text | `cs.motion.transition.standard` |
+
+#### Build pipeline
+
+Style Dictionary v5 has built-in support for DTCG `$extensions` — we use a custom transform `cyberskill/resolver` that compiles resolvers to platform-specific output:
+
+- **CSS** — emits a `light-dark()` / `@media (prefers-...)` cascade.
+- **Swift / Kotlin** — emits a `Theme` enum with case-by-case values.
+- **JS / TS** — emits a runtime resolver function with full type inference.
+
+#### Why this matters
+
+White-label themes ([Part 13](#part-13-theming-white-label-embedding) §5) become a JSON override at the resolver layer rather than a wholesale token tree fork. Customers ship overrides as small patches; the global token tree stays canonical.
+
+Generative theming ([Part 13](#part-13-theming-white-label-embedding) §5.5) emits resolver overrides directly — the LLM doesn't rewrite the token tree, it augments resolvers with new cases.
+
 ---
 
-## 4. Tailwind v4 `@theme` configuration
+## 7.4 Tailwind v4 `@theme` configuration
 
 ### 4.1 Why Tailwind v4
 
@@ -14784,7 +14847,7 @@ Tailwind v4's `@theme` directive consumes the imported CSS variables and produce
 
 ---
 
-## 5. Storybook 9 setup
+## 7.5 Storybook 9 setup
 
 ### 5.1 Why Storybook 9
 
@@ -14869,7 +14932,7 @@ Every component ships with these stories:
 
 ---
 
-## 6. Testing pyramid
+## 7.6 Testing pyramid
 
 ### 6.1 Layers
 
@@ -14894,7 +14957,7 @@ Specific Playwright tests enforce SC 2.4.11, 2.4.13, 2.5.7, 2.5.8 across compone
 
 ---
 
-## 7. CI/CD
+## 7.7 CI/CD
 
 ### 7.1 GitHub Actions stages
 
@@ -14975,7 +15038,7 @@ jobs:
 
 ---
 
-## 8. Versioning
+## 7.8 Versioning
 
 ### 8.1 SemVer + Changesets
 
@@ -14998,7 +15061,7 @@ Patch and minor versions float per package; consumers receive bug fixes in one p
 
 ---
 
-## 9. Migration codemods
+## 7.9 Migration codemods
 
 ### 9.1 jscodeshift recipes
 
@@ -15025,7 +15088,7 @@ The current set includes `v3-to-v4` (token import path; props rename); `tokens-2
 
 ---
 
-## 10. Performance budgets
+## 7.10 Performance budgets
 
 ### 10.1 Core Web Vitals targets
 
@@ -15058,7 +15121,7 @@ Bundle-size and carbon budgets gate at CI. Production CWV breaches alarm.
 
 ---
 
-## 11. Observability
+## 7.11 Observability
 
 ### 11.1 OpenTelemetry
 
@@ -15093,7 +15156,7 @@ CO2.js measurements emitted alongside CWV.
 
 ---
 
-## 12. RFC 9457 API error contract
+## 7.12 RFC 9457 API error contract
 
 ### 12.1 The standard
 
@@ -15173,7 +15236,7 @@ Error messages in `detail` and `fields[].message` are localised per the request'
 
 ---
 
-## 13. Security
+## 7.13 Security
 
 ### 13.1 SBOM (CycloneDX)
 
@@ -15200,7 +15263,7 @@ No secrets in repo. Secret scanning enabled. Production secrets in Hashicorp Vau
 
 ---
 
-## 14. Figma MCP integration
+## 7.14 Figma MCP integration
 
 ### 14.1 Remote MCP server
 
@@ -15225,7 +15288,7 @@ Style Dictionary v5 emits `dist/figma/variables.json` (Part 7 §3). A CLI utilit
 
 ---
 
-## 15. References
+## 7.15 References
 
 - **W3C DTCG** — *Design Tokens Format Module 2025.10*, 28 October 2025. https://www.w3.org/community/design-tokens/2025/10/28/
 - **Tailwind CSS v4.0** — released 22 January 2025. https://tailwindcss.com/blog/tailwindcss-v4
@@ -15265,7 +15328,7 @@ Governing references for this Part: **Vietnam PDPL Law 91/2025/QH15** (effective
 
 ---
 
-## 1. Governance model
+## 8.1 Governance model
 
 ### 1.1 Three tiers
 
@@ -15294,7 +15357,7 @@ A Core Maintainer with a financial interest in a particular vendor or technology
 
 ---
 
-## 2. RFC process
+## 8.2 RFC process
 
 ### 2.1 What requires an RFC
 
@@ -15343,7 +15406,7 @@ RFCs are **public-by-default**. Closed RFCs (containing security or unreleased-p
 
 ---
 
-## 3. Contribution guide
+## 8.3 Contribution guide
 
 ### 3.1 Extend vs compose vs fork
 
@@ -15375,7 +15438,7 @@ Every contributor named in the changelog. Locale stewards and accessibility revi
 
 ---
 
-## 4. Global privacy matrix — 20+ jurisdictions
+## 8.4 Global privacy matrix — 20+ jurisdictions
 
 The matrix below summarises the regulatory parameters across CyberSkill's primary markets:
 
@@ -15406,7 +15469,7 @@ The matrix is maintained by the legal locale stewards and updated quarterly.
 
 ---
 
-## 5. Vietnam PDPL — article-level compliance patterns
+## 8.5 Vietnam PDPL — article-level compliance patterns
 
 The Vietnamese personal-data regime is the home market and the most operationally demanding for CyberSkill. This section is the longest in this Part because it must be both a doctrine and a checklist for every component team.
 
@@ -15551,7 +15614,7 @@ The full sensitive-class taxonomy:
 
 ---
 
-## 6. Decree 356/2025/ND-CP — implementing rules
+## 8.6 Decree 356/2025/ND-CP — implementing rules
 
 Decree 356 supplements the PDPL with operational specifics:
 
@@ -15565,7 +15628,7 @@ The Decree replaces Decree 13/2023/ND-CP entirely; teams migrating from the prio
 
 ---
 
-## 7. Cybersecurity Law 116/2025/QH15
+## 8.7 Cybersecurity Law 116/2025/QH15
 
 ### 7.1 Instrument
 
@@ -15586,7 +15649,7 @@ The Decree replaces Decree 13/2023/ND-CP entirely; teams migrating from the prio
 
 ---
 
-## 8. EU — GDPR + AI Act + EAA
+## 8.8 EU — GDPR + AI Act + EAA
 
 ### 8.1 GDPR
 
@@ -15605,7 +15668,7 @@ The Decree replaces Decree 13/2023/ND-CP entirely; teams migrating from the prio
 
 ---
 
-## 9. Other markets
+## 8.9 Other markets
 
 ### 9.1 California — CCPA/CPRA
 
@@ -15651,7 +15714,7 @@ The Decree replaces Decree 13/2023/ND-CP entirely; teams migrating from the prio
 
 ---
 
-## 10. Terms, Privacy, Cookies, DPA templates
+## 8.10 Terms, Privacy, Cookies, DPA templates
 
 ### 10.1 Templates package
 
@@ -15678,7 +15741,7 @@ Templates ship in **Vietnamese + English** at minimum. Other locales added as th
 
 ---
 
-## 11. Commerce patterns
+## 8.11 Commerce patterns
 
 ### 11.1 Patterns
 
@@ -15720,7 +15783,7 @@ The commerce surfaces are anti-dark-pattern by component contract ([Part 6](#par
 
 ---
 
-## 12. Authentication
+## 8.12 Authentication
 
 ### 12.1 Primary — passkeys (WebAuthn L3)
 
@@ -15750,7 +15813,7 @@ Per WCAG 2.2 SC 2.2.5 Re-authenticating, sensitive actions (account deletion, pa
 
 ---
 
-## 13. Account, team, workspace management
+## 8.13 Account, team, workspace management
 
 ### 13.1 Role model
 
@@ -15775,7 +15838,7 @@ Admin surfaces support bulk operations (invite many; remove many) with **confirm
 
 ---
 
-## 14. Billing, admin, audit logs, feature flags
+## 8.14 Billing, admin, audit logs, feature flags
 
 ### 14.1 Billing
 
@@ -15805,7 +15868,7 @@ Admin surfaces support bulk operations (invite many; remove many) with **confirm
 
 ---
 
-## 15. References
+## 8.15 References
 
 **Vietnamese law**
 
@@ -15830,7 +15893,7 @@ Admin surfaces support bulk operations (invite many; remove many) with **confirm
 
 ---
 
-## 16. RFC subtypes
+## 8.16 RFC subtypes
 
 *The base RFC template (§2.2) covers most cases; subtypes add fields specific to particular changes. All subtypes inherit the base; reviewers know which fields to scrutinise.*
 
@@ -15900,7 +15963,7 @@ Governing standards: **Anthropic Model Context Protocol** (mcp.org-style spec; 2
 
 ---
 
-## 1. Prompt schema (YAML)
+## 9.1 Prompt schema (YAML)
 
 ### 1.1 The schema
 
@@ -15976,7 +16039,7 @@ const result = await runPrompt(prompt, {
 
 ---
 
-## 2. Category taxonomy
+## 9.2 Category taxonomy
 
 The library is organised by category. Categories are purpose-driven, not model-driven.
 
@@ -15999,7 +16062,7 @@ Each category has a `category-rules.md` file describing what is and is not in sc
 
 ---
 
-## 3. Prompt versioning
+## 9.3 Prompt versioning
 
 ### 3.1 SemVer
 
@@ -16023,7 +16086,7 @@ Prompts deprecate via the same two-minor-versions warning policy as components (
 
 ---
 
-## 4. Evaluation framework
+## 9.4 Evaluation framework
 
 ### 4.1 Evaluation harness
 
@@ -16084,7 +16147,7 @@ A nightly run executes the full eval suite. Drifts (a prompt that passed yesterd
 
 ---
 
-## 5. Red-team protocols
+## 9.5 Red-team protocols
 
 ### 5.1 Quarterly MITRE ATLAS exercise
 
@@ -16108,7 +16171,7 @@ The CI pipeline runs OWASP LLM Top 10 test cases against every prompt:
 
 ---
 
-## 6. Human review gates
+## 9.6 Human review gates
 
 ### 6.1 Required categories
 
@@ -16129,7 +16192,7 @@ Every approval / change / rejection is logged with reviewer id, timestamp, reaso
 
 ---
 
-## 7. Prompt-to-component mapping
+## 9.7 Prompt-to-component mapping
 
 Each component with AI-driven copy maps to a named prompt. Changing a component's copy goes through:
 
@@ -16153,7 +16216,7 @@ The map is the authoritative cross-reference; component code imports from it rat
 
 ---
 
-## 8. AGENTS.md — monorepo root
+## 9.8 AGENTS.md — monorepo root
 
 ### 8.1 The convention
 
@@ -16240,7 +16303,7 @@ axe-core must report **0 critical, 0 serious**. Chromatic visual snapshots in **
 
 ---
 
-## 9. Per-package AGENTS.md
+## 9.9 Per-package AGENTS.md
 
 ### 9.1 Override pattern
 
@@ -16282,7 +16345,7 @@ Inherits from root `AGENTS.md`. Overrides specific to the email package.
 
 ---
 
-## 10. CLAUDE.md / .cursor/rules / .windsurf/rules / .github/copilot-instructions.md
+## 9.10 CLAUDE.md / .cursor/rules / .windsurf/rules / .github/copilot-instructions.md
 
 ### 10.1 Unification
 
@@ -16314,7 +16377,7 @@ Multiple editor files quickly drift; a code review caught checking `CLAUDE.md` f
 
 ---
 
-## 11. MCP server development
+## 9.11 MCP server development
 
 ### 11.1 The protocol
 
@@ -16434,9 +16497,64 @@ claude mcp add cyberskill-components npx -- @cyberskill/mcp-components
 ###### `Cursor / Windsurf — equivalent commands per their CLI`
 ```
 
+### 11.bis MCP Apps, Server Cards, and Agent-to-Agent (A2A)
+
+The 2026 MCP roadmap (modelcontextprotocol.io blog, Jan 2026) adds three capabilities the system adopts.
+
+#### MCP Apps (SEP-1865)
+
+Formalised early 2026, **MCP Apps** is an extension that ships **interactive UIs** alongside the base text + structured-data primitives. Where a vanilla MCP tool returns JSON, an MCP App returns a **renderable React surface** (dashboards, forms, live data viz) that the host (Claude / Cursor / Windsurf) embeds in the agent conversation.
+
+CyberSkill's MCP Apps wrap the design system's Tier-1 + Tier-2 components, so an agent can show — not just describe — a Button picker, a token-pair contrast preview, or a kanban board. Constraints:
+
+- **Token compliance.** Every MCP App surface inherits the system's tokens. No magic colours.
+- **Accessibility.** WCAG 2.2 AA floor ([Part 5](#part-5-accessibility-inclusion-localization) §1) applies — agent-rendered surfaces are real surfaces.
+- **Voice.** Microcopy follows the four-axis voice ([Part 1](#part-1-foundations) §3) and the bilingual EN+VN rule ([Part 14](#part-14-content-design-ux-writing-at-scale) §9).
+- **Disclosure.** Any surface that contains AI-generated content carries the AIDisclosureBadge ([Part 3h](#part-3h-components-ai-chat) §10) AND the multi-layered marking from [Part 6](#part-6-ai-native-ethics-sustainability) §3.
+
+#### MCP Server Cards (H2 2026)
+
+Server Cards are the **automatic discovery mechanism** for MCP servers. A Server Card is a JSON manifest the server publishes at a well-known path (`/.well-known/mcp-server-card.json`) describing tools, prompts, resources, auth requirements, rate limits, and contact info. Hosts auto-register the server on first contact.
+
+The CyberSkill design-system MCP server (Part 18 §1.bis) publishes its Server Card alongside the docs site. Sample fields:
+
+```json
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/server-card-2026.json",
+  "name": "CyberSkill Design System",
+  "version": "1.0.6",
+  "auth": { "type": "oauth2.1", "scopes": ["read:components", "read:tokens"] },
+  "tools": ["search_components", "get_component", "list_tokens", "validate_contrast"],
+  "prompts": ["how_to_use", "build_an_app", "audit_my_codebase"],
+  "rate_limit": { "rpm": 60, "burst": 10 },
+  "support": { "email": "info@cyberskill.world" }
+}
+```
+
+#### Agent-to-Agent (A2A) coordination (H2 2026)
+
+A2A patterns let multiple specialised agents collaborate via MCP. The CyberSkill orchestration patterns ([Part 9](#part-9-ai-prompt-library-workflows) §12) extend with three A2A roles:
+
+- **Researcher agent** — gathers external evidence per the audit framework's `@Agent[research]` actor.
+- **Drafter agent** — produces doctrine-compliant content per the brand voice.
+- **Reviewer agent** — runs the SCAN audit + the brand-voice + a11y checks before any commit.
+
+A2A messages are signed (Ed25519) and append to the same `audit/` ledger the BRAIN protocol uses (`AGENTS.md` §7). Inter-agent disagreements escalate to a `@Human[decide]` row in the audit report's §3 Findings.
+
+#### Enterprise readiness
+
+The 2026 roadmap calls out four enterprise requirements; our doctrine maps as follows:
+
+| Requirement | Where in our doctrine |
+|---|---|
+| Audit trails | BRAIN protocol `audit/` JSONL chain (`AGENTS.md` §7) |
+| SSO-integrated auth | OAuth 2.1 in the Server Card; SSO via [Part 8](#part-8-governance-legal-commerce) §12 |
+| Gateway behaviour | API gateway pattern in [Part 7](#part-7-engineering-operations) (extends §11 Observability) |
+| Configuration portability | DESIGN.md is THE config; `tokens/` ships alongside |
+
 ---
 
-## 12. Agent orchestration patterns
+## 9.12 Agent orchestration patterns
 
 ### 12.1 Common frameworks
 
@@ -16471,7 +16589,7 @@ Every agent action is logged with agent id, prompt id (if applicable), tool call
 
 ---
 
-## 13. References
+## 9.13 References
 
 - **Anthropic Model Context Protocol** — spec 2025-11-25; stewarded via the Linux Foundation Agentic AI Foundation. https://modelcontextprotocol.io/
 - **agents.md** — open convention; 60,000+ repositories. https://agents.md/
@@ -16490,7 +16608,7 @@ Every agent action is logged with agent id, prompt id (if applicable), tool call
 
 ---
 
-## 14. Multi-agent orchestration patterns
+## 9.14 Multi-agent orchestration patterns
 
 When two or more agents collaborate, additional patterns apply beyond single-agent prompt design.
 
@@ -16711,7 +16829,7 @@ Governing references for this Part: **PDPL Art. 14** (data subject rights drive 
 
 ---
 
-## 1. Adoption KPIs
+## 10.1 Adoption KPIs
 
 The system's adoption is measured by six KPIs published quarterly on the public CyberSkill dashboard:
 
@@ -16757,7 +16875,7 @@ The correlation report is published in the public CyberSkill dashboard alongside
 
 ---
 
-## 2. Telemetry schema
+## 10.2 Telemetry schema
 
 ### 2.1 Event shape
 
@@ -16807,7 +16925,7 @@ Telemetry is **opt-in** at first use. The opt-in surface uses the system's conse
 
 ---
 
-## 3. Research cadence
+## 10.3 Research cadence
 
 ### 3.1 Weekly — guerilla
 
@@ -16836,7 +16954,7 @@ Telemetry is **opt-in** at first use. The opt-in surface uses the system's conse
 
 ---
 
-## 4. Inclusive research cohorts
+## 10.4 Inclusive research cohorts
 
 The system's research deliberately includes cohorts that conventional product analytics under-represents:
 
@@ -16851,7 +16969,7 @@ Cohort recruitment is documented per study; compensation parity verified.
 
 ---
 
-## 5. Usability testing methodology
+## 10.5 Usability testing methodology
 
 ### 5.1 Task-based testing
 
@@ -16873,7 +16991,7 @@ A research memo per study with: scenario list, metrics, findings, recommendation
 
 ---
 
-## 6. Survey instruments
+## 10.6 Survey instruments
 
 The system uses standard, validated instruments. **Triangulate at least three** per quarterly cadence — single-instrument signals are easy to game.
 
@@ -16889,7 +17007,7 @@ Vietnamese translations of all instruments verified by locale stewards ([Part 1]
 
 ---
 
-## 7. Analytics taxonomy
+## 10.7 Analytics taxonomy
 
 ### 7.1 Naming conventions
 
@@ -16937,7 +17055,7 @@ A pre-emit hook scans every event payload for PII signatures (CCCD regex, phone-
 
 ---
 
-## 8. Event naming conventions
+## 10.8 Event naming conventions
 
 Beyond §7.1, names follow these rules:
 
@@ -16949,7 +17067,7 @@ Beyond §7.1, names follow these rules:
 
 ---
 
-## 9. Dashboards
+## 10.9 Dashboards
 
 ### 9.1 Public sustainability dashboard
 
@@ -16973,7 +17091,7 @@ DSR throughput; SLA compliance (≤ 72 hours); breakdown by right type. Required
 
 ---
 
-## 10. Benchmarking matrix — 20 systems
+## 10.10 Benchmarking matrix — 20 systems
 
 The full benchmark matrix compares CyberSkill against the reference set across 11 dimensions. Cells are summarised; the full data is in `docs/benchmark-2026.csv`.
 
@@ -17005,7 +17123,7 @@ The full benchmark matrix compares CyberSkill against the reference set across 1
 
 ---
 
-## 11. Glossary — 200+ terms
+## 10.11 Glossary — 200+ terms
 
 A representative selection is given here; the complete glossary ships as `docs/glossary.csv` with a Vietnamese translation column and a citation column. The entries below are organised by domain.
 
@@ -17125,7 +17243,7 @@ A representative selection is given here; the complete glossary ships as `docs/g
 
 ---
 
-## 12. Authoritative references
+## 10.12 Authoritative references
 
 A representative bibliography is given here; the complete list ships as `docs/references.csv` with one row per source including URL, last-accessed date, and Part(s) where cited. The full list contains 300+ entries.
 
@@ -17261,7 +17379,7 @@ A representative bibliography is given here; the complete list ships as `docs/re
 
 ---
 
-## 13. Full evidence log
+## 10.13 Full evidence log
 
 ### 13.1 What the evidence log records
 
@@ -17294,43 +17412,13 @@ The evidence log allows future maintainers — and external auditors — to repr
 
 ---
 
-## 14. Change log
+## 10.14 Change log
 
-### 14.1 Document-level change log
-
-The document-level changelog tracks substantive changes to the system as a whole — versioning, scope changes, regulatory updates that ripple across multiple Parts. Stored at `CHANGELOG.md` at the repository root.
-
-```markdown
-###### `Changelog`
-
-## [Unreleased]
-
-## [2026.04] — 2026-04-25
-- Initial publication of the comprehensive document.
-- All 10 Parts (with Part 3 split into 3a-3h) at full publication depth.
-- Evidence log populated for all dated claims.
-
-## [2026.01] — 2026-01-15 (planned cycle)
-- Track PDPL effective-date entry into operational compliance.
-- Verify Decree 356/2025/ND-CP cross-references.
-- Update the Vietnam jurisdictional cell of the privacy matrix per first-quarter regulatory experience.
-```
-
-### 14.2 Per-package changelogs
-
-Per-package changelogs at `packages/{name}/CHANGELOG.md`, generated from Changesets. Drives release notes.
-
-### 14.3 Per-prompt changelog
-
-Per-prompt changelog within the YAML's `changelog` field ([Part 9](#part-9-ai-prompt-library-workflows) §1).
-
-### 14.4 Per-RFC change record
-
-Each RFC has an outcome section recording the decision, the implementer, and the merge SHA.
+Version history is recorded in [`CHANGELOG.md`](./CHANGELOG.md) at the repository root. Per-package changelogs at `packages/<name>/CHANGELOG.md` (generated from Changesets). Per-prompt changelog within the YAML's `changelog` field (Part 9 §1). Per-RFC outcome section recording the decision, implementer, and merge SHA.
 
 ---
 
-## 15. Operational metrics added by Parts 11–20
+## 10.15 Operational metrics added by Parts 11–20
 
 *Forward-references to metrics defined in their owning parts; consolidated here for the analytics team to wire into one dashboard.*
 
@@ -17399,7 +17487,7 @@ A single DesignOps dashboard ([Part 15](#part-15-design-system-tooling) §11) ag
 
 ---
 
-## 16. Measurement & research framework consolidation
+## 10.16 Measurement & research framework consolidation
 
 *Five sub-frameworks; one source of truth.*
 
@@ -17638,7 +17726,7 @@ This part defines the inventory of page-level patterns and the page-template spe
 
 ---
 
-## 1. The pattern hierarchy
+## 11.1 The pattern hierarchy
 
 The doctrine uses **five tiers** from atomic to template, adapted from Brad Frost's atomic-design vocabulary and aligned with how Carbon, Polaris, and Atlassian organise their libraries.
 
@@ -17679,7 +17767,7 @@ Frost's atoms / molecules / organisms / templates / pages map well to marketing 
 
 ---
 
-## 2. Page archetypes — the inventory
+## 11.2 Page archetypes — the inventory
 
 Every enterprise web product can be assembled from a small number of recurring page archetypes. The thirteen below cover ≥ 95% of pages in the reference enterprise products we benchmarked (Carbon, Atlassian, Salesforce, ServiceNow, SAP Fiori, Workday). We codify each as a Page Template (T4); product teams pick the closest one and customise the slots.
 
@@ -17703,7 +17791,7 @@ Sections §5 below specifies each template in 1.20-spec format.
 
 ---
 
-## 3. The pattern catalogue (T3)
+## 11.3 The pattern catalogue (T3)
 
 Patterns are reusable compositions smaller than a full page, larger than a single component. They are the verbs of the design system: *filter*, *select*, *act-on-many*, *inspect-quickly*, *navigate-record-by-record*. The catalogue:
 
@@ -18154,7 +18242,7 @@ Step 3 — User clicks link in email → returns to app, signed in
 
 ---
 
-## 4. The empty / loading / error / partial state taxonomy
+## 11.4 The empty / loading / error / partial state taxonomy
 
 Every component, pattern, and page template implements **all five canonical non-default states**. This section is the contract. Where Part 3 components mention these states, they reference back to this taxonomy.
 
@@ -18224,7 +18312,7 @@ If any row is missing, the RFC is rejected. This is non-negotiable.
 
 ---
 
-## 5. The page-template specifications (T4)
+## 11.5 The page-template specifications (T4)
 
 Each template below is a 1.20-style spec with anatomy, slots, variants, accessibility, and microcopy hooks.
 
@@ -18721,7 +18809,7 @@ Different from "list with no results" (a state of ListViewTemplate); used when a
 
 ---
 
-## 6. Multi-tenancy patterns
+## 11.6 Multi-tenancy patterns
 
 Enterprise products often support **multiple tenants** (workspaces, organisations, projects). The doctrine codifies the patterns.
 
@@ -18761,7 +18849,7 @@ If a user has multiple tenants and receives notifications across them, the notif
 
 ---
 
-## 7. The notifications centre
+## 11.7 The notifications centre
 
 A standard pattern across enterprise products. We define it once, here.
 
@@ -18818,7 +18906,7 @@ Notifications default to **conservative**: only direct mentions, replies to user
 
 ---
 
-## 8. Onboarding patterns
+## 11.8 Onboarding patterns
 
 Beyond OnboardingChecklistPattern (§3.15), this section defines the broader onboarding model.
 
@@ -18862,7 +18950,7 @@ When user navigates to an empty section: EmptyStateTemplate with section-specifi
 
 ---
 
-## 9. Accessibility cross-cutting
+## 11.9 Accessibility cross-cutting
 
 This part respects [Part 5](#part-5-accessibility-inclusion-localization) in full. Highlights specific to enterprise patterns:
 
@@ -18878,7 +18966,7 @@ This part respects [Part 5](#part-5-accessibility-inclusion-localization) in ful
 
 ---
 
-## 10. Performance budgets per template
+## 11.10 Performance budgets per template
 
 Per [Part 7](#part-7-engineering-operations) §10 budgets:
 
@@ -18900,7 +18988,7 @@ Templates not meeting budgets must enter [Part 7](#part-7-engineering-operations
 
 ---
 
-## 11. Internationalisation cross-cutting
+## 11.11 Internationalisation cross-cutting
 
 Per [Part 5](#part-5-accessibility-inclusion-localization) (a11y/l10n):
 
@@ -18911,7 +18999,7 @@ Per [Part 5](#part-5-accessibility-inclusion-localization) (a11y/l10n):
 
 ---
 
-## 12. Reference implementations
+## 11.12 Reference implementations
 
 For each template, the design system ships:
 
@@ -18925,7 +19013,7 @@ For each template, the design system ships:
 
 ---
 
-## 13. Cross-references
+## 11.13 Cross-references
 
 - **[Part 2](#part-2-design-language) §16** — illustration system (used in empty / error templates)
 - **Part 3** — primitives composed by patterns and templates
@@ -18944,7 +19032,7 @@ For each template, the design system ships:
 
 ---
 
-## 14. References
+## 11.14 References
 
 | Source | Year | Use |
 |---|---|---|
@@ -18964,7 +19052,7 @@ For each template, the design system ships:
 
 ---
 
-## 15. Heuristic compliance — Nielsen 10 + Shneiderman 8
+## 11.15 Heuristic compliance — Nielsen 10 + Shneiderman 8
 
 *Doc-only mapping; no new patterns.*
 
@@ -19042,7 +19130,7 @@ This part specifies twelve Tier-2 components with full 1.20 specs. Each componen
 
 ---
 
-## 1. RichText.Editor
+## 12.1 RichText.Editor
 
 ### 1.1 Name
 
@@ -19288,7 +19376,7 @@ richtext.codeblock.background
 
 ---
 
-## 2. File.Upload
+## 12.2 File.Upload
 
 ### 2.1 Name
 
@@ -19380,7 +19468,7 @@ upload.failed.color (semantic.danger)
 
 ---
 
-## 3. Calendar.Scheduler
+## 12.3 Calendar.Scheduler
 
 ### 3.1 Name
 
@@ -19462,7 +19550,7 @@ Date labels per locale ([Part 5](#part-5-accessibility-inclusion-localization) �
 
 ---
 
-## 4. Kanban.Board
+## 12.4 Kanban.Board
 
 ### 4.1 Name
 
@@ -19533,7 +19621,7 @@ Card-based workflow UI: tasks organised in columns by status; drag-drop between 
 
 ---
 
-## 5. Comments + Mentions + Presence
+## 12.5 Comments + Mentions + Presence
 
 ### 5.1 Family
 
@@ -19616,7 +19704,7 @@ Per [Part 8](#part-8-governance-legal-commerce) §5.6 (PDPL) and [Part 6](#part-
 
 ---
 
-## 6. CommandPalette
+## 12.6 CommandPalette
 
 ### 6.1 Name
 
@@ -19687,7 +19775,7 @@ Per [Part 10](#part-10-measurement-research-appendix) §7 — palette opens, que
 
 ---
 
-## 7. Search (Faceted, Federated, Type-Ahead)
+## 12.7 Search (Faceted, Federated, Type-Ahead)
 
 ### 7.1 Family
 
@@ -19759,7 +19847,7 @@ Per [Part 11](#part-11-enterprise-patterns-page-templates) §4.2: tell user what
 
 ---
 
-## 8. Notifications.Center (component spec)
+## 12.8 Notifications.Center (component spec)
 
 The pattern is in [Part 11](#part-11-enterprise-patterns-page-templates) §7. Here we specify the component.
 
@@ -19820,7 +19908,7 @@ Direct deep-link to Settings → Notifications ([Part 11](#part-11-enterprise-pa
 
 ---
 
-## 9. Tables — Advanced Patterns
+## 12.9 Tables — Advanced Patterns
 
 ### 9.1 Family
 
@@ -19881,7 +19969,7 @@ Direct deep-link to Settings → Notifications ([Part 11](#part-11-enterprise-pa
 
 ---
 
-## 10. Drag-and-Drop (DnD)
+## 12.10 Drag-and-Drop (DnD)
 
 ### 10.1 Family
 
@@ -19917,7 +20005,7 @@ Built on **dnd-kit** (Tailwind / React) — chosen for its accessibility-first d
 
 ---
 
-## 11. Code.Editor
+## 12.11 Code.Editor
 
 ### 11.1 Name
 
@@ -19965,7 +20053,7 @@ Built on **CodeMirror 6** — chosen for performance, modular architecture, acce
 
 ---
 
-## 12. Workflow.Visualization
+## 12.12 Workflow.Visualization
 
 ### 12.1 Name
 
@@ -20047,7 +20135,7 @@ Built on **React Flow** (xyflow) — chosen for flexibility and accessibility ex
 
 ---
 
-## 13. Cross-cutting concerns for Tier-2 components
+## 12.13 Cross-cutting concerns for Tier-2 components
 
 ### 13.1 Density modes
 
@@ -20121,7 +20209,7 @@ Lazy-load any component beyond initial render path.
 
 ---
 
-## 14. ColorPicker
+## 12.14 ColorPicker
 
 ### 14.1 Name
 
@@ -20267,7 +20355,7 @@ color-picker.history.max-items
 
 ---
 
-## 15. ImageEditor
+## 12.15 ImageEditor
 
 ### 15.1 Name
 
@@ -20374,7 +20462,7 @@ Alpha at v1.0; promotion to Beta planned 2026-Q4.
 
 ---
 
-## 16. Map.Visualization
+## 12.16 Map.Visualization
 
 ### 16.1 Name
 
@@ -20483,7 +20571,7 @@ Alpha at v1.0; promotion to Beta requires Logistics vertical pack ([Part 19](#pa
 
 ---
 
-## 17. Form.Builder
+## 12.17 Form.Builder
 
 ### 17.1 Name
 
@@ -20580,7 +20668,7 @@ Beta at v1.0 (with active production use in HR-tech vertical when [Part 19](#par
 
 ---
 
-## 18. Survey.Builder
+## 12.18 Survey.Builder
 
 ### 18.1 Name
 
@@ -20640,7 +20728,7 @@ Alpha at v1.0.
 
 ---
 
-## 19. PDF.Viewer
+## 12.19 PDF.Viewer
 
 ### 19.1 Name
 
@@ -20712,7 +20800,7 @@ Beta at v1.0.
 
 ---
 
-## 20. Audio.Recorder + Player
+## 12.20 Audio.Recorder + Player
 
 ### 20.1 Name
 
@@ -20792,7 +20880,7 @@ GA at v1.0 (low complexity, well-tested).
 
 ---
 
-## 21. Video.Player + chapters
+## 12.21 Video.Player + chapters
 
 ### 21.1 Name
 
@@ -20846,7 +20934,7 @@ GA at v1.0.
 
 ---
 
-## 22. Signature.Pad
+## 12.22 Signature.Pad
 
 ### 22.1 Name
 
@@ -20908,7 +20996,7 @@ Beta at v1.0.
 
 ---
 
-## 23. Diff.Viewer
+## 12.23 Diff.Viewer
 
 ### 23.1 Name
 
@@ -20966,7 +21054,7 @@ GA at v1.0.
 
 ---
 
-## 24. Tour.Overlay
+## 12.24 Tour.Overlay
 
 ### 24.1 Name
 
@@ -21039,7 +21127,7 @@ GA at v1.0.
 
 ---
 
-## 25. Combobox.Async (advanced)
+## 12.25 Combobox.Async (advanced)
 
 ### 25.1 Name
 
@@ -21095,7 +21183,7 @@ GA at v1.0.
 
 ---
 
-## 26. Spreadsheet.Editor
+## 12.26 Spreadsheet.Editor
 
 ### 26.1 Name
 
@@ -21148,7 +21236,7 @@ Alpha at v1.0; promotion to Beta planned 2027-Q2 after substantive customer use.
 
 ---
 
-## 27. Tree.Hierarchical
+## 12.27 Tree.Hierarchical
 
 ### 27.1 Name
 
@@ -21184,7 +21272,7 @@ GA at v1.0.
 
 ---
 
-## 28. AvatarStack + Presence
+## 12.28 AvatarStack + Presence
 
 ### 28.1 Name
 
@@ -21224,7 +21312,7 @@ GA at v1.0.
 
 ---
 
-## 29. Cross-references for new components
+## 12.29 Cross-references for new components
 
 All §14–§28 additions inherit cross-cutting concerns from §13 above:
 
@@ -21238,7 +21326,7 @@ All §14–§28 additions inherit cross-cutting concerns from §13 above:
 
 ---
 
-## 30. Combined component count for v1.0
+## 12.30 Combined component count for v1.0
 
 After this expansion, Part 12 specifies **27 named Tier-2 components**:
 
@@ -21260,7 +21348,7 @@ After this expansion, Part 12 specifies **27 named Tier-2 components**:
 
 ---
 
-## 31. Tier-2 contribution & RFC
+## 12.31 Tier-2 contribution & RFC
 
 Adding a new Tier-2 component requires:
 
@@ -21275,7 +21363,7 @@ Modifying an existing Tier-2 component follows [Part 8](#part-8-governance-legal
 
 ---
 
-## 32. Cross-references
+## 12.32 Cross-references
 
 - **[Part 2](#part-2-design-language)** — colour, type, motion tokens
 - **Part 3** — Tier-1 primitives composed by Tier-2 components
@@ -21295,7 +21383,7 @@ Modifying an existing Tier-2 component follows [Part 8](#part-8-governance-legal
 
 ---
 
-## 33. References
+## 12.33 References
 
 | Source | Year | Use |
 |---|---|---|
@@ -21340,7 +21428,7 @@ These three axes multiply: 5 themes × 3 densities × 4 embedding modes = 60 com
 
 ---
 
-## 1. The theming model
+## 13.1 The theming model
 
 ### 1.1 The token cascade
 
@@ -21441,7 +21529,7 @@ This is the only inline script the design system requires. It is signed into the
 
 ---
 
-## 2. The five built-in themes
+## 13.2 The five built-in themes
 
 ### 2.1 Light (default)
 
@@ -21538,7 +21626,7 @@ All combinations supported by the cascade (§1.1).
 
 ---
 
-## 3. Density modes
+## 13.3 Density modes
 
 ### 3.1 The three densities
 
@@ -21612,7 +21700,7 @@ If a screen-reader / switch-control user enters compact mode, an SR-only announc
 
 ---
 
-## 4. Accessibility-first themes
+## 13.4 Accessibility-first themes
 
 ### 4.1 Forced-colors mode (Windows High Contrast)
 
@@ -21678,7 +21766,7 @@ Users may select a persona with one click in Settings → Accessibility, which s
 
 ---
 
-## 5. White-label themes
+## 13.5 White-label themes
 
 ### 5.1 What white-label means in the doctrine
 
@@ -21864,7 +21952,7 @@ The generator emits a standard white-label theme JSON (per §5.3) plus a generat
 
 ---
 
-## 6. Sub-brand systems
+## 13.6 Sub-brand systems
 
 (Extends [Part 1](#part-1-foundations) §11. CyberSkill's own product-family brands.)
 
@@ -21925,7 +22013,7 @@ A user inside a sub-brand product still:
 
 ---
 
-## 7. Embedded surfaces
+## 13.7 Embedded surfaces
 
 ### 7.1 Why embedding matters
 
@@ -22051,7 +22139,7 @@ Customers embedding CyberSkill must:
 
 ---
 
-## 8. Theme & density telemetry
+## 13.8 Theme & density telemetry
 
 Per [Part 10](#part-10-measurement-research-appendix) §7:
 
@@ -22064,7 +22152,7 @@ This data informs default-setting decisions and identifies underused or struggli
 
 ---
 
-## 9. Performance impact
+## 13.9 Performance impact
 
 | Aspect | Constraint |
 |---|---|
@@ -22077,7 +22165,7 @@ This data informs default-setting decisions and identifies underused or struggli
 
 ---
 
-## 10. Testing
+## 13.10 Testing
 
 ### 10.1 Visual regression
 
@@ -22101,7 +22189,7 @@ JSON Schema validation tests; Theme Builder integration tests.
 
 ---
 
-## 11. Migration of existing components to support new themes
+## 13.11 Migration of existing components to support new themes
 
 For each component already in the library:
 
@@ -22115,7 +22203,7 @@ The doctrine includes a codemod ([Part 7](#part-7-engineering-operations) §9) t
 
 ---
 
-## 12. Cross-references
+## 13.12 Cross-references
 
 - **[Part 1](#part-1-foundations) §11** — sub-brand framework (extended here)
 - **[Part 2](#part-2-design-language)** — base tokens (theme overrides cascade from these)
@@ -22134,7 +22222,7 @@ The doctrine includes a codemod ([Part 7](#part-7-engineering-operations) §9) t
 
 ---
 
-## 13. References
+## 13.13 References
 
 | Source | Year | Use |
 |---|---|---|
@@ -22179,7 +22267,7 @@ This part brings CyberSkill to that bar. Three commitments anchor it:
 
 ---
 
-## 1. The content design hierarchy
+## 14.1 The content design hierarchy
 
 ### 1.1 Tiers
 
@@ -22260,7 +22348,7 @@ Strings are versioned per the [Part 17](#part-17-component-lifecycle-maturity-mo
 
 ---
 
-## 2. The voice principles, operationalised
+## 14.2 The voice principles, operationalised
 
 ### 2.1 The four-pillar voice (from Part 1 §3)
 
@@ -22416,7 +22504,7 @@ The punctuation rules are enforced by lint rule.
 
 ---
 
-## 3. Microcopy primitives — the C1 catalogue
+## 14.3 Microcopy primitives — the C1 catalogue
 
 ### 3.1 Button labels
 
@@ -22561,7 +22649,7 @@ Tooltip on hover always shows absolute date+time in user's TZ.
 
 ---
 
-## 4. Validation message catalogue
+## 14.4 Validation message catalogue
 
 ### 4.1 Structure
 
@@ -22670,7 +22758,7 @@ fields:
 
 ---
 
-## 5. Per-component microcopy (C2)
+## 14.5 Per-component microcopy (C2)
 
 For every component in Part 3 and [Part 12](#part-12-advanced-component-library-tier-2), this section defines the canonical microcopy slots. Component definitions reference back to these keys.
 
@@ -22833,7 +22921,7 @@ For icon-only controls or controls whose text is ambiguous to AT users:
 
 ---
 
-## 6. Per-pattern microcopy (C3)
+## 14.6 Per-pattern microcopy (C3)
 
 ### 6.1 FilterBarPattern
 
@@ -22921,7 +23009,7 @@ notifications:
 
 ---
 
-## 7. Per-template microcopy (C4)
+## 14.7 Per-template microcopy (C4)
 
 For each template in [Part 11](#part-11-enterprise-patterns-page-templates), an opinionated default microcopy set lives in `/packages/conten../meta/templates/`. Product teams override per their domain.
 
@@ -23021,7 +23109,7 @@ wizard:
 
 ---
 
-## 8. Microcopy for AI surfaces (Part 3h, Part 6, Part 9)
+## 14.8 Microcopy for AI surfaces (Part 3h, Part 6, Part 9)
 
 AI surfaces have stricter content rules.
 
@@ -23073,7 +23161,7 @@ ai-injection-blocked:
 
 ---
 
-## 9. Internationalisation depth
+## 14.9 Internationalisation depth
 
 ### 9.1 Translation workflow
 
@@ -23142,7 +23230,7 @@ field.address:
 
 ---
 
-## 10. Tooling
+## 14.10 Tooling
 
 ### 10.1 The content lint rule (`@cyberskill/content-lint`)
 
@@ -23187,7 +23275,7 @@ Internal users with a feature flag can edit microcopy in-place via a "Copy mode"
 
 ---
 
-## 11. Content review and governance
+## 14.11 Content review and governance
 
 ### 11.1 The content RFC subtype
 
@@ -23229,7 +23317,7 @@ Drift reports surface in DesignOps dashboard ([Part 16](#part-16-adoption-playbo
 
 ---
 
-## 12. Content design as design
+## 14.12 Content design as design
 
 Content is a design surface. Designers and content designers collaborate, not hand off:
 
@@ -23240,7 +23328,7 @@ Content is a design surface. Designers and content designers collaborate, not ha
 
 ---
 
-## 13. Cross-references
+## 14.13 Cross-references
 
 - **[Part 1](#part-1-foundations) §3** — voice principles (this part operationalises)
 - **[Part 1](#part-1-foundations) §10** — naming guidelines (used by content)
@@ -23260,7 +23348,7 @@ Content is a design surface. Designers and content designers collaborate, not ha
 
 ---
 
-## 14. References
+## 14.14 References
 
 | Source | Year | Use |
 |---|---|---|
@@ -23309,7 +23397,7 @@ Three commitments anchor the doctrine:
 
 ---
 
-## 1. The toolchain map
+## 15.1 The toolchain map
 
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
@@ -23357,7 +23445,7 @@ Three commitments anchor the doctrine:
 
 ---
 
-## 2. The Figma library
+## 15.2 The Figma library
 
 ### 2.1 Library architecture
 
@@ -23467,7 +23555,7 @@ When CyberSkill ships a sub-brand ([Part 13](#part-13-theming-white-label-embedd
 
 ---
 
-## 3. The Figma plugin
+## 15.3 The Figma plugin
 
 ### 3.1 Purpose
 
@@ -23577,7 +23665,7 @@ Surfaced in DesignOps dashboard ([Part 16](#part-16-adoption-playbook-designops)
 
 ---
 
-## 4. Status badges (Figma + IDE + Storybook)
+## 15.4 Status badges (Figma + IDE + Storybook)
 
 Lifecycle status ([Part 17](#part-17-component-lifecycle-maturity-model)) is visible across all surfaces:
 
@@ -23611,7 +23699,7 @@ Per [Part 17](#part-17-component-lifecycle-maturity-model) §6 — components em
 
 ---
 
-## 5. The IDE extension
+## 15.5 The IDE extension
 
 ### 5.1 Editors supported
 
@@ -23690,7 +23778,7 @@ Anonymised per [Part 8](#part-8-governance-legal-commerce) §11:
 
 ---
 
-## 6. The CLI scaffolder
+## 15.6 The CLI scaffolder
 
 ### 6.1 The package
 
@@ -23788,7 +23876,7 @@ Anonymised:
 
 ---
 
-## 7. Code Connect (Figma ↔ Code mapping)
+## 15.7 Code Connect (Figma ↔ Code mapping)
 
 ### 7.1 What Code Connect does
 
@@ -23837,7 +23925,7 @@ figma.connect(Button, '<figma-node-url>', {
 
 ---
 
-## 8. The content tooling stack
+## 15.8 The content tooling stack
 
 Per [Part 14](#part-14-content-design-ux-writing-at-scale) §10:
 
@@ -23850,7 +23938,7 @@ These compose: a designer writing copy in Figma uses the plugin, the developer r
 
 ---
 
-## 9. Quality tooling
+## 15.9 Quality tooling
 
 ### 9.1 Accessibility lint
 
@@ -23902,7 +23990,7 @@ Detects deprecated component imports; offers codemod via `pnpm dlx @cyberskill/c
 
 ---
 
-## 10. Telemetry & analytics tooling
+## 15.10 Telemetry & analytics tooling
 
 ### 10.1 Component-usage telemetry
 
@@ -23937,7 +24025,7 @@ Per [Part 8](#part-8-governance-legal-commerce) §11.3:
 
 ---
 
-## 11. The DesignOps dashboard
+## 15.11 The DesignOps dashboard
 
 A first-party internal dashboard (DashboardTemplate from [Part 11](#part-11-enterprise-patterns-page-templates)) showing:
 
@@ -23956,7 +24044,7 @@ Updated daily.
 
 ---
 
-## 12. Documentation generation tooling
+## 15.12 Documentation generation tooling
 
 ### 12.1 The docs site (Part 18) generator
 
@@ -23982,7 +24070,7 @@ Algolia DocSearch (free for OSS / paid for enterprise) crawls the docs nightly.
 
 ---
 
-## 13. Tooling roadmap (sequenced)
+## 15.13 Tooling roadmap (sequenced)
 
 The toolchain isn't built all at once. Sequenced:
 
@@ -23998,7 +24086,7 @@ The toolchain isn't built all at once. Sequenced:
 
 ---
 
-## 14. Tooling governance
+## 15.14 Tooling governance
 
 ### 14.1 RFC
 
@@ -24024,7 +24112,7 @@ Tool deprecation follows [Part 7](#part-7-engineering-operations) §8 + [Part 17
 
 ---
 
-## 15. Tooling for sub-brands and white-label
+## 15.15 Tooling for sub-brands and white-label
 
 ### 15.1 Sub-brand
 
@@ -24041,7 +24129,7 @@ White-label customers also get:
 
 ---
 
-## 16. AI-augmented tooling
+## 15.16 AI-augmented tooling
 
 Per [Part 9](#part-9-ai-prompt-library-workflows) (prompt library):
 
@@ -24056,7 +24144,7 @@ These prompts are versioned ([Part 9](#part-9-ai-prompt-library-workflows)), rev
 
 ---
 
-## 17. Cross-references
+## 15.17 Cross-references
 
 - **[Part 2](#part-2-design-language)** — token tree the tooling syncs
 - **Part 3** — components the tooling references
@@ -24076,7 +24164,7 @@ These prompts are versioned ([Part 9](#part-9-ai-prompt-library-workflows)), rev
 
 ---
 
-## 18. References
+## 15.18 References
 
 | Source | Year | Use |
 |---|---|---|
@@ -24131,7 +24219,7 @@ Three commitments anchor the doctrine:
 
 ---
 
-## 1. The adoption maturity model
+## 16.1 The adoption maturity model
 
 ### 1.1 The five levels
 
@@ -24210,7 +24298,7 @@ Target trajectory:
 
 ---
 
-## 2. Migration playbooks
+## 16.2 Migration playbooks
 
 For each common starting point, a step-by-step migration. Includes: time estimate, codemod availability, risks, rollback plan.
 
@@ -24308,7 +24396,7 @@ DesignOps offers, per request:
 
 ---
 
-## 3. The contribution workflow
+## 16.3 The contribution workflow
 
 ### 3.1 Why contribute
 
@@ -24385,7 +24473,7 @@ Per product, a designer + an engineer named as DS Ambassadors:
 
 ---
 
-## 4. Deprecation comms
+## 16.4 Deprecation comms
 
 ### 4.1 The deprecation lifecycle
 
@@ -24449,7 +24537,7 @@ When a deprecation reaches sunset:
 
 ---
 
-## 5. Version comms
+## 16.5 Version comms
 
 ### 5.1 Release cadence
 
@@ -24521,7 +24609,7 @@ For white-label customers ([Part 13](#part-13-theming-white-label-embedding) §5
 
 ---
 
-## 6. Designer / developer enablement
+## 16.6 Designer / developer enablement
 
 ### 6.1 Onboarding for new product team members
 
@@ -24596,7 +24684,7 @@ Monthly DS newsletter sent to all designers + engineers:
 
 ---
 
-## 7. The DesignOps function
+## 16.7 The DesignOps function
 
 ### 7.1 What DesignOps does
 
@@ -24655,7 +24743,7 @@ Target NPS: ≥ 40 (industry benchmark for internal tooling).
 
 ---
 
-## 8. Adoption telemetry
+## 16.8 Adoption telemetry
 
 Per [Part 10](#part-10-measurement-research-appendix) §1 + [Part 15](#part-15-design-system-tooling) §10:
 
@@ -24678,7 +24766,7 @@ Surfaced in DesignOps dashboard ([Part 15](#part-15-design-system-tooling) §11)
 
 ---
 
-## 8.bis Public roadmap
+## 16.8.bis Public roadmap
 
 The system publishes a public roadmap on the CyberSkill design-system docs site, refreshed quarterly. Transparency here is a deliberate adoption lever: external contributors and product teams plan around what ships and when.
 
@@ -24712,7 +24800,7 @@ The Design System Lead refreshes the roadmap monthly; the Founder + Brand Owner 
 
 ---
 
-## 9. Anti-patterns of adoption
+## 16.9 Anti-patterns of adoption
 
 The mistakes we will not repeat:
 
@@ -24731,7 +24819,7 @@ The mistakes we will not repeat:
 
 ---
 
-## 10. The DesignOps charter
+## 16.10 The DesignOps charter
 
 > The CyberSkill DesignOps function exists to make the design system **easier to use than not to use**. We measure success by adoption, not output. We win when a product team picks the system without thinking — because it's faster, better, and supported.
 >
@@ -24750,7 +24838,7 @@ The mistakes we will not repeat:
 
 ---
 
-## 11. Cross-references
+## 16.11 Cross-references
 
 - **[Part 1](#part-1-foundations)** — voice and brand the DS embodies
 - **[Part 2](#part-2-design-language)–3** — the components / tokens being adopted
@@ -24768,7 +24856,7 @@ The mistakes we will not repeat:
 
 ---
 
-## 12. References
+## 16.12 References
 
 | Source | Year | Use |
 |---|---|---|
@@ -24821,7 +24909,7 @@ Three commitments anchor the doctrine:
 
 ---
 
-## 1. The five lifecycle stages
+## 17.1 The five lifecycle stages
 
 ### 1.1 Stages
 
@@ -24866,7 +24954,7 @@ Components that linger in Alpha or Beta beyond max are auto-flagged for review; 
 
 ---
 
-## 2. Status badges — visible everywhere
+## 17.2 Status badges — visible everywhere
 
 ### 2.1 In code
 
@@ -24943,7 +25031,7 @@ Per [Part 7](#part-7-engineering-operations) §11.2:
 
 ---
 
-## 3. Promotion gates
+## 17.3 Promotion gates
 
 ### 3.1 Alpha → Beta
 
@@ -25005,7 +25093,7 @@ If objections raise material issues, GA postponed; otherwise promotion proceeds.
 
 ---
 
-## 4. Deprecation process
+## 17.4 Deprecation process
 
 ### 4.1 Reasons to deprecate
 
@@ -25091,7 +25179,7 @@ When sunset date arrives:
 
 ---
 
-## 5. Special lifecycle cases
+## 17.5 Special lifecycle cases
 
 ### 5.1 Forks
 
@@ -25188,7 +25276,7 @@ Tools (Figma plugin, IDE extension, CLI subcommands) follow same five stages:
 
 ---
 
-## 6. Lifecycle telemetry
+## 17.6 Lifecycle telemetry
 
 ### 6.1 What we track
 
@@ -25242,7 +25330,7 @@ Promotion velocity is a health indicator; too slow signals stagnation; too fast 
 
 ---
 
-## 7. The lifecycle dashboard for product teams
+## 17.7 The lifecycle dashboard for product teams
 
 Each product team has a per-product view:
 
@@ -25275,7 +25363,7 @@ Auto-emailed to product team leads weekly.
 
 ---
 
-## 8. Lifecycle and external customers
+## 17.8 Lifecycle and external customers
 
 ### 8.1 White-label customers (Part 13 §5)
 
@@ -25296,7 +25384,7 @@ If CyberSkill open-sources components:
 
 ---
 
-## 9. Lifecycle audit
+## 17.9 Lifecycle audit
 
 ### 9.1 Quarterly audit by DesignOps
 
@@ -25319,13 +25407,13 @@ Annual cycle adds:
 
 ---
 
-## 10. Lifecycle of the lifecycle itself
+## 17.10 Lifecycle of the lifecycle itself
 
 This part is itself a lifecycle artefact, owned by the Engineering Lead seat ([Part 16](#part-16-adoption-playbook-designops) §7.2). Reviewed quarterly. Substantive changes through [Part 8](#part-8-governance-legal-commerce) §2 RFC.
 
 ---
 
-## 11. The lifecycle pledge
+## 17.11 The lifecycle pledge
 
 > Every artefact in the CyberSkill design system has a known status, a named owner, and a documented life. We do not ship surprises. We do not abandon what we've shipped. We do not break trust.
 >
@@ -25339,7 +25427,7 @@ This part is itself a lifecycle artefact, owned by the Engineering Lead seat ([P
 
 ---
 
-## 12. Cross-references
+## 17.12 Cross-references
 
 - **[Part 7](#part-7-engineering-operations) §5** — Storybook stories show lifecycle status
 - **[Part 7](#part-7-engineering-operations) §8** — versioning policy (lockstep majors, deprecation policy)
@@ -25357,7 +25445,7 @@ This part is itself a lifecycle artefact, owned by the Engineering Lead seat ([P
 
 ---
 
-## 13. References
+## 17.13 References
 
 | Source | Year | Use |
 |---|---|---|
@@ -25410,7 +25498,7 @@ Three commitments anchor the doctrine:
 
 ---
 
-## 1. Information architecture
+## 18.1 Information architecture
 
 ### 1.1 The top-level navigation
 
@@ -25543,9 +25631,21 @@ The site is bilingual EN+VN at minimum, per [Part 11](#part-11-enterprise-patter
 - Untranslated pages fall back to EN with a banner: "This page hasn't been translated yet — see Vietnamese soon."
 - Translation status indicator per page (e.g., "Translated 2026-04-15 — current").
 
+### 1.bis MCP Server Card publishing
+
+The docs site publishes a [Model Context Protocol Server Card](#part-9-ai-prompt-library-workflows) at the well-known path so any MCP-aware agent can auto-discover the design-system server.
+
+```http
+GET https://design.cyberskill.world/.well-known/mcp-server-card.json
+```
+
+The Server Card declares: tools (`search_components`, `get_component`, `list_tokens`, `validate_contrast`), prompts (`how_to_use`, `build_an_app`, `audit_my_codebase`), auth (OAuth 2.1), rate limits, and support contact. Cross-reference: [Part 9](#part-9-ai-prompt-library-workflows) §11.bis MCP Apps + Server Cards.
+
+The card is regenerated per release from `meta/mcp/server-card.template.json`; the build pipeline ([Part 7](#part-7-engineering-operations) §7) fails if the card drifts from shipping reality.
+
 ---
 
-## 2. The component-page anatomy
+## 18.2 The component-page anatomy
 
 Every component page (Tier 1, Tier 2) follows this anatomy.
 
@@ -25771,7 +25871,7 @@ Feedback collected anonymously; surfaced in DesignOps dashboard.
 
 ---
 
-## 3. Token reference page
+## 18.3 Token reference page
 
 Per [Part 2](#part-2-design-language) + [Part 7](#part-7-engineering-operations) §3:
 
@@ -25784,7 +25884,7 @@ Per [Part 2](#part-2-design-language) + [Part 7](#part-7-engineering-operations)
 
 ---
 
-## 4. The playground / sandbox
+## 18.4 The playground / sandbox
 
 ### 4.1 Inline playground (every component page)
 
@@ -25811,7 +25911,7 @@ Storybook ([Part 7](#part-7-engineering-operations) §5) is the local equivalent
 
 ---
 
-## 5. Search
+## 18.5 Search
 
 ### 5.1 Search behaviour
 
@@ -25858,7 +25958,7 @@ Within search:
 
 ---
 
-## 6. Deprecated and sunset components
+## 18.6 Deprecated and sunset components
 
 Per [Part 17](#part-17-component-lifecycle-maturity-model) §4:
 
@@ -25880,7 +25980,7 @@ Per [Part 17](#part-17-component-lifecycle-maturity-model) §4:
 
 ---
 
-## 7. Versioning UX
+## 18.7 Versioning UX
 
 ### 7.1 The version switcher
 
@@ -25925,7 +26025,7 @@ Search scoped to current version by default; option to search across all version
 
 ---
 
-## 8. Contribution-from-docs
+## 18.8 Contribution-from-docs
 
 ### 8.1 Edit-this-page
 
@@ -25949,7 +26049,7 @@ On any component page, "Contribute to {component}" → contribution guide for th
 
 ---
 
-## 9. Documentation rendering
+## 18.9 Documentation rendering
 
 ### 9.1 Stack
 
@@ -26019,7 +26119,7 @@ Docs site supports offline reading via service worker:
 
 ---
 
-## 10. Site governance
+## 18.10 Site governance
 
 ### 10.1 Owner
 
@@ -26057,7 +26157,7 @@ Markdown / MDX linted in CI:
 
 ---
 
-## 11. The docs site as reference application
+## 18.11 The docs site as reference application
 
 The docs site is itself built using:
 
@@ -26071,7 +26171,7 @@ If the docs site needs a feature the DS doesn't support, that's a signal to add 
 
 ---
 
-## 12. Customer-facing variant
+## 18.12 Customer-facing variant
 
 For external customers (white-label customers, OSS users when applicable) the docs site has a customer-facing variant:
 
@@ -26084,7 +26184,7 @@ URL: `/customer/` or per customer subdomain.
 
 ---
 
-## 13. Site analytics
+## 18.13 Site analytics
 
 PDPL-compliant per [Part 8](#part-8-governance-legal-commerce) §11:
 
@@ -26102,7 +26202,7 @@ Surface in DesignOps dashboard:
 
 ---
 
-## 14. Roadmap
+## 18.14 Roadmap
 
 Public roadmap on the docs site (`/updates/roadmap`):
 
@@ -26115,7 +26215,7 @@ Updated monthly. Each item links to RFC or issue.
 
 ---
 
-## 15. The site's content design
+## 18.15 The site's content design
 
 Per [Part 14](#part-14-content-design-ux-writing-at-scale):
 
@@ -26127,7 +26227,7 @@ Per [Part 14](#part-14-content-design-ux-writing-at-scale):
 
 ---
 
-## 16. Disaster-recovery
+## 18.16 Disaster-recovery
 
 The docs site is critical infrastructure for adoption:
 
@@ -26137,7 +26237,7 @@ The docs site is critical infrastructure for adoption:
 
 ---
 
-## 17. Cross-references
+## 18.17 Cross-references
 
 - **[Part 1](#part-1-foundations)–2** — foundations content surfaced in Foundations section
 - **Part 3 + 12** — components surfaced in Components section
@@ -26158,7 +26258,7 @@ The docs site is critical infrastructure for adoption:
 
 ---
 
-## 18. References
+## 18.18 References
 
 | Source | Year | Use |
 |---|---|---|
@@ -26177,7 +26277,7 @@ The docs site is critical infrastructure for adoption:
 
 ---
 
-## 19. Per-content-type page templates — Diátaxis quadrants
+## 18.19 Per-content-type page templates — Diátaxis quadrants
 
 *Operationalises the Diátaxis framework against the doctrine's 20 parts.*
 
@@ -26396,7 +26496,7 @@ Three commitments anchor the doctrine:
 
 ---
 
-## 1. The vertical pack architecture
+## 19.1 The vertical pack architecture
 
 ### 1.1 What a pack contains
 
@@ -26465,7 +26565,7 @@ Per [Part 17](#part-17-component-lifecycle-maturity-model):
 
 ---
 
-## 2. Vertical pack — Fintech
+## 19.2 Vertical pack — Fintech
 
 ### 2.1 Scope
 
@@ -26628,7 +26728,7 @@ TransactionTable:
 
 ---
 
-## 3. Vertical pack — Healthcare
+## 19.3 Vertical pack — Healthcare
 
 ### 3.1 Scope
 
@@ -26796,7 +26896,7 @@ Patient-facing healthcare surfaces target **WCAG 2.2 AAA where feasible**:
 
 ---
 
-## 4. Vertical pack — Education
+## 19.4 Vertical pack — Education
 
 ### 4.1 Scope
 
@@ -26911,7 +27011,7 @@ education:
 
 ---
 
-## 5. Vertical pack — Govtech
+## 19.5 Vertical pack — Govtech
 
 ### 5.1 Scope
 
@@ -27039,7 +27139,7 @@ All citizen surfaces target:
 
 ---
 
-## 6. Vertical pack — Logistics
+## 19.6 Vertical pack — Logistics
 
 ### 6.1 Scope
 
@@ -27135,7 +27235,7 @@ ManifestEditor:
 
 ---
 
-## 7. The pack contribution model
+## 19.7 The pack contribution model
 
 ### 7.1 New pack proposal
 
@@ -27164,7 +27264,7 @@ If a pack falls out of use (no product using it for ≥ 12 months), pack enters 
 
 ---
 
-## 8. Cross-pack patterns
+## 19.8 Cross-pack patterns
 
 Some patterns recur across packs:
 
@@ -27181,7 +27281,7 @@ These remain in horizontal Parts 11, 12; packs document their pack-specific comp
 
 ---
 
-## 9. Vertical pack telemetry
+## 19.9 Vertical pack telemetry
 
 Per [Part 10](#part-10-measurement-research-appendix):
 
@@ -27191,7 +27291,7 @@ Per [Part 10](#part-10-measurement-research-appendix):
 
 ---
 
-## 10. Vertical pack governance
+## 19.10 Vertical pack governance
 
 ### 10.1 Per-pack ownership
 
@@ -27230,7 +27330,7 @@ Each pack has:
 
 ---
 
-## 11. Pack pricing and access
+## 19.11 Pack pricing and access
 
 For internal CyberSkill products: packs are free; included in the main DS package.
 
@@ -27242,7 +27342,7 @@ For external customers (when applicable):
 
 ---
 
-## 12. Vertical pack — HR Tech
+## 19.12 Vertical pack — HR Tech
 
 ### 12.1 Scope
 
@@ -27376,7 +27476,7 @@ ApplicantPipeline:
 
 ---
 
-## 13. Vertical pack — Real Estate
+## 19.13 Vertical pack — Real Estate
 
 ### 13.1 Scope
 
@@ -27493,7 +27593,7 @@ real-estate:
 
 ---
 
-## 14. Vertical pack — Energy & Utilities
+## 19.14 Vertical pack — Energy & Utilities
 
 ### 14.1 Scope
 
@@ -27599,7 +27699,7 @@ energy:
 
 ---
 
-## 15. Vertical pack — Telco
+## 19.15 Vertical pack — Telco
 
 ### 15.1 Scope
 
@@ -27697,7 +27797,7 @@ telco:
 
 ---
 
-## 16. Vertical pack — Hospitality
+## 19.16 Vertical pack — Hospitality
 
 ### 16.1 Scope
 
@@ -27796,7 +27896,7 @@ hospitality:
 
 ---
 
-## 17. Pack composition — multi-vertical customers
+## 19.17 Pack composition — multi-vertical customers
 
 Some customers operate in two or more verticals simultaneously. Examples:
 
@@ -27815,7 +27915,7 @@ The vertical-pack maintainers coordinate compatibility per [Part 16](#part-16-ad
 
 ---
 
-## 18. Future packs (under consideration for v1.1+)
+## 19.18 Future packs (under consideration for v1.1+)
 
 Beyond the 10 packs in v1.0, additional packs proposed but not yet built:
 
@@ -27832,7 +27932,7 @@ Each would need a Pack RFC proving customer demand before commitment.
 
 ---
 
-## 19. Vertical pack — HR Tech
+## 19.19 Vertical pack — HR Tech
 
 ### 19.1 Pack purpose
 
@@ -27914,7 +28014,7 @@ Per [Part 8](#part-8-governance-legal-commerce) §16, ship of this pack requires
 
 ---
 
-## 20. Cross-references
+## 19.20 Cross-references
 
 - **[Part 1](#part-1-foundations) §3** — voice (verticals adapt within voice; never violate)
 - **[Part 5](#part-5-accessibility-inclusion-localization) §15** — cognitive accessibility (plain-language tiers, especially for Govtech)
@@ -27934,7 +28034,7 @@ Per [Part 8](#part-8-governance-legal-commerce) §16, ship of this pack requires
 
 ---
 
-## 21. References
+## 19.21 References
 
 | Source | Year | Use |
 |---|---|---|
@@ -27992,7 +28092,7 @@ Three commitments anchor the doctrine:
 
 ---
 
-## 1. The layout primitives
+## 20.1 The layout primitives
 
 Adapted from Heydon Pickering & Andy Bell's "Every Layout" with CyberSkill-specific additions. Each primitive is a single React component (and Web Component, and Vue component) plus a CSS module that can be used standalone.
 
@@ -28263,7 +28363,7 @@ These primitives compose. A `Cover > Sidebar > Stack > Cluster > Card` produces 
 
 ---
 
-## 2. Container queries as the default
+## 20.2 Container queries as the default
 
 ### 2.1 Why
 
@@ -28311,6 +28411,52 @@ We define standard container thresholds:
 
 Components reference these tokens, not literal values.
 
+### 2.bis Container-style queries (CSS state-aware components)
+
+Modern CSS 2026 (Chrome shipped, Safari 18+ / Firefox 124+ shipping through 2026) introduced **container-style queries** — components query the *style* of their container, not just its size. This unlocks state-aware components without JavaScript.
+
+```css
+/* The container declares custom properties any descendant can query */
+.theme-block {
+  container-name: theme;
+  container-type: inline-size style;
+  --tone: "calm";
+}
+
+/* The component reacts to the parent's --tone */
+@container theme style(--tone: "alert") {
+  .cs-card { border-color: var(--cs-color-status-warning); }
+}
+
+@container theme style(--tone: "calm") {
+  .cs-card { border-color: var(--cs-color-surface-divider); }
+}
+```
+
+Use cases adopted by the system:
+
+- **Tone propagation** — a parent declares `--tone: "alert"` for a banner region; descendant cards adapt without prop drilling.
+- **Density propagation** — a parent declares `--density: "compact"`; descendants pick the compact spacing token automatically.
+- **Brand layer propagation** — white-label themes set custom properties on a single root; the entire subtree reflects the brand without a re-render.
+
+Browser-support fallback: where container-style queries are unavailable, we fall back to React Context + the same custom-property names. The same component code reads `var(--tone)` regardless of how the value got there.
+
+### 2.ter View Transitions API
+
+The CSS View Transitions API (Chrome shipped, Safari 18+ / Firefox 124+ shipping through 2026) ships smooth transitions between page states with no JavaScript animation framework. Adopted as the default page-transition mechanism for [Part 11](#part-11-enterprise-patterns-page-templates) page templates.
+
+```css
+@view-transition { navigation: auto; }
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--cs-motion-duration-emphasised);
+  animation-timing-function: var(--cs-motion-easing-standard);
+}
+```
+
+Honours `prefers-reduced-motion` per [Part 5](#part-5-accessibility-inclusion-localization) §19 — when reduced-motion is requested, the transition snaps instead of animates. Progressive-enhancement fallback: browsers without the API get instant navigation (no perceived loss).
+
 ### 2.4 Container-query tooling
 
 Tailwind v4 supports container queries:
@@ -28335,7 +28481,7 @@ A page-level top nav, the app shell skeleton, the full-screen modal overlay — 
 
 ---
 
-## 3. Breakpoints (viewport — sparing use)
+## 20.3 Breakpoints (viewport — sparing use)
 
 ### 3.1 The named breakpoints
 
@@ -28366,7 +28512,7 @@ Tested up to 4K (3840px). Layout doesn't break beyond; just leaves whitespace.
 
 ---
 
-## 4. Fluid type & spacing
+## 20.4 Fluid type & spacing
 
 ### 4.1 Why fluid
 
@@ -28423,7 +28569,7 @@ Fluid is for surface layout, not interactive precision.
 
 ---
 
-## 5. Logical properties (RTL parity)
+## 20.5 Logical properties (RTL parity)
 
 ### 5.1 The principle
 
@@ -28477,7 +28623,7 @@ Visual regression captures every component in both directions ([Part 15](#part-1
 
 ---
 
-## 6. Density-aware layout
+## 20.6 Density-aware layout
 
 ### 6.1 Density-token consumption
 
@@ -28514,7 +28660,7 @@ In comfortable mode, line-heights and letter-spacing also slightly increase per 
 
 ---
 
-## 7. Reference compositions
+## 20.7 Reference compositions
 
 ### 7.1 Standard app shell
 
@@ -28606,7 +28752,7 @@ In comfortable mode, line-heights and letter-spacing also slightly increase per 
 
 ---
 
-## 8. Scrolling, overflow, sticky
+## 20.8 Scrolling, overflow, sticky
 
 ### 8.1 Scrolling principles
 
@@ -28639,7 +28785,7 @@ For carousels (Reel) and full-screen sections, CSS `scroll-snap` enabled.
 
 ---
 
-## 9. Z-index and stacking
+## 20.9 Z-index and stacking
 
 ### 9.1 The z-index scale (tokens)
 
@@ -28669,7 +28815,7 @@ Avoid creating unnecessary stacking contexts (z-index + position triggers them).
 
 ---
 
-## 10. Spacing rhythm
+## 20.10 Spacing rhythm
 
 ### 10.1 The 4px grid
 
@@ -28692,7 +28838,7 @@ Often the same token; sometimes intentionally different (e.g., card inset of 16p
 
 ---
 
-## 11. Touch targets
+## 20.11 Touch targets
 
 Per [Part 5](#part-5-accessibility-inclusion-localization) §3.5 (WCAG 2.2 SC 2.5.8):
 
@@ -28703,7 +28849,7 @@ Per [Part 5](#part-5-accessibility-inclusion-localization) §3.5 (WCAG 2.2 SC 2.
 
 ---
 
-## 12. Performance considerations
+## 20.12 Performance considerations
 
 ### 12.1 Container-query overhead
 
@@ -28721,7 +28867,7 @@ Negligible in modern browsers. Use freely.
 
 ---
 
-## 13. Accessibility cross-cutting
+## 20.13 Accessibility cross-cutting
 
 ### 13.1 Heading hierarchy preserved through layout
 
@@ -28745,7 +28891,7 @@ Layout primitives map to landmarks where appropriate:
 
 ---
 
-## 14. Tooling
+## 20.14 Tooling
 
 ### 14.1 IDE support
 
@@ -28765,7 +28911,7 @@ Each primitive has a Storybook story showing variations. Visual regression captu
 
 ---
 
-## 15. Migration
+## 20.15 Migration
 
 ### 15.1 From legacy CSS / Tailwind
 
@@ -28786,7 +28932,7 @@ The aspiration: most product code uses our primitives, not raw `<div className="
 
 ---
 
-## 16. Anti-patterns
+## 20.16 Anti-patterns
 
 | Anti-pattern | Why it's wrong |
 |---|---|
@@ -28801,7 +28947,7 @@ The aspiration: most product code uses our primitives, not raw `<div className="
 
 ---
 
-## 17. Cross-references
+## 20.17 Cross-references
 
 - **[Part 2](#part-2-design-language) §11** — base spacing tokens (extended here)
 - **[Part 2](#part-2-design-language) §10** — type scale (fluid extended here)
@@ -28817,7 +28963,7 @@ The aspiration: most product code uses our primitives, not raw `<div className="
 
 ---
 
-## 18. References
+## 20.18 References
 
 | Source | Year | Use |
 |---|---|---|
@@ -28840,6 +28986,6 @@ The aspiration: most product code uses our primitives, not raw `<div className="
 
 ---
 
-*End of DESIGN.md — generated 2026-05-04T15:02:29+07:00 from `doctrine/`. Governance, change protocol, immutables, and contribution workflow in [README.md](./README.md).*
+*End of DESIGN.md. Governance, change protocol, immutables, and contribution workflow in [README.md](./README.md). Version history in [CHANGELOG.md](./CHANGELOG.md).*
 
 *Hiện Thực Hoá Ý Chí.*
