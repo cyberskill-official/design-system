@@ -18,6 +18,29 @@ Next-cycle items proposed but not yet accepted. Tracking is local-only — re-ru
 
 ---
 
+## [1.1.0] — 2026-05-14
+
+### Added
+- **Part 21 — Liquid Glass default.** Added Part 21 covering Liquid Glass / Glassmorphism as the default surface treatment for CyberSkill products. Five material types (Whisper / Light / Standard / Heavy / Solid escape hatch). Layered depth tokens (`--depth-bg` through `--depth-toast`). Lens edge treatment. Material-aware tinting. Parallax motion patterns. Accessibility floor preserves APCA Lc ≥ 75 (body) / Lc ≥ 90 (interactive). Reduced-transparency + reduced-motion + forced-colors + print fallbacks. Dark mode equivalents. Per-component-family glass binding table (§21.9). Migration waves (additive, non-breaking). Decision log RFC `DS-RFC-2026-05-14-001`.
+
+### Unchanged (anchors — explicit no-touch)
+- Umber `#45210E` — unchanged.
+- Ochre `#F4BA17` — unchanged.
+- Slogan "Hiện Thực Hoá Ý Chí" — unchanged.
+- APCA Lc ≥ 75 body / Lc ≥ 90 interactive — unchanged and non-relaxable on glass surfaces.
+- Voice axes (warm + direct + honest + respectful) — unchanged.
+- Token names (`--umber-*`, `--ochre-*`, `--bg-*`, `--border-*`) — unchanged.
+
+Part 21 governs HOW surfaces render, not WHAT colors they use.
+
+### Versioning
+- Bumps system version `1.0.7 → 1.1.0` (MINOR — new defaults, no breaking changes; existing solid-surface components continue to work unchanged).
+
+### Scope notes
+- `DESIGN.md` only — Part 21 is documentation. The `tokens.css` glass-token block and `glass.css` material classes are Wave-2 follow-up tasks (target 2026-05-21). The CyberOS-docs site retrofit is Wave-3 (target 2026-06-12).
+
+---
+
 ## [1.0.7] — 2026-05-04
 
 ### Changed

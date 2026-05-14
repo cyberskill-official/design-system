@@ -22,7 +22,7 @@
 
 ## Parts — by reading purpose
 
-The twenty parts cluster naturally by **what you reach for them**, not by hierarchy. Each cluster is a reading lens; every part is independently authoritative.
+The twenty-one parts cluster naturally by **what you reach for them**, not by hierarchy. Each cluster is a reading lens; every part is independently authoritative.
 
 ### A. Identity & visual language
 
@@ -53,8 +53,9 @@ The library, from primitives through page templates.
 Where the system shows up and how it adapts.
 
 7. [Part 4 — Surfaces & Patterns](#part-4-surfaces-patterns)
-8. [Part 13 — Theming, White-Label & Embedding](#part-13-theming-white-label-embedding)
-9. [Part 14 — Content Design & UX Writing at Scale](#part-14-content-design-ux-writing-at-scale)
+8. [Part 21 — Liquid Glass Default](#part-21-liquid-glass-default)
+9. [Part 13 — Theming, White-Label & Embedding](#part-13-theming-white-label-embedding)
+10. [Part 14 — Content Design & UX Writing at Scale](#part-14-content-design-ux-writing-at-scale)
 
 ### D. Inclusion, ethics, verticals
 
@@ -87,7 +88,7 @@ The contracts that bind the system and the metrics that grade it.
 19. [Part 8 — Governance, Legal, Commerce](#part-8-governance-legal-commerce)
 20. [Part 10 — Measurement, Research, Appendix](#part-10-measurement-research-appendix)
 
-> **Note on numbering.** File numbers (1–20) are stable identifiers — they appear in cross-references throughout the doctrine, and renumbering would invalidate every link. The clusters above (A–G) are a **reading aid**, not a hierarchy. A reader entering Cluster B does not need to have read Cluster A first; the cross-reference graph in each part directs them to whatever they actually need.
+> **Note on numbering.** File numbers (1–21) are stable identifiers — they appear in cross-references throughout the doctrine, and renumbering would invalidate every link. The clusters above (A–G) are a **reading aid**, not a hierarchy. A reader entering Cluster B does not need to have read Cluster A first; the cross-reference graph in each part directs them to whatever they actually need.
 
 ### Companion artefact
 
@@ -28982,7 +28983,1201 @@ The aspiration: most product code uses our primitives, not raw `<div className="
 
 ---
 
-*End of Part 20. End of doctrine v2.0.0.*
+*End of Part 20.*
+
+---
+
+## Part 21 — Liquid Glass Default
+
+*The 2025/2026 surface treatment doctrine. Liquid Glass — Apple's evolved material language for macOS 26 / iOS 26 / visionOS / Apple Intelligence — becomes the **default surface treatment** for every CyberSkill product. Solid surfaces remain available as an explicit escape hatch, not the norm. Where [Part 2](#part-2-design-language) defines color/type/space tokens and [Part 4](#part-4-surfaces-patterns) defines surface roles, this part defines **how** those surfaces render. The Umber + Ochre anchors and APCA contrast floors are UNCHANGED — this is a render-layer doctrine, not a palette change.*
+
+---
+
+## Introduction — why glass is now the default
+
+Two design eras bracket this decision.
+
+The first ("Material Honest", 2014–2020) said: surfaces are paper, edges are crisp, fills are opaque, depth is communicated by elevation shadow. It worked for the touchscreen era, when phones were small, content was sparse, and every pixel had to declare its tap target.
+
+The second ("Glassmorphism v1", 2020–2023) tried translucency and over-shot — heavy 60px+ blurs, saturated fills, every card competing to look "glassy". It collapsed under its own legibility debt. Designers retreated to flat opaque surfaces, and the trend died.
+
+The third era ("Liquid Glass", 2024–2026+) is the corrected return. Apple's macOS 26 / iOS 26 release codified it as a system-level material: lower blur (12–20px), restrained saturation (130–180%), strict accessibility floors, used on **structural** surfaces (nav, sidebars, modals, popovers) not on every card. visionOS and Apple Intelligence's chat surfaces use the same language. The agentic-OS era — where AI assistants sit alongside primary content and need to feel atmospheric rather than blocky — adopted glass as the default because it communicates **layered depth without competing with content**.
+
+CyberSkill ships into this era. Our competitors (Microsoft 365, Salesforce, Notion, Linear at the lower end of glass-adoption, ClickUp, Asana) are mostly still flat. Adopting Liquid Glass as the default is a deliberate visual differentiator that aligns with brand voice (warm, refined, doesn't shout) and with CyberOS's layered architecture (BRAIN substrate → SKILL catalog → CUO router → modules — depth is the metaphor).
+
+The bet, in one sentence: **Liquid Glass is the default surface treatment for CyberSkill products. Solid surfaces are the exception.**
+
+What this part owes the rest of the system:
+
+1. Names five glass **material types** (Whisper / Light / Standard / Heavy / Solid escape hatch) and binds each to use cases.
+2. Provides ready-to-copy **CSS implementations** with vendor prefixes and accessibility fallbacks.
+3. Specifies a **lens edge** treatment that mimics light passing through glass at boundaries.
+4. Defines **layered depth tokens** (`--depth-bg` through `--depth-toast`) and binds each depth to a default material.
+5. Documents **material-aware tinting** — the natural color carry-over that happens when glass sits over a tinted region.
+6. Codifies **motion patterns** (parallax on scroll) with `prefers-reduced-motion` honored.
+7. Restates the **accessibility floor** — APCA Lc ≥ 75 body / Lc ≥ 90 interactive, non-negotiable.
+8. Refines every **component family** in [Part 3](#part-3a-components-actions)–[Part 3h](#part-3h-components-ai-chat) with its glass treatment.
+9. Specifies **browser support** with `@supports` fallback patterns.
+10. Mirrors the doctrine into **dark mode**.
+11. Provides the **migration path** from Part 2/3 solid defaults to Part 21 glass defaults — additive, non-breaking.
+12. Lays out concrete **examples** with hero / nav / modal / chat / catalog references.
+13. Closes with the formal **decision log** entry per the doctrine's RFC pattern.
+
+Inheritance:
+
+- Tokens (`--umber-*`, `--ochre-*`, `--bg-*`, `--border-*`) from [Part 2](#part-2-design-language).
+- Surface roles (page / section / card / nav / modal / toast) from [Part 4](#part-4-surfaces-patterns).
+- Accessibility floors from [Part 5](#part-5-accessibility-inclusion-localization) — APCA Lc, `prefers-reduced-motion`, `prefers-reduced-transparency`, forced-colors, print.
+- Component families from [Part 3a–3h](#part-3a-components-actions).
+- Layout primitives from [Part 20](#part-20-layout-responsive-system).
+- Theming layer from [Part 13](#part-13-theming-white-label-embedding) (dark mode, white-label).
+- Documentation host from [Part 18](#part-18-documentation-site-component-catalog-spec).
+
+Three commitments anchor this part:
+
+1. **Glass is the default render, not the default color.** Umber `#45210E` and Ochre `#F4BA17` anchors stay immutable. Part 21 changes HOW the anchors appear (with translucency + blur), not WHAT they are.
+2. **Accessibility never relaxes.** Every glass surface MUST still meet APCA Lc ≥ 75 / Lc ≥ 90 with text rendered at the surface's actual rendered opacity (not against the underlying solid). If a glass surface fails contrast, the writer increases opacity toward solid — never the other way.
+3. **Glass is additive, not destructive.** Existing components from Part 3 with solid surfaces continue to render correctly. Part 21 adds opt-in glass classes (`.surface-*`, `.bbg-card`) and updated defaults. Old code that ignores Part 21 keeps working.
+
+---
+
+## 21.1 Intent, immutables, and the bet
+
+### 21.1.1 The bet
+
+**Liquid Glass is the DEFAULT surface treatment for CyberSkill products from 2026-05-14 onward.**
+
+Concretely:
+
+- New components specified after 2026-05-14 SHALL use a glass material unless they fall into an explicit Solid Surface category (§21.9 lists them — data tables, chart canvases, print, accessibility-high-contrast mode, regulatory disclosures).
+- Existing components retrofitted under the Wave-2 migration plan (§21.12) MUST adopt the appropriate glass material per the component-to-material binding in §21.9.
+- Custom or vertical-pack surfaces (Part 19) MAY override the default only with a §21.14 RFC entry.
+
+Solid surfaces are the **exception**, not the rule. Reach for solid when:
+
+- The surface hosts dense tabular data where every row must scan unambiguously (data tables, financial reports, spreadsheets).
+- The surface is print-bound — paper has no "underneath" to blur against.
+- The user has set `prefers-reduced-transparency: reduce` (system setting; we honor it).
+- The surface is a chart canvas where translucency would hurt mark legibility.
+- The surface carries regulatory or legal disclosure text where contrast and stability are mandated (e.g., Vietnamese e-invoice display per Decree 123, GDPR consent banners).
+
+### 21.1.2 Why glass-as-default — the rationale
+
+1. **Agentic-OS era alignment.** Anthropic's Claude.ai surfaces, ChatGPT's macOS app, Gemini in Google Workspace, Microsoft Copilot — all use glass to communicate "AI sits alongside content, not on top of it". Adopting glass signals AI-native without literal AI iconography (sparkle icons, robot avatars, etc.).
+2. **OS-host parity.** macOS 26 / iOS 26 / visionOS use glass system-wide. Apps that match the OS material feel native; apps that don't feel anachronistic. Our docs site, web apps, and embedded surfaces all benefit.
+3. **Layered depth maps to CyberOS architecture.** CyberOS is a layered system (BRAIN substrate → SKILL catalog → CUO router → modules). Glass-with-depth is a literal visual translation of that hierarchy. Foreground surfaces (modals, popovers) are more translucent — they sit "on top of" deeper surfaces (page, sections) that are more saturated.
+4. **Vietnamese cultural fit.** Subtle, refined, doesn't shout. Matches the brand voice axes from [Part 2](#part-2-design-language) §1 (warm + direct + honest + respectful). Vietnamese visual taste leans toward soft, layered, atmospheric — not flat, hard, declarative. Glass communicates ấm cúng (warm coziness) better than flat fills do.
+5. **Competitive differentiation.** Most enterprise SaaS competitors are still flat (Salesforce, Microsoft 365, Notion, ClickUp). Linear is partially glass on the sidebar/command palette. Vercel and Cursor lead on glass nav. Arc / Browser Co (now Atlassian) is heaviest. Adopting glass as default puts CyberSkill in the lead pack, not the trailing pack.
+6. **Anthropic ecosystem fit.** Claude Code, Claude Projects, Claude.ai chat — Anthropic's own surfaces are glass-forward. As a Claude-powered platform, CyberSkill products embedded inside Anthropic's surfaces feel native when they share the material.
+
+### 21.1.3 Immutables — what Part 21 does NOT change
+
+NEVER violate:
+
+| Immutable | Why it stays |
+|---|---|
+| Umber `#45210E` is the primary brand anchor | Part 2 §2, brand anchor RFC 2025-08-30 |
+| Ochre `#F4BA17` is the secondary brand anchor | Part 2 §2 |
+| APCA Lc ≥ 75 body / Lc ≥ 90 interactive | Part 5 §3, non-negotiable |
+| Vietnamese diacritic legibility | Part 5 §11 |
+| Slogan "Hiện Thực Hoá Ý Chí" | Brand RFC |
+| Voice axes (warm + direct + honest + respectful) | Part 14 |
+| Token names (`--umber-500`, `--bg-card`, etc.) | Part 2 §1.4 — backward-compat |
+| `prefers-reduced-motion` honored | Part 5 §7 |
+| `prefers-reduced-transparency` honored | Part 5 §7 |
+| Print rendering produces opaque surfaces | Part 5 §10 |
+| Forced-colors mode renders system surfaces | Part 5 §6 |
+
+What Part 21 DOES change:
+
+- The default *render* of `.bbg-card` and other surface primitives — they gain `backdrop-filter` and translucent backgrounds.
+- The CSS surface tokens gain a new family (`--glass-*`) alongside (not replacing) the existing (`--bg-*`, `--border-*`) tokens.
+- The Part 4 surface-role bindings gain a default material per role.
+
+What Part 21 does NOT do:
+
+- Recolor any token.
+- Change any APCA floor.
+- Change any spacing, type, or motion token.
+- Break any existing component API.
+
+### 21.1.4 Risk register and mitigations
+
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| Glass surfaces fail APCA contrast against busy underlying content | Medium | High | §21.8 mandates per-surface APCA test at deployed opacity; failing surfaces increase opacity toward solid |
+| Performance regression on low-power devices (especially Android budget tier) | Medium | Medium | §21.10 `@supports` fallback; §21.7 GPU-accelerated transforms only; §21.10 documents WebKit + Blink coverage |
+| Glassmorphism-fatigue backlash if overused | Low | Medium | §21.9 component-to-material binding restricts glass to structural surfaces; data tables and charts stay solid |
+| Vietnamese diacritic legibility degraded on tinted blur | Low | High | §21.8 explicitly tests diacritic contrast in Vietnamese; tokens.css test corpus includes diacritic-heavy strings |
+| Print/PDF renders broken or empty | Low | High | §21.3 `@media print` rule collapses to solid white |
+| Regulatory disclosures (Decree 123 e-invoice display) rendered illegibly | Low | Critical | §21.9 mandates solid surface for regulatory disclosures; §21.1.1 enumerates the carve-out |
+
+---
+
+## 21.2 Glass material types — the hierarchy
+
+Five materials, ordered from least to most prominent. Each material has a defined use, a CSS class name, and a binding to one or more surface roles from [Part 4](#part-4-surfaces-patterns).
+
+### 21.2.1 The material table
+
+| Material | CSS class | Use case | Blur | Saturation | Opacity | Default depth (§21.5) |
+|---|---|---|---|---|---|---|
+| **Whisper Glass** | `.surface-whisper` | Ambient page-background overlay, hero washes | 8px | 110% | 0.60 alpha | `--depth-bg` (0) |
+| **Light Glass** | `.surface-light` | Sticky navs, secondary sidebars, segmented controls | 12px | 130% | 0.70 alpha | `--depth-nav` (50) |
+| **Standard Glass** | `.surface-standard`, `.bbg-card` | Cards, panels, default surfaces, list items | 16px | 150% | 0.80 alpha | `--depth-card` (10) |
+| **Heavy Glass** | `.surface-heavy` | Modals, command palette, popovers, dropdowns, toasts | 24px | 180% | 0.90 alpha | `--depth-modal` (100) / `--depth-toast` (200) |
+| **Solid (escape hatch)** | `.surface-solid` | Data tables, charts, print, a11y high-contrast, regulatory disclosures | 0px | 100% | 1.00 alpha | varies |
+
+Definitions:
+
+- **Blur** — CSS `backdrop-filter: blur(<N>px)` value applied to the surface. Lower values keep underlying content readable through the surface; higher values obscure it more.
+- **Saturation** — CSS `backdrop-filter: saturate(<N>%)` value. Boosts the color richness of what's underneath. Values above 100% intensify; values below 100% desaturate.
+- **Opacity** — the alpha channel applied to the surface's own background-color (via `color-mix(... <N>%, transparent)`). Higher alpha = more solid surface; lower alpha = more translucent.
+- **Default depth** — the z-axis layer the material is bound to by default (§21.5). Surfaces MAY render at a non-default depth, but the binding is the documented "where you'd expect to find it".
+
+### 21.2.2 Material naming rationale
+
+Names are deliberately material-physical, not technical (we don't say "16px blur card") because:
+
+- Designers communicate in materials, not numbers.
+- Numbers may evolve (e.g., Heavy might move from 24px to 22px in v1.2.0); the name stays stable.
+- Glass-material vocabulary is OS-host idiomatic (Apple says "Thick Material", "Regular Material"; Microsoft says "Mica", "Acrylic"). Ours follows the same convention.
+
+The five-name set is also bounded — we will not add a sixth ("Ultra Heavy", "Extreme Light") without an RFC. Five materials cover every documented surface role.
+
+### 21.2.3 Material-to-surface-role binding
+
+[Part 4 §3](#part-4-surfaces-patterns) defines six surface roles (page, section, card, nav, modal, toast). Default bindings:
+
+| Surface role (Part 4) | Default material | Override rule |
+|---|---|---|
+| Page background | Whisper Glass over a base color, OR solid | Default solid; opt into Whisper for app shells with hero washes |
+| Section | None (matte page-level) | Sections inherit page background; never standalone glass |
+| Card | Standard Glass | Solid only for data-dense or regulatory cards |
+| Top nav (sticky) | Light Glass | Always Light Glass; solid only in print |
+| Side nav | Light Glass | Light Glass; some IDE-style apps may prefer Solid |
+| Modal | Heavy Glass | Always Heavy; non-negotiable |
+| Toast | Heavy Glass | Always Heavy |
+| Popover / dropdown | Heavy Glass | Always Heavy |
+| Tooltip | Heavy Glass | Always Heavy |
+
+Section is the only role that gets "no glass". Sections are page-level zones; they read as the page's own background tinted by tokens. Adding glass to sections would create a nesting cascade (page-glass → section-glass → card-glass) that wastes layers and reduces legibility.
+
+---
+
+## 21.3 CSS implementation pattern
+
+Ready-to-copy CSS. These rules belong in `tokens.css` / `glass.css` — a separate Wave-3 task (see §21.12). Documented here so component-library authors and downstream consumers can verify the canonical pattern.
+
+### 21.3.1 Custom-property contract
+
+```css
+:root {
+  /* Whisper Glass */
+  --glass-whisper-bg: color-mix(in oklab, var(--bg-page) 60%, transparent);
+  --glass-whisper-blur: 8px;
+  --glass-whisper-saturate: 110%;
+  --glass-whisper-border: transparent;
+
+  /* Light Glass */
+  --glass-light-bg: color-mix(in oklab, var(--bg-card) 70%, transparent);
+  --glass-light-blur: 12px;
+  --glass-light-saturate: 130%;
+  --glass-light-border: color-mix(in oklab, var(--border-default) 50%, transparent);
+
+  /* Standard Glass (default card) */
+  --glass-standard-bg: color-mix(in oklab, var(--bg-card) 80%, transparent);
+  --glass-standard-blur: 16px;
+  --glass-standard-saturate: 150%;
+  --glass-standard-border: color-mix(in oklab, var(--border-default) 60%, transparent);
+
+  /* Heavy Glass */
+  --glass-heavy-bg: color-mix(in oklab, var(--bg-elevated) 90%, transparent);
+  --glass-heavy-blur: 24px;
+  --glass-heavy-saturate: 180%;
+  --glass-heavy-border: color-mix(in oklab, var(--border-default) 80%, transparent);
+}
+```
+
+### 21.3.2 The material classes
+
+```css
+/* Whisper Glass — ambient backgrounds */
+.surface-whisper {
+  background: var(--glass-whisper-bg);
+  backdrop-filter: blur(var(--glass-whisper-blur)) saturate(var(--glass-whisper-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-whisper-blur)) saturate(var(--glass-whisper-saturate));
+}
+
+/* Light Glass — sticky navs, sidebars */
+.surface-light {
+  background: var(--glass-light-bg);
+  backdrop-filter: blur(var(--glass-light-blur)) saturate(var(--glass-light-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-light-blur)) saturate(var(--glass-light-saturate));
+  border: 1px solid var(--glass-light-border);
+}
+
+/* Standard Glass — the default card surface */
+.surface-standard,
+.bbg-card {
+  background: var(--glass-standard-bg);
+  backdrop-filter: blur(var(--glass-standard-blur)) saturate(var(--glass-standard-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-standard-blur)) saturate(var(--glass-standard-saturate));
+  border: 1px solid var(--glass-standard-border);
+  box-shadow:
+    0 1px 3px rgba(69, 33, 14, 0.04),
+    0 8px 24px rgba(69, 33, 14, 0.06);
+}
+
+/* Heavy Glass — modals, command palette, popovers, toasts */
+.surface-heavy {
+  background: var(--glass-heavy-bg);
+  backdrop-filter: blur(var(--glass-heavy-blur)) saturate(var(--glass-heavy-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-heavy-blur)) saturate(var(--glass-heavy-saturate));
+  border: 1px solid var(--glass-heavy-border);
+  box-shadow: 0 20px 60px rgba(69, 33, 14, 0.18);
+}
+
+/* Solid escape hatch — data tables, charts, print, a11y high-contrast */
+.surface-solid {
+  background: var(--bg-card);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1px solid var(--border-default);
+}
+```
+
+### 21.3.3 Accessibility fallbacks
+
+```css
+/* Honor system preference: prefers-reduced-transparency */
+@media (prefers-reduced-transparency: reduce) {
+  .surface-whisper,
+  .surface-light,
+  .surface-standard,
+  .surface-heavy,
+  .bbg-card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+  }
+}
+
+/* Forced-colors mode — let the OS render */
+@media (forced-colors: active) {
+  .surface-whisper,
+  .surface-light,
+  .surface-standard,
+  .surface-heavy,
+  .bbg-card,
+  .surface-solid {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: Canvas;
+    border: 1px solid CanvasText;
+    color: CanvasText;
+  }
+}
+
+/* Print — collapse to opaque white surfaces */
+@media print {
+  [class*="surface-"],
+  .bbg-card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: white !important;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+}
+
+/* Browser-level fallback — when backdrop-filter is unsupported */
+@supports not (backdrop-filter: blur(1px)) {
+  .surface-whisper,
+  .surface-light,
+  .surface-standard,
+  .surface-heavy,
+  .bbg-card {
+    background: var(--bg-card);
+  }
+}
+```
+
+### 21.3.4 Why `color-mix(in oklab, ...)` and not `rgba()`
+
+`color-mix(in oklab, var(--bg-card) 80%, transparent)` mixes in the oklab perceptual color space, which:
+
+- Preserves perceived brightness during the alpha transition (rgba mix darkens visibly midway).
+- Plays correctly with our Umber/Ochre anchors (which have non-trivial chroma).
+- Survives token swaps — if Umber's defined value changes in a future RFC, every glass surface follows automatically.
+
+The fallback for browsers that don't support `color-mix` (Safari < 16.2, Chrome < 111) is handled by the `@supports not (backdrop-filter)` block — those browsers already lack backdrop-filter, so they get the solid background path.
+
+### 21.3.5 The `.bbg-card` alias
+
+`.bbg-card` (Bento-Box Glass card) is the canonical Part 3 card class. The selector list in §21.3.2 binds `.surface-standard` and `.bbg-card` together so existing card components — defined in Part 3c — pick up glass treatment automatically when Part 21 CSS is loaded. No component refactor required for the default case.
+
+---
+
+## 21.4 Lens edge treatment — refraction at the boundary
+
+A subtle 1px highlight + 1px shadow at the surface boundary that mimics light passing through glass. Without it, glass surfaces look like opaque cards with a blur filter; with it, they read as actual glass.
+
+### 21.4.1 The pseudo-element pattern
+
+```css
+.bbg-card,
+.surface-standard,
+.surface-heavy {
+  position: relative;
+}
+
+.bbg-card::before,
+.surface-standard::before,
+.surface-heavy::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, white 30%, transparent) 0%,
+    transparent 30%,
+    transparent 70%,
+    color-mix(in oklab, var(--umber-500) 15%, transparent) 100%
+  );
+  mask:
+    linear-gradient(white, white) content-box,
+    linear-gradient(white, white);
+  mask-composite: exclude;
+  -webkit-mask:
+    linear-gradient(white, white) content-box,
+    linear-gradient(white, white);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+```
+
+How it reads visually:
+
+- Top-left edge: a faint white highlight (30% white) — "light catching the top of the glass".
+- Bottom-right edge: a faint Umber-tinted shadow (15% Umber) — "shadow cast under the glass".
+- The 135° gradient angle matches a top-left light source, which is the convention for OS-host material rendering (macOS, iOS).
+- The mask-composite trick paints only the 1px ring at the boundary, leaving the interior unaffected.
+
+### 21.4.2 When to skip the lens edge
+
+- `prefers-reduced-transparency: reduce` — collapse to solid (no boundary refraction needed).
+- `prefers-reduced-motion: reduce` — keep the edge static (it's not motion anyway, but be conservative).
+- `forced-colors: active` — let the OS render.
+- Surfaces nested inside Heavy Glass — adding a lens edge to a card inside a modal creates visual noise.
+
+### 21.4.3 Dark mode adjustment
+
+In dark mode (§21.11), the gradient inverts: the highlight tints toward Ochre at 12% (warmer, dimmer) and the shadow toward pure black at 25%.
+
+```css
+[data-theme="dark"] .bbg-card::before {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--ochre-300) 12%, transparent) 0%,
+    transparent 30%,
+    transparent 70%,
+    color-mix(in oklab, black 25%, transparent) 100%
+  );
+}
+```
+
+---
+
+## 21.5 Layered depth — the z-axis token family
+
+Surfaces stack. Foreground surfaces are more translucent than background surfaces. Depth tokens make the stacking explicit and bind each layer to a default material.
+
+### 21.5.1 The depth tokens
+
+```css
+:root {
+  --depth-bg: 0;       /* page background */
+  --depth-section: 5;   /* major page sections */
+  --depth-card: 10;     /* cards within sections */
+  --depth-nav: 50;      /* sticky nav (top + side) */
+  --depth-modal: 100;   /* modals, command palette */
+  --depth-toast: 200;   /* toasts, popovers, dropdowns, tooltips */
+}
+```
+
+These are NOT z-index values directly — they are tokens consumed by component CSS:
+
+```css
+.bbg-card { z-index: var(--depth-card); }
+.bbg-modal { z-index: var(--depth-modal); }
+```
+
+### 21.5.2 Depth-to-material binding (canonical)
+
+| Depth token | Value | Default material | Surface roles |
+|---|---|---|---|
+| `--depth-bg` | 0 | Whisper Glass (over base color) | page background, hero washes |
+| `--depth-section` | 5 | None (matte page level) | major sections within a page |
+| `--depth-card` | 10 | Standard Glass | cards, list items, panels |
+| `--depth-nav` | 50 | Light Glass | top nav, side nav |
+| `--depth-modal` | 100 | Heavy Glass | modals, dialogs, sheets |
+| `--depth-toast` | 200 | Heavy Glass | toasts, popovers, dropdowns, tooltips |
+
+### 21.5.3 Stacking discipline
+
+Three rules govern stacking:
+
+1. **Foreground is more translucent.** A modal (Heavy Glass, 0.9 alpha) sitting over cards (Standard Glass, 0.8 alpha) doesn't mean the modal is "more opaque" — it means the modal is more *saturated* (higher saturate filter) and slightly more opaque to maintain readability over busy content. The visual hierarchy reads: modal is forward, cards are behind.
+2. **Never skip layers.** A card at `--depth-card` (10) cannot sit directly on `--depth-bg` (0) without a `--depth-section` (5) wrapper in between. Sections give the eye a place to rest.
+3. **Toast > modal > nav > card > section > bg.** Always. No exceptions. A toast that appears below a modal is a bug.
+
+### 21.5.4 Visual logic — why the depth-material curve
+
+Glass opacity rises with depth (more forward = more solid background) because:
+
+- Forward surfaces host **decisive** content (modals = confirm/cancel; toasts = "saved"; popovers = a menu of options). Decisive content needs solid legibility.
+- Background surfaces host **ambient** content (page background, hero washes). Ambient content can afford to be more translucent — it's atmosphere, not a target.
+
+Glass blur rises with depth (more forward = more blur) because:
+
+- Forward surfaces sit over more content (a modal sits over an entire page). Heavier blur obscures the content underneath, reducing distraction.
+- Background surfaces sit over little or nothing (the page bg sits over the OS desktop, basically). Light blur is enough.
+
+Glass saturation rises with depth (more forward = more saturate) because:
+
+- The saturation boost in `backdrop-filter` revives color richness that the blur de-saturates. Heavier blur needs more saturation to compensate.
+- Saturated forward surfaces feel "atmospheric" — they pick up the warmth of underlying content (Umber heroes, Ochre accents) without ever using opaque color.
+
+---
+
+## 21.6 Material-aware tinting — the warmth carry-over
+
+A documented feature, not a bug.
+
+### 21.6.1 The phenomenon
+
+When a glass surface sits over a colored region (e.g., a Standard Glass card placed inside an Umber-tinted hero), `backdrop-filter: saturate(150%)` naturally amplifies the underlying hue. The card appears warmer than it would over a neutral bg. This is the **material-aware tinting** effect — surfaces inherit a hint of the dominant underlying color.
+
+It's not a CSS feature we add; it's a property of `saturate()` on `backdrop-filter`. We document it because designers need to **plan for it** rather than fight it.
+
+### 21.6.2 Design guidance
+
+Use tinted regions strategically:
+
+- **Hero with Umber tint** (e.g., `background: linear-gradient(135deg, var(--umber-100), var(--umber-50))`) — glass cards placed inside the hero will read warmer. Use this for landing-page hero modules where the surface family should feel cohesive with the hero.
+- **Ochre accent under hover** — a hover state that briefly tints the card region with Ochre will carry through the glass surface above it. Used sparingly, this is a delightful "the surface notices you" effect.
+- **Neutral page bg** — most page-level surfaces sit over a neutral matte. Glass cards there read as designed (no carry-over).
+
+Anti-patterns:
+
+- **Don't tint every section.** Carry-over only "works" against neutral page bg as a baseline. Tinting every section creates a chromatic stampede that compromises readability.
+- **Don't tint regions with non-anchor colors.** Carry-over from arbitrary colors (e.g., a vendor logo's brand color used as a section bg) produces unpredictable mid-tones. Keep tinted regions to the Umber/Ochre anchor family.
+- **Don't tint regions with regulatory text.** §21.1.1 lists regulatory disclosures as a Solid Surface case. Tinting underneath them is irrelevant — they don't use glass.
+
+### 21.6.3 Color-tint tokens (optional)
+
+Designers who want explicit warmth control on a glass surface can apply a tint token:
+
+```css
+.bbg-card.tint-warm {
+  background: color-mix(in oklab, var(--umber-50) 80%, transparent);
+}
+
+.bbg-card.tint-cool {
+  background: color-mix(in oklab, var(--bg-card) 80%, transparent);
+  /* no carry-over; explicit neutral */
+}
+```
+
+Defaults to no tint class (relies on carry-over). Tint classes are for surfaces where the carry-over would be unreliable (e.g., a card overlapping the boundary between a tinted hero and a neutral bg).
+
+### 21.6.4 Dark-mode carry-over
+
+In dark mode, carry-over works against Umber-800/900 backgrounds. The blur+saturate naturally darkens AND warms the surface. Designers should avoid placing glass cards over dark-mode Ochre regions — at high saturation, Ochre on a Heavy Glass surface can produce a halftone that vibrates against text.
+
+---
+
+## 21.7 Motion patterns — parallax with restraint
+
+Glass surfaces respond subtly to scroll. Done well, this gives the interface a sense of depth without becoming a fairground ride. Done badly, it nauseates the user.
+
+### 21.7.1 The parallax rule
+
+Background-most surfaces translate the slowest; foreground-most surfaces translate the fastest. The differential creates perceived depth.
+
+```css
+.parallax-glass {
+  transform: translate3d(0, calc(var(--scroll-y, 0) * -0.05), 0);
+  will-change: transform;
+}
+
+.parallax-glass-deep {
+  transform: translate3d(0, calc(var(--scroll-y, 0) * -0.02), 0);
+  will-change: transform;
+}
+
+.parallax-glass-shallow {
+  transform: translate3d(0, calc(var(--scroll-y, 0) * -0.08), 0);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-glass,
+  .parallax-glass-deep,
+  .parallax-glass-shallow {
+    transform: none;
+  }
+}
+```
+
+`translate3d()` is mandatory (not `translateY()`) because `translate3d` triggers GPU compositing in every browser and avoids main-thread reflow.
+
+### 21.7.2 The JS hook
+
+Vanilla JS, no framework:
+
+```javascript
+let scrollY = 0;
+let rafId = null;
+
+function updateScroll() {
+  document.documentElement.style.setProperty('--scroll-y', `${scrollY}px`);
+  rafId = null;
+}
+
+window.addEventListener('scroll', () => {
+  scrollY = window.scrollY;
+  if (rafId === null) {
+    rafId = requestAnimationFrame(updateScroll);
+  }
+}, { passive: true });
+```
+
+Notes:
+
+- `passive: true` lets the browser scroll at native speed; we never call `preventDefault`.
+- `requestAnimationFrame` debounces the CSS variable write to the paint cycle (never more than once per frame).
+- A single CSS custom property update propagates to every parallax surface — no per-surface JS update needed.
+
+### 21.7.3 Motion budgets — when parallax is appropriate
+
+| Page type | Parallax allowed? | Material with parallax |
+|---|---|---|
+| Landing page hero | Yes, prominent | Whisper bg + Standard cards |
+| Marketing pages | Yes, subtle | Whisper bg only |
+| Docs site reading pages | Subtle (≤ 0.03 multiplier) | Light nav only |
+| App shell (dashboards, editors) | No | None — productivity surfaces don't move |
+| Modal-only views | No | Modal is fixed-position |
+| Mobile (any page) | Reduced (≤ 0.04 multiplier) | Less scroll real-estate; smaller effect |
+
+The general rule: **the higher the task-load, the less parallax**. A landing page where the user's job is to be impressed can afford prominent motion. An IDE-style editor where the user's job is to write code cannot.
+
+### 21.7.4 Cursor-tracking parallax (optional, restrained)
+
+Heavy Glass surfaces (modals, popovers) MAY pick up a tiny cursor-position parallax. The CSS:
+
+```css
+.surface-heavy.cursor-track {
+  --cx: 0;
+  --cy: 0;
+  transform: translate3d(calc(var(--cx) * 4px), calc(var(--cy) * 4px), 0);
+}
+```
+
+JS:
+
+```javascript
+document.querySelectorAll('.surface-heavy.cursor-track').forEach(el => {
+  el.addEventListener('mousemove', (e) => {
+    const rect = el.getBoundingClientRect();
+    const cx = (e.clientX - rect.left - rect.width / 2) / rect.width;
+    const cy = (e.clientY - rect.top - rect.height / 2) / rect.height;
+    el.style.setProperty('--cx', cx);
+    el.style.setProperty('--cy', cy);
+  });
+});
+```
+
+Maximum translate: 4px in each axis. Anything more reads as "broken" rather than "alive".
+
+### 21.7.5 Reduced-motion compliance
+
+`prefers-reduced-motion: reduce` MUST disable:
+
+- Parallax on scroll (§21.7.1).
+- Cursor-tracking parallax (§21.7.4).
+- Any other transform animation tied to scroll or pointer.
+
+Glass blur and saturation themselves are NOT motion and stay on. Translation is the only motion vector affected.
+
+---
+
+## 21.8 Accessibility floor — NON-NEGOTIABLE
+
+The accessibility floor is the load-bearing constraint of Part 21. Every rule above is subordinate to the rules below. If a glass surface fails APCA contrast, the writer increases opacity toward solid — never the other way.
+
+### 21.8.1 APCA contrast on glass
+
+Text contrast against a glass surface MUST be tested at the **rendered opacity**, not against the underlying solid color.
+
+Procedure:
+
+1. Resolve the surface's effective rendered color: `color-mix(in oklab, var(--bg-card) 80%, transparent)` over the underlying content.
+2. For testing, treat the "underlying content" as a worst-case mid-tone (e.g., 50% gray, or the page's section bg color).
+3. Run APCA against the text color and the effective rendered surface color.
+4. Body text MUST score Lc ≥ 75 (absolute value). Interactive elements (buttons, links) MUST score Lc ≥ 90.
+
+If a surface fails:
+
+- **First option**: increase the opacity (`color-mix` percentage) toward solid until contrast passes. A Standard Glass at 80% alpha that fails Lc ≥ 75 may need to render at 90% alpha or 95% alpha.
+- **Second option**: switch the surface to Solid (escape hatch). Acceptable; not a defeat.
+- **Never**: relax APCA below the floor. The floor stays. Glass is the variable.
+
+### 21.8.2 `prefers-reduced-transparency: reduce`
+
+System setting (macOS, iOS, Windows). When set, the OS hints "the user doesn't want translucent surfaces — they're hard to read or distracting". We MUST honor it. §21.3.3 collapses every `.surface-*` to solid when this media query is true.
+
+### 21.8.3 `prefers-reduced-motion: reduce`
+
+System setting. When set, the OS hints "no vestibular triggers please". We MUST disable parallax (§21.7.5). Glass static rendering stays.
+
+### 21.8.4 `forced-colors: active`
+
+Windows High Contrast mode and equivalent OS hooks. The OS provides system colors (Canvas, CanvasText, ButtonFace, etc.) and asks us to use them. §21.3.3 replaces all surface backgrounds with `Canvas` and borders with `CanvasText`. Glass effects are entirely suppressed.
+
+### 21.8.5 Print
+
+§21.3.3 collapses every surface to white with light gray borders. Glass effects are entirely suppressed. Print-bound PDFs of CyberSkill docs MUST render legibly without any browser-side rendering.
+
+### 21.8.6 Vietnamese diacritic legibility
+
+Special-care item. Vietnamese tone marks and stacked diacritics (e.g., "ặ", "ự", "ấ") have small visual area; if a glass surface blurs the background such that the diacritic's contrast falls below APCA Lc ≥ 75, the word becomes ambiguous. Test corpus MUST include:
+
+- "Hiện Thực Hoá Ý Chí" (slogan — diacritics on Hiện, Hoá, Ý, Chí)
+- "Tự động hoá quy trình" (auto-process flow — diacritics on Tự, động, hoá)
+- "Công Bằng — Trung Thực — Tận Tâm" (brand axes — multiple stacked diacritics)
+- Any module name with diacritics ("Năng Suất", "Cộng Tác")
+
+Run the corpus against each glass material at deployed opacity. Failing words mean the surface needs higher opacity.
+
+### 21.8.7 Screen readers
+
+Glass is purely visual. Screen readers read text content, ARIA labels, and semantic structure — none of which are affected by `backdrop-filter`. No screen-reader-specific accommodations are required for Part 21.
+
+### 21.8.8 Color-blind safety
+
+The Umber + Ochre anchor pair is already tested for color-blind safety in [Part 5 §4](#part-5-accessibility-inclusion-localization). Glass surfaces don't introduce new color signals — they only render existing tokens with translucency. Color-blind safety is preserved.
+
+### 21.8.9 Cognitive load
+
+Glass is more visually complex than flat. For users with cognitive disabilities, complex visual environments increase load. Mitigations baked into Part 21:
+
+- `prefers-reduced-transparency: reduce` collapses glass to flat. A user who finds glass overwhelming has a system-level setting we honor.
+- §21.9 keeps data tables and charts solid — places where comprehension is the task.
+- §21.7.3 disables parallax in app-shell views — productivity surfaces don't move.
+
+---
+
+## 21.9 Component refinements — per-family glass treatment
+
+Every component family from [Part 3a–3h](#part-3a-components-actions) gets a documented glass treatment. This section IS the migration map for the Wave-2 retrofit.
+
+### 21.9.1 Actions (Part 3a — buttons, action menus)
+
+| Component | Default render | Rationale |
+|---|---|---|
+| Primary button | Solid | Interactive elements need maximum clarity |
+| Secondary button | Solid with subtle Light Glass on hover | Hint of glass on hover communicates "alive" without compromising default state |
+| Ghost button | Light Glass | Already low-emphasis; glass reinforces |
+| Icon-only button | Solid | Small target; needs strong contrast |
+| Floating action button (FAB) | Heavy Glass | Floats above content; glass communicates "above" |
+| Dropdown menu | Heavy Glass | Surface, not action; matches popover family |
+
+### 21.9.2 Inputs (Part 3b — text inputs, selects, checkboxes, etc.)
+
+| Component | Default render | Rationale |
+|---|---|---|
+| Text input (idle) | Light Glass background | Communicates affordance; reads as part of the surface family |
+| Text input (focused) | Solid background + accent ring | Focus is decisive; clarity matters |
+| Select dropdown | Light Glass field + Heavy Glass menu | Field matches inputs; menu matches popovers |
+| Checkbox / radio | Solid | Small target; needs maximum legibility |
+| Toggle switch | Solid track + solid thumb | Animation reads cleaner without blur |
+| Slider | Solid track + solid thumb | Same as toggle |
+| Date picker | Light Glass field + Heavy Glass calendar | Same field/menu pattern as select |
+
+### 21.9.3 Containers (Part 3c — cards, panels, accordions)
+
+| Component | Default render | Rationale |
+|---|---|---|
+| Card | Standard Glass | The canonical glass surface; the default |
+| Panel | Standard Glass | Same family as card |
+| Accordion | Standard Glass (item) + light-divider | Cards stacked; dividers stay 1px solid |
+| Tab panel | Standard Glass | Same as card |
+| Sheet (slide-up) | Heavy Glass | Modal-equivalent; matches modal material |
+
+### 21.9.4 Navigation (Part 3d — top nav, side nav, breadcrumbs)
+
+| Component | Default render | Rationale |
+|---|---|---|
+| Top nav (sticky) | Light Glass | Always sticky; glass reinforces "this is structural" |
+| Side nav | Light Glass | Sticky structural sidebar |
+| Breadcrumb | None (text only, no surface) | Pure text; no surface needed |
+| Tab strip | Light Glass background, solid active-tab | Glass reinforces structural framing |
+| Pagination | Light Glass on container, solid buttons | Container framing; button clarity |
+| Command palette | Heavy Glass | Floats above everything; matches modal |
+
+### 21.9.5 Feedback (Part 3e — alerts, banners, toasts, dialogs)
+
+| Component | Default render | Rationale |
+|---|---|---|
+| Toast | Heavy Glass | Floats above; transient; needs to read fast |
+| Alert (inline) | Standard Glass with semantic-tinted border | Lives inside content flow; glass keeps it cohesive |
+| Banner (top-of-page) | Light Glass with semantic-tinted left border | Structural; matches nav family |
+| Dialog / modal | Heavy Glass | Focal interruption; needs maximum stage presence |
+| Confirmation dialog | Heavy Glass | Same as dialog |
+| Empty state | Standard Glass | Lives inside a section; matches card family |
+
+### 21.9.6 Data display (Part 3f — tables, lists, key-value)
+
+| Component | Default render | Rationale |
+|---|---|---|
+| Data table | **Solid** | Scanning rows requires unambiguous contrast; glass hurts |
+| List (sparse) | Standard Glass on container | Sparse list reads as a card variant |
+| List (dense) | Solid | Dense rows = data-table-equivalent |
+| Key-value pairs | Standard Glass on container | Container framing |
+| Stat / KPI card | Standard Glass | Card family |
+| Avatar / badge | Solid | Small element; needs sharp edge |
+| Tag / chip | Solid (with optional Light Glass on hover) | Small element |
+
+### 21.9.7 Visualization (Part 3g — charts, sparklines, maps)
+
+| Component | Default render | Rationale |
+|---|---|---|
+| Chart container | Standard Glass | Container framing |
+| Chart canvas | **Solid** | Data marks need crisp render |
+| Chart tooltip | Heavy Glass | Floats above the canvas |
+| Chart legend | None (text only) | Pure text; no surface |
+| Sparkline | Inherits surrounding surface | No own surface |
+| Map container | Standard Glass | Container framing |
+| Map canvas | **Solid** | Tile rendering; no blur |
+| Map overlay (e.g., legend, scale) | Heavy Glass | Floats above map |
+
+### 21.9.8 AI & Chat (Part 3h — message bubbles, composer, tool surfaces)
+
+| Component | Default render | Rationale |
+|---|---|---|
+| User message bubble | Standard Glass with Ochre tint (alpha 0.85) | Slightly more opaque than AI bubble — user msgs are "decisive" |
+| AI message bubble | Standard Glass (alpha 0.75) | Slightly more translucent — AI msgs are "ambient" |
+| Composer input | Light Glass field + solid focus state | Same pattern as input family |
+| Tool-call card (inside chat) | Standard Glass with restricted-action border | Card family with semantic border |
+| Tool-result expandable | Standard Glass | Card family |
+| Suggested-actions row | Light Glass row + solid chips | Container + solid actions pattern |
+| Slash-command picker | Heavy Glass | Floats above composer; matches command palette |
+
+The user-bubble-more-opaque-than-AI-bubble rule is intentional. User messages are "what I said" (decisive); AI messages are "what the system replied" (provisional, more atmospheric). The opacity differential communicates that hierarchy without using color alone.
+
+### 21.9.9 Solid escape hatch — when to opt out
+
+Use `.surface-solid` (not `.bbg-card`) when:
+
+- The surface hosts a data table (§21.9.6).
+- The surface is a chart canvas (§21.9.7).
+- The surface is a map tile canvas (§21.9.7).
+- The surface displays regulatory or legal disclosure text (Decree 123 e-invoice, GDPR consent, ToS).
+- The surface is intended primarily for print/PDF (e.g., a report layout).
+- The surface is rendered in a high-contrast accessibility mode (system handles via `forced-colors` + `prefers-reduced-transparency`).
+
+Solid escape is documented as a feature, not a workaround. Reach for it without apology when the use case warrants.
+
+---
+
+## 21.10 Browser support and fallbacks
+
+`backdrop-filter` is well-supported. The `@supports` rule provides a clean fallback for the long tail.
+
+### 21.10.1 Support matrix (caniuse 2026-05)
+
+| Browser | Version | Support |
+|---|---|---|
+| Safari (macOS, iOS) | 9+ | Full (with `-webkit-` prefix) |
+| Chrome (desktop, Android) | 76+ | Full |
+| Firefox | 103+ | Full |
+| Edge (Chromium) | 79+ | Full |
+| Samsung Internet | 12+ | Full |
+| Opera | 63+ | Full |
+| WebView (Android) | 76+ | Full |
+
+Global coverage: ~98% as of caniuse 2026. The remaining ~2% are legacy Android WebView (< 76), IE 11 (we don't support), Opera Mini, and KaiOS browsers.
+
+### 21.10.2 Fallback pattern
+
+```css
+@supports not (backdrop-filter: blur(1px)) {
+  .surface-whisper,
+  .surface-light,
+  .surface-standard,
+  .surface-heavy,
+  .bbg-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+  }
+}
+
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .surface-whisper,
+  .surface-light,
+  .surface-standard,
+  .surface-heavy,
+  .bbg-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+  }
+}
+```
+
+The second block catches Safari versions where the unprefixed property isn't detected but the prefixed one is.
+
+### 21.10.3 Performance notes
+
+`backdrop-filter` is GPU-accelerated on every supported browser. Costs:
+
+- Each glass surface adds one compositing layer.
+- Blur is the most expensive filter; saturate is cheap.
+- Stacking 4+ glass surfaces on screen at once can hit ~16ms frame budget on low-end Android. Mitigations:
+  - Limit Heavy Glass to one surface visible at a time (modals are exclusive; toasts are short-lived).
+  - Don't apply glass to repeatable list items (use solid for list rows; glass for the list container).
+  - Use `will-change: backdrop-filter` only where the surface animates; otherwise let the browser default-cache.
+
+### 21.10.4 Mobile testing
+
+Mandatory test devices for glass rollouts:
+
+- iPhone SE (2022, smallest viewport, oldest iOS supported)
+- iPhone 15 (current baseline)
+- Pixel 7 (Android baseline)
+- Samsung Galaxy A-series (budget Android, common in Vietnam)
+
+The Galaxy A-series is the critical perf test. If glass surfaces stutter there, the rollout pauses.
+
+---
+
+## 21.11 Dark mode
+
+In dark mode, glass surfaces tint toward Umber-700/800 instead of Umber-50. APCA contrast floors remain.
+
+### 21.11.1 Dark-mode token overrides
+
+```css
+[data-theme="dark"] {
+  --glass-whisper-bg: color-mix(in oklab, var(--umber-900) 60%, transparent);
+  --glass-light-bg: color-mix(in oklab, var(--umber-800) 70%, transparent);
+  --glass-standard-bg: color-mix(in oklab, var(--umber-800) 80%, transparent);
+  --glass-heavy-bg: color-mix(in oklab, var(--umber-700) 90%, transparent);
+
+  --glass-light-border: color-mix(in oklab, var(--umber-600) 50%, transparent);
+  --glass-standard-border: color-mix(in oklab, var(--umber-600) 60%, transparent);
+  --glass-heavy-border: color-mix(in oklab, var(--umber-500) 80%, transparent);
+}
+```
+
+### 21.11.2 Dark-mode shadows
+
+Dark-mode shadows tint toward pure black with slight Umber:
+
+```css
+[data-theme="dark"] .bbg-card,
+[data-theme="dark"] .surface-standard {
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.25),
+    0 8px 24px rgba(20, 8, 4, 0.4);
+}
+
+[data-theme="dark"] .surface-heavy {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+```
+
+### 21.11.3 Dark-mode APCA
+
+Body text in dark mode is typically `--umber-50` (`#FAF3EE`) or off-white. Against the dark-mode glass surface `color-mix(in oklab, var(--umber-800) 80%, transparent)`, APCA score is approximately Lc -92 (negative because text is lighter than background). Absolute value 92 — well above Lc 75 floor.
+
+Interactive elements in dark mode (Ochre buttons, primary actions) need Lc ≥ 90 against the glass surface. Ochre-500 (`#F4BA17`) against Umber-800 glass scores approximately Lc -98. Passes.
+
+### 21.11.4 Dark-mode lens edge
+
+§21.4.3 already documented the inverted gradient (Ochre highlight + black shadow).
+
+### 21.11.5 Auto-switching
+
+Dark mode follows `prefers-color-scheme: dark` and an explicit `[data-theme="dark"]` data-attribute. Designers MAY force-render dark for screenshots in docs; runtime apps follow the user's preference.
+
+---
+
+## 21.12 Migration path — additive, non-breaking
+
+Part 21 is additive. Existing components defined in Parts 2–3 with solid surfaces continue to render correctly. Components opt INTO glass by adopting `.surface-*` or `.bbg-card`. Old code keeps working.
+
+### 21.12.1 The waves
+
+| Wave | Scope | Timeline | Risk |
+|---|---|---|---|
+| Wave 1 | Ship Part 21 as documentation (this RFC) | 2026-05-14 | Zero |
+| Wave 2 | Add `tokens.css` glass-token block + `glass.css` material classes; ship to docs site | 2026-05-15 → 2026-05-21 | Low — additive |
+| Wave 3 | Retrofit primary navs, cards, modals across CyberOS-docs + CyberSkill landing | 2026-05-22 → 2026-06-12 | Low — visual review only |
+| Wave 4 | Retrofit remaining surfaces case-by-case; opt out where Solid is correct (§21.9.9) | 2026-06-13 → 2026-08-31 | Low |
+| Wave 5 | Audit + adjust opacities where APCA edge cases surface | 2026-09-01 → 2026-09-30 | Low |
+| Wave 6 | v1.2.0 ship — Part 21 is the default for all new components | 2026-10-01 onward | Zero |
+
+### 21.12.2 Non-breaking promise
+
+| Component class | Pre-Part-21 render | Post-Part-21 render |
+|---|---|---|
+| `.bbg-card` | Solid white bg + border + shadow | Standard Glass bg + lens edge + shadow |
+| `.surface-card` (Part 4) | Solid bg | Standard Glass bg (if upgraded) |
+| `.bbg-card.tint-warm` (new) | n/a | Standard Glass + explicit warm tint |
+| `<button>` (Part 3a) | Solid bg | Solid bg (unchanged) |
+| `<input>` (Part 3b) | Solid bg | Light Glass bg (if Part-21 stylesheet loaded) |
+| Custom user CSS | Unchanged | Unchanged (no token names changed) |
+
+The only "breaking" case is an app that visually relies on `.bbg-card` being literally white. We don't know of any such app — the brand bg has always been Umber-50, not white. If one exists, Wave 2 documentation includes a `<rollback>` snippet that restores the pre-Part-21 render via `--glass-standard-bg: var(--bg-card);` (i.e., 100% solid).
+
+### 21.12.3 Retrofit checklist (per component)
+
+For each Part 3 component being retrofitted in Wave 3–4:
+
+1. Identify the surface role (Part 4 §3).
+2. Look up the default material binding (§21.9).
+3. Replace the existing background CSS with `.surface-<material>` (or rely on `.bbg-card` auto-upgrade).
+4. Run APCA contrast against deployed opacity (§21.8.1).
+5. Run Vietnamese diacritic legibility test (§21.8.6).
+6. Test `prefers-reduced-transparency` collapse (§21.8.2).
+7. Test print render (§21.8.5).
+8. Visual review at @1x and @2x.
+9. Commit + ship.
+
+### 21.12.4 Rollback path
+
+If a Wave 3 surface ships and breaks (perf, contrast, or visual regression), the rollback is a one-line CSS override:
+
+```css
+.affected-surface {
+  background: var(--bg-card);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+```
+
+Effectively, opt the surface back to Solid. The rest of the system stays on glass. Rollback is per-surface; full Part 21 rollback is not necessary.
+
+---
+
+## 21.13 Examples — concrete reference compositions
+
+Five canonical examples. Each describes the visual composition; reference screenshots live in the docs site (Wave 2).
+
+### 21.13.1 Sticky nav (Light Glass)
+
+The top nav of CyberOS-docs. Sticky-positioned, 64px tall, Light Glass background. As the user scrolls, the page content slides up behind the nav, and the page background's tint carries through. Section hero washes appear muted-warm through the nav.
+
+CSS sketch:
+
+```html
+<nav class="site-nav surface-light parallax-glass-deep">
+  <div class="brand">CyberOS</div>
+  <ul class="nav-links">...</ul>
+  <button class="theme-toggle">...</button>
+</nav>
+```
+
+```css
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--depth-nav);
+  height: 64px;
+  padding-inline: var(--space-md);
+}
+```
+
+### 21.13.2 Module card in catalog grid (Standard Glass)
+
+The CyberOS-docs `/modules/` catalog. Each module rendered as a card with Standard Glass background, lens edge, and a small Ochre accent on hover. Cards sit inside a section with a subtle Umber-50 tint, so the cards read slightly warm. Module-status pill in the top-right of each card stays solid.
+
+CSS sketch:
+
+```html
+<a href="/modules/brain" class="module-card bbg-card">
+  <h3>BRAIN Substrate</h3>
+  <p>Persistent agent memory...</p>
+  <span class="status-pill solid">Shipped</span>
+</a>
+```
+
+### 21.13.3 Install-skill confirmation modal (Heavy Glass)
+
+User clicks "Install" on a skill. Modal opens centered, Heavy Glass background with 24px blur, lens edge, 60px shadow. Page content blurs out behind. Modal content: skill name, version, capabilities-requested list, install/cancel buttons.
+
+```html
+<div class="modal-backdrop">
+  <div class="modal surface-heavy">
+    <h2>Install vn-vat-invoice?</h2>
+    <ul class="capabilities">
+      <li>filesystem.read</li>
+      <li>filesystem.write</li>
+    </ul>
+    <div class="modal-actions">
+      <button class="primary">Install</button>
+      <button class="secondary">Cancel</button>
+    </div>
+  </div>
+</div>
+```
+
+### 21.13.4 Hero with Ochre tint underlying glass cards above
+
+The CyberSkill landing-page hero. Hero section has a soft Ochre-100 to Umber-50 gradient bg. Inside the hero, three glass cards float — each a Standard Glass surface. Carry-over: cards read distinctly warmer than the cards in a section below the hero (which sits over neutral page bg).
+
+This is the classic example of §21.6.2 — the warmth carry-over working as designed.
+
+### 21.13.5 AI chat surface (Standard Glass, two opacities)
+
+CyberOS docs site has a Claude-powered "Ask the docs" overlay. Opening it reveals a Heavy Glass panel sliding in from the right edge (40% viewport width). Inside the panel:
+
+- User messages: Standard Glass bubbles with Ochre tint at 85% opacity.
+- AI messages: Standard Glass bubbles at 75% opacity.
+- Tool-call cards (when the AI invokes a doc-search tool): Standard Glass with semantic border.
+- Composer at the bottom: Light Glass input field; solid focus ring on focus.
+
+The opacity differential (user > AI) creates the conversational hierarchy without using color alone.
+
+---
+
+## 21.14 Decision log — the RFC
+
+Per the system's RFC pattern (Part 8 §2 — governance).
+
+| Field | Value |
+|---|---|
+| **RFC ID** | DS-RFC-2026-05-14-001 |
+| **Title** | Adopt Liquid Glass as default surface treatment for CyberSkill products |
+| **Date** | 2026-05-14 |
+| **Status** | Approved |
+| **Class** | MINOR (per CHANGELOG.md — new defaults, no breaking changes) |
+| **Approver** | Founder (Stephen Cheng / Trịnh Thái Anh) |
+| **Anchor impact** | None — Umber `#45210E`, Ochre `#F4BA17`, slogan, voice axes UNCHANGED |
+| **Backward compat** | Yes — additive only; existing solid-surface components continue to render correctly |
+
+**Decision.**
+
+Liquid Glass (Apple's evolved 2025/2026 material language) becomes the default surface treatment for CyberSkill products from 2026-05-14 onward. Solid surfaces remain available as an explicit escape hatch for data tables, charts, print, regulatory disclosures, and accessibility-high-contrast modes.
+
+**Rationale.**
+
+1. Aligns with the agentic-OS era — Anthropic, OpenAI, Google, Microsoft AI surfaces all use glass.
+2. Aligns with OS-host material (macOS 26 / iOS 26 / visionOS use glass system-wide).
+3. Distinguishes CyberSkill products from flat-design competitors (Microsoft 365, Salesforce, Notion, ClickUp, Asana).
+4. Maps to CyberOS's layered architecture metaphor (BRAIN substrate → SKILL catalog → CUO router → modules).
+5. Fits Vietnamese cultural aesthetic — subtle, refined, atmospheric (ấm cúng) rather than flat-declarative.
+6. Reinforces brand voice axes (warm + direct + honest + respectful) — glass communicates warmth without competing with content.
+
+**Anchor immutables.**
+
+- Umber `#45210E` — unchanged.
+- Ochre `#F4BA17` — unchanged.
+- Slogan "Hiện Thực Hoá Ý Chí" — unchanged.
+- APCA Lc ≥ 75 body / Lc ≥ 90 interactive — unchanged and non-relaxable on glass.
+- Voice axes — unchanged.
+- Token names (`--umber-*`, `--ochre-*`, `--bg-*`, etc.) — unchanged.
+
+**Scope.**
+
+- Adds Part 21 to `DESIGN.md`.
+- Adds five glass material types (Whisper / Light / Standard / Heavy / Solid escape hatch).
+- Adds layered depth token family (`--depth-bg` through `--depth-toast`).
+- Adds lens edge treatment.
+- Adds material-aware tinting documentation.
+- Adds parallax motion patterns (honors `prefers-reduced-motion`).
+- Adds component-family glass binding (§21.9).
+- Adds dark-mode equivalents.
+- Adds browser support + fallback patterns.
+- Adds migration path (Wave 1–6, additive, non-breaking).
+
+**Out of scope.**
+
+- Token-value changes — none.
+- API changes — none.
+- New component primitives — none (Part 3 components retrofit via class binding, no new primitives).
+- `tokens.css` / `styles.css` edits — separate Wave-2 task.
+- CyberOS-docs site retrofit — separate Wave-3 task.
+
+**Verification (this RFC).**
+
+- §21.1 — bet + immutables documented.
+- §21.2 — five materials defined with use case / blur / saturation / opacity / depth.
+- §21.3 — CSS implementation with vendor prefixes + accessibility fallbacks.
+- §21.4 — lens edge pseudo-element pattern.
+- §21.5 — depth tokens + material binding.
+- §21.6 — material-aware tinting documented as feature.
+- §21.7 — parallax + reduced-motion handling.
+- §21.8 — APCA + reduced-transparency + forced-colors + print + Vietnamese diacritic floors.
+- §21.9 — per-component-family glass treatment table.
+- §21.10 — browser support + fallback.
+- §21.11 — dark mode equivalents.
+- §21.12 — migration waves.
+- §21.13 — five concrete example compositions.
+- §21.14 — this decision log.
+
+**Approval phrase.**
+
+`APPROVE protocol change DS-RFC-2026-05-14-001 §Part-21`
+
+Status: Approved 2026-05-14 by Founder.
+
+**Next actions.**
+
+| Action | Owner | Target |
+|---|---|---|
+| Add Part 21 to DESIGN.md | Design-system module | 2026-05-14 (this commit) |
+| Bump version 1.0.7 → 1.1.0 in CHANGELOG.md | Design-system module | 2026-05-14 |
+| Author `tokens.css` glass-token block | Design-system module (Wave 2) | 2026-05-21 |
+| Author `glass.css` material classes | Design-system module (Wave 2) | 2026-05-21 |
+| Retrofit CyberOS-docs sticky nav + cards | CyberOS-docs module (Wave 3) | 2026-06-12 |
+| Retrofit CyberSkill landing hero + sections | Landing-page module (Wave 3) | 2026-06-12 |
+| Audit APCA + diacritic floors on shipped surfaces | Design-system module (Wave 5) | 2026-09-30 |
+
+---
+
+## 21.15 References
+
+| Source | Year | Use |
+|---|---|---|
+| Apple HIG — Materials (Liquid Glass) | 2025 | Material vocabulary basis |
+| Apple WWDC25 — "Designing for macOS 26" | 2025 | Default-glass-everywhere precedent |
+| Apple HIG — Reduce Transparency | continuous | `prefers-reduced-transparency` semantics |
+| W3C — `prefers-reduced-transparency` | 2023 (Media Queries L5) | System-preference honoring |
+| W3C — `prefers-reduced-motion` | 2017 | Motion fallback |
+| W3C — `forced-colors` | 2020 | High-contrast mode fallback |
+| W3C — `backdrop-filter` (Filter Effects L2) | 2024 (Candidate Rec) | Core CSS property |
+| W3C — `color-mix()` (Color L5) | 2024 | oklab-space color interpolation |
+| MDN — `backdrop-filter` | continuous | Browser-support table source |
+| caniuse — `backdrop-filter` | 2026 | Support coverage data |
+| APCA — Accessible Perceptual Contrast Algorithm | continuous | Contrast measurement floor |
+| Microsoft — Mica + Acrylic materials (Fluent) | continuous | Adjacent industry vocabulary |
+| Linear — sidebar + command palette | continuous | Reference (restrained glass) |
+| Vercel — dashboard top nav | continuous | Reference (glass sticky nav) |
+| Cursor IDE — tab strip + sidebar | continuous | Reference (productivity-app glass) |
+| Arc / Browser Co (Atlassian) | continuous | Reference (heavy glass adoption) |
+| Anthropic — Claude.ai chat surfaces | continuous | Reference (AI-native glass) |
+| ChatGPT macOS app | continuous | Reference (AI-native glass) |
+| Heydon Pickering — *Inclusive Components* | continuous | Accessibility-first material design |
+
+---
+
+*End of Part 21. End of doctrine v1.1.0.*
 
 ---
 

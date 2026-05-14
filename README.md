@@ -12,15 +12,16 @@ This README is the **operating manual** for the design system: what it is, how t
 
 | Field | Value |
 |---|---|
-| Version | **v1.0.7** (2026-05-04) |
+| Version | **v1.1.0** (2026-05-14) |
 | Audit tier | **L3 — enterprise-grade** ✓ |
 | Combined audit score | **80.3%** (Part A 74.8% / Part B 85.7%) |
 | Enterprise-grade floors | **7 of 7 pass** |
-| `DESIGN.md` | 1,216 KB; 1 H1; 509 real H2s; 0 anchor collisions |
+| `DESIGN.md` | ~1,260 KB; 1 H1; **21 Parts** (Part 21 — Liquid Glass Default, added 2026-05-14); 0 anchor collisions |
 | Section numbering | Decimal multi-level (e.g. `## 5.7 20+ locales baseline`) |
 | Doctrine source | Single file — `doctrine/` and `scripts/` removed (v1.0.3) |
 | Audit findings closed | **14 of 18** (4 deferred — infrastructure-blocked, target Q1 2027) |
 | Anchor immutables | Slogan, Umber, Ochre, voice axes, Vietnamese-first — **all preserved** |
+| Default surface treatment | **Liquid Glass** (Part 21) — five materials (Whisper / Light / Standard / Heavy / Solid). Layered depth + lens edges + APCA Lc ≥ 75 preserved. |
 | Canonical files | `README.md` + `DESIGN.md` + `CHANGELOG.md` (3 files; everything else is local working state, gitignored) |
 
 For change log, see [`CHANGELOG.md`](./CHANGELOG.md). Audit reports are local-only — re-run the [audit framework](#9-auditing-the-system) to regenerate them.
@@ -47,7 +48,9 @@ For change log, see [`CHANGELOG.md`](./CHANGELOG.md). Audit reports are local-on
 
 ## 1. What this is and how to use it
 
-The system is a **single-file doctrine** — `DESIGN.md` at the repo root contains the full twenty-part specification. Twenty parts at uniform enterprise grade, decimal-numbered (e.g., Part 5 §5.7), one source of truth.
+The system is a **single-file doctrine** — `DESIGN.md` at the repo root contains the full twenty-one-part specification. Twenty-one parts at uniform enterprise grade, decimal-numbered (e.g., Part 5 §5.7), one source of truth.
+
+As of v1.1.0 (2026-05-14), **Liquid Glass** is the default surface treatment across CyberSkill products — see `DESIGN.md` [Part 21 — Liquid Glass Default](./DESIGN.md#part-21-liquid-glass-default). Umber + Ochre anchors stay immutable; Liquid Glass governs HOW surfaces render, not WHAT colors they use.
 
 **The system ships as exactly three files at the repo root:**
 
@@ -115,8 +118,11 @@ These are the four commitments that no agent, no edit, and no audit may relax. T
 | **Primary accent** | **Ochre** — `oklch(0.811 0.162 83.7)` / `#F4BA17` / `color(display-p3 0.95 0.74 0.13)` | `DESIGN.md` [§2.2 Anchor Brand Tokens](./DESIGN.md#2-2-anchor-brand-tokens) |
 | **Voice axes** | warm · direct · honest · respectful (chord, not slider — all four simultaneously) | `DESIGN.md` [§1.3 Personality, Voice, and Tone](./DESIGN.md#1-3-personality-voice-and-tone) |
 | **Vietnamese-first commitment** | Every UI string ships a VN counterpart or an explicit deferral note | `DESIGN.md` [§5.7 20+ locales baseline](./DESIGN.md#5-7-20-locales-baseline) |
+| **APCA contrast floor** | Lc ≥ 75 for body text, Lc ≥ 90 for interactive elements. Liquid Glass surfaces must measure at the rendered translucent state, not the solid color. | `DESIGN.md` [§21.8 Accessibility floor](./DESIGN.md#21-8-accessibility-floor) |
 
 **Refuse to modify these.** If anyone — human or agent — proposes changing them, escalate to the Design System Lead and Brand Owner; do not merge an RFC that touches an immutable without the v2.0.0 protocol described in §7.
+
+**Note on Part 21:** Liquid Glass adoption (v1.1.0) does NOT modify any immutable. It adds a default surface-rendering layer ON TOP of the existing Umber/Ochre anchors. Existing solid-surface components continue to render correctly — Part 21 is additive, opt-in via `.surface-*` / `.bbg-card` classes, with `prefers-reduced-transparency` + `@media print` collapsing back to solid surfaces.
 
 ---
 
@@ -150,7 +156,7 @@ Place all three inside a `design-system/` subfolder so they don't shadow the pro
 git submodule add https://github.com/cyberskill/design-system.git design-system
 ```
 
-Pin the submodule to a tagged release (currently `v1.0.6`). Product upgrades happen by bumping the submodule SHA, never by editing in-place.
+Pin the submodule to a tagged release (currently `v1.1.0`). Product upgrades happen by bumping the submodule SHA, never by editing in-place.
 
 ### 4.4 What changes per project, what doesn't
 
@@ -443,10 +449,13 @@ This system is MCP-native and AGENTS.md-aware. Every agent (Claude Code, Cursor,
 ```
 You are working in the CyberSkill design system repository. Read README.md first
 (start with the Current state snapshot at top), then DESIGN.md for the doctrine.
-Anchor immutables (slogan, Umber, Ochre, voice axes, Vietnamese-first) are
-non-negotiable — refuse any request to change them. For substantive changes,
-write an RFC under meta/rfcs/ following the template in §6 of README.md.
+Anchor immutables (slogan, Umber, Ochre, voice axes, Vietnamese-first, APCA Lc ≥ 75
+floor) are non-negotiable — refuse any request to change them. For substantive
+changes, write an RFC under meta/rfcs/ following the template in §6 of README.md.
 The current audit tier is L3 (combined 80.3%); the no-downgrade rule is hard.
+Liquid Glass (Part 21) is the default surface treatment as of v1.1.0 — use
+.surface-* / .bbg-card classes for new components; solid surfaces are the
+escape hatch, not the default.
 ```
 
 ---
