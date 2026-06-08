@@ -1,0 +1,6 @@
+claim_id,claim,source,source_type,fetched_date,confidence,owner,affected_sections
+dtcg-2025-10,"DTCG Format 2025.10 is a stable W3C Community Group report, not a W3C Recommendation",https://www.w3.org/community/reports/design-tokens/CG-FINAL-format-20251028/,primary,2026-05-23,A,tokens-lead,"Parts 1,2,7,10"
+c2pa-22-spec,C2PA 2.2 is tracked as target provenance specification; CyberSkill conformance remains planned,https://spec.c2pa.org/specifications/specifications/2.2/index.html,primary,2026-05-23,A,provenance-lead,"Parts 3h,6,10"
+rsl-10-spec,RSL 1.0 defines machine-readable licensing and crawler-policy mechanisms,https://rslstandard.org/rsl,primary,2026-05-23,A,provenance-lead,"Parts 6,8,10"
+cldr-48-release,"CLDR 48 is standards-watch target, not automatic adoption claim",https://cldr.unicode.org/downloads/cldr-48,primary,2026-05-23,A,locale-steward,Part 5
+adobe-leonardo-contrast,"Leonardo-style contrast generation is Labs helper, not brand-palette replacement",https://github.com/adobe/leonardo,primary,2026-05-23,A,tokens-lead,"Parts 2,7"

@@ -1,0 +1,20 @@
+{
+  "name": "cyberskill-design-system",
+  "version": "1.1.0-artifact.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "scripts": {
+    "tokens:build": "node packages/tokens/scripts/build.mjs",
+    "components:test": "node packages/react/test/component-contracts.test.mjs",
+    "components:render": "node packages/react/test/render-smoke.test.mjs",
+    "artifacts": "node scripts/generate-artifacts.mjs",
+    "verify": "node scripts/verify-artifacts.mjs"
+  }
+}

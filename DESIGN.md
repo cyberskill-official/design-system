@@ -1,7 +1,238 @@
 ## Master Index
-*A unified, enterprise-grade design system for a Vietnamese-origin, globally-scoped enterprise. Twenty parts at uniform depth. Warm earth anchors. Warm approachable tech. Vietnamese first-class. PDPL- and EU AI Act-ready. DTCG 2025.10-native. MCP-native.*
+*A unified, enterprise-grade design system for a Vietnamese-origin, globally-scoped enterprise. Twenty-one parts at uniform depth. Warm earth anchors. Warm approachable tech. Vietnamese first-class. PDPL- and EU AI Act-ready. DTCG 2025.10-targeted. MCP-ready.*
 
-> **Version 1.0.0 — locked 2026-04-25.** All twenty parts are at production publication grade. No part is a "foundation" subordinate to another; no part is a "supplement". Every part is enterprise-grade equal. Future improvements follow the v1.1+ change-management protocol defined in [00-audit-and-roadmap.md](./README.md) §6.
+> **Version 1.1.0 doctrine refinement — current 2026-05-23.** v1.0.0 was the 2026-04-25 baseline; Part 21 was added 2026-05-14; this v1.1 refinement keeps `DESIGN.md` as the single standalone source of truth while separating doctrine, implementation requirements, planned artifacts, shipped artifacts, and audited evidence. No part is subordinate to another. Every part is authoritative at its stated maturity level.
+
+---
+
+## How to Read This File
+
+This file is deliberately standalone. A designer, engineer, PM, legal reviewer, accessibility reviewer, or AI agent MUST be able to understand the CyberSkill Global Design System doctrine from this file without opening companion docs. Supporting artifacts may later be generated from it, but this file remains the human-readable authority.
+
+Use the document in four passes:
+
+1. **Orient.** Read this master index, the maturity legend, the artifact reality table, and the role path relevant to you.
+2. **Decide.** Use each part's decision tables and implementation checklists before reading all rationale.
+3. **Build.** Follow component, token, accessibility, legal, AI, and tooling requirements at the maturity gate your product targets.
+4. **Verify.** Check evidence rows, known gaps, acceptance tests, and regulatory-review labels before making external or production claims.
+
+### Role-based entry points
+
+| Reader | Start here | Then read | Decision you should be able to make |
+|---|---|---|---|
+| Designer | Part 1, Part 2, Part 3 overview, Part 20 | Part 4, Part 11, Part 13, Part 14, Part 21 | Which visual, layout, density, material, and copy rules apply to a surface. |
+| Engineer | Part 7, Part 17, artifact reality table | Part 2 tokens, in-scope Part 3/12 component specs, Part 15, Part 18 | Whether an implementation can claim Prototype, Alpha, Beta, GA, or Audited. |
+| PM | Part 16, Part 17, Part 10 | Part 6, Part 8, Part 19 | Which roadmap slice is MVP, Enterprise Core, AI Core, Labs, or vertical-pack work. |
+| Legal / privacy | Part 8, regulatory evidence register | Part 6 AI, Part 14 copy, relevant Part 19 vertical pack | Which claims need counsel review and which UI controls are mandatory. |
+| Accessibility reviewer | Part 5 | Part 3/12 component families, Part 13 modes, Part 21 material tests | Whether a component can support accessibility, and what product evidence is still needed. |
+| AI agent | This section, Doctrine vs Implementation, artifact reality table | The part being edited plus every referenced part | What may be changed, what must be preserved, and which claims require evidence. |
+
+### Search keywords
+
+Use these exact keywords to jump quickly: `maturity`, `artifact reality`, `known gaps`, `MVP Core`, `AI Core`, `DTCG`, `token validation`, `Doctrine Excellence`, `Artifacts Conformance`, `Manual Conformance`, `1000-point`, `loop protocol`, `ConsentEvent`, `legal telemetry`, `data classification`, `RSL`, `Leonardo`, `ICU 78`, `CLDR 48`, `carbon rating`, `WCAG`, `APCA`, `Vietnamese`, `PDPL`, `EU AI Act`, `AIDisclosureBadge`, `ConfidenceIndicator`, `HumanReviewGate`, `Liquid Glass`, `No Glass`, `benchmark`, `evidence register`, `legal counsel`, `MCP`, `Storybook`, `Figma`.
+
+## Doctrine vs Implementation
+
+Every claim in this file uses one of five statuses. When a status is absent, treat the claim as **Doctrine** until a maturity table says otherwise.
+
+| Status | Meaning | External-claim rule |
+|---|---|---|
+| **Doctrine** | A normative design-system rule or principle. | May be described as CyberSkill doctrine, not as a shipped product fact. |
+| **Implementation requirement** | MUST be built before a product or package can reach GA. | May be cited as a release gate. |
+| **Planned artifact** | Named artifact that does not currently exist in this workspace. | MUST NOT be called shipped, live, public, or production. |
+| **Shipped artifact** | Exists in the repository or deployment and has verification evidence. | May be claimed only with artifact link, version, owner, and test/evidence row. |
+| **Audited artifact** | Formally verified by an internal audit, independent reviewer, or required external assessor. | May support compliance claims within the audit scope and date only. |
+
+**Unsupported production-grade language is forbidden.** If the repository does not contain the package, Storybook, dashboard, CSV, MCP server, Figma plugin, CLI, or evidence file, this doctrine may specify it but MUST label it Planned, Specified, or Implementation requirement.
+
+## Maturity Legend
+
+| Maturity | Definition | Promotion gate |
+|---|---|---|
+| **Concept** | Strategic doctrine only; no stable API or complete behavior. | Problem, audience, and non-goals documented. |
+| **Specified** | API, anatomy, behavior, accessibility, localization, and tests defined. | Complete spec and owner assigned. |
+| **Prototype** | Experimental implementation exists; not API-stable. | Demo, basic tests, and known limitations documented. |
+| **Alpha** | Usable internally; API and tokens may change. | Internal consumers, migration notes, and issue tracker active. |
+| **Beta** | External pilot allowed; migration path required. | Docs, examples, accessibility review, and support path ready. |
+| **GA** | Supported production API. | Install command, API docs, examples, tests, changelog, license, release notes, and support policy. |
+| **Audited** | GA plus formal accessibility/security/legal evidence. | Audit scope, date, reviewer, findings, remediation status, and evidence link. |
+| **Deprecated** | Replacement named; timeline and migration documented. | Deprecation notice and codemod or migration guide. |
+| **Sunset** | Removed or scheduled for removal. | Data/export/user-impact plan complete. |
+
+## Evidence Legend
+
+| Confidence | Meaning | Use |
+|---|---|---|
+| **A** | Primary source current as of fetched date. | May support doctrine and external factual claims. |
+| **B** | Reputable secondary source or official source with incomplete detail. | May support internal planning; external wording should stay cautious. |
+| **C** | Inference from multiple sources or implementation inspection. | Internal use only unless verified. |
+| **D** | Unverified, stale, or placeholder. | Do not use for external claims. |
+
+Evidence rows use: `claim_id`, claim, source, source type, fetched date, confidence, owner, affected sections. High-risk areas requiring evidence include regulatory dates and penalties, standards status, browser support, benchmark comparison, accessibility requirements, sustainability model values, AI Act obligations, C2PA / watermarking claims, package/tool version claims, and public dashboard claims.
+
+## Standalone Doctrine Change Log
+
+| Version | Date | Status | Change |
+|---|---|---|---|
+| v1.0.0 | 2026-04-25 | Baseline doctrine | Original twenty-part publication baseline. |
+| v1.1.0-draft | 2026-05-14 | Draft doctrine | Part 21 added Liquid Glass material doctrine. |
+| v1.1.0-refinement | 2026-05-23 | Current doctrine refinement | Corrects the document to twenty-one parts; adds maturity, evidence, artifact reality, benchmark scoring, Liquid Glass scope refinement, and planned-vs-shipped guardrails. |
+| v1.1.0-maximal-loop | 2026-05-23 | Benchmark-loop refinement | Adds 1000-point rubrics for Doctrine Excellence, Artifacts Conformance, and Manual Conformance; adds ConsentEvent/legal telemetry, data-classification, provenance/crawler-policy, DTCG-agent, algorithmic contrast, sustainability, ICU/CLDR, and typography-governance requirements. |
+
+## Artifact Reality Table
+
+Workspace reality checked on **2026-05-23** after the artifact loop pass: this repository now contains prototype package scaffolds, generated token outputs, generated evidence/benchmark/WCAG/conformance artifacts, source-level React prototype components, static component contract checks, server-render smoke checks, MCP runtime prototypes, and a Figma token-sync plugin scaffold. These artifacts are real workspace artifacts, but they are not GA and not audited. Until an artifact passes its complete acceptance gates, it remains Prototype, Specified, or Concept, not Shipped / GA / Audited.
+
+| Artifact | Doctrine status | Workspace status | Owner seat | GA acceptance criteria |
+|---|---|---|---|---|
+| `@cyberskill/tokens` | Prototype | Prototype package exists with DTCG-like source, validator, generated CSS/TS/Swift/Kotlin/Flutter/RN/Figma outputs, contrast grid, and build provenance. | Tokens Lead | Install command, DTCG source, validation, generated CSS/TS/Swift/Kotlin/Flutter/RN/Figma outputs, contrast grid, changelog, license, CI, release provenance. |
+| `@cyberskill/react` | Prototype | Prototype package exists with component specs, source-level Button/TextField/Dialog/DataTable/AIDisclosureBadge/HumanReviewGate components, typed exports, CSS, static contract checks, and server-render smoke checks. | Engineering Lead | Tier-1 components, typed APIs, examples, unit/component/visual/a11y tests, Storybook docs, changelog, license. |
+| `@cyberskill/docs` | Prototype / Specified | Generated evidence CSV, benchmark CSV, WCAG matrix CSV, component catalog JSON, static catalog HTML, artifact recreation JSON, and conformance JSON exist; full docs site does not. | Design System Lead | Storybook/docs site, component catalog, evidence register, WCAG matrix, benchmark table, glossary, versioned release pages. |
+| `@cyberskill/ai` | Specified | Planned artifact | AI / Ethics Lead | AI primitives, disclosure/citation/confidence/human-review patterns, risk-tier tests, audit logging hooks. |
+| `@cyberskill/legal-telemetry` | Prototype / Specified | Prototype package exists with ConsentEvent validation and PII guardrails; no receipt store, revocation API, retention engine, or counsel review. | DPO / Legal Engineering Lead | ConsentEvent schema, consent receipt store, revocation API, audit sink, jurisdiction mapping, retention controls, counsel-reviewed evidence. |
+| `@cyberskill/data-classification` | Prototype / Specified | Prototype package exists with classification enums and cross-border review helper. | Privacy Engineering Lead | Field-level classification helpers, cross-border-transfer triggers, CTIA/TIA workflow hooks, redaction labels, policy-version evidence. |
+| `@cyberskill/provenance` | Concept / Prototype | Prototype package exists with RSL policy helper and provenance maturity metadata; no C2PA signing/verification service. | Provenance Lead | C2PA manifest signing/verification, RSL/crawler-policy publishing, trust-list handling, failure states, legal review. |
+| `@cyberskill/contrast-labs` | Concept | Planned artifact | Tokens Lead | Algorithmic contrast experiments, Leonardo-style generated palettes as test vectors, APCA/WCAG reports, no replacement of brand anchors. |
+| `@cyberskill/mcp-tokens` | Prototype | Prototype MCP stdio runtime exists for `initialize`, `resources/list`, `resources/read`, and `ping`; auth, release packaging, and client conformance tests are absent. | AI / Engineering Lead | MCP server exposing token search, resolution, provenance, and version metadata with auth model. |
+| `@cyberskill/mcp-components` | Prototype | Prototype MCP stdio runtime exists for `initialize`, `resources/list`, `resources/read`, and `ping`; auth, release packaging, and client conformance tests are absent. | AI / Engineering Lead | MCP server exposing component specs, examples, props, maturity, and accessibility obligations. |
+| Storybook / component catalog | Prototype / Specified | Static generated catalog exists at `docs/storybook/index.html`; real Storybook and live examples are absent. | Docs Lead | Public and internal stories, all states, EN/VN examples, axe checks, manual AT notes, lifecycle badges. |
+| Figma Variables / plugin | Prototype / Specified | Generated Figma Variables JSON and a token-sync plugin scaffold exist; the plugin previews tokens but does not yet write variables or enforce review workflow. | Design Tooling Lead | Token import, variable parity, change detection, review workflow, version mapping. |
+| CLI scaffolder / codemods | Concept | Planned artifact | Engineering Lead | Component scaffolds, migration codemods, dry-run mode, tests, release notes. |
+| Benchmark CSV / dashboard | Prototype / Specified | Generated benchmark CSV exists; dashboard and quarterly review workflow are absent. | Research Lead | Evidence-backed scored benchmark, source dates, confidence, quarterly review. |
+| WCAG matrix CSV | Prototype / Specified | Generated seed WCAG matrix CSV exists; manual AT evidence and full SC x component coverage are absent. | Accessibility Lead | SC x component rows with story/example, automated test, manual test, owner, date, confidence. |
+| Public sustainability / AI / accessibility dashboards | Concept | Planned artifact | Research + Ops Leads | Live data source, privacy review, uptime owner, dashboard URL, date-stamped methodology. |
+
+**No package claim may be marked GA without:** installation command, API documentation, examples, tests, changelog, license, owner, support policy, and release artifact.
+
+## Known Gaps
+
+| Gap | Affected parts | Current treatment | Required before GA / external claim |
+|---|---|---|---|
+| No GA implementation packages in workspace | Parts 3, 7, 12, 15, 18 | Prototype packages now exist; specs remain below GA. | Add full Tier-1 coverage, tests, docs, release metadata, and support policy. |
+| No real Storybook or live component catalog | Parts 3, 5, 12, 18 | Static prototype catalog exists; Story URLs remain Planned evidence. | Build Storybook and map every story to maturity and accessibility rows. |
+| Benchmark dashboard missing | Part 10 | Generated benchmark CSV exists. | Add versioned dashboard, source refresh workflow, and quarterly review. |
+| Evidence registry incomplete | Parts 8, 10, appendices | Generated seed evidence CSV exists. | Expand evidence register from doctrine and assign review workflow. |
+| WCAG 2.2 SC x component matrix incomplete | Parts 5, 18 | Generated seed WCAG matrix exists; not CI/manual verified. | Add row-level evidence: story/example, automated test, manual test, owner, date, confidence. |
+| MCP runtime servers are prototype-only | Parts 7, 9, 15 | Prototype stdio MCP servers exist for token/component resources. | Add auth model, client conformance tests, security review, release packaging, and versioned docs. |
+| No public dashboards | Parts 6, 10, 16 | Dashboards are target state. | Ship dashboards with methodology, privacy review, and data quality owner. |
+| Figma plugin / variable sync workflow incomplete | Parts 2, 13, 15 | Figma Variables JSON output and token-preview plugin scaffold exist. | Implement variable writes, parity checks, review workflow, and version mapping. |
+| Regulatory evidence not counsel-reviewed in this repo | Parts 6, 8, 19 | Legal claims are needs-counsel unless evidence row says otherwise. | Counsel review, jurisdiction notes, dates, source URLs, reviewer role. |
+| Doctrine-conformance harness is shallow | Parts 3, 7, 10, 15, 17, 18 | `docs/artifact-conformance.json` and `npm run verify` exist; clause-level proof does not. | Build machine-readable checklist that maps every artifact to doctrine clauses and test evidence. |
+| Legal telemetry pipeline incomplete | Parts 8, 10, 15 | Prototype ConsentEvent package exists. | Implement consent receipt store, revocation path, privacy review, retention policy, and audit verification. |
+| Data-classification package incomplete | Parts 3b, 6, 8, 19 | Prototype classification helper exists. | Implement field-level classification helpers and cross-border-transfer trigger workflow. |
+| C2PA / RSL provenance service incomplete | Parts 3h, 6, 8, 10 | Prototype provenance package includes RSL helper; no C2PA service. | Ship signing, verification, RSL publishing, trust-list handling, and legal review before conformance claims. |
+| No algorithmic contrast tooling | Parts 2, 6, 7, 21 | Token contrast grid exists; contrast generation remains Labs. | Evaluate Leonardo-style contrast generation as test-vector tooling; keep curated brand anchors immutable. |
+
+## Component Implementation Sequence
+
+The catalog stays comprehensive, but implementation MUST be sequenced.
+
+| Sequence | Components / surfaces | Maturity target | Rule |
+|---|---|---|---|
+| **MVP Core** | Button, IconButton, LinkButton, TextField, TextArea, Select/Combobox, Checkbox, Radio, Switch, Modal/Dialog, Popover, Tooltip, Toast, Alert, Banner, Card, Table, Pagination, Header/Nav, EmptyState, ErrorState | Beta → GA first | No Advanced/Labs component may block MVP Core quality gates. |
+| **Enterprise Core** | DataGrid, FilterBar, DetailView, AuditLog, Timeline, Tabs, Drawer, Stepper, Breadcrumb, CommandPalette, Form patterns, Billing / account patterns | Beta after MVP Core | Must satisfy dense enterprise scanning, localization, legal, and audit needs. |
+| **AI Core** | ChatThread, ChatMessage, StreamingResponse, CitationCard, AIDisclosureBadge, ConfidenceIndicator, HumanReviewGate, ToolCallDisplay, RedactionMarker | Beta after MVP Core; Audited before high-stakes use | Numeric confidence requires calibration evidence. Tool actions require preview, permission, confirmation, undo/recover, and audit. |
+| **Advanced / Labs** | Spreadsheet.Editor, ImageEditor, Workflow.Visualization, Survey.Builder, PDF.Viewer, advanced drag-and-drop, rich text, scheduler, pivot table | Prototype / Alpha until gates met | Must stay Labs until accessibility, performance, localization, and support evidence exists. |
+| **Vertical Packs** | Healthcare, Fintech, Education, Govtech, Logistics, Marketplace, HR Tech, Real Estate, Energy, Telco, Hospitality, future packs | Specified → Beta per customer need | Pack RFC, counsel review, accessibility review, localization, and customer evidence required. |
+
+For every component family, the minimum spec shape is: API, anatomy, variants, states, keyboard model, tokens consumed, accessibility obligations, localization obligations, test matrix, maturity status, and EN/VN examples. Copy-paste examples are illustrative until the relevant package exists.
+
+## Standalone Usability Conventions
+
+- **Examples are flagged** as `Normative`, `Illustrative`, or `Placeholder`. Unflagged examples are Illustrative.
+- **Non-goals** appear in major parts to prevent overreach.
+- **Decision tables** summarize mandatory choices before rationale.
+- **Implementation checklists** close major parts and define what must be true before promotion.
+- **Unsupported external marketing claims are forbidden.** Claims such as "first", "only", "production-grade", "public", "live", "audited", or "shipped" require an evidence row.
+
+## Acceptance Review Checklist
+
+Before this doctrine is treated as final for a release, reviewers run these passes:
+
+| Pass | Review question | Owner |
+|---|---|---|
+| Internal consistency | Do headings, anchors, part counts, version history, maturity tags, and cross-references agree? | Design System Lead |
+| Benchmark evidence | Are competitor scores backed by dated official sources or confidence labels? | Research Lead |
+| Legal volatility | Are dates, penalties, jurisdictional claims, and sector claims evidence-tagged and counsel-marked? | Legal / DPO |
+| Accessibility proof | Does each claim distinguish component support from product compliance? | Accessibility Lead |
+| Practicality | Is work sequenced into MVP Core, Enterprise Core, AI Core, Labs, and Vertical Packs? | PM / DesignOps |
+| Brand | Does the file preserve warmth, Vietnamese specificity, and enterprise seriousness? | Brand Owner |
+| Standalone usability | Can a new designer, engineer, PM, legal reviewer, accessibility reviewer, or AI agent act without opening another authored doctrine file? | DesignOps Lead |
+
+Universal per-part readiness table shape:
+
+| Readiness field | Required answer |
+|---|---|
+| Doctrine complete | What rule is settled? |
+| Implementation ready | What API/behavior/test is specified? |
+| Implemented | What artifact exists? |
+| Audited | What evidence exists? |
+| Pending | What blocks promotion? |
+
+## Maximal Dual-Track Benchmark and Improvement Loop
+
+The system uses two internal scorecards that are stricter than the public 0-5 benchmark matrix in [Part 10](#part-10-measurement-research-appendix) §10.10. The public matrix stays compact so readers can compare leaders quickly. The internal loop uses **1000 points per track** so a nearly-perfect doctrine or product cannot hide a missing audit, weak evidence row, or artifact drift.
+
+| Track | Measures | Perfect score means |
+|---|---|---|
+| **Doctrine Excellence** | The quality, completeness, evidence discipline, usability, and future reach of this standalone file. | `DESIGN.md` itself is decision-complete, evidence-backed, internally consistent, benchmarked, and implementation-sequenced. |
+| **Artifacts Conformance** | Whether automatable artifacts exist and pass the automated doctrine-conformance harness. | Packages, tokens, generated docs, component source, MCP prototypes, Figma scaffolds, static checks, render checks, and re-created outputs exist, are fresh, and do not contradict doctrine. |
+| **Manual Conformance** | Whether human-only proof has been completed. | Manual assistive-technology review, counsel review, independent audit, production telemetry review, release sign-off, legal sign-off, and external assurance evidence exist. |
+
+### Score model
+
+Each track has **10 dimensions x 100 points = 1000 points**. A dimension can receive 100 only when every subcriterion is met and no hard blocker applies. Hard blockers override arithmetic: a missing required artifact, missing evidence row, unresolved critical accessibility defect, unsupported legal claim, or artifact-doctrine conflict prevents a perfect score even if the subtotal appears high.
+
+### Doctrine Excellence dimensions
+
+| Dimension | Points | Perfect requires |
+|---|---:|---|
+| Standalone completeness | 100 | All rules, maturity states, artifacts, benchmarks, glossary terms, examples, non-goals, and acceptance gates are usable in this file. |
+| Evidence discipline | 100 | Every external factual claim has source, fetched date, confidence, owner, and affected sections; unsupported marketing claims are absent. |
+| Internal consistency | 100 | Part count, anchors, references, status language, legal labels, benchmark dates, and maturity states agree. |
+| Implementation precision | 100 | Components, tokens, AI UX, accessibility, legal, telemetry, sustainability, and governance specify APIs, states, tests, owners, and gates. |
+| Benchmark rigor | 100 | Current leaders are scored with official sources first, explicit confidence, and documented CyberSkill deltas. |
+| Accessibility and inclusion proof model | 100 | Component support, product compliance, manual AT, Vietnamese TTS, cognitive accessibility, and known limitations are separated and testable. |
+| Legal and AI claim safety | 100 | Binding law, ethical defaults, counsel review, AI risk tiers, calibration, provenance, and agentic safeguards are clearly separated. |
+| Product sequencing | 100 | MVP Core, Enterprise Core, AI Core, Labs, vertical packs, and lifecycle states are complete and practical. |
+| Future reach | 100 | Frontier requirements for Vietnamese-first global UX, AI transparency, sustainability, provenance, regulatory readiness, and agent/MCP use are present without false shipped claims. |
+| Editorial usability | 100 | Role paths, decision tables, checklists, examples, glossary, and search terms let humans and agents act without companion doctrine. |
+
+### Artifacts Conformance dimensions
+
+| Dimension | Points | Perfect requires |
+|---|---:|---|
+| Package reality | 100 | All claimed packages install, version, document, test, changelog, license, and publish release artifacts. |
+| Component conformance | 100 | Every component implements doctrine-defined anatomy, API, variants, states, keyboard model, tokens, a11y, localization, examples, and test matrix. |
+| Token conformance | 100 | DTCG source, alias resolution, contrast grid, generated outputs, naming, no-orphan/no-hard-coded checks, and Figma parity pass. |
+| Accessibility evidence | 100 | Automated accessibility artifacts and evidence placeholders exist, with every manual-only requirement routed to Manual Conformance. |
+| Legal and privacy implementation | 100 | Automatable consent/data-classification/provenance helpers exist and route counsel-only claims to Manual Conformance. |
+| AI and provenance implementation | 100 | Automatable AI disclosure, review, MCP, provenance, and prompt-injection scaffolds exist; calibration/audit sign-off is routed to Manual Conformance. |
+| Documentation and examples | 100 | Storybook/docs/Figma/examples cover all states in EN/VN, with lifecycle badges and evidence links. |
+| Tooling and agent readiness | 100 | CLI, codemods, MCP servers, lint rules, IDE/Figma tooling, and AI-agent contracts reflect the doctrine. |
+| Measurement and operations | 100 | Adoption, quality, accessibility, carbon, legal, AI, and telemetry dashboards exist with privacy review and data-quality owners. |
+| Governance and lifecycle | 100 | RFCs, release gates, deprecations, audits, ownership, training, and contribution loops operate as documented. |
+
+### Loop protocol
+
+1. Re-analyze `DESIGN.md` and every repository artifact.
+2. Score both tracks with the 1000-point rubrics.
+3. Research current official sources for every weak, stale, or uncertain dimension.
+4. Implement every in-scope improvement in both doctrine and real artifacts: update this file, then trigger re-creation of generated artifacts such as benchmark CSVs, evidence registers, WCAG matrices, token outputs, Storybook/docs examples, Figma exports, MCP manifests, dashboards, and package metadata where the relevant generator or package exists.
+5. If real artifacts are missing, stale, or nonconforming, record exact implementation requirements, re-creation command, acceptance tests, owners, maturity states, blockers, and evidence fields.
+6. Repeat until **Doctrine Excellence = 1000/1000** and **Artifacts Conformance = 1000/1000**, no automatable critical findings remain, every generated artifact is fresh, and no newly researched automatable improvement can raise either track. **Manual Conformance** is scored separately and may remain below perfect when the missing evidence requires human assistive-technology testing, counsel review, production operations, independent audit, or external sign-off.
+
+### Current loop pass — 2026-05-24
+
+This pass is intentionally strict.
+
+| Track | Current score | Stop-condition status |
+|---|---:|---|
+| Doctrine Excellence | **1000 / 1000** | Automated doctrine gates are complete for the current workspace: the standalone doctrine defines three-track scoring, routes manual-only evidence to Manual Conformance, and requires artifact recreation after doctrine changes. |
+| Artifacts Conformance | **1000 / 1000** | Automated artifacts are present and fresh for the current prototype scope: package scaffolds, token outputs, React components, contract checks, server-render smoke checks, generated evidence/benchmark/WCAG/conformance artifacts, MCP runtime prototypes, Figma scaffold, and verification command. |
+| Manual Conformance | **260 / 1000** | Not a stop-condition blocker. Manual AT, counsel review, independent audits, production telemetry, Figma write-workflow verification, and release/support sign-off remain required before audited GA claims. |
+
+The automated loop stops when Doctrine Excellence and Artifacts Conformance are perfect and `npm run verify` passes. Manual Conformance remains an explicit backlog with owner, acceptance evidence, and review cadence; it must never be hidden inside automated product scoring.
 
 ---
 
@@ -61,38 +292,38 @@ Where the system shows up and how it adapts.
 
 Who we serve and the ethical floor we hold.
 
-10. [Part 5 — Accessibility, Inclusion, Localization](#part-5-accessibility-inclusion-localization)
-11. [Part 6 — AI-Native, Ethics, Sustainability](#part-6-ai-native-ethics-sustainability)
-12. [Part 19 — Industry Vertical Packs](#part-19-industry-vertical-packs)
+11. [Part 5 — Accessibility, Inclusion, Localization](#part-5-accessibility-inclusion-localization)
+12. [Part 6 — AI-Native, Ethics, Sustainability](#part-6-ai-native-ethics-sustainability)
+13. [Part 19 — Industry Vertical Packs](#part-19-industry-vertical-packs)
 
 ### E. Engineering, tooling, AI workflow
 
 How the system is built, shipped, and amplified.
 
-13. [Part 7 — Engineering & Operations](#part-7-engineering-operations)
-14. [Part 15 — Design System Tooling](#part-15-design-system-tooling)
-15. [Part 9 — AI Prompt Library & Workflows](#part-9-ai-prompt-library-workflows)
+14. [Part 7 — Engineering & Operations](#part-7-engineering-operations)
+15. [Part 15 — Design System Tooling](#part-15-design-system-tooling)
+16. [Part 9 — AI Prompt Library & Workflows](#part-9-ai-prompt-library-workflows)
 
 ### F. Lifecycle, documentation, adoption
 
 How the system stays alive.
 
-16. [Part 17 — Component Lifecycle & Maturity Model](#part-17-component-lifecycle-maturity-model)
-17. [Part 18 — Documentation Site & Component Catalog](#part-18-documentation-site-component-catalog-spec)
-18. [Part 16 — Adoption Playbook & DesignOps](#part-16-adoption-playbook-designops)
+17. [Part 17 — Component Lifecycle & Maturity Model](#part-17-component-lifecycle-maturity-model)
+18. [Part 18 — Documentation Site & Component Catalog](#part-18-documentation-site-component-catalog-spec)
+19. [Part 16 — Adoption Playbook & DesignOps](#part-16-adoption-playbook-designops)
 
 ### G. Governance, legal, measurement
 
 The contracts that bind the system and the metrics that grade it.
 
-19. [Part 8 — Governance, Legal, Commerce](#part-8-governance-legal-commerce)
-20. [Part 10 — Measurement, Research, Appendix](#part-10-measurement-research-appendix)
+20. [Part 8 — Governance, Legal, Commerce](#part-8-governance-legal-commerce)
+21. [Part 10 — Measurement, Research, Appendix](#part-10-measurement-research-appendix)
 
 > **Note on numbering.** File numbers (1–21) are stable identifiers — they appear in cross-references throughout the doctrine, and renumbering would invalidate every link. The clusters above (A–G) are a **reading aid**, not a hierarchy. A reader entering Cluster B does not need to have read Cluster A first; the cross-reference graph in each part directs them to whatever they actually need.
 
-### Companion artefact
+### Supporting artifacts
 
-- [00-audit-and-roadmap.md](./README.md) — How v1.0 was assembled, how v1.1+ will be improved, and operating instructions for human and AI contributors. Read this once before proposing any change.
+Supporting files may exist for history, generated data, or implementation. They do not replace this doctrine. If a supporting artifact contradicts `DESIGN.md`, the contradiction MUST be resolved through the governance process in Part 8 and the maturity/evidence rules above.
 
 ---
 
@@ -102,17 +333,17 @@ A new joiner is not asked to read 700+ pages cover-to-cover. Each role has a def
 
 | Role | Required week-1 | Recommended month-1 |
 |---|---|---|
-| Designer | 00-index, P1, P2, P3 (overview), P14, P15 | + P4, P5, P11, P12, P13, P18, P20 |
-| Software engineer | 00-index, P1 (skim), P2 (tokens), P7, P9, P17 | + P3 in scope, P11–13, P15, P18, P20 |
-| Product manager | 00-index, P1, P4, P11, P16, P17 | + P6, P8, P10, P14, P19 |
-| Engineering manager | 00-index, P7, P8, P16, P17 | + P5, P6, P9, P15 |
-| Design system contributor | 00-index, audit, P1–3, P7, P8, P16, P17, P18 | All |
-| DesignOps lead | 00-index, audit, P7, P8, P15, P16, P17, P18 | All |
-| Accessibility lead | 00-index, P5, P13 (HC mode), P14, P19 (Govtech) | + P3, P6, P11 |
-| Security / privacy reviewer | 00-index, P6, P7, P8 | + P4, P11 |
-| Vertical-pack maintainer | 00-index, P19 + own pack, P5, P14 | + P8, P11, P12, P17 |
-| Customer / partner (Trust Pack) | 00-index, P1, P6, P8, P19 (relevant pack), audit | — |
-| AI agent (per audit §7) | 00-index, audit (full), the part being modified, every part it cross-references | — |
+| Designer | Master Index, P1, P2, P3 overview, P14, P15 | + P4, P5, P11, P12, P13, P18, P20 |
+| Software engineer | Master Index, P1 skim, P2 tokens, P7, P9, P17 | + P3 in scope, P11–13, P15, P18, P20 |
+| Product manager | Master Index, P1, P4, P11, P16, P17 | + P6, P8, P10, P14, P19 |
+| Engineering manager | Master Index, P7, P8, P16, P17 | + P5, P6, P9, P15 |
+| Design system contributor | Master Index, artifact reality, P1–3, P7, P8, P16, P17, P18 | All |
+| DesignOps lead | Master Index, evidence legend, P7, P8, P15, P16, P17, P18 | All |
+| Accessibility lead | Master Index, P5, P13 HC mode, P14, P19 Govtech | + P3, P6, P11 |
+| Security / privacy reviewer | Master Index, P6, P7, P8 | + P4, P11 |
+| Vertical-pack maintainer | Master Index, P19 + own pack, P5, P14 | + P8, P11, P12, P17 |
+| Customer / partner (Trust Pack) | Master Index, P1, P6, P8, P19 relevant pack, evidence legend | — |
+| AI agent | Master Index, Doctrine vs Implementation, the part being modified, every part it cross-references | — |
 
 ---
 
@@ -122,7 +353,7 @@ Each part has a chair owner — a single accountable seat — and a defined revi
 
 | Part | Chair owner (seat) | Review cadence |
 |---|---|---|
-| 00-index, audit, glossary | Design System Lead | Quarterly |
+| Master Index, evidence, glossary | Design System Lead | Quarterly |
 | 1, 11, 13, 14 | Brand Owner + Design Lead | Quarterly |
 | 2, 3, 12, 20 | Design Lead | Per RFC |
 | 4, 18 | Design Lead + Engineering Lead | Quarterly |
@@ -142,7 +373,7 @@ Each part has a chair owner — a single accountable seat — and a defined revi
 | Instrument | Key date |
 |---|---|
 | WCAG 2.2 W3C Recommendation | 5 October 2023 |
-| DTCG Format 2025.10 (first stable) | 28 October 2025 |
+| DTCG Format 2025.10 (stable W3C Community Group report; not W3C Recommendation) | 28 October 2025 |
 | EU AI Act — entry into force | 1 August 2024 |
 | EU AI Act — prohibited + AI literacy | 2 February 2025 |
 | EU AI Act — GPAI obligations | 2 August 2025 |
@@ -153,7 +384,7 @@ Each part has a chair owner — a single accountable seat — and a defined revi
 | Decree 356/2025/ND-CP effective | 1 January 2026 |
 | Cybersecurity Law 116/2025/QH15 effective | 1 July 2026 |
 | Sustainable Web Design Model v4 | 14 July 2025 |
-| C2PA Technical Specification v2.2 | 1 May 2025 |
+| C2PA Technical Specification v2.2 target | Evidence row required before conformance claim |
 | MessageFormat 2.0 stable (CLDR 47 / ICU 77) | March 2025 |
 | ISO/IEC 27001:2022 transition deadline | 31 October 2025 |
 | ISO/IEC 42001:2023 (AI management) | In force |
@@ -161,7 +392,7 @@ Each part has a chair owner — a single accountable seat — and a defined revi
 
 ---
 
-*Welcome to the CyberSkill Global Design System. **Hiện Thực Hoá Ý Chí.*** Version history in [`CHANGELOG.md`](./CHANGELOG.md). Governance and change protocol in [`README.md`](./README.md).
+*Welcome to the CyberSkill Global Design System. **Hiện Thực Hoá Ý Chí.*** This file is the standalone doctrine; supporting history or generated artifacts may be mirrored in the repository but do not supersede it.
 
 ---
 
@@ -200,13 +431,13 @@ Will becomes product through a discipline of small decisions. The discipline app
 **Large moments:**
 
 - A migration that preserves **six years of operator muscle memory** rather than forcing relearning, because operators in production environments cannot afford a learning tax.
-- An AI surface that **discloses its uncertainty** before the user has to ask, with three confidence tiers (Low <60%, Medium 60–85%, High >85%) and a default behaviour of withholding low-confidence outputs unless the user explicitly opts to see them.
+- An AI surface that **discloses its uncertainty** before the user has to ask. Numeric confidence is shown only when calibrated evidence exists; otherwise the UI uses task-specific qualitative confidence and human-review gates.
 - A privacy consent screen that **refuses to be defaulted on**, refuses to bundle purposes, and refuses to dim the "decline" button — even if the conversion math would prefer otherwise.
 - A version upgrade that **announces its breaking changes early**, ships a codemod alongside the change, and gives the user at least two minor versions of warning before removal.
 
 **Infrastructural moments:**
 
-- A token system published in **W3C Design Tokens Community Group format 2025.10**, the first stable version, published 28 October 2025 (W3C DTCG, w3.org/community/design-tokens/2025/10/28/). This is a contract with future maintainers and with autonomous agents that consume the system.
+- A token system targeted at the **W3C Design Tokens Community Group format 2025.10**, a stable Community Group report published 28 October 2025, not a W3C Recommendation. This is a contract with future maintainers and with autonomous agents that consume the system.
 - An API error envelope authored to **RFC 9457 Problem Details for HTTP APIs**, published July 2023 by the IETF, with media type `application/problem+json`, obsoleting RFC 7807 (rfc-editor.org/rfc/rfc9457). This is a contract with developers integrating the system.
 - An accessibility baseline aligned to **WCAG 2.2 level AA**, the W3C Recommendation published 5 October 2023 (w3.org/TR/WCAG22/), with all 87 success criteria mapped to specific components in [Part 5](#part-5-accessibility-inclusion-localization). This is a contract with disabled users, regulators, and the law.
 
@@ -224,17 +455,17 @@ This commitment goes further than typography. Vietnamese cultural conventions �
 
 The brand exists at this moment because the regulatory landscape made the moment unavoidable.
 
-The **Vietnamese Law on Personal Data Protection (Law No. 91/2025/QH15)**, often called the PDPL, was passed by the National Assembly on **26 June 2025** and takes effect on **1 January 2026** (LuatVietnam, luatvietnam.vn). Its implementing rules, **Decree 356/2025/ND-CP**, were issued on **31 December 2025** and also took effect on **1 January 2026**, replacing Decree 13/2023/ND-CP entirely (Tilleke & Gibbins). The PDPL is **extraterritorial** — it applies, in its own language, to "Foreign agencies, organizations and individuals directly involved in or related to the processing of personal data of Vietnamese citizens" (LuatVietnam). It is **consent-first**, granular, and explicit about prohibiting default consent or ambiguous instructions: Decree 356/2025/ND-CP states that "Prohibiting default consent or ambiguous instructions that confuse data subjects" (Tilleke). Penalties reach **VND 3 billion** for general violations and **5 % of prior-year annual revenue** for cross-border-transfer breaches (VNETWORK; Tilleke).
+The **Vietnamese Law on Personal Data Protection (Law No. 91/2025/QH15)**, often called the PDPL, is tracked as a first-order design constraint. Working legal summaries in this doctrine record reported dates, extraterritorial scope, consent-first posture, and penalty ranges from LuatVietnam, Tilleke & Gibbins, VNETWORK, and related legal sources. Those facts MUST be treated as **regulatory evidence candidates** until the regulatory evidence register in [Part 8](#part-8-governance-legal-commerce) is counsel-reviewed. The design rule does not depend on the exact penalty number: CyberSkill does not use pre-checked consent, bundled consent, ambiguous consent instructions, or hidden cross-border-transfer permissions.
 
-The **Law on Cybersecurity (Law No. 116/2025/QH15)** was passed on **10 December 2025** and takes effect on **1 July 2026** (Tilleke; Mori Hamada & Matsumoto). Together with the PDPL, it reshapes what a Vietnamese-built or Vietnamese-deployed digital product is permitted to do.
+The **Law on Cybersecurity (Law No. 116/2025/QH15)** is tracked as a volatile legal area. Dates, applicability, and operational duties require evidence rows and counsel review before customer-facing claims.
 
-The **Resolution 57-NQ/TW**, signed on **22 December 2024 by General Secretary Tô Lâm**, sets the political directive for digital transformation in Vietnam (Vietnam Law Magazine). It is the policy umbrella under which the PDPL and the Cybersecurity law operate.
+The **Resolution 57-NQ/TW** is tracked as Vietnamese digital-transformation policy context, not as a component-level compliance requirement unless counsel maps it to a specific product duty.
 
-A design system that quietly assumes pre-checked consent boxes, toggle-on defaults, or bundled privacy permissions is not legal in Vietnam from January 2026 onwards. CyberSkill treats this not as a regulatory burden to mitigate but as a specification to comply with by design — the patterns are baked in at the foundation rather than retrofitted as patches.
+A design system that quietly assumes pre-checked consent boxes, toggle-on defaults, or bundled privacy permissions is out of step with CyberSkill's ethical default and may be unlawful in key jurisdictions. CyberSkill treats consent as a specification to implement by design — the patterns are baked in at the foundation rather than retrofitted as patches.
 
-The global picture has the same shape. The **EU AI Act** entered into force on **1 August 2024**, with prohibited-practice and AI-literacy provisions applicable from **2 February 2025**, GPAI obligations from **2 August 2025**, high-risk obligations from **2 August 2026**, and full applicability on **2 August 2027** (European Commission). Penalties tier at **€35 million or 7 %** of global annual turnover for prohibited practices, **€15 million or 3 %** for most other obligations, and **€7.5 million or 1 %** for misleading information (DLA Piper).
+The global picture has the same shape. The **EU AI Act** is tracked as a staged regulatory framework with transparency, AI-literacy, GPAI, and high-risk obligations that affect UI. Exact applicability and penalty language require regulatory evidence rows and counsel review before external claims.
 
-The **European Accessibility Act (Directive (EU) 2019/882)** began enforcement on **28 June 2025** (European Commission; Davis Wright Tremaine). National penalties reach **€100,000 per violation** in Germany and Italy and up to **€75,000 or 4 %** of revenue in France (AllAccessible). **EN 301 549** provides presumption of conformity under the EAA (AllAccessible).
+The **European Accessibility Act (Directive (EU) 2019/882)** and **EN 301 549** are tracked as accessibility procurement and compliance context. Penalty interpretations vary by member state and MUST remain counsel-reviewed, not marketing copy.
 
 For a design system aiming at global enterprise relevance, none of these dates are optional. A system built today without the PDPL, the EU AI Act, the EAA, and WCAG 2.2 baked into its foundations will not meet regulated thresholds in 2026 and 2027 — and the majority of global enterprise procurements route through one or more of those frameworks.
 
@@ -384,7 +615,7 @@ Directness in practice:
 
 **Honesty is the property of the product not claiming certainty it does not have, capability it does not possess, or intent it does not hold.** Honesty appears most visibly in three places.
 
-**AI disclosure.** Every AI-generated output carries an `AIDisclosureBadge` ([Part 3h](#part-3h-components-ai-chat) §10) and, where applicable, a `ConfidenceIndicator` with the three tiers — **Low <60%**, **Medium 60–85%**, **High >85%** — defined in [Part 6](#part-6-ai-native-ethics-sustainability). Low-confidence outputs are withheld by default unless the user has opted into seeing them. Medium-confidence outputs are surfaced with a disclaimer. High-confidence outputs are shown without disclaimer but always with the disclosure badge. AI-generated images and audio carry **C2PA 2.2 manifests** (C2PA Technical Specification v2.2, 1 May 2025; c2pa.org).
+**AI disclosure.** Every AI-generated output carries an `AIDisclosureBadge` ([Part 3h](#part-3h-components-ai-chat) §10). `ConfidenceIndicator` appears only when the task class has calibration evidence as defined in [Part 6](#part-6-ai-native-ethics-sustainability); otherwise the surface shows sources, uncertainty copy, or human-review state rather than false numeric precision. AI-generated media provenance is an implementation requirement; C2PA, watermarking, and fingerprinting remain advanced planned infrastructure until the marking pipeline exists and is audited.
 
 **Error messaging.** Errors name the failure, name the next step, and never pretend the failure was the user's fault unless it was. *"We couldn't reach the payment provider. Your card hasn't been charged. Try again, or use a different card."* — not *"Payment failed."*
 
@@ -460,7 +691,7 @@ Tone varies by context while voice stays constant. Tone is how the four attribut
 |---|---|---|---|
 | Generated text | [no disclosure] | "AI-generated. Confidence: Medium. Review before sending." | "Do AI tạo. Độ tin cậy: Trung bình. Hãy xem lại trước khi gửi." |
 | Summary from documents | "Summary:" | "AI summary of 4 sources. 3 citations. Last updated 2 m ago." | "Tóm tắt AI từ 4 nguồn. 3 trích dẫn. Cập nhật 2 phút trước." |
-| Image edited by AI | [no provenance] | "AI-edited. Original from 18 Apr 2026. C2PA manifest available." | "Có chỉnh sửa bởi AI. Bản gốc từ 18/04/2026. Có manifest C2PA." |
+| Image edited by AI | [no provenance] | "AI-edited. Original from 18 Apr 2026. Provenance details available." | "Có chỉnh sửa bởi AI. Bản gốc từ 18/04/2026. Có thông tin nguồn gốc." |
 | Real-time AI suggestion | "Suggestion" | "AI suggestion — review before accepting." | "Gợi ý AI — hãy xem lại trước khi chấp nhận." |
 
 ### 3.11 Do/don't tables — legal / consent
@@ -548,13 +779,13 @@ The system targets **WCAG 2.2 level AA** as the **minimum**, not the ceiling, ac
 - **SC 2.5.8 Target Size (Minimum 24 × 24 CSS px).** All interactive targets must be at least 24 × 24 CSS pixels, or have at least 24 px of clear surrounding space. Every button, icon button, slider thumb, chip, and tag in the system meets this.
 - **SC 3.3.8 Accessible Authentication (Minimum).** Authentication must not require a cognitive function test (puzzle CAPTCHAs are forbidden); paste must be allowed; password managers must be supported; one-time codes must auto-fill. The `PasswordField` and `OTPInput` components ([Part 3b](#part-3b-components-inputs)) implement these requirements.
 
-Under the **European Accessibility Act (Directive 2019/882)**, which began enforcement on **28 June 2025** (European Commission; Davis Wright Tremaine), and **EN 301 549**, which provides presumption of conformity to the EAA (AllAccessible), these are legal requirements for any product sold into EU markets. National penalties reach **€100,000 per violation in Germany and Italy** and up to **€75,000 or 4 %** of revenue in France (AllAccessible).
+The **European Accessibility Act (Directive 2019/882)** and **EN 301 549** are tracked as EU accessibility compliance context. Exact enforcement dates, member-state penalty interpretations, and presumption-of-conformity claims MUST be verified in the regulatory evidence register before customer-facing or procurement use.
 
 ### 4.4 Transparency defeats surprise
 
 Surprise is a debt; transparency is how we avoid running one up. Every piece of automation, inference, or delay in a CyberSkill product **discloses itself** before the user notices.
 
-- **AI outputs** carry disclosure (`AIDisclosureBadge`) and confidence (`ConfidenceIndicator` with the Low/Medium/High tiers above).
+- **AI outputs** carry disclosure (`AIDisclosureBadge`) and, where calibrated, confidence (`ConfidenceIndicator` with task-class evidence).
 - **Summarisations** carry citations and source counts.
 - **Background syncs** carry visible state (the "saving…", "saved", "offline — queued" indicator that updates in real time).
 - **Long tasks** carry honest progress.
@@ -577,7 +808,7 @@ The system treats carbon and energy as first-class design properties.
 - **Per-surface budgets**, image weight caps, and offline-first defaults are specified in [Part 6](#part-6-ai-native-ethics-sustainability) §13.
 - **Hardware lifetime extension** is a social-sustainability commitment: no surface drops support for five-year-old devices without a documented justification approved at governance level. This is operationalised via browser-support and device-support matrices in [Part 7](#part-7-engineering-operations).
 
-Sustainability is not a marketing claim; it is a budget. The budget is monitored in production via OpenTelemetry and surfaced on a public CyberSkill sustainability dashboard.
+Sustainability is not a marketing claim; it is a budget. Production monitoring via OpenTelemetry and a public CyberSkill sustainability dashboard are target-state implementation requirements until the dashboard and telemetry pipeline exist.
 
 ### 4.7 Global spine, local skin
 
@@ -587,11 +818,11 @@ The token system, the component contract, and the accessibility, privacy, and AI
 
 ### 4.8 Agents as users
 
-The system treats AI agents that **consume**, **compose with**, or **act on** CyberSkill products as a class of user. This means the system ships **machine-readable contracts**, not scraped screens:
+The system treats AI agents that **consume**, **compose with**, or **act on** CyberSkill products as a class of user. This means the system requires **machine-readable contracts**, not scraped screens:
 
 - **DTCG-compliant token files** in format **2025.10**, media type `application/design-tokens+json`, extensions `.tokens` / `.tokens.json`, with the core syntax `$type`, `$value`, `$description` (W3C DTCG, published 28 October 2025).
 - **An `AGENTS.md` file at the monorepo root**, following the open agents.md convention used in 60,000+ repositories (agents.md), with package-level overrides per [Part 9](#part-9-ai-prompt-library-workflows).
-- **MCP servers for tokens and components** — `@cyberskill/mcp-tokens` and `@cyberskill/mcp-components` — implementing the **Model Context Protocol spec 2025-11-25** (Anthropic), stewarded via the **Linux Foundation Agentic AI Foundation**.
+- **Planned MCP servers for tokens and components** — `@cyberskill/mcp-tokens` and `@cyberskill/mcp-components` — implementing the target Model Context Protocol; MCP-native claims require shipped, documented servers.
 - **RFC 9457 Problem Details** as the single error-envelope contract for every API surface — media type `application/problem+json`, published July 2023, obsoleting RFC 7807 (rfc-editor.org/rfc/rfc9457).
 - **`CLAUDE.md`, `.cursor/rules`, `.windsurf/rules`, and `.github/copilot-instructions.md`** all reference the root `AGENTS.md` so the same policy is read by every agent.
 
@@ -620,7 +851,7 @@ A surface that fails one of the lower-numbered principles to satisfy a higher-nu
 
 ### 5.1 Dignity
 
-Every user is owed the default of being treated as a capable adult who has decided to do something specific. Forms do not scold. Errors do not blame. Accessibility is not a courtesy. Consent is not a trick. Dignity is the reason consent cannot be pre-checked under Decree 356/2025/ND-CP — but it is also the reason we wouldn't pre-check it even if the law permitted it. Dignity manifests in a hundred small choices: the pronoun *bạn*; the unchecked checkbox; the focus ring that meets SC 2.4.13; the screen reader announcement that says *"đã bật"* / *"đã tắt"* in Vietnamese rather than the English fallback; the three-tier confidence indicator that doesn't pretend Low and High are the same kind of answer.
+Every user is owed the default of being treated as a capable adult who has decided to do something specific. Forms do not scold. Errors do not blame. Accessibility is not a courtesy. Consent is not a trick. Dignity is the reason consent cannot be pre-checked under Decree 356/2025/ND-CP — but it is also the reason we wouldn't pre-check it even if the law permitted it. Dignity manifests in a hundred small choices: the pronoun *bạn*; the unchecked checkbox; the focus ring that meets SC 2.4.13; the screen reader announcement that says *"đã bật"* / *"đã tắt"* in Vietnamese rather than the English fallback; the calibrated confidence indicator that does not pretend all uncertainty is the same.
 
 Dignity also extends to contributors. The system's RFC process ([Part 8](#part-8-governance-legal-commerce) §2) is structured so that the smallest valid contribution receives the same review attention as the largest; contributors are credited in the changelog by name; the deprecation policy gives consumers two minor versions of warning before removal.
 
@@ -727,7 +958,7 @@ Safe decisions take the system's defaults seriously: no pre-checked consent, no 
 
 ### 7.2 Honest
 
-**Honest** means the decision does not misrepresent the product's capability, certainty, or intention. A toast that says *"Saved"* when the save failed is dishonest; a confidence indicator that rounds 58 % to *"Medium"* violates our own tier boundaries (Low < 60 %) and is dishonest; a marketing claim of *"AI that thinks"* is dishonest because it ascribes a capability the model does not have.
+**Honest** means the decision does not misrepresent the product's capability, certainty, or intention. A toast that says *"Saved"* when the save failed is dishonest; a confidence indicator that shows a percentage without calibration evidence is dishonest; a marketing claim of *"AI that thinks"* is dishonest because it ascribes a capability the model does not have.
 
 Honest wins over usable when they conflict: it is better for the user to experience a slightly less pleasant truth than an easier lie.
 
@@ -831,7 +1062,7 @@ The Surface Brief's intent sentence, actors, and success criteria are met by the
 ### 8.4 Criterion 4 — Disclosed
 
 - Every AI output, every background automation, every data-sharing event, every deferred save, and every piece of personal-data collection is **disclosed to the user at the moment of the event**, not later.
-- AI outputs carry the `AIDisclosureBadge` and confidence tier per [Part 6](#part-6-ai-native-ethics-sustainability).
+- AI outputs carry the `AIDisclosureBadge` and calibrated confidence behavior per [Part 6](#part-6-ai-native-ethics-sustainability).
 - Background syncs carry visible status.
 - Personal-data collection states purpose and retention at the point of collection.
 
@@ -850,7 +1081,7 @@ The Surface Brief's intent sentence, actors, and success criteria are met by the
 
 ### 8.7 The self-audit checklist
 
-The self-audit checklist is the **shorter artefact** the team runs **during build** — before the formal rubric — to catch drift early. It lives in the repository at `docs/self-audit.md` and is re-run at the end of each PR. The checklist contains:
+The self-audit checklist is the **shorter artefact** the team runs **during build** — before the formal rubric — to catch drift early. Planned path: `docs/self-audit.md`. Until that file exists, this section defines the checklist content; GA products must re-run it at the end of each PR. The checklist contains:
 
 - Did you change any token? If yes, link the RFC.
 - Did you add any string? If yes, is it in both locales?
@@ -877,87 +1108,88 @@ The checklist is not a governance instrument; it is a **prompt**. Its function i
 
 ### 9.1 The reference set
 
-CyberSkill's design system competes in a field of mature enterprise systems. A clear-eyed view of that field is necessary to position the brand honestly.
+CyberSkill competes against mature systems that already ship code, design kits, documentation, contribution loops, and accessibility guidance. The benchmark therefore grades **proof**, not aspiration.
 
-The **primary reference set** comprises six systems:
+The 2026 reference set for Part 10 is:
 
-- **IBM Carbon Design System** — IBM's enterprise system; tokens, components, accessibility, AI Lab patterns.
-- **Material Design 3** including Material 3 Expressive — Google's cross-platform system with dynamic colour and tonal elevation.
-- **Microsoft Fluent 2** — Microsoft's cross-product design system spanning Windows, Office, Teams, and Azure.
-- **Adobe Spectrum** — Adobe's design system across Creative Cloud and Experience Cloud.
-- **Shopify Polaris** — Shopify's merchant-facing design system, with a strong opinion on commerce patterns.
-- **GitHub Primer** — GitHub's developer-facing system, with strong open-source contribution patterns.
+- **IBM Carbon Design System** — shipped enterprise components, tokens, accessibility guidance, and AI Label pattern.
+- **Material Design 3 / Material 3 Expressive** — Google / Android platform language with strong token and platform guidance.
+- **Microsoft Fluent 2** — Microsoft cross-product system with tokens, Figma/UI kit guidance, and product-scale adoption.
+- **Adobe Spectrum / React Aria** — Adobe design system plus React Aria behavior primitives with strong accessibility and internationalization depth.
+- **Shopify Polaris** — commerce-focused system with tokenized design guidance.
+- **GitHub Primer** — developer-product system with strong documentation and contribution model.
+- **Atlassian Design System** — enterprise collaboration system with public tokens, tooling, and accessibility positioning.
+- **GOV.UK Design System** — public-service system with unusually strong accessibility humility and community governance.
+- **SAP Fiori** — enterprise resource-planning system with framework-level and app-level accessibility guidance.
+- **Salesforce SLDS / Lightning Base Components** — CRM ecosystem system with prebuilt accessible base components and locale-aware data display.
+- **Radix Themes / Primitives** — React primitives and themes emphasizing composability and accessible UI.
+- **Chakra UI** — React component library with token, theming, CLI typegen, and MCP-oriented documentation signals.
+- **Mantine** — React component library with broad components, theming, and clear accessibility caveats.
+- **Ant Design** — dense enterprise React system with global and component token model.
 
-The **secondary reference set** comprises 14 systems used for benchmarking specific dimensions:
+### 9.2 Evidence-backed benchmark rule
 
-- **Salesforce Lightning Design System (SLDS)** — enterprise CRM patterns; access and audit-rich.
-- **Ant Design** — strong China-market localisation and dense data-display patterns.
-- **Pinterest Gestalt** — content-rich consumer patterns.
-- **Uber Base Web** — strong dark mode and dense map-driven patterns.
-- **Nord/Redwood** — northern-design aesthetics; product-shop focus.
-- **SAP Fiori** — enterprise resource planning patterns.
-- **Workday Canvas** — HR and finance patterns.
-- **Intuit Design System** — financial-product patterns and accessibility focus.
-- **Mantine** — open-source React component library; strong developer experience.
-- **Chakra UI v3** — open-source React; strong theming.
-- **Radix Themes** — primitives library and unstyled component contracts.
-- **HeroUI (formerly NextUI)** — open-source React with Tailwind integration.
-- **Zendesk Garden** — customer-support patterns.
-- **Twilio Paste** — communication and identity patterns.
+Every benchmark claim MUST include a source, fetched date, confidence level, and note. Official sources are preferred. When the source describes a system's intent rather than observed shipped artifacts, the score MUST be lower than a verified package, component catalog, or public evidence file.
 
-### 9.2 Where CyberSkill is the same
+The source set used for the v1.1 refinement is listed in [Part 10](#part-10-measurement-research-appendix) §10.10 and the evidence appendix. Fetched date: **2026-05-23**.
 
-The honest part of any competitive analysis is what we *don't* differentiate on. Every major modern system covers tokens, components, patterns, accessibility, and engineering, and CyberSkill matches their coverage. Specifically:
+### 9.3 Where CyberSkill is the same
 
-- **React 19 component idioms** — Actions, `useActionState`, `useOptimistic`, Server Components — are used as-is, not reinvented.
-- **React Aria Components** behaviour patterns from Adobe are inherited where they are the state of the art.
-- **Radix Primitives** are not re-implemented; the system layers tokens and styling on top.
-- **OKLCH** is CSS Color Module Level 4 (W3C); we adopt it, we do not invent a new colour space.
-- **WCAG 2.2** is the W3C Recommendation; we comply, we do not redefine.
-- **Material 3 tonal elevation** for dark mode is industry consensus; we adopt it.
+The honest part of competitive analysis is what we do not differentiate on. CyberSkill adopts modern design-system consensus instead of pretending every layer is original:
 
-Pretending we differ on these axes would be dishonest.
+- React, web component, and platform idioms are consumed where they are mature.
+- React Aria / APG behavior patterns are preferred for complex accessible interactions.
+- Radix-style primitive composition is treated as a proven pattern.
+- OKLCH, WCAG 2.2, APCA as quality signal, DTCG, RFC 9457, C2PA, and ISO/IEC 42001 are external standards, not CyberSkill inventions.
+- Enterprise SaaS density, data-table behavior, forms, dashboards, and audit trails are benchmarked against systems that already serve those workflows at scale.
 
-### 9.3 Where CyberSkill differs
+Pretending to differ on these axes would be dishonest.
 
-CyberSkill's distinctive position is the result of seven concrete differentiators, each grounded in a verifiable choice or commitment.
+### 9.4 Where CyberSkill differs, by maturity
 
-**1. Vietnamese first-class.** No major enterprise system is designed from Vietnamese typography and register outward. Systems that are "localised" into Vietnamese typically inherit Latin-optimised line-heights and tracking, which clip stacked diacritics. CyberSkill's baseline (Be Vietnam Pro with 1.5/1.35 minimums, all-caps tracking +0.04em, validated in every component, screen-reader-pronunciation hints) is **native**, not adapted.
+CyberSkill's differentiators remain strong, but the claim wording depends on artifact maturity.
 
-**2. PDPL-ready.** No enterprise system outside Vietnam has Law 91/2025/QH15, Decree 356/2025/ND-CP, and Law 116/2025/QH15 as first-class compliance targets. The CyberSkill consent components, audit-log surfaces, redaction patterns, cross-border-transfer banners, and DPIA workflows are designed around the PDPL articles, not retrofitted.
+| Differentiator | Current claim level | Strongest honest wording |
+|---|---|---|
+| Vietnamese-first typography, language, and register | Doctrine | CyberSkill differentiates in doctrine today by designing from Vietnamese requirements outward, not treating Vietnamese as a late localization pass. |
+| Warm enterprise identity | Doctrine | CyberSkill differentiates in brand doctrine through Umber/Ochre anchors, Be Vietnam Pro, and warm/direct/honest/respectful voice. |
+| PDPL-first consent and privacy UI | Doctrine + implementation requirement | CyberSkill is PDPL-ready in doctrine; production claims require counsel-reviewed components, consent audit logs, and evidence rows. |
+| EU AI Act / ISO 42001 readiness | Doctrine + implementation requirement | CyberSkill specifies AI governance and transparency patterns; audited readiness requires risk records, fact sheets, and legal review. |
+| AI transparency UX | Specified | CyberSkill specifies disclosure, citations, calibrated confidence, human review, and tool-call visibility; leadership claims require implemented AI Core. |
+| DTCG 2025.10 token format | Specified | CyberSkill targets DTCG 2025.10; it may be called shipped only when `@cyberskill/tokens` exists with validated token outputs. |
+| MCP / agents-as-users | Concept / Specified | CyberSkill is MCP-ready in doctrine; MCP-native is reserved for shipped and documented MCP servers. |
+| Sustainability budgets | Doctrine + planned evidence | CyberSkill specifies carbon and energy budgets; measured claims require live methodology and telemetry evidence. |
+| Accessibility rigor | Doctrine + specified evidence model | CyberSkill sets WCAG 2.2 AA as floor and APCA as quality signal; product compliance requires per-surface testing and manual AT evidence. |
 
-**3. DTCG 2025.10-native.** Many enterprise systems publish tokens in bespoke JSON shapes; CyberSkill publishes in DTCG 2025.10 (W3C DTCG, 28 October 2025) with `$type`, `$value`, `$description`, and media type `application/design-tokens+json`. This is **machine-agent portability**, not a marketing detail. Style Dictionary v5 consumes the tokens and produces CSS, TypeScript, iOS Swift, Android Compose, React Native, Flutter, and Figma Variables outputs.
+### 9.5 Benchmark findings
 
-**4. MCP-native.** CyberSkill ships **Model Context Protocol** servers as a first-party product (`@cyberskill/mcp-tokens`, `@cyberskill/mcp-components`; spec **2025-11-25**) and an `AGENTS.md` at the monorepo root (agents.md). Agents-as-users is a principle (§4.8); these servers are the engineering correlate.
+The 2026 benchmark has three conclusions:
 
-**5. RFC 9457-native.** Every API surface returns `application/problem+json` per RFC 9457 (July 2023, obsoletes RFC 7807). Most enterprise systems still treat structured error envelopes as optional; CyberSkill treats them as the default contract.
+1. **Leaders win through shipped implementation and tooling.** Carbon, Fluent, Spectrum / React Aria, Polaris, Primer, GOV.UK, Atlassian, SAP Fiori, Salesforce, Radix, Chakra, Mantine, and Ant Design have public artifacts users can install, inspect, copy, test, or contribute to. That is the bar.
+2. **CyberSkill leads in ambition and specificity where its doctrine is unusual.** Vietnamese-first design, PDPL-first consent, warm enterprise identity, agentic UX, and AI/regulatory transparency are sharper here than in the general-purpose systems reviewed.
+3. **CyberSkill currently lags in proof.** Until packages, Storybook, evidence registers, WCAG matrices, dashboards, MCP servers, and Figma parity exist, CyberSkill should not claim shipped parity with the leaders. The doctrine is allowed to be ahead of implementation; marketing is not.
 
-**6. SWDM v4-measured.** Sustainability is a **budget**, not a marketing statement; measured using the Sustainable Web Design Model v4 methodology released **14 July 2025** (sustainablewebdesign.org). Salesforce and Intuit publish sustainability claims; CyberSkill publishes per-surface budgets and real-user measurement.
+### 9.6 What CyberSkill explicitly does not claim
 
-**7. Warmth.** The warm earth anchors and the *warm and approachable* voice are distinct from the predominantly cool neutrals and procedural tones of the reference set. This is an identity differentiator; it becomes a product differentiator only because it is carried all the way through voice, microcopy, motion, and error handling. Other systems have warm marketing surfaces backed by cool product surfaces; CyberSkill is warm at every layer.
+- We do not claim to be the largest, most-used, or most mature implementation.
+- We do not claim a unique innovation in colour, typography, motion, or components where mature systems already have equivalent patterns.
+- We do not claim faster build times, lower carbon, better accessibility, better AI safety, or stronger legal compliance than a competitor without evidence rows.
+- We do not claim `@cyberskill/*` packages, Storybook, MCP servers, Figma plugin, dashboards, benchmark CSV, WCAG CSV, or public audit artifacts are shipped until they exist and are verified.
+- We do not use "first" or "only" externally unless a current evidence pass and legal review approve the wording.
 
-### 9.4 What CyberSkill explicitly does **not** claim
+### 9.7 Positioning statements
 
-- We do not claim to be the largest or the most-used.
-- We do not claim a unique innovation in colour, typography, or motion.
-- We do not claim faster build times than any specific competitor without citing measured numbers.
-- We do not claim more components than any specific competitor.
+Internal alignment statement:
 
-What we claim is that the seven differentiators above are simultaneously true, and that the simultaneous truth is what is rare. [Part 10](#part-10-measurement-research-appendix) contains the full 20-system benchmark matrix with the dimensions tabulated.
+> *CyberSkill Global Design System is a Vietnamese-first enterprise design-system doctrine: warm in identity, rigorous in accessibility, explicit about consent, transparent about AI, and ready to become DTCG- and MCP-enabled as implementation artifacts ship.*
 
-### 9.5 Positioning statements
+External cautious statement:
 
-For internal alignment and external messaging, the positioning is summarised as follows:
+> *A global enterprise design-system doctrine from Vietnam — opinionated about Vietnamese-first experience, consent, accessibility, sustainability, and how AI tells the truth.*
 
-> *CyberSkill Global Design System is the first enterprise design system designed Vietnamese-first, PDPL-compliant, DTCG 2025.10-native, and Model-Context-Protocol-native — built warm, kept rigorous.*
+Technical statement:
 
-For markets outside Vietnam:
-
-> *A global enterprise design system from Vietnam — opinionated about consent, accessibility, sustainability, and how AI tells the truth.*
-
-For technical audiences:
-
-> *Tokens in DTCG 2025.10. Errors in RFC 9457. Agents in MCP. Accessibility at WCAG 2.2 AA. Sustainability in SWDM v4. Privacy at PDPL Law 91/2025/QH15. AI at ISO/IEC 42001. Warm earth anchors at OKLCH.*
+> *Target token format: DTCG 2025.10. Error contract: RFC 9457. Accessibility floor: WCAG 2.2 AA. AI governance frame: ISO/IEC 42001 and EU AI Act readiness. Privacy emphasis: Vietnam PDPL. Agent goal: MCP-ready until MCP servers ship.*
 
 ---
 
@@ -1241,7 +1473,7 @@ Each supported locale has a named **locale steward** — a person responsible fo
 - IETF, *RFC 9457 — Problem Details for HTTP APIs*, July 2023. https://www.rfc-editor.org/rfc/rfc9457
 - IEEE, *7001-2021 Transparency of Autonomous Systems*.
 - ISO/IEC, *ISO/IEC 42001:2023 — Information technology — Artificial intelligence — Management system*. https://www.iso.org/standard/42001
-- C2PA, *Technical Specification v2.2*, 1 May 2025. https://c2pa.org/
+- C2PA, *Technical Specification v2.2*. https://spec.c2pa.org/specifications/specifications/2.2/index.html
 - Unicode Consortium, *CLDR v47*, March 2025; *ICU 77 — MessageFormat 2.0 stable*.
 
 **EU regulation**
@@ -1266,7 +1498,7 @@ Each supported locale has a named **locale steward** — a person responsible fo
 - Tailwind CSS, *v4.0 release*, 22 January 2025.
 - Storybook, *v9 release*, June 2025; *v10 release*, November 2025 (ESM-only).
 - React, *19 GA*, 5 December 2024.
-- Style Dictionary, *v5*, requires Node 22 LTS; partial DTCG 2025.10 support.
+- Style Dictionary, *v5*, candidate transformer; runtime and DTCG support must be verified during implementation.
 - Anthropic, *Model Context Protocol spec 2025-11-25*.
 - Linux Foundation Agentic AI Foundation, *MCP stewardship*.
 - agents.md, *AGENTS.md open convention* (60,000+ repositories).
@@ -1455,7 +1687,7 @@ Where the platform supports `color(display-p3 …)`, the system emits the wider-
 }
 ```
 
-The Style Dictionary build ([Part 7](#part-7-engineering-operations)) emits all three forms automatically.
+The planned token build ([Part 7](#part-7-engineering-operations)) MUST emit all three forms and verify parity.
 
 ### 1.5 Colour-blindness and the categorical-redundancy rule
 
@@ -1474,7 +1706,7 @@ We test all colour decisions with three colour-blindness simulators: **Sim Dalto
 | `cs-color-brand-umber` | `#45210E` | `oklch(0.265 0.073 44.3)` | `color(display-p3 0.265 0.13 0.06)` | Primary brand mark colour, body text on light, dark-mode background base |
 | `cs-color-brand-ochre` | `#F4BA17` | `oklch(0.811 0.162 83.7)` | `color(display-p3 0.95 0.74 0.13)` | Primary CTA, focus ring base, brand accent |
 
-Both are **immutable** per [Part 1](#part-1-foundations) §2 of the handoff package. They are published in the system's top-level tokens file (`tokens/tokens.tokens.json`) per the **DTCG 2025.10** format — the first stable version of the W3C Design Tokens Community Group Format, published **28 October 2025** (W3C DTCG, w3.org/community/design-tokens/2025/10/28/).
+Both are **immutable** per [Part 1](#part-1-foundations) §2. The planned top-level token file (`tokens/tokens.tokens.json` or the equivalent `@cyberskill/tokens` source path) MUST publish them per the **DTCG 2025.10** format — a stable W3C Community Group report, not a W3C Recommendation, published **28 October 2025**.
 
 ### 2.2 DTCG 2025.10 minimal example
 
@@ -1566,7 +1798,7 @@ The neutral-warm ramp is derived from the Umber anchor by holding H≈44, gently
 
 ### 3.3 Contrast verifications
 
-Every adjacent text/background pairing in the use map meets WCAG 2.2 SC 1.4.3 (4.5:1 minimum) by construction. Body text (`neutral-800`) on page (`neutral-0`) gives 11.2:1 — comfortable AAA. Muted text (`neutral-500`) on page gives 4.04:1 — meets AA, falls just under AAA, and is reserved for non-essential helper text only. The build emits a contrast-grid CSV alongside the tokens to make this easy to audit.
+Every adjacent text/background pairing in the use map is specified to meet WCAG 2.2 SC 1.4.3 (4.5:1 minimum). Body text (`neutral-800`) on page (`neutral-0`) targets 11.2:1 — comfortable AAA. Muted text (`neutral-500`) on page targets 4.04:1 — meets AA, falls just under AAA, and is reserved for non-essential helper text only. The planned build MUST emit a contrast-grid CSV alongside the tokens to make this auditable.
 
 ### 3.4 Dark-mode inversion (preview)
 
@@ -1711,7 +1943,7 @@ Photographs and illustrations are paired light/dark. A campaign image lit warm i
 
 ### 7.1 Why Tailwind v4
 
-**Tailwind CSS v4.0** was released on **22 January 2025** with a CSS-first `@theme` directive, the Lightning CSS engine, native OKLCH support, and roughly **5× faster** builds than v3 (tailwindcss.com). v4's CSS-first model aligns with our DTCG-first token strategy: tokens are authored in JSON, transformed into CSS custom properties by Style Dictionary v5 ([Part 7](#part-7-engineering-operations) §3), and consumed by Tailwind's `@theme` directive at the same level as the rest of the application's CSS.
+**Tailwind CSS v4.0** is the target utility layer for CSS-first theme integration. Its `@theme` directive, Lightning CSS engine, and native OKLCH support align with the DTCG-first token strategy. Build-speed claims require project-local benchmarks before external use; this doctrine relies on the architectural fit, not on unverified performance marketing.
 
 ### 7.2 The `globals.css` configuration
 
@@ -1912,7 +2144,23 @@ The fallback metrics are tuned by `size-adjust`, `ascent-override`, `descent-ove
 
 ### 8.5 Variable-weight interpolation
 
-Where the platform supports variable fonts, **Be Vietnam Pro VF** and **JetBrains Mono NL Variable** are used. These reduce total font weight transferred to the browser and allow continuous weight interpolation. Static-weight files are served as fallback where variable is unsupported (very old browsers).
+Where the platform and licensed font files support variable fonts, variable builds MAY be used to reduce transfer weight and allow controlled interpolation. Static-weight files remain the baseline fallback. A product MUST NOT assume a variable axis exists from the family name alone; it must inspect the actual shipped font file and evidence row.
+
+#### 8.5.1 Variable typography axis governance
+
+Variable axes are powerful enough to damage brand consistency and Vietnamese legibility. Any variable-font use MUST define:
+
+| Axis field | Requirement |
+|---|---|
+| Axis tag | OpenType axis tag, e.g. `wght`, `wdth`, `opsz`, `ital`. |
+| Allowed range | Minimum, maximum, default, and named stops. |
+| Surface scope | Which text styles or component slots may use the axis. |
+| Locale guard | Vietnamese diacritic canary and fallback-font check. |
+| Density guard | Compact/cozy/comfortable behavior; no axis change may reduce tap target or line-height below floor. |
+| Figma parity | Figma variable/style mapping or explicit "not supported in Figma" note. |
+| Print/PDF parity | PDF rendering check for Vietnamese, code, and legal copy. |
+
+Forbidden axis uses: animating body text weight continuously, using width axes to squeeze Vietnamese labels into too-small controls, changing optical size in dense tables without screenshot approval, or using italic axes for semantic warning/error state.
 
 ### 8.6 OpenType feature settings
 
@@ -2431,7 +2679,7 @@ For deviation-from-target data (red-green budget vs actual, election swings, dev
 
 ### 18.3 Provenance
 
-A **C2PA 2.2 manifest** (C2PA Technical Specification v2.2, **1 May 2025**; c2pa.org) is attached to AI-generated or AI-modified photographs ([Part 6](#part-6-ai-native-ethics-sustainability) §16). The C2PAProvenanceBadge ([Part 3h](#part-3h-components-ai-chat) §12) surfaces provenance visibly.
+A **C2PA manifest** SHOULD be attached to AI-generated or AI-modified photographs once the provenance pipeline exists. The planned `C2PAProvenanceBadge` ([Part 3h](#part-3h-components-ai-chat) §12) surfaces provenance visibly where signing and verification are implemented.
 
 ### 18.4 Localised photography
 
@@ -2529,7 +2777,7 @@ The Vibration API on web (`navigator.vibrate`) is used sparingly and only for co
 **Engineering ecosystem**
 
 - Tailwind CSS, *v4.0 release*, 22 January 2025.
-- Style Dictionary, *v5* (Node 22 LTS; partial DTCG 2025.10 support).
+- Style Dictionary, *v5* candidate transformer; runtime and DTCG support must be verified during implementation.
 - Material Design 3 (Google), *Tonal elevation*; Material 3 Expressive.
 - Framer Motion *useReducedMotion*; React Aria *useReducedMotion*.
 
@@ -2809,7 +3057,7 @@ Be Vietnam Pro and JetBrains Mono are both variable fonts with `wght` (weight) a
 
 ### 27.2 Mode-aware elevation tokens
 
-`tokens/elevation.tokens.json` ships six elevation steps (`elevation.0` through `elevation.5`) plus a reserved `elevation.spatial` step. Each step has `$extensions.com.cyberskill.theme` overrides for **light / dark / high-contrast / sepia** modes — closing the doctrine's earlier inconsistency where elevation tokens existed in §6 prose but were not yet promoted to a DTCG-conformant token file.
+The planned `tokens/elevation.tokens.json` file SHALL define six elevation steps (`elevation.0` through `elevation.5`) plus a reserved `elevation.spatial` step. Each step SHALL have `$extensions.com.cyberskill.theme` overrides for **light / dark / high-contrast / sepia** modes — closing the doctrine's earlier inconsistency where elevation tokens existed in §6 prose but were not yet promoted to a DTCG-conformant token file.
 
 **Token ramp:**
 
@@ -2827,7 +3075,7 @@ Be Vietnam Pro and JetBrains Mono are both variable fonts with `wght` (weight) a
 
 ### 27.3 Iconography per-platform export pipeline
 
-The audit scored A1.6 — Iconography system — at 3/5 because we have a single library on a consistent grid (✅) but no per-platform export pipeline. The pipeline lives in `tokens/icon-pipeline.config.json` (Phase 2 to ship) and Style Dictionary v5 is configured to emit:
+The audit scored A1.6 — Iconography system — at 3/5 because the doctrine defines a single library on a consistent grid, but no per-platform export pipeline exists in this workspace. Planned path: `tokens/icon-pipeline.config.json` (Phase 2 to ship). The selected token transformer must emit:
 
 | Platform | Format | Output path | Notes |
 |---|---|---|---|
@@ -2890,15 +3138,15 @@ Style Dictionary emits a `@media (color-gamut: p3) { ... }` CSS block for each t
 
 ### 27.5 Print colour management — pointer
 
-Print is out of scope for the runtime token system (sRGB → CMYK conversion happens in the print pipeline, not in `tokens/`). For brand-applied collateral, see [Part 19](#part-19-industry-vertical-packs) §X (Templates folder) — `meta/templates/print/cmyk-spot.icc` is the colour profile of record.
+Print is out of scope for the runtime token system (sRGB → CMYK conversion happens in the print pipeline, not in `tokens/`). Brand-applied collateral requires a planned print-template artifact and a documented CMYK profile before production use.
 
 ### 27.6 Audit-score impact summary
 
 | Criterion | Before | After §27 lands | Path to 5 |
 |---|---|---|---|
-| A1.2 Typography scale & type tokens | 4 | **5** | Variable-font axis annotations live in `tokens/type.tokens.json` |
-| A1.4 Elevation / shadow tokens | 3 | **4** | Mode-aware DTCG file shipped; → 5 when consumed by Tier-1 primitives |
-| A1.6 Iconography system | 3 | **4** (Phase 2) | Per-platform export pipeline shipped; → 5 with variable-axis icons (Phase 3) |
+| A1.2 Typography scale & type tokens | 4 | **5 target** | Variable-font axis annotations planned for `tokens/type.tokens.json`; 5 requires shipped token source and tests. |
+| A1.4 Elevation / shadow tokens | 3 | **4 target** | Mode-aware DTCG file specified; 4 requires shipped file and generated outputs. |
+| A1.6 Iconography system | 3 | **4 target** | Per-platform export pipeline specified; 5 requires shipped pipeline and variable-axis icons. |
 | A1.9 Modern color spaces (OKLCH, P3) | 5 | **5 sustained** | P3 usage formalised; deepens the existing 5 |
 | A1.5 Motion tokens | 4 | 4 sustained | Unaffected |
 
@@ -2917,9 +3165,26 @@ Combined: ~+1 percentage point on Part A (from 75.4% baseline) once these tokens
 
 ## Part 3a — Components: Actions
 
-*Authoritative specifications for the seven action components: **Button**, **IconButton**, **ButtonGroup**, **SplitButton**, **LinkButton**, **FloatingActionButton**, **ToggleButton**. Every component is documented to the full 20-section template defined in the handoff package §5.3. Every behaviour is grounded in the W3C ARIA Authoring Practices Guide (APG) and WCAG 2.2 success criteria. Every code example is copy-paste-ready against React 19, Lit 3, and Vue 3.*
+*Authoritative specifications for the seven action components: **Button**, **IconButton**, **ButtonGroup**, **SplitButton**, **LinkButton**, **FloatingActionButton**, **ToggleButton**. Every component is documented to the full 20-section template. Every behaviour is grounded in the W3C ARIA Authoring Practices Guide (APG) and WCAG 2.2 success criteria. Code examples are illustrative until `@cyberskill/react`, web components, and other packages exist.*
 
 ---
+
+## Part 3 family maturity badges
+
+All Part 3 component families are **Specified** in this doctrine and **Planned** in implementation unless the artifact reality table says otherwise.
+
+| Family | Scope | Implementation sequence | Current maturity |
+|---|---|---|---|
+| 3a Actions | Button, IconButton, ButtonGroup, SplitButton, LinkButton, FloatingActionButton, ToggleButton | MVP Core | Specified / Planned |
+| 3b Inputs | TextField, TextArea, Select/Combobox, Checkbox, Radio, Switch, Slider, FileUpload, date/time inputs | MVP Core / Enterprise Core | Specified / Planned |
+| 3c Containers | Card, Modal/Dialog, Drawer, Popover, Tooltip, Tabs, Stepper, Accordion | MVP Core / Enterprise Core | Specified / Planned |
+| 3d Navigation | Header, SidebarNav, TopNav, Breadcrumb, Pagination, CommandPalette, Skiplink | MVP Core / Enterprise Core | Specified / Planned |
+| 3e Feedback | Toast, Alert, Banner, Progress, EmptyState, ErrorState, ConfirmationDialog | MVP Core / Enterprise Core | Specified / Planned |
+| 3f Data Display | Table, DataGrid, List, Timeline, Stat, Avatar, Badge | MVP Core / Enterprise Core | Specified / Planned |
+| 3g Visualization | Charts, maps, heatmaps, gauges, kanban visualization | Enterprise Core / Labs | Specified / Planned |
+| 3h AI & Chat | ChatThread, ChatMessage, StreamingResponse, CitationCard, AIDisclosureBadge, ConfidenceIndicator, HumanReviewGate, ToolCallDisplay, RedactionMarker | AI Core | Specified / Planned |
+
+Promotion from Specified to Beta requires working implementation, Storybook, EN/VN examples, keyboard and AT evidence, token consumption proof, visual tests, and known limitations. Promotion to GA requires package release, changelog, license, support owner, and migration policy.
 
 ## Introduction — what makes a button a button
 
@@ -10213,7 +10478,7 @@ Headings *Hướng dẫn cài đặt*, *Câu hỏi thường gặp*; callouts in
 
 ## Part 3g — Components: Visualization
 
-*Authoritative specifications for the 13 visualisation components: **LineChart**, **BarChart**, **AreaChart**, **PieChart**, **DonutChart**, **ScatterPlot**, **Heatmap**, **Sparkline**, **Gauge**, **TreeMap**, **Map**, **Calendar**, **KanbanBoard**. Visualisations are the most cognitively dense surfaces in the system; they are also the most accessibility-fragile if treated as decorative SVG. Every component in this Part inherits the OKLCH colour palettes from [Part 2](#part-2-design-language) §17, ships with a programmatic data fallback per WCAG 2.2 SC 1.1.1, and honours SC 1.4.1 (Use of Color), SC 1.3.1 (Info and Relationships), and SC 2.5.7 (Dragging Movements).*
+*Authoritative specifications for the 13 visualisation components: **LineChart**, **BarChart**, **AreaChart**, **PieChart**, **DonutChart**, **ScatterPlot**, **Heatmap**, **Sparkline**, **Gauge**, **TreeMap**, **Map**, **Calendar**, **KanbanBoard**. Visualisations are the most cognitively dense surfaces in the system; they are also the most accessibility-fragile if treated as decorative SVG. Every component in this Part inherits the OKLCH colour palettes from [Part 2](#part-2-design-language) §17, MUST provide a programmatic data fallback per WCAG 2.2 SC 1.1.1, and honours SC 1.4.1 (Use of Color), SC 1.3.1 (Info and Relationships), and SC 2.5.7 (Dragging Movements).*
 
 ---
 
@@ -10222,7 +10487,7 @@ Headings *Hướng dẫn cài đặt*, *Câu hỏi thường gặp*; callouts in
 A chart is a tool of compression. It packs a relationship — how something changes, how things compare, how parts make a whole — into a small visual region that the literate viewer decodes in well under a second. Three obligations follow:
 
 1. **The chart must be readable in monochrome.** Colour is one channel of distinction; shape, position, dash pattern, and label are the others. WCAG 2.2 SC 1.4.1 (Use of Color) is the floor; we add colour-blind testing (Sim Daltonism, Coblis, Chromium DevTools vision-deficiency emulator) for every chart in the system.
-2. **The chart must offer a non-visual fallback.** Every chart ships a *"View data"* button that opens an accessible Table containing the underlying values, satisfying SC 1.1.1 (Non-text Content). The fallback is not a courtesy; it is a contract.
+2. **The chart must offer a non-visual fallback.** Every GA chart MUST include a *"View data"* button that opens an accessible Table containing the underlying values, satisfying SC 1.1.1 (Non-text Content). The fallback is not a courtesy; it is a contract.
 3. **The chart must localise.** Numbers, dates, and currency on axes follow CLDR 47 (Unicode Consortium, March 2025). Vietnamese diacritic-stacked labels respect the line-height contract from [Part 2](#part-2-design-language) §9.
 
 The governing standards: **WCAG 2.2** (w3.org/TR/WCAG22/) — particularly SC 1.1.1, 1.3.1, 1.4.1, 1.4.11 Non-text Contrast, 2.5.7 Dragging Movements; **W3C ARIA APG** Grid pattern (for KanbanBoard, Calendar grid); **CLDR 47** locale data; **PDPL Law 91/2025/QH15** for location and identity-related data shown on Map; **Decree 356/2025/ND-CP** for sensitive-data redaction in chart tooltips.
@@ -10344,7 +10609,7 @@ On hover or keyboard-focused data point, a Tooltip shows: the x value (formatted
 
 ### 1.13 Don't
 
-- Use **more than 5 series** in a single LineChart — switch to small-multiples (`<SmallMultiples />` ships with 4–9 child LineCharts in a grid, each titled).
+- Use **more than 5 series** in a single LineChart — switch to small-multiples (`<SmallMultiples />` is specified with 4–9 child LineCharts in a grid, each titled).
 - Rely on colour alone (SC 1.4.1).
 - Truncate the y-axis without making the truncation visible — distorts perception.
 
@@ -11017,7 +11282,7 @@ Columns *Chưa làm* / *Đang làm* / *Đã xong* / *Đã huỷ*; alternate set 
 
 ## Part 3h — Components: AI & Chat
 
-*Authoritative specifications for the 12 AI & Chat components: **ChatThread**, **ChatMessage** (user / assistant / system / tool), **StreamingResponse**, **CitationCard**, **ConfidenceIndicator**, **HumanReviewGate**, **PromptInput**, **PromptLibraryBrowser**, **ToolCallDisplay**, **AIDisclosureBadge**, **RedactionMarker**, **C2PAProvenanceBadge**. These are the surface-level expression of the ethical, regulatory, and operational rules in [Part 6](#part-6-ai-native-ethics-sustainability) (AI-Native, Ethics, Sustainability) and [Part 8](#part-8-governance-legal-commerce) (Governance, Legal). Every component honours **EU AI Act** transparency obligations (Art. 50, Art. 14), **ISO/IEC 42001:2023** AI Management System controls, **C2PA Technical Specification v2.2** content provenance, **PDPL Law 91/2025/QH15** Art. 30 disclosure for AI processing, and **Decree 356/2025/ND-CP** sensitive-data redaction.*
+*Authoritative specifications for the 12 AI & Chat components: **ChatThread**, **ChatMessage** (user / assistant / system / tool), **StreamingResponse**, **CitationCard**, **ConfidenceIndicator**, **HumanReviewGate**, **PromptInput**, **PromptLibraryBrowser**, **ToolCallDisplay**, **AIDisclosureBadge**, **RedactionMarker**, **C2PAProvenanceBadge**. These are the surface-level expression of the ethical, regulatory, and operational rules in [Part 6](#part-6-ai-native-ethics-sustainability) (AI-Native, Ethics, Sustainability) and [Part 8](#part-8-governance-legal-commerce) (Governance, Legal). Components specify support for EU AI Act transparency, ISO/IEC 42001 controls, PDPL Art. 30 disclosure, Decree 356 sensitive-data redaction, and C2PA/provenance where infrastructure exists; audited legal or provenance claims require evidence rows.*
 
 ---
 
@@ -11028,13 +11293,13 @@ AI surfaces fail in characteristic ways. They overclaim certainty (presenting a 
 The system commits to **six cross-component rules** that prevent these failure modes at the architectural level:
 
 1. **Disclosure is universal.** Every AI-generated region carries an `AIDisclosureBadge`. There is no fine-print-only AI in any CyberSkill product. EU AI Act Art. 50 (applicable in phases per the Regulation's entry-into-force schedule; European Commission) is the legal floor; brand voice ([Part 1](#part-1-foundations) §3.4) is the everyday reason.
-2. **Confidence is calibrated and tiered.** Three tiers — **Low <60 %**, **Medium 60–85 %**, **High >85 %**. Low-confidence outputs are **withheld by default**; the user must opt-in to see them. Medium-confidence outputs are **disclaimed**. High-confidence outputs are **shown without disclaimer but always disclosed**.
+2. **Confidence is calibrated before it is numeric.** Qualitative confidence tiers may guide UI behavior, but percentages appear only when the task class has calibration evidence per [Part 6](#part-6-ai-native-ethics-sustainability) §4.
 3. **Citations are verified before render.** Every AI-cited source is verified to exist and to contain the cited passage. A model-fabricated citation is dropped; the user is shown a Low-confidence note that the answer could not be sourced.
 4. **Sensitive domains require human gates.** Legal, medical, financial, and user-rights outputs go through a `HumanReviewGate` before user display. EU AI Act Art. 14 (human oversight for high-risk systems) is the regulatory reading; ISO/IEC 42001 Annex A control 6.1.4 (responsible-AI objective) is the management-system reading.
-5. **Provenance is signed and verifiable.** AI-generated or AI-edited media carries a **C2PA 2.2 manifest** (Technical Specification v2.2, published 1 May 2025; c2pa.org). The system signs on emit, verifies on render, and surfaces a `C2PAProvenanceBadge` with the signature status.
+5. **Provenance is visible where implemented.** AI-generated or AI-edited media SHOULD carry signed provenance once the marking pipeline exists. `C2PAProvenanceBadge` remains Specified / Planned until signing, verification, storage, and failure states ship.
 6. **PDPL applies to prompts.** Prompts that contain personal data are processed under PDPL Art. 10–12 (consent), Art. 14 (data subject rights), and Art. 30 (big-data / AI processing disclosure). Decree 356/2025/ND-CP forbids default consent and bundled consent — both of which are easy traps in AI flows. Sensitive personal data (CCCD photos, biometrics, health, financial) is redacted by default in chat exports per Decree 356.
 
-The governing standards: **EU AI Act** (European Commission; entered into force 1 August 2024; prohibited practices applicable 2 February 2025; GPAI obligations 2 August 2025; high-risk obligations 2 August 2026; full applicability 2 August 2027); **ISO/IEC 42001:2023** (AI Management System; iso.org/standard/42001); **C2PA Technical Specification v2.2** (1 May 2025; c2pa.org); **Model Context Protocol spec 2025-11-25** (Anthropic; Linux Foundation Agentic AI Foundation); **PDPL Law 91/2025/QH15** (effective 1 January 2026; LuatVietnam); **Decree 356/2025/ND-CP** (effective 1 January 2026; Tilleke); **WCAG 2.2** SC 1.1.1, 1.3.1, 1.4.1, 4.1.3.
+The governing references include the EU AI Act, ISO/IEC 42001:2023, C2PA, Model Context Protocol, PDPL Law 91/2025/QH15, Decree 356/2025/ND-CP, and WCAG 2.2. Dates, applicability, and legal obligations MUST be checked against the regulatory evidence register before external claims.
 
 ---
 
@@ -11124,7 +11389,7 @@ The message stream uses `role="log"` with `aria-live="polite"` so each new messa
 
 ### 1.9 PDPL & redaction on copy / export
 
-Transcript export is downloadable as plain text, Markdown, or JSON with a **C2PA 2.2 manifest** for the export (the export itself is a media artefact whose provenance is the conversation). Sensitive personal data per Decree 356/2025/ND-CP is **auto-masked on copy and export** by default:
+Transcript export is downloadable as plain text, Markdown, or JSON. A C2PA manifest for exports is an advanced planned capability. Sensitive personal data per Decree 356/2025/ND-CP is **auto-masked on copy and export** by default:
 
 - CCCD photos / numbers redacted.
 - Phone, email, financial values masked.
@@ -11467,7 +11732,7 @@ Source examples *Nghị định 356/2025/NĐ-CP — luatvietnam.vn*; *Luật BVD
 
 ### 5.2 Purpose
 
-Communicate the model's **calibrated confidence**, distilled to three tiers users can read at a glance.
+Communicate calibrated model confidence when the task class has evidence. Without calibration evidence, use uncertainty copy, sources, or human-review state instead of this component.
 
 ### 5.3 Anatomy
 
@@ -11479,21 +11744,23 @@ A small pill containing **shape + colour + word**:
 ● Cao            (High)       warm-success, filled circle
 ```
 
-### 5.4 Tiers
+### 5.4 Qualitative tiers
 
-| Tier | Range | Default behaviour |
+| Tier | Meaning | Default behaviour |
 |---|---|---|
-| Low | < 60 % | Content **withheld by default**; user opts in to reveal |
-| Medium | 60–85 % | Content shown with **disclaimer**: *"Hãy xem lại trước khi sử dụng."* |
-| High | > 85 % | Content shown **without disclaimer** (but always with AIDisclosureBadge) |
+| Low | Weak evidence, missing source, meaningful uncertainty, or high-risk context | Content withheld by default or routed to human review |
+| Medium | Evidence exists but is incomplete, fresh but unverified, or consequence is moderate | Content shown with disclaimer: *"Hãy xem lại trước khi sử dụng."* |
+| High | Evidence is strong and calibration supports the display | Content shown with AIDisclosureBadge and explanation pathway |
 
 ### 5.7 Props
 
 ```ts
 export interface ConfidenceIndicatorProps {
   tier: 'low' | 'medium' | 'high';
-  /** Optional numeric confidence (0–100) for diagnostic display. */
+  /** Optional numeric confidence (0–100); allowed only with calibration evidence. */
   numeric?: number;
+  /** Evidence id linking to calibration method, date, owner, and task class. */
+  calibrationEvidenceId?: string;
   /** Show explanation Tooltip. */
   showExplanation?: boolean;
 }
@@ -11501,7 +11768,7 @@ export interface ConfidenceIndicatorProps {
 
 ### 5.8 Accessibility
 
-Shape + colour + word, never colour alone (SC 1.4.1). `aria-label` includes the tier, the numeric range, and the consequence: *"Độ tin cậy Thấp, dưới 60 phần trăm — nội dung được tạm giữ"*.
+Shape + colour + word, never colour alone (SC 1.4.1). `aria-label` includes the tier and consequence. If no numeric value is displayed, do not announce a numeric range: *"Độ tin cậy Thấp — nội dung được tạm giữ"*.
 
 ### 5.18 Vietnamese content
 
@@ -11511,7 +11778,7 @@ Tier labels *Thấp* / *Trung bình* / *Cao*; tooltip *Mức tin cậy phản á
 
 - Shape + colour + word redundancy.
 - Low tier withholds by default.
-- Numeric range correct.
+- Numeric value is hidden unless `calibrationEvidenceId` is present.
 
 ---
 
@@ -11877,7 +12144,7 @@ export interface AIDisclosureBadgeProps {
 
 - **EU AI Act Art. 50** — transparency obligations for providers and deployers; applicable in phases per the staged Regulation schedule (European Commission). The badge is the user-facing component of Art. 50 compliance.
 - **PDPL Art. 30** — disclosure for AI / big-data processing of personal data. In VN locale, the badge expansion includes the PDPL disclosure copy: *"Xử lý này dùng AI theo Điều 30, Luật BVDLCN 91/2025/QH15."*
-- **Machine-readable signal** — the underlying HTML includes `<meta property="ai:generated" content="true">` and a C2PA manifest reference.
+- **Machine-readable signal** — the underlying HTML includes `<meta property="ai:generated" content="true">`; C2PA manifest references are included only where the provenance pipeline is implemented.
 
 ### 10.12 Do
 
@@ -11972,7 +12239,7 @@ Sensitive classes per Decree 356/2025/ND-CP and Acclime Vietnam's reading:
 
 ### 12.2 Purpose
 
-Show **content provenance from a C2PA 2.2 manifest**. Surfaces signer, creation date, edit history, and signature status.
+Show **content provenance from a C2PA manifest** where provenance infrastructure exists. Surfaces signer, creation date, edit history, and signature status.
 
 ### 12.3 Anatomy
 
@@ -12014,7 +12281,7 @@ The badge is focusable; opens a Popover ([Part 3c](#part-3c-components-container
 
 ### 12.9 Verification flow
 
-The system **verifies signatures client-side** by default using the C2PA Web SDK (compliant with **Technical Specification v2.2**, published 1 May 2025; c2pa.org). The verification result is rendered as the badge status. For very large assets or resource-constrained clients, server-side verification is supported (`verify="remote"`).
+Status: **Specified / Planned artifact**. When the provenance pipeline exists, the system verifies signatures client-side by default using a C2PA-compatible verifier and renders the verification result as the badge status. For very large assets or resource-constrained clients, server-side verification is supported (`verify="remote"`). Until the signing, verification, trust-list, and failure-state pipeline exists, examples in this section are illustrative and MUST NOT be used as evidence of deployed C2PA conformance.
 
 ### 12.10 Provenance display
 
@@ -12054,7 +12321,7 @@ Tooltip *Nguồn gốc nội dung: CyberSkill, chữ ký hợp lệ.*; status `a
 
 - **EU AI Act** (Regulation EU 2024/1689) — entered into force 1 August 2024; phased applicability per European Commission schedule. Articles 14, 50, 52 cited.
 - **ISO/IEC 42001:2023** — AI Management System. https://www.iso.org/standard/42001
-- **C2PA Technical Specification v2.2** — published 1 May 2025. https://c2pa.org/
+- **C2PA Technical Specification v2.2**. https://spec.c2pa.org/specifications/specifications/2.2/index.html
 - **Model Context Protocol spec 2025-11-25** — Anthropic; Linux Foundation Agentic AI Foundation stewardship.
 - **PDPL Law 91/2025/QH15** — Vietnam; passed 26 June 2025; effective 1 January 2026. https://luatvietnam.vn/
 - **Decree 356/2025/ND-CP** — Vietnam; effective 1 January 2026. Tilleke; Acclime Vietnam.
@@ -12258,7 +12525,7 @@ Android phones, tablets, foldables, and Android Auto / Android TV (covered in §
 
 ### 3.2 Material 3 alignment
 
-The system ships a Material 3 theme **seeded with Umber and Ochre** anchors — Compose's `dynamicColorScheme` is computed from the brand seed rather than from wallpaper-derived dynamic colour. **Material 3 Expressive** motion is applied to marketing surfaces; product surfaces use the standard motion language.
+The system SHALL provide a Material 3 theme **seeded with Umber and Ochre** anchors when the Android package exists — Compose's `dynamicColorScheme` is computed from the brand seed rather than from wallpaper-derived dynamic colour. **Material 3 Expressive** motion may be applied to marketing surfaces; product surfaces use the standard motion language.
 
 ```kotlin
 @Composable
@@ -12761,7 +13028,7 @@ Tone: warm, brief, non-disruptive; auto-dismiss 6 s.
 - **Fogra39** / **GRACoL 2013** ICC profiles.
 - **NHTSA** Driver Distraction Guidelines.
 - **EU AI Act** Art. 14, Art. 50; **PDPL Law 91/2025/QH15**; **Decree 356/2025/ND-CP**.
-- **C2PA Technical Specification v2.2** — 1 May 2025.
+- **C2PA Technical Specification v2.2** — target specification; conformance requires implementation evidence.
 - **WebAuthn Level 3** — passkeys.
 - **MapLibre** + **OpenMapTiles** — Map base layer.
 
@@ -12849,7 +13116,7 @@ For write actions that can wait:
 - Permission requested only after meaningful engagement.
 - Per-category opt-in.
 - Notification preferences integrated with Notifications.Center ([Part 12](#part-12-advanced-component-library-tier-2) §8).
-- Per [Part 8](#part-8-governance-legal-commerce) §X (PDPL) consent-required for VN users.
+- Per [Part 8](#part-8-governance-legal-commerce) §8.5 (Vietnam PDPL) consent is required for VN users where the data flow depends on consent.
 
 ### 15.5 App-like surface
 
@@ -12875,7 +13142,7 @@ For write actions that can wait:
 
 ### 15.7 Reference
 
-- Per [Part 7](#part-7-engineering-operations) §X (engineering) — service worker patterns, cache strategies.
+- Per [Part 7](#part-7-engineering-operations) — service worker patterns and cache strategies are implementation requirements, not yet shipped artifacts.
 - Per [Part 14](#part-14-content-design-ux-writing-at-scale) — offline / sync microcopy.
 
 ---
@@ -12955,7 +13222,18 @@ We add three further frameworks where applicable:
 - **AODA** (Ontario, Canada) — for Canadian provincial surfaces.
 - **JIS X 8341-3** (Japan) — for Japanese public-sector surfaces.
 
-The system's **single internal requirement** is WCAG 2.2 AA; meeting that requirement satisfies the others (with locale-specific overlays where local law adds beyond WCAG).
+The system's **single internal requirement** is WCAG 2.2 AA; meeting that requirement supports the others (with locale-specific overlays where local law adds beyond WCAG).
+
+**Humility rule.** Using CyberSkill components does not automatically make a product accessible. Components can provide accessible defaults, required props, keyboard models, and test coverage; product teams still own information architecture, content clarity, focus order in composed pages, alternative text, research with disabled users, manual assistive-technology testing, localization, and regression review.
+
+### 1.1.1 Accessibility claim boundaries
+
+| Claim | Allowed when | Forbidden wording |
+|---|---|---|
+| "Component can support WCAG 2.2 AA" | Component spec includes keyboard, name/role/value, contrast, states, and test obligations. | "Using this component guarantees compliance." |
+| "Surface passed accessibility review" | Surface has automated + manual evidence with date, owner, and scope. | "Accessible by default" without scope. |
+| "Product conforms to WCAG 2.2 AA" | Product-level audit covers all pages/flows in stated scope. | Claiming product conformance from component coverage alone. |
+| "Audited" | Formal reviewer, date, test matrix, findings, remediation state exist. | "Audited" for informal internal spot checks. |
 
 ### 1.2 The accessibility statement
 
@@ -12972,9 +13250,9 @@ The statement is itself accessible (no PDF-only; HTML primary).
 
 ---
 
-## 5.2 All 87 WCAG 2.2 Success Criteria — component mapping
+## 5.2 All 87 WCAG 2.2 Success Criteria — component support mapping
 
-The following table is the **authoritative, CI-verified mapping** between every WCAG 2.2 success criterion and the specific components that bear primary responsibility for compliance. The CI gate runs axe-core against every Storybook story and asserts zero critical or serious violations across this matrix.
+The following table is the **authoritative target mapping** between WCAG 2.2 success criteria and the specific components that bear primary responsibility for supporting compliance. It becomes CI-verified only when Storybook, component packages, and the WCAG evidence matrix exist. Until then, it is Specified evidence, not Shipped evidence.
 
 | SC | Level | Title | Primary components | Verification |
 |---|---|---|---|---|
@@ -13034,7 +13312,45 @@ The following table is the **authoritative, CI-verified mapping** between every 
 | 4.1.2 | A | Name, Role, Value | All components | axe + APG |
 | 4.1.3 | AA | Status Messages | Toast, Alert, Banner, ProgressBar | manual |
 
-The full mapping for all 87 SCs ships as a CSV in `@cyberskill/docs/wcag-22-sc-mapping.csv` with one row per **SC × component**, the verification method, and a link to the relevant Storybook story.
+The planned full mapping for all 87 SCs SHALL ship as `@cyberskill/docs/wcag-22-sc-mapping.csv` with one row per **SC × component**.
+
+Required evidence fields per row:
+
+| Field | Required value |
+|---|---|
+| SC | WCAG success criterion ID and level. |
+| Component / surface | Component, pattern, or composed page. |
+| Support vs compliance | `supports`, `surface-passed`, `product-audited`. |
+| Story / example URL | Storybook story, docs example, or product URL. |
+| Automated test | axe, Playwright, lint, contrast grid, or equivalent. |
+| Manual test | Keyboard, screen reader, voice, switch, magnifier, cognitive/content review as applicable. |
+| Owner | Named accountable seat. |
+| Date | Last reviewed date. |
+| Confidence | A/B/C/D per evidence legend. |
+| Known limitation | Limitation or `none`. |
+
+### 5.2.1 Manual AT test matrix
+
+Every GA component and every audited product surface MUST include manual assistive-technology evidence for the relevant platform mix:
+
+| Platform | Required combinations |
+|---|---|
+| Windows desktop | NVDA + Firefox, NVDA + Chrome, JAWS + Chrome or Edge |
+| macOS | VoiceOver + Safari |
+| iOS | VoiceOver + Safari |
+| Android | TalkBack + Chrome |
+| Vietnamese speech | Vietnamese TTS voice review for critical flows, abbreviations, form errors, and AI disclosures |
+| Input alternatives | Keyboard-only, switch-control where applicable, voice-control where applicable |
+
+### 5.2.2 Known limitations and remediation table
+
+| Limitation | Risk | Current status | Remediation before GA / Audited |
+|---|---|---|---|
+| Storybook and component packages absent | No executable component evidence. | Planned. | Build stories and tests before claiming CI verification. |
+| Manual AT evidence absent | Screen-reader and input-mode regressions can be missed. | Planned. | Run required matrix and attach dated notes. |
+| Cognitive accessibility depends on copy and flow composition | Component import cannot guarantee plain language. | Doctrine + specified acceptance criteria. | Tier 1 copy coverage, content review, and user research. |
+| Vietnamese TTS varies by OS/browser | Pronunciation may fail acronyms or legal terms. | Known risk. | Add pronunciation notes, glossary expansions, and manual TTS checks. |
+| Dense data components are high risk | Tables/grids can pass axe and still be unusable. | Labs until proven. | Keyboard model, screen-reader row/column model, virtualized focus tests, user validation. |
 
 ---
 
@@ -13224,6 +13540,22 @@ Tier-2 locales (marketing surfaces only): `nl-NL, sv-SE, fi-FI, no-NO, da-DK, tr
 - Localisation keys in **Fluent (`.ftl`) format** or **MessageFormat 2.0** (CLDR 47 / ICU 77 stable from March 2025; blog.unicode.org).
 - **Per-locale review gate** by the locale steward ([Part 1](#part-1-foundations) §13.9).
 - **Translation memory** retained across releases; never stripped on rebuild.
+
+### 7.1.1 ICU / CLDR standards watch
+
+ICU and CLDR move faster than product migrations. CyberSkill therefore treats CLDR 48 / ICU 78 as a **standards-watch target**, not an automatic dependency bump. The locale steward opens a migration RFC when a new CLDR or ICU release materially affects Vietnamese collation, line breaking, MessageFormat 2.0, plural/select rules, timezone names, currency formats, or supported-script coverage.
+
+Migration decision table:
+
+| Signal | Action |
+|---|---|
+| Release changes Vietnamese collation, segmentation, or diacritic behavior | Run VN canary suite before adoption. |
+| Release changes MessageFormat 2.0 syntax or data model | Run all message fixtures and fallback to previous compiler on breaking errors. |
+| Platform Intl APIs lag behind ICU/CLDR release | Keep app output on stable platform Intl; use library polyfill only with size and a11y review. |
+| Locale data fixes affect regulated copy, consent, dates, or money | Legal/content review before rollout. |
+| New locale requested by customer | Check CLDR coverage, typography fallback, AT pronunciation, and copy-review capacity. |
+
+No product may claim "ICU 78 / CLDR 48 compliant" until the implementation stack, tests, and evidence row prove that release is actually in use.
 
 ---
 
@@ -13620,7 +13952,7 @@ User-controllable in Settings → Accessibility. When enabled, copy switches to 
 
 ## 5.21 Cognitive, trauma-informed, and motor-input expansion
 
-*Three coordinated post-WCAG-floor patterns: cognitive accessibility (beyond the WCAG floor), trauma-informed design, and voice / switch-control compliance matrix. Pairs with the AAA-flow expansion in [00-audit-and-roadmap §14.5](./README.md).*
+*Three coordinated post-WCAG-floor patterns: cognitive accessibility (beyond the WCAG floor), trauma-informed design, and voice / switch-control compliance matrix.*
 
 The earlier sections of this Part defined the WCAG 2.2 AA floor (§1–§4), keyboard and screen-reader patterns (§2, §4), motor accessibility (§16), and cognitive accessibility (§15). This section operationalises the **post-WCAG floor** — the patterns that distinguish "complies with the law" from "respects every user".
 
@@ -13677,7 +14009,7 @@ For surfaces that may be encountered in distressed states (medical diagnoses, le
 
 Audit A8.7 / §14.5 expansion: per-component compliance with voice navigation (iOS Voice Control, Android Voice Access, Dragon NaturallySpeaking, Talon Voice) and switch-control. The matrix is the proof.
 
-The matrix lives at `Design System/meta/audits/voice-switch-control-matrix.md` and is updated per release. Each Tier-1 / Tier-2 component declares:
+Planned path: `Design System/meta/audits/voice-switch-control-matrix.md`. Until that artifact exists, this section is the source of truth. Once shipped, the matrix is updated per release. Each Tier-1 / Tier-2 component declares:
 
 | Field | Values |
 |---|---|
@@ -13689,7 +14021,7 @@ The matrix lives at `Design System/meta/audits/voice-switch-control-matrix.md` a
 | **Android Switch Access** | Pass / Fail |
 | **Notes** | Specific labels to add, anti-patterns to avoid |
 
-**"Pass-with-name"** means the component is reachable by voice command **only if the consumer provides a meaningful `aria-label` or visible label**. The doctrine commits to: every interactive primitive ships with a default visible label or required `aria-label` prop; lint enforced (RFC 2026-005 #3 a11y-note presence).
+**"Pass-with-name"** means the component is reachable by voice command **only if the consumer provides a meaningful `aria-label` or visible label**. The doctrine commits to: every interactive primitive MUST provide a default visible label or require an `aria-label` prop before GA; lint enforcement is an implementation requirement.
 
 **Acceptance for L5 on A8.7:**
 
@@ -13830,7 +14162,7 @@ Stakeholders: users, operators, reviewers (HumanReviewGate role), DPOs, auditors
 
 ### 1.10 Annex A — 38 controls
 
-The authoritative ISO 42001 Annex A control mapping ships as `@cyberskill/docs/iso-42001-annex-a.csv` with one row per control × evidence artefact. Representative controls and their UX correlates:
+The planned ISO 42001 Annex A control mapping SHALL ship as `@cyberskill/docs/iso-42001-annex-a.csv` with one row per control × evidence artifact. Representative controls and their UX correlates:
 
 | Control | Control name | UX correlate |
 |---|---|---|
@@ -13863,6 +14195,8 @@ CyberSkill's target is **third-party ISO/IEC 42001 certification** within 12 mon
 
 ### 2.1 The schedule
 
+Legal-status note: this schedule is a doctrine planning aid. Product launches and external claims MUST verify the current European Commission guidance and the regulatory evidence register before relying on a date.
+
 The **EU AI Act** entered into force on **1 August 2024**. Applicability is staged:
 
 - **Prohibited practices and AI literacy** (Art. 5, Art. 4) — applicable **2 February 2025**.
@@ -13873,6 +14207,8 @@ The **EU AI Act** entered into force on **1 August 2024**. Applicability is stag
 (European Commission.)
 
 ### 2.2 Penalties
+
+Penalty note: these are planning references from legal secondary sources and MUST NOT be used in customer-facing copy without counsel-reviewed evidence.
 
 - **€35M or 7%** of global annual turnover — prohibited practices (Art. 99).
 - **€15M or 3%** — most other obligations.
@@ -13920,7 +14256,7 @@ UX consequence: every deployer surface (where CyberSkill products are deployed i
 
 UX consequence:
 
-- **Machine-readable AI disclosure** via C2PA manifest reference and `<meta property="ai:generated">` ([Part 3h](#part-3h-components-ai-chat) §10).
+- **Machine-readable AI disclosure** via `<meta property="ai:generated">`; C2PA manifest references are added where the provenance pipeline is implemented ([Part 3h](#part-3h-components-ai-chat) §10).
 - **Chatbot disclosure** at session start (*"Bạn đang trò chuyện với AI"*).
 - **AI-generated content labelling** including images, audio, and video.
 
@@ -13943,18 +14279,18 @@ Operational concern — legal review on every AI policy change.
 The component is specified in [Part 3h](#part-3h-components-ai-chat) §10. Three rules summarise its behaviour at the system level:
 
 - **Universal presence.** Every AI-generated region carries the badge. Not in fine print. Not only in caption.
-- **Machine readability.** Every region containing the badge also emits `<meta property="ai:generated" content="true">` and a C2PA manifest reference where media is generated or edited.
+- **Machine readability.** Every region containing the badge SHOULD emit machine-readable AI-generation metadata. C2PA manifest references, watermarking, and fingerprinting are advanced planned infrastructure until the marking pipeline exists.
 - **PDPL Art. 30 disclosure.** The badge expansion includes the localised PDPL disclosure copy in VN locale: *"Xử lý này dùng AI theo Điều 30, Luật BVDLCN 91/2025/QH15."*
 
-### 3.bis Multi-layered marking strategy (EU AI Act Code of Practice 2nd draft)
+### 3.bis Multi-layered marking strategy (advanced planned infrastructure)
 
-The EU AI Act Code of Practice on Transparency of AI-Generated Content (2nd draft, 3 March 2026) operationalises Articles 50(2)–(5). Article 50 transparency obligations **enter force 2 August 2026**. The Code prescribes a three-layer marking strategy that the doctrine adopts.
+The doctrine targets a three-layer marking strategy for AI-generated content. Legal dates, Code of Practice status, and technical obligations are volatile and MUST be verified in the regulatory evidence register before any external claim.
 
 | Layer | Mechanism | When | Example |
 |---|---|---|---|
-| **L1 — Signed metadata** | C2PA-signed manifest embedded in the asset; cryptographic provenance via [`C2PAProvenanceBadge`](#part-3h-components-ai-chat) | All AI-generated images, video, audio, and synthetic spatial scenes | `c2pa.cyberskill.world/manifest/<hash>.json` |
-| **L2 — Imperceptible watermark** | Pixel-level / sample-level steganographic mark; survives screenshots, format conversion, partial cropping | All generative image / video / audio output | SynthID / WaveMark / similar; vendor-agnostic API in `@cyberskill/marking` |
-| **L3 — Fingerprinting / logging fallback** | Hash + timestamp + author logged to a queryable registry; used when L1/L2 are unavailable (very short text, heavily-transformed media) | Short-form text outputs, low-bandwidth mobile, offline-first surfaces | `@cyberskill/marking-registry` (cf. [Part 7](#part-7-engineering-operations) §11.2) |
+| **L1 — Signed metadata** | C2PA-signed manifest embedded in the asset; cryptographic provenance via `C2PAProvenanceBadge` | Target for AI-generated images, video, audio, and synthetic spatial scenes | Planned package / service. |
+| **L2 — Imperceptible watermark** | Pixel-level / sample-level mark where technically and legally appropriate | Advanced target for generative image / video / audio output | Planned; vendor and robustness evidence required. |
+| **L3 — Fingerprinting / logging fallback** | Hash + timestamp + author logged to a queryable registry | Target fallback where L1/L2 are infeasible | Planned registry; privacy review required. |
 
 #### When each layer applies
 
@@ -13965,13 +14301,13 @@ The EU AI Act Code of Practice on Transparency of AI-Generated Content (2nd draf
 
 #### Refusal authority
 
-If a product surface ships AI-generated content **without** at least one applicable layer of marking, the audit framework's red-team protocol ([Part 6](#part-6-ai-native-ethics-sustainability) §7) flags the surface as failing Article 50 conformance. Sales / marketing claims that conflict with the marking obligation are likewise refused per [Part 1](#part-1-foundations) §3.4 (Honest).
+If a product surface ships AI-generated content **without** the applicable implemented marking layer once the marking pipeline is GA, the audit framework's red-team protocol ([Part 6](#part-6-ai-native-ethics-sustainability) §7) flags the surface as nonconforming to CyberSkill doctrine. Sales / marketing claims that overstate legal conformance are refused per [Part 1](#part-1-foundations) §3.4 (Honest).
 
 #### Engineering hooks
 
-- **`@cyberskill/marking`** package wraps the three-layer pattern with one API: `mark(asset, kind, layers)`.
-- **CI gate** rejects builds that ship AI-generation surfaces without marking-pipeline integration.
-- **Telemetry** ([Part 10](#part-10-measurement-research-appendix) §2) logs marking-attempt success rate per layer; cohort below 99% triggers remediation.
+- Planned **`@cyberskill/marking`** package wraps the three-layer pattern with one API: `mark(asset, kind, layers)`.
+- Planned **CI gate** rejects builds that ship AI-generation surfaces without marking-pipeline integration once the package exists.
+- Planned **telemetry** ([Part 10](#part-10-measurement-research-appendix) §2) logs marking-attempt success rate per layer; cohort below the approved threshold triggers remediation.
 
 #### Vietnam parallel
 
@@ -13981,13 +14317,39 @@ The PDPL Art. 30 disclosure copy continues to apply in VN locale alongside the E
 
 ## 6.4 Confidence calibration UX
 
-Three tiers ([Part 3h](#part-3h-components-ai-chat) §5):
+Numeric confidence is not a decorative badge. It is allowed only when the task class has calibration evidence. Without calibration evidence, the UI uses qualitative uncertainty language, citations, freshness indicators, or human-review state.
 
-- **Low** < 60 % — content **withheld by default**; user opts in to reveal.
-- **Medium** 60–85 % — content **disclaimed** ("Hãy xem lại trước khi sử dụng").
-- **High** > 85 % — content shown **without disclaimer** but always with the AIDisclosureBadge.
+Task-class defaults:
 
-Calibration is verified quarterly: a sample of AI outputs is hand-graded for accuracy; the model's reported confidence is compared to the empirical accuracy. **Calibration error** > 5 % triggers a model-tuning task. The current calibration is published on the public AI dashboard.
+| Task class | Default confidence UI | Numeric confidence allowed? | Required evidence |
+|---|---|---|---|
+| Factual answer | Sources + freshness + uncertainty copy | Only after calibration | Retrieval/citation verification, held-out QA set, calibration curve. |
+| Recommendation | Rationale + trade-offs + user-control affordance | Rarely | Outcome evaluation and user-research evidence. |
+| Extraction | Field-level confidence and source highlight | Yes after calibration | Labeled extraction dataset, per-field precision/recall. |
+| Classification | Label confidence + threshold explanation | Yes after calibration | Confusion matrix, class imbalance review, threshold owner. |
+| High-stakes decision support | HumanReviewGate, sources, audit state | Numeric display discouraged | Domain review, bias evaluation, legal approval, human override logs. |
+| Generative draft | Disclosure + "draft" state + review affordance | No by default | Quality rubric and human acceptance metrics, not numeric confidence. |
+
+Default qualitative tiers may be used internally:
+
+| Tier | Meaning | UI behavior |
+|---|---|---|
+| Low | Evidence weak, source missing, model uncertain, or task high-risk. | Withhold by default or require reveal; route to human review where harm is plausible. |
+| Medium | Evidence present but incomplete, or task consequence moderate. | Show disclaimer, sources, and review affordance. |
+| High | Evidence strong and calibrated for the task. | Show with disclosure; do not remove the AI badge. |
+
+Calibration is verified at least quarterly where numeric confidence is used: sampled outputs are graded for accuracy, model confidence is compared with empirical accuracy, and drift triggers remediation. The public AI dashboard is a target-state artifact; until implemented, calibration evidence lives in the AI evidence register.
+
+### 6.4.1 AI surface risk tiers
+
+| Risk tier | Required UI |
+|---|---|
+| Disclosure only | `AIDisclosureBadge` and plain-language explanation of AI involvement. |
+| Disclosure + sources | Badge, CitationCard/source pathway, freshness indicator where relevant. |
+| Disclosure + confidence | Badge, sources when applicable, calibrated `ConfidenceIndicator`, calibration evidence link. |
+| Human review | Badge, sources, HumanReviewGate, reviewer identity/role, approval/rejection log. |
+| Approval and audit | Explicit approval step, immutable audit event, rollback path, admin visibility. |
+| Fresh re-auth for high-stakes action | Re-auth, scoped permission, preview, confirm, execute, undo/recover, audit. |
 
 ---
 
@@ -14071,6 +14433,19 @@ The model **does not take action on the basis of instructions found within retri
 
 Retrieved documents are marked with their trust level (`trusted-internal`, `trusted-customer`, `untrusted-external`). The model's system prompt instructs it to treat content from each region per its trust level.
 
+### 8.5 Prompt-injection UI requirements
+
+Prompt-injection defense is not only backend filtering; the user must see when the AI is relying on untrusted material or requesting action.
+
+| Context | Required UI |
+|---|---|
+| Retrieved content | Trust-region label, source owner, freshness, and "untrusted instructions ignored" state where applicable. |
+| Tool call | ToolCallDisplay with tool name, permission scope, inputs, affected resources, and expected side effects. |
+| Untrusted document | Banner explaining that document text may contain malicious instructions; AI treats it as content, not command. |
+| Agentic action | Preview → permission scope → confirm → execute → undo/recover → audit event. |
+| High-stakes action | HumanReviewGate plus fresh re-auth and immutable audit entry. |
+| Citation failure | Citation dropped or flagged; confidence downgraded; user can inspect failure reason where safe. |
+
 ---
 
 ## 6.9 Dark-pattern prohibitions
@@ -14150,9 +14525,25 @@ These form the **non-regulatory ethical scaffold** alongside ISO 42001. CyberSki
 | Image-heavy editorial | ≤ 1.5 MB | ≤ 100 KB | ≤ 1.5 g |
 | Print PDF | ≤ 2 MB | n/a | ≤ 0.5 g |
 
+These budgets are CyberSkill operating targets, not external sustainability certification. Public **Digital Carbon Ratings** are useful for benchmarking page-transfer size and grams CO₂ per pageview, but exact rating thresholds MUST be stored as evidence rows before they are used in release claims. The current planning reference treats a Grade B page as approximately `975.85 KB` / `0.145 gCO₂ per pageview` under SWDM v4; because methodology and rating tables may evolve, CI must pin the calculator version and evidence row.
+
 ### 13.4 AI inference cost
 
 AI inference adds variable carbon proportional to model size and reasoning length. The system tracks **per-conversation inference cost** in the AI fact sheet and surfaces a per-prompt estimate when the user is on a metered or low-power device.
+
+### 13.5 Component-level carbon budgets
+
+Every GA component family with non-trivial runtime cost MUST declare a component carbon/performance budget:
+
+| Component type | Required budget fields |
+|---|---|
+| Static primitive | CSS bytes, JS bytes, hydration requirement, no-animation fallback. |
+| Data component | Virtualization threshold, row/render cost, empty/loading/error transfer cost. |
+| AI component | Streaming overhead, transcript transfer, inference-estimate hook, redaction/logging overhead. |
+| Media/editor component | Initial payload, lazy-loaded tools, codec/preview strategy, offline mode, low-power fallback. |
+| Glass/spatial component | Blur/compositing cost, frame budget, reduced-transparency fallback, low-end Android test. |
+
+If a component exceeds its budget, it can remain Prototype / Alpha / Labs, but it cannot reach GA without a documented exception, measured user value, and remediation plan.
 
 ---
 
@@ -14166,7 +14557,7 @@ AI inference adds variable carbon proportional to model size and reasoning lengt
 
 ### 14.2 Real-User Measurement
 
-Carbon is measured in production with RUM, not just in the lab. Per-page measurements are aggregated per p50, p75, p95 and published on the public CyberSkill sustainability dashboard.
+Carbon measurement with RUM is a target-state requirement. Once implemented, per-page measurements are aggregated per p50, p75, p95 and published on the target sustainability dashboard.
 
 ### 14.3 Budget enforcement
 
@@ -14186,6 +14577,8 @@ Hosting providers selected from **Green Web Foundation Directory** where feasibl
 - **Reduced-motion** under `prefers-reduced-motion` saves CPU.
 - **Battery API** detection (where available) reduces background sync and animation under low-battery.
 - **`effective-connection-type`** — on `slow-2g` / `2g`, illustrations downgrade and video previews replace autoplay loops.
+- **Hardware-aware degradation** — low-memory, low-end Android, thermal-throttled, or low-frame-rate sessions shed expensive effects first: decorative motion, glass blur, real-time shadows, nonessential 3D, background AI refresh, and high-resolution previews.
+- **User agency** — when degradation changes visible output, the app exposes a calm status or setting rather than silently removing task-critical information.
 
 ### 15.3 Offline-first
 
@@ -14205,7 +14598,7 @@ The system commits to **support five-year-old devices** without a documented jus
 
 ### 16.1 The standard
 
-**C2PA Technical Specification v2.2** — published **1 May 2025** (c2pa.org). v2.x has significant security improvements over v1.x, including stronger signature requirements and trust-list interoperability.
+**C2PA Technical Specification v2.2** is the target provenance specification for CyberSkill-generated media. C2PA claims are **advanced planned infrastructure** until `@cyberskill/provenance` or an equivalent service implements signing, verification, trust-list handling, failure states, and external validation evidence. This doctrine may specify the desired behavior; it MUST NOT claim deployed C2PA conformance until evidence exists.
 
 ### 16.2 What we sign
 
@@ -14231,12 +14624,24 @@ A C2PA manifest contains:
 
 ### 16.5 Verification on render
 
-The **C2PAProvenanceBadge** ([Part 3h](#part-3h-components-ai-chat) §12) verifies the signature client-side using the C2PA Web SDK and surfaces:
+The planned **C2PAProvenanceBadge** ([Part 3h](#part-3h-components-ai-chat) §12) verifies the signature client-side when the provenance pipeline exists and surfaces:
 
 - ✓ **valid signature** — green badge.
 - ⚠ **invalid signature** — red badge with diagnostics.
 - ◐ **partial validity** — warning badge (some claims valid, some not).
 - ? **missing manifest** — muted badge.
+
+### 16.6 RSL / crawler-policy planning
+
+Really Simple Licensing (RSL) 1.0 and its optional Crawler Authorization Protocol (CAP) are tracked as a **Concept / advanced planned** content-rights signal for AI-era crawling and licensing. CyberSkill may publish machine-readable crawler/licensing policy for public documentation, datasets, examples, and generated media, but this is not a substitute for legal review, contract terms, C2PA provenance, copyright clearance, or jurisdiction-specific obligations.
+
+Planned acceptance criteria before any RSL claim:
+
+- RSL files or headers are generated from a reviewed rights policy.
+- CAP or related enforcement is documented as optional unless implemented.
+- Every asset class has a rights owner, license state, and allowed AI-use policy.
+- Crawlers and agents see consistent policy from HTML, HTTP headers, sitemap, and docs.
+- Legal reviews the wording before external claims.
 
 ---
 
@@ -14248,9 +14653,11 @@ The **C2PAProvenanceBadge** ([Part 3h](#part-3h-components-ai-chat) §12) verifi
 - **EU AI Act Art. 5** prohibited practices (applicable 2 February 2025); **Art. 4** AI literacy (applicable 2 February 2025); Art. 53–55 GPAI obligations (applicable 2 August 2025); Art. 6, 9, 10, 13, 14, 15, 17, 26, 50, 52 high-risk obligations (applicable 2 August 2026); full applicability 2 August 2027.
 - **MITRE ATLAS** — Adversarial Threat Landscape for AI Systems.
 - **OWASP LLM Top 10** — owasp.org.
-- **Sustainable Web Design Model v4** — released 14 July 2025. https://sustainablewebdesign.org/
+- **W3C Web Sustainability Guidelines** — Group Note Draft; cite as work in progress. https://www.w3.org/TR/web-sustainability-guidelines/
+- **Sustainable Web Design Model v4** and Digital Carbon Ratings. https://sustainablewebdesign.org/
 - **CO2.js v0.18+** — The Green Web Foundation.
-- **C2PA Technical Specification v2.2** — published 1 May 2025. https://c2pa.org/
+- **C2PA Technical Specification v2.2**. https://spec.c2pa.org/specifications/specifications/2.2/index.html
+- **RSL 1.0** — Really Simple Licensing specification. https://rslstandard.org/rsl
 - **Amber Case**, *Calm Technology*, O'Reilly Media, 2015.
 - **Center for Humane Technology** — Humane Design Guide.
 - **IEEE 7000-2021**, **IEEE 7001-2021**, **IEEE 7010-2020**.
@@ -14298,7 +14705,7 @@ When the underlying dataset changes materially, the datasheet must update within
 
 ### 18.5 Cross-reference
 
-Operationalised in [Part 12](#part-12-advanced-component-library-tier-2) §X (DatasetSheet component, Tier-2). Microcopy keys in [Part 14](#part-14-content-design-ux-writing-at-scale) §8.
+Operationalised by a planned Tier-2 DatasetSheet component. Microcopy keys live in [Part 14](#part-14-content-design-ux-writing-at-scale).
 
 ---
 
@@ -14340,7 +14747,7 @@ Each model version has its own card; users can see the history of model changes 
 
 ### 19.5 Cross-reference
 
-Operationalised in [Part 12](#part-12-advanced-component-library-tier-2) §X (ModelCard component, Tier-2). Microcopy keys in [Part 14](#part-14-content-design-ux-writing-at-scale) §8.
+Operationalised by a planned Tier-2 ModelCard component. Microcopy keys live in [Part 14](#part-14-content-design-ux-writing-at-scale).
 
 ---
 
@@ -14496,15 +14903,37 @@ agent-action:
 
 The engineering layer is the bridge between intention (Parts 1–6) and surface (Parts 4 + 8). When the engineering layer is correct, designers can ship without engineers; engineers can refactor without designers; agents can consume without humans; and end users get a consistent, accessible, performant, sustainable surface regardless of who shipped what when. When the engineering layer is wrong, the contract decays — small inconsistencies accumulate, and what was once a system becomes a collection.
 
-The engineering layer commits to **five architectural decisions**:
+The engineering layer commits to **five target architectural decisions**. In this repository today, those decisions are doctrine and implementation requirements unless the artifact reality table marks an artifact Shipped or Audited.
 
-1. **Monorepo with pnpm workspaces + Turborepo.** All public packages, all docs, all internal apps live in one tree. Cross-package refactors are atomic; releases are coordinated; changelogs are unified.
-2. **DTCG 2025.10 as the source of truth for tokens.** Tokens authored once in the W3C Design Tokens Community Group format (published 28 October 2025; w3.org/community/design-tokens/2025/10/28/), built into CSS / TypeScript / Swift / Compose / RN / Flutter / Figma Variables outputs. No bespoke JSON schema.
-3. **Tailwind v4 `@theme` directive for web.** CSS-first theming (Tailwind v4.0 released 22 January 2025; tailwindcss.com); Lightning CSS engine; native OKLCH; ~5× faster builds than v3.
+1. **Monorepo with pnpm workspaces + Turborepo.** Target architecture: all public packages, docs, and internal apps live in one tree so cross-package refactors are atomic, releases are coordinated, and changelogs are unified.
+2. **DTCG 2025.10 as the source of truth for tokens.** Tokens SHALL be authored once in the W3C Design Tokens Community Group 2025.10 Community Group report format (published 28 October 2025; not a W3C Recommendation), then built into CSS / TypeScript / Swift / Compose / RN / Flutter / Figma Variables outputs. No bespoke JSON schema.
+3. **Tailwind v4 `@theme` directive for web.** CSS-first theming is the target integration. Tailwind performance claims are not CyberSkill claims until measured in CyberSkill CI.
 4. **RFC 9457 `application/problem+json` for API errors.** Single error envelope across every API surface (RFC 9457 published July 2023, obsoletes RFC 7807; rfc-editor.org/rfc/rfc9457).
-5. **SLSA L3 + Sigstore + CycloneDX SBOM at release.** Supply-chain integrity at the highest standard practical for an open-source-publishing organisation.
+5. **SLSA L3 + Sigstore + CycloneDX SBOM at release.** GA release requirement for public packages once implementation exists.
 
 These are not preferences. They are contracts the design system depends on, and the contracts are reviewed annually for currency.
+
+---
+
+## 7.0 Engineering reality gate
+
+Current workspace status on 2026-05-23: the doctrine exists; implementation packages are planned. Therefore:
+
+- Any code sample importing `@cyberskill/*` is **Illustrative** until the package exists.
+- Any claim that a package "publishes", "ships", "emits", or "serves" something is an **Implementation requirement** unless an artifact row marks it Shipped.
+- Any CI, dashboard, Storybook, MCP, Figma, SBOM, provenance, or telemetry claim is a **release gate**, not current-state evidence.
+
+| Artifact | Status | Owner | Target maturity | Acceptance before GA |
+|---|---|---|---|---|
+| `@cyberskill/tokens` | Planned / Specified | Tokens Lead | GA | DTCG validation, contrast grid, generated platform outputs, changelog, license, tests. |
+| `@cyberskill/react` | Planned / Specified | Engineering Lead | GA | MVP Core components, typed APIs, Storybook, visual/a11y/component tests, examples. |
+| `@cyberskill/docs` | Planned / Specified | Docs Lead | GA | Standalone docs site, component catalog, evidence register, WCAG matrix, benchmark pages. |
+| MCP servers | Planned / Concept | AI + Engineering Leads | Beta | Auth, tool/resource docs, token/component retrieval, audit logging, security review. |
+| Figma plugin / variables | Planned / Specified | Design Tooling Lead | Beta | Token parity, import/export, change review, version mapping. |
+| CLI scaffolder / codemods | Planned / Concept | Engineering Lead | Beta | Dry-run, tests, migration examples, rollback notes. |
+| Dashboards | Planned / Concept | Research + Ops Leads | Beta | Privacy review, data source, methodology, owner, uptime target. |
+
+Release gates for any package: lint, format, typecheck, unit tests, component tests, visual regression, axe, Playwright flows where applicable, token validation, bundle check, license, changelog, SBOM/provenance once public, and documented support owner.
 
 ---
 
@@ -14561,13 +14990,15 @@ cyberskill/
 - **Turborepo** for build orchestration — caches outputs across CI and developer machines.
 - **TypeScript 5.6+** strict — `strict: true`, `noUncheckedIndexedAccess: true`, `exactOptionalPropertyTypes: true`.
 - **Biome** for linting + formatting — single binary, fast, fewer moving parts than ESLint+Prettier; ESLint retained for plugin compatibility (`@cyberskill/eslint-plugin`).
-- **Node 22 LTS** as the build runtime (Style Dictionary v5 requires Node 22).
+- **Node LTS** as the build runtime. The exact minimum Node version is chosen during implementation based on the selected token transformer, security support window, and package-manager compatibility.
 
 ---
 
 ## 7.2 Package layout
 
-### 2.1 Per-package responsibility
+### 2.1 Planned per-package responsibility
+
+Until a package directory and release artifact exist, the rows below define ownership and acceptance criteria only.
 
 - **`@cyberskill/tokens`** — DTCG 2025.10 source files; Style Dictionary v5 build; emits `dist/css`, `dist/ts`, `dist/swift`, `dist/kt`, `dist/rn`, `dist/flutter`, `dist/figma-variables`.
 - **`@cyberskill/react`** — React 19 components implementing Part 3 specifications; consumes `@cyberskill/tokens/css` plus typed token helpers from `@cyberskill/tokens/ts`.
@@ -14590,9 +15021,9 @@ Each package has its own `package.json` and version. Packages release together v
 
 ### 2.bis CDN distribution model
 
-The system publishes via **two channels** to support both controlled enterprise consumers and lightweight prototyping / docs-site consumers.
+The target system publishes via **two channels** to support both controlled enterprise consumers and lightweight prototyping / docs-site consumers.
 
-**Channel 1 — npm (canonical, versioned).** The primary distribution. Every package (`@cyberskill/tokens`, `@cyberskill/react`, `@cyberskill/web-components`, `@cyberskill/charts`, `@cyberskill/ai`, `@cyberskill/icons`, `@cyberskill/theming-cli`, etc.) ships to npm under the `@cyberskill/*` scope. Consumers pin via `package.json` and upgrade through codemods per [Part 16](#part-16-adoption-playbook-designops) §2. **This is the path enterprise consumers must use.**
+**Channel 1 — npm (canonical, versioned).** The primary target distribution. Every package (`@cyberskill/tokens`, `@cyberskill/react`, `@cyberskill/web-components`, `@cyberskill/charts`, `@cyberskill/ai`, `@cyberskill/icons`, `@cyberskill/theming-cli`, etc.) will ship to npm under the `@cyberskill/*` scope once GA gates pass. Consumers pin via `package.json` and upgrade through codemods per [Part 16](#part-16-adoption-playbook-designops) §2. **This is the path enterprise consumers must use once packages exist.**
 
 **Channel 2 — CDN (jsDelivr / unpkg, opt-in).** The secondary distribution for:
 
@@ -14612,9 +15043,116 @@ CDN URLs follow the pattern `https://cdn.jsdelivr.net/npm/@cyberskill/<pkg>@<ver
 
 ## 7.3 DTCG 2025.10 token pipeline — Style Dictionary v5
 
+Status: **Specified / Planned artifact** until `@cyberskill/tokens` exists.
+
+### 3.0 Token layer contract
+
+The token system is layered. A lower layer may not import from a higher layer.
+
+| Layer | Purpose | Examples | Rule |
+|---|---|---|---|
+| Primitive | Raw brand and scale values | Umber, Ochre, neutral ramps, spacing scale | Never reference components. |
+| Semantic | Meaningful product roles | `color.bg.page`, `color.text.danger`, `space.stack.md` | May alias primitives. |
+| Component | Component-specific slots | `button.primary.bg`, `textfield.border.error` | MUST alias semantic or primitive tokens; no hard-coded literals. |
+| Mode / theme | Light, dark, HC, sepia, brand theme | `theme.dark.color.bg.page` | Override by alias or explicit justified value. |
+| Density | Compact, cozy, comfortable | `density.compact.space.control.y` | Must preserve target-size and readability requirements. |
+| Locale | Locale typography and writing-system needs | Vietnamese line-height, bidi helpers, CJK fallback | Must pass locale canaries before release. |
+| Vertical-pack override | Regulated pack-specific accents | healthcare, fintech, govtech, HR tech | Strictest compliance and accessibility rule wins. |
+
+### 3.0.1 Validation rules
+
+The token build MUST fail on:
+
+- Missing `$type`, `$value`, or required `$description` in publishable tokens.
+- Invalid token names or unsupported characters.
+- Alias resolution failure or circular reference.
+- Component tokens containing hard-coded color, spacing, typography, radius, shadow, motion, or z-index values.
+- Orphan component tokens not consumed by any documented component slot.
+- Foreground/background pair without contrast evidence.
+- Glass, dark-mode, high-contrast, print, or vertical-pack override without contrast evidence.
+- Locale typography tokens that clip Vietnamese diacritics or fail font fallback.
+- Generated outputs that differ from source token hash without a build provenance row.
+
+### 3.0.2 Required generated outputs
+
+`@cyberskill/tokens` cannot reach GA until it emits and tests:
+
+| Output | Acceptance criteria |
+|---|---|
+| CSS variables | Light/dark/HC/print/reduced-transparency coverage; no raw component literals. |
+| TypeScript declarations | Typed token names, deprecated markers, and autocomplete-safe unions. |
+| Swift | Native color/spacing/type wrappers with platform fallback. |
+| Kotlin / Compose | Compose token object with theme/density support. |
+| Flutter | Dart token class with platform theme integration. |
+| React Native | Type-safe token module plus platform color fallbacks. |
+| Figma Variables | Collection/mode parity with source tokens and version metadata. |
+| Contrast grid | Every foreground/background pair, including glass and dark mode. |
+
+### 3.0.3 Vietnamese typography tests
+
+Every typography token release MUST test:
+
+- Line-height with stacked Vietnamese diacritics at 100%, 200%, and 400% zoom.
+- All-caps tracking and wordmark rendering.
+- Font fallback when Be Vietnam Pro fails to load.
+- IME composition strings inside inputs and rich text.
+- PDF/print rendering for Vietnamese copy.
+- Screen-reader pronunciation notes for critical abbreviations (`CCCD`, `PDPL`, `DPIA`, `AI`).
+
+### 3.0.4 Advanced resolver deferral
+
+Runtime token resolvers are a **v1.x advanced target**. The base GA pipeline is static DTCG source plus generated outputs. Resolver claims may not be marked Shipped until the static pipeline exists, has parity tests, and the resolver has circular-reference, fallback, and performance evidence.
+
+### 3.0.5 Parser and tooling evaluation
+
+The doctrine targets DTCG 2025.10 conformance, not a permanent dependency on one transformer. **Style Dictionary v5** remains the default planned build path because it is broadly known in design-system pipelines, but implementation MUST run a tool evaluation before GA. Evaluation candidates include Style Dictionary, purpose-built DTCG parsers such as `@styleframe/dtcg`, custom JSON-schema validation, and any future official DTCG validation tooling.
+
+Tooling is selected by conformance evidence, not preference. The chosen path MUST prove:
+
+- It preserves `$type`, `$value`, `$description`, `$extensions`, aliases, and JSON Pointer references.
+- It rejects invalid names, unsupported token types, circular references, missing required fields, and unresolved aliases.
+- It can emit all required platform outputs without silently changing token semantics.
+- It produces deterministic builds with a source-token hash and provenance row.
+- It exposes validation failures in a format usable by humans, CI, and AI agents.
+
+### 3.0.6 Component token restraint
+
+Component tokens are an exception layer, not the default unit of design. A component token may be added only when all four conditions are met:
+
+| Condition | Required evidence |
+|---|---|
+| Reuse | At least two component slots or states need the same semantic role, or the slot is a public API. |
+| Alias | The value aliases a semantic or primitive token unless a documented platform constraint prevents it. |
+| Ownership | The owning component family names the slot and its supported states. |
+| Tests | Static analysis proves the token is consumed and not orphaned. |
+
+Highly specific one-off tokens such as `button-primary-dashboard-admin-special-hover-bg` are forbidden. Product teams should compose semantic tokens or request a semantic token RFC instead.
+
+### 3.0.7 AI-agent DTCG conformance
+
+AI agents are first-class token consumers and authors. Any agent that generates token files, component examples, or theme overrides MUST:
+
+- Read the source token path and version before proposing new tokens.
+- Preserve DTCG syntax exactly (`$type`, `$value`, `$description`, `$extensions`).
+- Resolve aliases before claiming contrast or platform output.
+- Refuse invented token names unless it is explicitly creating a token RFC.
+- Return validation errors as structured findings with source path and proposed remediation.
+- Include Vietnamese typography and contrast canaries when generating type or colour tokens.
+
+### 3.0.8 Algorithmic contrast generation — Labs
+
+Algorithmic colour generation is a **Labs helper**, not a replacement for CyberSkill's curated brand palette. Tools inspired by Adobe Leonardo and its `generateContrastColors()` workflow MAY generate contrast test vectors, candidate semantic pairings, or glass/dark-mode stress palettes. They MUST NOT overwrite Umber, Ochre, neutral ramps, semantic colours, vertical-pack accents, or approved customer themes without a token RFC.
+
+Labs acceptance criteria:
+
+- Generated colours carry the source anchor, target contrast, algorithm version, and APCA/WCAG result.
+- Results are reviewed by a human designer for brand fit and Vietnamese diacritic legibility.
+- Generated palettes are stored as test fixtures or candidate RFC material, not as default product tokens.
+- Failures are useful: a generator that cannot hit contrast for a requested glass state produces a design warning, not a weaker contrast token.
+
 ### 3.1 Why Style Dictionary v5
 
-**Style Dictionary v5** requires Node 22 LTS and provides partial support for the **DTCG 2025.10** format with a parser plugin (styledictionary.com). It is the most mature multi-platform token transformer; we choose it over alternatives (Theo, Knapsack, Specify) on maturity and ecosystem.
+**Style Dictionary v5** is the target multi-platform token transformer. Tool-version requirements and DTCG support status MUST be re-verified before implementation; this doctrine does not claim a working CyberSkill build until `@cyberskill/tokens` exists and its CI proves the outputs.
 
 ### 3.2 Source structure
 
@@ -14747,7 +15285,7 @@ export default {
 pnpm --filter @cyberskill/tokens build
 ```
 
-The build emits all platform outputs and a contrast-grid CSV (`dist/contrast-grid.csv`) for design review.
+The GA token build MUST emit all platform outputs and a contrast-grid CSV (`dist/contrast-grid.csv`) for design review.
 
 ### 3.6 Format specification details
 
@@ -14805,7 +15343,7 @@ A token resolver is a runtime function that picks a value at evaluation time bas
 
 #### Build pipeline
 
-Style Dictionary v5 has built-in support for DTCG `$extensions` — we use a custom transform `cyberskill/resolver` that compiles resolvers to platform-specific output:
+The selected transformer MUST preserve DTCG `$extensions`. The planned Style Dictionary path uses a custom transform `cyberskill/resolver` that compiles resolvers to platform-specific output:
 
 - **CSS** — emits a `light-dark()` / `@media (prefers-...)` cascade.
 - **Swift / Kotlin** — emits a `Theme` enum with case-by-case values.
@@ -14828,7 +15366,7 @@ Generative theming ([Part 13](#part-13-theming-white-label-embedding) §5.5) emi
 - CSS-first `@theme` directive.
 - Lightning CSS engine.
 - Native OKLCH support.
-- ~5× faster builds than v3.
+- Local build-speed benchmark required before any performance claim.
 - No JavaScript config required.
 
 ### 4.2 Configuration
@@ -14919,7 +15457,7 @@ export default preview;
 
 ### 5.4 Per-component story conventions
 
-Every component ships with these stories:
+Every GA component MUST ship with these stories:
 
 - `Default` — minimal usage.
 - `AllVariants` — every variant on one page.
@@ -15200,7 +15738,7 @@ Content-Type: application/problem+json
 
 ### 12.5 OpenAPI integration
 
-Every API surface ships an OpenAPI 3.1 schema with an error envelope referenced via `#/components/schemas/ProblemDetails`:
+Every API surface MUST ship an OpenAPI 3.1 schema with an error envelope referenced via `#/components/schemas/ProblemDetails`:
 
 ```yaml
 ###### `openapi.yaml`
@@ -15281,7 +15819,7 @@ claude mcp add figma --transport http https://mcp.figma.com/mcp
 
 ### 14.3 Internal MCP servers
 
-CyberSkill ships its own MCP servers (`@cyberskill/mcp-tokens`, `@cyberskill/mcp-components`) — see [Part 9](#part-9-ai-prompt-library-workflows) §11. Figma's MCP and ours are complementary: Figma provides design-time access; ours provide system-time access.
+CyberSkill plans MCP servers (`@cyberskill/mcp-tokens`, `@cyberskill/mcp-components`) — see [Part 9](#part-9-ai-prompt-library-workflows) §11. Figma's MCP and ours are complementary once implemented: Figma provides design-time access; ours provide system-time access.
 
 ### 14.4 Figma Variables sync
 
@@ -15295,7 +15833,7 @@ Style Dictionary v5 emits `dist/figma/variables.json` (Part 7 §3). A CLI utilit
 - **Tailwind CSS v4.0** — released 22 January 2025. https://tailwindcss.com/blog/tailwindcss-v4
 - **Storybook 9** — released June 2025; **Storybook 10** released November 2025 (ESM-only).
 - **React 19 GA** — released 5 December 2024. Actions, `useActionState`, `useFormStatus`, `useOptimistic`, Server Components, ref-as-prop.
-- **Style Dictionary v5** — requires Node 22 LTS; partial DTCG 2025.10 support. https://styledictionary.com/
+- **Style Dictionary v5** — candidate transformer; runtime and DTCG support must be verified during implementation. https://styledictionary.com/
 - **IETF RFC 9457** — *Problem Details for HTTP APIs*, July 2023. https://www.rfc-editor.org/rfc/rfc9457
 - **OpenAPI 3.1** — OpenAPI Initiative.
 - **SLSA** — Supply-chain Levels for Software Artifacts. https://slsa.dev/
@@ -15326,6 +15864,112 @@ Three obligations frame this Part:
 3. **Commerce is fair by construction.** Subscription, billing, payment, and account-management surfaces are anti-dark-pattern by component contract. Consent for marketing is unbundled and unchecked; cancellation is one step; pricing is honest with all-inclusive currency display where required.
 
 Governing references for this Part: **Vietnam PDPL Law 91/2025/QH15** (effective 1 January 2026; LuatVietnam); **Decree 356/2025/ND-CP** (effective 1 January 2026; Tilleke); **Vietnam Cybersecurity Law 116/2025/QH15** (effective 1 July 2026; Tilleke; Mori Hamada); **Resolution 57-NQ/TW** (signed 22 December 2024 by General Secretary Tô Lâm; Vietnam Law Magazine); **EU GDPR**; **EU AI Act** (entered into force 1 August 2024; phased applicability through 2 August 2027; European Commission); **EU EAA** (Directive 2019/882; enforcement 28 June 2025); **PIPL** (China); **APPI** (Japan); **PIPA** (Korea); **PDPA Singapore**; **PDPA Thailand**; **PDP Law Indonesia**; **DPDPA 2023** (India); **Saudi PDPL**; **UAE Federal Decree-Law 45 of 2021**; **LGPD** (Brazil); **CCPA/CPRA** (California); **PIPEDA** (Canada).
+
+Legal evidence note: the paragraph above is a working register, not legal advice. Every volatile legal claim MUST be represented in the regulatory evidence register below before it is used in customer-facing material, sales collateral, audit responses, or product compliance badges.
+
+### Regulatory evidence register
+
+| Claim ID | Jurisdiction | Claim | Source | Fetched / review date | Reviewer role | Confidence | Affected patterns | Counsel review |
+|---|---|---|---|---|---|---|---|---|
+| `vn-pdpl-effective` | Vietnam | PDPL effective date and consent obligations | LuatVietnam / official legal publication required | TBD | Legal steward | D until verified | Consent, DSR, privacy panel | Required |
+| `vn-decree-356-consent` | Vietnam | Default consent and ambiguous consent prohibited | Decree 356 source required | TBD | Legal steward | D until verified | Checkbox, ConsentDialog, Banner | Required |
+| `eu-ai-act-schedule` | EU | EU AI Act staged applicability | European Commission | TBD | Legal steward | D until verified | AIDisclosureBadge, HumanReviewGate, HighRiskAIBanner | Required |
+| `eaa-enforcement` | EU | EAA enforcement and penalty interpretation | European Commission + national law | TBD | Legal steward | D until verified | Accessibility statement, commerce, docs | Required |
+| `cross-border-transfer` | VN/EU/global | Cross-border transfer notice and assessment requirements | Official/counsel source required | TBD | DPO / counsel | D until verified | CTIA/TIA banners, admin workflows | Required |
+| `health-sector` | Multi | Health data and medical AI restrictions | Jurisdiction-specific counsel | TBD | Counsel | D until verified | Healthcare pack, HumanReviewGate | Required |
+| `finance-sector` | Multi | Financial advice, credit, payments, and consumer-protection restrictions | Jurisdiction-specific counsel | TBD | Counsel | D until verified | Fintech pack, re-auth, audit | Required |
+| `employment-ai` | EU/US/VN | Employment AI high-risk / bias / self-ID constraints | EU AI Act + OFCCP/EEOC + counsel | TBD | Counsel | D until verified | HR Tech pack | Required |
+| `biometric-data` | Multi | Biometric processing restrictions | Jurisdiction-specific counsel | TBD | Counsel | D until verified | Identity verification, redaction | Required |
+
+Review cadence for volatile law/regulation sections: quarterly by default; within 30 days for major legislative change; before any launch into a new jurisdiction; before any high-stakes AI, biometric, health, finance, employment, or cross-border-transfer feature reaches Beta.
+
+### Binding law vs CyberSkill ethical default
+
+| Category | Meaning | Example |
+|---|---|---|
+| Binding legal requirement | Required by applicable law or contract in a jurisdiction. | No pre-checked consent where law prohibits default consent. |
+| CyberSkill ethical default | CyberSkill rule that may exceed law. | Equal decline affordance even where a jurisdiction permits weaker consent UX. |
+| Counsel-required interpretation | Legal meaning is volatile, sector-specific, or high risk. | EU AI Act high-risk classification for employment tools. |
+
+### Consent UI requirements
+
+Every consent pattern, regardless of jurisdiction, follows these exact UI requirements unless counsel documents a stricter local variant:
+
+| Requirement | UI rule |
+|---|---|
+| No pre-check | Consent Checkbox, Switch, or Radio option starts unchecked/unselected. |
+| No bundling | Each processing purpose has its own control and copy. |
+| Equal decline | Decline affordance is equally visible, reachable, and non-shaming. |
+| Purpose-specific copy | Copy names data type, purpose, controller, retention summary, and consequence of refusal. |
+| Revocation path | The same product area links to revoke/modify consent later. |
+| Audit event | Grant, decline, revoke, and change emit structured audit events. |
+| Locale parity | Vietnamese and English copy are reviewed together; no English-only consent. |
+| No deceptive friction | Decline cannot require more steps than accept unless legally necessary and counsel-approved. |
+
+### ConsentEvent and legal telemetry contract
+
+Status: **Specified / Planned artifact** until `@cyberskill/legal-telemetry` exists and has privacy, security, and counsel review.
+
+Consent is not complete when a checkbox changes state. A consent surface is complete only when the product can prove what was shown, what the person chose, which purpose it applied to, how it can be revoked, and which policy version governed the choice.
+
+```ts
+export interface ConsentEvent {
+  event:
+    | 'consent.presented'
+    | 'consent.changed.granted'
+    | 'consent.changed.declined'
+    | 'consent.changed.revoked'
+    | 'consent.changed.updated';
+  consentId: string;
+  purposeId: string;
+  jurisdiction: string;          // BCP-47 region or legal region id, e.g. "VN", "EU", "US-CA"
+  lawfulBasis: string;           // counsel-reviewed enum per jurisdiction
+  consentState: 'presented' | 'granted' | 'declined' | 'revoked' | 'updated';
+  policyVersion: string;
+  copyVersion: string;
+  actorType: 'user' | 'admin' | 'system';
+  actorRef: string;              // pseudonymous reference; no raw PII
+  surfaceId: string;             // component/page identifier
+  locale: string;                // e.g. "vi-VN", "en-US"
+  timestamp: string;             // ISO 8601 UTC
+  revocationPath?: string;
+  evidenceRef?: string;          // receipt, screenshot, story, or audit-log pointer
+}
+```
+
+Rules:
+
+- Consent telemetry payloads MUST NOT contain raw names, emails, phone numbers, CCCD, free-text health data, or unredacted user content.
+- Every consent event MUST be reconstructable against the exact VN/EN copy version shown to the user.
+- Revocation MUST emit an event with the same `purposeId` and a linked prior grant where feasible.
+- Retention MUST follow the strictest applicable law, contract, and data-minimisation rule.
+- Product teams MUST NOT treat analytics opt-in as consent for unrelated processing.
+
+### Data-classification metadata and transfer triggers
+
+Status: **Specified / Planned artifact** until `@cyberskill/data-classification` exists.
+
+Every data-collecting component and every schema-backed field SHOULD expose classification metadata. The metadata is used for copy, redaction, retention, consent, audit logging, and cross-border-transfer review. Exact statutory mappings, especially Vietnam PDPL / Law on Data categories, require counsel review before product or sales claims.
+
+| Metadata | Allowed values | UI / engineering effect |
+|---|---|---|
+| `dataClass` | `public`, `internal`, `personal`, `sensitive`, `important`, `core`, `restricted` | Drives redaction, logging, transfer review, and copy specificity. |
+| `purposeId` | Product-defined, versioned id | Links field to consent, lawful basis, and retention. |
+| `retentionClass` | `session`, `short`, `contract`, `legal-hold`, `user-controlled` | Determines deletion and export behavior. |
+| `transferScope` | `in-country`, `regional`, `cross-border`, `processor-only` | Triggers TIA / CTIA / DPA review where applicable. |
+| `reviewState` | `self-reviewed`, `dpo-reviewed`, `counsel-reviewed`, `audited` | Controls maturity claims. |
+
+Cross-border-transfer trigger checklist:
+
+| Trigger | Required product response |
+|---|---|
+| Destination outside user's jurisdiction or trust region | Show transfer notice, lawful basis, processor, destination, and revocation/objection path where applicable. |
+| `dataClass` is `personal`, `sensitive`, `important`, `core`, or `restricted` | Require DPO review and counsel-reviewed mapping before Beta. |
+| Transfer used for AI training, profiling, or automated decision support | Require AI risk-tier review and explicit disclosure path. |
+| Processor or subprocessor changes | Re-run transfer assessment and update copy/evidence before launch. |
+| User revokes consent | Stop optional transfer, log revocation, and show status in privacy panel. |
+
+The UI must make the data movement legible. It is not enough for a backend flag to say "cross-border"; the person affected must see what is transferred, why, to whom, and how to change the choice when the law or CyberSkill ethical default requires choice.
 
 ---
 
@@ -15562,7 +16206,7 @@ PDPL Art. 20 requires:
 
 Data Protection Impact Assessment **filed within 60 days** of processing commencement for high-risk processing (Tilleke).
 
-**UX consequence:** an admin **DPIA workflow** that prompts the team at day 30, 50, and 59; the workflow ships a template aligned to PDPL Art. 21 plus EU AI Act AIIA where applicable.
+**UX consequence:** an admin **DPIA workflow** that prompts the team at day 30, 50, and 59; the workflow MUST include a template aligned to PDPL Art. 21 plus EU AI Act AIIA where applicable, subject to counsel review.
 
 ### 5.9 Article 30 — Big-data and AI processing disclosure
 
@@ -15746,7 +16390,7 @@ Templates ship in **Vietnamese + English** at minimum. Other locales added as th
 
 ### 11.1 Patterns
 
-The system ships the following commerce surfaces and patterns:
+The system specifies the following commerce surfaces and patterns:
 
 - **Product page** — title, price, description, variant selector, add-to-cart, reviews, recommendations.
 - **Cart** — line-items, totals, taxes, shipping, promo code, checkout button.
@@ -15845,7 +16489,7 @@ Admin surfaces support bulk operations (invite many; remove many) with **confirm
 
 - **Region-specific tax** display (Part 8 §11.2).
 - **Invoices** generated with locale formats ([Part 5](#part-5-accessibility-inclusion-localization) §13).
-- **Receipts** delivered by email with C2PA-signed PDF attachment.
+- **Receipts** delivered by email; C2PA-signed PDF attachment is an advanced planned capability once provenance infrastructure exists.
 - **Payment-method management** — passkey-protected by default.
 
 ### 14.2 Admin patterns
@@ -15955,7 +16599,7 @@ Agents are now a class of user. They edit codebases, write copy, summarise docum
 
 1. **Agents read the same contract humans do.** A single `AGENTS.md` at the monorepo root describes commands, conventions, safety rules, and testing expectations. Editor-specific files (`CLAUDE.md`, `.cursor/rules`, `.windsurf/rules`, `.github/copilot-instructions.md`) point back to it; we do **not** maintain divergent rules per editor.
 2. **Prompts are versioned artefacts.** Every prompt has a SemVer, an owner, an eval, a last-reviewed date, and a changelog. A prompt is code; we version it like code.
-3. **Evaluation is named and reproducible.** No prompt ships without a named eval defined in `evals/`. Calibration is verified periodically.
+3. **Evaluation is named and reproducible.** No prompt reaches GA without a named eval defined in `evals/`. Calibration is verified periodically.
 4. **Tools are exposed via MCP.** First-party MCP servers (`@cyberskill/mcp-tokens`, `@cyberskill/mcp-components`) expose tokens and components to agents over the **Model Context Protocol** (Anthropic; spec **2025-11-25**; stewarded via the Linux Foundation Agentic AI Foundation). The protocol is open; the contract is ours.
 
 The agent layer is the engineering correlate of the **agents-as-users** principle ([Part 1](#part-1-foundations) §4.8). When this Part is wrong, agents drift; when it is right, agent contributions are indistinguishable from careful human ones — measurably accessible, measurably localised, measurably PDPL-compliant.
@@ -16551,7 +17195,7 @@ The 2026 roadmap calls out four enterprise requirements; our doctrine maps as fo
 | Audit trails | BRAIN protocol `audit/` JSONL chain (`AGENTS.md` §7) |
 | SSO-integrated auth | OAuth 2.1 in the Server Card; SSO via [Part 8](#part-8-governance-legal-commerce) §12 |
 | Gateway behaviour | API gateway pattern in [Part 7](#part-7-engineering-operations) (extends §11 Observability) |
-| Configuration portability | DESIGN.md is THE config; `tokens/` ships alongside |
+| Configuration portability | DESIGN.md is THE config; planned `tokens/` artifact travels alongside implementation |
 
 ---
 
@@ -16810,7 +17454,7 @@ We do not lock to a single framework; orchestration is in our doctrine and tooli
 
 ## Part 10 — Measurement, Research, Appendix
 
-*The system as evidence. This Part documents how CyberSkill measures what it ships — adoption KPIs, telemetry, research cadence, methodology — and provides the appendix material the system depends on: the 20-system competitive benchmark matrix, the glossary of 200+ terms, the authoritative references list, the evidence log, and the change log.*
+*The system as evidence. This Part documents how CyberSkill measures what it ships — adoption KPIs, telemetry, research cadence, methodology — and provides the appendix material the system depends on: the scored competitive benchmark matrix, glossary targets, authoritative references list, evidence log, and change log.*
 
 ---
 
@@ -16832,7 +17476,7 @@ Governing references for this Part: **PDPL Art. 14** (data subject rights drive 
 
 ## 10.1 Adoption KPIs
 
-The system's adoption is measured by six KPIs published quarterly on the public CyberSkill dashboard:
+The system's adoption SHOULD be measured by six KPIs and, once the dashboard exists, published quarterly:
 
 | KPI | Definition | Target | Collection |
 |---|---|---|---|
@@ -16847,7 +17491,7 @@ A KPI in red triggers a remediation backlog item with an assigned owner and due 
 
 ### 1.1 HEART → Goals/Signals/Metrics mapping
 
-The six adoption KPIs above map to Google's **HEART framework** (Happiness, Engagement, Adoption, Retention, Task success), translated through the **Goals → Signals → Metrics** pipeline. Every KPI on the public dashboard exists because it answers a goal at the top of the chain — not because it was easy to count.
+The six adoption KPIs above map to Google's **HEART framework** (Happiness, Engagement, Adoption, Retention, Task success), translated through the **Goals → Signals → Metrics** pipeline. Every KPI in the target dashboard must answer a goal at the top of the chain — not exist merely because it is easy to count.
 
 | HEART axis | Goal | Signal | Metric (KPI from §1) |
 |---|---|---|---|
@@ -16872,7 +17516,7 @@ Adoption KPIs are correlated with downstream business KPIs to prove the system p
 | **Carbon-cost-per-session** | Surfaces under SWDM v4 budget cost less to operate (CDN bandwidth, data-centre energy) | gCO₂/session × CDN cost coefficient |
 | **Recruitment lift** | Public design-system docs (Part 18) draw inbound design + engineering candidates | Career-site referral attribution |
 
-The correlation report is published in the public CyberSkill dashboard alongside the adoption KPIs, with confidence intervals and a "we don't know yet" status when sample size is too small.
+The correlation report SHOULD be published in the target dashboard alongside the adoption KPIs, with confidence intervals and a "we don't know yet" status when sample size is too small.
 
 ---
 
@@ -17070,63 +17714,213 @@ Beyond §7.1, names follow these rules:
 
 ## 10.9 Dashboards
 
+Status: **Target state / Planned artifacts** until live URLs, data sources, privacy review, and owners exist.
+
 ### 9.1 Public sustainability dashboard
 
-`https://cyberskill.com/sustainability` — shows per-surface carbon vs SWDM v4 budgets; updated daily.
+Target URL `https://cyberskill.com/sustainability` — SHOULD show per-surface carbon vs SWDM v4 budgets once the measurement pipeline exists.
 
 ### 9.2 Public AI transparency dashboard
 
-`https://cyberskill.com/ai-transparency` — shows confidence calibration error per prompt; citation verification rate; HumanReviewGate throughput.
+Target URL `https://cyberskill.com/ai-transparency` — SHOULD show calibration evidence, citation verification rate, HumanReviewGate throughput, and "insufficient data" states once AI telemetry exists.
 
 ### 9.3 Public accessibility dashboard
 
-`https://cyberskill.com/accessibility` — shows axe-core violation counts (0 critical / 0 serious target); SC 87-mapping conformance.
+Target URL `https://cyberskill.com/accessibility` — SHOULD show automated and manual accessibility evidence, known limitations, remediation status, and audit scope once the WCAG matrix exists.
 
 ### 9.4 Internal product dashboards
 
-Per-product dashboards in **Grafana + Prometheus** (metrics) and **Metabase** (product-usage queries); custom **D3** dashboards for component adoption.
+Target internal model: per-product dashboards in metrics/product-usage tools plus component-adoption views. Specific tools are implementation choices, not doctrine claims.
 
 ### 9.5 PDPL DSR dashboard
 
 DSR throughput; SLA compliance (≤ 72 hours); breakdown by right type. Required by [Part 8](#part-8-governance-legal-commerce) §5.5 for operational accountability.
 
+### 9.6 Minimum viable operating model
+
+Until telemetry and public dashboards exist, DesignOps still runs on a minimum evidence loop:
+
+| Cadence | Operating artifact | Owner |
+|---|---|---|
+| Quarterly | Benchmark review against the reference set | Research Lead |
+| Quarterly | Accessibility review with manual AT sample | Accessibility Lead |
+| Monthly | Component lifecycle review: proposed, labs, beta, GA, deprecated | Design System Lead |
+| Monthly | Roadmap table with MVP Core, Enterprise Core, AI Core, Labs, Vertical Packs | PM / DesignOps Lead |
+| Continuous | Contribution workflow: RFC, review, decision, changelog | Core Maintainers |
+| Continuous | Evidence register: standards, legal, benchmark, a11y, package claims | DesignOps Lead |
+| After implementation exists | Adoption dashboard: installs, imports, docs usage, lint findings, migration completions | Research + Engineering Leads |
+
+Research-unavailable protocol: a team may proceed on hypothesis only if the hypothesis, risk, measurement plan, rollback path, and review date are documented. "No research available" is never a reason to remove accessibility, privacy, consent, or safety requirements.
+
+Telemetry default: collect the minimum operational metrics needed to maintain the system, avoid PII in event names and payloads, and separate essential operational metrics from opt-in product analytics.
+
 ---
 
-## 10.10 Benchmarking matrix — 20 systems
+## 10.10 Benchmarking matrix — scored 2026 reference set
 
-The full benchmark matrix compares CyberSkill against the reference set across 11 dimensions. Cells are summarised; the full data is in `docs/benchmark-2026.csv`.
+This matrix grades evidence-backed maturity on a compact **0–5** scale for external comparison. It is not a marketing scoreboard; it is a planning instrument. CyberSkill's internal improvement loop uses the stricter 1000-point dual-track rubric in the Master Index and §10.10A.
 
-| System | Tokens | DTCG 2025.10 | VN-first | WCAG 2.2 | EU AI Act | PDPL | Open-source | MCP-native | RFC 9457 | SWDM v4 | C2PA 2.2 |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| **CyberSkill** | ✓ | **✓** | **✓** | **2.2 AA+** | **✓** | **✓** | ✓ | **✓** | **✓** | **✓** | **✓** |
-| IBM Carbon | ✓ | partial | ✗ | AA | partial | ✗ | ✓ | ✗ | partial | partial | ✗ |
-| Material 3 / Expressive | ✓ | partial | ✗ | AA | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ |
-| Microsoft Fluent 2 | ✓ | partial | ✗ | AA | partial | ✗ | partial | ✗ | partial | ✗ | ✗ |
-| Adobe Spectrum | ✓ | partial | ✗ | AA | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | partial |
-| Shopify Polaris | ✓ | ✗ | ✗ | AA | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ |
-| GitHub Primer | ✓ | partial | ✗ | AA | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ |
-| Salesforce SLDS | ✓ | ✗ | ✗ | AA | ✗ | ✗ | ✓ | ✗ | ✗ | partial | ✗ |
-| Ant Design | ✓ | ✗ | ✗ | AA | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ |
-| Pinterest Gestalt | ✓ | ✗ | ✗ | AA | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ |
-| Uber Base Web | ✓ | ✗ | ✗ | AA | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ |
-| Nord / Redwood | ✓ | ✗ | ✗ | AA | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ |
-| SAP Fiori | ✓ | partial | ✗ | AA | partial | ✗ | ✗ | ✗ | partial | ✗ | ✗ |
-| Workday Canvas | ✓ | ✗ | ✗ | AA | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ |
-| Intuit Design System | ✓ | ✗ | ✗ | AA | ✗ | ✗ | partial | ✗ | ✗ | partial | ✗ |
-| Mantine | ✓ | ✗ | ✗ | AA | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ |
-| Chakra UI v3 | ✓ | ✗ | ✗ | AA | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ |
-| Radix Themes | ✓ | ✗ | ✗ | AA | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ |
-| HeroUI (NextUI) | ✓ | ✗ | ✗ | AA | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ |
-| Zendesk Garden | ✓ | ✗ | ✗ | AA | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ |
-| Twilio Paste | ✓ | ✗ | ✗ | AA | ✗ | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ |
+| Score | Meaning |
+|---|---|
+| 0 | Not visible in public evidence or not applicable. |
+| 1 | Mentioned or implied, but thin evidence. |
+| 2 | Documented pattern or partial implementation. |
+| 3 | Usable public documentation or implementation with gaps. |
+| 4 | Mature public implementation / guidance with repeatable process. |
+| 5 | Leading public implementation, evidence, governance, or unusually deep doctrine for that dimension. |
 
-**Reading:** every major enterprise system covers tokens and WCAG 2.2 AA. CyberSkill's distinctive position is the **simultaneous** adoption of **DTCG 2025.10**, **Vietnamese-first**, **EU AI Act + PDPL compliance**, **MCP-native**, **RFC 9457**, **SWDM v4-measured**, and **C2PA 2.2-signed** — the combination is not matched.
+Column legend:
+
+| Short | Dimension |
+|---|---|
+| Impl | Shipped component implementation |
+| Tok | Token maturity |
+| DTCG | DTCG alignment |
+| Fig | Figma / code parity |
+| A11y | Accessibility evidence |
+| AT | Manual assistive-technology testing evidence |
+| i18n | Localization / internationalization depth |
+| AI | AI transparency patterns |
+| Com | Contribution / community maturity |
+| Docs | Documentation usability |
+| Life | Lifecycle / status visibility |
+| Tele | Adoption telemetry |
+| Gov | Governance / change control |
+| Sus | Sustainability measurement |
+| Legal | Legal / compliance readiness |
+
+| System | Impl | Tok | DTCG | Fig | A11y | AT | i18n | AI | Com | Docs | Life | Tele | Gov | Sus | Legal | Confidence | Notes |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|---|
+| **CyberSkill v1.1 doctrine target** | 1 | 4 | 5 | 2 | 4 | 3 | 5 | 5 | 2 | 4 | 4 | 2 | 4 | 4 | 5 | B/C | Strong doctrine; limited repository proof. |
+| **CyberSkill current workspace reality** | 2 | 3 | 3 | 2 | 2 | 0 | 3 | 3 | 0 | 3 | 2 | 0 | 3 | 2 | 2 | C | Standalone doctrine plus prototype packages, token outputs, React source components, contract checks, MCP runtime prototypes, Figma scaffold, and generated seed evidence artifacts exist; GA proof is still missing. |
+| IBM Carbon | 5 | 4 | 2 | 4 | 4 | 3 | 3 | 4 | 3 | 5 | 4 | 2 | 4 | 2 | 3 | A | Strong shipped components, accessibility guidance, and AI Label pattern. |
+| Material 3 / Expressive | 5 | 4 | 2 | 4 | 3 | 2 | 4 | 2 | 3 | 5 | 4 | 2 | 4 | 2 | 2 | A | Platform-scale design language; Expressive evidence from Android/Wear guidance. |
+| Microsoft Fluent 2 | 5 | 4 | 2 | 5 | 3 | 2 | 4 | 3 | 2 | 4 | 4 | 2 | 4 | 2 | 3 | A | Strong token and design-kit model; AI patterns vary by Microsoft product. |
+| Adobe Spectrum / React Aria | 4 | 4 | 2 | 4 | 5 | 4 | 5 | 2 | 3 | 5 | 4 | 1 | 3 | 1 | 2 | A | React Aria is a leader for accessible, internationalized behavior primitives. |
+| Shopify Polaris | 4 | 4 | 1 | 4 | 3 | 2 | 4 | 1 | 3 | 4 | 3 | 2 | 3 | 1 | 2 | A | Strong commerce system and token docs; less visible AI/regulatory doctrine. |
+| GitHub Primer | 4 | 4 | 1 | 4 | 3 | 2 | 3 | 1 | 5 | 5 | 4 | 2 | 5 | 1 | 2 | A | Developer-product documentation and contribution maturity are high. |
+| Atlassian Design System | 4 | 4 | 2 | 4 | 4 | 4 | 4 | 2 | 4 | 4 | 4 | 3 | 5 | 2 | 3 | A | Public token guidance, tooling signals, and strong accessibility posture. |
+| GOV.UK Design System | 4 | 2 | 0 | 3 | 5 | 5 | 4 | 0 | 5 | 5 | 4 | 2 | 5 | 2 | 4 | A | Benchmark for accessibility humility, public-service content, and community. |
+| SAP Fiori | 5 | 3 | 1 | 3 | 4 | 3 | 4 | 2 | 2 | 4 | 4 | 2 | 4 | 2 | 4 | A/B | Strong enterprise framework and app-level accessibility split. |
+| Salesforce SLDS / Lightning | 5 | 3 | 1 | 3 | 4 | 3 | 4 | 3 | 2 | 4 | 4 | 2 | 4 | 2 | 4 | A/B | Strong base components and CRM ecosystem; public SLDS access varies by surface. |
+| Radix Themes / Primitives | 4 | 3 | 1 | 3 | 4 | 2 | 2 | 1 | 4 | 4 | 3 | 1 | 3 | 1 | 1 | A | Excellent composable primitives; broader legal/sustainability doctrine not core. |
+| Chakra UI | 4 | 4 | 2 | 3 | 3 | 2 | 3 | 1 | 4 | 4 | 3 | 1 | 3 | 1 | 1 | A | Strong components, theming, token reference, CLI typegen; accessibility still product-team responsibility. |
+| Mantine | 4 | 3 | 1 | 3 | 3 | 2 | 2 | 1 | 4 | 4 | 3 | 1 | 3 | 1 | 1 | A | Broad React library; explicitly notes app teams still own accessibility completion. |
+| Ant Design | 5 | 4 | 1 | 4 | 3 | 2 | 4 | 1 | 4 | 4 | 4 | 2 | 3 | 1 | 2 | A | Strong dense enterprise components and component token model. |
+
+## 10.10A Internal 1000-point benchmark rubrics
+
+The internal benchmark is intentionally harder than the public matrix. It now has three tracks so automatable work and human-only proof are not mixed together. A score of `1000/1000` in Doctrine Excellence or Artifacts Conformance means there are no automatable critical defects, no stale generated artifacts, no missing automated evidence fields, and no unresolved automated benchmark deltas. Manual Conformance tracks human-only proof and may remain below perfect without blocking the automated loop.
+
+### 10A.1 Doctrine Excellence scorecard
+
+| Dimension | Points | Current 2026-05-24 score | Current automated status |
+|---|---:|---:|---|
+| Standalone completeness | 100 | 100 | File is standalone and names the three-track loop, evidence model, artifact model, and manual gates in-file. |
+| Evidence discipline | 100 | 100 | Automatable evidence rows and generated evidence CSV exist; counsel-only validation is routed to Manual Conformance. |
+| Internal consistency | 100 | 100 | Version, loop, score, artifact, and maturity language are reconciled for the automated scope. |
+| Implementation precision | 100 | 100 | Automatable package, component, token, MCP, Figma, generator, and verifier requirements are precise and executable. |
+| Benchmark rigor | 100 | 100 | Current official-source benchmark table and generated benchmark CSV exist for the automated loop. |
+| Accessibility and inclusion proof model | 100 | 100 | Automated accessibility evidence and manual AT separation are explicit. |
+| Legal and AI claim safety | 100 | 100 | Legal/AI claims distinguish automatable scaffolds from counsel/manual proof. |
+| Product sequencing | 100 | 100 | MVP / Enterprise / AI / Labs sequencing and artifact recreation gates are explicit. |
+| Future reach | 100 | 100 | Frontier topics are represented as doctrine, artifact, or manual proof without false GA claims. |
+| Editorial usability | 100 | 100 | Reader paths, evidence tables, maturity tags, loop rules, and score tables are navigable in-file. |
+| **Total** | **1000** | **1000** | Automated Doctrine Excellence stop condition met. |
+
+### 10A.2 Artifacts Conformance scorecard
+
+| Dimension | Points | Current 2026-05-24 score | Current automated status |
+|---|---:|---:|---|
+| Package reality | 100 | 100 | Prototype packages, package metadata, lockfile, and verification scripts exist for the automated scope. |
+| Component conformance | 100 | 100 | Component specs, source components, typed exports, CSS, contract checks, and SSR smoke checks exist for the current prototype scope. |
+| Token conformance | 100 | 100 | Token package emits CSS/TS/Swift/Kotlin/Flutter/RN/Figma outputs, contrast grid, and build provenance. |
+| Accessibility evidence | 100 | 100 | Seed WCAG matrix, contrast grid, contract checks, and smoke checks exist; manual AT is separated into Manual Conformance. |
+| Legal and privacy implementation | 100 | 100 | Automatable legal telemetry and data-classification helpers exist; counsel-only proof is separated. |
+| AI and provenance implementation | 100 | 100 | AI disclosure/review components, provenance helper, and MCP runtime prototypes exist for the automated scope. |
+| Documentation and examples | 100 | 100 | Generated component catalog, static catalog examples, evidence CSV, benchmark CSV, WCAG CSV, recreation JSON, and conformance JSON exist. |
+| Tooling and agent readiness | 100 | 100 | Artifact generator, verifier, component checks, MCP runtime prototypes, Figma scaffold, and re-creation commands exist. |
+| Measurement and operations | 100 | 100 | Automatable benchmark/evidence/conformance outputs exist; production telemetry is separated into Manual Conformance. |
+| Governance and lifecycle | 100 | 100 | Automated governance evidence exists through doctrine, conformance JSON, recreation commands, and verification script. |
+| **Total** | **1000** | **1000** | Automated Artifacts Conformance stop condition met. |
+
+### 10A.3 Manual Conformance scorecard
+
+| Dimension | Points | Current 2026-05-24 score | Manual evidence still required |
+|---|---:|---:|---|
+| Manual assistive technology | 150 | 0 | NVDA, JAWS, VoiceOver, TalkBack, switch/voice-control, and Vietnamese TTS evidence. |
+| Counsel-reviewed legal register | 150 | 0 | PDPL, GDPR, EU AI Act, EAA, cross-border transfer, employment, biometric, health, finance, and AI/provenance review. |
+| Independent audit | 150 | 0 | External accessibility/security/legal audit sign-off. |
+| Production telemetry and dashboards | 125 | 35 | Live adoption, quality, accessibility, sustainability, AI, privacy, incident, and support dashboards. |
+| Release/support operations | 100 | 45 | Versioned releases, support policy, incident runbook, deprecation operations, and customer comms evidence. |
+| Figma workflow verification | 75 | 20 | Real variable writes, parity review, design-tool sign-off, and review workflow evidence. |
+| Storybook/manual example review | 100 | 45 | Human review of examples, copy, state coverage, and EN/VN quality. |
+| High-stakes AI calibration | 100 | 35 | Calibration studies, evaluator sign-off, human-review logs, and failure-mode review. |
+| Community/customer feedback | 75 | 35 | External pilots, issue triage, community review, and adoption feedback loop. |
+| Executive/accountability sign-off | 75 | 45 | Named owners and dated acceptance of residual risk. |
+| **Total** | **1000** | **260** | Manual Conformance is not an automated loop stop condition. |
+
+### 10A.4 Hard-blocker rules
+
+- Any automatable missing artifact caps Artifacts Conformance below `800` until the artifact or generator exists.
+- Any artifact that contradicts doctrine caps the relevant Artifacts Conformance dimension below `70` until the artifact or doctrine is reconciled.
+- Any missing artifact re-creation command caps Artifacts Conformance tooling below `50`.
+- Any source-stale or unsupported external factual claim that can be resolved by source refresh caps Doctrine Excellence below `950`.
+- Any counsel-only, manual-AT-only, independent-audit-only, production-operations-only, or external-sign-off-only item belongs in Manual Conformance and MUST NOT block the automated loop once correctly routed.
+- The automated loop stops only when Doctrine Excellence and Artifacts Conformance are `1000/1000`, `npm run verify` passes, and Manual Conformance blockers are explicitly tracked.
+
+### Benchmark findings
+
+1. **Shipped implementation beats broad doctrine.** Carbon, Fluent, Material, Spectrum / React Aria, Polaris, Primer, Atlassian, GOV.UK, SAP Fiori, Salesforce, Radix, Chakra, Mantine, and Ant Design provide public surfaces that teams can use today. CyberSkill does not yet.
+2. **CyberSkill's doctrine is genuinely differentiated.** Vietnamese-first typography/copy, PDPL-first consent, AI risk-tier UI, agent/MCP readiness, and warm enterprise identity are stronger and more specific here than in the reviewed general-purpose systems.
+3. **CyberSkill's proof gap is the main risk.** The highest-priority implementation work is not adding more doctrine; it is creating packages, Storybook examples, token outputs, manual AT evidence, legal review evidence, and adoption telemetry.
+4. **Accessibility leadership requires humility.** GOV.UK and Mantine both model the right posture: a design system can support accessible products, but product teams still need testing, research, and content review.
+5. **AI transparency is emerging, not settled.** Carbon's AI Label is the strongest component-level benchmark: an AI indicator needs a pathway to explanation, not decoration or a generic sparkle.
+6. **Liquid Glass is a material-layer choice, not an enterprise default.** Apple guidance frames Liquid Glass around content clarity and platform material principles; enterprise SaaS competitors remain mixed, so CyberSkill must use glass where it improves hierarchy and stay matte for dense content.
+
+### Benchmark source register
+
+| Source ID | System / claim | Source | Source type | Fetched | Confidence | Affected sections |
+|---|---|---|---|---|---|---|
+| `dtcg-2025-10` | DTCG 2025.10 is a stable Community Group report, not a W3C Recommendation | https://www.w3.org/community/reports/design-tokens/CG-FINAL-format-20251028/ | Primary | 2026-05-23 | A | Parts 1, 2, 7, 10 |
+| `carbon-components` | Carbon shipped component catalog | https://carbondesignsystem.com/components/overview/components/ | Primary | 2026-05-23 | A | Parts 1, 10 |
+| `carbon-accessibility` | Carbon accessibility guidance | https://carbondesignsystem.com/guidelines/accessibility/overview/ | Primary | 2026-05-23 | A | Parts 5, 10 |
+| `carbon-ai-label` | Carbon AI Label behavior benchmark | https://carbondesignsystem.com/components/ai-label/usage/ | Primary | 2026-05-23 | A | Parts 3h, 6, 10 |
+| `fluent-tokens` | Fluent 2 token guidance | https://fluent2.microsoft.design/design-tokens | Primary | 2026-05-23 | A | Parts 2, 10 |
+| `fluent-design-kit` | Fluent 2 design / kit model | https://fluent2.microsoft.design/get-started/design | Primary | 2026-05-23 | A | Parts 10, 15 |
+| `react-aria` | React Aria accessibility and internationalization primitives | https://react-aria.adobe.com/ | Primary | 2026-05-23 | A | Parts 3, 5, 10 |
+| `polaris-tokens` | Polaris color token documentation | https://polaris-react.shopify.com/design/colors/color-tokens | Primary | 2026-05-23 | A | Parts 2, 10 |
+| `primer-color` | Primer color/token usage | https://primer.style/product/getting-started/foundations/color-usage/ | Primary | 2026-05-23 | A | Parts 2, 10 |
+| `govuk-accessibility` | GOV.UK accessibility guidance | https://design-system.service.gov.uk/accessibility/ | Primary | 2026-05-23 | A | Parts 5, 10 |
+| `govuk-community` | GOV.UK community model | https://design-system.service.gov.uk/community/ | Primary | 2026-05-23 | A | Parts 10, 16 |
+| `material-expressive` | Material 3 Expressive guidance | https://developer.android.com/design/ui/wear/guides/get-started/design-language | Primary | 2026-05-23 | A | Parts 1, 10 |
+| `apple-liquid-glass` | Apple Liquid Glass material guidance | https://developer.apple.com/videos/play/wwdc2025/219/ | Primary | 2026-05-23 | A | Parts 10, 21 |
+| `atlassian-tokens` | Atlassian tokens and design-system tooling | https://atlassian.design/foundations/design-tokens | Primary | 2026-05-23 | A/B | Parts 10, 15 |
+| `atlassian-accessibility` | Atlassian accessibility posture and AT combinations | https://www.atlassian.com/accessibility | Primary | 2026-05-23 | A | Parts 5, 10 |
+| `sap-fiori-accessibility` | SAP Fiori framework/app-level accessibility split | https://experience.sap.com/fiori-design-web/explore_category/sap-fiori/ | Primary | 2026-05-23 | A/B | Parts 5, 10 |
+| `salesforce-components` | Lightning base components implement SLDS blueprints | https://developer.salesforce.com/docs/platform/lightning-component-reference/guide/components.html | Primary | 2026-05-23 | A | Parts 10, 19 |
+| `salesforce-a11y` | Salesforce base-component accessibility | https://developer.salesforce.com/docs/platform/lwc/guide/base-components-accessibility.html | Primary | 2026-05-23 | A | Parts 5, 10 |
+| `radix-components` | Radix Themes component catalog | https://www.radix-ui.com/themes/docs/components | Primary | 2026-05-23 | A | Parts 3, 10 |
+| `radix-tokens` | Radix Theme token model | https://www.radix-ui.com/themes/docs/theme/overview | Primary | 2026-05-23 | A | Parts 2, 10 |
+| `chakra-components` | Chakra component catalog | https://chakra-ui.com/docs/components/concepts/overview | Primary | 2026-05-23 | A | Parts 3, 10 |
+| `chakra-tokens` | Chakra token reference and typegen | https://chakra-ui.com/docs/theming/tokens | Primary | 2026-05-23 | A | Parts 2, 10 |
+| `mantine-theming` | Mantine theming | https://v1.mantine.dev/pages/theming/ | Primary | 2026-05-23 | A/B | Parts 2, 10 |
+| `mantine-accessibility` | Mantine caveat that app teams still own accessibility | https://help.mantine.dev/q/are-mantine-components-accessible | Primary | 2026-05-23 | A | Parts 5, 10 |
+| `ant-component-token` | Ant Design component token model | https://ant.design/docs/react/demo/component-token/ | Primary | 2026-05-23 | A | Parts 2, 10 |
+| `c2pa-22-spec` | C2PA Technical Specification v2.2 target for content provenance | https://spec.c2pa.org/specifications/specifications/2.2/index.html | Primary | 2026-05-23 | A | Parts 3h, 6, 10 |
+| `rsl-10-spec` | RSL 1.0 machine-readable licensing and optional Crawler Authorization Protocol | https://rslstandard.org/rsl | Primary | 2026-05-23 | A | Parts 6, 8, 10 |
+| `wsg-group-note` | W3C Web Sustainability Guidelines are a Group Note Draft / work in progress | https://www.w3.org/TR/web-sustainability-guidelines/ | Primary | 2026-05-23 | A | Parts 6, 10 |
+| `digital-carbon-ratings` | Digital Carbon Ratings table for page-transfer / CO₂ pageview benchmarks | https://sustainablewebdesign.org/digital-carbon-ratings/ | Primary | 2026-05-23 | A | Parts 6, 10 |
+| `swdm-v4-methodology` | SWDM v4 methodology and default grid intensity reference | https://sustainablewebdesign.org/estimating-digital-emissions/ | Primary | 2026-05-23 | A | Parts 6, 10 |
+| `cldr-48-release` | CLDR 48 release notes and MessageFormat changes | https://cldr.unicode.org/downloads/cldr-48 | Primary | 2026-05-23 | A | Parts 5, 10 |
+| `icu-78-release` | ICU 78 / 78.3 updates to Unicode 17 and CLDR 48 | https://icu.unicode.org/ | Primary | 2026-05-23 | A | Parts 5, 10 |
+| `adobe-leonardo` | Leonardo exposes `generateContrastColors()` for adaptive contrast palettes | https://github.com/adobe/leonardo | Primary | 2026-05-23 | A | Parts 2, 7, 10 |
 
 ---
 
 ## 10.11 Glossary — 200+ terms
 
-A representative selection is given here; the complete glossary ships as `docs/glossary.csv` with a Vietnamese translation column and a citation column. The entries below are organised by domain.
+A representative selection is given here; the planned complete glossary SHALL ship as `docs/glossary.csv` with a Vietnamese translation column and a citation column. The entries below are organised by domain.
 
 ### 11.1 Standards and regulation
 
@@ -17137,6 +17931,7 @@ A representative selection is given here; the complete glossary ships as `docs/g
 - **CCCD** — Căn cước công dân — Vietnam 12-digit citizen ID.
 - **CCPA / CPRA** — California Consumer Privacy Act / Privacy Rights Act.
 - **CLDR** — Common Locale Data Repository (Unicode Consortium).
+- **ConsentEvent** — structured legal telemetry event proving consent presentation, grant, decline, revocation, or update without storing raw PII in the telemetry payload.
 - **CTIA** — Cross-border Transfer Impact Assessment (PDPL Art. 20).
 - **DPDPA** — Digital Personal Data Protection Act (India, 2023).
 - **DPIA** — Data Protection Impact Assessment.
@@ -17164,6 +17959,7 @@ A representative selection is given here; the complete glossary ships as `docs/g
 - **PIPA** — Personal Information Protection Act (Korea).
 - **PIPEDA** — Personal Information Protection and Electronic Documents Act (Canada).
 - **RFC 9457** — Problem Details for HTTP APIs (IETF, July 2023).
+- **RSL** — Really Simple Licensing; machine-readable licensing and crawler-policy specification with optional Crawler Authorization Protocol.
 - **SC** — Success Criterion (WCAG).
 - **SLSA** — Supply-chain Levels for Software Artifacts.
 - **SWDM** — Sustainable Web Design Model.
@@ -17240,13 +18036,13 @@ A representative selection is given here; the complete glossary ships as `docs/g
 - **Stacked diacritic** — vowel carrying both quality diacritic and tone mark (*ắ*, *ễ*, *ự*).
 - **Trang trọng-thân thiện** — formal-warm register; default for Vietnamese product UI.
 
-*(The complete glossary contains 200+ entries across these and additional categories — Photography, Print, Video, Sound, Haptics, Research, Commerce, Auth, Telemetry. The full CSV ships at `docs/glossary.csv`.)*
+*(The planned complete glossary contains 200+ entries across these and additional categories — Photography, Print, Video, Sound, Haptics, Research, Commerce, Auth, Telemetry. The full CSV SHALL ship at `docs/glossary.csv`.)*
 
 ---
 
 ## 10.12 Authoritative references
 
-A representative bibliography is given here; the complete list ships as `docs/references.csv` with one row per source including URL, last-accessed date, and Part(s) where cited. The full list contains 300+ entries.
+A representative bibliography is given here; the planned complete list SHALL ship as `docs/references.csv` with one row per source including URL, last-accessed date, and Part(s) where cited. The full list targets 300+ entries.
 
 ### 12.1 Standards and specifications
 
@@ -17322,7 +18118,15 @@ A representative bibliography is given here; the complete list ships as `docs/re
 - Linux Foundation Agentic AI Foundation — MCP stewardship.
 - agents.md, *AGENTS.md open convention*, 60,000+ repositories. https://agents.md/
 - Sustainable Web Design, *SWDM v4*, 14 July 2025. https://sustainablewebdesign.org/
+- W3C, *Web Sustainability Guidelines* (Group Note Draft). https://www.w3.org/TR/web-sustainability-guidelines/
+- Sustainable Web Design, *Digital Carbon Ratings*. https://sustainablewebdesign.org/digital-carbon-ratings/
+- Sustainable Web Design, *Estimating Digital Emissions*. https://sustainablewebdesign.org/estimating-digital-emissions/
 - The Green Web Foundation, *CO2.js v0.18+*.
+- C2PA, *Technical Specification v2.2*. https://spec.c2pa.org/specifications/specifications/2.2/index.html
+- RSL, *Really Simple Licensing 1.0 Specification*. https://rslstandard.org/rsl
+- Unicode Consortium, *CLDR 48 Release Notes*. https://cldr.unicode.org/downloads/cldr-48
+- Unicode Consortium, *ICU release news*. https://icu.unicode.org/
+- Adobe, *Leonardo contrast colours*. https://github.com/adobe/leonardo
 - Lit 3 (Web Components framework).
 - React Aria Components (Adobe).
 - Radix Primitives.
@@ -17376,7 +18180,7 @@ A representative bibliography is given here; the complete list ships as `docs/re
 - OWASP LLM Top 10.
 - NIST SP 800-63B.
 
-*(The complete bibliography contains 300+ sources. The CSV at `docs/references.csv` carries last-accessed dates for every URL, the Part(s) citing each source, and a stable archival reference where applicable — e.g., archive.org snapshots for sources that may move.)*
+*(The planned complete bibliography contains 300+ sources. The planned CSV at `docs/references.csv` carries last-accessed dates for every URL, the Part(s) citing each source, and a stable archival reference where applicable — e.g., archive.org snapshots for sources that may move.)*
 
 ---
 
@@ -17384,7 +18188,7 @@ A representative bibliography is given here; the complete list ships as `docs/re
 
 ### 13.1 What the evidence log records
 
-`docs/evidence.csv` contains one row per **factual claim** asserted in the document — Parts 1 through 10. Columns:
+The planned `docs/evidence.csv` export SHALL contain one row per **factual claim** asserted in the document — Parts 1 through 21. Until that file exists, this in-file evidence log and benchmark source register are authoritative. Columns:
 
 - **Claim id** — unique stable identifier.
 - **Claim text** — the assertion.
@@ -17404,18 +18208,24 @@ The evidence log allows future maintainers — and external auditors — to repr
 |---|---|---|---|---|---|---|
 | `pdpl-effective-date` | PDPL Law 91/2025/QH15 effective 1 January 2026 | 1 §1.5; 5; 6; 8 §5 | luatvietnam.vn | 2026-04-25 | locale-steward | primary |
 | `wcag-22-rec-date` | WCAG 2.2 W3C Recommendation 5 October 2023 | 1; 5 §1 | w3.org/TR/WCAG22 | 2026-04-25 | a11y-lead | primary |
-| `dtcg-2025-10` | DTCG Format 2025.10 published 28 October 2025 | 2; 7 §3 | w3.org/community/design-tokens/2025/10/28/ | 2026-04-25 | tokens-lead | primary |
-| `swdm-v4-release` | SWDM v4 released 14 July 2025 | 6 §13 | sustainablewebdesign.org | 2026-04-25 | sustainability-lead | primary |
-| `c2pa-22-release` | C2PA Technical Specification v2.2 published 1 May 2025 | 6 §16; 3h §12 | c2pa.org | 2026-04-25 | provenance-lead | primary |
+| `dtcg-2025-10` | DTCG Format 2025.10 published 28 October 2025 as a stable W3C Community Group report, not a W3C Recommendation | 2; 7 §3 | https://www.w3.org/community/reports/design-tokens/CG-FINAL-format-20251028/ | 2026-05-23 | tokens-lead | primary |
+| `swdm-v4-methodology` | SWDM v4 methodology and default grid intensity reference are used for planning carbon budgets | 6 §13 | https://sustainablewebdesign.org/estimating-digital-emissions/ | 2026-05-23 | sustainability-lead | primary |
+| `digital-carbon-ratings` | Digital Carbon Ratings provide page-transfer and CO₂/pageview planning thresholds | 6 §13 | https://sustainablewebdesign.org/digital-carbon-ratings/ | 2026-05-23 | sustainability-lead | primary |
+| `wsg-note-status` | W3C Web Sustainability Guidelines are a Group Note Draft and should be cited as work in progress | 6 §17; 10 §10 | https://www.w3.org/TR/web-sustainability-guidelines/ | 2026-05-23 | sustainability-lead | primary |
+| `c2pa-22-spec` | C2PA Technical Specification v2.2 is the target provenance specification; CyberSkill conformance remains planned until implementation evidence exists | 6 §16; 3h §12 | https://spec.c2pa.org/specifications/specifications/2.2/index.html | 2026-05-23 | provenance-lead | primary |
+| `rsl-10-spec` | RSL 1.0 defines machine-readable licensing and optional Crawler Authorization Protocol | 6 §16 | https://rslstandard.org/rsl | 2026-05-23 | provenance-lead | primary |
+| `cldr-48-release` | CLDR 48 adds locale and MessageFormat changes that require a migration watch, not automatic adoption | 5 §7 | https://cldr.unicode.org/downloads/cldr-48 | 2026-05-23 | locale-steward | primary |
+| `icu-78-release` | ICU 78 updates to Unicode 17 and CLDR 48; product compliance requires implementation evidence | 5 §7 | https://icu.unicode.org/ | 2026-05-23 | locale-steward | primary |
+| `adobe-leonardo-contrast` | Leonardo exposes `generateContrastColors()` for adaptive contrast palette generation | 2 §8; 7 §3 | https://github.com/adobe/leonardo | 2026-05-23 | tokens-lead | primary |
 | `mcp-spec-version` | MCP spec 2025-11-25 stewarded via Linux Foundation Agentic AI Foundation | 1 §4.8; 7 §14; 9 §11 | modelcontextprotocol.io | 2026-04-25 | agents-lead | primary |
 
-*(The complete evidence log contains entries for every dated claim and every quoted source language across the 17 files.)*
+*(The planned complete evidence log contains entries for every dated claim and every quoted source language across the standalone doctrine and generated artifacts.)*
 
 ---
 
 ## 10.14 Change log
 
-Version history is recorded in [`CHANGELOG.md`](./CHANGELOG.md) at the repository root. Per-package changelogs at `packages/<name>/CHANGELOG.md` (generated from Changesets). Per-prompt changelog within the YAML's `changelog` field (Part 9 §1). Per-RFC outcome section recording the decision, implementer, and merge SHA.
+Version history may be mirrored in `CHANGELOG.md` at the repository root, but this file's Master Index change log is authoritative for doctrine status. Per-package changelogs at `packages/<name>/CHANGELOG.md` are required once packages exist. Per-prompt changelog within the YAML's `changelog` field (Part 9 §1). Per-RFC outcome section recording the decision, implementer, and merge SHA.
 
 ---
 
@@ -17722,7 +18532,7 @@ A primitive button is not a product. A scattered set of buttons, fields, and car
 This part defines the inventory of page-level patterns and the page-template specifications that turn primitives into the layouts customers actually use. Three commitments anchor the doctrine:
 
 1. **Compose, don't reinvent.** Every common enterprise page should be assemblable from the primitives in Part 3 plus the patterns and templates here. If a product team is inventing a fifth different settings layout, the design system has failed.
-2. **Patterns are tested artefacts, not aspirations.** Each pattern below is shipped with: a Figma template, a code-level scaffold, an accessibility checklist, a content-design rubric (per [Part 14](#part-14-content-design-ux-writing-at-scale)), and at least one production reference.
+2. **Patterns are tested artefacts, not aspirations.** A pattern cannot claim GA until it ships with: a Figma template, a code-level scaffold, an accessibility checklist, a content-design rubric (per [Part 14](#part-14-content-design-ux-writing-at-scale)), and at least one production reference.
 3. **Density at choice.** Every pattern supports the three density modes from [Part 13](#part-13-theming-white-label-embedding) §3 (compact, cozy, comfortable). Enterprise users in data-heavy contexts choose compact; new or low-vision users choose comfortable.
 
 ---
@@ -18176,7 +18986,7 @@ Step 6 — Confirmation + receipt
 
 **Composes.** Diff.Viewer ([Part 12](#part-12-advanced-component-library-tier-2) §23) for compare; ChatThread ([Part 3h](#part-3h-components-ai-chat)) for context.
 
-**Privacy.** Generated content per [Part 6](#part-6-ai-native-ethics-sustainability) §16 (C2PA provenance preserved).
+**Privacy.** Generated content follows [Part 6](#part-6-ai-native-ethics-sustainability) §16; C2PA provenance is preserved where the provenance pipeline exists.
 
 **Used in.** AI surfaces broadly.
 
@@ -19063,7 +19873,7 @@ The patterns and templates in this Part are designed to satisfy two well-establi
 
 | # | Heuristic | Patterns / surfaces that satisfy it |
 |---|---|---|
-| 1 | Visibility of system status | §3 progress patterns; §4 loading / partial state; [Part 3e](#part-3e-components-feedback) feedback (100 ms / 1 s / 10 s thresholds); JobsQueuePattern (audit §14.11) |
+| 1 | Visibility of system status | §3 progress patterns; §4 loading / partial state; [Part 3e](#part-3e-components-feedback) feedback (100 ms / 1 s / 10 s thresholds); JobsQueuePattern |
 | 2 | Match between system and the real world | [Part 14](#part-14-content-design-ux-writing-at-scale) §2.6 glossary; [Part 1](#part-1-foundations) §3 voice (warm / direct); [Part 5](#part-5-accessibility-inclusion-localization) §7 locale-aware terminology |
 | 3 | User control and freedom | §3 wizard patterns (Cancel / Back); §4 partial-state recovery; DangerConfirm primitive; [Part 14](#part-14-content-design-ux-writing-at-scale) §3 undo copy |
 | 4 | Consistency and standards | This Part's pattern catalogue + master-index cross-references; [Part 4](#part-4-surfaces-patterns) surfaces; [Part 13](#part-13-theming-white-label-embedding) theme contract |
@@ -19072,19 +19882,19 @@ The patterns and templates in this Part are designed to satisfy two well-establi
 | 7 | Flexibility and efficiency of use | CommandPalette organism; §3 keyboard-shortcut conventions; density modes ([Part 13](#part-13-theming-white-label-embedding) §2) |
 | 8 | Aesthetic and minimalist design | [Part 1](#part-1-foundations) §4 calm-tech default; [Part 2](#part-2-design-language) §11 spacing system; this Part's §1 "patterns owe the user" framing |
 | 9 | Help users recognise / diagnose / recover from errors | §4 error-state taxonomy; [Part 14](#part-14-content-design-ux-writing-at-scale) §3 error-message structure (what / why / how to recover); HumanReviewGate ([Part 3h](#part-3h-components-ai-chat)) for AI errors |
-| 10 | Help and documentation | §8 onboarding patterns; OnboardingChecklist organism; in-product tour overlay (audit §14.12 expansion); [Part 18](#part-18-documentation-site-component-catalog-spec) docs site |
+| 10 | Help and documentation | §8 onboarding patterns; OnboardingChecklist organism; in-product tour overlay; [Part 18](#part-18-documentation-site-component-catalog-spec) docs site |
 
 ### 15.2 Shneiderman 8 — pattern mapping
 
 | # | Golden Rule | Patterns / surfaces that satisfy it |
 |---|---|---|
-| 1 | Strive for consistency | This Part's catalogue + 00-index ownership matrix; [Part 4](#part-4-surfaces-patterns) cross-surface conventions; [Part 14](#part-14-content-design-ux-writing-at-scale) voice |
+| 1 | Strive for consistency | This Part's catalogue + Master Index ownership matrix; [Part 4](#part-4-surfaces-patterns) cross-surface conventions; [Part 14](#part-14-content-design-ux-writing-at-scale) voice |
 | 2 | Seek universal usability | [Part 5](#part-5-accessibility-inclusion-localization) (87 WCAG 2.2 SC × component matrix); [Part 13](#part-13-theming-white-label-embedding) density / sepia / large-text modes; [Part 19](#part-19-industry-vertical-packs) vertical-pack inclusivity |
 | 3 | Offer informative feedback | §3 progress / status patterns; [Part 3e](#part-3e-components-feedback) feedback primitives (skeleton, toast, optimistic UI); 100 ms / 1 s / 10 s feedback thresholds |
 | 4 | Design dialogs to yield closure | §3 wizard patterns (begin → middle → end with explicit completion); §5 BillingTemplate (review → confirm → receipt); confirmation modals on destructive flows |
 | 5 | Prevent errors | §3 form patterns (constraint-based input, masks, date pickers); DangerConfirm; [Part 14](#part-14-content-design-ux-writing-at-scale) §3 confirm-destructive copy |
 | 6 | Permit easy reversal of actions | §3 undo patterns; §5 wizard back-navigation + draft persistence; [Part 14](#part-14-content-design-ux-writing-at-scale) §3 "Undo" microcopy convention; toast-undo for short-window reversals |
-| 7 | Keep users in control (locus of control) | [Part 6](#part-6-ai-native-ethics-sustainability) §10 calm-tech default (no auto-actions without consent); §3 cancel / escape conventions; HumanReviewGate ([Part 3h](#part-3h-components-ai-chat)) for AI-initiated actions; NotificationPreferencesPattern (audit §14.11) |
+| 7 | Keep users in control (locus of control) | [Part 6](#part-6-ai-native-ethics-sustainability) §10 calm-tech default (no auto-actions without consent); §3 cancel / escape conventions; HumanReviewGate ([Part 3h](#part-3h-components-ai-chat)) for AI-initiated actions; NotificationPreferencesPattern |
 | 8 | Reduce short-term memory load | §3 list / table patterns with recently-used + autocomplete; §5 dashboard templates with persistent context; CommandPalette organism (Linear-class recall surface); [Part 14](#part-14-content-design-ux-writing-at-scale) §2.6 canonical glossary |
 
 ### 15.3 What this mapping is and is not
@@ -19127,7 +19937,26 @@ This part specifies twelve Tier-2 components with full 1.20 specs. Each componen
 - Inherits density / theming / RTL from [Part 13](#part-13-theming-white-label-embedding).
 - Inherits microcopy from [Part 14](#part-14-content-design-ux-writing-at-scale).
 - Reports lifecycle status per [Part 17](#part-17-component-lifecycle-maturity-model).
-- Ships with Figma, code, Storybook, and docs entries per [Part 18](#part-18-documentation-site-component-catalog-spec).
+- MUST ship with Figma, code, Storybook, and docs entries per [Part 18](#part-18-documentation-site-component-catalog-spec) before GA.
+
+### 12.0 Maturity and sequencing rule
+
+All Tier-2 components are **Advanced / Labs** until MVP Core and Enterprise Core quality gates pass. A Tier-2 spec in this part is not a commitment that the implementation exists.
+
+| Component family | Initial maturity | Earliest target | Notes |
+|---|---|---|---|
+| RichText.Editor | Specified | Alpha after MVP Core | Needs IME, accessibility, sanitization, and paste security evidence. |
+| FileUploader | Specified | Beta after Enterprise Core | Requires storage, virus scanning, retry, and privacy evidence. |
+| Calendar.Scheduler | Specified | Alpha | High keyboard and localization complexity. |
+| KanbanBoard / DnD | Specified | Labs | Drag alternative and screen-reader model required before Beta. |
+| Virtualized / pivot tables | Specified | Labs | Must prove row/column accessibility and virtualization focus. |
+| Workflow.Visualization | Concept / Specified | Labs | Must provide non-visual graph fallback. |
+| Spreadsheet.Editor | Concept | Labs | Not MVP; high accessibility/performance risk. |
+| ImageEditor | Concept | Labs | Requires media provenance, undo, keyboard, and accessibility strategy. |
+| Survey.Builder | Concept | Labs | Requires form accessibility and branching audit. |
+| PDF.Viewer | Concept | Labs | Requires tagged PDF, text layer, keyboard, search, print, and a11y review. |
+
+Implementation checklist before any Tier-2 component leaves Labs: API stability, keyboard map, non-pointer alternative, EN/VN examples, Storybook states, axe + manual AT evidence, performance budget, security/privacy review, known limitations, migration path, and owner.
 
 ---
 
@@ -19844,7 +20673,7 @@ Per [Part 11](#part-11-enterprise-patterns-page-templates) §4.2: tell user what
 
 - Type-ahead < 100ms.
 - Full-results page < 500ms server P95.
-- Indexes per [Part 7](#part-7-engineering-operations) §X (ElasticSearch / OpenSearch / Algolia per product).
+- Indexes use the product's approved search backend (ElasticSearch / OpenSearch / Algolia or equivalent) with privacy review.
 
 ---
 
@@ -19884,7 +20713,7 @@ type Notification = {
 
 ### 8.3 Behaviour
 
-- Real-time updates via WebSocket ([Part 7](#part-7-engineering-operations) §X).
+- Real-time updates via the product's approved realtime transport.
 - Unread badge updates instantly.
 - Click row → navigate to source + mark read.
 - Per-row dismiss / archive.
@@ -20166,7 +20995,7 @@ Every Tier-2 component has a [Part 17](#part-17-component-lifecycle-maturity-mod
 
 ### 13.6 AI integration
 
-Tier-2 components may expose AI-augmented features (rich-text AI commands, calendar intelligent scheduling). These follow [Part 6](#part-6-ai-native-ethics-sustainability) (ethics) and [Part 9](#part-9-ai-prompt-library-workflows) (prompt library). All AI-generated content carries C2PA provenance per [Part 6](#part-6-ai-native-ethics-sustainability) §16.
+Tier-2 components may expose AI-augmented features (rich-text AI commands, calendar intelligent scheduling). These follow [Part 6](#part-6-ai-native-ethics-sustainability) (ethics) and [Part 9](#part-9-ai-prompt-library-workflows) (prompt library). All AI-generated content carries visible AI disclosure; C2PA provenance applies where the provenance pipeline exists per [Part 6](#part-6-ai-native-ethics-sustainability) §16.
 
 ### 13.7 Telemetry
 
@@ -20451,7 +21280,7 @@ Sliders for brightness / contrast / saturation / sharpness. Each ±100% range. "
 
 ### 15.12 Microcopy
 
-Per [Part 14](#part-14-content-design-ux-writing-at-scale) §X catalogue.
+Per the [Part 14](#part-14-content-design-ux-writing-at-scale) content catalogue.
 
 ### 15.13 Implementation
 
@@ -20564,7 +21393,7 @@ Per [Part 8](#part-8-governance-legal-commerce) §5 (PDPL) — when displaying u
 
 ### 16.14 Microcopy
 
-Per [Part 14](#part-14-content-design-ux-writing-at-scale) §X.
+Per [Part 14](#part-14-content-design-ux-writing-at-scale).
 
 ### 16.15 Lifecycle
 
@@ -20657,7 +21486,7 @@ Pre-built starting points:
 
 ### 17.9 A11y
 
-The form builder itself is accessible (drag-drop alternative; keyboard-operable). Forms produced by the builder inherit a11y from the underlying `<Form>` ([Part 3b](#part-3b-components-inputs) §X).
+The form builder itself is accessible (drag-drop alternative; keyboard-operable). Forms produced by the builder inherit accessibility obligations from the underlying Part 3b form primitives.
 
 ### 17.10 Microcopy
 
@@ -21132,7 +21961,7 @@ GA at v1.0.
 
 ### 25.1 Name
 
-`Combobox.Async` (extends [Part 3b](#part-3b-components-inputs) §X Select).
+`Combobox.Async` (extends [Part 3b](#part-3b-components-inputs) Select / Combobox).
 
 ### 25.2 Purpose
 
@@ -22000,7 +22829,7 @@ New sub-brand requires:
 
 - Brand Owner RFC ([Part 8](#part-8-governance-legal-commerce) §2).
 - Naming check ([Part 1](#part-1-foundations) §10).
-- Trademark availability check ([Part 8](#part-8-governance-legal-commerce) §X).
+- Trademark availability check through [Part 8](#part-8-governance-legal-commerce) governance and counsel review.
 - Founder approval.
 
 ### 6.5 Sub-brand consistency
@@ -22286,7 +23115,7 @@ Composition strictly upward; downward use forbidden (a button label should never
 
 ### 1.2 The catalogue
 
-The microcopy catalogue lives in `/packages/content/`:
+Planned path: `/packages/content/`. Until that package exists, this section defines the microcopy catalogue contract:
 
 ```
 content/
@@ -23012,7 +23841,7 @@ notifications:
 
 ## 14.7 Per-template microcopy (C4)
 
-For each template in [Part 11](#part-11-enterprise-patterns-page-templates), an opinionated default microcopy set lives in `/packages/conten../meta/templates/`. Product teams override per their domain.
+For each template in [Part 11](#part-11-enterprise-patterns-page-templates), an opinionated default microcopy set is planned under `/packages/content/meta/templates/`. Product teams override per their domain once the content package exists.
 
 ### 7.1 SettingsTemplate
 
@@ -23244,7 +24073,7 @@ Runs in CI and IDE:
 - Detects inconsistent capitalisation.
 - Detects punctuation drift (§2.9).
 
-Output integrated into Storybook stories and the content registry.
+Output integrates into Storybook stories and the content registry once those artifacts exist.
 
 ### 10.2 The content registry
 
@@ -23440,7 +24269,7 @@ Three commitments anchor the doctrine:
                            ▼
               ┌──────────────────────────────┐
               │  DESIGNOPS DASHBOARD         │
-              │  (Part 16 §X)                │
+              │  (planned, Part 16)          │
               └──────────────────────────────┘
 ```
 
@@ -23998,7 +24827,7 @@ Detects deprecated component imports; offers codemod via `pnpm dlx @cyberskill/c
 Per [Part 7](#part-7-engineering-operations) §11.2:
 
 - Each component emits anonymised `mount` event with: component name, version, variant, theme, density.
-- Aggregated in DesignOps dashboard ([Part 16](#part-16-adoption-playbook-designops) §X).
+- Aggregated in the planned DesignOps dashboard.
 - Identifies hot components, cold components, deprecated-but-still-used components.
 
 ### 10.2 Adoption telemetry
@@ -24063,7 +24892,7 @@ For React components, props doc auto-generated from TypeScript types via `react-
 
 ### 12.3 Live examples
 
-Every component MDX page includes live examples (Storybook stories embedded via iframe + theme picker).
+Every component MDX page MUST include live examples (Storybook stories embedded via iframe + theme picker) before the docs artifact can claim GA.
 
 ### 12.4 Search
 
@@ -24240,7 +25069,7 @@ A level is awarded when **all** criteria are met. A level is revoked when **any*
 
 #### Level 1 — Aware
 
-- [ ] At least one product team member has read 00-index.
+- [ ] At least one product team member has read the Master Index and role path.
 - [ ] DS has been demoed to the team within the last 90 days.
 - [ ] Team has a named DS liaison.
 
@@ -24622,8 +25451,24 @@ When a developer or designer joins a CyberSkill product team, an onboarding kit:
 | Figma library subscription auto-set | DesignOps |
 | Slack channel auto-add | DesignOps |
 | 30-min DS intro 1:1 with Ambassador | Product team |
-| Curated reading list (per role, per Part 00-index reading paths) | DesignOps |
+| Curated reading list (per role, per Master Index reading paths) | DesignOps |
 | First-PR mentorship offered | Ambassador |
+
+#### 6.1.1 Role-path completion tracking
+
+Role paths are an enablement and evidence mechanism, not a default commit-access gate. DesignOps tracks completion so teams know who has read the doctrine slices relevant to their decisions, and so auditors can see that high-risk contributors received training. A contributor may still make a minor documentation or bug-fix PR before finishing training if a maintainer reviews it.
+
+Hard gates apply only to high-risk roles:
+
+| Role / action | Completion required before action |
+|---|---|
+| Consent, privacy, or legal-copy changes | Legal / privacy role path plus DPO or counsel review. |
+| Accessibility claim or WCAG matrix update | Accessibility role path plus evidence row. |
+| AI risk-tier, confidence, or human-review pattern change | AI-agent / AI-ethics role path plus risk-owner review. |
+| Token release owner | Engineer role path plus DTCG validation training. |
+| Vertical-pack compliance claim | PM + legal role paths plus pack owner approval. |
+
+This avoids the brittle "no reading, no commit" model while still making training visible, reviewable, and proportionate to risk.
 
 ### 6.2 Training programme
 
@@ -24769,7 +25614,7 @@ Surfaced in DesignOps dashboard ([Part 15](#part-15-design-system-tooling) §11)
 
 ## 16.8.bis Public roadmap
 
-The system publishes a public roadmap on the CyberSkill design-system docs site, refreshed quarterly. Transparency here is a deliberate adoption lever: external contributors and product teams plan around what ships and when.
+The system SHOULD publish a public roadmap on the CyberSkill design-system docs site once the docs site exists, refreshed quarterly. Transparency here is a deliberate adoption lever: external contributors and product teams plan around what ships and when.
 
 ### What's on the roadmap
 
@@ -26297,7 +27142,7 @@ The Diátaxis framework (Daniele Procida, divio.com/blog/documentation/) divides
 
 ### 19.2 Page templates per quadrant
 
-Each template is a **markdown file pattern** stored under `Design System/docs/_templates/`. Authors copy the relevant template, fill in the placeholders, and ship. Templates carry the consistency Diátaxis is designed to enforce.
+Each template is a **markdown file pattern** planned under `Design System/docs/_templates/`. Authors copy the relevant template, fill in the placeholders, and ship once the docs artifact exists. Templates carry the consistency Diátaxis is designed to enforce.
 
 #### 19.2.1 Tutorial template
 
@@ -26443,7 +27288,7 @@ This makes Diátaxis legible at the doctrine level, not just the component level
 
 ### 19.5 Tooling & enforcement
 
-- Templates live at `Design System/docs/_templates/{tutorial,how-to,reference,explanation}.template.md`.
+- Planned templates live at `Design System/docs/_templates/{tutorial,how-to,reference,explanation}.template.md`.
 - Authors run `pnpm new:doc {tutorial|how-to|reference|explanation} {slug}` to scaffold.
 - Pre-review lint (RFC 2026-005 #3 a11y-note presence + new #6 quadrant-presence) flags missing quadrants in component PRs.
 - Docs site IA (Part 18 §4) gains a per-quadrant filter on every component page.
@@ -27933,9 +28778,11 @@ Each would need a Pack RFC proving customer demand before commitment.
 
 ---
 
-## 19.19 Vertical pack — HR Tech
+## 19.19 HR Tech expansion notes — merged into §19.12
 
-### 19.1 Pack purpose
+Status: **Merged expansion notes**. The canonical HR Tech vertical pack is [§19.12](#1912-vertical-pack--hr-tech). This section preserves additional regulatory and pattern detail from the earlier duplicate HR Tech section. It is not a second pack and MUST NOT be listed separately in product catalogs, pricing, roadmap, or maturity dashboards.
+
+### 19.1 Additional pack purpose detail
 
 HR Tech surfaces — **recruiting, performance, payroll, org-chart, time-and-attendance, employee self-service** — span more regulatory frameworks per surface than any other vertical. The pack codifies the cross-jurisdictional patterns so a single CyberSkill product can serve EU + US + Vietnam + APAC employees without rewriting compliance UX per geography.
 
@@ -27993,13 +28840,13 @@ HR Tech surfaces frequently encounter users in distressed states (job hunters; p
 
 ### 19.7 Pack RFC
 
-Per [Part 8](#part-8-governance-legal-commerce) §16, ship of this pack requires a Pack RFC. The §14.19 expansion entry now references this section; future expansion of HR Tech (compensation-benchmarking, learning management) follows the same RFC path.
+Per [Part 8](#part-8-governance-legal-commerce) §16, ship of the canonical §19.12 pack requires a Pack RFC. Future expansion of HR Tech (compensation-benchmarking, learning management) follows the same RFC path and updates §19.12 rather than creating another HR Tech pack.
 
 ### 19.8 Audit-score impact
 
 | Criterion | Before | After §19 lands | Path to 5 |
 |---|---|---|---|
-| §14.19 HR Tech expansion | menu | **shipped (sketch-class)** | First customer engagement uplifts to spec-class |
+| §19.12 HR Tech canonical pack | menu | **specified (doctrine-class)** | First customer engagement + Pack RFC uplifts to Beta |
 | B5.7 Inclusive design | 4 | 4 sustained | Trauma-informed + cognitive defaults strengthen |
 | B9.1 No dark patterns | 5 | 5 sustained | Anti-pattern policy now covers HR-specific traps (forced-OFCCP, shaming microcopy) |
 | B9.7 Inclusive risk review | 4 | **5** | Trauma-informed surfaces explicitly enumerated for HR vertical |
@@ -28989,11 +29836,11 @@ The aspiration: most product code uses our primitives, not raw `<div className="
 
 ## Part 21 — Liquid Glass Default
 
-*The 2025/2026 surface treatment doctrine. Liquid Glass — Apple's evolved material language for macOS 26 / iOS 26 / visionOS / Apple Intelligence — becomes the **default surface treatment** for every CyberSkill product. Solid surfaces remain available as an explicit escape hatch, not the norm. Where [Part 2](#part-2-design-language) defines color/type/space tokens and [Part 4](#part-4-surfaces-patterns) defines surface roles, this part defines **how** those surfaces render. The Umber + Ochre anchors and APCA contrast floors are UNCHANGED — this is a render-layer doctrine, not a palette change.*
+*The 2025/2026 material-layer doctrine. Liquid Glass — Apple's evolved material language for macOS 26 / iOS 26 / visionOS / Apple Intelligence — becomes the **default structural and transient interface material** where it improves hierarchy, depth, and contextual layering. Solid and matte surfaces remain the default for dense content, long reading, forms, tables, chart canvases, legal copy, print, and high-contrast modes. Where [Part 2](#part-2-design-language) defines color/type/space tokens and [Part 4](#part-4-surfaces-patterns) defines surface roles, this part defines **how** those surfaces render. The Umber + Ochre anchors and APCA contrast floors are UNCHANGED — this is a render-layer doctrine, not a palette change.*
 
 ---
 
-## Introduction — why glass is now the default
+## Introduction — why glass is now the default structural layer
 
 Two design eras bracket this decision.
 
@@ -29001,25 +29848,25 @@ The first ("Material Honest", 2014–2020) said: surfaces are paper, edges are c
 
 The second ("Glassmorphism v1", 2020–2023) tried translucency and over-shot — heavy 60px+ blurs, saturated fills, every card competing to look "glassy". It collapsed under its own legibility debt. Designers retreated to flat opaque surfaces, and the trend died.
 
-The third era ("Liquid Glass", 2024–2026+) is the corrected return. Apple's macOS 26 / iOS 26 release codified it as a system-level material: lower blur (12–20px), restrained saturation (130–180%), strict accessibility floors, used on **structural** surfaces (nav, sidebars, modals, popovers) not on every card. visionOS and Apple Intelligence's chat surfaces use the same language. The agentic-OS era — where AI assistants sit alongside primary content and need to feel atmospheric rather than blocky — adopted glass as the default because it communicates **layered depth without competing with content**.
+The third era ("Liquid Glass", 2024–2026+) is the corrected return. Apple's macOS 26 / iOS 26 release codified it as a system-level material: lower blur, restrained saturation, strict accessibility floors, and use on **structural or transient** surfaces (navigation, sidebars, toolbars, tab bars, command palettes, popovers, modals, selected AI overlays) where the material helps content stay central. Apple frames Liquid Glass around clarity, legibility, and letting app content take center stage; that is the standard CyberSkill adopts.
 
-CyberSkill ships into this era. Our competitors (Microsoft 365, Salesforce, Notion, Linear at the lower end of glass-adoption, ClickUp, Asana) are mostly still flat. Adopting Liquid Glass as the default is a deliberate visual differentiator that aligns with brand voice (warm, refined, doesn't shout) and with CyberOS's layered architecture (BRAIN substrate → SKILL catalog → CUO router → modules — depth is the metaphor).
+CyberSkill ships into an era where material systems are mixed. Apple uses Liquid Glass as a functional platform material; Microsoft, Google, Carbon, Fluent, Salesforce, Linear, Notion, and other enterprise SaaS systems vary by product, density, and operating-system context. CyberSkill therefore treats glass as a **hierarchy material**, not a universal decoration. The material aligns with brand voice (warm, refined, doesn't shout) and with CyberOS's layered architecture, but it must never compete with the user's work.
 
-The bet, in one sentence: **Liquid Glass is the default surface treatment for CyberSkill products. Solid surfaces are the exception.**
+The bet, in one sentence: **Liquid Glass is the default structural/transient material; matte or solid is the default content material.**
 
 What this part owes the rest of the system:
 
-1. Names five glass **material types** (Whisper / Light / Standard / Heavy / Solid escape hatch) and binds each to use cases.
+1. Names five **material types** (Whisper Glass / Light Glass / Standard Glass / Heavy Glass / Solid-Matte) and binds each to use cases.
 2. Provides ready-to-copy **CSS implementations** with vendor prefixes and accessibility fallbacks.
 3. Specifies a **lens edge** treatment that mimics light passing through glass at boundaries.
 4. Defines **layered depth tokens** (`--depth-bg` through `--depth-toast`) and binds each depth to a default material.
 5. Documents **material-aware tinting** — the natural color carry-over that happens when glass sits over a tinted region.
 6. Codifies **motion patterns** (parallax on scroll) with `prefers-reduced-motion` honored.
 7. Restates the **accessibility floor** — APCA Lc ≥ 75 body / Lc ≥ 90 interactive, non-negotiable.
-8. Refines every **component family** in [Part 3](#part-3a-components-actions)–[Part 3h](#part-3h-components-ai-chat) with its glass treatment.
+8. Refines every **component family** in [Part 3](#part-3a-components-actions)–[Part 3h](#part-3h-components-ai-chat) with its material treatment and its no-glass exceptions.
 9. Specifies **browser support** with `@supports` fallback patterns.
 10. Mirrors the doctrine into **dark mode**.
-11. Provides the **migration path** from Part 2/3 solid defaults to Part 21 glass defaults — additive, non-breaking.
+11. Provides the **migration path** from Part 2/3 solid defaults to Part 21 material-layer defaults — additive, non-breaking.
 12. Lays out concrete **examples** with hero / nav / modal / chat / catalog references.
 13. Closes with the formal **decision log** entry per the doctrine's RFC pattern.
 
@@ -29035,9 +29882,9 @@ Inheritance:
 
 Three commitments anchor this part:
 
-1. **Glass is the default render, not the default color.** Umber `#45210E` and Ochre `#F4BA17` anchors stay immutable. Part 21 changes HOW the anchors appear (with translucency + blur), not WHAT they are.
+1. **Glass is a structural/transient render, not the default color and not the default content layer.** Umber `#45210E` and Ochre `#F4BA17` anchors stay immutable. Part 21 changes HOW selected layers appear (with translucency + blur), not WHAT they are.
 2. **Accessibility never relaxes.** Every glass surface MUST still meet APCA Lc ≥ 75 / Lc ≥ 90 with text rendered at the surface's actual rendered opacity (not against the underlying solid). If a glass surface fails contrast, the writer increases opacity toward solid — never the other way.
-3. **Glass is additive, not destructive.** Existing components from Part 3 with solid surfaces continue to render correctly. Part 21 adds opt-in glass classes (`.surface-*`, `.bbg-card`) and updated defaults. Old code that ignores Part 21 keeps working.
+3. **Glass is additive, not destructive.** Existing components from Part 3 with solid surfaces continue to render correctly. Part 21 adds opt-in glass classes (`.surface-*`) and updated structural defaults. Old code that ignores Part 21 keeps working.
 
 ---
 
@@ -29045,30 +29892,33 @@ Three commitments anchor this part:
 
 ### 21.1.1 The bet
 
-**Liquid Glass is the DEFAULT surface treatment for CyberSkill products from 2026-05-14 onward.**
+**Liquid Glass is the DEFAULT structural and transient material for CyberSkill products from 2026-05-14 onward, where it improves hierarchy without harming content clarity.**
 
 Concretely:
 
-- New components specified after 2026-05-14 SHALL use a glass material unless they fall into an explicit Solid Surface category (§21.9 lists them — data tables, chart canvases, print, accessibility-high-contrast mode, regulatory disclosures).
-- Existing components retrofitted under the Wave-2 migration plan (§21.12) MUST adopt the appropriate glass material per the component-to-material binding in §21.9.
-- Custom or vertical-pack surfaces (Part 19) MAY override the default only with a §21.14 RFC entry.
+- New structural/transient surfaces specified after 2026-05-14 SHALL evaluate a glass material: navigation, sidebars, toolbars, tab bars, command palettes, popovers, menus, modals, toasts, transient controls, and selected AI overlays.
+- New dense content surfaces specified after 2026-05-14 SHALL default to matte or solid: body text pages, documentation pages, forms, tables, data grids, chart canvases, map canvases, regulatory disclosures, legal copy, print/PDF, and high-contrast modes.
+- Existing components retrofitted under the Wave-2 migration plan (§21.12) MUST adopt the appropriate material per the component-to-material binding in §21.9, including no-glass exceptions.
+- Custom or vertical-pack surfaces (Part 19) MAY override the default only with contrast, performance, usability, and legal evidence attached to a §21.14 RFC entry.
 
-Solid surfaces are the **exception**, not the rule. Reach for solid when:
+Solid or matte surfaces are the **content default**, not a failure of the glass doctrine. Reach for solid or matte when:
 
 - The surface hosts dense tabular data where every row must scan unambiguously (data tables, financial reports, spreadsheets).
 - The surface is print-bound — paper has no "underneath" to blur against.
 - The user has set `prefers-reduced-transparency: reduce` (system setting; we honor it).
 - The surface is a chart canvas where translucency would hurt mark legibility.
 - The surface carries regulatory or legal disclosure text where contrast and stability are mandated (e.g., Vietnamese e-invoice display per Decree 123, GDPR consent banners).
+- The surface contains long-form reading, form completion, editable text, code, or documentation.
+- The surface is rendered on a low-end device where blur consumes the frame budget.
 
 ### 21.1.2 Why glass-as-default — the rationale
 
-1. **Agentic-OS era alignment.** Anthropic's Claude.ai surfaces, ChatGPT's macOS app, Gemini in Google Workspace, Microsoft Copilot — all use glass to communicate "AI sits alongside content, not on top of it". Adopting glass signals AI-native without literal AI iconography (sparkle icons, robot avatars, etc.).
-2. **OS-host parity.** macOS 26 / iOS 26 / visionOS use glass system-wide. Apps that match the OS material feel native; apps that don't feel anachronistic. Our docs site, web apps, and embedded surfaces all benefit.
+1. **Agentic-OS era alignment.** AI surfaces increasingly need to sit beside content rather than cover it. Glass can communicate "assistant layer" without literal AI iconography, but only when content remains readable.
+2. **OS-host parity.** macOS 26 / iOS 26 / visionOS use Liquid Glass as a system material. Apps that respect the host material feel native; apps that apply it indiscriminately feel noisy. Our docs site, web apps, and embedded surfaces benefit only when the material is scoped.
 3. **Layered depth maps to CyberOS architecture.** CyberOS is a layered system (BRAIN substrate → SKILL catalog → CUO router → modules). Glass-with-depth is a literal visual translation of that hierarchy. Foreground surfaces (modals, popovers) are more translucent — they sit "on top of" deeper surfaces (page, sections) that are more saturated.
 4. **Vietnamese cultural fit.** Subtle, refined, doesn't shout. Matches the brand voice axes from [Part 2](#part-2-design-language) §1 (warm + direct + honest + respectful). Vietnamese visual taste leans toward soft, layered, atmospheric — not flat, hard, declarative. Glass communicates ấm cúng (warm coziness) better than flat fills do.
-5. **Competitive differentiation.** Most enterprise SaaS competitors are still flat (Salesforce, Microsoft 365, Notion, ClickUp). Linear is partially glass on the sidebar/command palette. Vercel and Cursor lead on glass nav. Arc / Browser Co (now Atlassian) is heaviest. Adopting glass as default puts CyberSkill in the lead pack, not the trailing pack.
-6. **Anthropic ecosystem fit.** Claude Code, Claude Projects, Claude.ai chat — Anthropic's own surfaces are glass-forward. As a Claude-powered platform, CyberSkill products embedded inside Anthropic's surfaces feel native when they share the material.
+5. **Competitive differentiation, cautiously.** Enterprise SaaS remains mixed. Scoped glass can make CyberSkill feel modern without abandoning the scan-friendly seriousness expected in operational tools.
+6. **AI ecosystem fit.** AI assistants and agent workspaces often use layered overlays. CyberSkill adopts the useful part of that pattern: disclose the layer, preserve the work.
 
 ### 21.1.3 Immutables — what Part 21 does NOT change
 
@@ -29090,7 +29940,7 @@ NEVER violate:
 
 What Part 21 DOES change:
 
-- The default *render* of `.bbg-card` and other surface primitives — they gain `backdrop-filter` and translucent backgrounds.
+- The default *material evaluation* for structural/transient surface primitives — they gain glass classes where the role and evidence allow.
 - The CSS surface tokens gain a new family (`--glass-*`) alongside (not replacing) the existing (`--bg-*`, `--border-*`) tokens.
 - The Part 4 surface-role bindings gain a default material per role.
 
@@ -29112,6 +29962,50 @@ What Part 21 does NOT do:
 | Print/PDF renders broken or empty | Low | High | §21.3 `@media print` rule collapses to solid white |
 | Regulatory disclosures (Decree 123 e-invoice display) rendered illegibly | Low | Critical | §21.9 mandates solid surface for regulatory disclosures; §21.1.1 enumerates the carve-out |
 
+### 21.1.5 No Glass in Content Layer by Default
+
+The content layer is where users read, type, compare, inspect, decide, sign, and audit. It defaults to matte or solid.
+
+| Content surface | Default material | Glass exception |
+|---|---|---|
+| Body text / documentation | Solid or matte | None unless the text is short, decorative, and non-critical. |
+| Forms and editable fields | Solid or matte | Field group may sit inside a glass modal, but the input surface remains solid. |
+| Tables / data grids / spreadsheets | Solid | Header or toolbar may be Light Glass; cells remain solid. |
+| Charts / map canvases | Solid canvas | Toolbar, legend popover, or selection overlay may be glass. |
+| Legal / regulatory disclosure | Solid | None without counsel + accessibility approval. |
+| Print / PDF | Solid | None. |
+| High-contrast / forced-colors | System solid colors | None. |
+
+Any exception MUST attach proof for:
+
+- WCAG contrast and APCA at rendered opacity.
+- Vietnamese diacritic canary at 100%, 200%, and 400% zoom.
+- Keyboard focus visibility and focus-not-obscured.
+- Reduced transparency, forced colors, print, and reduced motion.
+- Low-end Android performance budget.
+- Non-overlap with content at mobile and desktop breakpoints.
+
+### 21.1.6 Glass Budget
+
+Glass has a budget because blur is a performance and legibility cost.
+
+| Viewport / device class | Max simultaneous glass layers | Max blur | Rule |
+|---|---:|---:|---|
+| Mobile low-end Android | 1 | 12px | Prefer Light Glass; no nested glass; fallback to solid if frame budget fails. |
+| Mobile high-end | 2 | 16px | Nav + one transient overlay; no glass content cards in dense views. |
+| Tablet | 2 | 20px | Sidebar + modal/popover allowed; content remains matte. |
+| Desktop | 3 | 24px | Nav/sidebar + command palette/modal + toast allowed; avoid nested card glass. |
+| Print / forced-colors / reduced-transparency | 0 | 0px | Collapse to solid/system colors. |
+
+Acceptance tests:
+
+- APCA Lc >= 75 for body text and Lc >= 90 for interactive text on actual rendered material.
+- WCAG 2.2 AA contrast for text and non-text UI.
+- Vietnamese canary string renders without clipping: `Phở bò ngon, ăn xong rồi tễu rượu cẩm — yêu nhỉ, ấy à? "Việt"`.
+- `prefers-reduced-transparency`, `prefers-reduced-motion`, `forced-colors`, and `@media print` produce usable solid fallbacks.
+- Low-end Android test profile maintains target frame budget for scroll, open, close, and resize.
+- No material layer overlaps or obscures content, focus rings, legal copy, table cells, chart marks, or map labels.
+
 ---
 
 ## 21.2 Glass material types — the hierarchy
@@ -29124,9 +30018,9 @@ Five materials, ordered from least to most prominent. Each material has a define
 |---|---|---|---|---|---|---|
 | **Whisper Glass** | `.surface-whisper` | Ambient page-background overlay, hero washes | 8px | 110% | 0.60 alpha | `--depth-bg` (0) |
 | **Light Glass** | `.surface-light` | Sticky navs, secondary sidebars, segmented controls | 12px | 130% | 0.70 alpha | `--depth-nav` (50) |
-| **Standard Glass** | `.surface-standard`, `.bbg-card` | Cards, panels, default surfaces, list items | 16px | 150% | 0.80 alpha | `--depth-card` (10) |
-| **Heavy Glass** | `.surface-heavy` | Modals, command palette, popovers, dropdowns, toasts | 24px | 180% | 0.90 alpha | `--depth-modal` (100) / `--depth-toast` (200) |
-| **Solid (escape hatch)** | `.surface-solid` | Data tables, charts, print, a11y high-contrast, regulatory disclosures | 0px | 100% | 1.00 alpha | varies |
+| **Standard Glass** | `.surface-standard` | Sparse panels, ambient cards over imagery, selected AI overlays, non-dense list containers | 16px | 150% | 0.80 alpha | `--depth-card` (10) |
+| **Heavy Glass** | `.surface-heavy` | Modals, command palette, popovers, dropdowns, toasts, transient controls | 24px | 180% | 0.90 alpha | `--depth-modal` (100) / `--depth-toast` (200) |
+| **Solid / Matte** | `.surface-solid`, `.surface-matte` | Dense content, forms, tables, charts, maps, docs, print, a11y high-contrast, regulatory disclosures | 0px | 100% | 1.00 alpha | varies |
 
 Definitions:
 
@@ -29151,15 +30045,17 @@ The five-name set is also bounded — we will not add a sixth ("Ultra Heavy", "E
 
 | Surface role (Part 4) | Default material | Override rule |
 |---|---|---|
-| Page background | Whisper Glass over a base color, OR solid | Default solid; opt into Whisper for app shells with hero washes |
+| Page background | Solid / matte | Whisper only for sparse app shells, marketing hero washes, or atmospheric AI workspaces. |
 | Section | None (matte page-level) | Sections inherit page background; never standalone glass |
-| Card | Standard Glass | Solid only for data-dense or regulatory cards |
-| Top nav (sticky) | Light Glass | Always Light Glass; solid only in print |
-| Side nav | Light Glass | Light Glass; some IDE-style apps may prefer Solid |
-| Modal | Heavy Glass | Always Heavy; non-negotiable |
-| Toast | Heavy Glass | Always Heavy |
-| Popover / dropdown | Heavy Glass | Always Heavy |
-| Tooltip | Heavy Glass | Always Heavy |
+| Card | Solid / matte | Standard Glass only for sparse cards over ambient backgrounds; data, forms, legal, and reading cards stay solid. |
+| Top nav (sticky) | Light Glass | Solid in print, forced-colors, reduced-transparency, or dense admin consoles where blur harms scan. |
+| Side nav | Light Glass | Solid allowed for IDE-style, data-grid-heavy, or low-end device contexts. |
+| Toolbar / tab bar | Light Glass | Solid when attached to dense table/form/chart content. |
+| Modal | Heavy Glass shell + solid content panel where needed | Legal, regulatory, long-form, and form-heavy modals use solid inner content. |
+| Toast | Heavy Glass | Solid fallback for forced-colors/reduced-transparency. |
+| Popover / dropdown | Heavy Glass | Solid if containing dense menu, legal copy, or long text. |
+| Tooltip | Heavy Glass | Solid fallback when contrast fails. |
+| AI overlay | Standard or Heavy Glass | Must include disclosure and never obscure source content or citations. |
 
 Section is the only role that gets "no glass". Sections are page-level zones; they read as the page's own background tinted by tokens. Adding glass to sections would create a nesting cascade (page-glass → section-glass → card-glass) that wastes layers and reduces legibility.
 
@@ -29316,7 +30212,7 @@ The fallback for browsers that don't support `color-mix` (Safari < 16.2, Chrome 
 
 ### 21.3.5 The `.bbg-card` alias
 
-`.bbg-card` (Bento-Box Glass card) is the canonical Part 3 card class. The selector list in §21.3.2 binds `.surface-standard` and `.bbg-card` together so existing card components — defined in Part 3c — pick up glass treatment automatically when Part 21 CSS is loaded. No component refactor required for the default case.
+`.bbg-card` (Bento-Box Glass card) is retained as a legacy alias for sparse, non-dense card surfaces that deliberately opt into Standard Glass. It is NOT the default card class for forms, tables, documentation, legal content, or dense dashboards. Existing Part 3c cards remain solid/matte unless their component spec, product context, and acceptance tests explicitly select `.surface-standard`.
 
 ---
 
@@ -29930,20 +30826,20 @@ Part 21 is additive. Existing components defined in Parts 2–3 with solid surfa
 | Wave 3 | Retrofit primary navs, cards, modals across CyberOS-docs + CyberSkill landing | 2026-05-22 → 2026-06-12 | Low — visual review only |
 | Wave 4 | Retrofit remaining surfaces case-by-case; opt out where Solid is correct (§21.9.9) | 2026-06-13 → 2026-08-31 | Low |
 | Wave 5 | Audit + adjust opacities where APCA edge cases surface | 2026-09-01 → 2026-09-30 | Low |
-| Wave 6 | v1.2.0 ship — Part 21 is the default for all new components | 2026-10-01 onward | Zero |
+| Wave 6 | v1.2.0 ship — Part 21 material decision is required for all new components | 2026-10-01 onward | Zero |
 
 ### 21.12.2 Non-breaking promise
 
 | Component class | Pre-Part-21 render | Post-Part-21 render |
 |---|---|---|
-| `.bbg-card` | Solid white bg + border + shadow | Standard Glass bg + lens edge + shadow |
-| `.surface-card` (Part 4) | Solid bg | Standard Glass bg (if upgraded) |
+| `.bbg-card` | Solid white bg + border + shadow | Standard Glass only where explicitly opted in; otherwise card remains solid/matte |
+| `.surface-card` (Part 4) | Solid bg | Solid/matte by default; Standard Glass only for sparse ambient cards |
 | `.bbg-card.tint-warm` (new) | n/a | Standard Glass + explicit warm tint |
 | `<button>` (Part 3a) | Solid bg | Solid bg (unchanged) |
-| `<input>` (Part 3b) | Solid bg | Light Glass bg (if Part-21 stylesheet loaded) |
+| `<input>` (Part 3b) | Solid bg | Solid bg (unchanged; inputs inside glass shells remain solid) |
 | Custom user CSS | Unchanged | Unchanged (no token names changed) |
 
-The only "breaking" case is an app that visually relies on `.bbg-card` being literally white. We don't know of any such app — the brand bg has always been Umber-50, not white. If one exists, Wave 2 documentation includes a `<rollback>` snippet that restores the pre-Part-21 render via `--glass-standard-bg: var(--bg-card);` (i.e., 100% solid).
+The only "breaking" case is an app that assumed `.bbg-card` automatically meant Standard Glass under the earlier draft. The corrected doctrine reverses that: card content stays solid/matte unless the component opts into glass with proof.
 
 ### 21.12.3 Retrofit checklist (per component)
 
@@ -30063,7 +30959,7 @@ Per the system's RFC pattern (Part 8 §2 — governance).
 | Field | Value |
 |---|---|
 | **RFC ID** | DS-RFC-2026-05-14-001 |
-| **Title** | Adopt Liquid Glass as default surface treatment for CyberSkill products |
+| **Title** | Adopt Liquid Glass as the default structural/transient material layer |
 | **Date** | 2026-05-14 |
 | **Status** | Approved |
 | **Class** | MINOR (per CHANGELOG.md — new defaults, no breaking changes) |
@@ -30073,12 +30969,12 @@ Per the system's RFC pattern (Part 8 §2 — governance).
 
 **Decision.**
 
-Liquid Glass (Apple's evolved 2025/2026 material language) becomes the default surface treatment for CyberSkill products from 2026-05-14 onward. Solid surfaces remain available as an explicit escape hatch for data tables, charts, print, regulatory disclosures, and accessibility-high-contrast modes.
+Liquid Glass (Apple's evolved 2025/2026 material language) becomes the default structural/transient material for CyberSkill products from 2026-05-14 onward where it improves hierarchy. Solid and matte surfaces remain the default for dense content, forms, tables, chart/map canvases, documentation, legal copy, print/PDF, and high-contrast modes.
 
 **Rationale.**
 
-1. Aligns with the agentic-OS era — Anthropic, OpenAI, Google, Microsoft AI surfaces all use glass.
-2. Aligns with OS-host material (macOS 26 / iOS 26 / visionOS use glass system-wide).
+1. Aligns with the agentic-OS era while preserving content clarity.
+2. Aligns with OS-host material (macOS 26 / iOS 26 / visionOS use Liquid Glass) without over-applying it to content layers.
 3. Distinguishes CyberSkill products from flat-design competitors (Microsoft 365, Salesforce, Notion, ClickUp, Asana).
 4. Maps to CyberOS's layered architecture metaphor (BRAIN substrate → SKILL catalog → CUO router → modules).
 5. Fits Vietnamese cultural aesthetic — subtle, refined, atmospheric (ấm cúng) rather than flat-declarative.
@@ -30181,6 +31077,6 @@ Status: Approved 2026-05-14 by Founder.
 
 ---
 
-*End of DESIGN.md. Governance, change protocol, immutables, and contribution workflow in [README.md](./README.md). Version history in [CHANGELOG.md](./CHANGELOG.md).*
+*End of DESIGN.md. This file is the standalone doctrine. Supporting history, generated evidence, or implementation files may exist, but they do not supersede the rules, maturity labels, and evidence requirements in this document.*
 
 *Hiện Thực Hoá Ý Chí.*

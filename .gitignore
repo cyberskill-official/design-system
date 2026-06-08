@@ -13,3 +13,6 @@ _audit/
 # OS junk
 .DS_Store
 Thumbs.db
+
+# Package manager installs
+node_modules/

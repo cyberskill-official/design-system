@@ -1,0 +1,142 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "$description": "CyberSkill prototype DTCG token source. Prototype artifact: not GA.",
+  "cs": {
+    "color": {
+      "brand": {
+        "umber": {
+          "$type": "color",
+          "$value": "#45210E",
+          "$description": "Primary brand anchor: Umber. Immutable.",
+          "$extensions": {
+            "com.cyberskill.immutable": true,
+            "com.cyberskill.oklch": "oklch(0.265 0.073 44.3)"
+          }
+        },
+        "ochre": {
+          "$type": "color",
+          "$value": "#F4BA17",
+          "$description": "Primary brand accent: Ochre. Immutable.",
+          "$extensions": {
+            "com.cyberskill.immutable": true,
+            "com.cyberskill.oklch": "oklch(0.811 0.162 83.7)"
+          }
+        }
+      },
+      "surface": {
+        "page": {
+          "$type": "color",
+          "$value": "#FFFDF8",
+          "$description": "Default page background."
+        },
+        "panel": {
+          "$type": "color",
+          "$value": "#FFFFFF",
+          "$description": "Default panel background."
+        }
+      },
+      "text": {
+        "primary": {
+          "$type": "color",
+          "$value": "{cs.color.brand.umber}",
+          "$description": "Primary text color."
+        },
+        "inverse": {
+          "$type": "color",
+          "$value": "#FFFFFF",
+          "$description": "Inverse text color."
+        },
+        "accent": {
+          "$type": "color",
+          "$value": "#6E3B0E",
+          "$description": "Accessible ochre-adjacent text accent."
+        }
+      },
+      "semantic": {
+        "success": {
+          "$type": "color",
+          "$value": "#166534",
+          "$description": "Success foreground."
+        },
+        "danger": {
+          "$type": "color",
+          "$value": "#B42318",
+          "$description": "Danger foreground."
+        },
+        "warning": {
+          "$type": "color",
+          "$value": "#92400E",
+          "$description": "Warning foreground."
+        },
+        "info": {
+          "$type": "color",
+          "$value": "#1D4ED8",
+          "$description": "Info foreground."
+        }
+      }
+    },
+    "space": {
+      "1": { "$type": "dimension", "$value": "4px", "$description": "4px spacing step." },
+      "2": { "$type": "dimension", "$value": "8px", "$description": "8px spacing step." },
+      "3": { "$type": "dimension", "$value": "12px", "$description": "12px spacing step." },
+      "4": { "$type": "dimension", "$value": "16px", "$description": "16px spacing step." },
+      "6": { "$type": "dimension", "$value": "24px", "$description": "24px spacing step." }
+    },
+    "radius": {
+      "sm": { "$type": "dimension", "$value": "4px", "$description": "Small radius." },
+      "md": { "$type": "dimension", "$value": "8px", "$description": "Default radius." },
+      "full": { "$type": "dimension", "$value": "999px", "$description": "Pill radius." }
+    },
+    "font": {
+      "family": {
+        "ui": {
+          "$type": "fontFamily",
+          "$value": "Be Vietnam Pro, ui-sans-serif, system-ui",
+          "$description": "Primary UI font stack."
+        },
+        "mono": {
+          "$type": "fontFamily",
+          "$value": "JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas",
+          "$description": "Primary code font stack."
+        }
+      },
+      "lineHeight": {
+        "body": {
+          "$type": "number",
+          "$value": 1.5,
+          "$description": "Vietnamese-safe body line height."
+        },
+        "heading": {
+          "$type": "number",
+          "$value": 1.35,
+          "$description": "Vietnamese-safe heading line height."
+        }
+      }
+    },
+    "component": {
+      "button": {
+        "primary": {
+          "bg": {
+            "$type": "color",
+            "$value": "{cs.color.brand.umber}",
+            "$description": "Button primary background."
+          },
+          "fg": {
+            "$type": "color",
+            "$value": "{cs.color.text.inverse}",
+            "$description": "Button primary foreground."
+          }
+        }
+      },
+      "textfield": {
+        "border": {
+          "default": {
+            "$type": "color",
+            "$value": "#BFA58F",
+            "$description": "TextField default border."
+          }
+        }
+      }
+    }
+  }
+}

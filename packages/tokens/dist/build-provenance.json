@@ -1,0 +1,18 @@
+{
+  "package": "@cyberskill/tokens",
+  "maturity": "Prototype",
+  "generatedAt": "2026-05-23T19:27:52.385Z",
+  "source": "src/tokens.tokens.json",
+  "sourceHash": "607267e39f458b2baabc94d09420b294818ccd49455991d04c5fc6e454be6e5d",
+  "outputs": [
+    "dist/css/tokens.css",
+    "dist/ts/tokens.js",
+    "dist/ts/tokens.d.ts",
+    "dist/swift/Tokens.swift",
+    "dist/kt/CSTokens.kt",
+    "dist/flutter/cs_tokens.dart",
+    "dist/rn/tokens.js",
+    "dist/figma/variables.json",
+    "dist/contrast-grid.csv"
+  ]
+}

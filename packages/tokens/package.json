@@ -1,0 +1,15 @@
+{
+  "name": "@cyberskill/tokens",
+  "version": "0.1.0-prototype",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    "./tokens": "./dist/ts/tokens.js",
+    "./css": "./dist/css/tokens.css",
+    "./figma": "./dist/figma/variables.json"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  }
+}
