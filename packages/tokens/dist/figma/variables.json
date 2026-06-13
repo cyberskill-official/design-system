@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-13T06:47:09.087Z",
-  "sourceHash": "9bb126a9664b376b8338c01ed1376e8cc48eadefbc2f3801c5b2668abbc81966",
+  "generatedAt": "2026-06-13T16:42:36.147Z",
+  "sourceHash": "e207bb4ca396caeb184fbb07eb73dd6f13cc86bd3baf41c254cc40697d4b4be5",
   "collections": [
     {
       "name": "CyberSkill Prototype",
@@ -119,6 +119,14 @@
           "value": "#F4BA17",
           "raw": "{cs.color.brand.ochre}",
           "description": "Accent alias of Ochre, used for focus rings."
+        },
+        {
+          "name": "cs.color.border.default",
+          "css": "--cs-color-border-default",
+          "type": "color",
+          "value": "#E7D9C6",
+          "raw": "#E7D9C6",
+          "description": "Default hairline border (warm neutral). Used by glass material edges and solid surfaces."
         },
         {
           "name": "cs.space.0",
@@ -463,6 +471,150 @@
           "value": "1536px",
           "raw": "1536px",
           "description": "Wide-desktop breakpoint."
+        },
+        {
+          "name": "cs.depth.bg",
+          "css": "--cs-depth-bg",
+          "type": "number",
+          "value": 0,
+          "raw": 0,
+          "description": "Z-axis depth: page background / hero washes (Part 21 §21.5)."
+        },
+        {
+          "name": "cs.depth.section",
+          "css": "--cs-depth-section",
+          "type": "number",
+          "value": 5,
+          "raw": 5,
+          "description": "Z-axis depth: major page sections (matte; no glass)."
+        },
+        {
+          "name": "cs.depth.card",
+          "css": "--cs-depth-card",
+          "type": "number",
+          "value": 10,
+          "raw": 10,
+          "description": "Z-axis depth: cards/panels (Standard Glass when opted in)."
+        },
+        {
+          "name": "cs.depth.nav",
+          "css": "--cs-depth-nav",
+          "type": "number",
+          "value": 50,
+          "raw": 50,
+          "description": "Z-axis depth: sticky top/side nav (Light Glass)."
+        },
+        {
+          "name": "cs.depth.modal",
+          "css": "--cs-depth-modal",
+          "type": "number",
+          "value": 100,
+          "raw": 100,
+          "description": "Z-axis depth: modals, dialogs, command palette (Heavy Glass)."
+        },
+        {
+          "name": "cs.depth.toast",
+          "css": "--cs-depth-toast",
+          "type": "number",
+          "value": 200,
+          "raw": 200,
+          "description": "Z-axis depth: toasts, popovers, dropdowns, tooltips (Heavy Glass)."
+        },
+        {
+          "name": "cs.glass.whisper.blur",
+          "css": "--cs-glass-whisper-blur",
+          "type": "dimension",
+          "value": "8px",
+          "raw": "8px",
+          "description": "Whisper Glass backdrop blur radius (ambient backgrounds/hero washes)."
+        },
+        {
+          "name": "cs.glass.whisper.saturate",
+          "css": "--cs-glass-whisper-saturate",
+          "type": "number",
+          "value": "110%",
+          "raw": "110%",
+          "description": "Whisper Glass backdrop saturation."
+        },
+        {
+          "name": "cs.glass.whisper.opacity",
+          "css": "--cs-glass-whisper-opacity",
+          "type": "number",
+          "value": "60%",
+          "raw": "60%",
+          "description": "Whisper Glass surface opacity (color-mix amount of base surface vs transparent)."
+        },
+        {
+          "name": "cs.glass.light.blur",
+          "css": "--cs-glass-light-blur",
+          "type": "dimension",
+          "value": "12px",
+          "raw": "12px",
+          "description": "Light Glass backdrop blur radius (sticky navs, sidebars)."
+        },
+        {
+          "name": "cs.glass.light.saturate",
+          "css": "--cs-glass-light-saturate",
+          "type": "number",
+          "value": "130%",
+          "raw": "130%",
+          "description": "Light Glass backdrop saturation."
+        },
+        {
+          "name": "cs.glass.light.opacity",
+          "css": "--cs-glass-light-opacity",
+          "type": "number",
+          "value": "70%",
+          "raw": "70%",
+          "description": "Light Glass surface opacity."
+        },
+        {
+          "name": "cs.glass.standard.blur",
+          "css": "--cs-glass-standard-blur",
+          "type": "dimension",
+          "value": "16px",
+          "raw": "16px",
+          "description": "Standard Glass backdrop blur radius (sparse cards, AI overlays)."
+        },
+        {
+          "name": "cs.glass.standard.saturate",
+          "css": "--cs-glass-standard-saturate",
+          "type": "number",
+          "value": "150%",
+          "raw": "150%",
+          "description": "Standard Glass backdrop saturation."
+        },
+        {
+          "name": "cs.glass.standard.opacity",
+          "css": "--cs-glass-standard-opacity",
+          "type": "number",
+          "value": "80%",
+          "raw": "80%",
+          "description": "Standard Glass surface opacity."
+        },
+        {
+          "name": "cs.glass.heavy.blur",
+          "css": "--cs-glass-heavy-blur",
+          "type": "dimension",
+          "value": "24px",
+          "raw": "24px",
+          "description": "Heavy Glass backdrop blur radius (modals, popovers, toasts)."
+        },
+        {
+          "name": "cs.glass.heavy.saturate",
+          "css": "--cs-glass-heavy-saturate",
+          "type": "number",
+          "value": "180%",
+          "raw": "180%",
+          "description": "Heavy Glass backdrop saturation."
+        },
+        {
+          "name": "cs.glass.heavy.opacity",
+          "css": "--cs-glass-heavy-opacity",
+          "type": "number",
+          "value": "90%",
+          "raw": "90%",
+          "description": "Heavy Glass surface opacity."
         }
       ]
     }

@@ -16,6 +16,7 @@
   --cs-color-semantic-warning: #92400E;
   --cs-color-semantic-info: #1D4ED8;
   --cs-color-accent-ochre: #F4BA17;
+  --cs-color-border-default: #E7D9C6;
   --cs-space-0: 0px;
   --cs-space-1: 4px;
   --cs-space-2: 8px;
@@ -59,4 +60,22 @@
   --cs-breakpoint-lg: 1024px;
   --cs-breakpoint-xl: 1280px;
   --cs-breakpoint-2xl: 1536px;
+  --cs-depth-bg: 0;
+  --cs-depth-section: 5;
+  --cs-depth-card: 10;
+  --cs-depth-nav: 50;
+  --cs-depth-modal: 100;
+  --cs-depth-toast: 200;
+  --cs-glass-whisper-blur: 8px;
+  --cs-glass-whisper-saturate: 110%;
+  --cs-glass-whisper-opacity: 60%;
+  --cs-glass-light-blur: 12px;
+  --cs-glass-light-saturate: 130%;
+  --cs-glass-light-opacity: 70%;
+  --cs-glass-standard-blur: 16px;
+  --cs-glass-standard-saturate: 150%;
+  --cs-glass-standard-opacity: 80%;
+  --cs-glass-heavy-blur: 24px;
+  --cs-glass-heavy-saturate: 180%;
+  --cs-glass-heavy-opacity: 90%;
 }

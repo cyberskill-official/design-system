@@ -13,6 +13,7 @@
   "exports": {
     ".": "./src/index.js",
     "./styles.css": "./src/styles.css",
+    "./glass.css": "./src/glass.css",
     "./component-specs": "./src/component-specs.json"
   },
   "types": "./src/index.d.ts"

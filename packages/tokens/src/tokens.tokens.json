@@ -90,6 +90,13 @@
           "$value": "{cs.color.brand.ochre}",
           "$description": "Accent alias of Ochre, used for focus rings."
         }
+      },
+      "border": {
+        "default": {
+          "$type": "color",
+          "$value": "#E7D9C6",
+          "$description": "Default hairline border (warm neutral). Used by glass material edges and solid surfaces."
+        }
       }
     },
     "space": {
@@ -333,6 +340,108 @@
         "$type": "dimension",
         "$value": "1536px",
         "$description": "Wide-desktop breakpoint."
+      }
+    },
+    "depth": {
+      "bg": {
+        "$type": "number",
+        "$value": 0,
+        "$description": "Z-axis depth: page background / hero washes (Part 21 §21.5)."
+      },
+      "section": {
+        "$type": "number",
+        "$value": 5,
+        "$description": "Z-axis depth: major page sections (matte; no glass)."
+      },
+      "card": {
+        "$type": "number",
+        "$value": 10,
+        "$description": "Z-axis depth: cards/panels (Standard Glass when opted in)."
+      },
+      "nav": {
+        "$type": "number",
+        "$value": 50,
+        "$description": "Z-axis depth: sticky top/side nav (Light Glass)."
+      },
+      "modal": {
+        "$type": "number",
+        "$value": 100,
+        "$description": "Z-axis depth: modals, dialogs, command palette (Heavy Glass)."
+      },
+      "toast": {
+        "$type": "number",
+        "$value": 200,
+        "$description": "Z-axis depth: toasts, popovers, dropdowns, tooltips (Heavy Glass)."
+      }
+    },
+    "glass": {
+      "whisper": {
+        "blur": {
+          "$type": "dimension",
+          "$value": "8px",
+          "$description": "Whisper Glass backdrop blur radius (ambient backgrounds/hero washes)."
+        },
+        "saturate": {
+          "$type": "number",
+          "$value": "110%",
+          "$description": "Whisper Glass backdrop saturation."
+        },
+        "opacity": {
+          "$type": "number",
+          "$value": "60%",
+          "$description": "Whisper Glass surface opacity (color-mix amount of base surface vs transparent)."
+        }
+      },
+      "light": {
+        "blur": {
+          "$type": "dimension",
+          "$value": "12px",
+          "$description": "Light Glass backdrop blur radius (sticky navs, sidebars)."
+        },
+        "saturate": {
+          "$type": "number",
+          "$value": "130%",
+          "$description": "Light Glass backdrop saturation."
+        },
+        "opacity": {
+          "$type": "number",
+          "$value": "70%",
+          "$description": "Light Glass surface opacity."
+        }
+      },
+      "standard": {
+        "blur": {
+          "$type": "dimension",
+          "$value": "16px",
+          "$description": "Standard Glass backdrop blur radius (sparse cards, AI overlays)."
+        },
+        "saturate": {
+          "$type": "number",
+          "$value": "150%",
+          "$description": "Standard Glass backdrop saturation."
+        },
+        "opacity": {
+          "$type": "number",
+          "$value": "80%",
+          "$description": "Standard Glass surface opacity."
+        }
+      },
+      "heavy": {
+        "blur": {
+          "$type": "dimension",
+          "$value": "24px",
+          "$description": "Heavy Glass backdrop blur radius (modals, popovers, toasts)."
+        },
+        "saturate": {
+          "$type": "number",
+          "$value": "180%",
+          "$description": "Heavy Glass backdrop saturation."
+        },
+        "opacity": {
+          "$type": "number",
+          "$value": "90%",
+          "$description": "Heavy Glass surface opacity."
+        }
       }
     }
   }

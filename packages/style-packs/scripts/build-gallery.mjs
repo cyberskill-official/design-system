@@ -28,6 +28,7 @@ const REPO_ROOT = resolve(SP_ROOT, "..", "..");
 
 const TOKENS_CSS = resolve(REPO_ROOT, "packages/tokens/dist/css/tokens.css");
 const REACT_CSS = resolve(REPO_ROOT, "packages/react/src/styles.css");
+const GLASS_CSS = resolve(REPO_ROOT, "packages/react/src/glass.css");
 const PACKS_CSS = resolve(SP_ROOT, "dist/style-packs.css");
 const REGISTRY = resolve(SP_ROOT, "dist/registry.json");
 const LOGO_DATA = resolve(REPO_ROOT, "packages/react/src/logo-data.js");
@@ -43,6 +44,7 @@ function read(p) {
 
 const tokensCss = read(TOKENS_CSS);
 const reactCss = read(REACT_CSS);
+const glassCss = read(GLASS_CSS);
 const packsCss = read(PACKS_CSS);
 const registry = JSON.parse(read(REGISTRY));
 const { CS_LOGO_VIEWBOX, CS_LOGO_MARK_INNER } = await import(`file://${LOGO_DATA}`);
@@ -138,6 +140,19 @@ function sampleComponents() {
         </section>
       </div>
     </section>
+
+    <section class="cs-sample cs-sample--wide" aria-label="Liquid Glass materials">
+      <h3 class="cs-sample__h">Liquid Glass materials (Part 21)</h3>
+      <div class="cs-glass-hero">
+        <div class="cs-glass-tiles">
+          <div class="cs-surface-whisper cs-glass-tile"><span>Whisper</span></div>
+          <div class="cs-surface-light cs-glass-tile"><span>Light</span></div>
+          <div class="cs-surface-standard cs-glass-tile"><span>Standard</span></div>
+          <div class="cs-surface-heavy cs-glass-tile"><span>Heavy</span></div>
+          <div class="cs-surface-solid cs-glass-tile"><span>Solid</span></div>
+        </div>
+      </div>
+    </section>
   </div>`;
 }
 
@@ -185,7 +200,9 @@ const html = `<!doctype html>
 ${tokensCss}
 /* ===== Layer 2: @cyberskill/react component classes ===== */
 ${reactCss}
-/* ===== Layer 3: @cyberskill/style-packs per-pack overrides ===== */
+/* ===== Layer 3: @cyberskill/react Liquid Glass material layer (Part 21) ===== */
+${glassCss}
+/* ===== Layer 4: @cyberskill/style-packs per-pack overrides ===== */
 ${packsCss}
 /* ===== Gallery chrome (not part of the design system) ===== */
 :root { --gx: 24px; }
@@ -217,6 +234,18 @@ main { padding: var(--gx); }
  * neutralize its viewport-centering positioning. */
 .cs-dialog-static .cs-dialog { position: static; inset: auto; left: auto; top: auto;
   transform: none; margin: 0; width: 100%; max-width: 560px; max-inline-size: 560px; }
+/* Glass materials demo: tinted hero so backdrop-filter has something to refract. */
+.cs-glass-hero { border-radius: 14px; padding: 22px;
+  background:
+    radial-gradient(120% 120% at 0% 0%, color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 38%, transparent), transparent 60%),
+    linear-gradient(135deg, color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 22%, transparent), color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 6%, transparent)),
+    var(--cs-color-surface-raised, #fbf4e9); }
+.cs-glass-tiles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.cs-glass-tile { min-height: 76px; border-radius: 10px; display: flex; align-items: flex-end;
+  padding: 10px; font-size: 12px; font-weight: 700; letter-spacing: .02em; }
+.cs-glass-tile span { background: color-mix(in oklab, var(--cs-color-surface-panel, #fff) 70%, transparent);
+  padding: 2px 6px; border-radius: 6px; }
+@media (max-width: 760px) { .cs-glass-tiles { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 760px) { .cs-sample-grid { grid-template-columns: 1fr; } }
 /* Contact sheet */
 .gx-sheet { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 18px;

@@ -14,6 +14,7 @@ class CSTokens {
   static const String cs_color_semantic_warning = "#92400E";
   static const String cs_color_semantic_info = "#1D4ED8";
   static const String cs_color_accent_ochre = "#F4BA17";
+  static const String cs_color_border_default = "#E7D9C6";
   static const String cs_space_0 = "0px";
   static const String cs_space_1 = "4px";
   static const String cs_space_2 = "8px";
@@ -57,4 +58,22 @@ class CSTokens {
   static const String cs_breakpoint_lg = "1024px";
   static const String cs_breakpoint_xl = "1280px";
   static const String cs_breakpoint_2xl = "1536px";
+  static const String cs_depth_bg = "0";
+  static const String cs_depth_section = "5";
+  static const String cs_depth_card = "10";
+  static const String cs_depth_nav = "50";
+  static const String cs_depth_modal = "100";
+  static const String cs_depth_toast = "200";
+  static const String cs_glass_whisper_blur = "8px";
+  static const String cs_glass_whisper_saturate = "110%";
+  static const String cs_glass_whisper_opacity = "60%";
+  static const String cs_glass_light_blur = "12px";
+  static const String cs_glass_light_saturate = "130%";
+  static const String cs_glass_light_opacity = "70%";
+  static const String cs_glass_standard_blur = "16px";
+  static const String cs_glass_standard_saturate = "150%";
+  static const String cs_glass_standard_opacity = "80%";
+  static const String cs_glass_heavy_blur = "24px";
+  static const String cs_glass_heavy_saturate = "180%";
+  static const String cs_glass_heavy_opacity = "90%";
 }
