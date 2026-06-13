@@ -66,6 +66,44 @@ npm run stylepacks:build && npm run stylepacks:verify   # (also part of `npm run
 
 `build.mjs` validates every manifest, enforces the two hard rules, and derives each pack's status from whether its CSS exists. `verify.mjs` audits each shipped pack individually — balanced CSS, correct scoping, no anchor override, focus never removed, 44px button floor, real system targeting (hard), plus on-brand reference and reduced-motion/transparency fallbacks (soft) — and writes a pass/fail report.
 
+## Live gallery (eyeball every pack)
+
+```bash
+node scripts/build-gallery.mjs            # → dist/gallery.html
+# from repo root:
+npm run stylepacks:gallery
+```
+
+`build-gallery.mjs` inlines the three CSS layers (tokens → react `.cs-*` → style-packs)
+plus the real sample components (Button, TextField, DataTable, AI disclosure, Human
+review gate, Dialog) into a single self-contained **`dist/gallery.html`**. Open it
+straight from the filesystem — no server. A dropdown (and ←/→ keys) flips a live canvas
+through all shipped packs, a **Dark** toggle exercises the opt-in `[data-theme]` layer,
+and **Contact sheet** renders every pack at once for side-by-side eyeballing. Query
+params drive it deterministically: `?pack=<id>`, `?theme=dark`, `?sheet=1`.
+
+## Screenshot regression (per pack)
+
+```bash
+npm run stylepacks:screenshot          # build gallery, diff each pack vs its baseline
+npm run stylepacks:screenshot:update   # re-capture baselines (after an intended change)
+```
+
+[Playwright](https://playwright.dev) loads `gallery.html?pack=<id>` for every shipped
+pack, screenshots the `#cs-gallery-canvas`, and diffs it against an in-repo baseline in
+**`__screenshots__/<id>.png`** (committed — the visual source of truth). A pack CSS change
+that moves more than ~1% of pixels fails the check, so unintended visual drift is caught
+in review. Config: `playwright.config.mjs`; spec: `test/screenshots.spec.mjs`.
+
+> **Baselines are environment-specific.** Anti-aliasing and font hinting differ across
+> OSes, so baselines captured on one platform diff on another. Capture and run the check
+> in the **same** environment — pin a runner (e.g. the official
+> `mcr.microsoft.com/playwright` image) in CI and regenerate baselines there with
+> `--update-snapshots`. The current baselines were generated on Linux. Scratch artifacts
+> go to the OS temp dir (not the repo); only `__screenshots__/` is committed.
+
+First-time setup: `npm i -D @playwright/test && npx playwright install chromium`.
+
 ## Authoring a new style
 
 The full, step-by-step guide for **humans and AI agents** — schema, the two hard laws, the accessibility floors, a checklist, and a worked example — is in **[`AUTHORING.md`](AUTHORING.md)**. In short:

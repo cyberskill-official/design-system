@@ -16,3 +16,12 @@ Thumbs.db
 
 # Package manager installs
 node_modules/
+
+# Playwright screenshot-regression working outputs (baselines under
+# packages/style-packs/__screenshots__/ ARE committed — do not ignore those).
+test-results/
+playwright-report/
+blob-report/
+.playwright/
+**/__screenshots__/**/*-actual.png
+**/__screenshots__/**/*-diff.png

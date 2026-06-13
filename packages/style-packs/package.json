@@ -11,6 +11,12 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "verify": "node scripts/verify.mjs",
+    "gallery": "node scripts/build-gallery.mjs",
+    "screenshot": "node scripts/build-gallery.mjs && playwright test -c playwright.config.mjs",
+    "screenshot:update": "node scripts/build-gallery.mjs && playwright test -c playwright.config.mjs --update-snapshots",
     "prepublishOnly": "node scripts/build.mjs && node scripts/verify.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0"
   }
 }
