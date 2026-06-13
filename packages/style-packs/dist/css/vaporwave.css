@@ -1,4 +1,4 @@
-/* Vaporwave — pastel-dusk surfaces, glitchy pink/cyan offset accents. */
+/* Vaporwave — pastel-dusk, pink/cyan checker floor, VHS title glitch, glitchy offsets. */
 [data-cs-style="vaporwave"] {
   --cs-radius-md: 10px;
   --cs-color-surface-page: #241A2E;
@@ -7,6 +7,9 @@
   --cs-color-text-primary: #FCE8D6;
   --cs-color-text-muted: #D6BBD2;
   --cs-component-textfield-border-default: #574168;
+  background-image:
+    conic-gradient(color-mix(in oklab,#ef79c0 20%, transparent) 0 25%, transparent 0 50%, color-mix(in oklab,#5ad1e0 20%, transparent) 0 75%, transparent 0);
+  background-size: 38px 38px;
 }
 [data-cs-style="vaporwave"] .cs-button--primary {
   background: var(--cs-color-brand-ochre, #f4ba17);
@@ -18,3 +21,4 @@
   border: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 40%, #ef79c0);
   box-shadow: 4px 4px 0 rgba(90,209,224,0.4);
 }
+[data-cs-style="vaporwave"] .cs-dialog__title { text-shadow: 2px 0 #ef79c0, -2px 0 #5ad1e0; }

@@ -1,4 +1,4 @@
-/* Cybercore — dark console surfaces, amber terminal glow, monospace. */
+/* Cybercore — dark console, CRT scanlines + grid, amber terminal glow, real monospace. */
 [data-cs-style="cybercore"] {
   --cs-radius-md: 4px;
   --cs-color-surface-page: #120F0A;
@@ -7,7 +7,11 @@
   --cs-color-text-primary: #F6E7C9;
   --cs-color-text-muted: #B8A57E;
   --cs-font-family-ui: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, "DejaVu Sans Mono", monospace;
   --cs-component-textfield-border-default: #4a3d24;
+  background-image:
+    repeating-linear-gradient(0deg, color-mix(in oklab, var(--cs-color-brand-ochre,#f4ba17) 7%, transparent) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, color-mix(in oklab, var(--cs-color-brand-ochre,#f4ba17) 4%, transparent) 0 1px, transparent 1px 22px);
 }
 [data-cs-style="cybercore"] .cs-button {
   border: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 55%, transparent);
@@ -19,9 +23,7 @@
   color: #1a1206;
   box-shadow: 0 0 14px color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 55%, transparent);
 }
-[data-cs-style="cybercore"] .cs-dialog {
-  border: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 45%, transparent);
-}
+[data-cs-style="cybercore"] .cs-dialog { border: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 45%, transparent); }
 [data-cs-style="cybercore"] .cs-table th { border-block-end: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 40%, transparent); text-transform: uppercase; }
 @media (prefers-reduced-motion: reduce) {
   [data-cs-style="cybercore"] .cs-button--primary { box-shadow: none; }
