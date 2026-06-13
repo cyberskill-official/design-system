@@ -18,6 +18,24 @@ Next-cycle items proposed but not yet accepted. Tracking is local-only — re-ru
 
 ---
 
+## [1.5.0] — 2026-06-14
+
+Minor, backward-compatible: per-style visual **deepening** of all 50 style packs — CSS-generated texture, type treatment, and signature motifs — plus two render-pipeline fixes. No anchor touched; APCA floors hold (light + dark).
+
+### Added
+- **Per-style deepening (all 50 packs).** Each pack gained style-specific depth expressed purely in CSS (no assets, no `@keyframes`): structured page textures (marble, damask, gingham, Ben-Day halftone, CRT scanlines, grids, crosshatch, concrete speckle, ikat, polka), type treatment (serif / mono / small-caps where the style calls for it), and signature `::after` motifs (Deco sunburst, Bauhaus circle·triangle·square, steampunk cogwheel, gothic pointed arch, kawaii face, kintsugi seam, synthwave neon-sun, anthropomorphic eyes, and more). Authored and audited one style at a time; grounded in each style's `coreElements` / `surfaceTreatment` (the article-aligned catalog).
+- Screenshot baselines held at **68** (50 light + 18 dark); every changed pack re-baselined and visually reviewed.
+
+### Fixed
+- **Type treatment now renders.** Packs set the real `font-family` property. Core never consumed the `--cs-font-family-ui` token, so prior serif / mono intents silently rendered as the default sans — affected brutalism, cybercore, utilitarian (mono) and luxury-typography, art-deco, victorian, art-nouveau, western-occult, gothic, steampunk, coquette, cottagecore, the academia packs (serif), among others. See `packages/style-packs/AUTHORING.md` §2 "Type treatment".
+- **Root page textures now render.** The gallery harness `.cs-canvas` uses `background-color` (not the `background` shorthand), so a pack's root `background-image` is no longer clobbered — matching real-world usage where `data-cs-style` sits on a page container.
+- **western** contrast: clay accent darkened `#B5532A → #743012` so clay-on-cream text meets APCA Lc ≥ 75 (was 65; surfaced during per-style audit, not by the heuristic verifier).
+
+### Verification
+- `verify:all` 50/50 pass, 0 warnings; 68/68 screenshot baselines pass; working tree clean.
+
+---
+
 ## [1.4.0] — 2026-06-14
 
 Minor, backward-compatible: per-style light/dark mode policy for all 50 style packs, plus dark-mode variants for every "both" pack. No anchor touched; APCA floors hold in both modes.

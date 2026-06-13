@@ -100,6 +100,13 @@ Components you can skin (selectors): `.cs-button` (+ `--primary/--secondary/--gh
 
 Render tokens safe to override per pack: `--cs-radius-sm/md/full`, `--cs-color-surface-page/panel/raised`, `--cs-color-text-primary/muted/accent`, `--cs-font-family-ui`, `--cs-component-textfield-border-default`, `--cs-component-button-primary-bg/fg` (e.g. dark themes flip the CTA). **Never** `--cs-color-brand-umber/ochre`.
 
+> **Type treatment — set the real `font-family`.** Core components do not yet consume `--cs-font-family-ui`, so setting only that token has *no visual effect*. To change a pack's font (serif, mono, …), set the real `font-family` property on the scope root — it inherits to every `.cs-*` component — and keep `--cs-font-family-ui` in sync as the token of record:
+> ```css
+> [data-cs-style="x"] { --cs-font-family-ui: Georgia, serif; font-family: Georgia, "Times New Roman", serif; }
+> ```
+
+> **Page texture — `background-image` on the scope root.** A pack may layer a CSS-generated texture (gradients only — marble, gingham, halftone, scanlines, grids…) on its root. The host element must paint its page with `background-color`, not the `background` shorthand (the gallery harness does this), or the shorthand clobbers the pack's `background-image`. Keep textures subtle enough that any text over them holds APCA Lc ≥ 75; put bold/high-contrast motifs on a `::after` block in a safe spot (e.g. under a title), never behind body text. The screenshot regression's `threshold: 0.2` / `maxDiffPixelRatio: 0.01` intentionally ignores very subtle textures — that's expected, not a failure.
+
 A style with `uiImplementable: false` and no CSS ships as **vocabulary** (a documented mood/prompting style) — that's valid; not every style needs a UI skin.
 
 ### Step 3 — Build + verify

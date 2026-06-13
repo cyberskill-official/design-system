@@ -2,6 +2,8 @@
 
 Style packs let one CyberSkill design system wear many visual styles — Glassmorphism, Brutalism, Bauhaus, Synthwave, and dozens more — **without ever changing the brand**. They answer the question: *"Can the design system flex into different styles while keeping the same gold + brown identity?"* Yes — through a separated, layered render system.
 
+Each pack is **deepened to its style**: beyond radii and borders it carries CSS-generated texture (marble, gingham, Ben-Day halftone, CRT scanlines, grids, crosshatch…), type treatment (serif / mono / small-caps where the style calls for it), and a signature motif (Deco sunburst, Bauhaus circle·triangle·square, steampunk cogwheel, kawaii face, kintsugi seam…) — all pure CSS, no assets, no `@keyframes`, with the Umber/Ochre anchors and APCA floors untouched. The technique is documented in `AUTHORING.md`; per-pack intent lives in `src/styles.catalog.json`.
+
 ## The model: core stays, style packs layer on top
 
 ```
