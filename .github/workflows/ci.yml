@@ -1,0 +1,78 @@
+name: CI
+
+# Hard gate: deterministic build/verify (no browser).
+# Soft gate: per-pack visual regression (browser) — non-blocking until the
+# CI platform's baselines (linux-x64) are seeded and committed. Seed them with
+# the manual "Run workflow" button (workflow_dispatch) → download the artifact →
+# commit packages/style-packs/__screenshots__/linux-x64/.
+#
+# Nothing here pushes or deploys; it only runs checks on push / PR.
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      seed_baselines:
+        description: "Regenerate linux-x64 screenshot baselines and upload them as an artifact"
+        type: boolean
+        default: false
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: build + verify (deterministic)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: npm run verify:all
+
+  visual:
+    name: per-pack screenshot regression
+    runs-on: ubuntu-latest
+    # Pinned image gives a stable linux-x64 render environment + system libs.
+    container: mcr.microsoft.com/playwright:v1.60.0-jammy
+    # Non-blocking until linux-x64 baselines are committed (see header).
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      # Match the browser build to the installed @playwright/test version.
+      - run: npx playwright install chromium
+      - name: Build gallery
+        run: npm run stylepacks:gallery
+      - name: Seed baselines (manual dispatch only)
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.seed_baselines }}
+        run: npx playwright test -c packages/style-packs/playwright.config.mjs --update-snapshots
+      - name: Compare against committed baselines
+        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.seed_baselines) }}
+        run: npx playwright test -c packages/style-packs/playwright.config.mjs
+      - name: Upload newly seeded baselines
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.seed_baselines }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: style-pack-baselines-linux-x64
+          path: packages/style-packs/__screenshots__/linux-x64/
+          if-no-files-found: error
+      - name: Upload diff report on failure
+        if: ${{ failure() || !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: |
+            /tmp/cs-style-packs-pw/
+          if-no-files-found: ignore

@@ -12,11 +12,18 @@ import { defineConfig, devices } from "@playwright/test";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
+// Pixel baselines depend on the rendering platform AND CPU arch (anti-aliasing
+// and font hinting differ between e.g. linux-arm64, linux-x64, darwin-arm64).
+// Scope baselines by `${platform}-${arch}` so each environment keeps its own set
+// and they never silently clobber each other. Whoever runs `:screenshot:update`
+// on a given platform seeds that platform's folder.
+const SNAP_ENV = `${process.platform}-${process.arch}`;
+
 export default defineConfig({
   testDir: "./test",
-  // Baselines (the source of truth) live IN-REPO:
-  //   packages/style-packs/__screenshots__/<arg>.png
-  snapshotPathTemplate: "{testDir}/../__screenshots__/{arg}{ext}",
+  // Baselines (the source of truth) live IN-REPO, per platform:
+  //   packages/style-packs/__screenshots__/<platform>-<arch>/<arg>.png
+  snapshotPathTemplate: `{testDir}/../__screenshots__/${SNAP_ENV}/{arg}{ext}`,
   // Scratch run artifacts (actual/diff PNGs, traces) go to OS tmp, never into
   // the repo — Playwright wipes outputDir on each run, and some synced/managed
   // filesystems block deletes, which would otherwise stall the run.

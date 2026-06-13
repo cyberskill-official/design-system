@@ -91,16 +91,20 @@ npm run stylepacks:screenshot:update   # re-capture baselines (after an intended
 
 [Playwright](https://playwright.dev) loads `gallery.html?pack=<id>` for every shipped
 pack, screenshots the `#cs-gallery-canvas`, and diffs it against an in-repo baseline in
-**`__screenshots__/<id>.png`** (committed — the visual source of truth). A pack CSS change
-that moves more than ~1% of pixels fails the check, so unintended visual drift is caught
-in review. Config: `playwright.config.mjs`; spec: `test/screenshots.spec.mjs`.
+**`__screenshots__/<platform>-<arch>/<id>.png`** (committed — the visual source of
+truth). A pack CSS change that moves more than ~1% of pixels fails the check, so
+unintended visual drift is caught in review. Config: `playwright.config.mjs`; spec:
+`test/screenshots.spec.mjs`.
 
-> **Baselines are environment-specific.** Anti-aliasing and font hinting differ across
-> OSes, so baselines captured on one platform diff on another. Capture and run the check
-> in the **same** environment — pin a runner (e.g. the official
-> `mcr.microsoft.com/playwright` image) in CI and regenerate baselines there with
-> `--update-snapshots`. The current baselines were generated on Linux. Scratch artifacts
-> go to the OS temp dir (not the repo); only `__screenshots__/` is committed.
+> **Baselines are platform-specific.** Anti-aliasing and font hinting differ across OS
+> *and* CPU arch, so baselines are stored per environment under
+> `__screenshots__/<platform>-<arch>/` (e.g. `linux-arm64/`, `linux-x64/`,
+> `darwin-arm64/`). Each environment seeds its own set the first time you run
+> `:screenshot:update` there — they never clobber each other. CI should run in a pinned
+> image (the workflow uses `mcr.microsoft.com/playwright`, which is `linux-x64`) and that
+> platform's baselines must be seeded once (see `.github/workflows/ci.yml`). The set
+> committed today is `linux-arm64` (generated in the dev sandbox). Scratch artifacts go
+> to the OS temp dir; only `__screenshots__/` is committed.
 
 First-time setup: `npm i -D @playwright/test && npx playwright install chromium`.
 
