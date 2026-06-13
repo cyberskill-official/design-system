@@ -1,4 +1,4 @@
-/* Neo-Brutalism — bold flat color, hard offset shadows, near-square, usable. */
+/* Neo-Brutalism — bold flat color, hard offset shadows, big type, near-square, usable. */
 [data-cs-style="neo-brutalism"] {
   --cs-radius-sm: 2px;
   --cs-radius-md: 6px;
@@ -8,24 +8,14 @@
   box-shadow: 3px 3px 0 var(--cs-color-brand-umber, #45210e);
   font-weight: 800;
 }
-[data-cs-style="neo-brutalism"] .cs-button--primary {
-  background: var(--cs-color-brand-ochre, #f4ba17);
-  color: var(--cs-color-brand-umber, #45210e);
-}
-[data-cs-style="neo-brutalism"] .cs-button:active {
-  transform: translate(3px, 3px);
-  box-shadow: 0 0 0 var(--cs-color-brand-umber, #45210e);
-}
+[data-cs-style="neo-brutalism"] .cs-button--primary { background: var(--cs-color-brand-ochre, #f4ba17); color: var(--cs-color-brand-umber, #45210e); }
+[data-cs-style="neo-brutalism"] .cs-button:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--cs-color-brand-umber, #45210e); }
 [data-cs-style="neo-brutalism"] .cs-dialog,
 [data-cs-style="neo-brutalism"] .cs-review-gate,
 [data-cs-style="neo-brutalism"] .cs-ai-disclosure__panel {
   border: 2px solid var(--cs-color-brand-umber, #45210e);
   box-shadow: 6px 6px 0 var(--cs-color-brand-umber, #45210e);
 }
-[data-cs-style="neo-brutalism"] .cs-field__control {
-  border: 2px solid var(--cs-color-brand-umber, #45210e);
-}
-[data-cs-style="neo-brutalism"] .cs-ai-disclosure__badge {
-  border: 2px solid var(--cs-color-brand-umber, #45210e);
-  box-shadow: 2px 2px 0 var(--cs-color-brand-umber, #45210e);
-}
+[data-cs-style="neo-brutalism"] .cs-dialog__title { font-weight: 900; letter-spacing: -0.01em; }
+[data-cs-style="neo-brutalism"] .cs-field__control { border: 2px solid var(--cs-color-brand-umber, #45210e); }
+[data-cs-style="neo-brutalism"] .cs-ai-disclosure__badge { border: 2px solid var(--cs-color-brand-umber, #45210e); box-shadow: 2px 2px 0 var(--cs-color-brand-umber, #45210e); }

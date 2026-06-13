@@ -1888,51 +1888,65 @@
 [data-cs-style="light-academia"] .cs-table th { border-block-end: 2px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 30%, transparent); }
 
 /* ===== Wabi-Sabi (wabi-sabi) ===== */
-/* Wabi-Sabi — matte earthen surfaces, organic asymmetry, quiet negative space. */
+/* Wabi-Sabi — matte earthen ground, organic asymmetry, kintsugi gold seam, quiet space. */
 [data-cs-style="wabi-sabi"] {
   --cs-radius-md: 14px;
   --cs-color-surface-page: #EFE9DD;
   --cs-color-surface-panel: #F6F1E7;
+  background-image:
+    radial-gradient(100% 80% at 30% 10%, color-mix(in oklab,#45210e 5%, transparent), transparent 55%),
+    radial-gradient(90% 70% at 82% 90%, color-mix(in oklab,#45210e 4%, transparent), transparent 55%);
 }
 [data-cs-style="wabi-sabi"] .cs-button { border-radius: 16px 12px 18px 10px; }
-[data-cs-style="wabi-sabi"] .cs-dialog {
-  border-radius: 18px 14px 20px 12px;
-  box-shadow: 0 10px 36px rgba(69, 33, 14, 0.10);
+[data-cs-style="wabi-sabi"] .cs-dialog { border-radius: 18px 14px 20px 12px; box-shadow: 0 10px 36px rgba(69, 33, 14, 0.10); }
+[data-cs-style="wabi-sabi"] .cs-dialog__title::after {
+  content:""; display:block; width:42px; height:4px; margin-top:8px;
+  background: var(--cs-color-brand-ochre,#f4ba17);
+  clip-path: polygon(0 40%, 18% 0, 38% 60%, 58% 10%, 78% 70%, 100% 25%, 100% 100%, 0 100%);
 }
 [data-cs-style="wabi-sabi"] .cs-field__control { border-radius: 12px 9px 13px 8px; }
 [data-cs-style="wabi-sabi"] .cs-ai-disclosure__panel { border-radius: 14px 10px 16px 9px; }
 
 /* ===== Western/Desert (western) ===== */
-/* Western/Desert — terracotta palette, rugged textures, display serif. */
+/* Western/Desert — terracotta, denim-weave ground, rugged display serif small-caps. */
 [data-cs-style="western"] {
   --cs-radius-md: 6px;
   --cs-color-surface-page: #F3E4D2;
   --cs-color-surface-panel: #FAEFE0;
   --cs-font-family-ui: Georgia, serif;
-  --cs-western-clay: #B5532A;
+  font-family: Georgia, "Times New Roman", serif;
+  --cs-western-clay: #743012;
+  background-image:
+    repeating-linear-gradient(45deg, color-mix(in oklab,var(--cs-western-clay,#B5532A) 7%, transparent) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(-45deg, color-mix(in oklab,var(--cs-western-clay,#B5532A) 5%, transparent) 0 1px, transparent 1px 9px);
 }
 [data-cs-style="western"] .cs-button--primary { background: var(--cs-western-clay); color: #ffffff; }
 [data-cs-style="western"] .cs-button--secondary { border-color: var(--cs-western-clay); color: var(--cs-western-clay); }
 [data-cs-style="western"] .cs-dialog,
-[data-cs-style="western"] .cs-review-gate {
-  border: 2px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 50%, var(--cs-western-clay));
-}
+[data-cs-style="western"] .cs-review-gate { border: 2px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 50%, var(--cs-western-clay)); }
+[data-cs-style="western"] .cs-dialog__title { font-variant: small-caps; letter-spacing: 0.05em; }
 
 /* ===== Nautical (nautical) ===== */
-/* Nautical — navy + cream, brass accents, rope/stripe dividers. */
+/* Nautical — navy + cream stripes, brass accents, rope title divider. */
 [data-cs-style="nautical"] {
   --cs-radius-md: 8px;
   --cs-color-surface-page: #F4F1E9;
   --cs-color-text-accent: #1D3A5F;
   --cs-nautical-navy: #1D3A5F;
+  background-image: repeating-linear-gradient(0deg, color-mix(in oklab,var(--cs-nautical-navy,#1D3A5F) 7%, transparent) 0 2px, transparent 2px 17px);
 }
 [data-cs-style="nautical"] .cs-button--primary { background: var(--cs-nautical-navy); color: #ffffff; }
 [data-cs-style="nautical"] .cs-button--secondary { border-color: var(--cs-nautical-navy); color: var(--cs-nautical-navy); }
 [data-cs-style="nautical"] .cs-dialog { border-top: 4px solid var(--cs-color-brand-ochre, #f4ba17); }
+[data-cs-style="nautical"] .cs-dialog__title::after {
+  content:""; display:block; height:5px; margin-top:7px;
+  background: repeating-linear-gradient(90deg, var(--cs-nautical-navy,#1D3A5F) 0 8px, transparent 8px 15px);
+  -webkit-mask-image: linear-gradient(90deg,#000 0 72%, transparent); mask-image: linear-gradient(90deg,#000 0 72%, transparent);
+}
 [data-cs-style="nautical"] .cs-table th { border-block-end: 2px solid var(--cs-nautical-navy); }
 
 /* ===== Rebus (rebus) ===== */
-/* Rebus — clean layout, pictographic accent rails. */
+/* Rebus — clean layout, pictographic accent rails + glyph. */
 [data-cs-style="rebus"] {
   --cs-radius-md: 10px;
   --cs-color-surface-page: #FBF6EC;
@@ -1941,9 +1955,15 @@
 [data-cs-style="rebus"] .cs-review-gate { border-inline-start: 5px solid var(--cs-color-brand-ochre, #f4ba17); }
 [data-cs-style="rebus"] .cs-button--secondary { border-color: color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 40%, transparent); }
 [data-cs-style="rebus"] .cs-ai-disclosure__panel { border-inline-start: 4px solid var(--cs-color-brand-ochre, #f4ba17); }
+[data-cs-style="rebus"] .cs-dialog__title::after {
+  content:""; display:block; width:16px; height:16px; margin-top:6px;
+  background:
+    radial-gradient(circle at 50% 50%, var(--cs-color-brand-umber,#45210e) 0 3px, transparent 3.5px),
+    radial-gradient(circle at 50% 50%, transparent 0 6px, var(--cs-color-brand-umber,#45210e) 6px 7.5px, transparent 8px);
+}
 
 /* ===== Glassmorphism (glassmorphism) ===== */
-/* Glassmorphism — frosted translucent panels over a solid content scrim.
+/* Glassmorphism — frosted translucent panels over a colorful scrim.
  * Grounded specs: blur 10-20px + saturate(150%); text sits on a ~30% opaque film,
  * never on raw 10% glass; promote to its own layer; never animate blur.
  * Pairs with Part 21 Liquid Glass. Anchors + APCA floors unchanged. */
@@ -1951,6 +1971,10 @@
   --cs-radius-md: 16px;
   --cs-glass-tint: color-mix(in oklab, var(--cs-color-surface-panel, #fff) 72%, transparent);
   --cs-glass-edge: color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 14%, transparent);
+  background-image:
+    radial-gradient(58% 48% at 14% 12%, color-mix(in oklab,#6f8bd6 36%, transparent), transparent 60%),
+    radial-gradient(54% 46% at 86% 78%, color-mix(in oklab,var(--cs-color-brand-ochre,#f4ba17) 30%, transparent), transparent 58%),
+    radial-gradient(60% 50% at 60% 108%, color-mix(in oklab,#58c0a8 30%, transparent), transparent 60%);
 }
 [data-cs-style="glassmorphism"] .cs-dialog,
 [data-cs-style="glassmorphism"] .cs-ai-disclosure__panel,
@@ -1985,28 +2009,21 @@
 }
 
 /* ===== Modular Type (modular-type) ===== */
-/* Modular Type — letterforms-as-blocks, strict type grid, bold, square. */
-[data-cs-style="modular-type"] { --cs-radius-md: 0px; }
-[data-cs-style="modular-type"] .cs-button {
-  border-radius: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 800;
+/* Modular Type — letterforms-as-blocks, strict type grid ground, bold, square. */
+[data-cs-style="modular-type"] {
+  --cs-radius-md: 0px;
+  background-image:
+    repeating-linear-gradient(0deg, color-mix(in oklab,var(--cs-color-text-primary,#45210e) 6%, transparent) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(90deg, color-mix(in oklab,var(--cs-color-text-primary,#45210e) 6%, transparent) 0 1px, transparent 1px 22px);
 }
-[data-cs-style="modular-type"] .cs-button--primary {
-  background: var(--cs-color-brand-umber, #45210e);
-  color: var(--cs-color-text-inverse, #fff);
-}
+[data-cs-style="modular-type"] .cs-button { border-radius: 0; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 800; }
+[data-cs-style="modular-type"] .cs-button--primary { background: var(--cs-color-brand-umber, #45210e); color: var(--cs-color-text-inverse, #fff); }
 [data-cs-style="modular-type"] .cs-dialog,
 [data-cs-style="modular-type"] .cs-field__control { border-radius: 0; }
-[data-cs-style="modular-type"] .cs-dialog__title {
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-weight: 800;
-}
+[data-cs-style="modular-type"] .cs-dialog__title { text-transform: uppercase; letter-spacing: 0.04em; font-weight: 800; }
 
 /* ===== Neo-Brutalism (neo-brutalism) ===== */
-/* Neo-Brutalism — bold flat color, hard offset shadows, near-square, usable. */
+/* Neo-Brutalism — bold flat color, hard offset shadows, big type, near-square, usable. */
 [data-cs-style="neo-brutalism"] {
   --cs-radius-sm: 2px;
   --cs-radius-md: 6px;
@@ -2016,27 +2033,17 @@
   box-shadow: 3px 3px 0 var(--cs-color-brand-umber, #45210e);
   font-weight: 800;
 }
-[data-cs-style="neo-brutalism"] .cs-button--primary {
-  background: var(--cs-color-brand-ochre, #f4ba17);
-  color: var(--cs-color-brand-umber, #45210e);
-}
-[data-cs-style="neo-brutalism"] .cs-button:active {
-  transform: translate(3px, 3px);
-  box-shadow: 0 0 0 var(--cs-color-brand-umber, #45210e);
-}
+[data-cs-style="neo-brutalism"] .cs-button--primary { background: var(--cs-color-brand-ochre, #f4ba17); color: var(--cs-color-brand-umber, #45210e); }
+[data-cs-style="neo-brutalism"] .cs-button:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--cs-color-brand-umber, #45210e); }
 [data-cs-style="neo-brutalism"] .cs-dialog,
 [data-cs-style="neo-brutalism"] .cs-review-gate,
 [data-cs-style="neo-brutalism"] .cs-ai-disclosure__panel {
   border: 2px solid var(--cs-color-brand-umber, #45210e);
   box-shadow: 6px 6px 0 var(--cs-color-brand-umber, #45210e);
 }
-[data-cs-style="neo-brutalism"] .cs-field__control {
-  border: 2px solid var(--cs-color-brand-umber, #45210e);
-}
-[data-cs-style="neo-brutalism"] .cs-ai-disclosure__badge {
-  border: 2px solid var(--cs-color-brand-umber, #45210e);
-  box-shadow: 2px 2px 0 var(--cs-color-brand-umber, #45210e);
-}
+[data-cs-style="neo-brutalism"] .cs-dialog__title { font-weight: 900; letter-spacing: -0.01em; }
+[data-cs-style="neo-brutalism"] .cs-field__control { border: 2px solid var(--cs-color-brand-umber, #45210e); }
+[data-cs-style="neo-brutalism"] .cs-ai-disclosure__badge { border: 2px solid var(--cs-color-brand-umber, #45210e); box-shadow: 2px 2px 0 var(--cs-color-brand-umber, #45210e); }
 
 
 /* ===== Gallery chrome (not part of the design system) ===== */

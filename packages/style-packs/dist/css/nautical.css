@@ -1,11 +1,17 @@
-/* Nautical — navy + cream, brass accents, rope/stripe dividers. */
+/* Nautical — navy + cream stripes, brass accents, rope title divider. */
 [data-cs-style="nautical"] {
   --cs-radius-md: 8px;
   --cs-color-surface-page: #F4F1E9;
   --cs-color-text-accent: #1D3A5F;
   --cs-nautical-navy: #1D3A5F;
+  background-image: repeating-linear-gradient(0deg, color-mix(in oklab,var(--cs-nautical-navy,#1D3A5F) 7%, transparent) 0 2px, transparent 2px 17px);
 }
 [data-cs-style="nautical"] .cs-button--primary { background: var(--cs-nautical-navy); color: #ffffff; }
 [data-cs-style="nautical"] .cs-button--secondary { border-color: var(--cs-nautical-navy); color: var(--cs-nautical-navy); }
 [data-cs-style="nautical"] .cs-dialog { border-top: 4px solid var(--cs-color-brand-ochre, #f4ba17); }
+[data-cs-style="nautical"] .cs-dialog__title::after {
+  content:""; display:block; height:5px; margin-top:7px;
+  background: repeating-linear-gradient(90deg, var(--cs-nautical-navy,#1D3A5F) 0 8px, transparent 8px 15px);
+  -webkit-mask-image: linear-gradient(90deg,#000 0 72%, transparent); mask-image: linear-gradient(90deg,#000 0 72%, transparent);
+}
 [data-cs-style="nautical"] .cs-table th { border-block-end: 2px solid var(--cs-nautical-navy); }

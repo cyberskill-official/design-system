@@ -1,4 +1,4 @@
-/* Glassmorphism — frosted translucent panels over a solid content scrim.
+/* Glassmorphism — frosted translucent panels over a colorful scrim.
  * Grounded specs: blur 10-20px + saturate(150%); text sits on a ~30% opaque film,
  * never on raw 10% glass; promote to its own layer; never animate blur.
  * Pairs with Part 21 Liquid Glass. Anchors + APCA floors unchanged. */
@@ -6,6 +6,10 @@
   --cs-radius-md: 16px;
   --cs-glass-tint: color-mix(in oklab, var(--cs-color-surface-panel, #fff) 72%, transparent);
   --cs-glass-edge: color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 14%, transparent);
+  background-image:
+    radial-gradient(58% 48% at 14% 12%, color-mix(in oklab,#6f8bd6 36%, transparent), transparent 60%),
+    radial-gradient(54% 46% at 86% 78%, color-mix(in oklab,var(--cs-color-brand-ochre,#f4ba17) 30%, transparent), transparent 58%),
+    radial-gradient(60% 50% at 60% 108%, color-mix(in oklab,#58c0a8 30%, transparent), transparent 60%);
 }
 [data-cs-style="glassmorphism"] .cs-dialog,
 [data-cs-style="glassmorphism"] .cs-ai-disclosure__panel,
