@@ -1,21 +1,22 @@
-/* Bauhaus — strict grid, primary geometry, heavy sans, zero ornament. */
+/* Bauhaus — strict grid, primary circle/triangle/square motif, heavy sans, zero ornament. */
 [data-cs-style="bauhaus"] {
   --cs-radius-sm: 0px;
   --cs-radius-md: 0px;
+  background-image:
+    repeating-linear-gradient(0deg, color-mix(in oklab,var(--cs-color-text-primary,#45210e) 6%, transparent) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(90deg, color-mix(in oklab,var(--cs-color-text-primary,#45210e) 6%, transparent) 0 1px, transparent 1px 24px);
 }
-[data-cs-style="bauhaus"] .cs-button {
-  border-radius: 0;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-}
-[data-cs-style="bauhaus"] .cs-button--primary {
-  background: var(--cs-color-brand-ochre, #f4ba17);
-  color: var(--cs-color-brand-umber, #45210e);
-}
+[data-cs-style="bauhaus"] .cs-button { border-radius: 0; font-weight: 800; letter-spacing: 0.01em; }
+[data-cs-style="bauhaus"] .cs-button--primary { background: var(--cs-color-brand-ochre, #f4ba17); color: var(--cs-color-brand-umber, #45210e); }
 [data-cs-style="bauhaus"] .cs-button--lg { border-radius: 999px 0 0 999px; }
 [data-cs-style="bauhaus"] .cs-dialog,
 [data-cs-style="bauhaus"] .cs-field__control { border-radius: 0; }
 [data-cs-style="bauhaus"] .cs-dialog { border-top: 6px solid var(--cs-color-brand-ochre, #f4ba17); }
-[data-cs-style="bauhaus"] .cs-table th {
-  border-block-end: 3px solid var(--cs-color-brand-umber, #45210e);
+[data-cs-style="bauhaus"] .cs-dialog__title::after {
+  content:""; display:block; height:14px; margin-top:8px;
+  background:
+    linear-gradient(var(--cs-color-brand-umber,#45210e) 0 0) 0 0/14px 14px no-repeat,
+    radial-gradient(circle at 7px 7px, var(--cs-color-brand-ochre,#f4ba17) 0 7px, transparent 7.5px) 20px 0/14px 14px no-repeat,
+    conic-gradient(from 0deg at 0% 100%, var(--cs-color-brand-umber,#45210e) 0 25%, transparent 25%) 40px 0/14px 14px no-repeat;
 }
+[data-cs-style="bauhaus"] .cs-table th { border-block-end: 3px solid var(--cs-color-brand-umber, #45210e); }

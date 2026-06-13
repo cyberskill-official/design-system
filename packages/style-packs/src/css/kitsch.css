@@ -1,12 +1,16 @@
-/* Kitsch — maximalist, glossy, deliberately loud (kept legible). */
+/* Kitsch — maximalist clashing ochre/umber bands + dots, glossy plastic, dashed, loud (legible). */
 [data-cs-style="kitsch"] {
   --cs-radius-md: 999px;
   --cs-color-surface-page: #FBEFD9;
+  background-image:
+    repeating-linear-gradient(45deg, color-mix(in oklab,var(--cs-color-brand-ochre,#f4ba17) 45%, transparent) 0 11px, color-mix(in oklab,var(--cs-color-brand-umber,#45210e) 16%, transparent) 11px 22px),
+    radial-gradient(circle at 50% 50%, color-mix(in oklab,var(--cs-color-brand-umber,#45210e) 18%, transparent) 0 3px, transparent 4px);
+  background-size: auto, 26px 26px;
 }
 [data-cs-style="kitsch"] .cs-button {
   border-radius: 999px;
   border: 2px dashed var(--cs-color-brand-umber, #45210e);
-  background-image: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0));
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.62), rgba(255,255,255,0));
 }
 [data-cs-style="kitsch"] .cs-dialog { border: 2px dashed var(--cs-color-brand-ochre, #f4ba17); }
 [data-cs-style="kitsch"] .cs-ai-disclosure__badge { border-radius: 999px; border: 1px dashed var(--cs-color-brand-umber, #45210e); }

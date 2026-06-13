@@ -1,9 +1,10 @@
-/* Brutalism — raw, hard-edged, exposed structure. Zero blur, square, mono, flat. */
+/* Brutalism — raw, hard-edged, exposed structure. Zero blur, square, real mono, flat. */
 [data-cs-style="brutalism"] {
   --cs-radius-sm: 0px;
   --cs-radius-md: 0px;
   --cs-radius-full: 0px;
   --cs-font-family-ui: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, "DejaVu Sans Mono", monospace;
 }
 [data-cs-style="brutalism"] .cs-button {
   border: 2px solid var(--cs-color-brand-umber, #45210e);
@@ -12,10 +13,7 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
-[data-cs-style="brutalism"] .cs-button:active {
-  box-shadow: 0 0 0 var(--cs-color-brand-umber, #45210e);
-  transform: translate(4px, 4px);
-}
+[data-cs-style="brutalism"] .cs-button:active { box-shadow: 0 0 0 var(--cs-color-brand-umber, #45210e); transform: translate(4px, 4px); }
 [data-cs-style="brutalism"] .cs-dialog,
 [data-cs-style="brutalism"] .cs-review-gate,
 [data-cs-style="brutalism"] .cs-ai-disclosure__panel {
@@ -23,12 +21,6 @@
   border-radius: 0;
   box-shadow: 8px 8px 0 var(--cs-color-brand-umber, #45210e);
 }
-[data-cs-style="brutalism"] .cs-field__control {
-  border: 2px solid var(--cs-color-brand-umber, #45210e);
-  border-radius: 0;
-}
+[data-cs-style="brutalism"] .cs-field__control { border: 2px solid var(--cs-color-brand-umber, #45210e); border-radius: 0; }
 [data-cs-style="brutalism"] .cs-ai-disclosure__badge { border-radius: 0; }
-[data-cs-style="brutalism"] .cs-table th {
-  border-block-end: 2px solid var(--cs-color-brand-umber, #45210e);
-  text-transform: uppercase;
-}
+[data-cs-style="brutalism"] .cs-table th { border-block-end: 2px solid var(--cs-color-brand-umber, #45210e); text-transform: uppercase; }
