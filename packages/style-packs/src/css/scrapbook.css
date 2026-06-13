@@ -1,8 +1,9 @@
-/* Scrapbook — taped paper, layered, handmade warmth. */
+/* Scrapbook — taped paper, layered offsets, washi-tape title, handmade warmth. */
 [data-cs-style="scrapbook"] {
   --cs-radius-md: 4px;
   --cs-color-surface-page: #F7F1E4;
   --cs-color-surface-panel: #FDF8EC;
+  background-image: repeating-linear-gradient(90deg, color-mix(in oklab,#45210e 3%, transparent) 0 1px, transparent 1px 6px);
 }
 [data-cs-style="scrapbook"] .cs-dialog,
 [data-cs-style="scrapbook"] .cs-review-gate {
@@ -11,3 +12,8 @@
 }
 [data-cs-style="scrapbook"] .cs-ai-disclosure__panel { box-shadow: 4px 4px 0 color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 40%, transparent); }
 [data-cs-style="scrapbook"] .cs-button { border: 1px dashed color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 45%, transparent); }
+[data-cs-style="scrapbook"] .cs-dialog__title::after {
+  content:""; display:block; width:48px; height:14px; margin-top:7px; transform: rotate(-5deg);
+  background: color-mix(in oklab, var(--cs-color-brand-ochre,#f4ba17) 42%, transparent);
+  border-inline: 2px solid color-mix(in oklab,var(--cs-color-brand-umber,#45210e) 28%, transparent);
+}

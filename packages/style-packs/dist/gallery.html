@@ -1709,26 +1709,35 @@
 }
 
 /* ===== Coquette (coquette) ===== */
-/* Coquette — soft serif, ribbon-soft borders, delicate. */
+/* Coquette — dainty serif, ribbon motif, pearl-dot ground, soft pink. */
 [data-cs-style="coquette"] {
   --cs-radius-md: 18px;
   --cs-color-surface-page: #FBF1EE;
   --cs-color-surface-panel: #FEF8F6;
   --cs-font-family-ui: Georgia, serif;
+  font-family: Georgia, "Times New Roman", serif;
   --cs-coquette-pink: #e8a3b8;
+  background-image: radial-gradient(circle at 50% 50%, color-mix(in oklab,var(--cs-coquette-pink,#e8a3b8) 34%, transparent) 0 2px, transparent 2.6px);
+  background-size: 19px 19px;
 }
-[data-cs-style="coquette"] .cs-button {
-  border-radius: 999px;
-  border: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 30%, var(--cs-coquette-pink));
-}
+[data-cs-style="coquette"] .cs-button { border-radius: 999px; border: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 30%, var(--cs-coquette-pink)); }
 [data-cs-style="coquette"] .cs-dialog { border-radius: 18px; border: 1px solid color-mix(in oklab, var(--cs-coquette-pink) 50%, transparent); }
+[data-cs-style="coquette"] .cs-dialog__title { font-style: italic; }
+[data-cs-style="coquette"] .cs-dialog__title::after {
+  content:""; display:block; width:46px; height:9px; margin-top:7px;
+  background: var(--cs-coquette-pink,#e8a3b8);
+  clip-path: polygon(0 0, 100% 0, 86% 50%, 100% 100%, 0 100%, 14% 50%);
+}
 [data-cs-style="coquette"] .cs-field__control { border-radius: 14px; }
 
 /* ===== Surrealism (surrealism) ===== */
-/* Surrealism — dreamlike depth, soft scale play, long shadow. */
+/* Surrealism — dreamlike depth, soft scale play, long shadow, dream wash. */
 [data-cs-style="surrealism"] {
   --cs-radius-md: 24px;
   --cs-color-surface-page: #F6F0E6;
+  background-image:
+    radial-gradient(70% 60% at 24% 18%, color-mix(in oklab,#9bd0c0 20%, transparent), transparent 60%),
+    radial-gradient(60% 52% at 82% 78%, color-mix(in oklab,#d8b6e0 20%, transparent), transparent 58%);
 }
 [data-cs-style="surrealism"] .cs-dialog {
   border-radius: 40px 12px 40px 12px;
@@ -1738,9 +1747,7 @@
 [data-cs-style="surrealism"] .cs-ai-disclosure__panel { border-radius: 28px 8px 28px 8px; }
 [data-cs-style="surrealism"] .cs-field__control { border-radius: 18px 6px 18px 6px; }
 
-/* Dark mode (modes: [light, dark]). Re-pins surfaces to a surrealism-appropriate dark
-   ground; the pack's accent/border treatment follows via var(). Text/border use
-   the warm-dark theme values for APCA parity. */
+/* Dark mode (modes: [light, dark]). */
 [data-cs-style="surrealism"][data-theme="dark"],
 [data-theme="dark"] [data-cs-style="surrealism"] {
   --cs-color-surface-page: #14121C;
@@ -1752,11 +1759,15 @@
 }
 
 /* ===== Utilitarian (utilitarian) ===== */
-/* Utilitarian — dense functional grid, monospace data, zero ornament. */
+/* Utilitarian — dense functional grid, real monospace data, zero ornament. */
 [data-cs-style="utilitarian"] {
   --cs-radius-sm: 2px;
   --cs-radius-md: 2px;
   --cs-font-family-ui: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, "DejaVu Sans Mono", monospace;
+  background-image:
+    repeating-linear-gradient(0deg, color-mix(in oklab,var(--cs-color-text-primary,#45210e) 6%, transparent) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(90deg, color-mix(in oklab,var(--cs-color-text-primary,#45210e) 6%, transparent) 0 1px, transparent 1px 22px);
 }
 [data-cs-style="utilitarian"] .cs-button {
   border-radius: 2px;
@@ -1768,32 +1779,33 @@
 [data-cs-style="utilitarian"] .cs-dialog,
 [data-cs-style="utilitarian"] .cs-ai-disclosure__badge { border-radius: 2px; }
 [data-cs-style="utilitarian"] .cs-table th,
-[data-cs-style="utilitarian"] .cs-table td {
-  border-block-end: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 30%, transparent);
-}
+[data-cs-style="utilitarian"] .cs-table td { border-block-end: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 30%, transparent); }
 [data-cs-style="utilitarian"] .cs-table th { text-transform: uppercase; letter-spacing: 0.03em; }
 
 /* ===== Mid-Century (mid-century) ===== */
-/* Mid-Century — warm retro palette, organic-geometric, clean sans. */
+/* Mid-Century — warm retro palette, angled corners, atomic starburst motif, clean sans. */
 [data-cs-style="mid-century"] {
   --cs-radius-md: 6px;
   --cs-color-surface-page: #FBF3E3;
   --cs-color-surface-panel: #FFFBF2;
 }
 [data-cs-style="mid-century"] .cs-button { border-radius: 6px 6px 6px 0; }
-[data-cs-style="mid-century"] .cs-button--primary {
-  background: var(--cs-color-brand-ochre, #f4ba17);
-  color: var(--cs-color-brand-umber, #45210e);
-}
+[data-cs-style="mid-century"] .cs-button--primary { background: var(--cs-color-brand-ochre, #f4ba17); color: var(--cs-color-brand-umber, #45210e); }
 [data-cs-style="mid-century"] .cs-dialog { border-radius: 8px 8px 8px 0; }
+[data-cs-style="mid-century"] .cs-dialog__title::after {
+  content:""; display:block; width:22px; height:11px; margin-top:7px;
+  background: repeating-conic-gradient(from 90deg at 50% 100%, var(--cs-color-brand-umber,#45210e) 0 2deg, transparent 2deg 13deg);
+  -webkit-mask-image: radial-gradient(closest-side at 50% 100%, #000 0 92%, transparent); mask-image: radial-gradient(closest-side at 50% 100%, #000 0 92%, transparent);
+}
 [data-cs-style="mid-century"] .cs-field__control { border-radius: 6px 6px 6px 0; }
 
 /* ===== Scrapbook (scrapbook) ===== */
-/* Scrapbook — taped paper, layered, handmade warmth. */
+/* Scrapbook — taped paper, layered offsets, washi-tape title, handmade warmth. */
 [data-cs-style="scrapbook"] {
   --cs-radius-md: 4px;
   --cs-color-surface-page: #F7F1E4;
   --cs-color-surface-panel: #FDF8EC;
+  background-image: repeating-linear-gradient(90deg, color-mix(in oklab,#45210e 3%, transparent) 0 1px, transparent 1px 6px);
 }
 [data-cs-style="scrapbook"] .cs-dialog,
 [data-cs-style="scrapbook"] .cs-review-gate {
@@ -1802,26 +1814,28 @@
 }
 [data-cs-style="scrapbook"] .cs-ai-disclosure__panel { box-shadow: 4px 4px 0 color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 40%, transparent); }
 [data-cs-style="scrapbook"] .cs-button { border: 1px dashed color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 45%, transparent); }
+[data-cs-style="scrapbook"] .cs-dialog__title::after {
+  content:""; display:block; width:48px; height:14px; margin-top:7px; transform: rotate(-5deg);
+  background: color-mix(in oklab, var(--cs-color-brand-ochre,#f4ba17) 42%, transparent);
+  border-inline: 2px solid color-mix(in oklab,var(--cs-color-brand-umber,#45210e) 28%, transparent);
+}
 
 /* ===== Frutiger Aero (frutiger-aero) ===== */
-/* Frutiger Aero — glossy "Web 2.0" gloss-as-light, aqua sheen, bubble highlight,
- * rounded, skeuomorphic depth. Gradients behave like light, not decoration. */
+/* Frutiger Aero — glossy Web 2.0 light, aqua sky ground, bubble highlights, rounded. */
 [data-cs-style="frutiger-aero"] {
   --cs-radius-md: 14px;
   --cs-aero-aqua: #2fa8e0;
+  background-image:
+    linear-gradient(180deg, color-mix(in oklab,var(--cs-aero-aqua,#2fa8e0) 16%, transparent), transparent 38%),
+    radial-gradient(60% 40% at 50% 0%, rgba(255,255,255,0.55), transparent 62%);
 }
 [data-cs-style="frutiger-aero"] .cs-button {
   border-radius: 999px;
   background-image: linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0) 48%);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), inset 0 -2px 4px rgba(31,19,11,0.12), 0 3px 8px rgba(31,19,11,0.18);
 }
-[data-cs-style="frutiger-aero"] .cs-button--primary {
-  background-color: var(--cs-color-brand-ochre, #f4ba17);
-  color: var(--cs-color-brand-umber, #45210e);
-}
-[data-cs-style="frutiger-aero"] .cs-button--secondary {
-  border-color: color-mix(in oklab, var(--cs-aero-aqua) 50%, transparent);
-}
+[data-cs-style="frutiger-aero"] .cs-button--primary { background-color: var(--cs-color-brand-ochre, #f4ba17); color: var(--cs-color-brand-umber, #45210e); }
+[data-cs-style="frutiger-aero"] .cs-button--secondary { border-color: color-mix(in oklab, var(--cs-aero-aqua) 50%, transparent); }
 [data-cs-style="frutiger-aero"] .cs-dialog,
 [data-cs-style="frutiger-aero"] .cs-ai-disclosure__panel {
   border-radius: 16px;
@@ -1830,12 +1844,10 @@
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 12px 34px rgba(31,19,11,0.16);
 }
 [data-cs-style="frutiger-aero"] .cs-field__control { border-radius: 10px; }
-[data-cs-style="frutiger-aero"] .cs-ai-disclosure__badge {
-  background-image: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0));
-}
+[data-cs-style="frutiger-aero"] .cs-ai-disclosure__badge { background-image: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0)); }
 
 /* ===== Dark Academia (dark-academia) ===== */
-/* Dark Academia — dark scholarly surfaces, gold serif accents. */
+/* Dark Academia — dark scholarly ground, candlelight glow, gold serif accents. */
 [data-cs-style="dark-academia"] {
   --cs-radius-md: 4px;
   --cs-color-surface-page: #1E1814;
@@ -1845,30 +1857,32 @@
   --cs-color-text-muted: #C2B099;
   --cs-color-text-accent: #f4ba17;
   --cs-font-family-ui: Georgia, serif;
+  font-family: Georgia, "Times New Roman", serif;
   --cs-component-textfield-border-default: #5a4636;
+  background-image:
+    radial-gradient(70% 55% at 50% -8%, color-mix(in oklab,var(--cs-color-brand-ochre,#f4ba17) 12%, transparent), transparent 55%),
+    radial-gradient(140% 110% at 50% 42%, transparent 30%, color-mix(in oklab,#000 38%, transparent) 100%);
 }
-[data-cs-style="dark-academia"] .cs-button--primary {
-  background: var(--cs-color-brand-ochre, #f4ba17);
-  color: #241206;
-}
+[data-cs-style="dark-academia"] .cs-button--primary { background: var(--cs-color-brand-ochre, #f4ba17); color: #241206; }
 [data-cs-style="dark-academia"] .cs-button--secondary { color: var(--cs-color-text-primary, #efe6d6); border-color: color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 45%, transparent); }
 [data-cs-style="dark-academia"] .cs-dialog,
-[data-cs-style="dark-academia"] .cs-review-gate {
-  border: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 40%, transparent);
-}
+[data-cs-style="dark-academia"] .cs-review-gate { border: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 40%, transparent); }
 [data-cs-style="dark-academia"] .cs-dialog__title { font-style: italic; }
 
 /* ===== Light Academia (light-academia) ===== */
-/* Light Academia — cream surfaces, classic serif, warm light. */
+/* Light Academia — cream linen ground, classic serif, warm sunlight. */
 [data-cs-style="light-academia"] {
   --cs-radius-md: 6px;
   --cs-color-surface-page: #F6EFE0;
   --cs-color-surface-panel: #FBF6EA;
   --cs-font-family-ui: Georgia, serif;
+  font-family: Georgia, "Times New Roman", serif;
+  background-image:
+    radial-gradient(80% 60% at 80% -10%, color-mix(in oklab,var(--cs-color-brand-ochre,#f4ba17) 12%, transparent), transparent 55%),
+    repeating-linear-gradient(0deg, color-mix(in oklab,var(--cs-color-brand-umber,#45210e) 4%, transparent) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, color-mix(in oklab,var(--cs-color-brand-umber,#45210e) 4%, transparent) 0 1px, transparent 1px 4px);
 }
-[data-cs-style="light-academia"] .cs-button--secondary {
-  border-color: color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 40%, transparent);
-}
+[data-cs-style="light-academia"] .cs-button--secondary { border-color: color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 40%, transparent); }
 [data-cs-style="light-academia"] .cs-dialog { box-shadow: 0 14px 44px rgba(69, 33, 14, 0.12); }
 [data-cs-style="light-academia"] .cs-dialog__title { font-style: italic; }
 [data-cs-style="light-academia"] .cs-table th { border-block-end: 2px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 30%, transparent); }

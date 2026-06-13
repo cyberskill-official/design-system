@@ -1,8 +1,12 @@
-/* Utilitarian — dense functional grid, monospace data, zero ornament. */
+/* Utilitarian — dense functional grid, real monospace data, zero ornament. */
 [data-cs-style="utilitarian"] {
   --cs-radius-sm: 2px;
   --cs-radius-md: 2px;
   --cs-font-family-ui: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, "DejaVu Sans Mono", monospace;
+  background-image:
+    repeating-linear-gradient(0deg, color-mix(in oklab,var(--cs-color-text-primary,#45210e) 6%, transparent) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(90deg, color-mix(in oklab,var(--cs-color-text-primary,#45210e) 6%, transparent) 0 1px, transparent 1px 22px);
 }
 [data-cs-style="utilitarian"] .cs-button {
   border-radius: 2px;
@@ -14,7 +18,5 @@
 [data-cs-style="utilitarian"] .cs-dialog,
 [data-cs-style="utilitarian"] .cs-ai-disclosure__badge { border-radius: 2px; }
 [data-cs-style="utilitarian"] .cs-table th,
-[data-cs-style="utilitarian"] .cs-table td {
-  border-block-end: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 30%, transparent);
-}
+[data-cs-style="utilitarian"] .cs-table td { border-block-end: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 30%, transparent); }
 [data-cs-style="utilitarian"] .cs-table th { text-transform: uppercase; letter-spacing: 0.03em; }
