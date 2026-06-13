@@ -1,8 +1,13 @@
-/* Baroque — ornate gold frames, dramatic layered shadow, serif. */
+/* Baroque — ornate gold frames, dramatic layered shadow, faint damask ground, gold-leaf sheen, serif. */
 [data-cs-style="baroque"] {
   --cs-radius-md: 4px;
   --cs-color-surface-page: #FBF4E6;
   --cs-font-family-ui: Georgia, serif;
+  font-family: Georgia, serif;
+  /* faint damask diaper — diagonal lattice of low-alpha gold, page only */
+  background-image:
+    repeating-linear-gradient(45deg, color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 7%, transparent) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(-45deg, color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 7%, transparent) 0 1px, transparent 1px 22px);
 }
 [data-cs-style="baroque"] .cs-dialog,
 [data-cs-style="baroque"] .cs-ai-disclosure__panel,
@@ -12,10 +17,23 @@
 }
 [data-cs-style="baroque"] .cs-button {
   border: 1px solid var(--cs-color-brand-ochre, #f4ba17);
-  background-image: linear-gradient(180deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.45), rgba(69,33,14,0.08));
 }
 [data-cs-style="baroque"] .cs-button--primary { color: var(--cs-color-brand-umber, #45210e); }
-[data-cs-style="baroque"] .cs-dialog__title { font-style: italic; }
+[data-cs-style="baroque"] .cs-dialog__title { font-style: italic; letter-spacing: 0.01em; }
+/* centered gold flourish beneath the title — a struck rule with a lozenge node */
+[data-cs-style="baroque"] .cs-dialog__title::after {
+  content: "";
+  display: block;
+  height: 8px;
+  margin-top: 6px;
+  background:
+    radial-gradient(circle at 50% 50%, var(--cs-color-brand-ochre, #f4ba17) 0 2.5px, transparent 3px),
+    linear-gradient(90deg, transparent, color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 70%, transparent) 30% 70%, transparent);
+  background-repeat: no-repeat;
+  background-position: center, center;
+  background-size: 100% 100%, 100% 1px;
+}
 
 /* Dark mode (modes: [light, dark]). Re-pins surfaces to a baroque-appropriate dark
    ground; the pack's accent/border treatment follows via var(). Text/border use

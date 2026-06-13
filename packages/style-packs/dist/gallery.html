@@ -593,12 +593,17 @@
 /* Each block applies only under its [data-cs-style] scope. Brand anchors are never overridden. */
 
 /* ===== Neoclassical (neoclassical) ===== */
-/* Neoclassical — matte ivory, hairline gold rules, serif, symmetry. */
+/* Neoclassical — matte ivory + faint marble veining, fluted gold cornice, serif small-caps, symmetry. */
 [data-cs-style="neoclassical"] {
   --cs-radius-md: 2px;
   --cs-color-surface-page: #FBF6EC;
   --cs-color-surface-panel: #FFFDF7;
   --cs-font-family-ui: Georgia, "Times New Roman", serif;
+  font-family: Georgia, "Times New Roman", serif;
+  /* low-chroma marble mottling — page only, sits behind panels so text contrast is untouched */
+  background-image:
+    radial-gradient(120% 80% at 18% 0%, color-mix(in oklab, #45210e 5%, transparent), transparent 60%),
+    radial-gradient(100% 70% at 88% 100%, color-mix(in oklab, #45210e 4%, transparent), transparent 55%);
 }
 [data-cs-style="neoclassical"] .cs-button {
   border-radius: 2px;
@@ -612,15 +617,37 @@
   border: 1px solid var(--cs-color-brand-ochre, #f4ba17);
   box-shadow: inset 0 0 0 4px var(--cs-color-surface-panel, #fff), inset 0 0 0 5px color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 35%, transparent), 0 14px 44px rgba(69, 33, 14, 0.12);
 }
+/* fluted-column cornice: fine symmetric vertical gold flutes as a hairline band under the title */
+[data-cs-style="neoclassical"] .cs-dialog__title {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+}
+[data-cs-style="neoclassical"] .cs-dialog__title::after {
+  content: "";
+  display: block;
+  height: 5px;
+  margin-top: 6px;
+  background:
+    repeating-linear-gradient(90deg,
+      color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 60%, transparent) 0 1px,
+      transparent 1px 6px);
+  -webkit-mask-image: linear-gradient(90deg, #000 0 62%, transparent);
+  mask-image: linear-gradient(90deg, #000 0 62%, transparent);
+}
 [data-cs-style="neoclassical"] .cs-field__control { border-radius: 2px; }
 [data-cs-style="neoclassical"] .cs-table th { border-block-end: 2px solid var(--cs-color-brand-ochre, #f4ba17); letter-spacing: 0.06em; text-transform: uppercase; }
 
 /* ===== Baroque (baroque) ===== */
-/* Baroque — ornate gold frames, dramatic layered shadow, serif. */
+/* Baroque — ornate gold frames, dramatic layered shadow, faint damask ground, gold-leaf sheen, serif. */
 [data-cs-style="baroque"] {
   --cs-radius-md: 4px;
   --cs-color-surface-page: #FBF4E6;
   --cs-font-family-ui: Georgia, serif;
+  font-family: Georgia, serif;
+  /* faint damask diaper — diagonal lattice of low-alpha gold, page only */
+  background-image:
+    repeating-linear-gradient(45deg, color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 7%, transparent) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(-45deg, color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 7%, transparent) 0 1px, transparent 1px 22px);
 }
 [data-cs-style="baroque"] .cs-dialog,
 [data-cs-style="baroque"] .cs-ai-disclosure__panel,
@@ -630,10 +657,23 @@
 }
 [data-cs-style="baroque"] .cs-button {
   border: 1px solid var(--cs-color-brand-ochre, #f4ba17);
-  background-image: linear-gradient(180deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.45), rgba(69,33,14,0.08));
 }
 [data-cs-style="baroque"] .cs-button--primary { color: var(--cs-color-brand-umber, #45210e); }
-[data-cs-style="baroque"] .cs-dialog__title { font-style: italic; }
+[data-cs-style="baroque"] .cs-dialog__title { font-style: italic; letter-spacing: 0.01em; }
+/* centered gold flourish beneath the title — a struck rule with a lozenge node */
+[data-cs-style="baroque"] .cs-dialog__title::after {
+  content: "";
+  display: block;
+  height: 8px;
+  margin-top: 6px;
+  background:
+    radial-gradient(circle at 50% 50%, var(--cs-color-brand-ochre, #f4ba17) 0 2.5px, transparent 3px),
+    linear-gradient(90deg, transparent, color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 70%, transparent) 30% 70%, transparent);
+  background-repeat: no-repeat;
+  background-position: center, center;
+  background-size: 100% 100%, 100% 1px;
+}
 
 /* Dark mode (modes: [light, dark]). Re-pins surfaces to a baroque-appropriate dark
    ground; the pack's accent/border treatment follows via var(). Text/border use
@@ -649,28 +689,46 @@
 }
 
 /* ===== Aurora (aurora) ===== */
-/* Aurora — soft iridescent gradient that reads like ambient light; low-blur glass. */
+/* Aurora — iridescent ambient wash, organic waves, low-blur glass, soft glow accents. */
 [data-cs-style="aurora"] {
   --cs-radius-md: 18px;
   --cs-color-surface-page: #FBF7F0;
+  /* soft aurora wash — overlapping low-alpha hue fields read as ambient light, page only */
+  background-image:
+    radial-gradient(80% 60% at 12% 8%, color-mix(in oklab, #6f8bd6 16%, transparent), transparent 60%),
+    radial-gradient(70% 55% at 88% 18%, color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 14%, transparent), transparent 58%),
+    radial-gradient(90% 70% at 70% 100%, color-mix(in oklab, #58c0a8 13%, transparent), transparent 62%);
 }
 [data-cs-style="aurora"] .cs-dialog,
-[data-cs-style="aurora"] .cs-ai-disclosure__panel {
-  border: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 22%, transparent);
+[data-cs-style="aurora"] .cs-ai-disclosure__panel,
+[data-cs-style="aurora"] .cs-review-gate {
+  border: 1px solid color-mix(in oklab, #6f8bd6 30%, transparent);
   background-image: linear-gradient(135deg,
-    color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 14%, var(--cs-color-surface-panel, #fff)),
-    color-mix(in oklab, #6f8bd6 10%, var(--cs-color-surface-panel, #fff)));
+    color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 18%, var(--cs-color-surface-panel, #fff)),
+    color-mix(in oklab, #6f8bd6 16%, var(--cs-color-surface-panel, #fff)) 55%,
+    color-mix(in oklab, #58c0a8 16%, var(--cs-color-surface-panel, #fff)));
   -webkit-backdrop-filter: blur(12px) saturate(1.4);
   backdrop-filter: blur(12px) saturate(1.4);
-  box-shadow: 0 18px 60px rgba(31, 19, 11, 0.12);
+  box-shadow: 0 18px 60px rgba(31, 19, 11, 0.12), 0 0 0 1px color-mix(in oklab, #6f8bd6 12%, transparent);
+}
+/* iridescent signature rule beneath the title */
+[data-cs-style="aurora"] .cs-dialog__title::after {
+  content: "";
+  display: block;
+  height: 3px;
+  margin-top: 8px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #6f8bd6, var(--cs-color-brand-ochre, #f4ba17) 50%, #58c0a8);
 }
 [data-cs-style="aurora"] .cs-button--primary {
   background-image: linear-gradient(120deg, var(--cs-color-brand-ochre, #f4ba17), color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 70%, #f0a64f));
   color: var(--cs-color-brand-umber, #45210e);
+  box-shadow: 0 4px 18px color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 40%, transparent);
 }
 @media (prefers-reduced-transparency: reduce) {
   [data-cs-style="aurora"] .cs-dialog,
-  [data-cs-style="aurora"] .cs-ai-disclosure__panel {
+  [data-cs-style="aurora"] .cs-ai-disclosure__panel,
+  [data-cs-style="aurora"] .cs-review-gate {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
     background-image: none;
@@ -692,16 +750,38 @@
 }
 
 /* ===== Ethereal (ethereal) ===== */
-/* Ethereal — airy whitespace, feathered shadows, low-chroma tints, gauzy glass. */
+/* Ethereal — airy whitespace, gauzy pastel overlays, feathered shadows, low-chroma, minimal serif. */
 [data-cs-style="ethereal"] {
   --cs-radius-md: 20px;
   --cs-color-surface-page: #FCFAF6;
+  --cs-font-family-ui: Georgia, "Times New Roman", serif;
+  font-family: Georgia, "Times New Roman", serif;
+  /* gauzy low-chroma veils — barely-there pastel fields, page only */
+  background-image:
+    radial-gradient(70% 60% at 22% 12%, color-mix(in oklab, #d9c2e6 26%, transparent), transparent 62%),
+    radial-gradient(66% 56% at 82% 80%, color-mix(in oklab, #c2dbe6 24%, transparent), transparent 60%);
+}
+[data-cs-style="ethereal"] .cs-dialog__title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+[data-cs-style="ethereal"] .cs-dialog__title::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 2px;
+  margin-top: 8px;
+  border-radius: 2px;
+  background: color-mix(in oklab, #b9a0d6 75%, transparent);
 }
 [data-cs-style="ethereal"] .cs-dialog,
 [data-cs-style="ethereal"] .cs-ai-disclosure__panel {
-  border: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 16%, transparent);
+  border: 1px solid color-mix(in oklab, #b9a0d6 28%, transparent);
   box-shadow: 0 30px 80px rgba(69, 33, 14, 0.10), 0 4px 12px rgba(69, 33, 14, 0.05);
-  background: color-mix(in oklab, var(--cs-color-surface-panel, #fff) 80%, transparent);
+  background-image: linear-gradient(160deg,
+    color-mix(in oklab, #d9c2e6 14%, var(--cs-color-surface-panel, #fff)),
+    color-mix(in oklab, #c2dbe6 12%, var(--cs-color-surface-panel, #fff)));
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
@@ -714,15 +794,22 @@
   [data-cs-style="ethereal"] .cs-ai-disclosure__panel {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
+    background-image: none;
     background: var(--cs-color-surface-panel, #fff);
   }
 }
 
 /* ===== Filigree (filigree) ===== */
-/* Filigree — fine gold linework, lace double-borders. */
+/* Filigree — fine gold linework, lace double-borders, delicate crosshatch ground, monogram serif. */
 [data-cs-style="filigree"] {
   --cs-radius-md: 6px;
   --cs-color-surface-page: #FCF7EE;
+  --cs-font-family-ui: "Iowan Old Style", Georgia, serif;
+  font-family: "Iowan Old Style", Georgia, serif;
+  /* lace crosshatch — fine low-alpha gold lattice, page only */
+  background-image:
+    repeating-linear-gradient(45deg, color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 9%, transparent) 0 0.75px, transparent 0.75px 11px),
+    repeating-linear-gradient(-45deg, color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 9%, transparent) 0 0.75px, transparent 0.75px 11px);
 }
 [data-cs-style="filigree"] .cs-button {
   border: 1px solid var(--cs-color-brand-ochre, #f4ba17);
@@ -732,6 +819,10 @@
 [data-cs-style="filigree"] .cs-ai-disclosure__panel {
   border: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 60%, transparent);
   box-shadow: inset 0 0 0 3px var(--cs-color-surface-panel, #fff), inset 0 0 0 4px color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 30%, transparent);
+}
+[data-cs-style="filigree"] .cs-dialog__title {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
 }
 [data-cs-style="filigree"] .cs-field__control { border-color: color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 55%, transparent); }
 
@@ -1766,7 +1857,7 @@ body { margin: 0; background: var(--cs-color-surface-page, #fffdf8); color: var(
 .gx-bar .gx-count { font-variant-numeric: tabular-nums; font-size: 13px; opacity: .7; min-width: 6ch; }
 .gx-bar [aria-pressed="true"] { background: var(--cs-color-brand-ochre, #f4ba17); border-color: #45210e; }
 main { padding: var(--gx); }
-.cs-canvas { background: var(--cs-color-surface-page, #fffdf8); color: var(--cs-color-text-primary, #45210e);
+.cs-canvas { background-color: var(--cs-color-surface-page, #fffdf8); color: var(--cs-color-text-primary, #45210e);
   border: 1px solid color-mix(in oklab, #45210e 14%, transparent); border-radius: 16px; padding: 28px;
   max-width: 1100px; margin: 0 auto; }
 .cs-canvas__brand { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }

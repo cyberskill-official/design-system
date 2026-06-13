@@ -1,9 +1,14 @@
-/* Neoclassical — matte ivory, hairline gold rules, serif, symmetry. */
+/* Neoclassical — matte ivory + faint marble veining, fluted gold cornice, serif small-caps, symmetry. */
 [data-cs-style="neoclassical"] {
   --cs-radius-md: 2px;
   --cs-color-surface-page: #FBF6EC;
   --cs-color-surface-panel: #FFFDF7;
   --cs-font-family-ui: Georgia, "Times New Roman", serif;
+  font-family: Georgia, "Times New Roman", serif;
+  /* low-chroma marble mottling — page only, sits behind panels so text contrast is untouched */
+  background-image:
+    radial-gradient(120% 80% at 18% 0%, color-mix(in oklab, #45210e 5%, transparent), transparent 60%),
+    radial-gradient(100% 70% at 88% 100%, color-mix(in oklab, #45210e 4%, transparent), transparent 55%);
 }
 [data-cs-style="neoclassical"] .cs-button {
   border-radius: 2px;
@@ -16,6 +21,23 @@
 [data-cs-style="neoclassical"] .cs-review-gate {
   border: 1px solid var(--cs-color-brand-ochre, #f4ba17);
   box-shadow: inset 0 0 0 4px var(--cs-color-surface-panel, #fff), inset 0 0 0 5px color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 35%, transparent), 0 14px 44px rgba(69, 33, 14, 0.12);
+}
+/* fluted-column cornice: fine symmetric vertical gold flutes as a hairline band under the title */
+[data-cs-style="neoclassical"] .cs-dialog__title {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+}
+[data-cs-style="neoclassical"] .cs-dialog__title::after {
+  content: "";
+  display: block;
+  height: 5px;
+  margin-top: 6px;
+  background:
+    repeating-linear-gradient(90deg,
+      color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 60%, transparent) 0 1px,
+      transparent 1px 6px);
+  -webkit-mask-image: linear-gradient(90deg, #000 0 62%, transparent);
+  mask-image: linear-gradient(90deg, #000 0 62%, transparent);
 }
 [data-cs-style="neoclassical"] .cs-field__control { border-radius: 2px; }
 [data-cs-style="neoclassical"] .cs-table th { border-block-end: 2px solid var(--cs-color-brand-ochre, #f4ba17); letter-spacing: 0.06em; text-transform: uppercase; }

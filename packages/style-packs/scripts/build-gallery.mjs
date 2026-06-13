@@ -219,7 +219,7 @@ body { margin: 0; background: var(--cs-color-surface-page, #fffdf8); color: var(
 .gx-bar .gx-count { font-variant-numeric: tabular-nums; font-size: 13px; opacity: .7; min-width: 6ch; }
 .gx-bar [aria-pressed="true"] { background: var(--cs-color-brand-ochre, #f4ba17); border-color: #45210e; }
 main { padding: var(--gx); }
-.cs-canvas { background: var(--cs-color-surface-page, #fffdf8); color: var(--cs-color-text-primary, #45210e);
+.cs-canvas { background-color: var(--cs-color-surface-page, #fffdf8); color: var(--cs-color-text-primary, #45210e);
   border: 1px solid color-mix(in oklab, #45210e 14%, transparent); border-radius: 16px; padding: 28px;
   max-width: 1100px; margin: 0 auto; }
 .cs-canvas__brand { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }

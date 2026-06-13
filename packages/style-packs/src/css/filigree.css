@@ -1,7 +1,13 @@
-/* Filigree — fine gold linework, lace double-borders. */
+/* Filigree — fine gold linework, lace double-borders, delicate crosshatch ground, monogram serif. */
 [data-cs-style="filigree"] {
   --cs-radius-md: 6px;
   --cs-color-surface-page: #FCF7EE;
+  --cs-font-family-ui: "Iowan Old Style", Georgia, serif;
+  font-family: "Iowan Old Style", Georgia, serif;
+  /* lace crosshatch — fine low-alpha gold lattice, page only */
+  background-image:
+    repeating-linear-gradient(45deg, color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 9%, transparent) 0 0.75px, transparent 0.75px 11px),
+    repeating-linear-gradient(-45deg, color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 9%, transparent) 0 0.75px, transparent 0.75px 11px);
 }
 [data-cs-style="filigree"] .cs-button {
   border: 1px solid var(--cs-color-brand-ochre, #f4ba17);
@@ -11,5 +17,9 @@
 [data-cs-style="filigree"] .cs-ai-disclosure__panel {
   border: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 60%, transparent);
   box-shadow: inset 0 0 0 3px var(--cs-color-surface-panel, #fff), inset 0 0 0 4px color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 30%, transparent);
+}
+[data-cs-style="filigree"] .cs-dialog__title {
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
 }
 [data-cs-style="filigree"] .cs-field__control { border-color: color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 55%, transparent); }
