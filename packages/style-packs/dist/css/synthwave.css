@@ -1,0 +1,27 @@
+/* Synthwave — neon sunset glow on a warm-dark grid (pairs with data-theme="dark"). */
+[data-cs-style="synthwave"] {
+  --cs-radius-md: 8px;
+  --cs-color-surface-page: #1A1024;
+  --cs-color-surface-panel: #241634;
+  --cs-color-surface-raised: #2E1C42;
+  --cs-color-text-primary: #FDEFD2;
+  --cs-color-text-muted: #D7B8E0;
+  --cs-component-textfield-border-default: #5a3f6e;
+}
+[data-cs-style="synthwave"] .cs-button--primary {
+  background-image: linear-gradient(120deg, var(--cs-color-brand-ochre, #f4ba17), #ef5da8);
+  color: #241006;
+  box-shadow: 0 0 16px color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 70%, transparent);
+}
+[data-cs-style="synthwave"] .cs-button--secondary {
+  color: var(--cs-color-text-primary, #fdefd2);
+  border-color: color-mix(in oklab, #ef5da8 60%, transparent);
+}
+[data-cs-style="synthwave"] .cs-dialog,
+[data-cs-style="synthwave"] .cs-ai-disclosure__panel {
+  border: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 40%, #ef5da8);
+  box-shadow: 0 0 40px rgba(239, 93, 168, 0.22);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-cs-style="synthwave"] .cs-button--primary { box-shadow: none; }
+}

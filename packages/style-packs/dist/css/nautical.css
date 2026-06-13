@@ -1,0 +1,11 @@
+/* Nautical — navy + cream, brass accents, rope/stripe dividers. */
+[data-cs-style="nautical"] {
+  --cs-radius-md: 8px;
+  --cs-color-surface-page: #F4F1E9;
+  --cs-color-text-accent: #1D3A5F;
+  --cs-nautical-navy: #1D3A5F;
+}
+[data-cs-style="nautical"] .cs-button--primary { background: var(--cs-nautical-navy); color: #ffffff; }
+[data-cs-style="nautical"] .cs-button--secondary { border-color: var(--cs-nautical-navy); color: var(--cs-nautical-navy); }
+[data-cs-style="nautical"] .cs-dialog { border-top: 4px solid var(--cs-color-brand-ochre, #f4ba17); }
+[data-cs-style="nautical"] .cs-table th { border-block-end: 2px solid var(--cs-nautical-navy); }

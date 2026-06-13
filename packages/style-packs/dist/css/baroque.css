@@ -1,0 +1,18 @@
+/* Baroque — ornate gold frames, dramatic layered shadow, serif. */
+[data-cs-style="baroque"] {
+  --cs-radius-md: 4px;
+  --cs-color-surface-page: #FBF4E6;
+  --cs-font-family-ui: Georgia, serif;
+}
+[data-cs-style="baroque"] .cs-dialog,
+[data-cs-style="baroque"] .cs-ai-disclosure__panel,
+[data-cs-style="baroque"] .cs-review-gate {
+  border: 2px solid var(--cs-color-brand-ochre, #f4ba17);
+  box-shadow: 0 0 0 4px var(--cs-color-surface-panel, #fff), 0 0 0 5px var(--cs-color-brand-ochre, #f4ba17), 0 24px 60px rgba(69, 33, 14, 0.28);
+}
+[data-cs-style="baroque"] .cs-button {
+  border: 1px solid var(--cs-color-brand-ochre, #f4ba17);
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
+}
+[data-cs-style="baroque"] .cs-button--primary { color: var(--cs-color-brand-umber, #45210e); }
+[data-cs-style="baroque"] .cs-dialog__title { font-style: italic; }

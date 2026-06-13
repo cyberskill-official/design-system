@@ -1,17 +1,26 @@
+/*
+ * @cyberskill/react base styles.
+ * Light is the DEFAULT theme. Dark + system are opt-in via the [data-theme] attribute
+ * set on a root element (e.g. <html data-theme="dark"> or data-theme="system").
+ * Spacing/padding is token-driven so downstream products inherit comfortable defaults.
+ */
+
 .cs-button {
   align-items: center;
   background: var(--cs-component-button-primary-bg, #45210e);
   border: 1px solid transparent;
-  border-radius: var(--cs-radius-md, 8px);
-  color: var(--cs-component-button-primary-fg, #fffaf0);
+  border-radius: var(--cs-component-button-radius, var(--cs-radius-md, 8px));
+  color: var(--cs-component-button-primary-fg, #ffffff);
   display: inline-flex;
   font: inherit;
   font-weight: 700;
-  gap: 0.5rem;
+  gap: var(--cs-component-button-gap, 0.5rem);
   justify-content: center;
-  min-height: 2.75rem;
-  min-width: 2.75rem;
-  padding: 0.625rem 1rem;
+  line-height: 1.2;
+  min-height: var(--cs-component-button-md-minHeight, 44px);
+  min-width: var(--cs-component-button-md-minHeight, 44px);
+  padding-block: var(--cs-component-button-md-paddingY, 12px);
+  padding-inline: var(--cs-component-button-md-paddingX, 20px);
 }
 
 .cs-button:focus-visible,
@@ -22,7 +31,7 @@
 }
 
 .cs-button--secondary {
-  background: var(--cs-color-surface-panel, #fffaf0);
+  background: var(--cs-color-surface-panel, #ffffff);
   border-color: var(--cs-color-brand-umber, #45210e);
   color: var(--cs-color-brand-umber, #45210e);
 }
@@ -33,18 +42,25 @@
 }
 
 .cs-button--danger {
-  background: var(--cs-color-semantic-danger, #a92323);
+  background: var(--cs-color-semantic-danger, #b42318);
+  color: var(--cs-color-text-inverse, #ffffff);
 }
 
 .cs-button--sm {
-  min-height: 2.25rem;
-  min-width: 2.25rem;
-  padding: 0.375rem 0.75rem;
+  min-height: var(--cs-component-button-sm-minHeight, 36px);
+  min-width: var(--cs-component-button-sm-minHeight, 36px);
+  padding-block: var(--cs-component-button-sm-paddingY, 8px);
+  padding-inline: var(--cs-component-button-sm-paddingX, 14px);
 }
 
 .cs-button--lg {
-  min-height: 3rem;
-  padding: 0.75rem 1.25rem;
+  min-height: var(--cs-component-button-lg-minHeight, 52px);
+  padding-block: var(--cs-component-button-lg-paddingY, 16px);
+  padding-inline: var(--cs-component-button-lg-paddingX, 28px);
+}
+
+.cs-button--full {
+  inline-size: 100%;
 }
 
 .cs-button.is-disabled,
@@ -53,8 +69,18 @@
   opacity: 0.58;
 }
 
+/* Touch ergonomics: enforce a 44px target on coarse pointers (mobile/tablet). */
+@media (pointer: coarse) {
+  .cs-button {
+    min-height: 44px;
+  }
+  .cs-button--sm {
+    min-height: 40px;
+  }
+}
+
 .cs-field {
-  color: var(--cs-color-text-primary, #1f130b);
+  color: var(--cs-color-text-primary, #45210e);
   display: grid;
   gap: 0.375rem;
 }
@@ -64,20 +90,21 @@
 }
 
 .cs-field__description {
-  color: var(--cs-color-text-muted, #5d514b);
+  color: var(--cs-color-text-muted, #6e5a4c);
   font-size: 0.875rem;
 }
 
 .cs-field__control {
-  border: 1px solid var(--cs-component-textfield-border-default, #7a6658);
+  border: 1px solid var(--cs-component-textfield-border-default, #bfa58f);
   border-radius: var(--cs-radius-md, 8px);
   font: inherit;
-  min-height: 2.75rem;
-  padding: 0.5rem 0.75rem;
+  min-height: var(--cs-component-textfield-minHeight, 44px);
+  padding-block: var(--cs-component-textfield-paddingY, 10px);
+  padding-inline: var(--cs-component-textfield-paddingX, 12px);
 }
 
 .cs-field__error {
-  color: var(--cs-color-semantic-danger, #a92323);
+  color: var(--cs-color-semantic-danger, #b42318);
   font-size: 0.875rem;
 }
 
@@ -94,13 +121,13 @@
 }
 
 .cs-dialog {
-  background: var(--cs-color-surface-panel, #fffaf0);
+  background: var(--cs-color-surface-panel, #ffffff);
   border-radius: var(--cs-radius-md, 8px);
   box-shadow: 0 24px 80px rgba(31, 19, 11, 0.26);
-  color: var(--cs-color-text-primary, #1f130b);
+  color: var(--cs-color-text-primary, #45210e);
   left: 50%;
   max-inline-size: min(42rem, calc(100vw - 2rem));
-  padding: 1rem;
+  padding: var(--cs-space-6, 24px);
   position: absolute;
   top: 12vh;
   transform: translateX(-50%);
@@ -112,6 +139,7 @@
 .cs-review-gate__actions {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   gap: 0.75rem;
   justify-content: space-between;
 }
@@ -126,13 +154,26 @@
   margin-block: 1rem;
 }
 
+/* On narrow viewports the dialog goes near-fullscreen and actions stack full-width. */
+@media (max-width: 640px) {
+  .cs-dialog {
+    max-inline-size: calc(100vw - 1rem);
+    top: 4vh;
+    padding: var(--cs-space-4, 16px);
+  }
+  .cs-dialog__actions .cs-button,
+  .cs-review-gate__actions .cs-button {
+    flex: 1 1 auto;
+  }
+}
+
 .cs-table-wrap {
   overflow: auto;
 }
 
 .cs-table {
   border-collapse: collapse;
-  color: var(--cs-color-text-primary, #1f130b);
+  color: var(--cs-color-text-primary, #45210e);
   inline-size: 100%;
 }
 
@@ -150,7 +191,7 @@
 }
 
 .cs-table__empty {
-  color: var(--cs-color-text-muted, #5d514b);
+  color: var(--cs-color-text-muted, #6e5a4c);
 }
 
 .cs-ai-disclosure {
@@ -159,7 +200,7 @@
 }
 
 .cs-ai-disclosure__badge {
-  background: var(--cs-color-semantic-info, #215f9a);
+  background: var(--cs-color-semantic-info, #1d4ed8);
   border: 0;
   border-radius: 999px;
   color: #ffffff;
@@ -170,7 +211,7 @@
 }
 
 .cs-ai-disclosure__panel {
-  background: var(--cs-color-surface-panel, #fffaf0);
+  background: var(--cs-color-surface-panel, #ffffff);
   border: 1px solid rgba(69, 33, 14, 0.18);
   border-radius: var(--cs-radius-md, 8px);
   box-shadow: 0 12px 30px rgba(31, 19, 11, 0.18);
@@ -185,15 +226,57 @@
 }
 
 .cs-review-gate {
-  border: 1px solid var(--cs-color-semantic-warning, #8c5b00);
+  border: 1px solid var(--cs-color-semantic-warning, #92400e);
   border-radius: var(--cs-radius-md, 8px);
-  color: var(--cs-color-text-primary, #1f130b);
+  color: var(--cs-color-text-primary, #45210e);
   display: grid;
   gap: 0.75rem;
-  padding: 1rem;
+  padding: var(--cs-space-4, 16px);
 }
 
 .cs-review-gate__risk {
-  color: var(--cs-color-semantic-warning, #8c5b00);
+  color: var(--cs-color-semantic-warning, #92400e);
   font-weight: 700;
+}
+
+/* ------------------------------------------------------------------ */
+/* Theme layer — light is default; dark/system are opt-in.            */
+/* Warm-dark tonal model per DESIGN.md §2.6 (hue retained, not cold). */
+/* ------------------------------------------------------------------ */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --cs-color-surface-page: #1a1108;
+  --cs-color-surface-panel: #221710;
+  --cs-color-surface-raised: #2b1e14;
+  --cs-color-text-primary: #f5ead9;
+  --cs-color-text-inverse: #1a1108;
+  --cs-color-text-accent: #f4ba17;
+  --cs-color-text-muted: #c9b7a3;
+  --cs-component-textfield-border-default: #5a4636;
+  /* Dark CTA: Ochre fill with dark text (§2.6.3). */
+  --cs-component-button-primary-bg: #f4ba17;
+  --cs-component-button-primary-fg: #1a1108;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"] {
+    color-scheme: dark;
+    --cs-color-surface-page: #1a1108;
+    --cs-color-surface-panel: #221710;
+    --cs-color-surface-raised: #2b1e14;
+    --cs-color-text-primary: #f5ead9;
+    --cs-color-text-inverse: #1a1108;
+    --cs-color-text-accent: #f4ba17;
+    --cs-color-text-muted: #c9b7a3;
+    --cs-component-textfield-border-default: #5a4636;
+    --cs-component-button-primary-bg: #f4ba17;
+    --cs-component-button-primary-fg: #1a1108;
+  }
+}
+
+/* Brand mark. Use whenever a product is for/owned by CyberSkill (DESIGN.md §1.2.x). */
+.cs-logo {
+  block-size: auto;
+  display: inline-block;
+  vertical-align: middle;
 }

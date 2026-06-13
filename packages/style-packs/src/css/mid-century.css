@@ -1,0 +1,13 @@
+/* Mid-Century — warm retro palette, organic-geometric, clean sans. */
+[data-cs-style="mid-century"] {
+  --cs-radius-md: 6px;
+  --cs-color-surface-page: #FBF3E3;
+  --cs-color-surface-panel: #FFFBF2;
+}
+[data-cs-style="mid-century"] .cs-button { border-radius: 6px 6px 6px 0; }
+[data-cs-style="mid-century"] .cs-button--primary {
+  background: var(--cs-color-brand-ochre, #f4ba17);
+  color: var(--cs-color-brand-umber, #45210e);
+}
+[data-cs-style="mid-century"] .cs-dialog { border-radius: 8px 8px 8px 0; }
+[data-cs-style="mid-century"] .cs-field__control { border-radius: 6px 6px 6px 0; }

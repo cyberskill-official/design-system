@@ -1,0 +1,13 @@
+/* Wabi-Sabi — matte earthen surfaces, organic asymmetry, quiet negative space. */
+[data-cs-style="wabi-sabi"] {
+  --cs-radius-md: 14px;
+  --cs-color-surface-page: #EFE9DD;
+  --cs-color-surface-panel: #F6F1E7;
+}
+[data-cs-style="wabi-sabi"] .cs-button { border-radius: 16px 12px 18px 10px; }
+[data-cs-style="wabi-sabi"] .cs-dialog {
+  border-radius: 18px 14px 20px 12px;
+  box-shadow: 0 10px 36px rgba(69, 33, 14, 0.10);
+}
+[data-cs-style="wabi-sabi"] .cs-field__control { border-radius: 12px 9px 13px 8px; }
+[data-cs-style="wabi-sabi"] .cs-ai-disclosure__panel { border-radius: 14px 10px 16px 9px; }

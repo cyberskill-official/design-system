@@ -18,13 +18,26 @@ export function getComponentSpec(name: string): ComponentSpec | null;
 export function listComponentsBySequence(sequence: string): ComponentSpec[];
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "ghost" | "danger";
-  size?: "sm" | "md" | "lg";
+  variant?: "primary" | "secondary" | "tertiary" | "ghost" | "danger" | "danger-ghost";
+  size?: "xs" | "sm" | "md" | "lg";
   loading?: boolean;
+  fullWidth?: boolean;
   icon?: ReactNode;
 }
 
 export const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLButtonElement>>;
+
+export interface LogoProps extends React.SVGAttributes<SVGSVGElement> {
+  /** Rendered width/height in px. Default 32. */
+  size?: number;
+  /** Accessible name. Default "CyberSkill". */
+  title?: string;
+  /** When true, the mark is decorative (aria-hidden, no title). */
+  decorative?: boolean;
+}
+
+/** CyberSkill brand mark — use whenever a product is for or owned by CyberSkill. */
+export const Logo: React.ForwardRefExoticComponent<LogoProps & React.RefAttributes<SVGSVGElement>>;
 
 export interface TextFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: ReactNode;

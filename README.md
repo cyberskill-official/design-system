@@ -100,10 +100,28 @@ The shipped repo contains exactly three top-level Markdown files. Everything els
 │   └── templates/
 ├── tokens/                            ← (optional) DTCG token sources, when shipped
 ├── packages/                          ← (optional) implementation packages, when shipped
+│   ├── tokens/                        ← DTCG token build (CSS/TS/Swift/Kotlin/Flutter/Figma); light default
+│   ├── react/                         ← React components (Button, TextField, Dialog, DataTable,
+│   │                                     AIDisclosureBadge, HumanReviewGate, Logo) + base styles
+│   ├── style-packs/                   ← 50 separately-stored visual styles (data-cs-style); see AUTHORING.md
+│   ├── brand-assets/                  ← official CyberSkill logo (svg + png) + usage rule
+│   └── …                              ← mcp-tokens, mcp-components, provenance, legal-telemetry, …
 └── src/                               ← (optional) reference application, when shipped
 ```
 
 **Distribution rule:** downstream projects copy only the three top-level files (`README.md`, `DESIGN.md`, `CHANGELOG.md`). The local working state never travels — each project's audit-framework outputs and BRAIN memory belong to that project.
+
+**Implementation quick reference (when packages are present):**
+
+| Need | Where |
+|---|---|
+| Build tokens (light is the default theme) | `npm run tokens:build` → `packages/tokens/dist/` |
+| Use a component | `import { Button, Logo } from "@cyberskill/react"` |
+| Apply the official logo | `<Logo/>` or `packages/brand-assets/assets/logo-mark.svg` — required whenever a product is for/owned by CyberSkill (`DESIGN.md` §2.2a) |
+| Re-skin into a visual style | set `data-cs-style="<id>"`; load `@cyberskill/style-packs/dist/style-packs.css`; catalog in `packages/style-packs/dist/catalog.md` |
+| Add a new style | follow `packages/style-packs/AUTHORING.md`, then `npm run stylepacks:build && npm run stylepacks:verify` |
+| Switch theme | `data-theme="light" | "dark" | "system"` (default light) |
+| Verify everything | `npm run verify:all` |
 
 ---
 

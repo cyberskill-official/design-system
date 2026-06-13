@@ -1,0 +1,13 @@
+/* Art Nouveau — flowing whiplash curves, botanical, earthy, serif. */
+[data-cs-style="art-nouveau"] {
+  --cs-radius-md: 20px;
+  --cs-color-surface-page: #F5F1E2;
+  --cs-font-family-ui: Georgia, serif;
+}
+[data-cs-style="art-nouveau"] .cs-button {
+  border-radius: 20px 6px 20px 6px;
+  border: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 45%, transparent);
+}
+[data-cs-style="art-nouveau"] .cs-dialog,
+[data-cs-style="art-nouveau"] .cs-ai-disclosure__panel { border-radius: 24px 6px 24px 6px; }
+[data-cs-style="art-nouveau"] .cs-field__control { border-radius: 14px 4px 14px 4px; }

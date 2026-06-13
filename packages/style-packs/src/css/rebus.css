@@ -1,0 +1,9 @@
+/* Rebus — clean layout, pictographic accent rails. */
+[data-cs-style="rebus"] {
+  --cs-radius-md: 10px;
+  --cs-color-surface-page: #FBF6EC;
+}
+[data-cs-style="rebus"] .cs-dialog { border-inline-start: 5px solid var(--cs-color-brand-ochre, #f4ba17); }
+[data-cs-style="rebus"] .cs-review-gate { border-inline-start: 5px solid var(--cs-color-brand-ochre, #f4ba17); }
+[data-cs-style="rebus"] .cs-button--secondary { border-color: color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 40%, transparent); }
+[data-cs-style="rebus"] .cs-ai-disclosure__panel { border-inline-start: 4px solid var(--cs-color-brand-ochre, #f4ba17); }

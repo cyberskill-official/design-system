@@ -1,0 +1,12 @@
+/* Kitsch — maximalist, glossy, deliberately loud (kept legible). */
+[data-cs-style="kitsch"] {
+  --cs-radius-md: 999px;
+  --cs-color-surface-page: #FBEFD9;
+}
+[data-cs-style="kitsch"] .cs-button {
+  border-radius: 999px;
+  border: 2px dashed var(--cs-color-brand-umber, #45210e);
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0));
+}
+[data-cs-style="kitsch"] .cs-dialog { border: 2px dashed var(--cs-color-brand-ochre, #f4ba17); }
+[data-cs-style="kitsch"] .cs-ai-disclosure__badge { border-radius: 999px; border: 1px dashed var(--cs-color-brand-umber, #45210e); }

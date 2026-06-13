@@ -1,0 +1,12 @@
+/* Bohemian — layered warm jewel tones, patterned accents. */
+[data-cs-style="bohemian"] {
+  --cs-radius-md: 12px;
+  --cs-color-surface-page: #F4ECDD;
+  --cs-color-surface-panel: #FBF4E8;
+}
+[data-cs-style="bohemian"] .cs-button {
+  border-radius: 12px;
+  border: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 55%, var(--cs-color-brand-umber, #45210e));
+}
+[data-cs-style="bohemian"] .cs-dialog { border-block-start: 3px solid var(--cs-color-brand-ochre, #f4ba17); }
+[data-cs-style="bohemian"] .cs-ai-disclosure__panel { border-block-start: 3px solid var(--cs-color-brand-ochre, #f4ba17); }

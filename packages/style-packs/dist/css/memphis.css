@@ -1,0 +1,19 @@
+/* Memphis — flat blocks, hard ochre offset shadows, playful, bold. */
+[data-cs-style="memphis"] {
+  --cs-radius-md: 4px;
+  --cs-color-surface-page: #FBF5E9;
+}
+[data-cs-style="memphis"] .cs-button {
+  border: 2px solid var(--cs-color-brand-umber, #45210e);
+  box-shadow: 4px 4px 0 var(--cs-color-brand-ochre, #f4ba17);
+  font-weight: 800;
+}
+[data-cs-style="memphis"] .cs-button:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--cs-color-brand-ochre, #f4ba17); }
+[data-cs-style="memphis"] .cs-dialog,
+[data-cs-style="memphis"] .cs-review-gate {
+  border: 2px solid var(--cs-color-brand-umber, #45210e);
+  box-shadow: 8px 8px 0 var(--cs-color-brand-ochre, #f4ba17);
+}
+[data-cs-style="memphis"] .cs-ai-disclosure__badge {
+  border: 2px solid var(--cs-color-brand-umber, #45210e);
+}

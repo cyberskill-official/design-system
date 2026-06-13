@@ -1,0 +1,25 @@
+/* Ethereal — airy whitespace, feathered shadows, low-chroma tints, gauzy glass. */
+[data-cs-style="ethereal"] {
+  --cs-radius-md: 20px;
+  --cs-color-surface-page: #FCFAF6;
+}
+[data-cs-style="ethereal"] .cs-dialog,
+[data-cs-style="ethereal"] .cs-ai-disclosure__panel {
+  border: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 16%, transparent);
+  box-shadow: 0 30px 80px rgba(69, 33, 14, 0.10), 0 4px 12px rgba(69, 33, 14, 0.05);
+  background: color-mix(in oklab, var(--cs-color-surface-panel, #fff) 80%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+[data-cs-style="ethereal"] .cs-button { border-radius: 999px; }
+[data-cs-style="ethereal"] .cs-button--secondary {
+  border-color: color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 18%, transparent);
+}
+@media (prefers-reduced-transparency: reduce) {
+  [data-cs-style="ethereal"] .cs-dialog,
+  [data-cs-style="ethereal"] .cs-ai-disclosure__panel {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: var(--cs-color-surface-panel, #fff);
+  }
+}

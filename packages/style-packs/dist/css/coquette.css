@@ -1,0 +1,14 @@
+/* Coquette — soft serif, ribbon-soft borders, delicate. */
+[data-cs-style="coquette"] {
+  --cs-radius-md: 18px;
+  --cs-color-surface-page: #FBF1EE;
+  --cs-color-surface-panel: #FEF8F6;
+  --cs-font-family-ui: Georgia, serif;
+  --cs-coquette-pink: #e8a3b8;
+}
+[data-cs-style="coquette"] .cs-button {
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 30%, var(--cs-coquette-pink));
+}
+[data-cs-style="coquette"] .cs-dialog { border-radius: 18px; border: 1px solid color-mix(in oklab, var(--cs-coquette-pink) 50%, transparent); }
+[data-cs-style="coquette"] .cs-field__control { border-radius: 14px; }

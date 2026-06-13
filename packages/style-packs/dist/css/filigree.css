@@ -1,0 +1,15 @@
+/* Filigree — fine gold linework, lace double-borders. */
+[data-cs-style="filigree"] {
+  --cs-radius-md: 6px;
+  --cs-color-surface-page: #FCF7EE;
+}
+[data-cs-style="filigree"] .cs-button {
+  border: 1px solid var(--cs-color-brand-ochre, #f4ba17);
+  box-shadow: inset 0 0 0 2px var(--cs-color-surface-panel, #fff), inset 0 0 0 3px color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 50%, transparent);
+}
+[data-cs-style="filigree"] .cs-dialog,
+[data-cs-style="filigree"] .cs-ai-disclosure__panel {
+  border: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 60%, transparent);
+  box-shadow: inset 0 0 0 3px var(--cs-color-surface-panel, #fff), inset 0 0 0 4px color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 30%, transparent);
+}
+[data-cs-style="filigree"] .cs-field__control { border-color: color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 55%, transparent); }

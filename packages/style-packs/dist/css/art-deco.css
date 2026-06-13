@@ -1,0 +1,19 @@
+/* Art Deco — symmetric geometry, gold hairlines, strong verticals, uppercase. */
+[data-cs-style="art-deco"] {
+  --cs-radius-md: 0px;
+  --cs-color-surface-page: #FBF5E7;
+  --cs-font-family-ui: Georgia, serif;
+}
+[data-cs-style="art-deco"] .cs-button {
+  border-radius: 0;
+  border: 1px solid var(--cs-color-brand-ochre, #f4ba17);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+[data-cs-style="art-deco"] .cs-dialog {
+  border-radius: 0;
+  border-block: 3px solid var(--cs-color-brand-ochre, #f4ba17);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 40%, transparent);
+}
+[data-cs-style="art-deco"] .cs-dialog__title { letter-spacing: 0.1em; text-transform: uppercase; }
+[data-cs-style="art-deco"] .cs-field__control { border-radius: 0; }

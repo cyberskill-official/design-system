@@ -1,0 +1,22 @@
+/* Y2K — chrome bevels, glossy pills, iridescent warmth, metallic sheen. */
+[data-cs-style="y2k"] {
+  --cs-radius-md: 999px;
+}
+[data-cs-style="y2k"] .cs-button {
+  border-radius: 999px;
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0) 45%, rgba(31,19,11,0.06));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), inset 0 -2px 3px rgba(31,19,11,0.18), 0 2px 6px rgba(31,19,11,0.25);
+}
+[data-cs-style="y2k"] .cs-button--primary {
+  background-color: var(--cs-color-brand-ochre, #f4ba17);
+  color: var(--cs-color-brand-umber, #45210e);
+}
+[data-cs-style="y2k"] .cs-dialog,
+[data-cs-style="y2k"] .cs-ai-disclosure__panel {
+  border-radius: 18px;
+  border: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 20%, transparent);
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0) 22%);
+}
+[data-cs-style="y2k"] .cs-ai-disclosure__badge {
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0));
+}

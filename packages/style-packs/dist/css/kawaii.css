@@ -1,0 +1,19 @@
+/* Kawaii — very rounded, soft pastel, cheerful, gentle lift. */
+[data-cs-style="kawaii"] {
+  --cs-radius-md: 999px;
+  --cs-color-surface-page: #FDF4EC;
+  --cs-color-surface-panel: #FFFBF6;
+  --cs-kawaii-pink: #f6a8c0;
+}
+[data-cs-style="kawaii"] .cs-button {
+  border-radius: 999px;
+  font-weight: 800;
+  box-shadow: 0 4px 0 color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 55%, var(--cs-kawaii-pink));
+}
+[data-cs-style="kawaii"] .cs-button:active { box-shadow: 0 1px 0 color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 55%, var(--cs-kawaii-pink)); }
+[data-cs-style="kawaii"] .cs-dialog {
+  border-radius: 28px;
+  border: 2px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 45%, var(--cs-kawaii-pink));
+}
+[data-cs-style="kawaii"] .cs-field__control { border-radius: 18px; }
+[data-cs-style="kawaii"] .cs-ai-disclosure__badge { border-radius: 999px; }

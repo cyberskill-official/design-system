@@ -1,0 +1,19 @@
+/* Anthropomorphic — very rounded friendly shapes with soft neumorphic lift
+ * (dual-shadow: dark down-right + light up-left). Decorative; focus stays crisp. */
+[data-cs-style="anthropomorphic"] {
+  --cs-radius-md: 22px;
+  --cs-color-surface-page: #FCF5EC;
+}
+[data-cs-style="anthropomorphic"] .cs-button {
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 4px 4px 10px rgba(69,33,14,0.16), -4px -4px 10px rgba(255,255,255,0.7);
+}
+[data-cs-style="anthropomorphic"] .cs-button:active {
+  box-shadow: inset 3px 3px 7px rgba(69,33,14,0.18), inset -3px -3px 7px rgba(255,255,255,0.7);
+}
+[data-cs-style="anthropomorphic"] .cs-dialog {
+  border-radius: 28px;
+  box-shadow: 8px 8px 22px rgba(69,33,14,0.14), -8px -8px 22px rgba(255,255,255,0.6);
+}
+[data-cs-style="anthropomorphic"] .cs-field__control { border-radius: 16px; }

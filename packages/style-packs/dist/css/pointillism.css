@@ -1,0 +1,18 @@
+/* Pointillism — dotted optical texture accents, soft surfaces. */
+[data-cs-style="pointillism"] {
+  --cs-radius-md: 10px;
+  --cs-color-surface-page: #FBF6EC;
+}
+[data-cs-style="pointillism"] .cs-dialog {
+  border: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 16%, transparent);
+  background-image: radial-gradient(color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 22%, transparent) 1px, transparent 1.4px);
+  background-size: 10px 10px;
+}
+[data-cs-style="pointillism"] .cs-review-gate {
+  background-image: radial-gradient(color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 10%, transparent) 1px, transparent 1.4px);
+  background-size: 8px 8px;
+}
+[data-cs-style="pointillism"] .cs-button--primary {
+  background-image: radial-gradient(rgba(255,255,255,0.25) 1px, transparent 1.3px);
+  background-size: 6px 6px;
+}

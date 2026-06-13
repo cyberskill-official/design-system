@@ -1,0 +1,17 @@
+/* Victorian — gilt double frames, deep ground, ornate serif. */
+[data-cs-style="victorian"] {
+  --cs-radius-md: 3px;
+  --cs-color-surface-page: #F3EADA;
+  --cs-font-family-ui: Georgia, serif;
+}
+[data-cs-style="victorian"] .cs-dialog,
+[data-cs-style="victorian"] .cs-review-gate {
+  border: 3px double var(--cs-color-brand-ochre, #f4ba17);
+  box-shadow: 0 18px 50px rgba(69, 33, 14, 0.22);
+}
+[data-cs-style="victorian"] .cs-button {
+  border: 1px solid var(--cs-color-brand-umber, #45210e);
+  letter-spacing: 0.03em;
+}
+[data-cs-style="victorian"] .cs-field__control { border: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 50%, transparent); }
+[data-cs-style="victorian"] .cs-table th { border-block-end: 3px double var(--cs-color-brand-ochre, #f4ba17); }

@@ -1,0 +1,11 @@
+{
+  "name": "@cyberskill/brand-assets",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Official CyberSkill brand assets (logo lockups). Use whenever a product is for or owned by CyberSkill.",
+  "exports": {
+    "./logo-primary.svg": "./assets/logo-primary.svg",
+    "./logo-mark.svg": "./assets/logo-mark.svg"
+  }
+}

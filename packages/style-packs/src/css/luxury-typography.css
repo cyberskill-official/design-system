@@ -1,0 +1,21 @@
+/* Luxury Typography — expansive whitespace, tracked serifs, minimal chrome. */
+[data-cs-style="luxury-typography"] {
+  --cs-radius-md: 0px;
+  --cs-color-surface-page: #FCFAF5;
+  --cs-font-family-ui: Georgia, "Times New Roman", serif;
+}
+[data-cs-style="luxury-typography"] .cs-button {
+  border-radius: 0;
+  border: 1px solid var(--cs-color-brand-umber, #45210e);
+  background: transparent;
+  color: var(--cs-color-brand-umber, #45210e);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+[data-cs-style="luxury-typography"] .cs-button--primary {
+  background: var(--cs-color-brand-umber, #45210e);
+  color: var(--cs-color-text-inverse, #fff);
+}
+[data-cs-style="luxury-typography"] .cs-dialog__title { letter-spacing: 0.04em; font-weight: 600; }
+[data-cs-style="luxury-typography"] .cs-dialog { border: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 20%, transparent); }

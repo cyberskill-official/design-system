@@ -285,7 +285,8 @@ Where the system shows up and how it adapts.
 
 7. [Part 4 — Surfaces & Patterns](#part-4-surfaces-patterns)
 8. [Part 21 — Liquid Glass Default](#part-21-liquid-glass-default)
-9. [Part 13 — Theming, White-Label & Embedding](#part-13-theming-white-label-embedding)
+9. [Part 22 — Style Packs (Multi-Style Adaptability)](#part-22-style-packs-multi-style-adaptability)
+10. [Part 13 — Theming, White-Label & Embedding](#part-13-theming-white-label-embedding)
 10. [Part 14 — Content Design & UX Writing at Scale](#part-14-content-design-ux-writing-at-scale)
 
 ### D. Inclusion, ethics, verticals
@@ -505,6 +506,14 @@ The master brand carries six elements that are **never modified** by any sub-bra
 6. **The accessibility, privacy, and AI-transparency defaults** codified in Parts 5, 6, and 8 of this system.
 
 A surface that violates any of these six is off-brand and must not ship.
+
+### 2.2a The brand symbol (logo mark) rule
+
+CyberSkill has an **official symbol mark** (the Ochre figure on the Umber field) in addition to the wordmark. **Whenever a product, surface, document, or asset is for or owned by CyberSkill, the exact official mark must be used — reproduced from the master file, never recreated, retraced, retyped, recoloured, rotated, stretched, or approximated.** The mark's colours are the immutable anchors: Umber `#45210E` ground, Ochre `#F4BA17` figure. Maintain clear space of at least 25% of the mark's height on all sides, and never place the mark on a background that drops it below the APCA contrast floor (apply the §2.3 dark-background rule when needed).
+
+This rule is distinct from white-label tenancy ([Part 13](#part-13-theming-white-label-embedding)): when a surface represents a **tenant** rather than CyberSkill, the tenant's own logo is swapped in and the CyberSkill mark is not used to stand in for another company. The CyberSkill mark represents CyberSkill only.
+
+Implementation: the official master ships in `@cyberskill/brand-assets` (`logo-mark.svg` / `logo-primary.svg`, vector 1007×1007, plus `logo-mark.png` raster) and as the `<Logo>` component in `@cyberskill/react` (which renders the exact master artwork via the generated `logo-data.js`). Consumers reference these rather than embedding ad-hoc copies, so a single master update propagates everywhere. To update the mark: replace `logo-mark.svg` and regenerate `logo-data.js`.
 
 ### 2.3 The dark-background rule
 
@@ -1931,7 +1940,7 @@ Shadows are de-emphasised in dark mode and L progression does more of the work. 
 
 ### 6.5 User preference and override
 
-We honour `prefers-color-scheme` at the platform level. We also support a **per-user override** stored in the user profile (not in cookies, so that PDPL-respecting users can clear cookies without losing their preference). Three settings: `light`, `dark`, `system`. The default is `system`.
+We support a **per-user override** stored in the user profile (not in cookies, so that PDPL-respecting users can clear cookies without losing their preference). Three settings: `light`, `dark`, `system`. **The default is `light`.** This is a deliberate change from the earlier `system` default: CyberSkill products lead with the warm light surface (the brand's primary expression), and dark/system are opt-in. Implementation: the token `:root` declares `color-scheme: light` and ships light values; selecting `dark` (or `system` resolving to dark via `prefers-color-scheme`) is applied through the `[data-theme]` attribute on a root element, which overrides the surface/text/CTA tokens using the warm-dark tonal model in §6.1. Setting `system` defers to `prefers-color-scheme`; `light` and `dark` are explicit and ignore the OS preference.
 
 ### 6.6 Dark-mode imagery
 
@@ -2325,6 +2334,8 @@ Based on a **4 px grid**. Scale (in 4 px increments):
 - `spacing-6` = 24 px.
 - `spacing-8` = 32 px.
 - `spacing-96` = 384 px.
+
+**Shipped scale (v1.1.x).** The token package previously emitted only steps 1–4 and 6, which forced downstream products to hard-code intermediate values and contributed to cramped layouts. The build now ships the core scale as CSS variables — `cs.space.{0,1,2,3,4,5,6,8,10,12,16,20,24}` (0 → 96 px) — plus viewport breakpoint tokens `cs.breakpoint.{xs,sm,md,lg,xl,2xl}` (§Part 20). Consumers compose layout from these tokens and `gap`; they never reach for raw pixel literals.
 
 ### 11.2 Inset and gutter rules
 
@@ -3253,14 +3264,14 @@ There is **at most one primary Button per surface**. If two actions feel equally
 
 ### 1.5 Sizes
 
-| Size | Height | Horizontal padding | Icon size | Text token | Use |
-|---|---|---|---|---|---|
-| `xs` | 24 px | `spacing-2` (8 px) | 14 | `label-md` | Dense rows; never primary |
-| `sm` | 32 px | `spacing-3` (12 px) | 16 | `label-md` | Compact UI; toolbar |
-| `md` | 40 px | `spacing-4` (16 px) | 16 | `label-lg` | **Default** |
-| `lg` | 48 px | `spacing-6` (24 px) | 20 | `label-lg` | Marketing CTAs; prominent forms |
+| Size | Min height | Horizontal padding | Vertical padding | Icon size | Text token | Use |
+|---|---|---|---|---|---|---|
+| `xs` | 24 px | `spacing-2` (8 px) | `spacing-1` (4 px) | 14 | `label-md` | Dense rows; never primary |
+| `sm` | 36 px | 14 px (`button-sm-paddingX`) | `spacing-2` (8 px) | 16 | `label-md` | Compact UI; toolbar |
+| `md` | 44 px | 20 px (`button-md-paddingX`) | `spacing-3` (12 px) | 16 | `label-lg` | **Default** |
+| `lg` | 52 px | 28 px (`button-lg-paddingX`) | `spacing-4` (16 px) | 20 | `label-lg` | Marketing CTAs; prominent forms |
 
-Even the smallest variant (`xs` 24 × 24) meets the **WCAG 2.2 SC 2.5.8 Target Size (Minimum) 24 × 24 CSS px** floor. Pre-2.2 conventions sometimes used 20-px buttons; we deliberately do not.
+**Padding rationale (v1.1.x).** Earlier padding (md = 16 px inline / ~10 px block, 40 px height) read as cramped once the system was applied to downstream products. Padding and minimum height are now shipped as **component tokens** (`cs.component.button.{sm,md,lg}.{paddingX,paddingY,minHeight}` and `cs.component.button.gap`) so consumers inherit comfortable defaults rather than re-deriving them. The default `md` button is 44 px tall — meeting the **WCAG 2.2 SC 2.5.8 enhanced 44 × 44** target on the primary size, not just the 24 px minimum — with 20 px inline / 12 px block breathing room. On coarse pointers (mobile/tablet) all sizes are clamped to a 44 px minimum target via `@media (pointer: coarse)`. Even the smallest variant (`xs` 24 × 24) still meets the **WCAG 2.2 SC 2.5.8 Target Size (Minimum) 24 × 24 CSS px** floor. Pre-2.2 conventions sometimes used 20-px buttons; we deliberately do not.
 
 ### 1.6 States
 
@@ -31073,7 +31084,77 @@ Status: Approved 2026-05-14 by Founder.
 
 ---
 
-*End of Part 21. End of doctrine v1.1.0.*
+*End of Part 21.*
+
+---
+
+## Part 22 — Style Packs (Multi-Style Adaptability)
+
+*Maturity: Prototype. The doctrine for letting one CyberSkill design system wear many visual styles — Glassmorphism, Brutalism, Bauhaus, Synthwave, and dozens more — without changing the brand. Where [Part 13](#part-13-theming-white-label-embedding) covers white-label tenancy (accent + logo swap) and [Part 21](#part-21-liquid-glass-default) defines one specific material (Liquid Glass), this part generalises the render-layer idea into an open, separately-stored catalog of **style packs**. The Umber + Ochre anchors and APCA contrast floors are UNCHANGED — a style pack is a render-surface layer, not a palette change.*
+
+### 22.1 The question this answers
+
+"Will the design system work with different styles? If not, how — while keeping the same base colours (gold, brown) but flexibly adapting to Glassmorphism, Brutalism, and others?" The answer is **yes, by separation of layers**. The design system is not one fixed look; it is an immutable core (anchors, spacing, type, components, accessibility floors) plus an open set of **style packs** that re-skin how surfaces render. Styles are effectively unlimited, so they are **stored separately** and picked up per product or per surface only when needed — never baked into the core.
+
+### 22.2 The three-layer model
+
+```
+Style pack   data-cs-style="brutalism"   ← render surface only (fills, blur, borders,
+                                              shadows, radii, type/motion treatment)
+Theme        data-theme="light" | "dark"  ← surface/text values (light is default)
+Core tokens  @cyberskill/tokens           ← IMMUTABLE: Umber #45210E, Ochre #F4BA17,
+                                              spacing, type, components, APCA floors
+```
+
+A pack is selected by setting `data-cs-style="<id>"` on any element; it composes with `data-theme` and may be scoped to a subtree (a `synthwave` hero inside an otherwise-default app). Selection is opt-in and additive — code that ignores style packs renders the default warm-light system unchanged.
+
+### 22.3 Two immutable laws of a style pack
+
+1. **Anchors are immutable.** No pack may redefine `--cs-color-brand-umber` or `--cs-color-brand-ochre`. A pack *uses* the anchors — as fills, accents, glows, ink — so every style still reads as CyberSkill, but it never replaces them. The build (`@cyberskill/style-packs`) **fails** if a pack CSS file redefines an anchor.
+2. **Packs are scoped and accessibility-preserving.** Every pack rule is scoped under `[data-cs-style="<id>"]`; packs never leak into the core or each other. The core accessibility floors — APCA Lc ≥ 75 on text, 44px touch targets on the default button size, visible focus rings, and `prefers-reduced-motion` / `prefers-reduced-transparency` honouring — are **not** waived by any pack, including deliberately "raw" ones (Brutalism, Neo-Brutalism) and translucent ones (Glassmorphism, Liquid Glass, Frutiger Aero).
+
+### 22.4 Catalog and status tiers
+
+The catalog seeds from the 50-style design vocabulary (Neoclassical → Neo-Brutalism) and is open-ended — adding a style is adding one manifest, optionally one CSS file. Each style is one of:
+
+- **shipped** — a CSS render layer is included; the style is a working interactive skin.
+- **implementable** — UI-viable; manifest authored, CSS render layer pending.
+- **vocabulary** — a mood / illustration / prompting style (e.g. Pointillism, Surrealism, Baroque) captured for briefing AI, moodboards, and illustration direction rather than as an interactive UI skin.
+
+Each manifest records how the anchors express in that style (`anchorMapping`), the surface treatment, the best-fit use cases, and a per-style accessibility note. The machine-readable index is `packages/style-packs/dist/registry.json`; the human catalog is `packages/style-packs/dist/catalog.md`.
+
+### 22.5 Relationship to Parts 13 and 21
+
+- **Part 13 (White-Label)** changes *whose* brand shows (tenant accent + logo) while keeping CyberSkill's structure. **Part 22** changes *how* CyberSkill's own surfaces render while keeping the brand. They are orthogonal and composable.
+- **Part 21 (Liquid Glass)** is the canonical, accessibility-hardened glass material and remains the default structural/transient treatment. The `glassmorphism` style pack is the broader, looser family; Part 21 governs the disciplined in-product use.
+
+### 22.6 Shipped state and verification
+
+As of v1.2.0 all **50 seed styles ship a CSS render layer** (`status: shipped`) and each is **individually audited** by `@cyberskill/style-packs` `verify.mjs`. The verifier checks, per pack: balanced CSS, correct `[data-cs-style]` scoping, no brand-anchor override, focus never removed, the 44px button floor, and that the pack actually targets a real token/component (hard, build-failing); plus on-brand reference, and `prefers-reduced-motion` / `prefers-reduced-transparency` fallbacks (soft). The current report: **50 audited, 50 pass, 0 hard failures, 0 warnings** (`dist/verification-report.md`). `npm run verify:all` runs tokens → style-packs build → style-packs verify → component contracts → render → artifact verify as one gate.
+
+### 22.7 Authoring a new style (human + agent guide)
+
+The canonical, detailed procedure lives in `packages/style-packs/AUTHORING.md` and is written for both designers and AI agents. The essence:
+
+1. **Add a manifest entry** in `src/styles.catalog.json` — every field required, with `anchorMapping` stating how the immutable anchors express in the style (always opened with the immutability reminder).
+2. **Add `src/css/<id>.css`** if it's a UI skin — scope every selector under `[data-cs-style="<id>"]`, override render tokens / skin `.cs-*` components, reference anchors via `var(--cs-color-brand-*)` and **never** redefine them, and preserve the §22.2/accessibility floors (focus, 44px targets, contrast, reduced-motion, reduced-transparency). No `@keyframes` inside a pack.
+3. **Build + verify** (`npm run stylepacks:build && npm run stylepacks:verify`) and commit the regenerated `dist/`. A style with no CSS ships as *vocabulary* (a prompting/illustration reference) rather than an interactive skin — both are valid catalog entries.
+
+Agents must treat the AUTHORING.md checklist and the two hard laws (§22.3) as gating; a pack that fails build or verify is not shipped.
+
+### 22.8 References
+
+| Source | Use |
+|---|---|
+| UX Planet — "50 Design Styles Every Designer Should Know for Better Prompting" (2025) | Seed vocabulary for the style-pack catalog |
+| Part 21 — Liquid Glass | Render-layer precedent and glass accessibility floor |
+| Part 13 — Theming, White-Label & Embedding | Tenant-brand layering (orthogonal to style packs) |
+| W3C — `prefers-reduced-transparency`, `prefers-reduced-motion` | Per-pack motion/transparency fallbacks |
+| APCA — Accessible Perceptual Contrast Algorithm | Contrast floor preserved across all packs |
+
+---
+
+*End of Part 22. End of doctrine v1.1.0.*
 
 ---
 

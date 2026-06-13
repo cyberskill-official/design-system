@@ -1,0 +1,20 @@
+/* Tenebrism — deep dark ground, single dramatic light, gold focus. */
+[data-cs-style="tenebrism"] {
+  --cs-radius-md: 6px;
+  --cs-color-surface-page: #100B08;
+  --cs-color-surface-panel: #1A130D;
+  --cs-color-surface-raised: #241911;
+  --cs-color-text-primary: #F1E6D4;
+  --cs-color-text-muted: #B49C7E;
+  --cs-component-textfield-border-default: #4a3a28;
+}
+[data-cs-style="tenebrism"] .cs-button--primary {
+  background: var(--cs-color-brand-ochre, #f4ba17);
+  color: #1a1206;
+}
+[data-cs-style="tenebrism"] .cs-button--secondary { color: var(--cs-color-text-primary, #f1e6d4); border-color: color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 45%, transparent); }
+[data-cs-style="tenebrism"] .cs-dialog {
+  border: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 30%, transparent);
+  background-image: radial-gradient(120% 80% at 50% -20%, rgba(244,186,23,0.10), rgba(244,186,23,0) 60%);
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
+}

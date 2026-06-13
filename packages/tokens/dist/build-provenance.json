@@ -1,9 +1,9 @@
 {
   "package": "@cyberskill/tokens",
   "maturity": "Prototype",
-  "generatedAt": "2026-05-23T19:27:52.385Z",
+  "generatedAt": "2026-06-13T06:47:09.088Z",
   "source": "src/tokens.tokens.json",
-  "sourceHash": "607267e39f458b2baabc94d09420b294818ccd49455991d04c5fc6e454be6e5d",
+  "sourceHash": "9bb126a9664b376b8338c01ed1376e8cc48eadefbc2f3801c5b2668abbc81966",
   "outputs": [
     "dist/css/tokens.css",
     "dist/ts/tokens.js",

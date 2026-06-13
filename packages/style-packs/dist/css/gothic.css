@@ -1,0 +1,23 @@
+/* Gothic — stone-dark surfaces, pointed motifs, candle-gold accents. */
+[data-cs-style="gothic"] {
+  --cs-radius-md: 2px;
+  --cs-color-surface-page: #1C1614;
+  --cs-color-surface-panel: #261D1A;
+  --cs-color-surface-raised: #31251F;
+  --cs-color-text-primary: #EDE3D6;
+  --cs-color-text-muted: #BBA890;
+  --cs-component-textfield-border-default: #5a4636;
+  --cs-font-family-ui: Georgia, serif;
+}
+[data-cs-style="gothic"] .cs-button--primary {
+  background: var(--cs-color-brand-ochre, #f4ba17);
+  color: #241206;
+}
+[data-cs-style="gothic"] .cs-button--secondary {
+  border-color: color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 50%, transparent);
+  color: var(--cs-color-text-primary, #ede3d6);
+}
+[data-cs-style="gothic"] .cs-dialog,
+[data-cs-style="gothic"] .cs-review-gate {
+  border: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 45%, transparent);
+}

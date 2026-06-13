@@ -1,0 +1,13 @@
+/* Scrapbook — taped paper, layered, handmade warmth. */
+[data-cs-style="scrapbook"] {
+  --cs-radius-md: 4px;
+  --cs-color-surface-page: #F7F1E4;
+  --cs-color-surface-panel: #FDF8EC;
+}
+[data-cs-style="scrapbook"] .cs-dialog,
+[data-cs-style="scrapbook"] .cs-review-gate {
+  border: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 18%, transparent);
+  box-shadow: 0 10px 30px rgba(69, 33, 14, 0.12);
+}
+[data-cs-style="scrapbook"] .cs-ai-disclosure__panel { box-shadow: 4px 4px 0 color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 40%, transparent); }
+[data-cs-style="scrapbook"] .cs-button { border: 1px dashed color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 45%, transparent); }

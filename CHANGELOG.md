@@ -18,6 +18,28 @@ Next-cycle items proposed but not yet accepted. Tracking is local-only — re-ru
 
 ---
 
+## [1.2.0] — 2026-06-13
+
+Minor, backward-compatible: new surfaces (style packs), new tokens, and a default-theme change. No anchor touched.
+
+### Added
+- **Part 22 — Style Packs (Multi-Style Adaptability).** New doctrine for re-skinning the system across visual styles via a separated render layer. New package `@cyberskill/style-packs`: a registry of all **50 styles** (seeded from the UX Planet 50-styles vocabulary) stored separately as manifests, selected at runtime with `data-cs-style`, composing with `data-theme`. **All 50 ship a CSS render layer.** Two build-enforced laws — anchors immutable (a pack may never redefine Umber/Ochre) and packs scoped + accessibility-preserving.
+- **Per-style verification engine (`verify.mjs`).** Audits every pack individually (balanced CSS, scoping, no anchor override, focus never removed, 44px button floor, real system targeting; plus on-brand + reduced-motion/transparency fallbacks). Current report: **50 audited, 50 pass, 0 failures, 0 warnings**. New scripts `stylepacks:build`, `stylepacks:verify`, and a combined `verify:all` gate.
+- **Authoring guide for humans + agents** (`packages/style-packs/AUTHORING.md`) and doctrine §22.7 — schema, hard laws, accessibility floors, checklist, worked example for adding new styles (the catalog is open-ended).
+- **Round-2 deepening of all 50 packs** (`packages/style-packs/ENHANCEMENTS.md`) — research-grounded (glassmorphism blur/saturate + opaque text film, neubrutalism hard-offset shadows, neumorphism dual-shadow, Frutiger-Aero gloss-as-light) and broader component coverage (fields, tables, badges, review-gate, pressed states). Combined `style-packs.css` ≈ 1,040 lines; re-audited 50/50 pass, 0 warnings; anchors + accessibility floors preserved.
+- **`@cyberskill/brand-assets` + `<Logo>` component.** The **exact official master mark** ships as `logo-mark.svg` / `logo-primary.svg` (vector 1007×1007) and `logo-mark.png` (raster); the React `<Logo>` renders the master artwork via the generated `logo-data.js`. New doctrine §2.2a: the exact official mark must be used whenever a product is for/owned by CyberSkill (tenant logos remain separate, per Part 13).
+- **Full spacing scale + breakpoint tokens.** `cs.space.{0,5,8,10,12,16,20,24}` added (previously only 1–4, 6); `cs.breakpoint.{xs,sm,md,lg,xl,2xl}` added. Comfortable component padding tokens: `cs.component.button.{sm,md,lg}.{paddingX,paddingY,minHeight}`, `cs.component.button.gap`, `cs.component.textfield.{paddingX,paddingY,minHeight}`. New aliases `cs.color.accent.ochre`, `cs.color.text.muted`, `cs.color.surface.raised`.
+
+### Changed
+- **Default theme is now `light`** (was `system`); dark/system remain opt-in via `[data-theme]`. Tokens `:root` now declares `color-scheme: light`; the React theme layer ships the warm-dark `[data-theme="dark"]` / `system` overrides (§2.6).
+- **Button padding loosened** to fix cramped downstream usage: default `md` is now 44px tall with 20px/12px padding (was 40px, 16px/~10px), driven by tokens; coarse-pointer (mobile/tablet) enforces a 44px target. Doctrine §3a.1 §1.5 updated.
+- **Responsive defaults improved:** dialog goes near-fullscreen and actions stack full-width under 640px; flex-wrap on action rows; `fullWidth` Button prop wired (`.cs-button--full`).
+
+### Unchanged (anchors — explicit no-touch)
+- Umber `#45210E`, Ochre `#F4BA17`, slogans, and APCA Lc ≥ 75 body / Lc ≥ 90 interactive — unchanged and non-relaxable, including across every style pack.
+
+---
+
 ## [1.1.0] — 2026-05-14
 
 ### Added

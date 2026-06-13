@@ -1,5 +1,6 @@
 import React, { forwardRef, useId, useMemo, useState } from "react";
 import componentSpecs from "./component-specs.json" with { type: "json" };
+import { CS_LOGO_VIEWBOX, CS_LOGO_MARK_INNER } from "./logo-data.js";
 
 export const components = componentSpecs;
 
@@ -29,6 +30,7 @@ export const Button = forwardRef(function Button(
     size = "md",
     loading = false,
     disabled = false,
+    fullWidth = false,
     icon,
     children,
     className,
@@ -46,7 +48,7 @@ export const Button = forwardRef(function Button(
       type,
       disabled: isDisabled,
       "aria-busy": loading || undefined,
-      className: cx("cs-button", `cs-button--${variant}`, `cs-button--${size}`, controlState({ disabled: isDisabled, loading }), className)
+      className: cx("cs-button", `cs-button--${variant}`, `cs-button--${size}`, fullWidth && "cs-button--full", controlState({ disabled: isDisabled, loading }), className)
     },
     icon ? React.createElement("span", { className: "cs-button__icon", "aria-hidden": true }, icon) : null,
     React.createElement("span", { className: "cs-button__label" }, children),
@@ -229,3 +231,29 @@ export function HumanReviewGate({
     )
   );
 }
+
+/**
+ * CyberSkill brand mark. Use whenever a product is for or owned by CyberSkill.
+ * Renders the EXACT official master artwork (sourced from @cyberskill/brand-assets/logo-mark.svg
+ * via ./logo-data.js). Anchors: Umber #45210E, Ochre #F4BA17. Do not recreate or recolour.
+ */
+export const Logo = forwardRef(function Logo(
+  { size = 32, title = "CyberSkill", decorative = false, className, ...props },
+  ref
+) {
+  return React.createElement("svg", {
+    ...props,
+    ref,
+    className: cx("cs-logo", className),
+    width: size,
+    height: size,
+    viewBox: CS_LOGO_VIEWBOX,
+    xmlns: "http://www.w3.org/2000/svg",
+    role: decorative ? undefined : "img",
+    "aria-hidden": decorative ? true : undefined,
+    "aria-label": decorative ? undefined : title,
+    dangerouslySetInnerHTML: {
+      __html: (decorative ? "" : `<title>${title}</title>`) + CS_LOGO_MARK_INNER
+    }
+  });
+});

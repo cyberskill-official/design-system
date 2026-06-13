@@ -1,0 +1,20 @@
+/* Utilitarian — dense functional grid, monospace data, zero ornament. */
+[data-cs-style="utilitarian"] {
+  --cs-radius-sm: 2px;
+  --cs-radius-md: 2px;
+  --cs-font-family-ui: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+[data-cs-style="utilitarian"] .cs-button {
+  border-radius: 2px;
+  border: 1px solid var(--cs-color-brand-umber, #45210e);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+[data-cs-style="utilitarian"] .cs-field__control,
+[data-cs-style="utilitarian"] .cs-dialog,
+[data-cs-style="utilitarian"] .cs-ai-disclosure__badge { border-radius: 2px; }
+[data-cs-style="utilitarian"] .cs-table th,
+[data-cs-style="utilitarian"] .cs-table td {
+  border-block-end: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 30%, transparent);
+}
+[data-cs-style="utilitarian"] .cs-table th { text-transform: uppercase; letter-spacing: 0.03em; }

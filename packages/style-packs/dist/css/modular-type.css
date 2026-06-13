@@ -1,0 +1,19 @@
+/* Modular Type — letterforms-as-blocks, strict type grid, bold, square. */
+[data-cs-style="modular-type"] { --cs-radius-md: 0px; }
+[data-cs-style="modular-type"] .cs-button {
+  border-radius: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+}
+[data-cs-style="modular-type"] .cs-button--primary {
+  background: var(--cs-color-brand-umber, #45210e);
+  color: var(--cs-color-text-inverse, #fff);
+}
+[data-cs-style="modular-type"] .cs-dialog,
+[data-cs-style="modular-type"] .cs-field__control { border-radius: 0; }
+[data-cs-style="modular-type"] .cs-dialog__title {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 800;
+}

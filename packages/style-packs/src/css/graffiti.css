@@ -1,0 +1,14 @@
+/* Graffiti — spray-edged accents, bold freestyle energy. */
+[data-cs-style="graffiti"] {
+  --cs-radius-md: 6px;
+  --cs-color-surface-page: #EFE7D7;
+}
+[data-cs-style="graffiti"] .cs-button {
+  border: 2px solid var(--cs-color-brand-umber, #45210e);
+  box-shadow: 3px 3px 0 color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 80%, transparent);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+[data-cs-style="graffiti"] .cs-button:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 80%, transparent); }
+[data-cs-style="graffiti"] .cs-dialog { border-inline-start: 6px solid var(--cs-color-brand-ochre, #f4ba17); }
+[data-cs-style="graffiti"] .cs-review-gate { border-inline-start: 6px solid var(--cs-color-brand-ochre, #f4ba17); }

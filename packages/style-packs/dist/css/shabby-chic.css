@@ -1,0 +1,13 @@
+/* Shabby Chic — soft pastel washes, gentle vintage surfaces. */
+[data-cs-style="shabby-chic"] {
+  --cs-radius-md: 16px;
+  --cs-color-surface-page: #FAF3EE;
+  --cs-color-surface-panel: #FEF9F4;
+}
+[data-cs-style="shabby-chic"] .cs-button { border-radius: 16px; }
+[data-cs-style="shabby-chic"] .cs-dialog,
+[data-cs-style="shabby-chic"] .cs-ai-disclosure__panel {
+  border: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 14%, transparent);
+  box-shadow: 0 12px 40px rgba(69, 33, 14, 0.10);
+}
+[data-cs-style="shabby-chic"] .cs-field__control { border-radius: 14px; }

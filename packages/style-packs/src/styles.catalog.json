@@ -1,0 +1,1202 @@
+{
+  "$description": "CyberSkill style-pack catalog. Each pack layers render-surface decisions over the immutable Umber+Ochre anchors. Brand anchors and APCA contrast floors are never overridden.",
+  "version": "0.1.0",
+  "anchorsImmutable": {
+    "umber": "#45210E",
+    "ochre": "#F4BA17"
+  },
+  "packs": [
+    {
+      "id": "neoclassical",
+      "name": "Neoclassical",
+      "category": "classical",
+      "era": "antiquity-revival",
+      "mood": "formal, timeless, noble",
+      "bestFor": [
+        "luxury brands",
+        "museums",
+        "heritage products",
+        "academic publications"
+      ],
+      "coreElements": [
+        "serif fonts",
+        "columns",
+        "laurel motifs",
+        "marble texture",
+        "gold accents",
+        "symmetry",
+        "muted palette"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre reads as the gold accent, Umber as engraved text/rule lines.",
+      "surfaceTreatment": "matte ivory surfaces, hairline gold rules, high symmetry, generous margins",
+      "uiImplementable": false,
+      "accessibilityNote": "Keep serif body ≥16px; gold (Ochre) only as accent, never body text on light.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "baroque",
+      "name": "Baroque",
+      "category": "classical",
+      "era": "17th-century",
+      "mood": "regal, ornate, celebratory",
+      "bestFor": [
+        "event invitations",
+        "premium packaging",
+        "lavish editorial"
+      ],
+      "coreElements": [
+        "flourishes",
+        "deep shadows",
+        "gold leaf",
+        "rich textiles",
+        "high contrast"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as gold-leaf ornament, Umber as deep shadow ground.",
+      "surfaceTreatment": "dramatic layered shadows, ornamental frames, high-contrast panels",
+      "uiImplementable": false,
+      "accessibilityNote": "Ornament must be decorative-only (aria-hidden); maintain APCA Lc≥75 on text.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "aurora",
+      "name": "Aurora",
+      "category": "ambient",
+      "era": "contemporary",
+      "mood": "dreamy, futuristic, meditative",
+      "bestFor": [
+        "wellness apps",
+        "tech launches",
+        "spiritual themes"
+      ],
+      "coreElements": [
+        "iridescent gradients",
+        "blur",
+        "soft glows",
+        "translucent overlays",
+        "organic waves"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre seeds the warm end of iridescent gradients; Umber anchors text.",
+      "surfaceTreatment": "soft animated gradients, low-blur translucency, glow accents",
+      "uiImplementable": true,
+      "accessibilityNote": "Text sits on a solid scrim, never directly on a moving gradient; honor prefers-reduced-motion.",
+      "status": "shipped"
+    },
+    {
+      "id": "ethereal",
+      "name": "Ethereal",
+      "category": "ambient",
+      "era": "contemporary",
+      "mood": "calm, mystical, romantic",
+      "bestFor": [
+        "spiritual brands",
+        "high fashion",
+        "mindfulness interfaces"
+      ],
+      "coreElements": [
+        "light pastels",
+        "gauzy overlays",
+        "minimal serif",
+        "low contrast accents",
+        "feathered shadows"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Tinted Ochre/Umber washes only; brand stays the anchor of any solid element.",
+      "surfaceTreatment": "airy whitespace, feathered shadows, low-chroma tints",
+      "uiImplementable": true,
+      "accessibilityNote": "Low-contrast is decorative; all functional text must still hit APCA Lc≥75.",
+      "status": "shipped"
+    },
+    {
+      "id": "filigree",
+      "name": "Filigree",
+      "category": "decorative",
+      "era": "old-world",
+      "mood": "luxurious, vintage, ceremonial",
+      "bestFor": [
+        "heritage branding",
+        "editorial",
+        "luxury packaging"
+      ],
+      "coreElements": [
+        "delicate line patterns",
+        "metallic inks",
+        "lace texture",
+        "monogram type"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as metallic linework, Umber as substrate.",
+      "surfaceTreatment": "fine line ornament, lace dividers, monogram lockups",
+      "uiImplementable": false,
+      "accessibilityNote": "Linework is decorative; keep stroke ≥1.5px for legibility, not a UI control.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "acanthus",
+      "name": "Acanthus",
+      "category": "classical",
+      "era": "classical",
+      "mood": "regal, organic, classical",
+      "bestFor": [
+        "wedding invites",
+        "art-museum branding",
+        "premium product"
+      ],
+      "coreElements": [
+        "leaf motifs",
+        "flowing curves",
+        "symmetrical vines",
+        "stone texture"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre/Umber foliage motifs; greens used only as illustration accents.",
+      "surfaceTreatment": "carved foliate borders, symmetric vine dividers",
+      "uiImplementable": false,
+      "accessibilityNote": "Botanical ornament decorative-only.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "anthropomorphic",
+      "name": "Anthropomorphic",
+      "category": "illustration",
+      "era": "contemporary",
+      "mood": "fun, quirky, friendly",
+      "bestFor": [
+        "children's products",
+        "gamified UX",
+        "approachable branding"
+      ],
+      "coreElements": [
+        "expressive eyes",
+        "limbs on objects",
+        "character icons",
+        "rounded friendly shapes"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre for friendly fills, Umber for outlines/features.",
+      "surfaceTreatment": "rounded shapes, character mascots, playful micro-motion",
+      "uiImplementable": true,
+      "accessibilityNote": "Mascots are imagery; provide alt text; do not rely on character alone to convey state.",
+      "status": "shipped"
+    },
+    {
+      "id": "pixel-art",
+      "name": "Pixel Art",
+      "category": "retro",
+      "era": "8/16-bit era",
+      "mood": "nostalgic, geeky, fun",
+      "bestFor": [
+        "indie games",
+        "retro events",
+        "creative portfolios"
+      ],
+      "coreElements": [
+        "grid pixels",
+        "low-res icons",
+        "limited palette",
+        "8/16-bit look"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Quantize Umber/Ochre into a limited indexed palette.",
+      "surfaceTreatment": "hard pixel edges, image-rendering: pixelated, stepped shadows",
+      "uiImplementable": true,
+      "accessibilityNote": "Pixel type is hard to read small; use only for display, pair with a legible UI font for body.",
+      "status": "shipped"
+    },
+    {
+      "id": "sketch",
+      "name": "Sketch",
+      "category": "hand-drawn",
+      "era": "timeless",
+      "mood": "experimental, informal, idea-driven",
+      "bestFor": [
+        "portfolios",
+        "design journals",
+        "brainstorming tools"
+      ],
+      "coreElements": [
+        "pencil/ink lines",
+        "crosshatch",
+        "greyscale",
+        "annotations",
+        "paper texture"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Umber as ink, Ochre as highlighter accent.",
+      "surfaceTreatment": "hand-drawn borders, sketch fills, paper grain background",
+      "uiImplementable": true,
+      "accessibilityNote": "Hand-drawn strokes must not reduce control contrast; keep focus rings crisp.",
+      "status": "shipped"
+    },
+    {
+      "id": "luxury-typography",
+      "name": "Luxury Typography",
+      "category": "editorial",
+      "era": "timeless",
+      "mood": "elegant, elite, timeless",
+      "bestFor": [
+        "luxury fashion",
+        "beauty brands",
+        "high-end editorial"
+      ],
+      "coreElements": [
+        "refined serifs",
+        "high letter-spacing",
+        "gold foil",
+        "monochrome",
+        "bespoke ligatures"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as foil accent on Umber/ivory; type carries identity.",
+      "surfaceTreatment": "expansive whitespace, large tracked serifs, minimal chrome",
+      "uiImplementable": true,
+      "accessibilityNote": "Large tracking only on display; keep body tracking normal for readability.",
+      "status": "shipped"
+    },
+    {
+      "id": "japandi",
+      "name": "Japandi",
+      "category": "minimal",
+      "era": "contemporary",
+      "mood": "calm, peaceful, intentional",
+      "bestFor": [
+        "lifestyle brands",
+        "home decor",
+        "wellness apps"
+      ],
+      "coreElements": [
+        "light woods",
+        "beige/grey palette",
+        "clean sans",
+        "minimal icons",
+        "natural materials"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Soften with warm neutrals; Ochre as a single restrained accent.",
+      "surfaceTreatment": "muted warm neutrals, soft radii, abundant whitespace, thin dividers",
+      "uiImplementable": true,
+      "accessibilityNote": "High harmony/low contrast aesthetic — verify functional contrast still passes.",
+      "status": "shipped"
+    },
+    {
+      "id": "memphis",
+      "name": "Memphis",
+      "category": "bold",
+      "era": "1980s",
+      "mood": "youthful, quirky, anti-establishment",
+      "bestFor": [
+        "creative brands",
+        "event posters",
+        "retro fashion"
+      ],
+      "coreElements": [
+        "squiggles",
+        "bright primaries",
+        "grids",
+        "clashing colors",
+        "block shapes"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre joins a primary clash set; Umber grounds; anchors never dropped.",
+      "surfaceTreatment": "flat blocks, squiggle decals, offset grids, hard shadows",
+      "uiImplementable": true,
+      "accessibilityNote": "Clashing colour is decorative; keep text on solid high-contrast blocks.",
+      "status": "shipped"
+    },
+    {
+      "id": "bohemian",
+      "name": "Bohemian",
+      "category": "eclectic",
+      "era": "contemporary",
+      "mood": "free, soulful, eclectic",
+      "bestFor": [
+        "handmade products",
+        "travel brands",
+        "artisanal markets"
+      ],
+      "coreElements": [
+        "rich textures",
+        "mandalas",
+        "jewel tones",
+        "ethnic prints",
+        "script fonts"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as a warm jewel tone alongside Umber earth.",
+      "surfaceTreatment": "layered textile textures, patterned dividers, warm jewel accents",
+      "uiImplementable": false,
+      "accessibilityNote": "Script fonts decorative-only; never set UI labels in script.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "shabby-chic",
+      "name": "Shabby Chic",
+      "category": "vintage",
+      "era": "contemporary",
+      "mood": "romantic, cozy, nostalgic",
+      "bestFor": [
+        "weddings",
+        "vintage boutiques",
+        "home decor"
+      ],
+      "coreElements": [
+        "whitewashed texture",
+        "faded florals",
+        "cursive type",
+        "lace",
+        "soft pastels"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Desaturated Ochre/Umber as faded vintage tints.",
+      "surfaceTreatment": "distressed surfaces, faded floral motifs, soft pastel washes",
+      "uiImplementable": false,
+      "accessibilityNote": "Distressed textures must not reduce text legibility.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "cottagecore",
+      "name": "Cottagecore",
+      "category": "vintage",
+      "era": "contemporary",
+      "mood": "cozy, nostalgic, wholesome",
+      "bestFor": [
+        "lifestyle blogs",
+        "recipe sites",
+        "rustic home brands"
+      ],
+      "coreElements": [
+        "florals",
+        "gingham",
+        "wood texture",
+        "antique finishes",
+        "serif/hand-drawn type"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Warm Ochre as honey/wheat, Umber as soil/wood.",
+      "surfaceTreatment": "natural textures, floral borders, warm rustic palette",
+      "uiImplementable": true,
+      "accessibilityNote": "Texture is background; keep content surfaces calm and legible.",
+      "status": "shipped"
+    },
+    {
+      "id": "victorian",
+      "name": "Victorian",
+      "category": "ornate",
+      "era": "19th-century",
+      "mood": "opulent, historical, romantic",
+      "bestFor": [
+        "book covers",
+        "tea brands",
+        "vintage fashion",
+        "museum events"
+      ],
+      "coreElements": [
+        "ornate serifs",
+        "damask patterns",
+        "deep reds/greens",
+        "gilded frames",
+        "heavy florals"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as gilt, Umber as deep ground; period colours as accents.",
+      "surfaceTreatment": "gilded frames, damask fills, ornate rules",
+      "uiImplementable": false,
+      "accessibilityNote": "Period ornament decorative-only; maintain modern contrast floors.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "art-deco",
+      "name": "Art Deco",
+      "category": "geometric",
+      "era": "1920s",
+      "mood": "glamorous, upscale, jazzy",
+      "bestFor": [
+        "luxury brands",
+        "cocktail events",
+        "retro-modern interfaces"
+      ],
+      "coreElements": [
+        "gold accents",
+        "sunbursts",
+        "symmetry",
+        "angular shapes",
+        "jewel tones"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as the signature gold; Umber as lacquer ground.",
+      "surfaceTreatment": "symmetric geometry, sunburst motifs, gold hairlines, strong verticals",
+      "uiImplementable": true,
+      "accessibilityNote": "Decorative geometry must not encode meaning; keep contrast on text.",
+      "status": "shipped"
+    },
+    {
+      "id": "art-nouveau",
+      "name": "Art Nouveau",
+      "category": "organic",
+      "era": "1890s-1910s",
+      "mood": "romantic, poetic, organic",
+      "bestFor": [
+        "artistic brands",
+        "natural cosmetics",
+        "artisan packaging"
+      ],
+      "coreElements": [
+        "curving lines",
+        "floral motifs",
+        "hand-lettered type",
+        "earthy palette",
+        "stained glass"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre/Umber as the earthy base; whiplash curves as ornament.",
+      "surfaceTreatment": "flowing curved borders, botanical ornament, earthy panels",
+      "uiImplementable": false,
+      "accessibilityNote": "Hand-lettering decorative-only.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "western-occult",
+      "name": "Western-Occult",
+      "category": "thematic",
+      "era": "contemporary",
+      "mood": "mystical, rugged, folklore-driven",
+      "bestFor": [
+        "crystal shops",
+        "tarot apps",
+        "moody music visuals"
+      ],
+      "coreElements": [
+        "tarot symbols",
+        "cacti",
+        "western serif",
+        "sun/moon motifs",
+        "leather texture"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as desert sun/brass, Umber as leather/night.",
+      "surfaceTreatment": "leather textures, celestial line motifs, western display serifs",
+      "uiImplementable": false,
+      "accessibilityNote": "Symbolic motifs decorative; ensure UI affordances remain conventional.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "kitsch",
+      "name": "Kitsch",
+      "category": "ironic",
+      "era": "retro",
+      "mood": "campy, fun, ironic",
+      "bestFor": [
+        "parody work",
+        "Gen-Z fashion",
+        "nostalgic remixes"
+      ],
+      "coreElements": [
+        "clashing prints",
+        "outdated fonts",
+        "plastic textures",
+        "retro ads",
+        "excess"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre/Umber pushed into deliberately gaudy combos as commentary.",
+      "surfaceTreatment": "maximalist clutter, glossy plastic fills, retro pastiche",
+      "uiImplementable": false,
+      "accessibilityNote": "Irony is visual; keep accessible structure underneath.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "y2k",
+      "name": "Y2K",
+      "category": "retro-futuristic",
+      "era": "late-90s/early-00s",
+      "mood": "futuristic, nostalgic, edgy",
+      "bestFor": [
+        "fashion branding",
+        "tech revival",
+        "throwback interfaces"
+      ],
+      "coreElements": [
+        "chrome textures",
+        "pixel fonts",
+        "metallic finishes",
+        "iridescent gradients",
+        "matrix grids"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as chrome highlight warmth; Umber as deep gradient base.",
+      "surfaceTreatment": "chrome bevels, iridescent gradients, glossy pills, tech grids",
+      "uiImplementable": true,
+      "accessibilityNote": "Chrome/gloss must keep label contrast; avoid pure-metallic text.",
+      "status": "shipped"
+    },
+    {
+      "id": "bauhaus",
+      "name": "Bauhaus",
+      "category": "modernist",
+      "era": "1920s",
+      "mood": "rational, structured, modern",
+      "bestFor": [
+        "architecture",
+        "product design",
+        "clean brand systems"
+      ],
+      "coreElements": [
+        "grid systems",
+        "sans-serif",
+        "primary palette",
+        "circle/triangle/square",
+        "minimal text"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre stands in for the primary-yellow; Umber for ink/structure.",
+      "surfaceTreatment": "strict grid, primary geometric blocks, heavy sans, no ornament",
+      "uiImplementable": true,
+      "accessibilityNote": "Excellent base — high contrast, geometric clarity; ideal accessible skin.",
+      "status": "shipped"
+    },
+    {
+      "id": "brutalism",
+      "name": "Brutalism",
+      "category": "raw",
+      "era": "architecture-derived",
+      "mood": "bold, disruptive, honest",
+      "bestFor": [
+        "artist portfolios",
+        "experimental interfaces",
+        "counterculture brands"
+      ],
+      "coreElements": [
+        "monospaced fonts",
+        "grayscale + raw color",
+        "harsh edges",
+        "solid blocks",
+        "default buttons"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Umber as raw concrete, Ochre as a single jarring highlight.",
+      "surfaceTreatment": "zero radius, thick black borders, exposed structure, system fonts",
+      "uiImplementable": true,
+      "accessibilityNote": "Deliberately raw, but focus rings + 44px targets are non-negotiable.",
+      "status": "shipped"
+    },
+    {
+      "id": "cybercore",
+      "name": "Cybercore",
+      "category": "tech",
+      "era": "contemporary",
+      "mood": "futuristic, chaotic, dystopian",
+      "bestFor": [
+        "tech events",
+        "hacking culture",
+        "gaming visuals"
+      ],
+      "coreElements": [
+        "neon lights",
+        "glitch effects",
+        "code patterns",
+        "green/black themes",
+        "tech symbology"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as terminal-amber glow; Umber as console ground.",
+      "surfaceTreatment": "dark console surfaces, neon edges, glitch decals, monospace",
+      "uiImplementable": true,
+      "accessibilityNote": "Neon glow decorative; keep text on solid dark, honor reduced-motion for glitch.",
+      "status": "shipped"
+    },
+    {
+      "id": "synthwave",
+      "name": "Synthwave",
+      "category": "retro-futuristic",
+      "era": "1980s",
+      "mood": "retro-futuristic, vibrant, dreamy",
+      "bestFor": [
+        "music visuals",
+        "arcade interfaces",
+        "nostalgia apps"
+      ],
+      "coreElements": [
+        "grid horizons",
+        "VHS texture",
+        "neon gradients",
+        "3D chrome type",
+        "purple/cyan"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre warms the neon sunset; Umber as the night grid base.",
+      "surfaceTreatment": "sunset gradients, perspective grids, neon glow, chrome display type",
+      "uiImplementable": true,
+      "accessibilityNote": "Glow is decorative; body text on solid scrim; reduced-motion fallback.",
+      "status": "shipped"
+    },
+    {
+      "id": "vaporwave",
+      "name": "Vaporwave",
+      "category": "surreal",
+      "era": "contemporary",
+      "mood": "ironic, dreamy, nostalgic",
+      "bestFor": [
+        "indie music",
+        "art zines",
+        "anti-establishment design"
+      ],
+      "coreElements": [
+        "pastel pinks/purples",
+        "VHS glitch",
+        "greek busts",
+        "MS-Paint elements",
+        "lo-fi textures"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre/Umber appear as warm pastel accents within the lo-fi palette.",
+      "surfaceTreatment": "pastel gradients, glitch collage, retro-software chrome",
+      "uiImplementable": false,
+      "accessibilityNote": "Collage decorative; keep functional UI on legible surfaces.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "pop-art",
+      "name": "Pop Art",
+      "category": "bold",
+      "era": "1950s-60s",
+      "mood": "loud, fun, energetic",
+      "bestFor": [
+        "pop-culture campaigns",
+        "retail packaging",
+        "fashion visuals"
+      ],
+      "coreElements": [
+        "Ben-Day dots",
+        "bold outlines",
+        "primary colors",
+        "display fonts",
+        "speech bubbles"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as a primary pop hue, Umber as bold outline ink.",
+      "surfaceTreatment": "halftone dot fills, thick outlines, flat primary blocks",
+      "uiImplementable": true,
+      "accessibilityNote": "Halftone/dots decorative; text on solid fills.",
+      "status": "shipped"
+    },
+    {
+      "id": "bento",
+      "name": "Bento UI",
+      "category": "layout",
+      "era": "contemporary",
+      "mood": "organized, friendly, clean",
+      "bestFor": [
+        "dashboards",
+        "portfolios",
+        "productivity tools"
+      ],
+      "coreElements": [
+        "rounded modular blocks",
+        "subtle shadows",
+        "labelled icons",
+        "micro-animations",
+        "neutral palette"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Anchors used straight; Ochre as the single accent block.",
+      "surfaceTreatment": "modular rounded cards in a varied grid, soft shadows, clear labels",
+      "uiImplementable": true,
+      "accessibilityNote": "Strong, accessible layout pattern; pairs with the default token set.",
+      "status": "shipped"
+    },
+    {
+      "id": "graffiti",
+      "name": "Graffiti",
+      "category": "street",
+      "era": "contemporary",
+      "mood": "urban, defiant, expressive",
+      "bestFor": [
+        "streetwear brands",
+        "music festivals",
+        "youth campaigns"
+      ],
+      "coreElements": [
+        "spray texture",
+        "dripping letters",
+        "concrete bg",
+        "neon colors",
+        "freestyle type"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as a spray highlight, Umber as wall/concrete.",
+      "surfaceTreatment": "spray-textured surfaces, drip accents, freestyle display type",
+      "uiImplementable": false,
+      "accessibilityNote": "Freestyle type decorative-only; keep UI labels legible.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "tenebrism",
+      "name": "Tenebrism",
+      "category": "painterly",
+      "era": "baroque-derived",
+      "mood": "intense, emotional, moody",
+      "bestFor": [
+        "gothic art",
+        "storytelling visuals",
+        "cinematic posters"
+      ],
+      "coreElements": [
+        "chiaroscuro",
+        "black backgrounds",
+        "spotlighting",
+        "oil texture"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as the single spotlight warmth on Umber/near-black.",
+      "surfaceTreatment": "deep dark ground, single light source, dramatic falloff",
+      "uiImplementable": false,
+      "accessibilityNote": "Dark imagery; ensure any overlaid UI keeps APCA floor.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "gothic",
+      "name": "Gothic",
+      "category": "historic",
+      "era": "medieval",
+      "mood": "dark, dramatic, historic",
+      "bestFor": [
+        "fantasy book covers",
+        "music posters",
+        "alternative fashion"
+      ],
+      "coreElements": [
+        "blackletter fonts",
+        "stained glass texture",
+        "stone motifs",
+        "deep purples/blacks"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as candle/gild warmth; Umber as stone.",
+      "surfaceTreatment": "stone surfaces, pointed-arch motifs, deep palette, blackletter display",
+      "uiImplementable": false,
+      "accessibilityNote": "Blackletter decorative-only; never UI body.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "pointillism",
+      "name": "Pointillism",
+      "category": "painterly",
+      "era": "post-impressionist",
+      "mood": "artistic, textured, tranquil",
+      "bestFor": [
+        "fine-art branding",
+        "creative editorials",
+        "educational content"
+      ],
+      "coreElements": [
+        "dot clusters",
+        "optical mixing",
+        "pastel palettes",
+        "fade transitions"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre/Umber built from optical dot mixing in imagery.",
+      "surfaceTreatment": "dot-textured fills, soft optical gradients",
+      "uiImplementable": false,
+      "accessibilityNote": "Texture is imagery; functional surfaces stay solid.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "mixed-media",
+      "name": "Mixed Media",
+      "category": "collage",
+      "era": "contemporary",
+      "mood": "eclectic, expressive, avant-garde",
+      "bestFor": [
+        "magazines",
+        "experimental branding",
+        "art education"
+      ],
+      "coreElements": [
+        "cutouts",
+        "overlays",
+        "analog+digital collage",
+        "paper textures"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Anchors unify a heterogeneous collage; Ochre/Umber as the through-line.",
+      "surfaceTreatment": "layered collage, torn edges, mixed photo+illustration",
+      "uiImplementable": false,
+      "accessibilityNote": "Collage decorative; keep reading surfaces calm.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "steampunk",
+      "name": "Steampunk",
+      "category": "retro-futuristic",
+      "era": "victorian-industrial",
+      "mood": "adventurous, vintage-futuristic, imaginative",
+      "bestFor": [
+        "games",
+        "books",
+        "cosplay visuals"
+      ],
+      "coreElements": [
+        "copper tones",
+        "cogwheels",
+        "leather",
+        "serif type",
+        "steam motifs"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as brass/copper, Umber as leather/iron.",
+      "surfaceTreatment": "brass fittings, gear ornament, leather textures, riveted panels",
+      "uiImplementable": false,
+      "accessibilityNote": "Mechanical ornament decorative-only.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "kawaii",
+      "name": "Kawaii",
+      "category": "cute",
+      "era": "japanese-pop",
+      "mood": "sweet, innocent, joyful",
+      "bestFor": [
+        "stationery",
+        "kids' products",
+        "whimsical branding"
+      ],
+      "coreElements": [
+        "pastel colors",
+        "rounded icons",
+        "baby faces",
+        "blush cheeks",
+        "handwritten type"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as warm pastel, Umber softened for outlines.",
+      "surfaceTreatment": "very rounded shapes, pastel fills, cute mascots, bouncy motion",
+      "uiImplementable": true,
+      "accessibilityNote": "Pastels can be low-contrast; verify text/control contrast, keep handwriting display-only.",
+      "status": "shipped"
+    },
+    {
+      "id": "coquette",
+      "name": "Coquette",
+      "category": "feminine",
+      "era": "early-2000s revival",
+      "mood": "delicate, girly, nostalgic",
+      "bestFor": [
+        "beauty brands",
+        "fashion reels",
+        "romantic lifestyle"
+      ],
+      "coreElements": [
+        "baby pinks",
+        "pearls",
+        "ribbon motifs",
+        "dainty serif",
+        "heart shapes"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre/Umber as warm complements to a soft pink-led accent set.",
+      "surfaceTreatment": "ribbon and bow motifs, soft serif display, delicate borders",
+      "uiImplementable": false,
+      "accessibilityNote": "Dainty type decorative-only; ensure functional contrast.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "surrealism",
+      "name": "Surrealism",
+      "category": "art",
+      "era": "20th-century",
+      "mood": "dreamy, unsettling, thought-provoking",
+      "bestFor": [
+        "concept art",
+        "experimental visuals",
+        "literary design"
+      ],
+      "coreElements": [
+        "collage",
+        "disjointed objects",
+        "melting forms",
+        "unexpected scale"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Anchors keep brand identity amid surreal imagery.",
+      "surfaceTreatment": "dreamlike composition, scale play, metaphorical imagery",
+      "uiImplementable": false,
+      "accessibilityNote": "Imagery-led; UI chrome stays conventional and legible.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "utilitarian",
+      "name": "Utilitarian",
+      "category": "functional",
+      "era": "industrial",
+      "mood": "practical, minimal, efficient",
+      "bestFor": [
+        "manuals",
+        "signage",
+        "utility apps",
+        "technical interfaces"
+      ],
+      "coreElements": [
+        "grid layout",
+        "monospaced/industrial fonts",
+        "muted tones",
+        "no decoration"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Umber as ink, Ochre as caution/marker accent only.",
+      "surfaceTreatment": "dense functional grid, monospace data, zero ornament, clear labels",
+      "uiImplementable": true,
+      "accessibilityNote": "Function-first; excellent for data-dense, accessible UIs.",
+      "status": "shipped"
+    },
+    {
+      "id": "mid-century",
+      "name": "Mid-Century",
+      "category": "modernist",
+      "era": "1940s-60s",
+      "mood": "nostalgic, modernist, optimistic",
+      "bestFor": [
+        "furniture branding",
+        "lifestyle blogs",
+        "editorial layouts"
+      ],
+      "coreElements": [
+        "clean lines",
+        "retro colors",
+        "boomerang/mod patterns",
+        "sans-serif"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as a mustard mid-century hue; Umber as walnut.",
+      "surfaceTreatment": "warm retro palette, organic-geometric shapes, clean sans",
+      "uiImplementable": true,
+      "accessibilityNote": "Warm, accessible aesthetic; good general-purpose skin.",
+      "status": "shipped"
+    },
+    {
+      "id": "scrapbook",
+      "name": "Scrapbook",
+      "category": "handmade",
+      "era": "contemporary",
+      "mood": "sentimental, warm, nostalgic",
+      "bestFor": [
+        "journaling apps",
+        "memory branding",
+        "school projects"
+      ],
+      "coreElements": [
+        "paper textures",
+        "washi tape",
+        "polaroid frames",
+        "hand lettering",
+        "stickers"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre/Umber as warm paper and tape tones.",
+      "surfaceTreatment": "layered paper, taped photos, handwritten accents, sticker decals",
+      "uiImplementable": false,
+      "accessibilityNote": "Handwriting/stickers decorative; keep content legible.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "frutiger-aero",
+      "name": "Frutiger Aero",
+      "category": "retro-tech",
+      "era": "mid-2000s",
+      "mood": "futuristic, nostalgic, clean",
+      "bestFor": [
+        "tech",
+        "playful fintech",
+        "Web3 brands"
+      ],
+      "coreElements": [
+        "aqua blues",
+        "semi-transparent bubbles",
+        "gloss overlays",
+        "friendly rounded icons"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as warm gloss highlight; Umber as deep gloss base; aqua as accent.",
+      "surfaceTreatment": "glossy rounded panels, bubble highlights, soft gradients, nature gloss",
+      "uiImplementable": true,
+      "accessibilityNote": "Gloss is decorative; maintain control contrast and focus visibility.",
+      "status": "shipped"
+    },
+    {
+      "id": "dark-academia",
+      "name": "Dark Academia",
+      "category": "academic",
+      "era": "contemporary",
+      "mood": "mysterious, scholarly, magical",
+      "bestFor": [
+        "fantasy games",
+        "book clubs",
+        "witchy brands"
+      ],
+      "coreElements": [
+        "candles",
+        "spellbooks",
+        "antique etchings",
+        "black/gold palette",
+        "serif calligraphy"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as gold/candlelight, Umber as aged leather/ink.",
+      "surfaceTreatment": "dark scholarly surfaces, gold serif accents, antique etching motifs",
+      "uiImplementable": true,
+      "accessibilityNote": "Dark theme variant; verify gold-on-dark contrast (use Ochre-300/400 range).",
+      "status": "shipped"
+    },
+    {
+      "id": "light-academia",
+      "name": "Light Academia",
+      "category": "academic",
+      "era": "contemporary",
+      "mood": "scholarly, calm, refined",
+      "bestFor": [
+        "journals",
+        "study apps",
+        "aesthetic fashion"
+      ],
+      "coreElements": [
+        "creamy neutrals",
+        "serif fonts",
+        "books",
+        "sunlight",
+        "linen textures"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as soft sun warmth; Umber as ink on cream.",
+      "surfaceTreatment": "cream surfaces, classic serif type, linen texture, warm light",
+      "uiImplementable": true,
+      "accessibilityNote": "Naturally light/legible; close to the default warm-light core.",
+      "status": "shipped"
+    },
+    {
+      "id": "wabi-sabi",
+      "name": "Wabi-Sabi",
+      "category": "minimal",
+      "era": "japanese",
+      "mood": "humble, calm, contemplative",
+      "bestFor": [
+        "wellness brands",
+        "tea packaging",
+        "mindful interfaces"
+      ],
+      "coreElements": [
+        "earthy tones",
+        "rough pottery texture",
+        "natural light",
+        "organic forms",
+        "minimal sans"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre/Umber as natural clay and earth; imperfection embraced.",
+      "surfaceTreatment": "organic asymmetry, matte earthen surfaces, generous negative space",
+      "uiImplementable": true,
+      "accessibilityNote": "Subtle/low-chroma; verify functional contrast on quiet surfaces.",
+      "status": "shipped"
+    },
+    {
+      "id": "western",
+      "name": "Western/Desert",
+      "category": "regional",
+      "era": "americana",
+      "mood": "rugged, adventurous, nostalgic",
+      "bestFor": [
+        "ranch brands",
+        "outdoor gear",
+        "festival posters"
+      ],
+      "coreElements": [
+        "terracotta",
+        "cacti",
+        "denim texture",
+        "cowboy boots",
+        "western serif"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as desert sun/sand, Umber as leather/earth.",
+      "surfaceTreatment": "terracotta palette, western display serifs, rugged textures",
+      "uiImplementable": false,
+      "accessibilityNote": "Display serifs decorative; keep UI labels in the system font.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "nautical",
+      "name": "Nautical",
+      "category": "regional",
+      "era": "classic",
+      "mood": "fresh, structured, maritime",
+      "bestFor": [
+        "seafood brands",
+        "beach resorts",
+        "summer campaigns"
+      ],
+      "coreElements": [
+        "navy/white",
+        "anchors",
+        "ropes",
+        "stripes",
+        "brass",
+        "stencil/serif type"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as brass, Umber as rope/wood; navy as accent.",
+      "surfaceTreatment": "navy + cream surfaces, rope/stripe dividers, brass accents",
+      "uiImplementable": false,
+      "accessibilityNote": "Maritime motifs decorative; maintain contrast.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "rebus",
+      "name": "Rebus",
+      "category": "symbolic",
+      "era": "timeless",
+      "mood": "witty, playful, intellectual",
+      "bestFor": [
+        "educational design",
+        "puzzles",
+        "brand storytelling"
+      ],
+      "coreElements": [
+        "pictograms",
+        "visual puns",
+        "image-type hybrids",
+        "clean layouts"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Anchors keep brand voice while pictograms carry meaning.",
+      "surfaceTreatment": "clean layout, pictographic accents, image-word hybrids",
+      "uiImplementable": false,
+      "accessibilityNote": "Never rely on pictogram alone — pair with text for accessibility.",
+      "status": "vocabulary"
+    },
+    {
+      "id": "glassmorphism",
+      "name": "Glassmorphism",
+      "category": "material",
+      "era": "contemporary",
+      "mood": "futuristic, elegant, sleek",
+      "bestFor": [
+        "apps",
+        "OS UI",
+        "product landing pages"
+      ],
+      "coreElements": [
+        "frosted backgrounds",
+        "blur",
+        "semi-transparency",
+        "soft shadows",
+        "subtle tints"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre/Umber tint the frosted layers; anchors stay on solid content.",
+      "surfaceTreatment": "frosted translucent panels, backdrop blur, soft inner light, hairline borders",
+      "uiImplementable": true,
+      "accessibilityNote": "Glass needs an opaque content scrim behind text; honor prefers-reduced-transparency. See Part 21 Liquid Glass.",
+      "status": "shipped"
+    },
+    {
+      "id": "modular-type",
+      "name": "Modular Type",
+      "category": "typographic",
+      "era": "experimental",
+      "mood": "structural, modern, playful",
+      "bestFor": [
+        "posters",
+        "branding systems",
+        "experimental typography"
+      ],
+      "coreElements": [
+        "geometric letterforms",
+        "typographic grids",
+        "uniform spacing",
+        "variable layouts"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Type built from Umber on light with Ochre block accents.",
+      "surfaceTreatment": "letterforms-as-blocks, strict type grid, bold modular composition",
+      "uiImplementable": true,
+      "accessibilityNote": "Display-driven; ensure body copy uses the readable UI font.",
+      "status": "shipped"
+    },
+    {
+      "id": "neo-brutalism",
+      "name": "Neo-Brutalism",
+      "category": "raw-refined",
+      "era": "contemporary",
+      "mood": "confident, bold, raw-yet-usable",
+      "bestFor": [
+        "design portfolios",
+        "creative agency sites",
+        "digital magazines"
+      ],
+      "coreElements": [
+        "bold colors",
+        "large type",
+        "stark layouts",
+        "minimal components",
+        "purposeful asymmetry"
+      ],
+      "anchorMapping": "Umber #45210E + Ochre #F4BA17 anchors immutable; Ochre as a loud functional accent on Umber/paper; hard-edged.",
+      "surfaceTreatment": "thick borders, hard offset shadows, flat bold blocks, near-zero radius, big type",
+      "uiImplementable": true,
+      "accessibilityNote": "Refined brutalism — bold but keeps 44px targets, focus rings, and APCA Lc≥75.",
+      "status": "shipped"
+    }
+  ]
+}

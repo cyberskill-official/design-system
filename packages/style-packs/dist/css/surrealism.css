@@ -1,0 +1,12 @@
+/* Surrealism — dreamlike depth, soft scale play, long shadow. */
+[data-cs-style="surrealism"] {
+  --cs-radius-md: 24px;
+  --cs-color-surface-page: #F6F0E6;
+}
+[data-cs-style="surrealism"] .cs-dialog {
+  border-radius: 40px 12px 40px 12px;
+  box-shadow: 0 50px 90px -30px rgba(69, 33, 14, 0.4);
+}
+[data-cs-style="surrealism"] .cs-button { border-radius: 999px 10px 999px 10px; }
+[data-cs-style="surrealism"] .cs-ai-disclosure__panel { border-radius: 28px 8px 28px 8px; }
+[data-cs-style="surrealism"] .cs-field__control { border-radius: 18px 6px 18px 6px; }

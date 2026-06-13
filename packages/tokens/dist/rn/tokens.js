@@ -33,6 +33,14 @@ export const tokens = [
     "description": "Default panel background."
   },
   {
+    "name": "cs.color.surface.raised",
+    "css": "--cs-color-surface-raised",
+    "type": "color",
+    "value": "#FBF4E9",
+    "raw": "#FBF4E9",
+    "description": "Subtly raised surface (hover/secondary fill)."
+  },
+  {
     "name": "cs.color.text.primary",
     "css": "--cs-color-text-primary",
     "type": "color",
@@ -55,6 +63,14 @@ export const tokens = [
     "value": "#6E3B0E",
     "raw": "#6E3B0E",
     "description": "Accessible ochre-adjacent text accent."
+  },
+  {
+    "name": "cs.color.text.muted",
+    "css": "--cs-color-text-muted",
+    "type": "color",
+    "value": "#6E5A4C",
+    "raw": "#6E5A4C",
+    "description": "Muted/secondary text. APCA-safe on surface.page."
   },
   {
     "name": "cs.color.semantic.success",
@@ -89,6 +105,22 @@ export const tokens = [
     "description": "Info foreground."
   },
   {
+    "name": "cs.color.accent.ochre",
+    "css": "--cs-color-accent-ochre",
+    "type": "color",
+    "value": "#F4BA17",
+    "raw": "{cs.color.brand.ochre}",
+    "description": "Accent alias of Ochre, used for focus rings."
+  },
+  {
+    "name": "cs.space.0",
+    "css": "--cs-space-0",
+    "type": "dimension",
+    "value": "0px",
+    "raw": "0px",
+    "description": "Zero spacing."
+  },
+  {
     "name": "cs.space.1",
     "css": "--cs-space-1",
     "type": "dimension",
@@ -121,12 +153,68 @@ export const tokens = [
     "description": "16px spacing step."
   },
   {
+    "name": "cs.space.5",
+    "css": "--cs-space-5",
+    "type": "dimension",
+    "value": "20px",
+    "raw": "20px",
+    "description": "20px spacing step."
+  },
+  {
     "name": "cs.space.6",
     "css": "--cs-space-6",
     "type": "dimension",
     "value": "24px",
     "raw": "24px",
     "description": "24px spacing step."
+  },
+  {
+    "name": "cs.space.8",
+    "css": "--cs-space-8",
+    "type": "dimension",
+    "value": "32px",
+    "raw": "32px",
+    "description": "32px spacing step."
+  },
+  {
+    "name": "cs.space.10",
+    "css": "--cs-space-10",
+    "type": "dimension",
+    "value": "40px",
+    "raw": "40px",
+    "description": "40px spacing step."
+  },
+  {
+    "name": "cs.space.12",
+    "css": "--cs-space-12",
+    "type": "dimension",
+    "value": "48px",
+    "raw": "48px",
+    "description": "48px spacing step."
+  },
+  {
+    "name": "cs.space.16",
+    "css": "--cs-space-16",
+    "type": "dimension",
+    "value": "64px",
+    "raw": "64px",
+    "description": "64px spacing step (section padding floor)."
+  },
+  {
+    "name": "cs.space.20",
+    "css": "--cs-space-20",
+    "type": "dimension",
+    "value": "80px",
+    "raw": "80px",
+    "description": "80px spacing step."
+  },
+  {
+    "name": "cs.space.24",
+    "css": "--cs-space-24",
+    "type": "dimension",
+    "value": "96px",
+    "raw": "96px",
+    "description": "96px spacing step (section padding ceiling)."
   },
   {
     "name": "cs.radius.sm",
@@ -201,12 +289,172 @@ export const tokens = [
     "description": "Button primary foreground."
   },
   {
+    "name": "cs.component.button.gap",
+    "css": "--cs-component-button-gap",
+    "type": "dimension",
+    "value": "8px",
+    "raw": "8px",
+    "description": "Gap between button icon and label."
+  },
+  {
+    "name": "cs.component.button.radius",
+    "css": "--cs-component-button-radius",
+    "type": "dimension",
+    "value": "8px",
+    "raw": "{cs.radius.md}",
+    "description": "Button corner radius."
+  },
+  {
+    "name": "cs.component.button.sm.paddingY",
+    "css": "--cs-component-button-sm-paddingY",
+    "type": "dimension",
+    "value": "8px",
+    "raw": "8px",
+    "description": "Compact button. Vertical padding."
+  },
+  {
+    "name": "cs.component.button.sm.paddingX",
+    "css": "--cs-component-button-sm-paddingX",
+    "type": "dimension",
+    "value": "14px",
+    "raw": "14px",
+    "description": "Compact button. Horizontal padding."
+  },
+  {
+    "name": "cs.component.button.sm.minHeight",
+    "css": "--cs-component-button-sm-minHeight",
+    "type": "dimension",
+    "value": "36px",
+    "raw": "36px",
+    "description": "Compact button. Minimum height / touch target."
+  },
+  {
+    "name": "cs.component.button.md.paddingY",
+    "css": "--cs-component-button-md-paddingY",
+    "type": "dimension",
+    "value": "12px",
+    "raw": "12px",
+    "description": "Default button (comfortable touch target). Vertical padding."
+  },
+  {
+    "name": "cs.component.button.md.paddingX",
+    "css": "--cs-component-button-md-paddingX",
+    "type": "dimension",
+    "value": "20px",
+    "raw": "20px",
+    "description": "Default button (comfortable touch target). Horizontal padding."
+  },
+  {
+    "name": "cs.component.button.md.minHeight",
+    "css": "--cs-component-button-md-minHeight",
+    "type": "dimension",
+    "value": "44px",
+    "raw": "44px",
+    "description": "Default button (comfortable touch target). Minimum height / touch target."
+  },
+  {
+    "name": "cs.component.button.lg.paddingY",
+    "css": "--cs-component-button-lg-paddingY",
+    "type": "dimension",
+    "value": "16px",
+    "raw": "16px",
+    "description": "Prominent CTA button. Vertical padding."
+  },
+  {
+    "name": "cs.component.button.lg.paddingX",
+    "css": "--cs-component-button-lg-paddingX",
+    "type": "dimension",
+    "value": "28px",
+    "raw": "28px",
+    "description": "Prominent CTA button. Horizontal padding."
+  },
+  {
+    "name": "cs.component.button.lg.minHeight",
+    "css": "--cs-component-button-lg-minHeight",
+    "type": "dimension",
+    "value": "52px",
+    "raw": "52px",
+    "description": "Prominent CTA button. Minimum height / touch target."
+  },
+  {
     "name": "cs.component.textfield.border.default",
     "css": "--cs-component-textfield-border-default",
     "type": "color",
     "value": "#BFA58F",
     "raw": "#BFA58F",
     "description": "TextField default border."
+  },
+  {
+    "name": "cs.component.textfield.paddingY",
+    "css": "--cs-component-textfield-paddingY",
+    "type": "dimension",
+    "value": "10px",
+    "raw": "10px",
+    "description": "TextField vertical padding."
+  },
+  {
+    "name": "cs.component.textfield.paddingX",
+    "css": "--cs-component-textfield-paddingX",
+    "type": "dimension",
+    "value": "12px",
+    "raw": "12px",
+    "description": "TextField horizontal padding."
+  },
+  {
+    "name": "cs.component.textfield.minHeight",
+    "css": "--cs-component-textfield-minHeight",
+    "type": "dimension",
+    "value": "44px",
+    "raw": "44px",
+    "description": "TextField minimum height / touch target."
+  },
+  {
+    "name": "cs.breakpoint.xs",
+    "css": "--cs-breakpoint-xs",
+    "type": "dimension",
+    "value": "0px",
+    "raw": "0px",
+    "description": "Base mobile breakpoint (mobile-first)."
+  },
+  {
+    "name": "cs.breakpoint.sm",
+    "css": "--cs-breakpoint-sm",
+    "type": "dimension",
+    "value": "640px",
+    "raw": "640px",
+    "description": "Small / large-phone breakpoint."
+  },
+  {
+    "name": "cs.breakpoint.md",
+    "css": "--cs-breakpoint-md",
+    "type": "dimension",
+    "value": "768px",
+    "raw": "768px",
+    "description": "Tablet breakpoint."
+  },
+  {
+    "name": "cs.breakpoint.lg",
+    "css": "--cs-breakpoint-lg",
+    "type": "dimension",
+    "value": "1024px",
+    "raw": "1024px",
+    "description": "Laptop / small-desktop breakpoint."
+  },
+  {
+    "name": "cs.breakpoint.xl",
+    "css": "--cs-breakpoint-xl",
+    "type": "dimension",
+    "value": "1280px",
+    "raw": "1280px",
+    "description": "Desktop breakpoint."
+  },
+  {
+    "name": "cs.breakpoint.2xl",
+    "css": "--cs-breakpoint-2xl",
+    "type": "dimension",
+    "value": "1536px",
+    "raw": "1536px",
+    "description": "Wide-desktop breakpoint."
   }
 ];
 export default tokens;

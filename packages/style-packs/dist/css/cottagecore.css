@@ -1,0 +1,10 @@
+/* Cottagecore — warm rustic palette, soft natural surfaces. */
+[data-cs-style="cottagecore"] {
+  --cs-radius-md: 14px;
+  --cs-color-surface-page: #F7F0DF;
+  --cs-color-surface-panel: #FCF7EA;
+}
+[data-cs-style="cottagecore"] .cs-button { border-radius: 14px; }
+[data-cs-style="cottagecore"] .cs-button--secondary { border-color: color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 35%, transparent); }
+[data-cs-style="cottagecore"] .cs-dialog { border-radius: 16px; box-shadow: 0 12px 38px rgba(69, 33, 14, 0.10); }
+[data-cs-style="cottagecore"] .cs-field__control { border-radius: 12px; }

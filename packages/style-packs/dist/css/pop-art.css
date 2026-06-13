@@ -1,0 +1,21 @@
+/* Pop Art — thick outlines, flat primary blocks, bold display. */
+[data-cs-style="pop-art"] {
+  --cs-radius-md: 8px;
+  --cs-color-surface-page: #FCF6E8;
+}
+[data-cs-style="pop-art"] .cs-button {
+  border: 3px solid var(--cs-color-brand-umber, #45210e);
+  font-weight: 800;
+}
+[data-cs-style="pop-art"] .cs-button--primary {
+  background: var(--cs-color-brand-ochre, #f4ba17);
+  color: var(--cs-color-brand-umber, #45210e);
+}
+[data-cs-style="pop-art"] .cs-dialog,
+[data-cs-style="pop-art"] .cs-review-gate {
+  border: 3px solid var(--cs-color-brand-umber, #45210e);
+}
+[data-cs-style="pop-art"] .cs-ai-disclosure__badge {
+  border: 2px solid var(--cs-color-brand-umber, #45210e);
+}
+[data-cs-style="pop-art"] .cs-table th { border-block-end: 3px solid var(--cs-color-brand-umber, #45210e); }

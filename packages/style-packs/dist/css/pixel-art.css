@@ -1,0 +1,19 @@
+/* Pixel Art — hard pixel edges, stepped shadows, retro, zero radius. */
+[data-cs-style="pixel-art"] {
+  --cs-radius-sm: 0px;
+  --cs-radius-md: 0px;
+  --cs-radius-full: 0px;
+}
+[data-cs-style="pixel-art"] .cs-button {
+  border-radius: 0;
+  border: 3px solid var(--cs-color-brand-umber, #45210e);
+  box-shadow: 4px 0 0 var(--cs-color-brand-umber, #45210e), 0 4px 0 var(--cs-color-brand-umber, #45210e), 4px 4px 0 var(--cs-color-brand-umber, #45210e);
+  image-rendering: pixelated;
+}
+[data-cs-style="pixel-art"] .cs-button:active { transform: translate(2px, 2px); }
+[data-cs-style="pixel-art"] .cs-dialog,
+[data-cs-style="pixel-art"] .cs-field__control,
+[data-cs-style="pixel-art"] .cs-ai-disclosure__badge {
+  border-radius: 0;
+  border: 3px solid var(--cs-color-brand-umber, #45210e);
+}

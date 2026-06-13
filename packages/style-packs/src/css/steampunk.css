@@ -1,0 +1,17 @@
+/* Steampunk — brass/copper, riveted panels, leather-warm. */
+[data-cs-style="steampunk"] {
+  --cs-radius-md: 6px;
+  --cs-color-surface-page: #EFE2CC;
+  --cs-color-surface-panel: #F7EEDC;
+}
+[data-cs-style="steampunk"] .cs-button {
+  border: 2px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 70%, var(--cs-color-brand-umber, #45210e));
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 2px 4px rgba(69,33,14,0.3);
+}
+[data-cs-style="steampunk"] .cs-dialog,
+[data-cs-style="steampunk"] .cs-review-gate {
+  border: 2px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 55%, var(--cs-color-brand-ochre, #f4ba17));
+  box-shadow: inset 0 0 0 3px var(--cs-color-surface-panel, #fff);
+}
+[data-cs-style="steampunk"] .cs-field__control { border: 2px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 45%, var(--cs-color-brand-ochre, #f4ba17)); }

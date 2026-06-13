@@ -1,0 +1,20 @@
+/* Vaporwave — pastel-dusk surfaces, glitchy pink/cyan offset accents. */
+[data-cs-style="vaporwave"] {
+  --cs-radius-md: 10px;
+  --cs-color-surface-page: #241A2E;
+  --cs-color-surface-panel: #2F2340;
+  --cs-color-surface-raised: #392B4E;
+  --cs-color-text-primary: #FCE8D6;
+  --cs-color-text-muted: #D6BBD2;
+  --cs-component-textfield-border-default: #574168;
+}
+[data-cs-style="vaporwave"] .cs-button--primary {
+  background: var(--cs-color-brand-ochre, #f4ba17);
+  color: #2a1206;
+  box-shadow: 3px 3px 0 #5ad1e0, -3px -3px 0 #ef79c0;
+}
+[data-cs-style="vaporwave"] .cs-button--secondary { color: var(--cs-color-text-primary, #fce8d6); border-color: #5ad1e0; }
+[data-cs-style="vaporwave"] .cs-dialog {
+  border: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 40%, #ef79c0);
+  box-shadow: 4px 4px 0 rgba(90,209,224,0.4);
+}

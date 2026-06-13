@@ -1,0 +1,19 @@
+/* Sketch — hand-drawn wobble borders, ink-on-paper, informal. */
+[data-cs-style="sketch"] {
+  --cs-radius-md: 14px;
+  --cs-color-surface-page: #FAF6EC;
+}
+[data-cs-style="sketch"] .cs-button {
+  border: 2px solid var(--cs-color-brand-umber, #45210e);
+  border-radius: 255px 12px 225px 14px/12px 225px 14px 255px;
+}
+[data-cs-style="sketch"] .cs-dialog,
+[data-cs-style="sketch"] .cs-review-gate {
+  border: 2px solid var(--cs-color-brand-umber, #45210e);
+  border-radius: 18px 8px 20px 10px/10px 20px 8px 18px;
+}
+[data-cs-style="sketch"] .cs-field__control {
+  border: 2px solid var(--cs-color-brand-umber, #45210e);
+  border-radius: 14px 6px 16px 7px/7px 16px 6px 14px;
+}
+[data-cs-style="sketch"] .cs-ai-disclosure__badge { border: 2px solid var(--cs-color-brand-umber, #45210e); border-radius: 12px 5px 14px 6px; }

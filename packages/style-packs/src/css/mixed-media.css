@@ -1,0 +1,12 @@
+/* Mixed Media — layered collage edges, torn-paper offsets. */
+[data-cs-style="mixed-media"] {
+  --cs-radius-md: 6px;
+  --cs-color-surface-page: #F5EFE2;
+}
+[data-cs-style="mixed-media"] .cs-dialog,
+[data-cs-style="mixed-media"] .cs-review-gate {
+  border: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 20%, transparent);
+  box-shadow: 6px 6px 0 color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 35%, transparent), -3px -3px 0 var(--cs-color-surface-panel, #fff);
+}
+[data-cs-style="mixed-media"] .cs-button { border: 1px solid var(--cs-color-brand-umber, #45210e); box-shadow: 3px 3px 0 color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 35%, transparent); }
+[data-cs-style="mixed-media"] .cs-ai-disclosure__badge { border: 1px solid var(--cs-color-brand-umber, #45210e); }

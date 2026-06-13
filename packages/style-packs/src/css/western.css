@@ -1,0 +1,14 @@
+/* Western/Desert — terracotta palette, rugged textures, display serif. */
+[data-cs-style="western"] {
+  --cs-radius-md: 6px;
+  --cs-color-surface-page: #F3E4D2;
+  --cs-color-surface-panel: #FAEFE0;
+  --cs-font-family-ui: Georgia, serif;
+  --cs-western-clay: #B5532A;
+}
+[data-cs-style="western"] .cs-button--primary { background: var(--cs-western-clay); color: #ffffff; }
+[data-cs-style="western"] .cs-button--secondary { border-color: var(--cs-western-clay); color: var(--cs-western-clay); }
+[data-cs-style="western"] .cs-dialog,
+[data-cs-style="western"] .cs-review-gate {
+  border: 2px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 50%, var(--cs-western-clay));
+}

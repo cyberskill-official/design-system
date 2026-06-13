@@ -1,0 +1,20 @@
+/* Western-Occult — leather-dark, celestial line motifs, brass. */
+[data-cs-style="western-occult"] {
+  --cs-radius-md: 4px;
+  --cs-color-surface-page: #1F1813;
+  --cs-color-surface-panel: #2A211A;
+  --cs-color-surface-raised: #342820;
+  --cs-color-text-primary: #EFE2CF;
+  --cs-color-text-muted: #BBA890;
+  --cs-component-textfield-border-default: #5a4636;
+  --cs-font-family-ui: Georgia, serif;
+}
+[data-cs-style="western-occult"] .cs-button--primary {
+  background: var(--cs-color-brand-ochre, #f4ba17);
+  color: #241206;
+}
+[data-cs-style="western-occult"] .cs-button--secondary { color: var(--cs-color-text-primary, #efe2cf); border-color: color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 45%, transparent); }
+[data-cs-style="western-occult"] .cs-dialog {
+  border: 1px solid color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 40%, transparent);
+  box-shadow: inset 0 0 0 3px color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 40%, transparent);
+}

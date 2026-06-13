@@ -33,6 +33,11 @@
           "$type": "color",
           "$value": "#FFFFFF",
           "$description": "Default panel background."
+        },
+        "raised": {
+          "$type": "color",
+          "$value": "#FBF4E9",
+          "$description": "Subtly raised surface (hover/secondary fill)."
         }
       },
       "text": {
@@ -50,6 +55,11 @@
           "$type": "color",
           "$value": "#6E3B0E",
           "$description": "Accessible ochre-adjacent text accent."
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "#6E5A4C",
+          "$description": "Muted/secondary text. APCA-safe on surface.page."
         }
       },
       "semantic": {
@@ -73,19 +83,98 @@
           "$value": "#1D4ED8",
           "$description": "Info foreground."
         }
+      },
+      "accent": {
+        "ochre": {
+          "$type": "color",
+          "$value": "{cs.color.brand.ochre}",
+          "$description": "Accent alias of Ochre, used for focus rings."
+        }
       }
     },
     "space": {
-      "1": { "$type": "dimension", "$value": "4px", "$description": "4px spacing step." },
-      "2": { "$type": "dimension", "$value": "8px", "$description": "8px spacing step." },
-      "3": { "$type": "dimension", "$value": "12px", "$description": "12px spacing step." },
-      "4": { "$type": "dimension", "$value": "16px", "$description": "16px spacing step." },
-      "6": { "$type": "dimension", "$value": "24px", "$description": "24px spacing step." }
+      "0": {
+        "$type": "dimension",
+        "$value": "0px",
+        "$description": "Zero spacing."
+      },
+      "1": {
+        "$type": "dimension",
+        "$value": "4px",
+        "$description": "4px spacing step."
+      },
+      "2": {
+        "$type": "dimension",
+        "$value": "8px",
+        "$description": "8px spacing step."
+      },
+      "3": {
+        "$type": "dimension",
+        "$value": "12px",
+        "$description": "12px spacing step."
+      },
+      "4": {
+        "$type": "dimension",
+        "$value": "16px",
+        "$description": "16px spacing step."
+      },
+      "5": {
+        "$type": "dimension",
+        "$value": "20px",
+        "$description": "20px spacing step."
+      },
+      "6": {
+        "$type": "dimension",
+        "$value": "24px",
+        "$description": "24px spacing step."
+      },
+      "8": {
+        "$type": "dimension",
+        "$value": "32px",
+        "$description": "32px spacing step."
+      },
+      "10": {
+        "$type": "dimension",
+        "$value": "40px",
+        "$description": "40px spacing step."
+      },
+      "12": {
+        "$type": "dimension",
+        "$value": "48px",
+        "$description": "48px spacing step."
+      },
+      "16": {
+        "$type": "dimension",
+        "$value": "64px",
+        "$description": "64px spacing step (section padding floor)."
+      },
+      "20": {
+        "$type": "dimension",
+        "$value": "80px",
+        "$description": "80px spacing step."
+      },
+      "24": {
+        "$type": "dimension",
+        "$value": "96px",
+        "$description": "96px spacing step (section padding ceiling)."
+      }
     },
     "radius": {
-      "sm": { "$type": "dimension", "$value": "4px", "$description": "Small radius." },
-      "md": { "$type": "dimension", "$value": "8px", "$description": "Default radius." },
-      "full": { "$type": "dimension", "$value": "999px", "$description": "Pill radius." }
+      "sm": {
+        "$type": "dimension",
+        "$value": "4px",
+        "$description": "Small radius."
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "8px",
+        "$description": "Default radius."
+      },
+      "full": {
+        "$type": "dimension",
+        "$value": "999px",
+        "$description": "Pill radius."
+      }
     },
     "font": {
       "family": {
@@ -126,6 +215,67 @@
             "$value": "{cs.color.text.inverse}",
             "$description": "Button primary foreground."
           }
+        },
+        "gap": {
+          "$type": "dimension",
+          "$value": "8px",
+          "$description": "Gap between button icon and label."
+        },
+        "radius": {
+          "$type": "dimension",
+          "$value": "{cs.radius.md}",
+          "$description": "Button corner radius."
+        },
+        "sm": {
+          "paddingY": {
+            "$type": "dimension",
+            "$value": "8px",
+            "$description": "Compact button. Vertical padding."
+          },
+          "paddingX": {
+            "$type": "dimension",
+            "$value": "14px",
+            "$description": "Compact button. Horizontal padding."
+          },
+          "minHeight": {
+            "$type": "dimension",
+            "$value": "36px",
+            "$description": "Compact button. Minimum height / touch target."
+          }
+        },
+        "md": {
+          "paddingY": {
+            "$type": "dimension",
+            "$value": "12px",
+            "$description": "Default button (comfortable touch target). Vertical padding."
+          },
+          "paddingX": {
+            "$type": "dimension",
+            "$value": "20px",
+            "$description": "Default button (comfortable touch target). Horizontal padding."
+          },
+          "minHeight": {
+            "$type": "dimension",
+            "$value": "44px",
+            "$description": "Default button (comfortable touch target). Minimum height / touch target."
+          }
+        },
+        "lg": {
+          "paddingY": {
+            "$type": "dimension",
+            "$value": "16px",
+            "$description": "Prominent CTA button. Vertical padding."
+          },
+          "paddingX": {
+            "$type": "dimension",
+            "$value": "28px",
+            "$description": "Prominent CTA button. Horizontal padding."
+          },
+          "minHeight": {
+            "$type": "dimension",
+            "$value": "52px",
+            "$description": "Prominent CTA button. Minimum height / touch target."
+          }
         }
       },
       "textfield": {
@@ -135,7 +285,54 @@
             "$value": "#BFA58F",
             "$description": "TextField default border."
           }
+        },
+        "paddingY": {
+          "$type": "dimension",
+          "$value": "10px",
+          "$description": "TextField vertical padding."
+        },
+        "paddingX": {
+          "$type": "dimension",
+          "$value": "12px",
+          "$description": "TextField horizontal padding."
+        },
+        "minHeight": {
+          "$type": "dimension",
+          "$value": "44px",
+          "$description": "TextField minimum height / touch target."
         }
+      }
+    },
+    "breakpoint": {
+      "xs": {
+        "$type": "dimension",
+        "$value": "0px",
+        "$description": "Base mobile breakpoint (mobile-first)."
+      },
+      "sm": {
+        "$type": "dimension",
+        "$value": "640px",
+        "$description": "Small / large-phone breakpoint."
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "768px",
+        "$description": "Tablet breakpoint."
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "1024px",
+        "$description": "Laptop / small-desktop breakpoint."
+      },
+      "xl": {
+        "$type": "dimension",
+        "$value": "1280px",
+        "$description": "Desktop breakpoint."
+      },
+      "2xl": {
+        "$type": "dimension",
+        "$value": "1536px",
+        "$description": "Wide-desktop breakpoint."
       }
     }
   }

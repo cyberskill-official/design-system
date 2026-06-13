@@ -1,0 +1,21 @@
+/* Bauhaus — strict grid, primary geometry, heavy sans, zero ornament. */
+[data-cs-style="bauhaus"] {
+  --cs-radius-sm: 0px;
+  --cs-radius-md: 0px;
+}
+[data-cs-style="bauhaus"] .cs-button {
+  border-radius: 0;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+[data-cs-style="bauhaus"] .cs-button--primary {
+  background: var(--cs-color-brand-ochre, #f4ba17);
+  color: var(--cs-color-brand-umber, #45210e);
+}
+[data-cs-style="bauhaus"] .cs-button--lg { border-radius: 999px 0 0 999px; }
+[data-cs-style="bauhaus"] .cs-dialog,
+[data-cs-style="bauhaus"] .cs-field__control { border-radius: 0; }
+[data-cs-style="bauhaus"] .cs-dialog { border-top: 6px solid var(--cs-color-brand-ochre, #f4ba17); }
+[data-cs-style="bauhaus"] .cs-table th {
+  border-block-end: 3px solid var(--cs-color-brand-umber, #45210e);
+}
