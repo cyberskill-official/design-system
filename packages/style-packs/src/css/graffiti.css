@@ -12,3 +12,16 @@
 [data-cs-style="graffiti"] .cs-button:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 80%, transparent); }
 [data-cs-style="graffiti"] .cs-dialog { border-inline-start: 6px solid var(--cs-color-brand-ochre, #f4ba17); }
 [data-cs-style="graffiti"] .cs-review-gate { border-inline-start: 6px solid var(--cs-color-brand-ochre, #f4ba17); }
+
+/* Dark mode (modes: [light, dark]). Re-pins surfaces to a graffiti-appropriate dark
+   ground; the pack's accent/border treatment follows via var(). Text/border use
+   the warm-dark theme values for APCA parity. */
+[data-cs-style="graffiti"][data-theme="dark"],
+[data-theme="dark"] [data-cs-style="graffiti"] {
+  --cs-color-surface-page: #161514;
+  --cs-color-surface-panel: #20201E;
+  --cs-color-surface-raised: #2A2A27;
+  --cs-color-text-primary: #F5EAD9;
+  --cs-color-text-muted: #C9B7A3;
+  --cs-component-textfield-border-default: #5A4636;
+}

@@ -166,3 +166,32 @@ The build derives status automatically: **shipped** (CSS present) · **implement
 3. `npm run stylepacks:build && npm run stylepacks:verify` → pack shows ✅ pass.
 
 That's the whole loop. The catalog now has 51 styles; the core never changed.
+
+## Mode policy (light / dark / both)
+
+Every pack declares `modes` and `primaryMode` in `styles.catalog.json`. Decide
+from the style's canonical palette (see `MODES.md` for the full matrix + rationale):
+
+- **`["light"]`** — light/airy/pastel styles. Pin a light palette.
+- **`["dark"]`** — styles defined by a dark ground (neon, chiaroscuro, gothic).
+  Pin a dark palette; it renders dark regardless of `data-theme`.
+- **`["light","dark"]`** — structural/neutral/high-contrast styles. Default to
+  `primaryMode`, then add a dark override block:
+
+```css
+[data-cs-style="<id>"][data-theme="dark"],
+[data-theme="dark"] [data-cs-style="<id>"] {
+  --cs-color-surface-page: <dark ground>;
+  --cs-color-surface-panel: <slightly lighter>;
+  --cs-color-surface-raised: <lighter still>;
+  --cs-color-text-primary: #F5EAD9;   /* light text for APCA on dark */
+  --cs-color-text-muted: #C9B7A3;
+  --cs-component-textfield-border-default: #5A4636;
+}
+```
+
+The dual selector matters: `data-theme` may sit on an ancestor (`<html>`) while
+`data-cs-style` sits on a subtree, so cover both same-element and descendant.
+Never re-pin the anchors. The verifier enforces this: **H7** (valid `modes`) is
+hard; **S4** warns if a pack declares dark but ships no `[data-theme="dark"]`
+override. Add a `<id>-dark.png` screenshot baseline for every `both` pack.

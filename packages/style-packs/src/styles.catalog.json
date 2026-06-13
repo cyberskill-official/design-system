@@ -31,7 +31,11 @@
       "surfaceTreatment": "matte ivory surfaces, hairline gold rules, high symmetry, generous margins",
       "uiImplementable": false,
       "accessibilityNote": "Keep serif body ≥16px; gold (Ochre) only as accent, never body text on light.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "baroque",
@@ -55,7 +59,12 @@
       "surfaceTreatment": "dramatic layered shadows, ornamental frames, high-contrast panels",
       "uiImplementable": false,
       "accessibilityNote": "Ornament must be decorative-only (aria-hidden); maintain APCA Lc≥75 on text.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "aurora",
@@ -79,7 +88,12 @@
       "surfaceTreatment": "soft animated gradients, low-blur translucency, glow accents",
       "uiImplementable": true,
       "accessibilityNote": "Text sits on a solid scrim, never directly on a moving gradient; honor prefers-reduced-motion.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "ethereal",
@@ -103,7 +117,11 @@
       "surfaceTreatment": "airy whitespace, feathered shadows, low-chroma tints",
       "uiImplementable": true,
       "accessibilityNote": "Low-contrast is decorative; all functional text must still hit APCA Lc≥75.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "filigree",
@@ -126,7 +144,11 @@
       "surfaceTreatment": "fine line ornament, lace dividers, monogram lockups",
       "uiImplementable": false,
       "accessibilityNote": "Linework is decorative; keep stroke ≥1.5px for legibility, not a UI control.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "acanthus",
@@ -149,7 +171,11 @@
       "surfaceTreatment": "carved foliate borders, symmetric vine dividers",
       "uiImplementable": false,
       "accessibilityNote": "Botanical ornament decorative-only.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "anthropomorphic",
@@ -172,7 +198,11 @@
       "surfaceTreatment": "rounded shapes, character mascots, playful micro-motion",
       "uiImplementable": true,
       "accessibilityNote": "Mascots are imagery; provide alt text; do not rely on character alone to convey state.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "pixel-art",
@@ -195,7 +225,12 @@
       "surfaceTreatment": "hard pixel edges, image-rendering: pixelated, stepped shadows",
       "uiImplementable": true,
       "accessibilityNote": "Pixel type is hard to read small; use only for display, pair with a legible UI font for body.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "sketch",
@@ -219,7 +254,11 @@
       "surfaceTreatment": "hand-drawn borders, sketch fills, paper grain background",
       "uiImplementable": true,
       "accessibilityNote": "Hand-drawn strokes must not reduce control contrast; keep focus rings crisp.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "luxury-typography",
@@ -243,7 +282,12 @@
       "surfaceTreatment": "expansive whitespace, large tracked serifs, minimal chrome",
       "uiImplementable": true,
       "accessibilityNote": "Large tracking only on display; keep body tracking normal for readability.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "japandi",
@@ -267,7 +311,11 @@
       "surfaceTreatment": "muted warm neutrals, soft radii, abundant whitespace, thin dividers",
       "uiImplementable": true,
       "accessibilityNote": "High harmony/low contrast aesthetic — verify functional contrast still passes.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "memphis",
@@ -291,7 +339,11 @@
       "surfaceTreatment": "flat blocks, squiggle decals, offset grids, hard shadows",
       "uiImplementable": true,
       "accessibilityNote": "Clashing colour is decorative; keep text on solid high-contrast blocks.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "bohemian",
@@ -315,7 +367,11 @@
       "surfaceTreatment": "layered textile textures, patterned dividers, warm jewel accents",
       "uiImplementable": false,
       "accessibilityNote": "Script fonts decorative-only; never set UI labels in script.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "shabby-chic",
@@ -339,7 +395,11 @@
       "surfaceTreatment": "distressed surfaces, faded floral motifs, soft pastel washes",
       "uiImplementable": false,
       "accessibilityNote": "Distressed textures must not reduce text legibility.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "cottagecore",
@@ -363,7 +423,11 @@
       "surfaceTreatment": "natural textures, floral borders, warm rustic palette",
       "uiImplementable": true,
       "accessibilityNote": "Texture is background; keep content surfaces calm and legible.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "victorian",
@@ -388,7 +452,12 @@
       "surfaceTreatment": "gilded frames, damask fills, ornate rules",
       "uiImplementable": false,
       "accessibilityNote": "Period ornament decorative-only; maintain modern contrast floors.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "art-deco",
@@ -412,7 +481,12 @@
       "surfaceTreatment": "symmetric geometry, sunburst motifs, gold hairlines, strong verticals",
       "uiImplementable": true,
       "accessibilityNote": "Decorative geometry must not encode meaning; keep contrast on text.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "art-nouveau",
@@ -436,7 +510,11 @@
       "surfaceTreatment": "flowing curved borders, botanical ornament, earthy panels",
       "uiImplementable": false,
       "accessibilityNote": "Hand-lettering decorative-only.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "western-occult",
@@ -460,7 +538,11 @@
       "surfaceTreatment": "leather textures, celestial line motifs, western display serifs",
       "uiImplementable": false,
       "accessibilityNote": "Symbolic motifs decorative; ensure UI affordances remain conventional.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "dark"
+      ],
+      "primaryMode": "dark"
     },
     {
       "id": "kitsch",
@@ -484,7 +566,11 @@
       "surfaceTreatment": "maximalist clutter, glossy plastic fills, retro pastiche",
       "uiImplementable": false,
       "accessibilityNote": "Irony is visual; keep accessible structure underneath.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "y2k",
@@ -508,7 +594,12 @@
       "surfaceTreatment": "chrome bevels, iridescent gradients, glossy pills, tech grids",
       "uiImplementable": true,
       "accessibilityNote": "Chrome/gloss must keep label contrast; avoid pure-metallic text.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "bauhaus",
@@ -532,7 +623,12 @@
       "surfaceTreatment": "strict grid, primary geometric blocks, heavy sans, no ornament",
       "uiImplementable": true,
       "accessibilityNote": "Excellent base — high contrast, geometric clarity; ideal accessible skin.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "brutalism",
@@ -556,7 +652,12 @@
       "surfaceTreatment": "zero radius, thick black borders, exposed structure, system fonts",
       "uiImplementable": true,
       "accessibilityNote": "Deliberately raw, but focus rings + 44px targets are non-negotiable.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "cybercore",
@@ -580,7 +681,11 @@
       "surfaceTreatment": "dark console surfaces, neon edges, glitch decals, monospace",
       "uiImplementable": true,
       "accessibilityNote": "Neon glow decorative; keep text on solid dark, honor reduced-motion for glitch.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "dark"
+      ],
+      "primaryMode": "dark"
     },
     {
       "id": "synthwave",
@@ -604,7 +709,11 @@
       "surfaceTreatment": "sunset gradients, perspective grids, neon glow, chrome display type",
       "uiImplementable": true,
       "accessibilityNote": "Glow is decorative; body text on solid scrim; reduced-motion fallback.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "dark"
+      ],
+      "primaryMode": "dark"
     },
     {
       "id": "vaporwave",
@@ -628,7 +737,11 @@
       "surfaceTreatment": "pastel gradients, glitch collage, retro-software chrome",
       "uiImplementable": false,
       "accessibilityNote": "Collage decorative; keep functional UI on legible surfaces.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "dark"
+      ],
+      "primaryMode": "dark"
     },
     {
       "id": "pop-art",
@@ -652,7 +765,11 @@
       "surfaceTreatment": "halftone dot fills, thick outlines, flat primary blocks",
       "uiImplementable": true,
       "accessibilityNote": "Halftone/dots decorative; text on solid fills.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "bento",
@@ -676,7 +793,12 @@
       "surfaceTreatment": "modular rounded cards in a varied grid, soft shadows, clear labels",
       "uiImplementable": true,
       "accessibilityNote": "Strong, accessible layout pattern; pairs with the default token set.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "graffiti",
@@ -700,7 +822,12 @@
       "surfaceTreatment": "spray-textured surfaces, drip accents, freestyle display type",
       "uiImplementable": false,
       "accessibilityNote": "Freestyle type decorative-only; keep UI labels legible.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "tenebrism",
@@ -723,7 +850,11 @@
       "surfaceTreatment": "deep dark ground, single light source, dramatic falloff",
       "uiImplementable": false,
       "accessibilityNote": "Dark imagery; ensure any overlaid UI keeps APCA floor.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "dark"
+      ],
+      "primaryMode": "dark"
     },
     {
       "id": "gothic",
@@ -746,7 +877,11 @@
       "surfaceTreatment": "stone surfaces, pointed-arch motifs, deep palette, blackletter display",
       "uiImplementable": false,
       "accessibilityNote": "Blackletter decorative-only; never UI body.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "dark"
+      ],
+      "primaryMode": "dark"
     },
     {
       "id": "pointillism",
@@ -769,7 +904,11 @@
       "surfaceTreatment": "dot-textured fills, soft optical gradients",
       "uiImplementable": false,
       "accessibilityNote": "Texture is imagery; functional surfaces stay solid.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "mixed-media",
@@ -792,7 +931,12 @@
       "surfaceTreatment": "layered collage, torn edges, mixed photo+illustration",
       "uiImplementable": false,
       "accessibilityNote": "Collage decorative; keep reading surfaces calm.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "steampunk",
@@ -816,7 +960,12 @@
       "surfaceTreatment": "brass fittings, gear ornament, leather textures, riveted panels",
       "uiImplementable": false,
       "accessibilityNote": "Mechanical ornament decorative-only.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "kawaii",
@@ -840,7 +989,11 @@
       "surfaceTreatment": "very rounded shapes, pastel fills, cute mascots, bouncy motion",
       "uiImplementable": true,
       "accessibilityNote": "Pastels can be low-contrast; verify text/control contrast, keep handwriting display-only.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "coquette",
@@ -864,7 +1017,11 @@
       "surfaceTreatment": "ribbon and bow motifs, soft serif display, delicate borders",
       "uiImplementable": false,
       "accessibilityNote": "Dainty type decorative-only; ensure functional contrast.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "surrealism",
@@ -887,7 +1044,12 @@
       "surfaceTreatment": "dreamlike composition, scale play, metaphorical imagery",
       "uiImplementable": false,
       "accessibilityNote": "Imagery-led; UI chrome stays conventional and legible.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "utilitarian",
@@ -911,7 +1073,12 @@
       "surfaceTreatment": "dense functional grid, monospace data, zero ornament, clear labels",
       "uiImplementable": true,
       "accessibilityNote": "Function-first; excellent for data-dense, accessible UIs.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "mid-century",
@@ -934,7 +1101,11 @@
       "surfaceTreatment": "warm retro palette, organic-geometric shapes, clean sans",
       "uiImplementable": true,
       "accessibilityNote": "Warm, accessible aesthetic; good general-purpose skin.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "scrapbook",
@@ -958,7 +1129,11 @@
       "surfaceTreatment": "layered paper, taped photos, handwritten accents, sticker decals",
       "uiImplementable": false,
       "accessibilityNote": "Handwriting/stickers decorative; keep content legible.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "frutiger-aero",
@@ -981,7 +1156,11 @@
       "surfaceTreatment": "glossy rounded panels, bubble highlights, soft gradients, nature gloss",
       "uiImplementable": true,
       "accessibilityNote": "Gloss is decorative; maintain control contrast and focus visibility.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "dark-academia",
@@ -1005,7 +1184,11 @@
       "surfaceTreatment": "dark scholarly surfaces, gold serif accents, antique etching motifs",
       "uiImplementable": true,
       "accessibilityNote": "Dark theme variant; verify gold-on-dark contrast (use Ochre-300/400 range).",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "dark"
+      ],
+      "primaryMode": "dark"
     },
     {
       "id": "light-academia",
@@ -1029,7 +1212,11 @@
       "surfaceTreatment": "cream surfaces, classic serif type, linen texture, warm light",
       "uiImplementable": true,
       "accessibilityNote": "Naturally light/legible; close to the default warm-light core.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "wabi-sabi",
@@ -1053,7 +1240,11 @@
       "surfaceTreatment": "organic asymmetry, matte earthen surfaces, generous negative space",
       "uiImplementable": true,
       "accessibilityNote": "Subtle/low-chroma; verify functional contrast on quiet surfaces.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "western",
@@ -1077,7 +1268,11 @@
       "surfaceTreatment": "terracotta palette, western display serifs, rugged textures",
       "uiImplementable": false,
       "accessibilityNote": "Display serifs decorative; keep UI labels in the system font.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "nautical",
@@ -1102,7 +1297,11 @@
       "surfaceTreatment": "navy + cream surfaces, rope/stripe dividers, brass accents",
       "uiImplementable": false,
       "accessibilityNote": "Maritime motifs decorative; maintain contrast.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "rebus",
@@ -1125,7 +1324,11 @@
       "surfaceTreatment": "clean layout, pictographic accents, image-word hybrids",
       "uiImplementable": false,
       "accessibilityNote": "Never rely on pictogram alone — pair with text for accessibility.",
-      "status": "vocabulary"
+      "status": "vocabulary",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "glassmorphism",
@@ -1149,7 +1352,12 @@
       "surfaceTreatment": "frosted translucent panels, backdrop blur, soft inner light, hairline borders",
       "uiImplementable": true,
       "accessibilityNote": "Glass needs an opaque content scrim behind text; honor prefers-reduced-transparency. See Part 21 Liquid Glass.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "modular-type",
@@ -1172,7 +1380,12 @@
       "surfaceTreatment": "letterforms-as-blocks, strict type grid, bold modular composition",
       "uiImplementable": true,
       "accessibilityNote": "Display-driven; ensure body copy uses the readable UI font.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light"
     },
     {
       "id": "neo-brutalism",
@@ -1196,7 +1409,12 @@
       "surfaceTreatment": "thick borders, hard offset shadows, flat bold blocks, near-zero radius, big type",
       "uiImplementable": true,
       "accessibilityNote": "Refined brutalism — bold but keeps 44px targets, focus rings, and APCA Lc≥75.",
-      "status": "shipped"
+      "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light"
     }
   ]
 }

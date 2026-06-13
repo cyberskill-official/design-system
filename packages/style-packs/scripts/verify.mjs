@@ -114,6 +114,13 @@ for (const pack of packs) {
     selector.trim() === scope && /--cs-/.test(body)) ||
     rs.some(({ selector }) => CS_CLASSES.some((c) => selector.includes(c)));
   if (!touchesSystem) hard.push("H6 pack does not target any cs token or component");
+  // H7 — declares a valid mode set
+  const VALID_MODES = new Set(["light", "dark"]);
+  if (!Array.isArray(pack.modes) || pack.modes.length === 0 || !pack.modes.every((m) => VALID_MODES.has(m))) {
+    hard.push("H7 invalid or missing `modes` (expected non-empty subset of light|dark)");
+  } else if (pack.primaryMode && !pack.modes.includes(pack.primaryMode)) {
+    hard.push(`H7 primaryMode "${pack.primaryMode}" not listed in modes`);
+  }
 
   // S1 on-brand
   const onBrand = ANCHOR_HEX.test(css) || /var\(--cs-color-brand-/.test(css) ||
@@ -125,6 +132,13 @@ for (const pack of packs) {
   // S3 transparency fallback
   const translucent = /backdrop-filter\s*:/.test(css) || /filter\s*:\s*blur/.test(css);
   if (translucent && !/prefers-reduced-transparency/.test(css)) soft.push("S3 translucent without prefers-reduced-transparency fallback");
+  // S4 — declares dark mode but pins a light base surface and ships no [data-theme="dark"] override
+  const declaresDark = Array.isArray(pack.modes) && pack.modes.includes("dark") && pack.primaryMode !== "dark";
+  const pinsLightSurface = /--cs-color-surface-(page|panel|raised)\s*:/.test(stripComments(css));
+  const hasDarkBlock = /\[data-theme="dark"\]/.test(css);
+  if (declaresDark && pinsLightSurface && !hasDarkBlock) {
+    soft.push('S4 declares dark mode but pins a light surface with no [data-theme="dark"] override');
+  }
 
   const ok = hard.length === 0;
   if (!ok) hardFails++;

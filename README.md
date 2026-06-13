@@ -18,7 +18,7 @@ This README is the **operating manual** for the design system: what it is, how t
 | Enterprise-grade floors | **7 of 7 pass** |
 | `DESIGN.md` | ~1.3 MB; 1 H1; **22 Parts** (Part 21 — Liquid Glass Default; Part 22 — Style Packs, added 2026-06-13); 0 anchor collisions |
 | Section numbering | Decimal multi-level (e.g. `## 5.7 20+ locales baseline`) |
-| Doctrine source | Single file — `doctrine/` and `scripts/` removed (v1.0.3) |
+| Doctrine source | Single file — legacy `doctrine/` split removed (v1.0.3). Build/verify tooling lives in `scripts/` + `packages/*/scripts/`. |
 | Audit findings closed | **14 of 18** (4 deferred — infrastructure-blocked, target Q1 2027) |
 | Anchor immutables | Slogan, Umber, Ochre, voice axes, Vietnamese-first — **all preserved** |
 | Default surface treatment | **Liquid Glass** (Part 21) — five materials (Whisper / Light / Standard / Heavy / Solid). Layered depth + lens edges + APCA Lc ≥ 75 preserved. **Shipped in code (v1.3.0):** `@cyberskill/tokens` `--cs-glass-*`/`--cs-depth-*` + `@cyberskill/react/glass.css`; component binding is opt-in (`.cs-surface-*`). |

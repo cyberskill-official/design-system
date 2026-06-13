@@ -15,3 +15,16 @@
 }
 [data-cs-style="victorian"] .cs-field__control { border: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 50%, transparent); }
 [data-cs-style="victorian"] .cs-table th { border-block-end: 3px double var(--cs-color-brand-ochre, #f4ba17); }
+
+/* Dark mode (modes: [light, dark]). Re-pins surfaces to a victorian-appropriate dark
+   ground; the pack's accent/border treatment follows via var(). Text/border use
+   the warm-dark theme values for APCA parity. */
+[data-cs-style="victorian"][data-theme="dark"],
+[data-theme="dark"] [data-cs-style="victorian"] {
+  --cs-color-surface-page: #1C100E;
+  --cs-color-surface-panel: #261713;
+  --cs-color-surface-raised: #311E18;
+  --cs-color-text-primary: #F5EAD9;
+  --cs-color-text-muted: #C9B7A3;
+  --cs-component-textfield-border-default: #5A4636;
+}

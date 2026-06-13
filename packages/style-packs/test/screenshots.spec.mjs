@@ -26,6 +26,7 @@ const galleryUrl = pathToFileURL(GALLERY).href;
 
 test.describe("style-pack visual regression", () => {
   for (const pack of packs) {
+    // Light/primary baseline — every pack.
     test(`pack ${pack.id}`, async ({ page }) => {
       await page.goto(`${galleryUrl}?pack=${pack.id}`);
       const canvas = page.locator("#cs-gallery-canvas");
@@ -34,5 +35,20 @@ test.describe("style-pack visual regression", () => {
       await page.evaluate(() => document.fonts && document.fonts.ready);
       await expect(canvas).toHaveScreenshot(`${pack.id}.png`);
     });
+
+    // Dark-variant baseline — only for packs that declare a distinct dark mode
+    // (primaryMode light + "dark" in modes). Dark-only packs are already covered
+    // by their primary baseline since they pin a dark palette regardless of theme.
+    const hasDistinctDark = pack.primaryMode === "light" && Array.isArray(pack.modes) && pack.modes.includes("dark");
+    if (hasDistinctDark) {
+      test(`pack ${pack.id} (dark)`, async ({ page }) => {
+        await page.goto(`${galleryUrl}?pack=${pack.id}&theme=dark`);
+        const canvas = page.locator("#cs-gallery-canvas");
+        await expect(canvas).toHaveAttribute("data-cs-style", pack.id);
+        await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+        await page.evaluate(() => document.fonts && document.fonts.ready);
+        await expect(canvas).toHaveScreenshot(`${pack.id}-dark.png`);
+      });
+    }
   }
 });

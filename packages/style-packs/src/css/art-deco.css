@@ -17,3 +17,16 @@
 }
 [data-cs-style="art-deco"] .cs-dialog__title { letter-spacing: 0.1em; text-transform: uppercase; }
 [data-cs-style="art-deco"] .cs-field__control { border-radius: 0; }
+
+/* Dark mode (modes: [light, dark]). Re-pins surfaces to a art-deco-appropriate dark
+   ground; the pack's accent/border treatment follows via var(). Text/border use
+   the warm-dark theme values for APCA parity. */
+[data-cs-style="art-deco"][data-theme="dark"],
+[data-theme="dark"] [data-cs-style="art-deco"] {
+  --cs-color-surface-page: #14110A;
+  --cs-color-surface-panel: #1D1810;
+  --cs-color-surface-raised: #271F14;
+  --cs-color-text-primary: #F5EAD9;
+  --cs-color-text-muted: #C9B7A3;
+  --cs-component-textfield-border-default: #5A4636;
+}

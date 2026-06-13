@@ -94,7 +94,12 @@ pack, screenshots the `#cs-gallery-canvas`, and diffs it against an in-repo base
 **`__screenshots__/<platform>-<arch>/<id>.png`** (committed — the visual source of
 truth). A pack CSS change that moves more than ~1% of pixels fails the check, so
 unintended visual drift is caught in review. Config: `playwright.config.mjs`; spec:
-`test/screenshots.spec.mjs`.
+`test/screenshots.spec.mjs`. Packs with a distinct dark mode also get a
+`<id>-dark.png` baseline (captured at `?theme=dark`), so both modes are covered —
+50 light + 18 dark = 68 baselines.
+
+Each pack's **mode policy** (light / dark / both) is recorded in `src/styles.catalog.json`
+(`modes` + `primaryMode`) and explained in **[`MODES.md`](MODES.md)**.
 
 > **Baselines are platform-specific.** Anti-aliasing and font hinting differ across OS
 > *and* CPU arch, so baselines are stored per environment under

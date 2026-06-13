@@ -1,8 +1,8 @@
 {
   "package": "@cyberskill/style-packs",
   "version": "0.1.0",
-  "generatedAt": "2026-06-13T06:47:09.196Z",
-  "sourceHash": "4e236a485272e61b555f578a0ba4eba50aab568ffcf6e351716750705848ed5c",
+  "generatedAt": "2026-06-13T18:48:43.042Z",
+  "sourceHash": "91dacb5e6d6ca75b5288d47459295707a9cf04b7efef75e4ac50b6d8155b03fe",
   "anchorsImmutable": {
     "umber": "#45210E",
     "ochre": "#F4BA17"
@@ -41,6 +41,10 @@
       "uiImplementable": false,
       "accessibilityNote": "Keep serif body ≥16px; gold (Ochre) only as accent, never body text on light.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/neoclassical.css"
     },
     {
@@ -66,6 +70,11 @@
       "uiImplementable": false,
       "accessibilityNote": "Ornament must be decorative-only (aria-hidden); maintain APCA Lc≥75 on text.",
       "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/baroque.css"
     },
     {
@@ -91,6 +100,11 @@
       "uiImplementable": true,
       "accessibilityNote": "Text sits on a solid scrim, never directly on a moving gradient; honor prefers-reduced-motion.",
       "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/aurora.css"
     },
     {
@@ -116,6 +130,10 @@
       "uiImplementable": true,
       "accessibilityNote": "Low-contrast is decorative; all functional text must still hit APCA Lc≥75.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/ethereal.css"
     },
     {
@@ -140,6 +158,10 @@
       "uiImplementable": false,
       "accessibilityNote": "Linework is decorative; keep stroke ≥1.5px for legibility, not a UI control.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/filigree.css"
     },
     {
@@ -164,6 +186,10 @@
       "uiImplementable": false,
       "accessibilityNote": "Botanical ornament decorative-only.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/acanthus.css"
     },
     {
@@ -188,6 +214,10 @@
       "uiImplementable": true,
       "accessibilityNote": "Mascots are imagery; provide alt text; do not rely on character alone to convey state.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/anthropomorphic.css"
     },
     {
@@ -212,6 +242,11 @@
       "uiImplementable": true,
       "accessibilityNote": "Pixel type is hard to read small; use only for display, pair with a legible UI font for body.",
       "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/pixel-art.css"
     },
     {
@@ -237,6 +272,10 @@
       "uiImplementable": true,
       "accessibilityNote": "Hand-drawn strokes must not reduce control contrast; keep focus rings crisp.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/sketch.css"
     },
     {
@@ -262,6 +301,11 @@
       "uiImplementable": true,
       "accessibilityNote": "Large tracking only on display; keep body tracking normal for readability.",
       "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/luxury-typography.css"
     },
     {
@@ -287,6 +331,10 @@
       "uiImplementable": true,
       "accessibilityNote": "High harmony/low contrast aesthetic — verify functional contrast still passes.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/japandi.css"
     },
     {
@@ -312,6 +360,10 @@
       "uiImplementable": true,
       "accessibilityNote": "Clashing colour is decorative; keep text on solid high-contrast blocks.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/memphis.css"
     },
     {
@@ -337,6 +389,10 @@
       "uiImplementable": false,
       "accessibilityNote": "Script fonts decorative-only; never set UI labels in script.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/bohemian.css"
     },
     {
@@ -362,6 +418,10 @@
       "uiImplementable": false,
       "accessibilityNote": "Distressed textures must not reduce text legibility.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/shabby-chic.css"
     },
     {
@@ -387,6 +447,10 @@
       "uiImplementable": true,
       "accessibilityNote": "Texture is background; keep content surfaces calm and legible.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/cottagecore.css"
     },
     {
@@ -413,6 +477,11 @@
       "uiImplementable": false,
       "accessibilityNote": "Period ornament decorative-only; maintain modern contrast floors.",
       "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/victorian.css"
     },
     {
@@ -438,6 +507,11 @@
       "uiImplementable": true,
       "accessibilityNote": "Decorative geometry must not encode meaning; keep contrast on text.",
       "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/art-deco.css"
     },
     {
@@ -463,6 +537,10 @@
       "uiImplementable": false,
       "accessibilityNote": "Hand-lettering decorative-only.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/art-nouveau.css"
     },
     {
@@ -488,6 +566,10 @@
       "uiImplementable": false,
       "accessibilityNote": "Symbolic motifs decorative; ensure UI affordances remain conventional.",
       "status": "shipped",
+      "modes": [
+        "dark"
+      ],
+      "primaryMode": "dark",
       "css": "dist/css/western-occult.css"
     },
     {
@@ -513,6 +595,10 @@
       "uiImplementable": false,
       "accessibilityNote": "Irony is visual; keep accessible structure underneath.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/kitsch.css"
     },
     {
@@ -538,6 +624,11 @@
       "uiImplementable": true,
       "accessibilityNote": "Chrome/gloss must keep label contrast; avoid pure-metallic text.",
       "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/y2k.css"
     },
     {
@@ -563,6 +654,11 @@
       "uiImplementable": true,
       "accessibilityNote": "Excellent base — high contrast, geometric clarity; ideal accessible skin.",
       "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/bauhaus.css"
     },
     {
@@ -588,6 +684,11 @@
       "uiImplementable": true,
       "accessibilityNote": "Deliberately raw, but focus rings + 44px targets are non-negotiable.",
       "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/brutalism.css"
     },
     {
@@ -613,6 +714,10 @@
       "uiImplementable": true,
       "accessibilityNote": "Neon glow decorative; keep text on solid dark, honor reduced-motion for glitch.",
       "status": "shipped",
+      "modes": [
+        "dark"
+      ],
+      "primaryMode": "dark",
       "css": "dist/css/cybercore.css"
     },
     {
@@ -638,6 +743,10 @@
       "uiImplementable": true,
       "accessibilityNote": "Glow is decorative; body text on solid scrim; reduced-motion fallback.",
       "status": "shipped",
+      "modes": [
+        "dark"
+      ],
+      "primaryMode": "dark",
       "css": "dist/css/synthwave.css"
     },
     {
@@ -663,6 +772,10 @@
       "uiImplementable": false,
       "accessibilityNote": "Collage decorative; keep functional UI on legible surfaces.",
       "status": "shipped",
+      "modes": [
+        "dark"
+      ],
+      "primaryMode": "dark",
       "css": "dist/css/vaporwave.css"
     },
     {
@@ -688,6 +801,10 @@
       "uiImplementable": true,
       "accessibilityNote": "Halftone/dots decorative; text on solid fills.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/pop-art.css"
     },
     {
@@ -713,6 +830,11 @@
       "uiImplementable": true,
       "accessibilityNote": "Strong, accessible layout pattern; pairs with the default token set.",
       "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/bento.css"
     },
     {
@@ -738,6 +860,11 @@
       "uiImplementable": false,
       "accessibilityNote": "Freestyle type decorative-only; keep UI labels legible.",
       "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/graffiti.css"
     },
     {
@@ -762,6 +889,10 @@
       "uiImplementable": false,
       "accessibilityNote": "Dark imagery; ensure any overlaid UI keeps APCA floor.",
       "status": "shipped",
+      "modes": [
+        "dark"
+      ],
+      "primaryMode": "dark",
       "css": "dist/css/tenebrism.css"
     },
     {
@@ -786,6 +917,10 @@
       "uiImplementable": false,
       "accessibilityNote": "Blackletter decorative-only; never UI body.",
       "status": "shipped",
+      "modes": [
+        "dark"
+      ],
+      "primaryMode": "dark",
       "css": "dist/css/gothic.css"
     },
     {
@@ -810,6 +945,10 @@
       "uiImplementable": false,
       "accessibilityNote": "Texture is imagery; functional surfaces stay solid.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/pointillism.css"
     },
     {
@@ -834,6 +973,11 @@
       "uiImplementable": false,
       "accessibilityNote": "Collage decorative; keep reading surfaces calm.",
       "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/mixed-media.css"
     },
     {
@@ -859,6 +1003,11 @@
       "uiImplementable": false,
       "accessibilityNote": "Mechanical ornament decorative-only.",
       "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/steampunk.css"
     },
     {
@@ -884,6 +1033,10 @@
       "uiImplementable": true,
       "accessibilityNote": "Pastels can be low-contrast; verify text/control contrast, keep handwriting display-only.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/kawaii.css"
     },
     {
@@ -909,6 +1062,10 @@
       "uiImplementable": false,
       "accessibilityNote": "Dainty type decorative-only; ensure functional contrast.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/coquette.css"
     },
     {
@@ -933,6 +1090,11 @@
       "uiImplementable": false,
       "accessibilityNote": "Imagery-led; UI chrome stays conventional and legible.",
       "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/surrealism.css"
     },
     {
@@ -958,6 +1120,11 @@
       "uiImplementable": true,
       "accessibilityNote": "Function-first; excellent for data-dense, accessible UIs.",
       "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/utilitarian.css"
     },
     {
@@ -982,6 +1149,10 @@
       "uiImplementable": true,
       "accessibilityNote": "Warm, accessible aesthetic; good general-purpose skin.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/mid-century.css"
     },
     {
@@ -1007,6 +1178,10 @@
       "uiImplementable": false,
       "accessibilityNote": "Handwriting/stickers decorative; keep content legible.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/scrapbook.css"
     },
     {
@@ -1031,6 +1206,10 @@
       "uiImplementable": true,
       "accessibilityNote": "Gloss is decorative; maintain control contrast and focus visibility.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/frutiger-aero.css"
     },
     {
@@ -1056,6 +1235,10 @@
       "uiImplementable": true,
       "accessibilityNote": "Dark theme variant; verify gold-on-dark contrast (use Ochre-300/400 range).",
       "status": "shipped",
+      "modes": [
+        "dark"
+      ],
+      "primaryMode": "dark",
       "css": "dist/css/dark-academia.css"
     },
     {
@@ -1081,6 +1264,10 @@
       "uiImplementable": true,
       "accessibilityNote": "Naturally light/legible; close to the default warm-light core.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/light-academia.css"
     },
     {
@@ -1106,6 +1293,10 @@
       "uiImplementable": true,
       "accessibilityNote": "Subtle/low-chroma; verify functional contrast on quiet surfaces.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/wabi-sabi.css"
     },
     {
@@ -1131,6 +1322,10 @@
       "uiImplementable": false,
       "accessibilityNote": "Display serifs decorative; keep UI labels in the system font.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/western.css"
     },
     {
@@ -1157,6 +1352,10 @@
       "uiImplementable": false,
       "accessibilityNote": "Maritime motifs decorative; maintain contrast.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/nautical.css"
     },
     {
@@ -1181,6 +1380,10 @@
       "uiImplementable": false,
       "accessibilityNote": "Never rely on pictogram alone — pair with text for accessibility.",
       "status": "shipped",
+      "modes": [
+        "light"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/rebus.css"
     },
     {
@@ -1206,6 +1409,11 @@
       "uiImplementable": true,
       "accessibilityNote": "Glass needs an opaque content scrim behind text; honor prefers-reduced-transparency. See Part 21 Liquid Glass.",
       "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/glassmorphism.css"
     },
     {
@@ -1230,6 +1438,11 @@
       "uiImplementable": true,
       "accessibilityNote": "Display-driven; ensure body copy uses the readable UI font.",
       "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/modular-type.css"
     },
     {
@@ -1255,6 +1468,11 @@
       "uiImplementable": true,
       "accessibilityNote": "Refined brutalism — bold but keeps 44px targets, focus rings, and APCA Lc≥75.",
       "status": "shipped",
+      "modes": [
+        "light",
+        "dark"
+      ],
+      "primaryMode": "light",
       "css": "dist/css/neo-brutalism.css"
     }
   ]

@@ -18,6 +18,25 @@ Next-cycle items proposed but not yet accepted. Tracking is local-only — re-ru
 
 ---
 
+## [1.4.0] — 2026-06-14
+
+Minor, backward-compatible: per-style light/dark mode policy for all 50 style packs, plus dark-mode variants for every "both" pack. No anchor touched; APCA floors hold in both modes.
+
+### Added
+- **Per-style mode policy.** Every pack now declares `modes` (`["light"]` / `["dark"]` / `["light","dark"]`) and `primaryMode` in `src/styles.catalog.json`, surfaced in `dist/registry.json`. Decision grounded in each style's canonical palette per the source article (Himanshu Bhardwaj, *50 Design Styles…*, UX Planet). Tally: 25 light-only, 7 dark-only, 18 both. Full rationale + matrix in `packages/style-packs/MODES.md`.
+- **Dark-mode variants** for the 9 "both" packs that pinned a light surface (baroque, aurora, luxury-typography, victorian, art-deco, graffiti, mixed-media, surrealism, steampunk) — each via `[data-cs-style="<id>"][data-theme="dark"], [data-theme="dark"] [data-cs-style="<id>"]` re-pinning a style-appropriate dark ground; accents follow via `var()`. The other 9 "both" packs inherit the dark theme directly.
+- **Verifier checks** H7 (valid `modes` declared) and S4 (declares dark but ships no `[data-theme="dark"]` override → warning). Report: 50 audited, 50 pass, 0 fail, 0 warnings.
+- **Dark screenshot baselines** — `<id>-dark.png` for each "both" pack (captured at `?theme=dark`); regression now covers 50 light + 18 dark = 68 baselines.
+
+### Changed
+- **`steampunk` reclassified** dark-only → both (primary light) to match its actual sepia-light implementation.
+- README: corrected stale "`scripts/` removed" note (the directory exists for build/verify tooling).
+
+### Unchanged (anchors — explicit no-touch)
+- Umber `#45210E`, Ochre `#F4BA17`, slogans, APCA Lc ≥ 75 / 90 — unchanged in light and dark.
+
+---
+
 ## [1.3.0] — 2026-06-13
 
 Minor, backward-compatible: the Part 21 Liquid Glass doctrine becomes a working render layer (tokens + CSS). No anchor touched; APCA floors unchanged.

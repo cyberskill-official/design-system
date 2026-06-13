@@ -10,3 +10,16 @@
 }
 [data-cs-style="mixed-media"] .cs-button { border: 1px solid var(--cs-color-brand-umber, #45210e); box-shadow: 3px 3px 0 color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 35%, transparent); }
 [data-cs-style="mixed-media"] .cs-ai-disclosure__badge { border: 1px solid var(--cs-color-brand-umber, #45210e); }
+
+/* Dark mode (modes: [light, dark]). Re-pins surfaces to a mixed-media-appropriate dark
+   ground; the pack's accent/border treatment follows via var(). Text/border use
+   the warm-dark theme values for APCA parity. */
+[data-cs-style="mixed-media"][data-theme="dark"],
+[data-theme="dark"] [data-cs-style="mixed-media"] {
+  --cs-color-surface-page: #1A1510;
+  --cs-color-surface-panel: #241D16;
+  --cs-color-surface-raised: #2E251B;
+  --cs-color-text-primary: #F5EAD9;
+  --cs-color-text-muted: #C9B7A3;
+  --cs-component-textfield-border-default: #5A4636;
+}

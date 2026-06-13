@@ -16,3 +16,16 @@
 }
 [data-cs-style="baroque"] .cs-button--primary { color: var(--cs-color-brand-umber, #45210e); }
 [data-cs-style="baroque"] .cs-dialog__title { font-style: italic; }
+
+/* Dark mode (modes: [light, dark]). Re-pins surfaces to a baroque-appropriate dark
+   ground; the pack's accent/border treatment follows via var(). Text/border use
+   the warm-dark theme values for APCA parity. */
+[data-cs-style="baroque"][data-theme="dark"],
+[data-theme="dark"] [data-cs-style="baroque"] {
+  --cs-color-surface-page: #1B1209;
+  --cs-color-surface-panel: #241810;
+  --cs-color-surface-raised: #2E2014;
+  --cs-color-text-primary: #F5EAD9;
+  --cs-color-text-muted: #C9B7A3;
+  --cs-component-textfield-border-default: #5A4636;
+}
