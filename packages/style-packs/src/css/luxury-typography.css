@@ -1,8 +1,9 @@
-/* Luxury Typography — expansive whitespace, tracked serifs, minimal chrome. */
+/* Luxury Typography — refined tracked serifs, gold-foil hairline, monochrome, minimal chrome. */
 [data-cs-style="luxury-typography"] {
   --cs-radius-md: 0px;
   --cs-color-surface-page: #FCFAF5;
   --cs-font-family-ui: Georgia, "Times New Roman", serif;
+  font-family: Georgia, "Times New Roman", serif;
 }
 [data-cs-style="luxury-typography"] .cs-button {
   border-radius: 0;
@@ -17,7 +18,16 @@
   background: var(--cs-color-brand-umber, #45210e);
   color: var(--cs-color-text-inverse, #fff);
 }
-[data-cs-style="luxury-typography"] .cs-dialog__title { letter-spacing: 0.04em; font-weight: 600; }
+[data-cs-style="luxury-typography"] .cs-dialog__title { letter-spacing: 0.08em; font-weight: 600; }
+/* gold-foil hairline beneath the title */
+[data-cs-style="luxury-typography"] .cs-dialog__title::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 2px;
+  margin-top: 10px;
+  background: linear-gradient(90deg, var(--cs-color-brand-ochre, #f4ba17), color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 50%, #b8860b));
+}
 [data-cs-style="luxury-typography"] .cs-dialog { border: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 20%, transparent); }
 
 /* Dark mode (modes: [light, dark]). Re-pins surfaces to a luxury-typography-appropriate dark

@@ -1,17 +1,24 @@
-/* Sketch — hand-drawn wobble borders, ink-on-paper, informal. */
+/* Sketch — hand-drawn wobble borders, pencil crosshatch ground, double-pass ink shadow. */
 [data-cs-style="sketch"] {
   --cs-radius-md: 14px;
   --cs-color-surface-page: #FAF6EC;
+  /* faint pencil crosshatch on paper — page only */
+  background-image:
+    repeating-linear-gradient(45deg, color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 12%, transparent) 0 0.9px, transparent 0.9px 6px),
+    repeating-linear-gradient(-45deg, color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 9%, transparent) 0 0.9px, transparent 0.9px 8px);
 }
 [data-cs-style="sketch"] .cs-button {
   border: 2px solid var(--cs-color-brand-umber, #45210e);
   border-radius: 255px 12px 225px 14px/12px 225px 14px 255px;
+  box-shadow: 2px 3px 0 color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 22%, transparent);
 }
 [data-cs-style="sketch"] .cs-dialog,
 [data-cs-style="sketch"] .cs-review-gate {
   border: 2px solid var(--cs-color-brand-umber, #45210e);
   border-radius: 18px 8px 20px 10px/10px 20px 8px 18px;
+  box-shadow: 3px 4px 0 color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 16%, transparent);
 }
+[data-cs-style="sketch"] .cs-dialog__title { font-style: italic; }
 [data-cs-style="sketch"] .cs-field__control {
   border: 2px solid var(--cs-color-brand-umber, #45210e);
   border-radius: 14px 6px 16px 7px/7px 16px 6px 14px;

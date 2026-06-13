@@ -1,9 +1,13 @@
-/* Japandi — muted warm neutrals, soft radii, calm, generous whitespace. */
+/* Japandi — muted warm neutrals, soft radii, calm whitespace, fine reed texture, thin dividers. */
 [data-cs-style="japandi"] {
   --cs-radius-md: 10px;
   --cs-color-surface-page: #F3EEE6;
   --cs-color-surface-panel: #FBF8F2;
   --cs-color-surface-raised: #F0E9DD;
+  /* fine shoji reed — vertical warm hairlines, page only */
+  background-image: repeating-linear-gradient(90deg,
+    color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 8%, transparent) 0 1px,
+    transparent 1px 14px);
 }
 [data-cs-style="japandi"] .cs-button--primary {
   background: var(--cs-color-brand-umber, #45210e);
@@ -16,5 +20,14 @@
 [data-cs-style="japandi"] .cs-ai-disclosure__panel {
   box-shadow: 0 10px 40px rgba(69, 33, 14, 0.08);
   border: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 8%, transparent);
+}
+[data-cs-style="japandi"] .cs-dialog__title { font-weight: 600; letter-spacing: 0.01em; }
+[data-cs-style="japandi"] .cs-dialog__title::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 1px;
+  margin-top: 8px;
+  background: color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 35%, transparent);
 }
 [data-cs-style="japandi"] .cs-field__control { border-color: color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 24%, transparent); }
