@@ -1,8 +1,12 @@
-/* Cottagecore — warm rustic palette, soft natural surfaces. */
+/* Cottagecore — gingham check ground, serif, warm rustic surfaces. */
 [data-cs-style="cottagecore"] {
   --cs-radius-md: 14px;
   --cs-color-surface-page: #F7F0DF;
   --cs-color-surface-panel: #FCF7EA;
+  font-family: Georgia, "Times New Roman", serif;
+  background-image:
+    repeating-linear-gradient(0deg, color-mix(in oklab, var(--cs-color-brand-umber,#45210e) 10%, transparent) 0 13px, transparent 13px 26px),
+    repeating-linear-gradient(90deg, color-mix(in oklab, var(--cs-color-brand-umber,#45210e) 10%, transparent) 0 13px, transparent 13px 26px);
 }
 [data-cs-style="cottagecore"] .cs-button { border-radius: 14px; }
 [data-cs-style="cottagecore"] .cs-button--secondary { border-color: color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 35%, transparent); }

@@ -1,13 +1,27 @@
-/* Shabby Chic — soft pastel washes, gentle vintage surfaces. */
+/* Shabby Chic — whitewashed pastel washes, faded rosette, cursive-italic title. */
 [data-cs-style="shabby-chic"] {
   --cs-radius-md: 16px;
   --cs-color-surface-page: #FAF3EE;
   --cs-color-surface-panel: #FEF9F4;
+  background-image:
+    radial-gradient(60% 50% at 16% 12%, color-mix(in oklab, #e7b8c2 32%, transparent), transparent 60%),
+    radial-gradient(55% 48% at 86% 84%, color-mix(in oklab, #bcd2b6 28%, transparent), transparent 58%);
 }
 [data-cs-style="shabby-chic"] .cs-button { border-radius: 16px; }
 [data-cs-style="shabby-chic"] .cs-dialog,
 [data-cs-style="shabby-chic"] .cs-ai-disclosure__panel {
   border: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 14%, transparent);
   box-shadow: 0 12px 40px rgba(69, 33, 14, 0.10);
+}
+[data-cs-style="shabby-chic"] .cs-dialog__title { font-style: italic; }
+[data-cs-style="shabby-chic"] .cs-dialog__title::after {
+  content:""; display:block; width:20px; height:20px; margin-top:6px;
+  background:
+    radial-gradient(circle at 50% 50%, color-mix(in oklab,#d98aa0 75%,transparent) 0 3px, transparent 3.5px),
+    radial-gradient(circle at 50% 18%, color-mix(in oklab,#d98aa0 45%,transparent) 0 3.5px, transparent 4px),
+    radial-gradient(circle at 50% 82%, color-mix(in oklab,#d98aa0 45%,transparent) 0 3.5px, transparent 4px),
+    radial-gradient(circle at 18% 50%, color-mix(in oklab,#d98aa0 45%,transparent) 0 3.5px, transparent 4px),
+    radial-gradient(circle at 82% 50%, color-mix(in oklab,#d98aa0 45%,transparent) 0 3.5px, transparent 4px);
+  background-repeat: no-repeat;
 }
 [data-cs-style="shabby-chic"] .cs-field__control { border-radius: 14px; }

@@ -1,8 +1,11 @@
-/* Bohemian — layered warm jewel tones, patterned accents. */
+/* Bohemian — layered ikat textile ground, patterned divider, warm jewel accents. */
 [data-cs-style="bohemian"] {
   --cs-radius-md: 12px;
   --cs-color-surface-page: #F4ECDD;
   --cs-color-surface-panel: #FBF4E8;
+  background-image:
+    repeating-linear-gradient(45deg, color-mix(in oklab, var(--cs-color-brand-umber,#45210e) 8%, transparent) 0 2px, transparent 2px 13px),
+    repeating-linear-gradient(-45deg, color-mix(in oklab, var(--cs-color-brand-ochre,#f4ba17) 10%, transparent) 0 2px, transparent 2px 13px);
 }
 [data-cs-style="bohemian"] .cs-button {
   border-radius: 12px;
@@ -10,3 +13,8 @@
 }
 [data-cs-style="bohemian"] .cs-dialog { border-block-start: 3px solid var(--cs-color-brand-ochre, #f4ba17); }
 [data-cs-style="bohemian"] .cs-ai-disclosure__panel { border-block-start: 3px solid var(--cs-color-brand-ochre, #f4ba17); }
+[data-cs-style="bohemian"] .cs-dialog__title::after {
+  content: ""; display: block; height: 4px; margin-top: 7px;
+  background: repeating-linear-gradient(90deg, var(--cs-color-brand-ochre,#f4ba17) 0 6px, transparent 6px 11px, color-mix(in oklab,var(--cs-color-brand-umber,#45210e) 60%, transparent) 11px 17px, transparent 17px 22px);
+  -webkit-mask-image: linear-gradient(90deg,#000 0 75%,transparent); mask-image: linear-gradient(90deg,#000 0 75%,transparent);
+}

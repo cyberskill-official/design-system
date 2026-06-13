@@ -1043,10 +1043,16 @@
 [data-cs-style="japandi"] .cs-field__control { border-color: color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 24%, transparent); }
 
 /* ===== Memphis (memphis) ===== */
-/* Memphis — flat blocks, hard ochre offset shadows, playful, bold. */
+/* Memphis — flat blocks, hard ochre offset shadows, bright polka-grid, bold. */
 [data-cs-style="memphis"] {
   --cs-radius-md: 4px;
   --cs-color-surface-page: #FBF5E9;
+  background-image:
+    radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--cs-color-brand-ochre,#f4ba17) 60%, transparent) 0 3px, transparent 3.5px),
+    radial-gradient(circle at 86% 16%, color-mix(in oklab, var(--cs-color-brand-umber,#45210e) 55%, transparent) 0 6px, transparent 7px),
+    radial-gradient(circle at 22% 84%, color-mix(in oklab, var(--cs-color-brand-umber,#45210e) 50%, transparent) 0 6px, transparent 7px);
+  background-size: 28px 28px, 100% 100%, 100% 100%;
+  background-repeat: repeat, no-repeat, no-repeat;
 }
 [data-cs-style="memphis"] .cs-button {
   border: 2px solid var(--cs-color-brand-umber, #45210e);
@@ -1059,16 +1065,17 @@
   border: 2px solid var(--cs-color-brand-umber, #45210e);
   box-shadow: 8px 8px 0 var(--cs-color-brand-ochre, #f4ba17);
 }
-[data-cs-style="memphis"] .cs-ai-disclosure__badge {
-  border: 2px solid var(--cs-color-brand-umber, #45210e);
-}
+[data-cs-style="memphis"] .cs-ai-disclosure__badge { border: 2px solid var(--cs-color-brand-umber, #45210e); }
 
 /* ===== Bohemian (bohemian) ===== */
-/* Bohemian — layered warm jewel tones, patterned accents. */
+/* Bohemian — layered ikat textile ground, patterned divider, warm jewel accents. */
 [data-cs-style="bohemian"] {
   --cs-radius-md: 12px;
   --cs-color-surface-page: #F4ECDD;
   --cs-color-surface-panel: #FBF4E8;
+  background-image:
+    repeating-linear-gradient(45deg, color-mix(in oklab, var(--cs-color-brand-umber,#45210e) 8%, transparent) 0 2px, transparent 2px 13px),
+    repeating-linear-gradient(-45deg, color-mix(in oklab, var(--cs-color-brand-ochre,#f4ba17) 10%, transparent) 0 2px, transparent 2px 13px);
 }
 [data-cs-style="bohemian"] .cs-button {
   border-radius: 12px;
@@ -1076,13 +1083,21 @@
 }
 [data-cs-style="bohemian"] .cs-dialog { border-block-start: 3px solid var(--cs-color-brand-ochre, #f4ba17); }
 [data-cs-style="bohemian"] .cs-ai-disclosure__panel { border-block-start: 3px solid var(--cs-color-brand-ochre, #f4ba17); }
+[data-cs-style="bohemian"] .cs-dialog__title::after {
+  content: ""; display: block; height: 4px; margin-top: 7px;
+  background: repeating-linear-gradient(90deg, var(--cs-color-brand-ochre,#f4ba17) 0 6px, transparent 6px 11px, color-mix(in oklab,var(--cs-color-brand-umber,#45210e) 60%, transparent) 11px 17px, transparent 17px 22px);
+  -webkit-mask-image: linear-gradient(90deg,#000 0 75%,transparent); mask-image: linear-gradient(90deg,#000 0 75%,transparent);
+}
 
 /* ===== Shabby Chic (shabby-chic) ===== */
-/* Shabby Chic — soft pastel washes, gentle vintage surfaces. */
+/* Shabby Chic — whitewashed pastel washes, faded rosette, cursive-italic title. */
 [data-cs-style="shabby-chic"] {
   --cs-radius-md: 16px;
   --cs-color-surface-page: #FAF3EE;
   --cs-color-surface-panel: #FEF9F4;
+  background-image:
+    radial-gradient(60% 50% at 16% 12%, color-mix(in oklab, #e7b8c2 32%, transparent), transparent 60%),
+    radial-gradient(55% 48% at 86% 84%, color-mix(in oklab, #bcd2b6 28%, transparent), transparent 58%);
 }
 [data-cs-style="shabby-chic"] .cs-button { border-radius: 16px; }
 [data-cs-style="shabby-chic"] .cs-dialog,
@@ -1090,14 +1105,29 @@
   border: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 14%, transparent);
   box-shadow: 0 12px 40px rgba(69, 33, 14, 0.10);
 }
+[data-cs-style="shabby-chic"] .cs-dialog__title { font-style: italic; }
+[data-cs-style="shabby-chic"] .cs-dialog__title::after {
+  content:""; display:block; width:20px; height:20px; margin-top:6px;
+  background:
+    radial-gradient(circle at 50% 50%, color-mix(in oklab,#d98aa0 75%,transparent) 0 3px, transparent 3.5px),
+    radial-gradient(circle at 50% 18%, color-mix(in oklab,#d98aa0 45%,transparent) 0 3.5px, transparent 4px),
+    radial-gradient(circle at 50% 82%, color-mix(in oklab,#d98aa0 45%,transparent) 0 3.5px, transparent 4px),
+    radial-gradient(circle at 18% 50%, color-mix(in oklab,#d98aa0 45%,transparent) 0 3.5px, transparent 4px),
+    radial-gradient(circle at 82% 50%, color-mix(in oklab,#d98aa0 45%,transparent) 0 3.5px, transparent 4px);
+  background-repeat: no-repeat;
+}
 [data-cs-style="shabby-chic"] .cs-field__control { border-radius: 14px; }
 
 /* ===== Cottagecore (cottagecore) ===== */
-/* Cottagecore — warm rustic palette, soft natural surfaces. */
+/* Cottagecore — gingham check ground, serif, warm rustic surfaces. */
 [data-cs-style="cottagecore"] {
   --cs-radius-md: 14px;
   --cs-color-surface-page: #F7F0DF;
   --cs-color-surface-panel: #FCF7EA;
+  font-family: Georgia, "Times New Roman", serif;
+  background-image:
+    repeating-linear-gradient(0deg, color-mix(in oklab, var(--cs-color-brand-umber,#45210e) 10%, transparent) 0 13px, transparent 13px 26px),
+    repeating-linear-gradient(90deg, color-mix(in oklab, var(--cs-color-brand-umber,#45210e) 10%, transparent) 0 13px, transparent 13px 26px);
 }
 [data-cs-style="cottagecore"] .cs-button { border-radius: 14px; }
 [data-cs-style="cottagecore"] .cs-button--secondary { border-color: color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 35%, transparent); }
@@ -1105,27 +1135,27 @@
 [data-cs-style="cottagecore"] .cs-field__control { border-radius: 12px; }
 
 /* ===== Victorian (victorian) ===== */
-/* Victorian — gilt double frames, deep ground, ornate serif. */
+/* Victorian — gilt double frames, faint damask ground, ornate serif small-caps. */
 [data-cs-style="victorian"] {
   --cs-radius-md: 3px;
   --cs-color-surface-page: #F3EADA;
   --cs-font-family-ui: Georgia, serif;
+  font-family: Georgia, serif;
+  background-image:
+    repeating-linear-gradient(45deg, color-mix(in oklab, var(--cs-color-brand-umber,#45210e) 7%, transparent) 0 1px, transparent 1px 18px),
+    repeating-linear-gradient(-45deg, color-mix(in oklab, var(--cs-color-brand-umber,#45210e) 7%, transparent) 0 1px, transparent 1px 18px);
 }
 [data-cs-style="victorian"] .cs-dialog,
 [data-cs-style="victorian"] .cs-review-gate {
   border: 3px double var(--cs-color-brand-ochre, #f4ba17);
   box-shadow: 0 18px 50px rgba(69, 33, 14, 0.22);
 }
-[data-cs-style="victorian"] .cs-button {
-  border: 1px solid var(--cs-color-brand-umber, #45210e);
-  letter-spacing: 0.03em;
-}
+[data-cs-style="victorian"] .cs-button { border: 1px solid var(--cs-color-brand-umber, #45210e); letter-spacing: 0.03em; }
+[data-cs-style="victorian"] .cs-dialog__title { font-variant: small-caps; letter-spacing: 0.06em; }
 [data-cs-style="victorian"] .cs-field__control { border: 1px solid color-mix(in oklab, var(--cs-color-brand-umber, #45210e) 50%, transparent); }
 [data-cs-style="victorian"] .cs-table th { border-block-end: 3px double var(--cs-color-brand-ochre, #f4ba17); }
 
-/* Dark mode (modes: [light, dark]). Re-pins surfaces to a victorian-appropriate dark
-   ground; the pack's accent/border treatment follows via var(). Text/border use
-   the warm-dark theme values for APCA parity. */
+/* Dark mode (modes: [light, dark]). */
 [data-cs-style="victorian"][data-theme="dark"],
 [data-theme="dark"] [data-cs-style="victorian"] {
   --cs-color-surface-page: #1C100E;
@@ -1137,11 +1167,13 @@
 }
 
 /* ===== Art Deco (art-deco) ===== */
-/* Art Deco — symmetric geometry, gold hairlines, strong verticals, uppercase. */
+/* Art Deco — symmetric geometry, gold sunburst, strong verticals, uppercase serif. */
 [data-cs-style="art-deco"] {
   --cs-radius-md: 0px;
   --cs-color-surface-page: #FBF5E7;
   --cs-font-family-ui: Georgia, serif;
+  font-family: Georgia, serif;
+  background-image: repeating-linear-gradient(90deg, color-mix(in oklab, var(--cs-color-brand-ochre,#f4ba17) 12%, transparent) 0 1px, transparent 1px 26px);
 }
 [data-cs-style="art-deco"] .cs-button {
   border-radius: 0;
@@ -1155,11 +1187,14 @@
   box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--cs-color-brand-ochre, #f4ba17) 40%, transparent);
 }
 [data-cs-style="art-deco"] .cs-dialog__title { letter-spacing: 0.1em; text-transform: uppercase; }
+[data-cs-style="art-deco"] .cs-dialog__title::after {
+  content:""; display:block; height:12px; margin-top:7px;
+  background: repeating-conic-gradient(from 90deg at 50% 100%, var(--cs-color-brand-ochre,#f4ba17) 0 3deg, transparent 3deg 9deg);
+  -webkit-mask-image: radial-gradient(closest-side at 50% 100%, #000 0 92%, transparent); mask-image: radial-gradient(closest-side at 50% 100%, #000 0 92%, transparent);
+}
 [data-cs-style="art-deco"] .cs-field__control { border-radius: 0; }
 
-/* Dark mode (modes: [light, dark]). Re-pins surfaces to a art-deco-appropriate dark
-   ground; the pack's accent/border treatment follows via var(). Text/border use
-   the warm-dark theme values for APCA parity. */
+/* Dark mode (modes: [light, dark]). */
 [data-cs-style="art-deco"][data-theme="dark"],
 [data-theme="dark"] [data-cs-style="art-deco"] {
   --cs-color-surface-page: #14110A;
