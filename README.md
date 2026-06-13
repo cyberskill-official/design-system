@@ -12,16 +12,16 @@ This README is the **operating manual** for the design system: what it is, how t
 
 | Field | Value |
 |---|---|
-| Version | **v1.1.0** (2026-05-14) |
+| Version | **v1.3.0** (2026-06-13) |
 | Audit tier | **L3 — enterprise-grade** ✓ |
 | Combined audit score | **80.3%** (Part A 74.8% / Part B 85.7%) |
 | Enterprise-grade floors | **7 of 7 pass** |
-| `DESIGN.md` | ~1,260 KB; 1 H1; **21 Parts** (Part 21 — Liquid Glass Default, added 2026-05-14); 0 anchor collisions |
+| `DESIGN.md` | ~1.3 MB; 1 H1; **22 Parts** (Part 21 — Liquid Glass Default; Part 22 — Style Packs, added 2026-06-13); 0 anchor collisions |
 | Section numbering | Decimal multi-level (e.g. `## 5.7 20+ locales baseline`) |
 | Doctrine source | Single file — `doctrine/` and `scripts/` removed (v1.0.3) |
 | Audit findings closed | **14 of 18** (4 deferred — infrastructure-blocked, target Q1 2027) |
 | Anchor immutables | Slogan, Umber, Ochre, voice axes, Vietnamese-first — **all preserved** |
-| Default surface treatment | **Liquid Glass** (Part 21) — five materials (Whisper / Light / Standard / Heavy / Solid). Layered depth + lens edges + APCA Lc ≥ 75 preserved. |
+| Default surface treatment | **Liquid Glass** (Part 21) — five materials (Whisper / Light / Standard / Heavy / Solid). Layered depth + lens edges + APCA Lc ≥ 75 preserved. **Shipped in code (v1.3.0):** `@cyberskill/tokens` `--cs-glass-*`/`--cs-depth-*` + `@cyberskill/react/glass.css`; component binding is opt-in (`.cs-surface-*`). |
 | Canonical files | `README.md` + `DESIGN.md` + `CHANGELOG.md` (3 files; everything else is local working state, gitignored) |
 
 For change log, see [`CHANGELOG.md`](./CHANGELOG.md). Audit reports are local-only — re-run the [audit framework](#9-auditing-the-system) to regenerate them.
@@ -50,7 +50,7 @@ For change log, see [`CHANGELOG.md`](./CHANGELOG.md). Audit reports are local-on
 
 The system is a **single-file doctrine** — `DESIGN.md` at the repo root contains the full twenty-one-part specification. Twenty-one parts at uniform enterprise grade, decimal-numbered (e.g., Part 5 §5.7), one source of truth.
 
-As of v1.1.0 (2026-05-14), **Liquid Glass** is the default surface treatment across CyberSkill products — see `DESIGN.md` [Part 21 — Liquid Glass Default](./DESIGN.md#part-21-liquid-glass-default). Umber + Ochre anchors stay immutable; Liquid Glass governs HOW surfaces render, not WHAT colors they use.
+As of v1.1.0 (2026-05-14), **Liquid Glass** is the default surface treatment across CyberSkill products — see `DESIGN.md` [Part 21 — Liquid Glass Default](./DESIGN.md#part-21-liquid-glass-default). It became a working render layer in **v1.3.0** (`@cyberskill/tokens` glass/depth scalars + `@cyberskill/react/glass.css`). Umber + Ochre anchors stay immutable; Liquid Glass governs HOW surfaces render, not WHAT colors they use. Glass is applied to components opt-in (per-surface, after the §21.8 contrast check) so the APCA floor holds under every theme and style pack.
 
 **The system ships as exactly three files at the repo root:**
 
@@ -140,7 +140,7 @@ These are the four commitments that no agent, no edit, and no audit may relax. T
 
 **Refuse to modify these.** If anyone — human or agent — proposes changing them, escalate to the Design System Lead and Brand Owner; do not merge an RFC that touches an immutable without the v2.0.0 protocol described in §7.
 
-**Note on Part 21:** Liquid Glass adoption (v1.1.0) does NOT modify any immutable. It adds a default surface-rendering layer ON TOP of the existing Umber/Ochre anchors. Existing solid-surface components continue to render correctly — Part 21 is additive, opt-in via `.surface-*` / `.bbg-card` classes, with `prefers-reduced-transparency` + `@media print` collapsing back to solid surfaces.
+**Note on Part 21:** Liquid Glass adoption (v1.1.0 doctrine; implemented v1.3.0) does NOT modify any immutable. It adds a surface-rendering layer ON TOP of the existing Umber/Ochre anchors. Existing solid-surface components continue to render correctly — Part 21 is additive, opt-in via the shipped `.cs-surface-whisper|light|standard|heavy|solid` classes (and the `.cs-glass-card` alias), with `prefers-reduced-transparency`, `forced-colors`, `@media print`, and `@supports not (backdrop-filter)` collapsing back to solid surfaces.
 
 ---
 
@@ -174,7 +174,7 @@ Place all three inside a `design-system/` subfolder so they don't shadow the pro
 git submodule add https://github.com/cyberskill/design-system.git design-system
 ```
 
-Pin the submodule to a tagged release (currently `v1.1.0`). Product upgrades happen by bumping the submodule SHA, never by editing in-place.
+Pin the submodule to a tagged release (currently `v1.3.0`). Product upgrades happen by bumping the submodule SHA, never by editing in-place.
 
 ### 4.4 What changes per project, what doesn't
 
@@ -471,9 +471,10 @@ Anchor immutables (slogan, Umber, Ochre, voice axes, Vietnamese-first, APCA Lc �
 floor) are non-negotiable — refuse any request to change them. For substantive
 changes, write an RFC under meta/rfcs/ following the template in §6 of README.md.
 The current audit tier is L3 (combined 80.3%); the no-downgrade rule is hard.
-Liquid Glass (Part 21) is the default surface treatment as of v1.1.0 — use
-.surface-* / .bbg-card classes for new components; solid surfaces are the
-escape hatch, not the default.
+Liquid Glass (Part 21) is the default surface treatment as of v1.1.0,
+implemented in code in v1.3.0 — use .cs-surface-* classes (opt-in, after the
+§21.8 contrast check) for structural/transient surfaces; dense content stays
+solid. glass.css ships in @cyberskill/react.
 ```
 
 ---

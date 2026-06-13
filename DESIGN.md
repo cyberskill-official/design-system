@@ -78,6 +78,8 @@ Evidence rows use: `claim_id`, claim, source, source type, fetched date, confide
 | v1.1.0-draft | 2026-05-14 | Draft doctrine | Part 21 added Liquid Glass material doctrine. |
 | v1.1.0-refinement | 2026-05-23 | Current doctrine refinement | Corrects the document to twenty-one parts; adds maturity, evidence, artifact reality, benchmark scoring, Liquid Glass scope refinement, and planned-vs-shipped guardrails. |
 | v1.1.0-maximal-loop | 2026-05-23 | Benchmark-loop refinement | Adds 1000-point rubrics for Doctrine Excellence, Artifacts Conformance, and Manual Conformance; adds ConsentEvent/legal telemetry, data-classification, provenance/crawler-policy, DTCG-agent, algorithmic contrast, sustainability, ICU/CLDR, and typography-governance requirements. |
+| v1.2.0 | 2026-06-13 | Shipped | Part 22 Style Packs (50 shipped + per-pack verifier), exact `<Logo>` + `@cyberskill/brand-assets`, default theme → light, full spacing/breakpoint tokens, responsive defaults. |
+| v1.3.0 | 2026-06-13 | Shipped | Part 21 Liquid Glass implemented as code: `cs.glass.*` / `cs.depth.*` / `cs.color.border.default` tokens + `@cyberskill/react/glass.css` (5 materials, lens edge, fallbacks). Component glass binding is opt-in (`.cs-surface-*`) to preserve the APCA floor under packs. Live gallery + 50 per-pack screenshot baselines. |
 
 ## Artifact Reality Table
 
@@ -30074,7 +30076,7 @@ Section is the only role that gets "no glass". Sections are page-level zones; th
 
 ## 21.3 CSS implementation pattern
 
-Ready-to-copy CSS. These rules belong in `tokens.css` / `glass.css` — a separate Wave-3 task (see §21.12). Documented here so component-library authors and downstream consumers can verify the canonical pattern.
+Ready-to-copy CSS. **Implementation status (v1.3.0): SHIPPED.** These rules now live in code: the scalars (`blur` / `saturate` / `opacity` / depth / border colour) are tokens in `@cyberskill/tokens` (`--cs-glass-*`, `--cs-depth-*`, `--cs-color-border-default`) and the composition + material classes + lens edge + fallbacks are in `@cyberskill/react/glass.css`. The shipped code uses the `--cs-*` token namespace (e.g. `--cs-glass-standard-blur`, surfaces `--cs-color-surface-*`); the `--glass-*` / `--bg-*` names in the snippets below are the canonical *pattern* and map 1:1 to the `--cs-*` names. Load order: `tokens.css → styles.css → glass.css → style-packs.css`. **Component binding is opt-in** — apply a material class (e.g. `<section class="cs-dialog cs-surface-heavy">`) after the §21.8 contrast check rather than relying on a forced default, so the APCA floor holds under every theme and style pack.
 
 ### 21.3.1 Custom-property contract
 
@@ -30833,7 +30835,7 @@ Part 21 is additive. Existing components defined in Parts 2–3 with solid surfa
 | Wave | Scope | Timeline | Risk |
 |---|---|---|---|
 | Wave 1 | Ship Part 21 as documentation (this RFC) | 2026-05-14 | Zero |
-| Wave 2 | Add `tokens.css` glass-token block + `glass.css` material classes; ship to docs site | 2026-05-15 → 2026-05-21 | Low — additive |
+| Wave 2 | Add `tokens.css` glass-token block + `glass.css` material classes; ship to docs site | ✅ SHIPPED v1.3.0 (2026-06-13) — `@cyberskill/tokens` `--cs-glass-*`/`--cs-depth-*` + `@cyberskill/react/glass.css` | Low — additive |
 | Wave 3 | Retrofit primary navs, cards, modals across CyberOS-docs + CyberSkill landing | 2026-05-22 → 2026-06-12 | Low — visual review only |
 | Wave 4 | Retrofit remaining surfaces case-by-case; opt out where Solid is correct (§21.9.9) | 2026-06-13 → 2026-08-31 | Low |
 | Wave 5 | Audit + adjust opacities where APCA edge cases surface | 2026-09-01 → 2026-09-30 | Low |
@@ -31050,7 +31052,7 @@ Status: Approved 2026-05-14 by Founder.
 |---|---|---|
 | Add Part 21 to DESIGN.md | Design-system module | 2026-05-14 (this commit) |
 | Bump version 1.0.7 → 1.1.0 in CHANGELOG.md | Design-system module | 2026-05-14 |
-| Author `tokens.css` glass-token block | Design-system module (Wave 2) | 2026-05-21 |
+| Author `tokens.css` glass-token block | Design-system module (Wave 2) | ✅ Done v1.3.0 (`--cs-glass-*` in @cyberskill/tokens + glass.css) |
 | Author `glass.css` material classes | Design-system module (Wave 2) | 2026-05-21 |
 | Retrofit CyberOS-docs sticky nav + cards | CyberOS-docs module (Wave 3) | 2026-06-12 |
 | Retrofit CyberSkill landing hero + sections | Landing-page module (Wave 3) | 2026-06-12 |
@@ -31154,7 +31156,7 @@ Agents must treat the AUTHORING.md checklist and the two hard laws (§22.3) as g
 
 ---
 
-*End of Part 22. End of doctrine v1.1.0.*
+*End of Part 22. End of doctrine v1.3.0.*
 
 ---
 

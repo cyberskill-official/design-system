@@ -18,6 +18,24 @@ Next-cycle items proposed but not yet accepted. Tracking is local-only — re-ru
 
 ---
 
+## [1.3.0] — 2026-06-13
+
+Minor, backward-compatible: the Part 21 Liquid Glass doctrine becomes a working render layer (tokens + CSS). No anchor touched; APCA floors unchanged.
+
+### Added
+- **Liquid Glass implementation (Part 21 → code).** Previously doctrine-only. Now shipped:
+  - **Tokens (`@cyberskill/tokens`)** gain `cs.depth.{bg,section,card,nav,modal,toast}`, `cs.glass.{whisper,light,standard,heavy}.{blur,saturate,opacity}`, and `cs.color.border.default` (57 → 76 tokens; all output formats regenerated).
+  - **CSS (`@cyberskill/react/glass.css`, new package export)** — five materials (`.cs-surface-whisper|light|standard|heavy|solid`/`matte`) composed from the token scalars via `color-mix(in oklab, …)`, plus lens-edge refraction, depth z-index utilities, dark-mode border tuning, and the full fallback set (`prefers-reduced-transparency`, `forced-colors`, `@media print`, `@supports not (backdrop-filter)`). Load order: `tokens.css → styles.css → glass.css → style-packs.css`.
+- **Live gallery glass demo.** `style-packs/dist/gallery.html` inlines glass as a layer and renders a "Liquid Glass materials" panel over an Umber/Ochre-tinted hero; all 50 per-pack screenshot baselines regenerated with glass present.
+
+### Changed
+- **Component glass binding is OPT-IN, not a forced default.** Part 21 names modals/popovers/toasts as Heavy Glass; the implementation exposes that via `.cs-surface-*` modifiers (e.g. `<section class="cs-dialog cs-surface-heavy">`) rather than forcing a translucent background onto every dialog. Rationale: a global translucent surface dropped APCA below the Lc ≥ 75 floor under dark/vivid style packs (text recoloured, light surface token retained). Glass is applied only after the §21.8 contrast check, per surface. Dense content (tables, fields, review gate, legal) stays solid.
+
+### Unchanged (anchors — explicit no-touch)
+- Umber `#45210E`, Ochre `#F4BA17`, slogans, APCA Lc ≥ 75 body / Lc ≥ 90 interactive — unchanged and non-relaxable, on glass surfaces included.
+
+---
+
 ## [1.2.0] — 2026-06-13
 
 Minor, backward-compatible: new surfaces (style packs), new tokens, and a default-theme change. No anchor touched.

@@ -74,7 +74,7 @@ node scripts/build-gallery.mjs            # → dist/gallery.html
 npm run stylepacks:gallery
 ```
 
-`build-gallery.mjs` inlines the three CSS layers (tokens → react `.cs-*` → style-packs)
+`build-gallery.mjs` inlines the four CSS layers (tokens → react `.cs-*` → Liquid Glass material layer → style-packs)
 plus the real sample components (Button, TextField, DataTable, AI disclosure, Human
 review gate, Dialog) into a single self-contained **`dist/gallery.html`**. Open it
 straight from the filesystem — no server. A dropdown (and ←/→ keys) flips a live canvas
