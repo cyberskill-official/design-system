@@ -36,7 +36,7 @@ These come from the core and **stay true in every pack**, including "raw" ones (
 
 - **Focus is never removed.** Do not write `outline: none` (or `outline: 0`) on any `:focus` / `:focus-visible` rule. If you restyle focus, replace it with an equally-visible indicator.
 - **Touch targets.** Never set the base `.cs-button` `min-height` below `44px`. (Smaller named sizes like `.cs-button--sm` may go lower; the coarse-pointer media query in core re-floors them.)
-- **Contrast.** Text must keep APCA Lc ≥ 75 against its surface. If your pack darkens surfaces, also set a light `--cs-color-text-primary` / `--cs-color-text-muted` so contrast holds.
+- **Contrast.** Body text must keep APCA Lc ≥ 75 against its surface; large/bold text (button labels, dialog titles) may use the Lc ≥ 60 level. If your pack darkens surfaces, also set a light `--cs-color-text-primary` / `--cs-color-text-muted` so contrast holds. `scripts/verify.mjs` computes APCA (check **S5**) for solid, resolvable color/background pairs and warns below the size-appropriate floor — it skips `color-mix()` and gradients, so still eyeball those by hand.
 - **Motion.** If you use `transition`/`animation`, add a `@media (prefers-reduced-motion: reduce)` block (scoped) that disables it.
 - **Transparency.** If you use `backdrop-filter` or `filter: blur(...)`, add a `@media (prefers-reduced-transparency: reduce)` block that falls back to an opaque surface.
 

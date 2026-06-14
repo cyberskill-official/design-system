@@ -72,6 +72,56 @@ function rules(css) {
   return out;
 }
 
+// ---- APCA contrast (real computation, light-mode) -------------------------
+// Core light-theme token defaults (from @cyberskill/tokens) for surface resolution.
+const CORE = {
+  "--cs-color-surface-page": "#FFFDF8",
+  "--cs-color-surface-panel": "#FFFFFF",
+  "--cs-color-surface-raised": "#FBF4E9",
+  "--cs-color-text-primary": "#45210E",
+  "--cs-color-text-accent": "#6E3B0E",
+  "--cs-color-text-muted": "#6E5A4C",
+  "--cs-color-text-inverse": "#FFFFFF"
+};
+function normHex(h) {
+  if (!h) return null;
+  h = h.trim().toLowerCase();
+  if (/^#[0-9a-f]{3}$/.test(h)) return "#" + h.slice(1).split("").map((c) => c + c).join("");
+  if (/^#[0-9a-f]{6}$/.test(h)) return h;
+  return null;
+}
+function resolveColor(val, vars, depth = 0) {
+  if (!val || depth > 8) return null;
+  val = val.trim();
+  if (/color-mix\(/i.test(val)) return null;            // skip blends (avoid false positives)
+  if (/^#[0-9a-f]{3,6}$/i.test(val)) return normHex(val);
+  const low = val.toLowerCase();
+  if (low === "white") return "#ffffff";
+  if (low === "black") return "#000000";
+  if (["transparent", "currentcolor", "inherit", "initial", "unset", "none"].includes(low)) return null;
+  const vm = val.match(/^var\(\s*(--[\w-]+)\s*(?:,\s*([\s\S]+))?\)$/);
+  if (vm) {
+    const name = vm[1], fb = vm[2];
+    if (/--cs-color-brand-umber/.test(name)) return "#45210e";
+    if (/--cs-color-brand-ochre/.test(name)) return "#f4ba17";
+    if (vars[name] !== undefined) { const r = resolveColor(vars[name], vars, depth + 1); if (r) return r; }
+    if (fb) { const r = resolveColor(fb, vars, depth + 1); if (r) return r; }
+    if (CORE[name]) return resolveColor(CORE[name], vars, depth + 1);
+    return null;
+  }
+  return null;
+}
+function apcaLc(txtHex, bgHex) {
+  const lin = (h) => { const v = h.replace("#", ""); const f = (c) => Math.pow(parseInt(c, 16) / 255, 2.4);
+    return 0.2126729 * f(v.slice(0, 2)) + 0.7151522 * f(v.slice(2, 4)) + 0.072175 * f(v.slice(4, 6)); };
+  let Yt = lin(txtHex), Yb = lin(bgHex); const thr = 0.022, clmp = 1.414;
+  const cl = (Y) => (Y >= thr ? Y : Y + Math.pow(thr - Y, clmp)); Yt = cl(Yt); Yb = cl(Yb);
+  let S, L;
+  if (Yb > Yt) { S = (Math.pow(Yb, 0.56) - Math.pow(Yt, 0.57)) * 1.14; L = S < 0.001 ? 0 : S - 0.027; }
+  else { S = (Math.pow(Yb, 0.65) - Math.pow(Yt, 0.62)) * 1.14; L = S > -0.001 ? 0 : S + 0.027; }
+  return Math.round(L * 100);
+}
+
 const packs = catalog.packs;
 const report = [];
 let hardFails = 0;
@@ -139,6 +189,41 @@ for (const pack of packs) {
   if (declaresDark && pinsLightSurface && !hasDarkBlock) {
     soft.push('S4 declares dark mode but pins a light surface with no [data-theme="dark"] override');
   }
+  // S5 — real APCA contrast on resolvable solid color/background pairs (light mode).
+  // Resolves the pack's root-scope custom props + core token defaults; skips color-mix()
+  // and unresolved vars so it only flags high-confidence pairs. Warn if |Lc| < 75.
+  {
+    const vars = {};
+    for (const { selector, body } of rs) {
+      if (selector.trim() !== scope) continue; // light-mode root declarations only
+      for (const m of body.matchAll(/(--[\w-]+)\s*:\s*([^;]+)/g)) vars[m[1]] = m[2].trim();
+    }
+    const pageBg = resolveColor(vars["--cs-color-surface-page"] || CORE["--cs-color-surface-page"], vars);
+    const panelBg = resolveColor(vars["--cs-color-surface-panel"] || CORE["--cs-color-surface-panel"], vars);
+    for (const { selector, body } of rs) {
+      if (/\[data-theme="dark"\]/.test(selector)) continue; // dark uses standardized warm-dark tokens
+      const cm = body.match(/(?:^|;|\s)color\s*:\s*([^;!]+)/);
+      if (!cm) continue;
+      const fg = resolveColor(cm[1], vars);
+      if (!fg) continue;
+      const bgm = body.match(/(?:^|;|\s)background(?:-color)?\s*:\s*([^;!]+)/);
+      let bg = bgm ? resolveColor(bgm[1], vars) : null;
+      let where = "bg";
+      // Non-solid background (gradient / image) — the visible fill isn't resolvable; don't
+      // guess against a surface (that produced false positives on gradient buttons).
+      if (!bg && /(linear|radial|conic)-gradient|background-image/.test(body)) continue;
+      if (!bg) {
+        if (/\.cs-dialog|\.cs-ai-disclosure__panel|\.cs-review-gate|\.cs-table/.test(selector)) { bg = panelBg; where = "panel"; }
+        else if (/\.cs-button|\.cs-field/.test(selector)) { bg = pageBg; where = "page"; }
+      }
+      if (!bg) continue;
+      const lc = apcaLc(fg, bg);
+      // APCA size-aware floor: button labels and dialog titles are large/bold → Lc 60;
+      // body/control text → Lc 75 (per APCA conformance levels).
+      const floor = /\.cs-button|\.cs-dialog__title/.test(selector) ? 60 : 75;
+      if (Math.abs(lc) < floor) soft.push(`S5 low APCA Lc ${lc} (<${floor}) — ${fg} on ${where} ${bg} (${selector.replace(scope, "").trim().slice(0, 36)})`);
+    }
+  }
 
   const ok = hard.length === 0;
   if (!ok) hardFails++;
@@ -160,7 +245,7 @@ const md = [
   "",
   `${shippedReports.length} packs audited · **${passCount} pass** · ${hardFails} fail · ${warnCount} with warnings.`,
   "",
-  "Each pack is checked individually for: balanced CSS, correct `[data-cs-style]` scoping, no brand-anchor override, focus never removed, 44px button floor, real system targeting (hard); plus on-brand reference, reduced-motion and reduced-transparency fallbacks (soft).",
+  "Each pack is checked individually for: balanced CSS, correct `[data-cs-style]` scoping, no brand-anchor override, focus never removed, 44px button floor, real system targeting (hard); plus on-brand reference, reduced-motion and reduced-transparency fallbacks, and **real APCA contrast** (S5 — computed on resolvable solid color/background pairs; Lc ≥ 75 body, ≥ 60 large/bold) (soft).",
   "",
   "| Pack | Result | Hard failures | Warnings |",
   "|---|---|---|---|",

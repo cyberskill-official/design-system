@@ -2,7 +2,7 @@
 
 50 packs audited · **50 pass** · 0 fail · 0 with warnings.
 
-Each pack is checked individually for: balanced CSS, correct `[data-cs-style]` scoping, no brand-anchor override, focus never removed, 44px button floor, real system targeting (hard); plus on-brand reference, reduced-motion and reduced-transparency fallbacks (soft).
+Each pack is checked individually for: balanced CSS, correct `[data-cs-style]` scoping, no brand-anchor override, focus never removed, 44px button floor, real system targeting (hard); plus on-brand reference, reduced-motion and reduced-transparency fallbacks, and **real APCA contrast** (S5 — computed on resolvable solid color/background pairs; Lc ≥ 75 body, ≥ 60 large/bold) (soft).
 
 | Pack | Result | Hard failures | Warnings |
 |---|---|---|---|
