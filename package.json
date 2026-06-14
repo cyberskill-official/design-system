@@ -1,6 +1,6 @@
 {
   "name": "cyberskill-design-system",
-  "version": "1.5.0-artifact.0",
+  "version": "1.5.1-artifact.0",
   "private": true,
   "type": "module",
   "workspaces": [

@@ -3,6 +3,7 @@
   --cs-radius-sm: 0px;
   --cs-radius-md: 0px;
   --cs-radius-full: 0px;
+  --cs-font-family-ui: "DejaVu Sans Mono", ui-monospace, "Courier New", monospace;
   font-family: "DejaVu Sans Mono", ui-monospace, "Courier New", monospace;
   /* 8-bit grid — theme-adaptive (uses text color) so it reads in light and dark */
   background-image:

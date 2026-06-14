@@ -280,3 +280,18 @@
   display: inline-block;
   vertical-align: middle;
 }
+
+/* UI font — components consume the brand UI-font token so a host/pack that sets
+ * --cs-font-family-ui (Be Vietnam Pro in product; serif/mono in a style pack)
+ * actually drives component type. Overrides each component's `font: inherit`.
+ * Custom properties inherit, so a pack setting the token on its scope root flows here. */
+.cs-button,
+.cs-field,
+.cs-field__control,
+.cs-dialog,
+.cs-table,
+.cs-ai-disclosure,
+.cs-review-gate,
+.cs-logo {
+  font-family: var(--cs-font-family-ui, ui-sans-serif, system-ui);
+}

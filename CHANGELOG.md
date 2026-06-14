@@ -18,6 +18,18 @@ Next-cycle items proposed but not yet accepted. Tracking is local-only — re-ru
 
 ---
 
+## [1.5.1] — 2026-06-15
+
+Patch: the `--cs-font-family-ui` token is now authoritative — core components consume it, so a host or style pack that sets it actually drives component type (previously the token was defined but unused, and packs had to set a raw `font-family`).
+
+### Fixed
+- **Core consumes `--cs-font-family-ui`.** `@cyberskill/react` applies `font-family: var(--cs-font-family-ui, ui-sans-serif, system-ui)` to `.cs-button`, `.cs-field`, `.cs-field__control`, `.cs-dialog`, `.cs-table`, `.cs-ai-disclosure`, `.cs-review-gate`, `.cs-logo`. The 3 packs that set only a raw font (acanthus, cottagecore, pixel-art) now also declare the token. `AUTHORING.md` §2 updated.
+
+### Changed
+- Screenshot baselines standardized on the **CI platform (linux-x64)**; the sandbox-only `linux-arm64` set was removed. Regenerate x64 baselines via the CI `seed_baselines` workflow after this change (rendering shifted with the font wiring).
+
+---
+
 ## [1.5.0] — 2026-06-14
 
 Minor, backward-compatible: per-style visual **deepening** of all 50 style packs — CSS-generated texture, type treatment, and signature motifs — plus two render-pipeline fixes. No anchor touched; APCA floors hold (light + dark).

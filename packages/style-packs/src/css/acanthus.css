@@ -2,6 +2,7 @@
 [data-cs-style="acanthus"] {
   --cs-radius-md: 4px;
   --cs-color-surface-page: #F6F1E4;
+  --cs-font-family-ui: Georgia, "Times New Roman", serif;
   font-family: Georgia, "Times New Roman", serif;
   /* warm stone mottling — page only, behind panels */
   background-image:

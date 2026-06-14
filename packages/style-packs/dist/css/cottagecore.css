@@ -3,6 +3,7 @@
   --cs-radius-md: 14px;
   --cs-color-surface-page: #F7F0DF;
   --cs-color-surface-panel: #FCF7EA;
+  --cs-font-family-ui: Georgia, "Times New Roman", serif;
   font-family: Georgia, "Times New Roman", serif;
   background-image:
     repeating-linear-gradient(0deg, color-mix(in oklab, var(--cs-color-brand-umber,#45210e) 10%, transparent) 0 13px, transparent 13px 26px),

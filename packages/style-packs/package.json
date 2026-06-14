@@ -1,6 +1,6 @@
 {
   "name": "@cyberskill/style-packs",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "type": "module",
   "description": "Separately-stored CyberSkill style packs (skins). Each pack layers render-surface decisions over the immutable Umber + Ochre anchors. Selected at runtime via data-cs-style.",

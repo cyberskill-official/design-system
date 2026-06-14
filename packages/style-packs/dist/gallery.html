@@ -372,6 +372,21 @@
   vertical-align: middle;
 }
 
+/* UI font — components consume the brand UI-font token so a host/pack that sets
+ * --cs-font-family-ui (Be Vietnam Pro in product; serif/mono in a style pack)
+ * actually drives component type. Overrides each component's `font: inherit`.
+ * Custom properties inherit, so a pack setting the token on its scope root flows here. */
+.cs-button,
+.cs-field,
+.cs-field__control,
+.cs-dialog,
+.cs-table,
+.cs-ai-disclosure,
+.cs-review-gate,
+.cs-logo {
+  font-family: var(--cs-font-family-ui, ui-sans-serif, system-ui);
+}
+
 /* ===== Layer 3: @cyberskill/react Liquid Glass material layer (Part 21) ===== */
 /*
  * @cyberskill/react — Liquid Glass material layer (DESIGN.md Part 21).
@@ -831,6 +846,7 @@
 [data-cs-style="acanthus"] {
   --cs-radius-md: 4px;
   --cs-color-surface-page: #F6F1E4;
+  --cs-font-family-ui: Georgia, "Times New Roman", serif;
   font-family: Georgia, "Times New Roman", serif;
   /* warm stone mottling — page only, behind panels */
   background-image:
@@ -903,6 +919,7 @@
   --cs-radius-sm: 0px;
   --cs-radius-md: 0px;
   --cs-radius-full: 0px;
+  --cs-font-family-ui: "DejaVu Sans Mono", ui-monospace, "Courier New", monospace;
   font-family: "DejaVu Sans Mono", ui-monospace, "Courier New", monospace;
   /* 8-bit grid — theme-adaptive (uses text color) so it reads in light and dark */
   background-image:
@@ -1124,6 +1141,7 @@
   --cs-radius-md: 14px;
   --cs-color-surface-page: #F7F0DF;
   --cs-color-surface-panel: #FCF7EA;
+  --cs-font-family-ui: Georgia, "Times New Roman", serif;
   font-family: Georgia, "Times New Roman", serif;
   background-image:
     repeating-linear-gradient(0deg, color-mix(in oklab, var(--cs-color-brand-umber,#45210e) 10%, transparent) 0 13px, transparent 13px 26px),

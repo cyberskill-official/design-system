@@ -100,7 +100,7 @@ Components you can skin (selectors): `.cs-button` (+ `--primary/--secondary/--gh
 
 Render tokens safe to override per pack: `--cs-radius-sm/md/full`, `--cs-color-surface-page/panel/raised`, `--cs-color-text-primary/muted/accent`, `--cs-font-family-ui`, `--cs-component-textfield-border-default`, `--cs-component-button-primary-bg/fg` (e.g. dark themes flip the CTA). **Never** `--cs-color-brand-umber/ochre`.
 
-> **Type treatment — set the real `font-family`.** Core components do not yet consume `--cs-font-family-ui`, so setting only that token has *no visual effect*. To change a pack's font (serif, mono, …), set the real `font-family` property on the scope root — it inherits to every `.cs-*` component — and keep `--cs-font-family-ui` in sync as the token of record:
+> **Type treatment — set `--cs-font-family-ui`.** Core components consume this token (since v1.5.1), so setting it on the scope root drives component type (serif, mono, …) — it cascades to every `.cs-*` component. Optionally also set the raw `font-family` on the root for any non-component text. Example:
 > ```css
 > [data-cs-style="x"] { --cs-font-family-ui: Georgia, serif; font-family: Georgia, "Times New Roman", serif; }
 > ```
