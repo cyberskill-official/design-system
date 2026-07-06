@@ -14,7 +14,21 @@ The format is [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the s
 
 ## [Unreleased]
 
-Next-cycle items proposed but not yet accepted. Tracking is local-only — re-run the audit framework to regenerate the improvement plan.
+Continuous audit loop: the system now audits itself against CSAF on every CI run and weekly by schedule, with a committed score baseline enforcing the no-silent-regression policy.
+
+### Added
+- **`npm run audit` / `npm run audit:baseline`** (`scripts/audit.mjs`): runs the CSAF deterministic engine (three-band evidence scoring) against this repo, writing `meta/audits/<date>/` reports plus machine-readable `scores.json`; gates against the committed baseline `docs/audit-baseline.json` and fails on unapproved per-criterion regressions (FR-CORE-002). `dsaf.config.json` carries target-side audit configuration.
+- **Committed audit baseline** `docs/audit-baseline.json` (engine 2.0.0, full profile): weighted combined 91/100, enterprise floors PASS. Publicly citable level remains capped at L3 pending third-party verification; MANUAL criteria cap at 60/100 until dated human evidence is attached.
+- **CI `audit` job** (`.github/workflows/ci.yml`): clones the framework, re-audits on push/PR and weekly (Mondays 03:00 UTC), uploads the report, and blocks silent score regressions.
+- **CSS bundle budgets** (`scripts/check-bundle-size.mjs`, `npm run check:bundle-size`): enforced raw + gzip budgets for `tokens.css`, core component styles, glass styles, and the combined 50-pack stylesheet; wired into `verify:all`; emits `docs/bundle-size.json` (closes the DSAF A9.1 "budgets measured" gap).
+- **Governance & AI-readiness artifacts**: `CONTRIBUTING.md` (change paths + gates), `.github/CODEOWNERS`, `SECURITY.md` (report to info@cyberskill.world), `llms.txt` (agent entry point with hard rules).
+- **Root `npm test`** aliases `verify:all` so standard tooling and the audit's verification band recognise the test entry point.
+
+### Changed
+- `README.md` §9.3 documents the quick deterministic-engine path beside the quarterly LLM SCAN/FIX cycle.
+
+### Unchanged (anchors — explicit no-touch)
+- Umber `#45210E`, Ochre `#F4BA17`, slogans, Vietnamese-first commitment, voice axes, APCA floors.
 
 ---
 

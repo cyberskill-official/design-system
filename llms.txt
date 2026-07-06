@@ -1,0 +1,23 @@
+# CyberSkill Design System
+
+> Vietnamese-first, globally-scoped design system. Single-file doctrine: DESIGN.md is the only source of truth (22 Parts). Anchors are immutable: Umber #45210E, Ochre #F4BA17, slogan "Turn Your Will Into Real", voice = warm/direct/honest/respectful, APCA floor Lc >= 75 body text.
+
+## Canonical files
+
+- [DESIGN.md](DESIGN.md): the single source of truth — foundations, design language, components (3a-3h), surfaces, accessibility, AI-native patterns, engineering, governance, measurement, enterprise parts 11-22 (Liquid Glass, 50 Style Packs)
+- [README.md](README.md): operating manual — change protocol, RFC process, versioning, distribution, roles
+- [CHANGELOG.md](CHANGELOG.md): Keep a Changelog + SemVer history
+
+## For agents
+
+- [CONTRIBUTING.md](CONTRIBUTING.md): change paths, verify and audit gates
+- [llms.txt](llms.txt): this file
+- Machine surfaces: packages/tokens (DTCG tokens + build), packages/react (6 components + specs JSON), packages/style-packs (50 CSS-only skins + verifier), packages/mcp-tokens and packages/mcp-components (prototype MCP servers)
+- Audit: `npm run audit` scores the repo against the open-source CyberSkill Design System Audit Framework (125 criteria); the committed baseline lives at docs/audit-baseline.json and regressions fail CI
+
+## Hard rules for generated changes
+
+- Never redefine the anchor tokens (--cs-color-brand-umber, --cs-color-brand-ochre)
+- Never remove focus outlines; .cs-button min-height stays >= 44px
+- Substantive DESIGN.md changes require an RFC; editorial fixes are PATCH releases
+- Run `npm run verify:all` before proposing any change

@@ -1,0 +1,1835 @@
+{
+  "schema": "dsaf-scores/1",
+  "engine_version": "2.0.0",
+  "rubric_version": "2026-05-17",
+  "generated": "2026-07-06T12:48:01.681Z",
+  "input": "/sessions/dazzling-amazing-mendel/mnt/Projects/CyberSkill/design-system",
+  "input_kind": "file",
+  "input_hash": "7f361ef59e1661632584cd8727c1c93832670a563fd8233c00d16328144d0877",
+  "profile": "full",
+  "files_scanned": 114,
+  "self_audit_publication_cap": "L3",
+  "unified_average": 91,
+  "weighted": {
+    "part_a": 93,
+    "part_b": 89,
+    "combined": 91,
+    "tier": "L5"
+  },
+  "enterprise_grade": {
+    "pass": true,
+    "floors": [
+      {
+        "requirement": "Combined score",
+        "floor": 65,
+        "actual": 91,
+        "pass": true
+      },
+      {
+        "requirement": "A.8 Accessibility (system)",
+        "floor": 75,
+        "actual": 100,
+        "pass": true
+      },
+      {
+        "requirement": "B.5 Accessibility & Inclusive (UX)",
+        "floor": 75,
+        "actual": 100,
+        "pass": true
+      },
+      {
+        "requirement": "A.1 Foundations & Tokens",
+        "floor": 70,
+        "actual": 94,
+        "pass": true
+      },
+      {
+        "requirement": "A.4 Governance",
+        "floor": 60,
+        "actual": 88,
+        "pass": true
+      },
+      {
+        "requirement": "A.3 Documentation",
+        "floor": 65,
+        "actual": 100,
+        "pass": true
+      },
+      {
+        "requirement": "Every category",
+        "floor": 40,
+        "actual": 48,
+        "pass": true
+      }
+    ]
+  },
+  "categories": [
+    {
+      "prefix": "A1",
+      "label": "A.1 — Foundations & Design Tokens (Weight: 14%)",
+      "weight": 14,
+      "criteria": 9,
+      "average": 94
+    },
+    {
+      "prefix": "A2",
+      "label": "A.2 — Component Library (Weight: 13%)",
+      "weight": 13,
+      "criteria": 6,
+      "average": 75
+    },
+    {
+      "prefix": "A3",
+      "label": "A.3 — Documentation (Weight: 10%)",
+      "weight": 10,
+      "criteria": 7,
+      "average": 100
+    },
+    {
+      "prefix": "A4",
+      "label": "A.4 — Governance & Versioning (Weight: 10%)",
+      "weight": 10,
+      "criteria": 6,
+      "average": 88
+    },
+    {
+      "prefix": "A5",
+      "label": "A.5 — Tooling & Distribution (Weight: 10%)",
+      "weight": 10,
+      "criteria": 6,
+      "average": 100
+    },
+    {
+      "prefix": "A6",
+      "label": "A.6 — Cross-platform & Theming (Weight: 8%)",
+      "weight": 8,
+      "criteria": 6,
+      "average": 85
+    },
+    {
+      "prefix": "A7",
+      "label": "A.7 — Adoption & Metrics (Weight: 9%)",
+      "weight": 9,
+      "criteria": 6,
+      "average": 93
+    },
+    {
+      "prefix": "A8",
+      "label": "A.8 — Accessibility Baked Into the System (Weight: 12%)",
+      "weight": 12,
+      "criteria": 7,
+      "average": 100
+    },
+    {
+      "prefix": "A9",
+      "label": "A.9 — Performance & Developer Experience (Weight: 8%)",
+      "weight": 8,
+      "criteria": 6,
+      "average": 97
+    },
+    {
+      "prefix": "A10",
+      "label": "A.10 — AI / Emerging Tech Integration (Weight: 6%) — entirely DYNAMIC",
+      "weight": 6,
+      "criteria": 4,
+      "average": 100
+    },
+    {
+      "prefix": "B1",
+      "label": "B.1 — User Research & Discovery (Weight: 12%)",
+      "weight": 12,
+      "criteria": 7,
+      "average": 48
+    },
+    {
+      "prefix": "B2",
+      "label": "B.2 — Information Architecture & Navigation (Weight: 9%)",
+      "weight": 9,
+      "criteria": 5,
+      "average": 88
+    },
+    {
+      "prefix": "B3",
+      "label": "B.3 — Interaction Design (Weight: 11%)",
+      "weight": 11,
+      "criteria": 7,
+      "average": 97
+    },
+    {
+      "prefix": "B4",
+      "label": "B.4 — Visual Design & Hierarchy (Weight: 8%)",
+      "weight": 8,
+      "criteria": 5,
+      "average": 97
+    },
+    {
+      "prefix": "B5",
+      "label": "B.5 — Accessibility & Inclusive Design (Weight: 12%)",
+      "weight": 12,
+      "criteria": 8,
+      "average": 100
+    },
+    {
+      "prefix": "B6",
+      "label": "B.6 — Content Design & UX Writing (Weight: 8%)",
+      "weight": 8,
+      "criteria": 6,
+      "average": 100
+    },
+    {
+      "prefix": "B7",
+      "label": "B.7 — Usability & Heuristic Compliance (Weight: 10%)",
+      "weight": 10,
+      "criteria": 2,
+      "average": 84
+    },
+    {
+      "prefix": "B8",
+      "label": "B.8 — Performance & Core Web Vitals as UX (Weight: 10%)",
+      "weight": 10,
+      "criteria": 7,
+      "average": 90
+    },
+    {
+      "prefix": "B9",
+      "label": "B.9 — Trust, Privacy & Ethics (Weight: 10%)",
+      "weight": 10,
+      "criteria": 7,
+      "average": 99
+    },
+    {
+      "prefix": "B10",
+      "label": "B.10 — Measurement & UX Metrics (Weight: 10%)",
+      "weight": 10,
+      "criteria": 8,
+      "average": 91
+    }
+  ],
+  "criteria": [
+    {
+      "id": "A1.1",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 94,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 34,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A1.2",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 94,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 34,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A1.3",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 94,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 34,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A1.4",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 94,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 34,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A1.5",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 94,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 34,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A1.6",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 94,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 34,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A1.7",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 94,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 34,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A1.8",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 94,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 34,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A1.9",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 94,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 34,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A2.1",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 78,
+      "level": "L4",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 18,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A2.2",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 78,
+      "level": "L4",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 18,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A2.3",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 58,
+      "level": "L2",
+      "bands": {
+        "mentions": 27,
+        "artifacts": 18,
+        "verification": 13
+      },
+      "missing_signals": "slotting"
+    },
+    {
+      "id": "A2.4",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 78,
+      "level": "L4",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 18,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A2.5",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 78,
+      "level": "L4",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 18,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A2.6",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 78,
+      "level": "L4",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 18,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A3.1",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A3.2",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A3.3",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A3.4",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A3.5",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A3.6",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A3.7",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A4.1",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 88,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 28,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A4.2",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 88,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 28,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A4.3",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 88,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 28,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A4.4",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 88,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 28,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A4.5",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 88,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 28,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A4.6",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 88,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 28,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A5.1",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A5.2",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A5.3",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A5.4",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A5.5",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A5.6",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A6.1",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 86,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 26,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A6.2",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 86,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 26,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A6.3",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 86,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 26,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A6.4",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 79,
+      "level": "L4",
+      "bands": {
+        "mentions": 35,
+        "artifacts": 26,
+        "verification": 18
+      },
+      "missing_signals": "spacious"
+    },
+    {
+      "id": "A6.5",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 86,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 26,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A6.6",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 86,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 26,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A7.1",
+      "type": "MANUAL",
+      "tag": "FIXED",
+      "score": 60,
+      "level": "L2",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 20,
+        "verification": 0
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A7.2",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A7.3",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A7.4",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A7.5",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A7.6",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A8.1",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A8.2",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A8.3",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A8.4",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A8.5",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A8.6",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A8.7",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A9.1",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A9.2",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 91,
+      "level": "L5",
+      "bands": {
+        "mentions": 34,
+        "artifacts": 40,
+        "verification": 17
+      },
+      "missing_signals": "shaking"
+    },
+    {
+      "id": "A9.3",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A9.4",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 88,
+      "level": "L5",
+      "bands": {
+        "mentions": 32,
+        "artifacts": 40,
+        "verification": 16
+      },
+      "missing_signals": "agnosticism"
+    },
+    {
+      "id": "A9.5",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A9.6",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A10.1",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A10.2",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A10.3",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "A10.5",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B1.1",
+      "type": "MANUAL",
+      "tag": "FIXED",
+      "score": 48,
+      "level": "L1",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 8,
+        "verification": 0
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B1.2",
+      "type": "MANUAL",
+      "tag": "FIXED",
+      "score": 48,
+      "level": "L1",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 8,
+        "verification": 0
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B1.3",
+      "type": "MANUAL",
+      "tag": "DYNAMIC",
+      "score": 48,
+      "level": "L1",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 8,
+        "verification": 0
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B1.4",
+      "type": "MANUAL",
+      "tag": "FIXED",
+      "score": 48,
+      "level": "L1",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 8,
+        "verification": 0
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B1.5",
+      "type": "MANUAL",
+      "tag": "FIXED",
+      "score": 48,
+      "level": "L1",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 8,
+        "verification": 0
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B1.6",
+      "type": "MANUAL",
+      "tag": "DYNAMIC",
+      "score": 48,
+      "level": "L1",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 8,
+        "verification": 0
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B1.7",
+      "type": "MANUAL",
+      "tag": "DYNAMIC",
+      "score": 48,
+      "level": "L1",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 8,
+        "verification": 0
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B2.1",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 88,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 28,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B2.2",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 88,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 28,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B2.3",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 88,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 28,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B2.4",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 88,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 28,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B2.5",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 88,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 28,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B3.1",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B3.2",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 80,
+      "level": "L4",
+      "bands": {
+        "mentions": 27,
+        "artifacts": 40,
+        "verification": 13
+      },
+      "missing_signals": "signifiers"
+    },
+    {
+      "id": "B3.3",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B3.4",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B3.6",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B3.7",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B3.8",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B4.1",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B4.2",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B4.3",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B4.4",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 85,
+      "level": "L5",
+      "bands": {
+        "mentions": 30,
+        "artifacts": 40,
+        "verification": 15
+      },
+      "missing_signals": "resonance"
+    },
+    {
+      "id": "B4.5",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B5.1",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B5.2",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B5.3",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B5.4",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B5.5",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B5.6",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B5.7",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B5.8",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B6.1",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B6.2",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B6.3",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B6.4",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B6.5",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B6.6",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B7.1",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 84,
+      "level": "L4",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 24,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B7.11",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 84,
+      "level": "L4",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 24,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B8.1",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 76,
+      "level": "L4",
+      "bands": {
+        "mentions": 24,
+        "artifacts": 40,
+        "verification": 12
+      },
+      "missing_signals": "75th, percentile"
+    },
+    {
+      "id": "B8.2",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 76,
+      "level": "L4",
+      "bands": {
+        "mentions": 24,
+        "artifacts": 40,
+        "verification": 12
+      },
+      "missing_signals": "75th, percentile"
+    },
+    {
+      "id": "B8.3",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 76,
+      "level": "L4",
+      "bands": {
+        "mentions": 24,
+        "artifacts": 40,
+        "verification": 12
+      },
+      "missing_signals": "75th, percentile"
+    },
+    {
+      "id": "B8.4",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B8.5",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B8.6",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B8.7",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B9.1",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B9.2",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B9.3",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B9.4",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B9.5",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B9.6",
+      "type": "AUTO",
+      "tag": "DYNAMIC",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B9.7",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 93,
+      "level": "L5",
+      "bands": {
+        "mentions": 35,
+        "artifacts": 40,
+        "verification": 18
+      },
+      "missing_signals": "vulnerable"
+    },
+    {
+      "id": "B10.1",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B10.2",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 80,
+      "level": "L4",
+      "bands": {
+        "mentions": 27,
+        "artifacts": 40,
+        "verification": 13
+      },
+      "missing_signals": "administered"
+    },
+    {
+      "id": "B10.3",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B10.4",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B10.5",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B10.6",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 88,
+      "level": "L5",
+      "bands": {
+        "mentions": 32,
+        "artifacts": 40,
+        "verification": 16
+      },
+      "missing_signals": "triangulation"
+    },
+    {
+      "id": "B10.7",
+      "type": "MANUAL",
+      "tag": "DYNAMIC",
+      "score": 60,
+      "level": "L2",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 20,
+        "verification": 0
+      },
+      "missing_signals": "none"
+    },
+    {
+      "id": "B10.8",
+      "type": "AUTO",
+      "tag": "FIXED",
+      "score": 100,
+      "level": "L5",
+      "bands": {
+        "mentions": 40,
+        "artifacts": 40,
+        "verification": 20
+      },
+      "missing_signals": "none"
+    }
+  ]
+}

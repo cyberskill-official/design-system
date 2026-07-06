@@ -12,6 +12,8 @@ on:
   push:
     branches: [main, master]
   pull_request:
+  schedule:
+    - cron: "0 3 * * 1" # Mondays 03:00 UTC — weekly re-audit (auto-evolution loop)
   workflow_dispatch:
     inputs:
       seed_baselines:
@@ -37,6 +39,38 @@ jobs:
           node-version: 20
       - run: npm install
       - run: npm run verify:all
+
+  audit:
+    name: CSAF audit + no-silent-regression gate
+    # The CDS half of the CDS↔CSAF auto-evolution loop: score this repo with the
+    # open-source audit framework and fail when any criterion regresses against
+    # the committed baseline (docs/audit-baseline.json). Updating the baseline is
+    # a reviewed commit — that IS the human signature the regression policy wants.
+    runs-on: ubuntu-latest
+    needs: verify
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Clone audit framework (sibling layout)
+        run: git clone --depth 1 https://github.com/cyberskill-official/design-system-audit-framework ../design-system-audit-framework
+      - run: npm install
+      - name: Build artifacts the probes verify
+        run: npm run tokens:build && npm run stylepacks:build
+      - name: Run audit (gates on regressions vs baseline)
+        run: npm run audit
+      - name: Upload audit report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: csaf-audit-report
+          path: |
+            meta/audits/**/ANALYZED_DESIGN_REPORT.md
+            meta/audits/**/scores.json
+            meta/audits/**/AUDIT_DIFF.md
+          if-no-files-found: warn
+          retention-days: 90
 
   visual:
     name: per-pack screenshot regression

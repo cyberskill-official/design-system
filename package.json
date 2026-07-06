@@ -21,7 +21,11 @@
     "components:render": "node packages/react/test/render-smoke.test.mjs",
     "artifacts": "node scripts/generate-artifacts.mjs",
     "verify": "node scripts/verify-artifacts.mjs",
+    "audit": "node scripts/audit.mjs",
+    "audit:baseline": "node scripts/audit.mjs --baseline",
+    "check:bundle-size": "node scripts/check-bundle-size.mjs",
     "stylepacks:verify": "node packages/style-packs/scripts/verify.mjs",
-    "verify:all": "npm run tokens:build && npm run stylepacks:build && npm run stylepacks:verify && npm run components:test && npm run components:render && npm run verify"
+    "verify:all": "npm run tokens:build && npm run stylepacks:build && npm run stylepacks:verify && npm run components:test && npm run components:render && npm run check:bundle-size && npm run verify",
+    "test": "npm run verify:all"
   }
 }

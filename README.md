@@ -387,6 +387,18 @@ When an audit cycle runs, expect these files in `meta/audits/`:
 
 ### 9.3 How to run an audit on this system
 
+**Quick path — deterministic engine (wired into CI):**
+
+```bash
+git clone https://github.com/cyberskill-official/design-system-audit-framework ../design-system-audit-framework
+npm run audit             # scores the repo (three-band evidence model), gates vs docs/audit-baseline.json
+npm run audit:baseline    # promote the fresh scores to the committed baseline (signed acceptance)
+```
+
+The engine scores prose mentions (max 40), structural artifacts (max 40) and verification signals (max 20) per criterion, computes the category roll-up + enterprise floors, and emits `meta/audits/<date>/scores.json`. The committed baseline `docs/audit-baseline.json` arms the **no-silent-regression gate**: CI fails when any criterion drops without a baseline update in the same, reviewed commit. Engine scores are heuristic evidence scans — the publicly citable level stays capped at L3 without third-party verification, and MANUAL criteria cap at 60/100 until dated human evidence is attached. Target-side tuning lives in `dsaf.config.json`.
+
+**Deep path — LLM SCAN/FIX cycle (quarterly):**
+
 1. Clone the framework as a sibling: `git clone https://github.com/cyberskill-official/design-system-audit-framework.git`.
 2. Run the scaffolder: `node ../design-system-audit-framework/scripts/audit-init.mjs .`.
 3. Open `prompts/scan-mode.md` from the framework, paste it into Claude / Cursor / Copilot, point at this system's `DESIGN.md` (and `tokens/` if present).
