@@ -1,5 +1,4 @@
 # BRAIN protocol — local agent memory store (per AGENTS.md / CLAUDE.md)
-.cyberos-memory/
 
 # Audit framework — local working outputs, regenerable from
 #   github.com/cyberskill-official/design-system-audit-framework.
@@ -28,3 +27,6 @@ blob-report/
 .playwright/
 **/__screenshots__/**/*-actual.png
 **/__screenshots__/**/*-diff.png
+
+# CyberOS vendored machine + local BRAIN at .cyberos/memory/store (regenerable via init; tenant data). Do not commit.
+.cyberos/
