@@ -9,6 +9,6 @@
     "./logo-mark.svg": "./assets/logo-mark.svg"
   },
   "engines": {
-    "node": ">=24"
+    "node": ">=24 <25"
   }
 }

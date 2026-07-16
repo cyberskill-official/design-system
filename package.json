@@ -29,6 +29,6 @@
     "test": "npm run verify:all"
   },
   "engines": {
-    "node": ">=24"
+    "node": ">=24 <25"
   }
 }

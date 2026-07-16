@@ -12,6 +12,6 @@
     "./server": "./src/server.js"
   },
   "engines": {
-    "node": ">=24"
+    "node": ">=24 <25"
   }
 }
