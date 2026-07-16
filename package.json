@@ -27,5 +27,8 @@
     "stylepacks:verify": "node packages/style-packs/scripts/verify.mjs",
     "verify:all": "npm run tokens:build && npm run stylepacks:build && npm run stylepacks:verify && npm run components:test && npm run components:render && npm run check:bundle-size && npm run verify",
     "test": "npm run verify:all"
+  },
+  "engines": {
+    "node": ">=24"
   }
 }

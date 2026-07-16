@@ -16,5 +16,8 @@
     "./glass.css": "./src/glass.css",
     "./component-specs": "./src/component-specs.json"
   },
-  "types": "./src/index.d.ts"
+  "types": "./src/index.d.ts",
+  "engines": {
+    "node": ">=24"
+  }
 }

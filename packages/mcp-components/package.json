@@ -10,5 +10,8 @@
   "exports": {
     ".": "./src/index.js",
     "./server": "./src/server.js"
+  },
+  "engines": {
+    "node": ">=24"
   }
 }
