@@ -7,7 +7,7 @@
  * The CDS half of the CDS↔CSAF auto-evolution loop.
  *
  *   npm run audit             audit the repo; if a committed baseline exists,
- *                             gate against it (no-silent-regression, FR-CORE-002)
+ *                             gate against it (no-silent-regression, TASK-CORE-002)
  *   npm run audit:baseline    audit, then promote the fresh scores.json to
  *                             docs/audit-baseline.json — the explicit human
  *                             sign-off act; commit the diff it produces

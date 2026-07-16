@@ -20373,7 +20373,7 @@ Calendar UI for scheduling, viewing, and selecting events / dates. Multiple mode
 iCalendar-compatible RRULE strings:
 
 ```
-FREQ=WEEKLY;BYDAY=MO,WE,FR;UNTIL=20261231T235959Z
+FREQ=WEEKLY;BYDAY=MO,WE,task;UNTIL=20261231T235959Z
 ```
 
 UI for recurrence editing:
@@ -23338,7 +23338,7 @@ The glossary is enforced by lint rule with allow-list per product (some products
 - **Sentence end** — full stop in microcopy ≥ one sentence; no full stop on standalone labels (button labels, headers).
 - **Oxford comma** — yes (clarity).
 - **Em-dash** — for parenthetical breaks only; with spaces (" — ").
-- **Quotation** — curly quotes (smart quotes) "" '' in EN, „" in DE, «» in FR, 「」 in JA where applicable. ASCII straight quotes only in code samples.
+- **Quotation** — curly quotes (smart quotes) "" '' in EN, „" in DE, «» in task, 「」 in JA where applicable. ASCII straight quotes only in code samples.
 - **Apostrophe** — curly (’).
 - **Ellipsis** — single character (…), not three dots (...).
 - **Colon** — after labels followed by values inline ("Name: Linh"), no space before in EN/VN.
