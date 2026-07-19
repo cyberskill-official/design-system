@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<title>CyberSkill — verification suite</title>
+<style>
+  body{margin:0;font-family:var(--cs-font-family-ui);background:var(--cs-color-surface-page);color:var(--cs-color-text-primary);padding:40px 32px;max-width:820px;margin:0 auto}
+  h1{font-size:26px;letter-spacing:-.02em;margin:0 0 4px}h1 b{color:var(--cs-color-brand-umber)}
+  .sub{color:var(--cs-color-text-muted);margin:0 0 28px;font-size:14px}
+  .grid{display:grid;gap:14px}
+  a.card{display:block;text-decoration:none;border:1px solid var(--cs-color-border-default);border-radius:var(--cs-radius-lg);background:var(--cs-color-surface-panel);padding:16px 20px;box-shadow:var(--cs-shadow-xs);transition:border-color .12s,box-shadow .12s}
+  a.card:hover{border-color:var(--cs-color-brand-ochre);box-shadow:var(--cs-shadow-sm)}
+  .t{font-weight:800;font-size:15px;color:var(--cs-color-brand-umber);margin-bottom:3px}
+  .d{font-size:13px;line-height:1.55;color:var(--cs-color-text-muted)}
+  .d code{font-family:var(--cs-font-family-mono);font-size:11.5px;background:var(--cs-color-surface-raised);border-radius:4px;padding:0 4px}
+  .note{margin-top:26px;font-size:12.5px;color:var(--cs-color-text-muted);border-top:1px dashed var(--cs-color-border-default);padding-top:14px;line-height:1.6}
+</style></head>
+<body>
+<h1><b>CyberSkill</b> · Verification suite</h1>
+<p class="sub">Dev-only deep-check harnesses. Not compiled, not shipped. Owner doctrine: whole-set checks, never surface spot-checks.</p>
+<div class="grid">
+  <a class="card" href="./responsive-harness.html"><div class="t">Responsive harness</div><div class="d">Any template live at 390 / 768 / 1280 px. Reach into <code>iframe.contentDocument</code> to confirm grids collapse 4→2→1 and decks scroll.</div></a>
+  <a class="card" href="./vn-overflow.html"><div class="t">VN overflow scan</div><div class="d">Forces <code>Tiếng Việt</code> across every toggle-able template and measures clipping / horizontal overflow. Results on <code>window.__vn</code>.</div></a>
+  <a class="card" href="./a11y-harness.html"><div class="t">A11y harness</div><div class="d">Every interactive <code>.cs-*</code> control: focus-ring probe, tap-target heights, and CSSOM checks for the coarse-pointer / reduced-motion / prefers-contrast rules.</div></a>
+  <a class="card" href="./token-contract.html"><div class="t">Token contract</div><div class="d">Applies all 15 element×variant scopes and asserts the 9 <code>--cs-accent-*</code> roles + core tokens resolve. <code>window.__contract</code>.</div></a>
+  <a class="card" href="./component-children-test.html"><div class="t">Component children test</div><div class="d">Mounts void-element components with a stray child (the React #137 trigger) in error boundaries. <code>window.__result.anyThrew</code> must be false. Re-run on a fresh turn (loads the compiled bundle).</div></a>
+  <a class="card" href="./consumer-smoke-test.html"><div class="t">Consumer smoke test</div><div class="d">Imports <code>styles.css</code> + <code>_ds_bundle.js</code> the way an external project would, mounts real components off the namespace, and asserts tokens resolve + brand token reaches a Button. <code>window.__smoke.pass</code> must be true.</div></a>
+  <a class="card" href="./docs-consistency.html"><div class="t">Docs-consistency check</div><div class="d">Reads <code>_ds_manifest.json</code> + <code>VERSION</code> (the compiler's truth) and asserts every count &amp; version claim in the live doc prose matches. Scans README-above-changelog / SKILL / llms + the two CHANGELOG version pointers — never changelog bodies (they freeze historical counts). Catches stale template counts and lagging version pointers. <code>window.__docs.pass</code> must be true.</div></a>
+</div>
+<p class="note">Exports proving Vietnamese survives every path live in <code>_audit/exports/</code>. Full notes + the state-forcing API (<code>__dcSetProps</code>) in <code>_audit/README.md</code>.</p>
+</body></html>

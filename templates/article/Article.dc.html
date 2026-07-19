@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Article" description="CyberSkill long-form article / blog post — title, author meta, prose, callout, and code block. Bilingual (English · Tiếng Việt)." -->
+<helmet>
+<script src="./ds-base.js"></script>
+</helmet>
+<div data-theme="{{ rootTheme }}" lang="{{ langAttr }}" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" data-cs-expression="{{ exAttr }}" style="font-family:var(--cs-font-family-ui);color:var(--cs-color-text-primary);background:var(--cs-color-surface-page);min-height:100vh">
+  <article style="max-width:720px;margin:0 auto;padding:56px 28px 80px">
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--cs-color-text-accent)">{{ eyebrow }}</div>
+    <h1 style="font-size:clamp(32px,5vw,46px);font-weight:800;letter-spacing:-0.02em;line-height:1.14;margin:12px 0 16px">{{ h1 }}</h1>
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:32px">
+      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Avatar" name="An Le" hint-size="40px,40px"></x-import>
+      <div style="font-size:14px"><div style="font-weight:600">An Le · {{ authorTeam }}</div><div style="color:var(--cs-color-text-muted)">{{ meta }}</div></div>
+      <span style="margin-left:auto"><x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Badge" variant="ochre" hint-size="70px,22px">{{ badge }}</x-import></span>
+    </div>
+    <p style="font-size:19px;line-height:1.6;color:var(--cs-color-text-muted);margin:0 0 24px">{{ lede }}</p>
+    <p style="font-size:17px;line-height:1.7;margin:0 0 18px">{{ p1 }}</p>
+    <h2 style="font-size:26px;font-weight:800;letter-spacing:-0.01em;margin:32px 0 12px">{{ h2 }}</h2>
+    <p style="font-size:17px;line-height:1.7;margin:0 0 20px">{{ p2 }}</p>
+    <div style="margin:24px 0">
+      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Alert" variant="info" title="{{ alertTitle }}" hint-size="100%,80px">{{ alertBody }}</x-import>
+    </div>
+    <div style="margin:24px 0">
+      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.CodeBlock" filename="card.html" code="{{ code }}" hint-size="100%,120px"></x-import>
+    </div>
+    <p style="font-size:17px;line-height:1.7;margin:0 0 18px">{{ p3 }}</p>
+  </article>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;language&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;English&quot;,&quot;Tiếng Việt&quot;],&quot;default&quot;:&quot;English&quot;,&quot;tsType&quot;:&quot;\&quot;English\&quot; | \&quot;Tiếng Việt\&quot;&quot;,&quot;section&quot;:&quot;Content&quot;},
+  &quot;element&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Thổ · studio&quot;,&quot;Thổ · clay&quot;,&quot;Thổ · sand&quot;,&quot;Hỏa · ember&quot;,&quot;Hỏa · lava&quot;,&quot;Hỏa · plasma&quot;,&quot;Thủy · river&quot;,&quot;Thủy · ocean&quot;,&quot;Thủy · mist&quot;,&quot;Mộc · leaf&quot;,&quot;Mộc · bamboo&quot;,&quot;Mộc · forest&quot;,&quot;Kim · champagne&quot;,&quot;Kim · steel&quot;,&quot;Kim · titanium&quot;],&quot;default&quot;:&quot;Thổ · studio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Element (Ngũ Hành)&quot;},
+  &quot;expression&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Liquid glass · default&quot;,&quot;Solid&quot;,&quot;Dense&quot;,&quot;Paper&quot;,&quot;Soft&quot;,&quot;Bold&quot;,&quot;Luxe&quot;],&quot;default&quot;:&quot;Liquid glass · default&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Expression&quot;},
+  &quot;theme&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;\&quot;light\&quot; | \&quot;dark\&quot;&quot;,&quot;section&quot;:&quot;Theme&quot;}
+}">
+class Component extends DCLogic {
+  renderVals() {
+    const EL = {"Thổ · studio":["tho",""],"Thổ · clay":["tho","clay"],"Thổ · sand":["tho","sand"],"Hỏa · ember":["hoa",""],"Hỏa · lava":["hoa","lava"],"Hỏa · plasma":["hoa","plasma"],"Thủy · river":["thuy",""],"Thủy · ocean":["thuy","ocean"],"Thủy · mist":["thuy","mist"],"Mộc · leaf":["moc",""],"Mộc · bamboo":["moc","bamboo"],"Mộc · forest":["moc","forest"],"Kim · champagne":["kim",""],"Kim · steel":["kim","steel"],"Kim · titanium":["kim","titanium"]};
+    const [elAttr, vaAttr] = EL[this.props.element] || EL["Thổ · studio"];
+    const EX = {"Liquid glass · default":"","Solid":"solid","Dense":"dense","Paper":"paper","Soft":"soft","Bold":"bold","Luxe":"luxe"};
+    const vn = this.props.language === "Tiếng Việt";
+    const code = '<div class="cs-glass-card">\n  <h3>Design System v1.6</h3>\n</div>';
+    const en = {
+      eyebrow:"Engineering · Design systems", h1:"Liquid Glass, now bound to components", meta:"18 Jul 2026 · 6 min read", badge:"New", authorTeam:"Platform",
+      lede:"Five glass materials over the immutable Umber and Ochre anchors — and now they are one class away on any surface. Here's how the bindings work, and when to reach for each.",
+      p1:"Liquid Glass is CyberSkill's default surface treatment: translucent, refractive layers that let warm gold light show through. The material scalars live in tokens; this release wires them to real components so a card, a nav, or a modal can opt in with a single class.",
+      h2:"When to reach for glass", p2:"Keep dense content on solid surfaces. Reserve glass for nav, cards over imagery, and modals — always after an APCA check against the backdrop.",
+      alertTitle:"Rule of thumb", alertBody:"If text sits directly on a busy photo, step up one glass tier or drop to a solid surface.",
+      p3:"That's the whole surface. Everything paints from the same anchors — warm, honest, and Vietnamese-first by default.",
+    };
+    const vi = {
+      eyebrow:"Kỹ thuật · Design system", h1:"Liquid Glass, nay gắn vào component", meta:"18/07/2026 · đọc 6 phút", badge:"Mới", authorTeam:"Nền tảng",
+      lede:"Năm vật liệu kính trên hai màu neo bất biến Umber và Ochre — và giờ chỉ cách một class trên mọi bề mặt. Đây là cách các liên kết hoạt động, và khi nào nên dùng từng loại.",
+      p1:"Liquid Glass là lớp bề mặt mặc định của CyberSkill: những lớp mờ, khúc xạ, để ánh vàng ấm hiện qua. Hệ số vật liệu nằm trong token; bản phát hành này gắn chúng vào component thật, để một card, một nav hay một modal có thể bật lên chỉ bằng một class.",
+      h2:"Khi nào nên dùng kính", p2:"Giữ nội dung dày đặc trên bề mặt đặc. Dành kính cho nav, card trên ảnh, và modal — luôn sau khi kiểm tra APCA với nền phía sau.",
+      alertTitle:"Nguyên tắc chung", alertBody:"Nếu chữ nằm trực tiếp trên ảnh rối, tăng một bậc kính hoặc chuyển xuống bề mặt đặc.",
+      p3:"Đó là toàn bộ bề mặt. Mọi thứ đều vẽ từ cùng các màu neo — ấm, thành thật, và ưu tiên tiếng Việt theo mặc định.",
+    };
+    return Object.assign({ langAttr: (this.props.language ?? "English") === "Tiếng Việt" ? "vi" : "en", elAttr, vaAttr, exAttr: EX[this.props.expression] ?? "", rootTheme: this.props.theme === "dark" ? "dark" : "", code }, vn ? vi : en);
+  }
+}
+</script>
+</body>
+</html>

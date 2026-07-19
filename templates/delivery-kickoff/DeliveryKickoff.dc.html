@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="omelette-owns-print" content="1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Delivery · Kickoff doc" description="CyberSkill project kickoff — goals, team & roles, cadence, milestones, risks, links. Letter-sized, print-ready. Bilingual (English · Tiếng Việt)." -->
+<helmet>
+<script src="./ds-base.js"></script>
+<style>@page{size:letter;margin:0.6in}@media print{html,body{background:#fff!important}.cs-desk{background:#fff!important;padding:0!important;min-height:0!important}.cs-sheet{box-shadow:none!important;border:none!important;max-width:none!important;border-radius:0!important;padding:0!important}.cs-avoid{break-inside:avoid}}</style>
+</helmet>
+<div lang="{{ langAttr }}" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" data-cs-expression="{{ exAttr }}" class="cs-desk" style="background:#efe6d8;min-height:100vh;padding:40px 16px;font-family:var(--cs-font-family-ui);color:var(--cs-color-text-primary)">
+  <div class="cs-sheet" style="max-width:816px;margin:0 auto;background:#fff;border:1px solid var(--cs-color-border-default);border-radius:12px;box-shadow:var(--cs-shadow-md);padding:56px 64px">
+    <header style="display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--cs-color-brand-umber);padding-bottom:18px;margin-bottom:24px">
+      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="34" hint-size="34px,34px"></x-import>
+      <div><div style="font-weight:800;font-size:17px;color:var(--cs-color-brand-umber);line-height:1.1">CyberSkill</div><div style="font-size:11px;color:var(--cs-color-text-muted)">Hiện Thực Hoá Ý Chí · Turn Your Will Into Real</div></div>
+      <span style="margin-left:auto;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--cs-color-text-accent)">{{ kickLabel }}</span>
+    </header>
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--cs-color-text-accent)">{{ kicker }}</div>
+    <h1 style="font-size:27px;font-weight:800;letter-spacing:-0.02em;margin:6px 0 12px">{{ h1 }}</h1>
+    <p style="font-size:13.5px;line-height:1.7;margin:0 0 22px">{{ intro }}</p>
+    <div class="cs-avoid" style="background:var(--cs-accent-tint);border-radius:10px;padding:16px 20px;margin-bottom:22px">
+      <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:0.1em;color:var(--cs-color-text-muted);font-weight:700;margin-bottom:6px">{{ goalsL }}</div>
+      <div style="display:grid;gap:6px;font-size:13px;line-height:1.6">
+        <div style="display:flex;gap:10px"><span style="color:var(--cs-color-text-accent);font-weight:700">1.</span><span>{{ g1 }}</span></div>
+        <div style="display:flex;gap:10px"><span style="color:var(--cs-color-text-accent);font-weight:700">2.</span><span>{{ g2 }}</span></div>
+        <div style="display:flex;gap:10px"><span style="color:var(--cs-color-text-accent);font-weight:700">3.</span><span>{{ g3 }}</span></div>
+      </div>
+    </div>
+    <h2 class="cs-avoid" style="font-size:14px;font-weight:800;color:var(--cs-color-brand-umber);margin:0 0 10px">{{ teamH }}</h2>
+    <table class="cs-avoid" style="width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:22px">
+      <thead><tr style="border-bottom:2px solid var(--cs-color-brand-umber)"><th style="text-align:left;padding:8px 10px;font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted)">{{ thWho }}</th><th style="text-align:left;padding:8px 10px;font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted)">{{ thRole }}</th><th style="text-align:left;padding:8px 10px;font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted)">{{ thDecides }}</th></tr></thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--cs-color-border-default)"><td style="padding:8px 10px;font-weight:600">Minh Trần · CS</td><td style="padding:8px 10px;color:var(--cs-color-text-muted)">{{ r1role }}</td><td style="padding:8px 10px;color:var(--cs-color-text-muted)">{{ r1dec }}</td></tr>
+        <tr style="border-bottom:1px solid var(--cs-color-border-default)"><td style="padding:8px 10px;font-weight:600">Lan Phạm · CS</td><td style="padding:8px 10px;color:var(--cs-color-text-muted)">{{ r2role }}</td><td style="padding:8px 10px;color:var(--cs-color-text-muted)">{{ r2dec }}</td></tr>
+        <tr style="border-bottom:1px solid var(--cs-color-border-default)"><td style="padding:8px 10px;font-weight:600">Vũ Nguyễn · CS</td><td style="padding:8px 10px;color:var(--cs-color-text-muted)">{{ r3role }}</td><td style="padding:8px 10px;color:var(--cs-color-text-muted)">{{ r3dec }}</td></tr>
+        <tr><td style="padding:8px 10px;font-weight:600">{{ r4who }}</td><td style="padding:8px 10px;color:var(--cs-color-text-muted)">{{ r4role }}</td><td style="padding:8px 10px;color:var(--cs-color-text-muted)">{{ r4dec }}</td></tr>
+      </tbody>
+    </table>
+    <div class="cs-avoid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:22px">
+      <div style="border:1px solid var(--cs-color-border-default);border-radius:10px;padding:14px 18px"><h2 style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted);margin:0 0 8px">{{ cadH }}</h2><div style="display:grid;gap:5px;font-size:12.5px;line-height:1.55"><span><b>{{ cadWeeklyB }}</b> {{ cadWeeklyT }}</span><span><b>{{ cadMsB }}</b> {{ cadMsT }}</span><span><b>{{ cadAnyB }}</b> {{ cadAnyT }}</span></div></div>
+      <div style="border:1px solid var(--cs-color-border-default);border-radius:10px;padding:14px 18px"><h2 style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted);margin:0 0 8px">{{ msH }}</h2><div style="display:grid;gap:5px;font-size:12.5px;line-height:1.55"><span><b>M1</b> · 08/08 — {{ m1 }}</span><span><b>M2</b> · 19/09 — {{ m2 }}</span><span><b>M3</b> · 31/10 — {{ m3 }}</span></div></div>
+    </div>
+    <h2 class="cs-avoid" style="font-size:14px;font-weight:800;color:var(--cs-color-brand-umber);margin:0 0 8px">{{ risksH }}</h2>
+    <p style="font-size:13px;line-height:1.7;margin:0 0 22px;color:var(--cs-color-text-muted)">{{ risksP }}</p>
+    <div class="cs-avoid" style="display:flex;align-items:center;gap:20px;background:var(--cs-accent-ink);border-radius:12px;padding:16px 22px">
+      <div style="flex:1;color:#fff;font-size:13px;line-height:1.55"><b style="color:var(--cs-accent-bright)">{{ linksL }}</b> {{ linksBody }}</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;language&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;English&quot;,&quot;Tiếng Việt&quot;],&quot;default&quot;:&quot;English&quot;,&quot;tsType&quot;:&quot;\&quot;English\&quot; | \&quot;Tiếng Việt\&quot;&quot;,&quot;section&quot;:&quot;Content&quot;},
+  &quot;element&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Thổ · studio&quot;,&quot;Thổ · clay&quot;,&quot;Thổ · sand&quot;,&quot;Hỏa · ember&quot;,&quot;Hỏa · lava&quot;,&quot;Hỏa · plasma&quot;,&quot;Thủy · river&quot;,&quot;Thủy · ocean&quot;,&quot;Thủy · mist&quot;,&quot;Mộc · leaf&quot;,&quot;Mộc · bamboo&quot;,&quot;Mộc · forest&quot;,&quot;Kim · champagne&quot;,&quot;Kim · steel&quot;,&quot;Kim · titanium&quot;],&quot;default&quot;:&quot;Thổ · studio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Element (Ngũ Hành)&quot;},
+  &quot;expression&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Liquid glass · default&quot;,&quot;Solid&quot;,&quot;Dense&quot;,&quot;Paper&quot;,&quot;Soft&quot;,&quot;Bold&quot;,&quot;Luxe&quot;],&quot;default&quot;:&quot;Liquid glass · default&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Expression&quot;}
+}">
+class Component extends DCLogic {
+  renderVals() {
+    const EL = {"Thổ · studio":["tho",""],"Thổ · clay":["tho","clay"],"Thổ · sand":["tho","sand"],"Hỏa · ember":["hoa",""],"Hỏa · lava":["hoa","lava"],"Hỏa · plasma":["hoa","plasma"],"Thủy · river":["thuy",""],"Thủy · ocean":["thuy","ocean"],"Thủy · mist":["thuy","mist"],"Mộc · leaf":["moc",""],"Mộc · bamboo":["moc","bamboo"],"Mộc · forest":["moc","forest"],"Kim · champagne":["kim",""],"Kim · steel":["kim","steel"],"Kim · titanium":["kim","titanium"]};
+    const [elAttr, vaAttr] = EL[this.props.element] || EL["Thổ · studio"];
+    const EX = {"Liquid glass · default":"","Solid":"solid","Dense":"dense","Paper":"paper","Soft":"soft","Bold":"bold","Luxe":"luxe"};
+    const vn = this.props.language === "Tiếng Việt";
+    const en = {
+      kickLabel:"Kickoff", kicker:"Project kickoff · SOW-2026-014",
+      h1:"Checkout rebuild & ops console — how we'll work",
+      intro:"One page everyone signs onto in week zero: what winning looks like, who decides what, and how we talk. Honest by default — if something feels off, say it in the room.",
+      goalsL:"Goals — what winning looks like",
+      g1:"Checkout completion up materially (target agreed at M1) with p95 under 1s.",
+      g2:"Support runs the day from the ops console without engineering help.",
+      g3:"Clean handover: docs, runbook, and your team confident to own it.",
+      teamH:"Team & roles", thWho:"Who", thRole:"Role", thDecides:"Decides",
+      r1role:"Lead engineer", r1dec:"Technical approach",
+      r2role:"Product designer", r2dec:"UX within scope",
+      r3role:"Delivery lead", r3dec:"Schedule, escalation",
+      r4who:"[Name] · Client", r4role:"Decision-maker", r4dec:"Scope & acceptance · 48h SLA",
+      cadH:"Cadence",
+      cadWeeklyB:"Weekly", cadWeeklyT:"— status email (Fri) + 30-min sync (Mon)",
+      cadMsB:"Per milestone", cadMsT:"— demo & acceptance review",
+      cadAnyB:"Anytime", cadAnyT:"— Status Hub, always current",
+      msH:"Milestones", m1:"discovery signed off", m2:"checkout in staging", m3:"launch & handover",
+      risksH:"Risks we already see",
+      risksP:"Staging access in week one is the critical path. Payment-provider quirks may surface in the canary — we've budgeted a buffer week. Said now, so nothing surprises later.",
+      linksL:"Links", linksBody:"· Status Hub · shared drive · #project-checkout channel · escalation: vu@cyberskill.world",
+    };
+    const vi = {
+      kickLabel:"Khởi động", kicker:"Khởi động dự án · SOW-2026-014",
+      h1:"Làm lại checkout & bảng điều hành vận hành — cách chúng ta làm việc",
+      intro:"Một trang cả nhóm cùng thống nhất trong tuần số 0: thắng lợi trông ra sao, ai quyết điều gì, và ta trao đổi thế nào. Thẳng thắn là mặc định — thấy gì chưa ổn, nói ngay trong phòng.",
+      goalsL:"Mục tiêu — thắng lợi trông như thế nào",
+      g1:"Tỷ lệ hoàn tất checkout tăng rõ rệt (chỉ tiêu chốt ở M1) với p95 dưới 1 giây.",
+      g2:"Bộ phận hỗ trợ tự vận hành cả ngày từ bảng điều hành, không cần kỹ thuật.",
+      g3:"Bàn giao gọn gàng: tài liệu, runbook, và đội của bạn đủ tự tin để làm chủ.",
+      teamH:"Đội ngũ & vai trò", thWho:"Ai", thRole:"Vai trò", thDecides:"Quyết định",
+      r1role:"Kỹ sư trưởng", r1dec:"Hướng kỹ thuật",
+      r2role:"Nhà thiết kế sản phẩm", r2dec:"UX trong phạm vi",
+      r3role:"Trưởng bàn giao", r3dec:"Tiến độ, leo thang",
+      r4who:"[Tên] · Khách hàng", r4role:"Người ra quyết định", r4dec:"Phạm vi & nghiệm thu · SLA 48h",
+      cadH:"Nhịp làm việc",
+      cadWeeklyB:"Hằng tuần", cadWeeklyT:"— email trạng thái (T6) + họp nhanh 30 phút (T2)",
+      cadMsB:"Mỗi mốc", cadMsT:"— demo & rà soát nghiệm thu",
+      cadAnyB:"Bất cứ lúc nào", cadAnyT:"— Status Hub, luôn cập nhật",
+      msH:"Các mốc", m1:"chốt khám phá", m2:"checkout lên staging", m3:"ra mắt & bàn giao",
+      risksH:"Rủi ro đã thấy trước",
+      risksP:"Truy cập staging trong tuần đầu là đường găng. Những điểm lạ của nhà cung cấp thanh toán có thể lộ ra ở canary — chúng tôi đã dự trù một tuần đệm. Nói trước, để sau này không có bất ngờ.",
+      linksL:"Liên kết", linksBody:"· Status Hub · ổ đĩa chung · kênh #project-checkout · leo thang: vu@cyberskill.world",
+    };
+    return Object.assign({ langAttr: (this.props.language ?? "English") === "Tiếng Việt" ? "vi" : "en", elAttr, vaAttr, exAttr: EX[this.props.expression] ?? "" }, vn ? vi : en);
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+/* CyberSkill — accessibility layer. Loaded after the component base styles so its
+ * touch-target sizes win, and before the responsive layer. Two concerns:
+ *   1. Touch ergonomics — guarantee a 44px hit target on COARSE pointers (finger),
+ *      while desktop mouse density is preserved. `pointer: coarse` is more correct
+ *      than a width breakpoint: a 1280px touch laptop still needs 44px targets.
+ *      (Button already carries its own coarse block in components.css.)
+ *   2. Reduced motion — honour the OS "reduce motion" setting globally, so every
+ *      animation/transition across components and templates calms down at once.
+ * Focus rings are NOT here — they are already systematic (global :focus-visible in
+ * reset.css + per-component 3px ochre rings in components/forms/navigation/controls). */
+
+/* ---- 1. Touch targets: 44px minimum on coarse pointers ---- */
+@media (pointer: coarse) {
+  /* Primary navigation & action targets → full 44px */
+  .cs-tab { min-height: 44px; }
+  .cs-pagination button { block-size: 44px; min-inline-size: 44px; }
+  .cs-menu__item { min-height: 44px; }
+  .cs-stepper button { min-block-size: 44px; }
+  .cs-stepper input { min-height: 44px; }
+  .cs-breadcrumb a { display: inline-flex; align-items: center; min-height: 40px; }
+
+  /* Compact toggles sit in a padded track — 40px inner clears 44px outer */
+  .cs-segmented button { min-height: 40px; }
+
+  /* Selection controls: enlarge the native box; the label extends the target */
+  .cs-check input, .cs-radio input { inline-size: 24px; block-size: 24px; }
+  .cs-check, .cs-radio { min-height: 44px; align-items: center; }
+
+  /* Icon-only affordances inside a larger row */
+  .cs-search__clear { min-inline-size: 32px; min-block-size: 32px; }
+  .cs-ai-disclosure__badge { min-height: 32px; }
+}
+
+/* ---- 2. Reduced motion: honour the user's OS setting everywhere ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- 3. High contrast: honour prefers-contrast: more by strengthening the
+ * warm hairline border and muted text (both are intentionally soft by default).
+ * Only activates on user request; anchors (Umber/Ochre) and focus rings are
+ * already high-contrast and untouched. ---- */
+@media (prefers-contrast: more) {
+  :root { --cs-color-border-default: #9a8060; --cs-color-text-muted: #5a4638; }
+  [data-theme="dark"] { --cs-color-border-default: #7a6450; --cs-color-text-muted: #d8c9b6; }
+}

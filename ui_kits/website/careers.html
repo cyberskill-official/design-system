@@ -1,0 +1,92 @@
+<!-- @dsCard group="Website" viewport="1200x820" name="cyberskill.world — careers" subtitle="Values, open roles list, culture CTA" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CyberSkill · Careers</title>
+<link rel="icon" href="../../assets/favicon.svg" />
+<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="site.css" />
+<style>
+  html, body { margin: 0; }
+  .car-hero { background: var(--cs-color-brand-umber); color: #fff; padding: 76px 0 64px; position: relative; overflow: hidden; }
+  .car-hero::before { content: ""; position: absolute; inset: 0; background-image: url("../../assets/aurora-gold.jpg"); background-size: cover; background-position: center; opacity: .32; }
+  .car-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,17,8,.28), rgba(26,17,8,.78)); }
+  .car-hero .container { position: relative; z-index: 1; }
+  .car-hero h1 { font-size: clamp(36px, 5vw, 54px); font-weight: 800; letter-spacing: -.02em; color: var(--cs-color-brand-ochre); margin: 12px 0 6px; }
+  .car-hero p { font-size: 18px; opacity: .92; max-width: 600px; margin: 0; }
+  .vals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .val { border-top: 3px solid var(--cs-color-brand-ochre); padding-top: 16px; }
+  .val h3 { margin: 0 0 6px; font-size: 18px; }
+  .val p { margin: 0; color: var(--cs-color-text-muted); font-size: 14px; line-height: 1.5; }
+  .roles { display: grid; gap: 12px; }
+  .role { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 20px 24px; border: 1px solid var(--cs-color-border-default); border-radius: var(--cs-radius-lg); background: var(--cs-color-surface-panel); transition: border-color .12s; flex-wrap: wrap; }
+  .role:hover { border-color: var(--cs-color-brand-ochre); }
+  .role h3 { margin: 0 0 4px; font-size: 19px; }
+  .role .meta { color: var(--cs-color-text-muted); font-size: 14px; display: flex; gap: 14px; flex-wrap: wrap; }
+  @media (max-width: 760px) { .vals { grid-template-columns: 1fr 1fr; } .nav { display: none; } }
+</style>
+</head>
+<body>
+<div class="site">
+  <header class="hdr cs-surface-light">
+    <div class="container hdr-in">
+      <a class="brand" href="index.html"><img src="../../assets/logo-mark.svg" alt="" />CyberSkill</a>
+      <nav class="nav"><a href="index.html">Services</a><a href="work.html">Work</a><a href="careers.html">Careers</a><a href="index.html">Contact</a></nav>
+      <div class="hdr-side"><a class="mini" href="#">Tiếng Việt</a><a class="mini" style="background:var(--cs-color-brand-umber);color:#fff;border-color:transparent" href="index.html">Talk to Lumi</a></div>
+    </div>
+  </header>
+
+  <section class="car-hero">
+    <div class="container">
+      <div class="eyebrow" style="color:var(--cs-color-brand-ochre)">Careers</div>
+      <h1>Build with us</h1>
+      <p>We hire for craft and care — senior, small, and honest about trade-offs. Saigon-based, bilingual, remote-friendly.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="container">
+      <div class="eyebrow">How we work</div>
+      <h2 style="margin:8px 0 32px">What we value</h2>
+      <div class="vals">
+        <div class="val"><h3>Warm</h3><p>We treat clients and each other with genuine care.</p></div>
+        <div class="val"><h3>Direct</h3><p>Plain words, concrete outcomes, no hedging.</p></div>
+        <div class="val"><h3>Honest</h3><p>We name the trade-offs, even the inconvenient ones.</p></div>
+        <div class="val"><h3>Respectful</h3><p>Of your time, your data, and your consent.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-alt">
+    <div class="container">
+      <div class="eyebrow">Open roles</div>
+      <h2 style="margin:8px 0 28px">Where you fit</h2>
+      <div class="roles">
+        <div class="role"><div><h3>Senior Product Engineer</h3><div class="meta"><span>Platform</span><span>Saigon · Hybrid</span><span>Full-time</span></div></div><a class="btn-gold" href="index.html">Apply →</a></div>
+        <div class="role"><div><h3>Design Systems Engineer</h3><div class="meta"><span>Platform</span><span>Remote · VN</span><span>Full-time</span></div></div><a class="btn-gold" href="index.html">Apply →</a></div>
+        <div class="role"><div><h3>AI Product Designer</h3><div class="meta"><span>AI</span><span>Saigon · Hybrid</span><span>Full-time</span></div></div><a class="btn-gold" href="index.html">Apply →</a></div>
+        <div class="role"><div><h3>Founding Growth Lead</h3><div class="meta"><span>Growth</span><span>Saigon</span><span>Full-time</span></div></div><a class="btn-gold" href="index.html">Apply →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ft">
+    <div class="container ft-in">
+      <a class="brand" href="index.html"><img src="../../assets/logo-mark.svg" alt="" />CyberSkill</a>
+      <div class="ft-links"><a href="#">Privacy</a><a href="#">Accessibility</a><a href="#">Terms</a></div>
+      <small>© 2026 CyberSkill · Saigon · Hiện Thực Hoá Ý Chí</small>
+    </div>
+  </footer>
+</div>
+<button id="themeToggle" aria-label="Toggle theme" style="position:fixed;right:20px;bottom:20px;z-index:60;border:1px solid var(--cs-color-border-default);background:var(--cs-color-surface-panel);color:var(--cs-color-text-primary);width:44px;height:44px;border-radius:999px;cursor:pointer;box-shadow:var(--cs-shadow-md)">☾</button>
+<script>
+  document.getElementById("themeToggle").addEventListener("click", function () {
+    var el = document.documentElement, dark = el.getAttribute("data-theme") === "dark";
+    el.setAttribute("data-theme", dark ? "light" : "dark");
+    this.textContent = dark ? "☾" : "☀";
+  });
+</script>
+</body>
+</html>

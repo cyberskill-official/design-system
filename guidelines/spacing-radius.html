@@ -1,0 +1,19 @@
+<!-- @dsCard group="Spacing" viewport="700x170" name="Radius" subtitle="sm 4 · md 8 · lg 14 · full" -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--cs-color-surface-page); padding: 22px 24px; font-family: var(--cs-font-family-ui); color: var(--cs-color-text-primary); }
+  .row { display: flex; gap: 18px; align-items: flex-end; }
+  .item { text-align: center; }
+  .box { width: 92px; height: 74px; background: var(--cs-color-surface-panel); border: 1px solid var(--cs-color-border-default); box-shadow: var(--cs-shadow-sm); }
+  .l { font-family: var(--cs-font-family-mono); font-size: 11px; color: var(--cs-color-text-muted); margin-top: 8px; }
+</style></head>
+<body>
+<div class="row">
+  <div class="item"><div class="box" style="border-radius:4px"></div><div class="l">sm · 4</div></div>
+  <div class="item"><div class="box" style="border-radius:8px"></div><div class="l">md · 8</div></div>
+  <div class="item"><div class="box" style="border-radius:14px"></div><div class="l">lg · 14</div></div>
+  <div class="item"><div class="box" style="width:120px;border-radius:999px"></div><div class="l">full · 999</div></div>
+</div>
+</body></html>

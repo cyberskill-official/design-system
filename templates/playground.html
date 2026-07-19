@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../styles.css">
+<title>CyberSkill — playground</title>
+<style>
+  body{margin:0;font-family:var(--cs-font-family-ui);background:var(--cs-color-surface-page);color:var(--cs-color-text-primary)}
+  .bar{position:sticky;top:0;z-index:10;background:color-mix(in oklab,var(--cs-color-surface-panel) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--cs-color-border-default);padding:12px 24px;display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+  .bar h1{font-size:15px;margin:0}.bar h1 b{color:var(--cs-color-brand-umber)}
+  .grp{display:flex;gap:5px;align-items:center;flex-wrap:wrap}
+  .grp .k{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--cs-color-text-muted);margin-right:2px}
+  .grp button{font:inherit;font-size:11.5px;font-weight:600;padding:5px 10px;border:1px solid var(--cs-color-border-default);background:var(--cs-color-surface-panel);color:var(--cs-color-text-primary);border-radius:999px;cursor:pointer}
+  .grp button[aria-pressed="true"]{background:var(--cs-color-brand-umber);color:#fff;border-color:var(--cs-color-brand-umber)}
+  .stage{padding:28px 24px;min-height:70vh;background:var(--cs-color-surface-page)}
+  .gal{max-width:900px;margin:0 auto;display:grid;gap:16px}
+  .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .panel{background:var(--cs-color-surface-panel);border:1px solid var(--cs-color-border-default);border-radius:var(--cs-radius-lg);box-shadow:var(--cs-shadow-sm);padding:18px}
+  .swatches{display:flex;gap:6px}.sw{width:34px;height:34px;border-radius:8px;border:1px solid var(--cs-color-border-default)}
+  .lbl{font-size:10px;color:var(--cs-color-text-muted);width:100%}
+</style></head>
+<body>
+<div class="bar">
+  <h1><b>CyberSkill</b> · Playground</h1>
+  <div class="grp" id="theme"><span class="k">Theme</span></div>
+  <div class="grp" id="element"><span class="k">Element</span></div>
+  <div class="grp" id="expression"><span class="k">Expression</span></div>
+</div>
+<div class="stage"><div class="gal" id="stage" data-theme="" data-cs-element="tho" data-cs-variant="" data-cs-expression="">
+  <div class="row"><span class="lbl">Accent swatches (live)</span>
+    <div class="swatches">
+      <div class="sw" style="background:var(--cs-accent)"></div>
+      <div class="sw" style="background:var(--cs-accent-bright)"></div>
+      <div class="sw" style="background:var(--cs-accent-strong)"></div>
+      <div class="sw" style="background:var(--cs-accent-tint)"></div>
+      <div class="sw" style="background:var(--cs-accent-ink)"></div>
+    </div>
+  </div>
+  <div class="row"><span class="lbl">Buttons &amp; controls</span>
+    <button class="cs-button cs-button--primary">Make a wish</button>
+    <button class="cs-button cs-button--secondary">Secondary</button>
+    <button class="cs-button cs-button--ghost">Ghost</button>
+    <span class="cs-badge cs-badge--ochre">New</span>
+    <span class="cs-badge cs-badge--solid">Umber</span>
+    <label class="cs-switch"><input type="checkbox" checked><span class="cs-switch__track"></span></label>
+    <div class="cs-segmented"><button aria-pressed="true">Board</button><button>Table</button></div>
+  </div>
+  <div class="row"><span class="lbl">Surfaces</span>
+    <div class="panel" style="flex:1;min-width:220px"><div class="cs-stat"><div class="cs-stat__label">Shipped</div><div class="cs-stat__value" style="color:var(--cs-color-text-accent)">128</div></div></div>
+    <div class="panel" style="flex:1;min-width:220px"><div style="font-weight:700;margin-bottom:6px">Wish card</div><div class="cs-progress" style="margin:6px 0"><div class="cs-progress__fill" style="inline-size:64%"></div></div><span class="cs-badge cs-badge--success"><span class="cs-badge__dot"></span>On track</span></div>
+  </div>
+  <div class="cs-tabs"><button class="cs-tab" aria-selected="true">Overview</button><button class="cs-tab">Projects</button><button class="cs-tab">Team</button></div>
+  <div class="cs-alert cs-alert--info"><div class="cs-alert__icon">ⓘ</div><div><p class="cs-alert__title">Theme × Element × Expression are independent</p><p class="cs-alert__body">Switch any axis above — the same markup re-skins with zero code changes.</p></div></div>
+</div></div>
+<script>
+const stage=document.getElementById('stage');
+const AX={
+  theme:[["Light",""],["Dark","dark"]],
+  element:[["Thổ","tho|"],["Thổ·clay","tho|clay"],["Thổ·sand","tho|sand"],["Hỏa","hoa|"],["Hỏa·lava","hoa|lava"],["Hỏa·plasma","hoa|plasma"],["Thủy","thuy|"],["Thủy·ocean","thuy|ocean"],["Thủy·mist","thuy|mist"],["Mộc","moc|"],["Mộc·bamboo","moc|bamboo"],["Mộc·forest","moc|forest"],["Kim","kim|"],["Kim·steel","kim|steel"],["Kim·titanium","kim|titanium"]],
+  expression:[["Glass",""],["Solid","solid"],["Paper","paper"],["Soft","soft"],["Bold","bold"],["Dense","dense"],["Luxe","luxe"]],
+};
+function build(axis, apply){
+  const box=document.getElementById(axis);
+  AX[axis].forEach(([label,val],i)=>{
+    const b=document.createElement('button');b.textContent=label;
+    b.onclick=()=>{ [...box.querySelectorAll('button')].forEach(x=>x.setAttribute('aria-pressed','false')); b.setAttribute('aria-pressed','true'); apply(val); };
+    if(i===0) b.setAttribute('aria-pressed','true');
+    box.appendChild(b);
+  });
+}
+build('theme', v=>stage.setAttribute('data-theme',v));
+build('element', v=>{ const [el,va]=v.split('|'); stage.setAttribute('data-cs-element',el); stage.setAttribute('data-cs-variant',va||''); });
+build('expression', v=>stage.setAttribute('data-cs-expression',v));
+</script>
+</body></html>

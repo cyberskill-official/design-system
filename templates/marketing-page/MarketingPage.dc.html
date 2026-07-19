@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Marketing page" description="Bilingual CyberSkill landing page — umber hero with a wish prompt, service cards, process, and a Lumi chat launcher. Language tweak: English · Tiếng Việt." -->
+<helmet>
+<script src="./ds-base.js"></script>
+<script src="../../image-slot.js"></script>
+</helmet>
+<div data-theme="{{ rootTheme }}" lang="{{ langAttr }}" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" data-cs-expression="{{ exAttr }}" style="font-family:var(--cs-font-family-ui);color:var(--cs-color-text-primary);background:var(--cs-color-surface-page);min-height:100vh">
+  <header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:24px;padding:14px 32px;background:color-mix(in oklab,var(--cs-color-surface-panel) 82%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--cs-color-border-default)">
+    <div style="display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:var(--cs-color-brand-umber);letter-spacing:-0.01em">
+      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="32" hint-size="32px,32px"></x-import>
+      CyberSkill
+    </div>
+    <nav style="display:flex;gap:22px;margin-left:8px;font-size:14px;font-weight:600">
+      <a href="#services" style="color:var(--cs-color-text-primary);text-decoration:none">{{ navServices }}</a>
+      <a href="#process" style="color:var(--cs-color-text-primary);text-decoration:none">{{ navProcess }}</a>
+      <a href="#contact" style="color:var(--cs-color-text-primary);text-decoration:none">{{ navContact }}</a>
+    </nav>
+    <div style="margin-left:auto">
+      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Button" variant="primary" size="sm" onClick="{{ openChat }}" hint-size="130px,36px">{{ talkBtn }}</x-import>
+    </div>
+  </header>
+
+  <section style="position:relative;overflow:hidden;background:var(--cs-accent-ink);color:#fff;padding:84px 32px 96px">
+    <image-slot id="cs-mktg-hero" shape="rect" placeholder="Drop a hero image (optional)" style="position:absolute;inset:0"></image-slot>
+    <div class="cs-aurora-wash" style="position:absolute;inset:0;opacity:0.55;pointer-events:none"></div>
+    <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(42,26,13,0.62),rgba(42,26,13,0.42))"></div>
+    <div style="position:relative;z-index:1;max-width:1080px;margin:0 auto">
+      <div class="cs-rise-in" style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--cs-accent-bright)">{{ heroKicker }}</div>
+      <h1 class="cs-rise-in cs-rise-in--2" style="font-size:clamp(40px,6vw,64px);font-weight:800;letter-spacing:-0.02em;line-height:1.05;color:var(--cs-accent-bright);margin:14px 0 4px">{{ heroH }}</h1>
+      <div class="cs-rise-in cs-rise-in--3" style="font-size:20px;font-weight:600;opacity:0.9;margin-bottom:18px">{{ heroSub }}</div>
+      <p class="cs-rise-in cs-rise-in--4" style="font-size:18px;line-height:1.55;max-width:600px;opacity:0.95">{{ heroP }}</p>
+      <div style="max-width:600px;margin-top:26px">
+        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.PromptInput" placeholder="{{ promptPh }}" send-label="{{ promptSend }}" hint-size="100%,120px"></x-import>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" style="padding:80px 32px">
+    <div style="max-width:1080px;margin:0 auto">
+      <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--cs-color-text-accent)">{{ svcKicker }}</div>
+      <h2 style="font-size:34px;font-weight:800;letter-spacing:-0.02em;margin:8px 0 8px">{{ svcH }}</h2>
+      <p style="font-size:17px;color:var(--cs-color-text-muted);max-width:620px;margin:0 0 32px">{{ svcP }}</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+        <div style="background:var(--cs-color-surface-panel);border:1px solid var(--cs-color-border-default);border-radius:var(--cs-radius-lg);box-shadow:var(--cs-shadow-sm);padding:24px">
+          <h3 style="font-size:20px;font-weight:700;margin:0 0 8px">{{ c1h }}</h3>
+          <p style="color:var(--cs-color-text-muted);font-size:15px;line-height:1.5;margin:0">{{ c1p }}</p>
+        </div>
+        <div style="background:var(--cs-color-surface-panel);border:1px solid var(--cs-color-border-default);border-radius:var(--cs-radius-lg);box-shadow:var(--cs-shadow-sm);padding:24px">
+          <h3 style="font-size:20px;font-weight:700;margin:0 0 8px">{{ c2h }}</h3>
+          <p style="color:var(--cs-color-text-muted);font-size:15px;line-height:1.5;margin:0">{{ c2p }}</p>
+        </div>
+        <div style="background:var(--cs-color-surface-panel);border:1px solid var(--cs-color-border-default);border-radius:var(--cs-radius-lg);box-shadow:var(--cs-shadow-sm);padding:24px">
+          <h3 style="font-size:20px;font-weight:700;margin:0 0 8px">{{ c3h }}</h3>
+          <p style="color:var(--cs-color-text-muted);font-size:15px;line-height:1.5;margin:0">{{ c3p }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" style="padding:0 32px 80px">
+    <div style="max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;background:linear-gradient(120deg,var(--cs-accent-ink) 35%,color-mix(in oklab,var(--cs-accent-grad-b) 26%,var(--cs-accent-ink)));color:#fff;border-radius:var(--cs-radius-lg);padding:40px 36px">
+      <div>
+        <h2 style="color:var(--cs-accent-bright);font-size:28px;font-weight:800;margin:0 0 6px;letter-spacing:-0.01em">{{ ctaH }}</h2>
+        <p style="margin:0;opacity:0.9;max-width:520px">{{ ctaP }}</p>
+      </div>
+      <span id="contact">
+        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Button" variant="primary" onClick="{{ openChat }}" hint-size="150px,44px">{{ talkBtn }}</x-import>
+      </span>
+    </div>
+  </section>
+
+  <footer style="background:var(--cs-accent-ink);color:rgba(255,255,255,0.82);padding:40px 32px">
+    <div style="max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center">
+      <div style="display:flex;align-items:center;gap:10px;color:#fff;font-weight:800">
+        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="28" decorative="{{ true }}" hint-size="28px,28px"></x-import>
+        CyberSkill
+      </div>
+      <small style="color:rgba(255,255,255,0.6);font-size:13px">{{ footer }}</small>
+    </div>
+  </footer>
+
+  <sc-if value="{{ showLauncher }}" hint-placeholder-val="{{ true }}">
+    <button onClick="{{ openChat }}" style="position:fixed;right:22px;bottom:22px;z-index:200;background:var(--cs-accent-bright);color:var(--cs-accent-on);border:0;border-radius:var(--cs-radius-full);height:54px;padding:0 22px;font-family:var(--cs-font-family-ui);font-weight:700;font-size:15px;cursor:pointer;box-shadow:var(--cs-shadow-lg)">✦ {{ talkBtn }}</button>
+  </sc-if>
+
+  <sc-if value="{{ chatOpen }}">
+    <div style="position:fixed;right:22px;bottom:22px;z-index:201;width:360px;max-width:calc(100vw - 44px);border-radius:var(--cs-radius-lg);overflow:hidden;box-shadow:var(--cs-shadow-xl);display:flex;flex-direction:column;max-height:min(560px,84vh)">
+      <div style="background:var(--cs-accent-ink);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px">
+        <span style="width:30px;height:30px;border-radius:50%;background:var(--cs-accent-bright);color:var(--cs-accent-on);display:grid;place-items:center;font-weight:800">✦</span>
+        <b style="font-size:14px">Lumi · {{ genieLabel }}</b>
+        <button onClick="{{ closeChat }}" aria-label="Close" style="margin-left:auto;background:transparent;border:0;color:rgba(255,255,255,0.8);cursor:pointer;font-size:18px">✕</button>
+      </div>
+      <div style="background:var(--cs-color-surface-panel);padding:16px;overflow:auto">
+        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.ChatMessage" role="lumi" hint-size="100%,60px">{{ chatHello }}</x-import>
+      </div>
+      <div style="background:var(--cs-color-surface-panel);padding:0 12px 12px">
+        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.PromptInput" placeholder="{{ chatPh }}" send-label="{{ chatSend }}" hint-size="100%,110px"></x-import>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;language&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;English&quot;,&quot;Tiếng Việt&quot;],&quot;default&quot;:&quot;English&quot;,&quot;tsType&quot;:&quot;\&quot;English\&quot; | \&quot;Tiếng Việt\&quot;&quot;,&quot;section&quot;:&quot;Content&quot;},
+  &quot;element&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Thổ · studio&quot;,&quot;Thổ · clay&quot;,&quot;Thổ · sand&quot;,&quot;Hỏa · ember&quot;,&quot;Hỏa · lava&quot;,&quot;Hỏa · plasma&quot;,&quot;Thủy · river&quot;,&quot;Thủy · ocean&quot;,&quot;Thủy · mist&quot;,&quot;Mộc · leaf&quot;,&quot;Mộc · bamboo&quot;,&quot;Mộc · forest&quot;,&quot;Kim · champagne&quot;,&quot;Kim · steel&quot;,&quot;Kim · titanium&quot;],&quot;default&quot;:&quot;Thổ · studio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Element (Ngũ Hành)&quot;},
+  &quot;expression&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Liquid glass · default&quot;,&quot;Solid&quot;,&quot;Dense&quot;,&quot;Paper&quot;,&quot;Soft&quot;,&quot;Bold&quot;,&quot;Luxe&quot;],&quot;default&quot;:&quot;Liquid glass · default&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Expression&quot;},
+  &quot;theme&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;\&quot;light\&quot; | \&quot;dark\&quot;&quot;,&quot;section&quot;:&quot;Theme&quot;},
+  &quot;showChat&quot;: {&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;}
+}">
+class Component extends DCLogic {
+  state = { chatOpen: false };
+  renderVals() {
+    const EL = {"Thổ · studio":["tho",""],"Thổ · clay":["tho","clay"],"Thổ · sand":["tho","sand"],"Hỏa · ember":["hoa",""],"Hỏa · lava":["hoa","lava"],"Hỏa · plasma":["hoa","plasma"],"Thủy · river":["thuy",""],"Thủy · ocean":["thuy","ocean"],"Thủy · mist":["thuy","mist"],"Mộc · leaf":["moc",""],"Mộc · bamboo":["moc","bamboo"],"Mộc · forest":["moc","forest"],"Kim · champagne":["kim",""],"Kim · steel":["kim","steel"],"Kim · titanium":["kim","titanium"]};
+    const [elAttr, vaAttr] = EL[this.props.element] || EL["Thổ · studio"];
+    const EX = {"Liquid glass · default":"","Solid":"solid","Dense":"dense","Paper":"paper","Soft":"soft","Bold":"bold","Luxe":"luxe"};
+    const vn = this.props.language === "Tiếng Việt";
+    const en = { navServices:"Services", navProcess:"Process", navContact:"Contact", talkBtn:"Talk to Lumi", heroKicker:"A Saigon studio · since 2020", heroH:"Turn Your Will Into Real", heroSub:"Hiện Thực Hoá Ý Chí", heroP:"Tell us a wish in a sentence. Lumi shares plain advice, then hands it to a real team who build software your people actually run — built to ship, built to last.", promptPh:"Make a wish… a faster checkout, an app, a tool", promptSend:"Make a wish", svcKicker:"Services", svcH:"What we build", svcP:"Three focused practices. One team that answers for the result.", c1h:"Web & mobile apps", c1p:"Product apps your customers reach for — fast, accessible, bilingual by default.", c2h:"Internal systems & automation", c2p:"The tools your team runs on: dashboards, workflows, and the automation behind them.", c3h:"Built to last", c3p:"Shipped software that keeps running — tested, documented, handed over cleanly.", ctaH:"Ready to make a wish?", ctaP:"Send a short note. We reply within one business day.", chatHello:"Hello, I’m Lumi. Tell me a wish, and I’ll share plain advice before asking for anything.", chatPh:"Type your wish…", chatSend:"Send", footer:"© 2026 CyberSkill · Saigon · Turn Your Will Into Real", genieLabel:"golden genie" };
+    const vi = { navServices:"Dịch vụ", navProcess:"Quy trình", navContact:"Liên hệ", talkBtn:"Trò chuyện với Lumi", heroKicker:"Studio Sài Gòn · từ 2020", heroH:"Hiện Thực Hoá Ý Chí", heroSub:"Turn Your Will Into Real", heroP:"Kể cho chúng tôi một điều ước trong một câu. Lumi chia sẻ lời khuyên thẳng thắn, rồi trao cho một đội ngũ thật xây phần mềm mà người của bạn thực sự vận hành — làm để chạy được, làm để bền lâu.", promptPh:"Gửi điều ước… thanh toán nhanh hơn, một app, một công cụ", promptSend:"Gửi điều ước", svcKicker:"Dịch vụ", svcH:"Chúng tôi xây gì", svcP:"Ba mảng tập trung. Một đội ngũ chịu trách nhiệm về kết quả.", c1h:"Ứng dụng web & di động", c1p:"Sản phẩm khách hàng muốn dùng — nhanh, dễ tiếp cận, song ngữ mặc định.", c2h:"Hệ thống nội bộ & tự động hoá", c2p:"Công cụ đội bạn vận hành: dashboard, luồng công việc, và tự động hoá phía sau.", c3h:"Làm để bền lâu", c3p:"Phần mềm đã ra mắt vẫn chạy đều — kiểm thử, tài liệu, bàn giao gọn gàng.", ctaH:"Sẵn sàng gửi điều ước?", ctaP:"Gửi một ghi chú ngắn. Chúng tôi phản hồi trong một ngày làm việc.", chatHello:"Xin chào, tôi là Lumi. Kể cho tôi một điều ước, tôi sẽ chia sẻ lời khuyên thẳng thắn trước khi hỏi bất cứ điều gì.", chatPh:"Nhập điều ước của bạn…", chatSend:"Gửi", footer:"© 2026 CyberSkill · Sài Gòn · Hiện Thực Hoá Ý Chí", genieLabel:"thần đèn vàng" };
+    return Object.assign({ langAttr: (this.props.language ?? "English") === "Tiếng Việt" ? "vi" : "en", elAttr, vaAttr, exAttr: EX[this.props.expression] ?? "", rootTheme: this.props.theme === "dark" ? "dark" : "",
+      showLauncher: (this.props.showChat ?? true) && !this.state.chatOpen, chatOpen: this.state.chatOpen,
+      openChat: () => this.setState({ chatOpen: true }), closeChat: () => this.setState({ chatOpen: false }),
+    }, vn ? vi : en);
+  }
+}
+</script>
+</body>
+</html>

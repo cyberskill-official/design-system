@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Settings" description="CyberSkill settings page — Tabs, form fields, switches, and a danger zone. Bilingual (English · Tiếng Việt)." -->
+<helmet>
+<script src="./ds-base.js"></script>
+</helmet>
+<div data-theme="{{ rootTheme }}" lang="{{ langAttr }}" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" data-cs-expression="{{ exAttr }}" style="font-family:var(--cs-font-family-ui);color:var(--cs-color-text-primary);background:var(--cs-color-surface-page);min-height:100vh">
+  <div style="max-width:840px;margin:0 auto;padding:36px 28px 80px">
+    <h1 style="font-size:30px;font-weight:800;letter-spacing:-0.02em;margin:0 0 4px">{{ title }}</h1>
+    <p style="color:var(--cs-color-text-muted);margin:0 0 24px">{{ sub }}</p>
+
+    <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Tabs" tabs="{{ tabs }}" value="{{ tab }}" on-change="{{ setTab }}" hint-size="100%,44px"></x-import>
+
+    <sc-if value="{{ isProfile }}" hint-placeholder-val="{{ true }}">
+      <section style="background:var(--cs-color-surface-panel);border:1px solid var(--cs-color-border-default);border-radius:var(--cs-radius-lg);padding:24px;margin-top:22px">
+        <h3 style="margin:0 0 4px;font-size:18px">{{ profileH }}</h3>
+        <p style="margin:0 0 18px;color:var(--cs-color-text-muted);font-size:14px">{{ profileP }}</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px 24px">
+          <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.TextField" label="{{ nameL }}" default-value="Nguyễn Hoàng An" hint-size="100%,74px"></x-import>
+          <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.TextField" label="{{ emailL }}" type="email" default-value="an@cyberskill.world" hint-size="100%,74px"></x-import>
+          <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Select" label="{{ squadL }}" options="{{ squads }}" hint-size="100%,74px"></x-import>
+          <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Select" label="{{ ifaceL }}" options="{{ langs }}" hint-size="100%,74px"></x-import>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ isNotifications }}">
+      <section style="background:var(--cs-color-surface-panel);border:1px solid var(--cs-color-border-default);border-radius:var(--cs-radius-lg);padding:24px;margin-top:22px;display:grid;gap:16px">
+        <div><h3 style="margin:0 0 4px;font-size:18px">{{ notifH }}</h3><p style="margin:0;color:var(--cs-color-text-muted);font-size:14px">{{ notifP }}</p></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid var(--cs-color-border-default);padding-top:14px">
+          <div><div style="font-weight:600">{{ n1t }}</div><div style="color:var(--cs-color-text-muted);font-size:13.5px">{{ n1d }}</div></div>
+          <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Switch" hint-size="46px,26px"></x-import>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid var(--cs-color-border-default);padding-top:14px">
+          <div><div style="font-weight:600">{{ n2t }}</div><div style="color:var(--cs-color-text-muted);font-size:13.5px">{{ n2d }}</div></div>
+          <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Switch" hint-size="46px,26px"></x-import>
+        </div>
+      </section>
+    </sc-if>
+
+    <section style="border:1px solid var(--cs-color-semantic-danger);border-radius:var(--cs-radius-lg);padding:18px 20px;margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:color-mix(in oklab,var(--cs-color-semantic-danger) 5%,var(--cs-color-surface-panel))">
+      <div><div style="font-weight:700">{{ dangerT }}</div><div style="color:var(--cs-color-text-muted);font-size:13.5px">{{ dangerD }}</div></div>
+      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Button" variant="danger-ghost" hint-size="150px,44px">{{ dangerBtn }}</x-import>
+    </section>
+
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:22px">
+      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Button" variant="ghost" hint-size="90px,44px">{{ cancelBtn }}</x-import>
+      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Button" variant="primary" hint-size="140px,44px">{{ saveBtn }}</x-import>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;language&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;English&quot;,&quot;Tiếng Việt&quot;],&quot;default&quot;:&quot;English&quot;,&quot;tsType&quot;:&quot;\&quot;English\&quot; | \&quot;Tiếng Việt\&quot;&quot;,&quot;section&quot;:&quot;Content&quot;},
+  &quot;element&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Thổ · studio&quot;,&quot;Thổ · clay&quot;,&quot;Thổ · sand&quot;,&quot;Hỏa · ember&quot;,&quot;Hỏa · lava&quot;,&quot;Hỏa · plasma&quot;,&quot;Thủy · river&quot;,&quot;Thủy · ocean&quot;,&quot;Thủy · mist&quot;,&quot;Mộc · leaf&quot;,&quot;Mộc · bamboo&quot;,&quot;Mộc · forest&quot;,&quot;Kim · champagne&quot;,&quot;Kim · steel&quot;,&quot;Kim · titanium&quot;],&quot;default&quot;:&quot;Thổ · studio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Element (Ngũ Hành)&quot;},
+  &quot;expression&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Liquid glass · default&quot;,&quot;Solid&quot;,&quot;Dense&quot;,&quot;Paper&quot;,&quot;Soft&quot;,&quot;Bold&quot;,&quot;Luxe&quot;],&quot;default&quot;:&quot;Liquid glass · default&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Expression&quot;},
+  &quot;theme&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;\&quot;light\&quot; | \&quot;dark\&quot;&quot;,&quot;section&quot;:&quot;Theme&quot;},
+  &quot;defaultTab&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;profile&quot;,&quot;notifications&quot;],&quot;default&quot;:&quot;profile&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Behavior&quot;}
+}">
+class Component extends DCLogic {
+  state = { tab: null };
+  get tab() { return this.state.tab ?? (this.props.defaultTab || "profile"); }
+  renderVals() {
+    const EL = {"Thổ · studio":["tho",""],"Thổ · clay":["tho","clay"],"Thổ · sand":["tho","sand"],"Hỏa · ember":["hoa",""],"Hỏa · lava":["hoa","lava"],"Hỏa · plasma":["hoa","plasma"],"Thủy · river":["thuy",""],"Thủy · ocean":["thuy","ocean"],"Thủy · mist":["thuy","mist"],"Mộc · leaf":["moc",""],"Mộc · bamboo":["moc","bamboo"],"Mộc · forest":["moc","forest"],"Kim · champagne":["kim",""],"Kim · steel":["kim","steel"],"Kim · titanium":["kim","titanium"]};
+    const [elAttr, vaAttr] = EL[this.props.element] || EL["Thổ · studio"];
+    const EX = {"Liquid glass · default":"","Solid":"solid","Dense":"dense","Paper":"paper","Soft":"soft","Bold":"bold","Luxe":"luxe"};
+    const tab = this.tab;
+    const vn = this.props.language === "Tiếng Việt";
+    const en = { title:"Settings", sub:"Workspace & preferences · an@cyberskill.world", pfL:"Profile", ntL:"Notifications", profileH:"Profile", profileP:"This is how you appear across the workspace.", nameL:"Full name", emailL:"Work email", squadL:"Squad", ifaceL:"Interface language", notifH:"Notifications", notifP:"We keep it quiet — only what you ask for.", n1t:"Release notes", n1d:"A summary each time a project ships. Bilingual.", n2t:"Blocked-project alerts", n2d:"Get pinged when a project is blocked.", dangerT:"Delete workspace", dangerD:"Removes every project and release. This cannot be undone.", dangerBtn:"Delete workspace", cancelBtn:"Cancel", saveBtn:"Save changes" };
+    const vi = { title:"Cài đặt", sub:"Không gian làm việc & tuỳ chọn · an@cyberskill.world", pfL:"Hồ sơ", ntL:"Thông báo", profileH:"Hồ sơ", profileP:"Đây là cách bạn hiển thị trong không gian làm việc.", nameL:"Họ và tên", emailL:"Email công việc", squadL:"Nhóm", ifaceL:"Ngôn ngữ giao diện", notifH:"Thông báo", notifP:"Chúng tôi giữ yên tĩnh — chỉ gửi thứ bạn yêu cầu.", n1t:"Ghi chú phát hành", n1d:"Bản tóm tắt mỗi khi một dự án ra mắt. Song ngữ.", n2t:"Cảnh báo dự án bị chặn", n2d:"Được báo khi một dự án bị chặn.", dangerT:"Xoá không gian làm việc", dangerD:"Xoá mọi dự án và bản phát hành. Không thể hoàn tác.", dangerBtn:"Xoá không gian làm việc", cancelBtn:"Huỷ", saveBtn:"Lưu thay đổi" };
+    const t = vn ? vi : en;
+    return Object.assign({ langAttr: (this.props.language ?? "English") === "Tiếng Việt" ? "vi" : "en", elAttr, vaAttr, exAttr: EX[this.props.expression] ?? "", rootTheme: this.props.theme === "dark" ? "dark" : "", tab, isProfile: tab === "profile", isNotifications: tab === "notifications",
+      tabs: [{ value: "profile", label: t.pfL }, { value: "notifications", label: t.ntL }],
+      setTab: (v) => this.setState({ tab: v }),
+      squads: [{ value: "platform", label: "Platform" }, { value: "ai", label: "AI" }, { value: "growth", label: "Growth" }],
+      langs: [{ value: "en", label: "English" }, { value: "vi", label: "Tiếng Việt" }],
+    }, t);
+  }
+}
+</script>
+</body>
+</html>

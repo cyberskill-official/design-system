@@ -1,0 +1,40 @@
+<!-- @dsCard group="Components" viewport="700x360" name="Form controls" subtitle="Select, Checkbox, Radio, Switch, Textarea — brand accent" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  body { margin: 0; background: var(--cs-color-surface-page); padding: 22px 24px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 28px; max-width: 640px; align-items: start; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { Select, Checkbox, RadioGroup, Switch, Textarea } = window.CyberSkillDesignSystem_847b3c;
+function Demo() {
+  const [plan, setPlan] = React.useState("yr");
+  const [dark, setDark] = React.useState(true);
+  return (
+    <div className="grid">
+      <Select label="Squad" options={[{value:"plat",label:"Platform"},{value:"ai",label:"AI"},{value:"growth",label:"Growth"}]} defaultValue="ai" />
+      <RadioGroup legend="Billing" value={plan} onChange={setPlan} options={[{value:"mo",label:"Monthly"},{value:"yr",label:"Annual",description:"Two months free"}]} />
+      <div style={{display:"grid",gap:12}}>
+        <Checkbox label="Email me release notes" defaultChecked />
+        <Checkbox label="Bilingual export" description="Ship EN + VN together" />
+        <Switch label="Dark theme" checked={dark} onChange={(e)=>setDark(e.target.checked)} />
+      </div>
+      <Textarea label="Tell us your wish" description="A sentence or two is plenty." rows={3} defaultValue="A faster checkout for our shop." />
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

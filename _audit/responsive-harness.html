@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CyberSkill — Responsive harness</title>
+<style>
+  :root{--ink:#231a12;--umber:#45210E;--ochre:#F4BA17;--muted:#6b5d4f;--line:#e4dccf;--desk:#efe6d8}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,"Be Vietnam Pro",sans-serif;background:var(--desk);color:var(--ink)}
+  header{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);padding:14px 22px;box-shadow:0 2px 10px rgba(60,40,20,.06)}
+  h1{margin:0 0 3px;font-size:16px;letter-spacing:-.01em}
+  h1 b{color:var(--umber)}
+  .sub{margin:0;font-size:12px;color:var(--muted)}
+  .pick{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+  .pick button{font:inherit;font-size:12px;font-weight:600;padding:6px 12px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;cursor:pointer}
+  .pick button[aria-pressed="true"]{background:var(--umber);color:#fff;border-color:var(--umber)}
+  .pick button:hover:not([aria-pressed="true"]){border-color:var(--ochre)}
+  main{padding:22px}
+  .row{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start}
+  .device{background:#fff;border-radius:14px;box-shadow:0 8px 26px rgba(60,40,20,.13);overflow:hidden}
+  .cap{display:flex;align-items:baseline;gap:8px;padding:9px 13px;border-bottom:1px solid var(--line);background:#fbf7ef}
+  .cap b{font-size:12.5px}
+  .cap span{font-family:ui-monospace,monospace;font-size:11px;color:var(--muted)}
+  .cap .tag{margin-left:auto;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ochre);font-weight:800}
+  .screen{position:relative;overflow:hidden;background:#fff}
+  .screen iframe{border:0;display:block;transform-origin:top left;background:#fff}
+  .hint{font-size:11.5px;color:var(--muted);max-width:900px;margin:2px 0 0;line-height:1.5}
+  .note{margin:16px 0 0;font-size:12px;color:var(--muted);max-width:960px;line-height:1.6;border-top:1px dashed var(--line);padding-top:12px}
+  code{font-family:ui-monospace,monospace;background:#fff;border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:11px}
+</style>
+</head>
+<body>
+<header>
+  <h1><b>CyberSkill</b> · Responsive harness</h1>
+  <p class="sub">Each template rendered live at three real viewport widths — phone 390 · tablet 768 · desktop 1280. Media queries fire off the iframe width, so this is a true device check.</p>
+  <div class="pick" id="pick"></div>
+</header>
+<main>
+  <p class="hint" id="hint"></p>
+  <div class="row" id="row"></div>
+  <p class="note">Watch for: multi-column grids collapsing (4→2→1), signing/party blocks stacking on phone, tables scrolling inside the sheet, the app-shell sidebar becoming a top strip, and decks/social scrolling (fixed export geometry) rather than clipping. Desktop (1280) should look identical to production.</p>
+</main>
+<script>
+const TEMPLATES = [
+  {name:"Product · Dashboard", src:"../templates/dashboard/Dashboard.dc.html", hint:"Product screen — auto-fit KPI grid + tabs. Should stay fluid at every width with no clipping."},
+  {name:"Product · App shell", src:"../templates/app-shell/AppShell.dc.html", hint:"Sidebar + main. On phone the sidebar collapses to a horizontal strip (cs-sidebar)."},
+  {name:"Letter · Board report", src:"../templates/bod-report/BodReport.dc.html", hint:"Letter print doc — Stat row + DataTable. Sheet padding relaxes; the 4-up stats collapse; the table scrolls."},
+  {name:"A4 · Mutual NDA", src:"../templates/vn-mutual-nda/VnMutualNda.dc.html", hint:"A4 bilingual instrument — company/motto header (1.15fr 1fr) and Party A/B signing block (1fr 1fr) stack on phone."},
+  {name:"Print · Team agenda", src:"../templates/team-meeting-agenda/TeamMeetingAgenda.dc.html", hint:"4-up meta bar (repeat(4,1fr)) → 2 on tablet → 1 on phone; decision cards (1fr 1fr) stack."},
+  {name:"Email · Investor update", src:"../templates/bod-investor-update/BodInvestorUpdate.dc.html", hint:"600px email — 3-up KPI row should read cleanly at 390px."},
+  {name:"Deck · Sales proposal", src:"../templates/sales-proposal-deck/SalesProposalDeck.dc.html", hint:"16:9 export deck (cs-canvas-desk) — scrolls horizontally to keep exact slide geometry; type never squishes."},
+  {name:"Social · Social kit", src:"../templates/marketing-social-kit/MarketingSocialKit.dc.html", hint:"Fixed 1080/1200 canvases (cs-canvas-desk) — scroll rather than force the page wide."},
+];
+const DEVICES = [
+  {label:"Phone",   w:390,  displayW:300, tag:"390px"},
+  {label:"Tablet",  w:768,  displayW:384, tag:"768px"},
+  {label:"Desktop", w:1280, displayW:560, tag:"1280px"},
+];
+const DISPLAY_H = 640;
+const row = document.getElementById('row');
+const pick = document.getElementById('pick');
+const hintEl = document.getElementById('hint');
+let current = 0;
+
+function render(i){
+  current = i;
+  [...pick.children].forEach((b,j)=>b.setAttribute('aria-pressed', j===i?'true':'false'));
+  hintEl.textContent = TEMPLATES[i].hint;
+  row.innerHTML = '';
+  for(const d of DEVICES){
+    const scale = d.displayW / d.w;
+    const ifrH = Math.round(DISPLAY_H / scale);
+    const dev = document.createElement('div');
+    dev.className = 'device';
+    dev.style.width = d.displayW + 'px';
+    dev.innerHTML =
+      '<div class="cap"><b>'+d.label+'</b><span>'+d.w+'&times;'+Math.round(DISPLAY_H)+' css px</span><span class="tag">'+d.tag+'</span></div>'+
+      '<div class="screen" style="width:'+d.displayW+'px;height:'+DISPLAY_H+'px">'+
+        '<iframe loading="lazy" src="'+TEMPLATES[i].src+'" style="width:'+d.w+'px;height:'+ifrH+'px;transform:scale('+scale+')"></iframe>'+
+      '</div>';
+    row.appendChild(dev);
+  }
+}
+TEMPLATES.forEach((t,i)=>{
+  const b=document.createElement('button');
+  b.textContent=t.name;
+  b.onclick=()=>render(i);
+  pick.appendChild(b);
+});
+render(0);
+</script>
+</body>
+</html>

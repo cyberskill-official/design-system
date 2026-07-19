@@ -1,0 +1,30 @@
+<!-- @dsCard group="Expressions" viewport="1280x430" name="Expressions — treatment axis" subtitle="Theme × Element × Expression. Packs change surface/radius/shadow/motion only — never hue, voice, or a11y. Default: liquid-glass · registry capped at 7." -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+body{margin:0;background:var(--cs-color-surface-page);width:1280px;height:430px;overflow:hidden;box-sizing:border-box;padding:30px 40px;font-family:var(--cs-font-family-ui);color:var(--cs-color-text-primary)}
+.tile{display:flex;flex-direction:column;gap:0;border-radius:14px;overflow:hidden;border:1px solid #E7D9C6;background:#efe6d8}
+.head{padding:12px 16px 10px}
+.nm{font-weight:800;font-size:15px}
+.ds{font-size:11px;color:#6E5A4C;margin-top:1px}
+.stage{flex:1;padding:16px;display:grid;align-content:start;gap:10px;background:var(--cs-color-surface-page)}
+.card{background:var(--cs-color-surface-panel);border:1px solid var(--cs-color-border-default);border-radius:var(--cs-radius-lg);box-shadow:var(--cs-shadow-sm);padding:13px 14px}
+.ttl{font-weight:700;font-size:13px}
+.sub{font-size:11px;color:var(--cs-color-text-muted);margin-top:2px}
+.btn{display:inline-block;background:var(--cs-component-button-primary-bg,#45210E);color:var(--cs-component-button-primary-fg,#fff);font-weight:700;font-size:12px;padding:9px 15px;border-radius:var(--cs-component-button-radius,8px);box-shadow:var(--cs-shadow-xs);width:fit-content}
+.fld{border:1px solid var(--cs-component-textfield-border-default,#BFA58F);border-radius:var(--cs-radius-md);background:var(--cs-color-surface-panel);padding:8px 11px;font-size:11.5px;color:var(--cs-color-text-muted)}
+a{color:var(--cs-color-link)}a:hover{color:var(--cs-color-link-hover)}
+</style></head>
+<body>
+<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:10px;height:316px">
+  <div class="tile"><div class="head"><div class="nm">liquid-glass</div><div class="ds">default · five materials</div></div><div class="stage"><div class="card"><div class="ttl">Make a wish</div><div class="sub">warm shadow · 14px radius</div></div><span class="btn">Primary</span><span class="fld">Your wish…</span></div></div>
+  <div class="tile"><div class="head"><div class="nm">solid</div><div class="ds">flat · Swiss-calm</div></div><div class="stage" data-cs-expression="solid"><div class="card"><div class="ttl">Make a wish</div><div class="sub">no blur · whisper shadow</div></div><span class="btn">Primary</span><span class="fld">Your wish…</span></div></div>
+  <div class="tile"><div class="head"><div class="nm">dense</div><div class="ds">operational · tight</div></div><div class="stage" data-cs-expression="dense"><div class="card"><div class="ttl">Make a wish</div><div class="sub">36px controls · quiet chrome</div></div><span class="btn" style="padding:6px 12px">Primary</span><span class="fld" style="padding:5px 9px">Your wish…</span></div></div>
+  <div class="tile"><div class="head"><div class="nm">paper</div><div class="ds">editorial · print-true</div></div><div class="stage" data-cs-expression="paper"><div class="card"><div class="ttl">Make a wish</div><div class="sub">rules, not elevation</div></div><span class="btn">Primary</span><span class="fld">Your wish…</span></div></div>
+  <div class="tile"><div class="head"><div class="nm">soft</div><div class="ds">plush · rounded</div></div><div class="stage" data-cs-expression="soft"><div class="card"><div class="ttl">Make a wish</div><div class="sub">22px radius · deep gentle shadow</div></div><span class="btn">Primary</span><span class="fld">Your wish…</span></div></div>
+  <div class="tile"><div class="head"><div class="nm">bold</div><div class="ds">neubrutal, warmed</div></div><div class="stage" data-cs-expression="bold"><div class="card"><div class="ttl">Make a wish</div><div class="sub">umber frame · hard offset</div></div><span class="btn">Primary</span><span class="fld">Your wish…</span></div></div>
+  <div class="tile"><div class="head"><div class="nm">luxe</div><div class="ds">ceremonial · unhurried</div></div><div class="stage" data-cs-expression="luxe"><div class="card"><div class="ttl">Make a wish</div><div class="sub">pill CTA · deep soft glow</div></div><span class="btn">Primary</span><span class="fld">Your wish…</span></div></div>
+</div>
+<footer style="display:flex;gap:16px;margin-top:16px;font-size:12px;color:var(--cs-color-text-muted);align-items:center"><b style="color:var(--cs-color-text-primary)">Grammar</b><span>data-cs-expression="solid|dense|paper|soft|bold|luxe"</span><span>·</span><span>Composes with any Theme and Element</span><span>·</span><span>Rejected by doctrine: neon/cyberpunk, memphis, full skeuomorphism</span></footer>
+</body></html>

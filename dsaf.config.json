@@ -1,7 +1,0 @@
-{
-  "$comment": "CyberSkill Design System — CSAF audit configuration. Keep extraKeywords EMPTY unless a criterion legitimately uses different vocabulary here; padding keywords to inflate the prose band defeats the audit and the three-band engine caps prose at 40/100 anyway.",
-  "maxFiles": 1600,
-  "excludePaths": ["/meta/", "/scratch/", "/test-results/", "/playwright-report/"],
-  "extraKeywords": {},
-  "profile": "full"
-}

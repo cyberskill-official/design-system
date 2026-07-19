@@ -1,5 +1,0 @@
-foreground,background,foreground_value,background_value,wcag_ratio,wcag_aa_body
-cs.color.text.primary,cs.color.surface.page,#45210E,#FFFDF8,13.99,true
-cs.color.text.inverse,cs.color.brand.umber,#FFFFFF,#45210E,14.22,true
-cs.color.text.accent,cs.color.surface.page,#6E3B0E,#FFFDF8,9.00,true
-cs.component.button.primary.fg,cs.component.button.primary.bg,#FFFFFF,#45210E,14.22,true

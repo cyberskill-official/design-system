@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="omelette-owns-print" content="1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Finance · Invoice" description="CyberSkill invoice — bill-to/from, line items in đồng, VAT, total, bank details. Letter-sized, print-ready." -->
+<helmet>
+<script src="./ds-base.js"></script>
+<style>@page{size:letter;margin:0.6in}@media print{html,body{background:#fff!important}.cs-desk{background:#fff!important;padding:0!important;min-height:0!important}.cs-sheet{box-shadow:none!important;border:none!important;max-width:none!important;border-radius:0!important;padding:0!important}.cs-avoid{break-inside:avoid}}</style>
+</helmet>
+<div lang="{{ langAttr }}" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" data-cs-expression="{{ exAttr }}" class="cs-desk" style="background:#efe6d8;min-height:100vh;padding:40px 16px;font-family:var(--cs-font-family-ui);color:var(--cs-color-text-primary)">
+  <div class="cs-sheet" style="max-width:816px;margin:0 auto;background:#fff;border:1px solid var(--cs-color-border-default);border-radius:12px;box-shadow:var(--cs-shadow-md);padding:56px 64px">
+    <header style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:34px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="38" hint-size="38px,38px"></x-import>
+        <div><div style="font-weight:800;font-size:18px;color:var(--cs-color-brand-umber);line-height:1.1">CyberSkill</div><div style="font-size:11px;color:var(--cs-color-text-muted)">Hiện Thực Hoá Ý Chí · Turn Your Will Into Real</div></div>
+      </div>
+      <div style="text-align:right"><sc-if value="{{ isEN }}" hint-placeholder-val="{{ true }}"><div style="font-size:26px;font-weight:800;letter-spacing:0.02em;color:var(--cs-color-brand-umber)">INVOICE</div></sc-if><sc-if value="{{ isVN }}"><div lang="vi" style="display:contents"><div style="font-size:26px;font-weight:800;letter-spacing:0.02em;color:var(--cs-color-brand-umber)">HÓA ĐƠN</div></div></sc-if><div style="font-family:var(--cs-font-family-mono);font-size:13px;color:var(--cs-color-text-muted);margin-top:2px">INV-2026-0142</div></div>
+    </header>
+    <sc-if value="{{ isEN }}">
+    <div class="cs-avoid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:30px">
+      <div><div style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--cs-color-text-muted);margin-bottom:6px">From</div><div style="font-size:13px;line-height:1.6"><b>CyberSkill Co., Ltd</b><br>District 1, Ho Chi Minh City<br>Tax ID 0312xxxxxx</div></div>
+      <div><div style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--cs-color-text-muted);margin-bottom:6px">Bill to</div><div style="font-size:13px;line-height:1.6"><b>[Client Ltd]</b><br>[Address line]<br>Tax ID [number]</div></div>
+      <div><div style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--cs-color-text-muted);margin-bottom:6px">Details</div><div style="font-size:13px;line-height:1.7"><span style="color:var(--cs-color-text-muted)">Issued</span> 18 Jul 2026<br><span style="color:var(--cs-color-text-muted)">Due</span> <b>02 Aug 2026</b><br><span style="color:var(--cs-color-text-muted)">Terms</span> Net 15</div></div>
+    </div>
+    <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:8px">
+      <thead><tr style="border-bottom:2px solid var(--cs-color-brand-umber)"><th style="text-align:left;padding:9px 10px;font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted)">Description</th><th style="text-align:right;padding:9px 10px;font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted)">Qty</th><th style="text-align:right;padding:9px 10px;font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted)">Rate</th><th style="text-align:right;padding:9px 10px;font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted)">Amount</th></tr></thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--cs-color-border-default)"><td style="padding:11px 10px"><b>Checkout rebuild — milestone 2</b><div style="font-size:12px;color:var(--cs-color-text-muted)">Staging delivery, per SOW-2026-014</div></td><td style="padding:11px 10px;text-align:right;font-family:var(--cs-font-family-mono)">1</td><td style="padding:11px 10px;text-align:right;font-family:var(--cs-font-family-mono)">1,200,000,000</td><td style="padding:11px 10px;text-align:right;font-family:var(--cs-font-family-mono)">1,200,000,000</td></tr>
+        <tr style="border-bottom:1px solid var(--cs-color-border-default)"><td style="padding:11px 10px"><b>Ops console — design sprint</b><div style="font-size:12px;color:var(--cs-color-text-muted)">3 senior days</div></td><td style="padding:11px 10px;text-align:right;font-family:var(--cs-font-family-mono)">3</td><td style="padding:11px 10px;text-align:right;font-family:var(--cs-font-family-mono)">18,000,000</td><td style="padding:11px 10px;text-align:right;font-family:var(--cs-font-family-mono)">54,000,000</td></tr>
+        <tr style="border-bottom:1px solid var(--cs-color-border-default)"><td style="padding:11px 10px"><b>Post-launch support</b><div style="font-size:12px;color:var(--cs-color-text-muted)">Retainer, July</div></td><td style="padding:11px 10px;text-align:right;font-family:var(--cs-font-family-mono)">1</td><td style="padding:11px 10px;text-align:right;font-family:var(--cs-font-family-mono)">40,000,000</td><td style="padding:11px 10px;text-align:right;font-family:var(--cs-font-family-mono)">40,000,000</td></tr>
+      </tbody>
+    </table>
+    <div class="cs-avoid" style="display:flex;justify-content:flex-end;margin-bottom:30px">
+      <div style="width:320px;font-size:13px">
+        <div style="display:flex;justify-content:space-between;padding:7px 10px"><span style="color:var(--cs-color-text-muted)">Subtotal</span><span style="font-family:var(--cs-font-family-mono)">₫1,294,000,000</span></div>
+        <div style="display:flex;justify-content:space-between;padding:7px 10px;border-bottom:1px solid var(--cs-color-border-default)"><span style="color:var(--cs-color-text-muted)">VAT (10%)</span><span style="font-family:var(--cs-font-family-mono)">₫129,400,000</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 10px;margin-top:6px;background:var(--cs-accent-ink);color:#fff;border-radius:10px"><span style="font-weight:700">Total due</span><span style="font-family:var(--cs-font-family-mono);font-weight:800;font-size:17px;color:var(--cs-accent-bright)">₫1,423,400,000</span></div>
+      </div>
+    </div>
+    <div class="cs-avoid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;background:var(--cs-color-surface-raised);border:1px solid var(--cs-color-border-default);border-radius:10px;padding:18px 22px">
+      <div><div style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--cs-color-text-muted);margin-bottom:6px">Pay to</div><div style="font-size:12.5px;line-height:1.7">Vietcombank — HCMC branch<br>CyberSkill Co., Ltd<br><span style="font-family:var(--cs-font-family-mono)">0071 0000 xxxxxx</span> · Ref INV-2026-0142</div></div>
+      <div><div style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--cs-color-text-muted);margin-bottom:6px">Notes</div><div style="font-size:12.5px;line-height:1.7;color:var(--cs-color-text-muted)">Thank you — it&rsquo;s a pleasure building with you. Questions? Reply to this invoice and a real person answers within one business day.</div></div>
+    </div>
+    </sc-if>
+    <sc-if value="{{ isVN }}"><div lang="vi" style="display:contents">
+    <div class="cs-avoid" style="border:1.5px solid var(--cs-color-semantic-warning);background:#FDF6EC;border-radius:var(--cs-radius-md);padding:10px 14px;margin-bottom:22px;font-size:12px;line-height:1.6;color:var(--cs-color-semantic-warning);font-weight:600">Bản dịch nháp — chưa được rà soát kế toán/pháp lý. Trong trường hợp có khác biệt, bản tiếng Anh có giá trị áp dụng. <span style="font-weight:400">· Unreviewed draft — the English version governs.</span></div>
+    <div class="cs-avoid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:30px">
+      <div><div style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--cs-color-text-muted);margin-bottom:6px">Đơn vị bán</div><div style="font-size:13px;line-height:1.6"><b>Công ty TNHH CyberSkill</b><br>Quận 1, TP. Hồ Chí Minh<br>MST 0312xxxxxx</div></div>
+      <div><div style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--cs-color-text-muted);margin-bottom:6px">Gửi đến</div><div style="font-size:13px;line-height:1.6"><b>[Công ty khách hàng]</b><br>[Địa chỉ]<br>MST [số]</div></div>
+      <div><div style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--cs-color-text-muted);margin-bottom:6px">Chi tiết</div><div style="font-size:13px;line-height:1.7"><span style="color:var(--cs-color-text-muted)">Ngày lập</span> 18/07/2026<br><span style="color:var(--cs-color-text-muted)">Hạn thanh toán</span> <b>02/08/2026</b><br><span style="color:var(--cs-color-text-muted)">Điều khoản</span> Net 15</div></div>
+    </div>
+    <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:8px">
+      <thead><tr style="border-bottom:2px solid var(--cs-color-brand-umber)"><th style="text-align:left;padding:9px 10px;font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted)">Hạng mục</th><th style="text-align:right;padding:9px 10px;font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted)">SL</th><th style="text-align:right;padding:9px 10px;font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted)">Đơn giá</th><th style="text-align:right;padding:9px 10px;font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted)">Thành tiền</th></tr></thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--cs-color-border-default)"><td style="padding:11px 10px"><b>Xây lại trang thanh toán — mốc 2</b><div style="font-size:12px;color:var(--cs-color-text-muted)">Bàn giao staging, theo SOW-2026-014</div></td><td style="padding:11px 10px;text-align:right;font-family:var(--cs-font-family-mono)">1</td><td style="padding:11px 10px;text-align:right;font-family:var(--cs-font-family-mono)">1.200.000.000</td><td style="padding:11px 10px;text-align:right;font-family:var(--cs-font-family-mono)">1.200.000.000</td></tr>
+        <tr style="border-bottom:1px solid var(--cs-color-border-default)"><td style="padding:11px 10px"><b>Ops console — sprint thiết kế</b><div style="font-size:12px;color:var(--cs-color-text-muted)">3 ngày công senior</div></td><td style="padding:11px 10px;text-align:right;font-family:var(--cs-font-family-mono)">3</td><td style="padding:11px 10px;text-align:right;font-family:var(--cs-font-family-mono)">18.000.000</td><td style="padding:11px 10px;text-align:right;font-family:var(--cs-font-family-mono)">54.000.000</td></tr>
+        <tr style="border-bottom:1px solid var(--cs-color-border-default)"><td style="padding:11px 10px"><b>Hỗ trợ sau ra mắt</b><div style="font-size:12px;color:var(--cs-color-text-muted)">Gói duy trì, tháng 7</div></td><td style="padding:11px 10px;text-align:right;font-family:var(--cs-font-family-mono)">1</td><td style="padding:11px 10px;text-align:right;font-family:var(--cs-font-family-mono)">40.000.000</td><td style="padding:11px 10px;text-align:right;font-family:var(--cs-font-family-mono)">40.000.000</td></tr>
+      </tbody>
+    </table>
+    <div class="cs-avoid" style="display:flex;justify-content:flex-end;margin-bottom:30px">
+      <div style="width:320px;font-size:13px">
+        <div style="display:flex;justify-content:space-between;padding:7px 10px"><span style="color:var(--cs-color-text-muted)">Tạm tính</span><span style="font-family:var(--cs-font-family-mono)">₫1.294.000.000</span></div>
+        <div style="display:flex;justify-content:space-between;padding:7px 10px;border-bottom:1px solid var(--cs-color-border-default)"><span style="color:var(--cs-color-text-muted)">Thuế GTGT (10%)</span><span style="font-family:var(--cs-font-family-mono)">₫129.400.000</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 10px;margin-top:6px;background:var(--cs-accent-ink);color:#fff;border-radius:10px"><span style="font-weight:700">Tổng phải trả</span><span style="font-family:var(--cs-font-family-mono);font-weight:800;font-size:17px;color:var(--cs-accent-bright)">₫1.423.400.000</span></div>
+      </div>
+    </div>
+    <div class="cs-avoid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;background:var(--cs-color-surface-raised);border:1px solid var(--cs-color-border-default);border-radius:10px;padding:18px 22px">
+      <div><div style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--cs-color-text-muted);margin-bottom:6px">Thanh toán đến</div><div style="font-size:12.5px;line-height:1.7">Vietcombank — chi nhánh TP.HCM<br>Công ty TNHH CyberSkill<br><span style="font-family:var(--cs-font-family-mono)">0071 0000 xxxxxx</span> · Nội dung INV-2026-0142</div></div>
+      <div><div style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--cs-color-text-muted);margin-bottom:6px">Ghi chú</div><div style="font-size:12.5px;line-height:1.7;color:var(--cs-color-text-muted)">Cảm ơn bạn — thật vui khi được xây dựng cùng bạn. Có câu hỏi? Trả lời hóa đơn này, một người thật sẽ phản hồi trong vòng một ngày làm việc.</div></div>
+    </div>
+    </div></sc-if>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;element&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Thổ · studio&quot;,&quot;Thổ · clay&quot;,&quot;Thổ · sand&quot;,&quot;Hỏa · ember&quot;,&quot;Hỏa · lava&quot;,&quot;Hỏa · plasma&quot;,&quot;Thủy · river&quot;,&quot;Thủy · ocean&quot;,&quot;Thủy · mist&quot;,&quot;Mộc · leaf&quot;,&quot;Mộc · bamboo&quot;,&quot;Mộc · forest&quot;,&quot;Kim · champagne&quot;,&quot;Kim · steel&quot;,&quot;Kim · titanium&quot;],&quot;default&quot;:&quot;Thổ · studio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Element (Ngũ Hành)&quot;},&quot;expression&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Liquid glass · default&quot;,&quot;Solid&quot;,&quot;Dense&quot;,&quot;Paper&quot;,&quot;Soft&quot;,&quot;Bold&quot;,&quot;Luxe&quot;],&quot;default&quot;:&quot;Liquid glass · default&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Expression&quot;},&quot;language&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;English&quot;,&quot;Tiếng Việt&quot;],&quot;default&quot;:&quot;English&quot;,&quot;tsType&quot;:&quot;\&quot;English\&quot; | \&quot;Tiếng Việt\&quot;&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const EX = {"Liquid glass · default":"","Solid":"solid","Dense":"dense","Paper":"paper","Soft":"soft","Bold":"bold","Luxe":"luxe"};
+    const exAttr = EX[this.props.expression] ?? "";
+    const EL = {"Thổ · studio":["tho",""],"Thổ · clay":["tho","clay"],"Thổ · sand":["tho","sand"],"Hỏa · ember":["hoa",""],"Hỏa · lava":["hoa","lava"],"Hỏa · plasma":["hoa","plasma"],"Thủy · river":["thuy",""],"Thủy · ocean":["thuy","ocean"],"Thủy · mist":["thuy","mist"],"Mộc · leaf":["moc",""],"Mộc · bamboo":["moc","bamboo"],"Mộc · forest":["moc","forest"],"Kim · champagne":["kim",""],"Kim · steel":["kim","steel"],"Kim · titanium":["kim","titanium"]};
+    const [elAttr, vaAttr] = EL[this.props.element] || EL["Thổ · studio"];
+    const lang = this.props.language ?? "English";
+    return { langAttr: (this.props.language ?? "English") === "Tiếng Việt" ? "vi" : "en", exAttr, elAttr, vaAttr, isEN: lang !== "Tiếng Việt", isVN: lang === "Tiếng Việt" };
+  }
+}
+</script>
+</body>
+</html>

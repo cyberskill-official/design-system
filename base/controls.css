@@ -1,0 +1,51 @@
+/* CyberSkill — controls wave 2 (.cs-*). */
+
+/* SearchField */
+.cs-search { display: flex; align-items: center; gap: 8px; border: 1px solid var(--cs-component-textfield-border-default); border-radius: var(--cs-radius-full); padding: 0 14px; min-height: 44px; background: var(--cs-color-surface-panel); }
+.cs-search:focus-within { border-color: var(--cs-color-brand-ochre); box-shadow: 0 0 0 3px color-mix(in oklab, var(--cs-color-brand-ochre) 30%, transparent); }
+.cs-search svg { color: var(--cs-color-text-muted); flex: none; }
+.cs-search input { flex: 1; min-inline-size: 0; border: 0; background: transparent; outline: 0; font: inherit; font-family: var(--cs-font-family-ui); color: var(--cs-color-text-primary); }
+.cs-search input::placeholder { color: var(--cs-color-text-muted); }
+.cs-search__clear { border: 0; background: transparent; color: var(--cs-color-text-muted); cursor: pointer; display: grid; place-items: center; padding: 2px; border-radius: 50%; }
+.cs-search__clear:hover { color: var(--cs-color-text-primary); }
+
+/* NumberField / stepper */
+.cs-stepper { display: inline-flex; align-items: stretch; border: 1px solid var(--cs-component-textfield-border-default); border-radius: var(--cs-radius-md); overflow: hidden; background: var(--cs-color-surface-panel); }
+.cs-stepper:focus-within { border-color: var(--cs-color-brand-ochre); }
+.cs-stepper button { border: 0; background: var(--cs-color-surface-raised); color: var(--cs-color-text-primary); inline-size: 40px; cursor: pointer; font-size: 18px; font-weight: 700; display: grid; place-items: center; }
+.cs-stepper button:hover:not(:disabled) { color: var(--cs-color-text-accent); }
+.cs-stepper button:disabled { opacity: 0.45; cursor: not-allowed; }
+.cs-stepper input { inline-size: 56px; text-align: center; border: 0; border-inline: 1px solid var(--cs-color-border-default); background: transparent; font: inherit; font-family: var(--cs-font-family-mono); color: var(--cs-color-text-primary); outline: 0; min-height: 42px; -moz-appearance: textfield; }
+.cs-stepper input::-webkit-outer-spin-button, .cs-stepper input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* Slider (native range) */
+.cs-slider { inline-size: 100%; accent-color: var(--cs-color-brand-umber); block-size: 22px; cursor: pointer; }
+[data-theme="dark"] .cs-slider { accent-color: var(--cs-color-brand-ochre); }
+.cs-slider:focus-visible { outline: 3px solid var(--cs-color-accent-ochre); outline-offset: 4px; border-radius: var(--cs-radius-full); }
+
+/* FileUpload / dropzone */
+.cs-dropzone { display: grid; gap: 6px; justify-items: center; text-align: center; border: 2px dashed var(--cs-color-border-default); border-radius: var(--cs-radius-lg); padding: 28px 24px; background: var(--cs-color-surface-raised); cursor: pointer; color: var(--cs-color-text-primary); transition: border-color var(--cs-duration-fast) var(--cs-ease-standard), background var(--cs-duration-fast) var(--cs-ease-standard); }
+.cs-dropzone:hover, .cs-dropzone.is-dragging { border-color: var(--cs-color-brand-ochre); background: color-mix(in oklab, var(--cs-color-brand-ochre) 8%, var(--cs-color-surface-panel)); }
+.cs-dropzone__icon { color: var(--cs-color-text-accent); }
+.cs-dropzone__title { font-weight: 700; }
+.cs-dropzone__hint { font-size: var(--cs-font-size-sm); color: var(--cs-color-text-muted); }
+
+/* SegmentedControl (matches Status Hub lens switcher) */
+.cs-segmented { display: inline-flex; gap: 4px; background: var(--cs-color-surface-raised); border: 1px solid var(--cs-color-border-default); border-radius: var(--cs-radius-full); padding: 3px; }
+.cs-segmented button { border: 0; background: transparent; border-radius: var(--cs-radius-full); padding: 7px 15px; font: inherit; font-family: var(--cs-font-family-ui); font-weight: 600; font-size: var(--cs-font-size-sm); color: var(--cs-color-text-accent); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.cs-segmented button[aria-pressed="true"], .cs-segmented button[aria-selected="true"] { background: var(--cs-color-brand-umber); color: var(--cs-color-text-inverse); }
+[data-theme="dark"] .cs-segmented button[aria-pressed="true"], [data-theme="dark"] .cs-segmented button[aria-selected="true"] { background: var(--cs-color-brand-ochre); color: var(--cs-color-brand-umber); }
+
+/* StatusIndicator */
+.cs-status { display: inline-flex; align-items: center; gap: 7px; font-family: var(--cs-font-family-ui); font-size: var(--cs-font-size-sm); font-weight: 600; color: var(--cs-color-text-primary); }
+.cs-status__dot { inline-size: 9px; block-size: 9px; border-radius: 50%; background: var(--cs-color-text-muted); flex: none; }
+.cs-status--online .cs-status__dot { background: var(--cs-color-semantic-success); }
+.cs-status--busy .cs-status__dot { background: var(--cs-color-brand-ochre); }
+.cs-status--offline .cs-status__dot { background: var(--cs-color-text-muted); }
+.cs-status--error .cs-status__dot { background: var(--cs-color-semantic-danger); }
+.cs-status--pulse .cs-status__dot { box-shadow: 0 0 0 0 currentColor; animation: cs-pulse 1.8s var(--cs-ease-standard) infinite; color: var(--cs-color-semantic-success); }
+@keyframes cs-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--cs-color-semantic-success) 55%, transparent); } 70% { box-shadow: 0 0 0 7px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+@media (prefers-reduced-motion: reduce) { .cs-status--pulse .cs-status__dot { animation: none; } }
+
+/* Kbd */
+.cs-kbd { display: inline-block; font-family: var(--cs-font-family-mono); font-size: var(--cs-font-size-xs); line-height: 1; background: var(--cs-color-surface-panel); color: var(--cs-color-text-primary); border: 1px solid var(--cs-color-border-default); border-block-end-width: 2px; border-radius: 6px; padding: 3px 7px; box-shadow: var(--cs-shadow-xs); }

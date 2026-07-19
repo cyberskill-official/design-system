@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Sign in" description="CyberSkill split sign-in — umber brand panel + form built from TextField, Switch, and Button. Bilingual (English · Tiếng Việt)." -->
+<helmet>
+<script src="./ds-base.js"></script>
+</helmet>
+<div data-theme="{{ rootTheme }}" lang="{{ langAttr }}" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" data-cs-expression="{{ exAttr }}" style="display:grid;grid-template-columns:1.05fr 1fr;min-height:100vh;font-family:var(--cs-font-family-ui);color:var(--cs-color-text-primary);background:var(--cs-color-surface-page)">
+  <sc-if value="{{ showBrand }}" hint-placeholder-val="{{ true }}">
+    <div style="position:relative;overflow:hidden;background:var(--cs-accent-ink);color:#fff;padding:56px 60px;display:flex;flex-direction:column">
+      <div class="cs-aurora-wash" style="position:absolute;inset:0;opacity:0.4"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,17,8,0.35),rgba(26,17,8,0.8))"></div>
+      <div style="position:relative;z-index:1;display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px">
+        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="40" hint-size="40px,40px"></x-import>CyberSkill
+      </div>
+      <h2 style="position:relative;z-index:1;font-size:40px;font-weight:800;letter-spacing:-0.02em;line-height:1.08;color:var(--cs-accent-bright);margin:auto 0 8px">{{ brandH }}</h2>
+      <p style="position:relative;z-index:1;font-size:17px;opacity:0.9;margin:0;max-width:420px">{{ brandP }}</p>
+    </div>
+  </sc-if>
+  <div style="display:grid;place-items:center;padding:40px 24px">
+    <div style="width:min(400px,100%)">
+      <h1 style="font-size:30px;font-weight:800;letter-spacing:-0.02em;margin:0 0 4px">{{ title }}</h1>
+      <p style="color:var(--cs-color-text-muted);margin:0 0 28px">{{ sub }}</p>
+      <div style="display:grid;gap:16px">
+        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.TextField" label="{{ emailL }}" type="email" placeholder="you@cyberskill.world" hint-size="100%,74px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.TextField" label="{{ pwL }}" type="password" placeholder="••••••••" hint-size="100%,74px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Switch" label="{{ rememberL }}" hint-size="140px,26px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Button" variant="primary" full-width="{{ true }}" hint-size="100%,44px">{{ signInBtn }}</x-import>
+        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Button" variant="ghost" full-width="{{ true }}" hint-size="100%,44px">{{ lumiBtn }}</x-import>
+      </div>
+      <p style="text-align:center;font-size:13px;color:var(--cs-color-text-muted);margin-top:16px">{{ newHere }} <a href="#">{{ askAccess }}</a></p>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;language&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;English&quot;,&quot;Tiếng Việt&quot;],&quot;default&quot;:&quot;English&quot;,&quot;tsType&quot;:&quot;\&quot;English\&quot; | \&quot;Tiếng Việt\&quot;&quot;,&quot;section&quot;:&quot;Content&quot;},
+  &quot;element&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Thổ · studio&quot;,&quot;Thổ · clay&quot;,&quot;Thổ · sand&quot;,&quot;Hỏa · ember&quot;,&quot;Hỏa · lava&quot;,&quot;Hỏa · plasma&quot;,&quot;Thủy · river&quot;,&quot;Thủy · ocean&quot;,&quot;Thủy · mist&quot;,&quot;Mộc · leaf&quot;,&quot;Mộc · bamboo&quot;,&quot;Mộc · forest&quot;,&quot;Kim · champagne&quot;,&quot;Kim · steel&quot;,&quot;Kim · titanium&quot;],&quot;default&quot;:&quot;Thổ · studio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Element (Ngũ Hành)&quot;},
+  &quot;expression&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Liquid glass · default&quot;,&quot;Solid&quot;,&quot;Dense&quot;,&quot;Paper&quot;,&quot;Soft&quot;,&quot;Bold&quot;,&quot;Luxe&quot;],&quot;default&quot;:&quot;Liquid glass · default&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Expression&quot;},
+  &quot;theme&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;\&quot;light\&quot; | \&quot;dark\&quot;&quot;,&quot;section&quot;:&quot;Theme&quot;},
+  &quot;showBrandPanel&quot;: {&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Layout&quot;}
+}">
+class Component extends DCLogic {
+  renderVals() {
+    const EL = {"Thổ · studio":["tho",""],"Thổ · clay":["tho","clay"],"Thổ · sand":["tho","sand"],"Hỏa · ember":["hoa",""],"Hỏa · lava":["hoa","lava"],"Hỏa · plasma":["hoa","plasma"],"Thủy · river":["thuy",""],"Thủy · ocean":["thuy","ocean"],"Thủy · mist":["thuy","mist"],"Mộc · leaf":["moc",""],"Mộc · bamboo":["moc","bamboo"],"Mộc · forest":["moc","forest"],"Kim · champagne":["kim",""],"Kim · steel":["kim","steel"],"Kim · titanium":["kim","titanium"]};
+    const [elAttr, vaAttr] = EL[this.props.element] || EL["Thổ · studio"];
+    const EX = {"Liquid glass · default":"","Solid":"solid","Dense":"dense","Paper":"paper","Soft":"soft","Bold":"bold","Luxe":"luxe"};
+    const vn = this.props.language === "Tiếng Việt";
+    const en = { brandH:"Turn Your Will Into Real", brandP:"Sign in to your workspace — one page, three lenses across every wish in flight.", title:"Sign in", sub:"Welcome back. Đăng nhập để tiếp tục.", emailL:"Work email", pwL:"Password", rememberL:"Remember me", signInBtn:"Sign in", lumiBtn:"✦ Talk to Lumi instead", newHere:"New here?", askAccess:"Ask for access" };
+    const vi = { brandH:"Hiện Thực Hoá Ý Chí", brandP:"Đăng nhập vào không gian làm việc — một trang, ba lăng kính cho mọi điều ước đang chạy.", title:"Đăng nhập", sub:"Chào bạn trở lại. Sign in to continue.", emailL:"Email công việc", pwL:"Mật khẩu", rememberL:"Ghi nhớ đăng nhập", signInBtn:"Đăng nhập", lumiBtn:"✦ Trò chuyện với Lumi", newHere:"Lần đầu?", askAccess:"Xin quyền truy cập" };
+    return Object.assign({ langAttr: (this.props.language ?? "English") === "Tiếng Việt" ? "vi" : "en", elAttr, vaAttr, exAttr: EX[this.props.expression] ?? "", rootTheme: this.props.theme === "dark" ? "dark" : "", showBrand: this.props.showBrandPanel ?? true }, vn ? vi : en);
+  }
+}
+</script>
+</body>
+</html>

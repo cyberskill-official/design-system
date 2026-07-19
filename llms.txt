@@ -1,23 +1,24 @@
 # CyberSkill Design System
+> HTML-first, Vietnamese-first design system. Immutable anchors: Umber #45210E · Ochre #F4BA17. Three independent axes — Theme × Element (Ngũ Hành) × Expression. Current: v2.16.1. This file is the agent/tool front door: it maps each audience to the format it should consume.
 
-> Vietnamese-first, globally-scoped design system. Single-file doctrine: DESIGN.md is the only source of truth (22 Parts). Anchors are immutable: Umber #45210E, Ochre #F4BA17, slogan "Turn Your Will Into Real", voice = warm/direct/honest/respectful, APCA floor Lc >= 75 body text.
+## Consume by audience (the portable contract works everywhere; the DC layer is Claude-Design-only)
+- **Any web / framework / email (Vue, Svelte, plain HTML, React):** link `styles.css` — every `--cs-*` token, the `.cs-*` component classes, Liquid Glass surfaces. Framework-agnostic, no build step.
+- **React (production):** `styles.css` + `<script src="_ds_bundle.js">`, then `const { Button, … } = window.CyberSkillDesignSystem_847b3c`. Proven green by `_audit/consumer-smoke-test.html`.
+- **Design tools / native / token pipelines / other agents (Figma, Google Stitch, Style Dictionary):** `tokens/tokens.json` (+ `tokens/tokens.js` ESM) — every token grouped by category, plus theme/element/expression override maps. This is the canonical cross-tool contract.
+- **Claude Design (authoring + live preview):** `templates/**/*.dc.html` Design Components + the compiler (tweaks, `x-import`, `@dsCard` cards). Native to Claude Design — not portable; other tools consume the outputs above, not these.
 
-## Canonical files
+## Key files
+- `styles.css` — single entry point (`@import`s `tokens/` then `base/`)
+- `tokens/` — 476 tokens (colours · type · spacing · motion · elevation · `elements.css` · `expressions.css`) as CSS custom properties + `tokens.json` / `tokens.js`
+- `base/` — reset, component classes (`.cs-*`), a11y, responsive, glass
+- `components/` — 54 components / 67 exports, each `.jsx` + `.d.ts` + `.prompt.md` + a `@dsCard` card
+- `templates/` — copyable starting points (`.dc.html`); `email-safe/` send-ready emails; `kitchen-sink.html`; `playground.html`
+- `guidelines/` — specimen cards · `ui_kits/` — full product recreations · `fonts/` — self-hosted woff2 (VN subset) · `assets/` — logo/favicon/mascot
+- `docs/` — `conventions.md` (authoring rules + decision log) · `consuming.md` · `sync.md` · `contrast-report.md` · `products.md`
+- `README.md` · `CHANGELOG.md` · `CONTRIBUTING.md` · `SKILL.md` · `VERSION`
 
-- [DESIGN.md](DESIGN.md): the single source of truth — foundations, design language, components (3a-3h), surfaces, accessibility, AI-native patterns, engineering, governance, measurement, enterprise parts 11-22 (Liquid Glass, 50 Style Packs)
-- [README.md](README.md): operating manual — change protocol, RFC process, versioning, distribution, roles
-- [CHANGELOG.md](CHANGELOG.md): Keep a Changelog + SemVer history
+## Non-negotiables (full list in CONTRIBUTING.md + docs/conventions.md)
+Immutable Umber/Ochre anchors · Vietnamese-first bilingual · APCA Lc ≥ 75 body · ≥44px touch targets · 3px ochre focus ring · honour `prefers-reduced-motion`/`prefers-contrast` · one accent per surface.
 
-## For agents
-
-- [CONTRIBUTING.md](CONTRIBUTING.md): change paths, verify and audit gates
-- [llms.txt](llms.txt): this file
-- Machine surfaces: packages/tokens (DTCG tokens + build), packages/react (6 components + specs JSON), packages/style-packs (50 CSS-only skins + verifier), packages/mcp-tokens and packages/mcp-components (prototype MCP servers)
-- Audit: `npm run audit` scores the repo against the open-source CyberSkill Design System Audit Framework (125 criteria); the committed baseline lives at docs/audit-baseline.json and regressions fail CI
-
-## Hard rules for generated changes
-
-- Never redefine the anchor tokens (--cs-color-brand-umber, --cs-color-brand-ochre)
-- Never remove focus outlines; .cs-button min-height stays >= 44px
-- Substantive DESIGN.md changes require an RFC; editorial fixes are PATCH releases
-- Run `npm run verify:all` before proposing any change
+## Sync
+Repo is the source of truth. Claude Design pulls the whole tree at session start and commits back via PR at session end (it can read but not push). See `docs/sync.md`.

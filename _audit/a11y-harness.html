@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;padding:24px;background:var(--cs-color-surface-page);font-family:var(--cs-font-family-ui);display:grid;gap:18px}fieldset{border:1px solid var(--cs-color-border-default);border-radius:8px;padding:12px}legend{font-weight:700;font-size:12px}.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}</style>
+</head><body>
+<fieldset><legend>Buttons</legend><div class="row">
+<button class="cs-button" id="btn">Make a wish</button>
+<button class="cs-button cs-button--sm" id="btnsm">Small</button>
+<button class="cs-button cs-button--xs" id="btnxs">XS</button>
+</div></fieldset>
+<fieldset><legend>Fields</legend><div class="row">
+<input class="cs-field__control" id="tf" placeholder="Text">
+<div class="cs-select"><select class="cs-field__control" id="sel"><option>A</option></select></div>
+<div class="cs-search" id="search"><input placeholder="Search"><button class="cs-search__clear" id="clear">×</button></div>
+</div></fieldset>
+<fieldset><legend>Selection</legend><div class="row">
+<label class="cs-check" id="check"><input type="checkbox"><span class="cs-check__text">Check</span></label>
+<label class="cs-radio" id="radio"><input type="radio" name="r"><span class="cs-radio__text">Radio</span></label>
+<label class="cs-switch" id="switch"><input type="checkbox"><span class="cs-switch__track"></span></label>
+</div></fieldset>
+<fieldset><legend>Navigation</legend>
+<div class="cs-tabs"><button class="cs-tab" id="tab" aria-selected="true">Tab one</button><button class="cs-tab">Tab two</button></div>
+<div class="cs-pagination" style="margin-top:10px"><button id="page">1</button><button aria-current="page">2</button></div>
+<div class="cs-menu__list" style="position:static;margin-top:10px"><button class="cs-menu__item" id="menu">Menu item</button></div>
+</fieldset>
+<fieldset><legend>Steppers & toggles</legend><div class="row">
+<div class="cs-stepper"><button id="stepdn">−</button><input value="1"><button>+</button></div>
+<div class="cs-segmented"><button id="seg" aria-pressed="true">Table</button><button>Board</button></div>
+<input type="range" class="cs-slider" id="slider" style="width:180px">
+</div></fieldset>
+</body></html>

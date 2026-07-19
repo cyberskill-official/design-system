@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Board · Meeting deck" description="CyberSkill 16:9 board deck — title, financials, portfolio, risks & asks, closing. Stacked slides; umber + ochre. Bilingual (English · Tiếng Việt)." -->
+<helmet>
+<script src="./ds-base.js"></script>
+</helmet>
+<div data-theme="{{ rootTheme }}" lang="{{ langAttr }}" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" data-cs-expression="{{ exAttr }}" class="cs-canvas-desk" style="background:#2a1a0d;padding:28px;font-family:var(--cs-font-family-ui)">
+  <div style="display:grid;gap:28px;max-width:1280px;margin:0 auto">
+
+    <section style="position:relative;width:100%;aspect-ratio:16/9;background:var(--cs-accent-ink);color:#fff;border-radius:var(--cs-radius-lg);overflow:hidden;box-shadow:var(--cs-shadow-xl);display:flex;flex-direction:column;justify-content:center;padding:0 88px">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:26px">
+        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="46" hint-size="46px,46px"></x-import>
+        <span style="font-weight:800;font-size:22px;letter-spacing:-0.01em">CyberSkill</span>
+      </div>
+      <div style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--cs-accent-bright)">{{ s1kicker }}</div>
+      <h1 style="font-size:62px;font-weight:800;letter-spacing:-0.02em;line-height:1.02;color:var(--cs-accent-bright);margin:14px 0 8px">{{ s1h }}</h1>
+      <p style="font-size:22px;opacity:0.9;margin:0">{{ s1sub }}</p>
+      <div style="position:absolute;bottom:40px;left:88px;font-size:15px;opacity:0.7">{{ dateLine }}</div>
+      <sc-if value="{{ showNumbers }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;bottom:40px;right:88px;font-family:var(--cs-font-family-mono);font-size:14px;color:var(--cs-accent-bright)">01 / 05</div></sc-if>
+    </section>
+
+    <section style="position:relative;width:100%;aspect-ratio:16/9;background:var(--cs-color-surface-panel);color:var(--cs-color-text-primary);border-radius:var(--cs-radius-lg);overflow:hidden;box-shadow:var(--cs-shadow-xl);padding:64px 88px;display:flex;flex-direction:column;justify-content:center">
+      <div style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--cs-color-text-accent)">{{ s2kicker }}</div>
+      <h2 style="font-size:44px;font-weight:800;letter-spacing:-0.02em;margin:10px 0 40px">{{ s2h }}</h2>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:40px">
+        <div><div style="font-size:60px;font-weight:800;color:var(--cs-accent-bright);line-height:1;letter-spacing:-0.02em">+18%</div><div style="font-size:19px;color:var(--cs-color-text-muted);margin-top:10px">{{ n1 }}</div></div>
+        <div><div style="font-size:60px;font-weight:800;color:var(--cs-accent-bright);line-height:1;letter-spacing:-0.02em">14</div><div style="font-size:19px;color:var(--cs-color-text-muted);margin-top:10px">{{ n2 }}</div></div>
+        <div><div style="font-size:60px;font-weight:800;color:var(--cs-accent-bright);line-height:1;letter-spacing:-0.02em">{{ runway }}</div><div style="font-size:19px;color:var(--cs-color-text-muted);margin-top:10px">{{ n3 }}</div></div>
+        <div><div style="font-size:60px;font-weight:800;color:var(--cs-accent-bright);line-height:1;letter-spacing:-0.02em">38</div><div style="font-size:19px;color:var(--cs-color-text-muted);margin-top:10px">{{ n4 }}</div></div>
+      </div>
+      <sc-if value="{{ showNumbers }}"><div style="position:absolute;bottom:40px;right:88px;font-family:var(--cs-font-family-mono);font-size:14px;color:var(--cs-color-text-muted)">02 / 05</div></sc-if>
+    </section>
+
+    <section style="position:relative;width:100%;aspect-ratio:16/9;background:var(--cs-color-surface-panel);color:var(--cs-color-text-primary);border-radius:var(--cs-radius-lg);overflow:hidden;box-shadow:var(--cs-shadow-xl);padding:64px 88px;display:flex;flex-direction:column;justify-content:center">
+      <div style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--cs-color-text-accent)">{{ s3kicker }}</div>
+      <h2 style="font-size:44px;font-weight:800;letter-spacing:-0.02em;margin:10px 0 34px">{{ s3h }}</h2>
+      <div style="display:grid;gap:16px;font-size:22px">
+        <div style="display:flex;align-items:center;gap:20px;border-top:3px solid var(--cs-accent);padding-top:16px"><b style="flex:1">{{ p1n }}</b><span style="color:var(--cs-color-semantic-success);font-weight:700">{{ p1s }}</span><span style="width:140px;text-align:right;font-family:var(--cs-font-family-mono)">₫3.1B</span></div>
+        <div style="display:flex;align-items:center;gap:20px;border-top:1px solid var(--cs-color-border-default);padding-top:16px"><b style="flex:1">{{ p2n }}</b><span style="color:var(--cs-color-text-accent);font-weight:700">{{ p2s }}</span><span style="width:140px;text-align:right;font-family:var(--cs-font-family-mono)">₫2.4B</span></div>
+        <div style="display:flex;align-items:center;gap:20px;border-top:1px solid var(--cs-color-border-default);padding-top:16px"><b style="flex:1">{{ p3n }}</b><span style="color:var(--cs-color-text-accent);font-weight:700">{{ p3s }}</span><span style="width:140px;text-align:right;font-family:var(--cs-font-family-mono)">—</span></div>
+      </div>
+      <sc-if value="{{ showNumbers }}"><div style="position:absolute;bottom:40px;right:88px;font-family:var(--cs-font-family-mono);font-size:14px;color:var(--cs-color-text-muted)">03 / 05</div></sc-if>
+    </section>
+
+    <section style="position:relative;width:100%;aspect-ratio:16/9;background:var(--cs-accent-ink);color:#fff;border-radius:var(--cs-radius-lg);overflow:hidden;box-shadow:var(--cs-shadow-xl);padding:64px 88px;display:flex;flex-direction:column;justify-content:center">
+      <div style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--cs-accent-bright)">{{ s4kicker }}</div>
+      <h2 style="font-size:44px;font-weight:800;letter-spacing:-0.02em;color:var(--cs-accent-bright);margin:10px 0 34px">{{ s4h }}</h2>
+      <div style="display:grid;gap:22px;font-size:24px;line-height:1.4;max-width:1000px">
+        <div style="display:flex;gap:16px"><span style="color:var(--cs-accent-bright);font-weight:800">1.</span><div><b>{{ r1b }}</b> <span style="opacity:0.85">{{ r1t }}</span></div></div>
+        <div style="display:flex;gap:16px"><span style="color:var(--cs-accent-bright);font-weight:800">2.</span><div><b>{{ r2b }}</b> <span style="opacity:0.85">{{ r2t }}</span></div></div>
+      </div>
+      <sc-if value="{{ showNumbers }}"><div style="position:absolute;bottom:40px;right:88px;font-family:var(--cs-font-family-mono);font-size:14px;color:var(--cs-accent-bright)">04 / 05</div></sc-if>
+    </section>
+
+    <section style="position:relative;width:100%;aspect-ratio:16/9;background:var(--cs-accent-ink);color:#fff;border-radius:var(--cs-radius-lg);overflow:hidden;box-shadow:var(--cs-shadow-xl);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 88px">
+      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="72" hint-size="72px,72px"></x-import>
+      <h2 style="font-size:56px;font-weight:800;letter-spacing:-0.02em;color:var(--cs-accent-bright);margin:24px 0 10px">{{ closeH }}</h2>
+      <p style="font-size:22px;opacity:0.9;margin:0">{{ closeP }}</p>
+      <sc-if value="{{ showNumbers }}"><div style="position:absolute;bottom:40px;right:88px;font-family:var(--cs-font-family-mono);font-size:14px;color:var(--cs-accent-bright)">05 / 05</div></sc-if>
+    </section>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;language&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;English&quot;,&quot;Tiếng Việt&quot;],&quot;default&quot;:&quot;English&quot;,&quot;tsType&quot;:&quot;\&quot;English\&quot; | \&quot;Tiếng Việt\&quot;&quot;,&quot;section&quot;:&quot;Content&quot;},
+  &quot;element&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Thổ · studio&quot;,&quot;Thổ · clay&quot;,&quot;Thổ · sand&quot;,&quot;Hỏa · ember&quot;,&quot;Hỏa · lava&quot;,&quot;Hỏa · plasma&quot;,&quot;Thủy · river&quot;,&quot;Thủy · ocean&quot;,&quot;Thủy · mist&quot;,&quot;Mộc · leaf&quot;,&quot;Mộc · bamboo&quot;,&quot;Mộc · forest&quot;,&quot;Kim · champagne&quot;,&quot;Kim · steel&quot;,&quot;Kim · titanium&quot;],&quot;default&quot;:&quot;Thổ · studio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Element (Ngũ Hành)&quot;},
+  &quot;expression&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Liquid glass · default&quot;,&quot;Solid&quot;,&quot;Dense&quot;,&quot;Paper&quot;,&quot;Soft&quot;,&quot;Bold&quot;,&quot;Luxe&quot;],&quot;default&quot;:&quot;Liquid glass · default&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Expression&quot;},
+  &quot;theme&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;\&quot;light\&quot; | \&quot;dark\&quot;&quot;,&quot;section&quot;:&quot;Theme&quot;},
+  &quot;showPageNumbers&quot;: {&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;}
+}">
+class Component extends DCLogic {
+  renderVals() {
+    const EX = {"Liquid glass · default":"","Solid":"solid","Dense":"dense","Paper":"paper","Soft":"soft","Bold":"bold","Luxe":"luxe"};
+    const exAttr = EX[this.props.expression] ?? "";
+    const EL = {"Thổ · studio":["tho",""],"Thổ · clay":["tho","clay"],"Thổ · sand":["tho","sand"],"Hỏa · ember":["hoa",""],"Hỏa · lava":["hoa","lava"],"Hỏa · plasma":["hoa","plasma"],"Thủy · river":["thuy",""],"Thủy · ocean":["thuy","ocean"],"Thủy · mist":["thuy","mist"],"Mộc · leaf":["moc",""],"Mộc · bamboo":["moc","bamboo"],"Mộc · forest":["moc","forest"],"Kim · champagne":["kim",""],"Kim · steel":["kim","steel"],"Kim · titanium":["kim","titanium"]};
+    const [elAttr, vaAttr] = EL[this.props.element] || EL["Thổ · studio"];
+    const vn = this.props.language === "Tiếng Việt";
+    const en = {
+      s1kicker:"Board of Directors · Confidential", s1h:"Q3 2026 Review", s1sub:"Hiện Thực Hoá Ý Chí · the quarter & what's next", dateLine:"18 July 2026 · Saigon",
+      s2kicker:"By the numbers", s2h:"A strong quarter", n1:"Revenue QoQ", n2:"Wishes granted", n3:"Runway", n4:"Headcount", runway:"19mo",
+      s3kicker:"What we shipped", s3h:"Portfolio",
+      p1n:"Checkout rebuild · Retailer A", p1s:"Shipped", p2n:"Ops console · Logistics B", p2s:"In progress", p3n:"Design System v1.6 · Internal", p3s:"In progress",
+      s4kicker:"Honest about trade-offs", s4h:"Risks & asks",
+      r1b:"Key-person risk on AI.", r1t:"Ask: approve a second senior AI hire in Q4.",
+      r2b:"CyberOS infra spend.", r2t:"Ask: sign off to unblock the provenance ledger.",
+      closeH:"Thank you", closeP:"Questions & discussion · Turn Your Will Into Real",
+    };
+    const vi = {
+      s1kicker:"Hội đồng Quản trị · Mật", s1h:"Đánh giá Quý 3 2026", s1sub:"Turn Your Will Into Real · nhìn lại quý & chặng tiếp theo", dateLine:"18 tháng 7 2026 · Sài Gòn",
+      s2kicker:"Theo con số", s2h:"Một quý vững vàng", n1:"Doanh thu QoQ", n2:"Điều ước đã thực hiện", n3:"Số tháng còn vốn", n4:"Nhân sự", runway:"19 tháng",
+      s3kicker:"Đã ra mắt", s3h:"Danh mục dự án",
+      p1n:"Làm lại checkout · Nhà bán lẻ A", p1s:"Đã ra mắt", p2n:"Bảng điều hành vận hành · Logistics B", p2s:"Đang làm", p3n:"Design System v1.6 · Nội bộ", p3s:"Đang làm",
+      s4kicker:"Thẳng thắn về đánh đổi", s4h:"Rủi ro & đề xuất",
+      r1b:"Rủi ro nhân sự chủ chốt về AI.", r1t:"Đề xuất: duyệt tuyển thêm một nhân sự AI cấp cao trong Q4.",
+      r2b:"Chi phí hạ tầng CyberOS.", r2t:"Đề xuất: phê duyệt để mở đường cho sổ cái nguồn gốc.",
+      closeH:"Cảm ơn", closeP:"Hỏi đáp & thảo luận · Hiện Thực Hoá Ý Chí",
+    };
+    return Object.assign({ langAttr: (this.props.language ?? "English") === "Tiếng Việt" ? "vi" : "en", exAttr, elAttr, vaAttr, rootTheme: this.props.theme === "dark" ? "dark" : "", showNumbers: this.props.showPageNumbers ?? true }, vn ? vi : en);
+  }
+}
+</script>
+</body>
+</html>

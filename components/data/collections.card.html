@@ -1,0 +1,52 @@
+<!-- @dsCard group="Components" viewport="700x480" name="Collections & content" subtitle="List, DescriptionList, Timeline, Accordion, Kbd, CodeBlock" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  body { margin: 0; background: var(--cs-color-surface-page); padding: 22px 24px; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: start; }
+  .lbl { font: 600 11px/1 var(--cs-font-family-ui); text-transform: uppercase; letter-spacing: .09em; color: var(--cs-color-text-muted); margin-bottom: 10px; }
+  .blk { margin-bottom: 20px; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { List, ListItem, DescriptionList, Timeline, Accordion, Kbd, CodeBlock, Avatar, Badge } = window.CyberSkillDesignSystem_847b3c;
+function Demo() {
+  return (
+    <div className="cols">
+      <div>
+        <div className="blk"><div className="lbl">List</div>
+          <List>
+            <ListItem lead={<Avatar name="An Le" size="sm" />} title="An Le" subtitle="Platform" trail={<Badge>Owner</Badge>} />
+            <ListItem lead={<Avatar name="Bao Vu" size="sm" />} title="Bảo Vũ" subtitle="AI" trail="5h" onClick={()=>{}} />
+          </List>
+        </div>
+        <div className="blk"><div className="lbl">Description list</div>
+          <DescriptionList items={[{term:"Owner",value:"An Le"},{term:"Squad",value:"Platform"},{term:"Progress",value:"72%"},{term:"Updated",value:"2h ago"}]} />
+        </div>
+        <div><div className="lbl">Kbd</div><span><Kbd>⌘</Kbd> <Kbd>K</Kbd> &nbsp;to search</span></div>
+      </div>
+      <div>
+        <div className="blk"><div className="lbl">Timeline</div>
+          <Timeline items={[{title:"v1.6.0",meta:"This week",state:"now",body:"Glass bindings"},{title:"v1.5.1",meta:"04 Jul 2026",body:"50 style packs"},{title:"v1.4.0",meta:"13 Jun 2026",body:"Liquid Glass in code"}]} />
+        </div>
+        <div className="blk"><div className="lbl">Accordion</div>
+          <Accordion items={[{title:"What is a wish?",content:"A clear outcome stated in a sentence or two."},{title:"How fast do you reply?",content:"Within one business day."}]} />
+        </div>
+        <div><div className="lbl">Code</div><CodeBlock filename="styles.css" showBar={true} code={'@import "tokens/colors.css";'} /></div>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

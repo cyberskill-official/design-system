@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Board · Investor update email" description="CyberSkill stakeholder update — numbers, wins, honest lowlights, asks. External comms, EN-first with a Tiếng Việt switch." -->
+<helmet>
+<script src="./ds-base.js"></script>
+</helmet>
+<div lang="{{ langAttr }}" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" data-cs-expression="{{ exAttr }}" style="background:#efe6d8;padding:32px 16px;font-family:var(--cs-font-family-ui);color:var(--cs-color-text-primary);min-height:100vh">
+  <div style="max-width:620px;margin:0 auto;background:var(--cs-color-surface-panel);border-radius:16px;overflow:hidden;box-shadow:var(--cs-shadow-sm)">
+    <div style="background:var(--cs-accent-ink);padding:22px 32px;display:flex;align-items:center;gap:12px">
+      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="28" hint-size="28px,28px"></x-import>
+      <span style="color:#fff;font-weight:800;font-size:16px">{{ headTitle }}</span>
+      <span style="margin-left:auto;font-family:var(--cs-font-family-mono);font-size:12px;color:var(--cs-accent-bright)">Q3 2026</span>
+    </div>
+    <div style="padding:30px 32px">
+      <h1 style="font-size:24px;font-weight:800;letter-spacing:-0.02em;line-height:1.2;margin:0 0 14px">{{ h1 }}</h1>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px">
+        <div style="background:var(--cs-accent-tint);border-radius:var(--cs-radius-md);padding:12px 14px"><div style="font-size:22px;font-weight:800;letter-spacing:-0.02em;color:var(--cs-color-text-accent)">+18%</div><div style="font-size:11px;color:var(--cs-color-text-muted);margin-top:2px">{{ k1 }}</div></div>
+        <div style="background:var(--cs-accent-tint);border-radius:var(--cs-radius-md);padding:12px 14px"><div style="font-size:22px;font-weight:800;letter-spacing:-0.02em;color:var(--cs-color-text-accent)">{{ runway }}</div><div style="font-size:11px;color:var(--cs-color-text-muted);margin-top:2px">{{ k2 }}</div></div>
+        <div style="background:var(--cs-accent-tint);border-radius:var(--cs-radius-md);padding:12px 14px"><div style="font-size:22px;font-weight:800;letter-spacing:-0.02em;color:var(--cs-color-text-accent)">14</div><div style="font-size:11px;color:var(--cs-color-text-muted);margin-top:2px">{{ k3 }}</div></div>
+      </div>
+      <h2 style="font-size:12.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted);margin:0 0 8px">{{ hlH }}</h2>
+      <div style="display:grid;gap:6px;margin-bottom:18px;font-size:14.5px;line-height:1.55">
+        <div style="display:flex;gap:10px"><span style="color:var(--cs-color-semantic-success);font-weight:700">✓</span><span>{{ hl1 }}</span></div>
+        <div style="display:flex;gap:10px"><span style="color:var(--cs-color-semantic-success);font-weight:700">✓</span><span>{{ hl2 }}</span></div>
+        <div style="display:flex;gap:10px"><span style="color:var(--cs-color-semantic-success);font-weight:700">✓</span><span>{{ hl3 }}</span></div>
+      </div>
+      <h2 style="font-size:12.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted);margin:0 0 8px">{{ lowH }}</h2>
+      <p style="font-size:14px;line-height:1.6;margin:0 0 18px;color:var(--cs-color-text-muted)">{{ lowBody }}</p>
+      <div style="background:var(--cs-accent-tint);border-radius:var(--cs-radius-md);padding:14px 18px;margin-bottom:22px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted);font-weight:700;margin-bottom:3px">{{ asksL }}</div><div style="font-size:14px;line-height:1.55">{{ asksBody }}</div></div>
+      <a href="#" style="display:inline-block;background:var(--cs-accent-bright);color:var(--cs-accent-on);font-weight:700;font-size:14.5px;text-decoration:none;padding:13px 24px;border-radius:var(--cs-radius-full)">{{ cta }}</a>
+    </div>
+    <div style="border-top:1px solid var(--cs-color-border-default);padding:18px 32px;background:var(--cs-color-surface-raised);font-size:12px;color:var(--cs-color-text-muted)">{{ footer }}</div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;language&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;English&quot;,&quot;Tiếng Việt&quot;],&quot;default&quot;:&quot;English&quot;,&quot;tsType&quot;:&quot;\&quot;English\&quot; | \&quot;Tiếng Việt\&quot;&quot;,&quot;section&quot;:&quot;Content&quot;},
+  &quot;element&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Thổ · studio&quot;,&quot;Thổ · clay&quot;,&quot;Thổ · sand&quot;,&quot;Hỏa · ember&quot;,&quot;Hỏa · lava&quot;,&quot;Hỏa · plasma&quot;,&quot;Thủy · river&quot;,&quot;Thủy · ocean&quot;,&quot;Thủy · mist&quot;,&quot;Mộc · leaf&quot;,&quot;Mộc · bamboo&quot;,&quot;Mộc · forest&quot;,&quot;Kim · champagne&quot;,&quot;Kim · steel&quot;,&quot;Kim · titanium&quot;],&quot;default&quot;:&quot;Thổ · studio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Element (Ngũ Hành)&quot;},
+  &quot;expression&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Liquid glass · default&quot;,&quot;Solid&quot;,&quot;Dense&quot;,&quot;Paper&quot;,&quot;Soft&quot;,&quot;Bold&quot;,&quot;Luxe&quot;],&quot;default&quot;:&quot;Liquid glass · default&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Expression&quot;}
+}">
+class Component extends DCLogic {
+  renderVals() {
+    const EL = {"Thổ · studio":["tho",""],"Thổ · clay":["tho","clay"],"Thổ · sand":["tho","sand"],"Hỏa · ember":["hoa",""],"Hỏa · lava":["hoa","lava"],"Hỏa · plasma":["hoa","plasma"],"Thủy · river":["thuy",""],"Thủy · ocean":["thuy","ocean"],"Thủy · mist":["thuy","mist"],"Mộc · leaf":["moc",""],"Mộc · bamboo":["moc","bamboo"],"Mộc · forest":["moc","forest"],"Kim · champagne":["kim",""],"Kim · steel":["kim","steel"],"Kim · titanium":["kim","titanium"]};
+    const [elAttr, vaAttr] = EL[this.props.element] || EL["Thổ · studio"];
+    const EX = {"Liquid glass · default":"","Solid":"solid","Dense":"dense","Paper":"paper","Soft":"soft","Bold":"bold","Luxe":"luxe"};
+    const vn = this.props.language === "Tiếng Việt";
+    const en = {
+      headTitle:"CyberSkill · Investor update", h1:"A strong quarter, one honest miss",
+      k1:"Revenue QoQ", k2:"Runway", k3:"Wishes granted", runway:"19 mo", hlH:"Highlights",
+      hl1:"Two enterprise wins; checkout rebuild live at 100% with +31% completed orders.",
+      hl2:"Design system v2 shipped — every deliverable now themeable per product.",
+      hl3:"Board approved a second senior AI hire; search underway.",
+      lowH:"Lowlights — said plainly",
+      lowBody:"One Sev-2 outage (48 min, no data loss) traced to a canary gap — now closed. Q4 budget deferred one board cycle; revision circulates by 01 Aug. Key-person risk on AI was flagged a quarter late; monthly updates now carry a risk section.",
+      asksL:"Asks",
+      asksBody:"Intros to Vietnamese retail or logistics leadership welcome — the checkout case study opens doors. Senior AI candidates likewise.",
+      cta:"Full quarterly report →",
+      footer:"CyberSkill · Saigon · Turn Your Will Into Real · Questions? Reply — a real person answers.",
+    };
+    const vi = {
+      headTitle:"CyberSkill · Cập nhật nhà đầu tư", h1:"Một quý vững vàng, một điểm chưa đạt nói thẳng",
+      k1:"Doanh thu QoQ", k2:"Số tháng còn vốn", k3:"Điều ước đã thực hiện", runway:"19 tháng", hlH:"Điểm nổi bật",
+      hl1:"Hai hợp đồng doanh nghiệp; checkout mới chạy 100% với +31% đơn hoàn tất.",
+      hl2:"Hệ thống thiết kế v2 đã ra mắt — mọi sản phẩm bàn giao nay đổi chủ đề theo từng sản phẩm.",
+      hl3:"Hội đồng đã duyệt tuyển thêm một nhân sự AI cấp cao; đang tìm ứng viên.",
+      lowH:"Điểm chưa đạt — nói thẳng",
+      lowBody:"Một sự cố Sev-2 (48 phút, không mất dữ liệu) do lỗ hổng canary — nay đã khắc phục. Ngân sách Q4 lùi một kỳ họp; bản chỉnh sửa gửi trước 01/8. Rủi ro nhân sự chủ chốt về AI được nêu chậm một quý; bản cập nhật hằng tháng nay có mục rủi ro.",
+      asksL:"Đề xuất",
+      asksBody:"Rất hoan nghênh kết nối với lãnh đạo ngành bán lẻ hoặc logistics Việt Nam — case study checkout mở được nhiều cánh cửa. Ứng viên AI cấp cao cũng vậy.",
+      cta:"Báo cáo quý đầy đủ →",
+      footer:"CyberSkill · Sài Gòn · Turn Your Will Into Real · Có câu hỏi? Trả lời email — một người thật sẽ đáp.",
+    };
+    return Object.assign({ langAttr: (this.props.language ?? "English") === "Tiếng Việt" ? "vi" : "en", elAttr, vaAttr, exAttr: EX[this.props.expression] ?? "" }, vn ? vi : en);
+  }
+}
+</script>
+</body>
+</html>

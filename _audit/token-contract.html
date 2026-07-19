@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>body{font-family:var(--cs-font-family-ui);padding:20px;white-space:pre;font-size:13px}</style>
+</head><body>
+<div id="probe" style="display:none"></div>
+<div id="out">running…</div>
+<script>
+// Runtime token-contract test: every element×variant must resolve all 9 --cs-accent-* role
+// tokens to a non-empty value (via :root inheritance or an explicit block).
+const ROLES=["--cs-accent","--cs-accent-strong","--cs-accent-bright","--cs-accent-on","--cs-accent-tint","--cs-accent-ink","--cs-accent-glow","--cs-accent-grad-a","--cs-accent-grad-b"];
+const ELEMENTS={tho:["","clay","sand"],hoa:["","lava","plasma"],thuy:["","ocean","mist"],moc:["","bamboo","forest"],kim:["","steel","titanium"]};
+const probe=document.getElementById('probe');
+const rows=[]; let fails=0;
+for(const [el,variants] of Object.entries(ELEMENTS)){
+  for(const va of variants){
+    probe.setAttribute('data-cs-element',el);
+    if(va) probe.setAttribute('data-cs-variant',va); else probe.removeAttribute('data-cs-variant');
+    const cs=getComputedStyle(probe);
+    const missing=ROLES.filter(r=>!cs.getPropertyValue(r).trim());
+    const name=el+(va?" · "+va:"");
+    if(missing.length){ fails++; rows.push("✗ "+name+" → missing "+missing.join(", ")); }
+    else rows.push("✓ "+name);
+  }
+}
+// also: semantic + core text tokens resolve
+const coreCheck=["--cs-color-text-primary","--cs-color-text-muted","--cs-color-text-accent","--cs-color-semantic-success","--cs-color-semantic-danger","--cs-color-brand-umber","--cs-color-brand-ochre"];
+probe.removeAttribute('data-cs-element');probe.removeAttribute('data-cs-variant');
+const csr=getComputedStyle(probe);
+const coreMiss=coreCheck.filter(t=>!csr.getPropertyValue(t).trim());
+window.__contract={elementFails:fails, coreMissing:coreMiss, total:rows.length};
+document.getElementById('out').textContent =
+  "TOKEN CONTRACT — "+(fails===0&&coreMiss.length===0?"✓ PASS":"✗ FAIL")+"\n\n"+
+  "Element role tokens ("+rows.length+" scopes, 9 roles each):\n"+rows.join("\n")+
+  "\n\nCore tokens: "+(coreMiss.length?"✗ missing "+coreMiss.join(", "):"✓ all resolve");
+</script>
+</body></html>

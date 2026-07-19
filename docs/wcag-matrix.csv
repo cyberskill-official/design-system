@@ -1,6 +1,0 @@
-component,criterion,support_status,story_or_example,automated_test,manual_test,owner,date,confidence
-Button,2.4.7 Focus Visible,supports,packages/react/src/component-specs.json,planned,required before GA,accessibility-lead,2026-05-23,C
-Button,2.5.8 Target Size,supports,packages/react/src/component-specs.json,planned,required before GA,accessibility-lead,2026-05-23,C
-TextField,3.3.2 Labels or Instructions,supports,packages/react/src/component-specs.json,planned,required before GA,accessibility-lead,2026-05-23,C
-Dialog,2.1.2 No Keyboard Trap,supports,packages/react/src/component-specs.json,planned,required before GA,accessibility-lead,2026-05-23,C
-AIDisclosureBadge,4.1.2 Name Role Value,supports,packages/react/src/component-specs.json,planned,required before GA,accessibility-lead,2026-05-23,C

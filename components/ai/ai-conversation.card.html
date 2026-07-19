@@ -1,0 +1,49 @@
+<!-- @dsCard group="Components" viewport="700x420" name="AI-native — conversation" subtitle="PromptInput, ChatMessage (Lumi), ConfidenceMeter" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  body { margin: 0; background: var(--cs-color-surface-page); padding: 22px 24px; }
+  .grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; max-width: 660px; align-items: start; }
+  .lbl { font: 600 11px/1 var(--cs-font-family-ui); text-transform: uppercase; letter-spacing: .09em; color: var(--cs-color-text-muted); margin-bottom: 10px; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { PromptInput, ChatMessage, ConfidenceMeter } = window.CyberSkillDesignSystem_847b3c;
+function Demo() {
+  const [q, setQ] = React.useState("A faster checkout for our shop");
+  return (
+    <div className="grid">
+      <div>
+        <div className="lbl">Conversation with Lumi</div>
+        <div className="cs-chat" style={{marginBottom:14}}>
+          <ChatMessage role="lumi">Hello, I’m Lumi. Tell me a wish, and I’ll share plain advice before asking for anything.</ChatMessage>
+          <ChatMessage role="user">A faster checkout.</ChatMessage>
+          <ChatMessage role="lumi">A wish worth granting. I’ll hand it to the team — what should I call you?</ChatMessage>
+        </div>
+        <PromptInput value={q} onChange={setQ} onSubmit={()=>{}} placeholder="Make a wish…" />
+      </div>
+      <div>
+        <div className="lbl">Confidence</div>
+        <div style={{display:"grid",gap:16}}>
+          <ConfidenceMeter value={0.82} />
+          <ConfidenceMeter level="medium" label="Model confidence" />
+          <ConfidenceMeter level="low" label="Draft estimate" />
+        </div>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

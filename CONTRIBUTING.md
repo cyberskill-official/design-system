@@ -1,31 +1,39 @@
 # Contributing to the CyberSkill Design System
 
-Cảm ơn bạn — thank you for helping the system grow. This guide is the short operational companion to `README.md` (the operating manual) and `DESIGN.md` (the single source of truth). When they disagree, `DESIGN.md` wins.
+How to extend the system without breaking its guarantees. The operative rules live in `CLAUDE.md` (persistent doctrine), `docs/conventions.md` (decision log + authoring rules), and `SKILL.md` (consumer orientation); this file is the one-page onboarding that ties them together.
 
-## The one rule
+## Non-negotiables
 
-Substantive changes to `DESIGN.md` require an RFC. Editorial fixes (typos, broken links, prose clarity) do not.
+- **Anchors are immutable** — Umber `#45210E`, Ochre `#F4BA17`. One accent per surface (Ochre on core; a product's element accent inside its `data-cs-element` scope). Every neutral warmed toward umber — no cold grey.
+- **Vietnamese-first & bilingual** — ship EN + VN, preserve diacritics, VN-safe line-heights. Every bilingual template carries a root `lang` (see conventions → Screen-reader language).
+- **Accessibility floor** — never remove the 3px Ochre `:focus-visible` ring; ≥44px touch targets on coarse pointers; body text APCA Lc ≥ 75; honour `prefers-reduced-motion`/`prefers-contrast`. All in `base/a11y.css` — don't regress it.
+- **Grammar** — Theme × Element × Expression are independent axes. Expressions change treatment only (surface/radius/shadow/motion), never hue/voice/type/a11y. Use the shipped names; don't invent styles.
+- **Voice** — warm / direct / honest / respectful. Products are "wishes" Lumi helps grant. Lumi stays golden in every element.
 
-## Change paths
+## The Expansion Rule (owner-mandated)
 
-1. Editorial fix (PATCH): edit `DESIGN.md` or `README.md` directly, add a row under `[Unreleased]`/current PATCH in `CHANGELOG.md`, run `npm run verify:all`, open a PR.
-2. New capability (MINOR — new tokens, components, style packs, parts): write an RFC first (template referenced in `README.md` §RFC process; drafts live in local `meta/rfcs/`), get a decision, then land doctrine + implementation + changelog together.
-3. Breaking change (MAJOR): RFC plus deprecation notice plus migration path. Never touches the anchor immutables (Umber `#45210E`, Ochre `#F4BA17`, slogans, Vietnamese-first, voice axes, APCA floor).
+When **anything** grows — a new element/variant, expression, icon, component, token role, language, or template pattern — propagate it to **every** deliverable in the *same* change:
 
-## Before you open a PR
+1. Tokens/source (`tokens/`, component `.jsx` + `.d.ts` + `.prompt.md`)
+2. Specimen cards (guidelines + the component-group card) **and related guideline pages**
+3. **All** templates (tweak enums, EL/EX maps, swept accents)
+4. UI kits — via the Identity Lab (kits stay pixel-faithful by doctrine)
+5. Docs — README/SKILL, `docs/conventions.md`, and every related doc; regenerate `docs/contrast-report.md` after token changes and `tokens/tokens.json`+`tokens.js` after any token change
+6. `CHANGELOG.md` line + `VERSION` bump
 
-```bash
-npm install
-npm run verify:all        # tokens, packs (50/50), components, bundle budgets, artifacts — must be GREEN
-npm run audit             # CSAF audit; fails on unapproved score regressions vs docs/audit-baseline.json
-```
+**Gate:** `check_design_system` clean **+** a grep for the old enum/list to prove nothing was left behind.
 
-The audit gate implements the no-silent-regression policy: if your change drops a criterion score, either fix it or record a signed override and update the baseline in the same PR (`npm run audit:baseline`), explaining why in the PR description.
+## Verification depth (owner-mandated)
 
-## Style-pack contributions
+Deep checks, never surface spot-checks. Cover the **whole set and every relevant state** — prefer deterministic programmatic scans that touch every item (the `_audit/` harnesses: run `_audit/index.html`), then add representative visual/export confirmation. Language, theme, and responsive states each get their own pass. A few screenshots are evidence, not proof. If a full check isn't feasible, say so and state what was and wasn't covered.
 
-Read `packages/style-packs/AUTHORING.md`. Hard laws: scoped selectors only, no anchor overrides, `.cs-button` stays ≥ 44px, focus never removed, APCA floors hold in light mode.
+## Adding things — quick recipes
 
-## Conduct
+- **Component** — `components/<group>/<Name>.{jsx,d.ts,prompt.md}` + a `.cs-*` style block in the matching `base/*.css` + add to the group's `*.card.html`. Void-element components (`<input>`/`<hr>`) must destructure `children` out of `...props` (React #137 rule). Correct ARIA roles/labels. Run `check_design_system`.
+- **Token** — add to the right `tokens/*.css`; if it's a semantic/surface token, give it a `[data-theme="dark"]` (+ system) override and verify contrast on `#221710`. Regenerate `tokens/tokens.json`/`.js`. New element/variant sets all 9 `--cs-accent-*` roles (`_audit/token-contract.html` checks this).
+- **Template** — `templates/<slug>/<Slug>.dc.html` (DC) with `<!-- @template … -->` first + `ds-base.js`. Bilingual with a Language tweak + root `lang`. Docs get `@page{size}` + `<meta name="omelette-owns-print">`. Element ×15 + Expression ×7 tweaks.
+- **Card / guideline** — `.html` with `<!-- @dsCard group="…" … -->` first line.
 
-Warm, direct, honest, respectful — the same voice axes the system ships with. English and Vietnamese are both welcome in issues and PRs.
+## Documented scope boundaries (not gaps)
+
+UI-kit pages remain Thổ-faithful recreations; bilingual EN·VN covers emails + team/legal/finance docs (client/media collateral is EN-first); text never sits on the mid-tone `-accent`; DatePicker/Combobox are out of scope for the base component set; email-safe send variants are exemplars in `templates/email-safe/` (others convert on request).

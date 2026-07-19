@@ -1,0 +1,17 @@
+/* CyberSkill — minimal base reset. Products opt in by linking styles.css. */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--cs-color-surface-page, #fffdf8);
+  color: var(--cs-color-text-primary, #45210e);
+  font-family: var(--cs-font-family-ui, ui-sans-serif, system-ui);
+  font-size: var(--cs-font-size-base, 1rem);
+  line-height: var(--cs-font-lineHeight-body, 1.5);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+:where(h1, h2, h3, h4, h5, h6) { line-height: var(--cs-font-lineHeight-heading, 1.35); text-wrap: balance; }
+:where(p) { text-wrap: pretty; }
+:where(code, pre, kbd, samp) { font-family: var(--cs-font-family-mono, ui-monospace, monospace); }
+:where(:focus-visible) { outline: 2px solid var(--cs-color-accent-ochre, #f4ba17); outline-offset: 2px; }

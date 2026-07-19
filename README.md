@@ -1,516 +1,280 @@
 # CyberSkill Global Design System
 
-> *Turn Your Will Into Real — Hiện Thực Hoá Ý Chí*
+> **Turn Your Will Into Real — Hiện Thực Hoá Ý Chí**
 
-A unified, enterprise-grade design system for a Vietnamese-origin, globally-scoped enterprise. Warm earth anchors. Vietnamese first-class. PDPL- and EU AI Act-ready. DTCG 2025.10-native. MCP-native.
+## Start here
 
-This README is the **operating manual** for the design system: what it is, how to use it in production projects, how to fine-tune it without breaking it, and how to audit it. The doctrine itself lives at the repo root as [`DESIGN.md`](./DESIGN.md) — the single source of truth. Version history is in [`CHANGELOG.md`](./CHANGELOG.md).
+This is the **entrance document** for the CyberSkill Design System — **v2.16.1** (see `VERSION` · changelog below). One sentence: a warm, Vietnamese-first, enterprise-grade system where every surface resolves three independent axes — **Theme** (light · dark) × **Element** (Ngũ Hành product identity: Kim · Mộc · Thủy · Hỏa · Thổ, 15 variants) × **Expression** (treatment: liquid-glass default · solid · dense · paper · soft · bold · luxe).
 
----
+**Quick start by audience**
+- **Designers** — open the Design System tab and the Templates picker (84 starting points, including the 41-document lawyer-validated Employment Suite); the Identity Lab (`ui_kits/status-hub/identity-lab.html`) lets you flip axes live.
+- **AI agents** — read `SKILL.md` (normative Hard rules + orientation), then the guide below; component contracts live beside each component (`.d.ts` + `.prompt.md`).
+- **Consuming projects** — link **`styles.css`** (one file = everything), or copy a `templates/<slug>/` folder and edit one line in its `ds-base.js` (one-line rebind, validated end-to-end Jul 2026). Scope identity with `data-theme` · `data-cs-element` (+`data-cs-variant`) · `data-cs-expression`.
 
-## Current state (snapshot)
+**Document map**
 
-| Field | Value |
+| Doc | What it answers |
 |---|---|
-| Version | **v1.3.0** (2026-06-13) |
-| Audit tier | **L3 — enterprise-grade** ✓ |
-| Combined audit score | **80.3%** (Part A 74.8% / Part B 85.7%) |
-| Enterprise-grade floors | **7 of 7 pass** |
-| `DESIGN.md` | ~1.3 MB; 1 H1; **22 Parts** (Part 21 — Liquid Glass Default; Part 22 — Style Packs, added 2026-06-13); 0 anchor collisions |
-| Section numbering | Decimal multi-level (e.g. `## 5.7 20+ locales baseline`) |
-| Doctrine source | Single file — legacy `doctrine/` split removed (v1.0.3). Build/verify tooling lives in `scripts/` + `packages/*/scripts/`. |
-| Audit findings closed | **14 of 18** (4 deferred — infrastructure-blocked, target Q1 2027) |
-| Anchor immutables | Slogan, Umber, Ochre, voice axes, Vietnamese-first — **all preserved** |
-| Default surface treatment | **Liquid Glass** (Part 21) — five materials (Whisper / Light / Standard / Heavy / Solid). Layered depth + lens edges + APCA Lc ≥ 75 preserved. **Shipped in code (v1.3.0):** `@cyberskill/tokens` `--cs-glass-*`/`--cs-depth-*` + `@cyberskill/react/glass.css`; component binding is opt-in (`.cs-surface-*`). |
-| Canonical files | `README.md` + `DESIGN.md` + `CHANGELOG.md` (3 files; everything else is local working state, gitignored) |
-
-For change log, see [`CHANGELOG.md`](./CHANGELOG.md). Audit reports are local-only — re-run the [audit framework](#9-auditing-the-system) to regenerate them.
+| `README.md` (this file, below) | The full guide: anchors, voice, visual foundations, components, templates, index |
+| `SKILL.md` | Agent entry — hard rules + fast orientation |
+| `docs/conventions.md` | How to extend the system (naming grammar, checklists, the three axes, decision log) |
+| `docs/products.md` | Product → element registry (provisional) |
+| `docs/contrast-report.md` | Generated APCA report — 0 failures at Lc ≥ 60 |
 
 ---
 
-## Table of contents
+A warm, enterprise-grade, **Vietnamese-first** design system for **CyberSkill** — a Saigon software studio (est. 2020) that turns a clear *wish* into working software. Anchored on **Umber** and **Ochre**, guided by **Lumi** the golden genie. This project packages CyberSkill's tokens, components, brand assets, and product recreations so any agent can design on-brand artifacts and production UI.
 
-1. [What this is and how to use it](#1-what-this-is-and-how-to-use-it)
-2. [Repository layout](#2-repository-layout)
-3. [Anchor immutables](#3-anchor-immutables)
-4. [Distribution into production projects](#4-distribution-into-production-projects)
-5. [How to fine-tune the system (the change protocol)](#5-how-to-fine-tune-the-system-the-change-protocol)
-6. [RFC process](#6-rfc-process)
-7. [Versioning and release cadence](#7-versioning-and-release-cadence)
-8. [Editing DESIGN.md](#8-editing-designmd)
-9. [Auditing the system](#9-auditing-the-system)
-10. [Operating cadence](#10-operating-cadence)
-11. [Roles and ownership](#11-roles-and-ownership)
-12. [Working with AI agents](#12-working-with-ai-agents)
-13. [Anti-patterns to refuse](#13-anti-patterns-to-refuse)
+Consumers link one file: **`styles.css`**.
+
+## Sources
+
+Built by reading CyberSkill's own repositories — explore them for deeper fidelity:
+
+- **Design system** (tokens, React components, brand assets, doctrine, style packs): https://github.com/cyberskill-official/design-system
+- **Marketing site** (Next.js, bilingual, Lumi genie, in-repo icon set): https://github.com/cyberskill-official/landing-page
+- **Audit framework** (referenced): https://github.com/cyberskill-official/design-system-audit-framework
+
+The doctrine itself is the single-file `DESIGN.md` (22 Parts, ~1.3 MB) in the design-system repo; tokens come from `@cyberskill/tokens`, components from `@cyberskill/react`, the master mark from `@cyberskill/brand-assets`. Where a value here differs from a guess, **the repo source wins** — every token and component in this project was lifted from that code.
 
 ---
 
-## 1. What this is and how to use it
+## Anchor immutables (never change these)
 
-The system is a **single-file doctrine** — `DESIGN.md` at the repo root contains the full twenty-one-part specification. Twenty-one parts at uniform enterprise grade, decimal-numbered (e.g., Part 5 §5.7), one source of truth.
-
-As of v1.1.0 (2026-05-14), **Liquid Glass** is the default surface treatment across CyberSkill products — see `DESIGN.md` [Part 21 — Liquid Glass Default](./DESIGN.md#part-21-liquid-glass-default). It became a working render layer in **v1.3.0** (`@cyberskill/tokens` glass/depth scalars + `@cyberskill/react/glass.css`). Umber + Ochre anchors stay immutable; Liquid Glass governs HOW surfaces render, not WHAT colors they use. Glass is applied to components opt-in (per-surface, after the §21.8 contrast check) so the APCA floor holds under every theme and style pack.
-
-**The system ships as exactly three files at the repo root:**
-
-| Artefact | Purpose | When to edit |
-|---|---|---|
-| **`DESIGN.md`** | Single source of truth — the doctrine itself. Edit directly. | When the system itself evolves (RFC required) |
-| **`README.md`** | This operating manual | When governance, change protocol, or RFC process changes |
-| **`CHANGELOG.md`** | Version history | Per release |
-
-**Everything else is local-only working state**, gitignored, and regenerable from the source artefacts above:
-
-| Local-only (gitignored) | Origin | What it is |
-|---|---|---|
-| `.cyberos-memory/` | BRAIN protocol (`AGENTS.md`) | Agent memory store; per-machine; never shipped |
-| `meta/audits/` | Audit framework re-runs | Re-run SCAN audit to regenerate; see [§9](#9-auditing-the-system) |
-| `meta/rfcs/` | Per-RFC archive | Local working drafts; canonical decisions land in `DESIGN.md` + `CHANGELOG.md` |
-| `tokens/` (when present) | Style Dictionary build | DTCG token sources, when an implementation is shipped |
-| `packages/` (when present) | npm publish flow | Implementation packages, when shipped |
-
-**Three reading paths**, depending on why you're here:
-
-- **You're shipping a product on this system** — read [§4 Distribution](#4-distribution-into-production-projects) and use [`DESIGN.md`](./DESIGN.md) directly.
-- **You're proposing a change** — read [§5 How to fine-tune](#5-how-to-fine-tune-the-system-the-change-protocol) and [§6 RFC process](#6-rfc-process). Do **not** edit `DESIGN.md` directly without an RFC for substantive changes.
-- **You're maintaining the system** — read everything below.
-
----
-
-## 2. Repository layout
-
-The shipped repo contains exactly three top-level Markdown files. Everything else is local working state that's gitignored and regenerable.
-
-```
-. (canonical, ships everywhere)
-├── README.md                          ← this file (operating manual)
-├── DESIGN.md                          ← single-file doctrine (source of truth, edit directly)
-├── CHANGELOG.md                       ← version history (Keep a Changelog format)
-└── .gitignore                         ← excludes the local-only artefacts below
-
-. (local working state, gitignored)
-├── .cyberos-memory/                   ← BRAIN protocol — local agent memory store
-├── meta/                              ← audit framework outputs (regenerable)
-│   ├── audits/
-│   │   ├── _history.md
-│   │   ├── audit-report-<date>.md
-│   │   └── improvement-plan.md
-│   ├── rfcs/                          ← local RFC drafts (decisions land in DESIGN.md + CHANGELOG.md)
-│   └── templates/
-├── tokens/                            ← (optional) DTCG token sources, when shipped
-├── packages/                          ← (optional) implementation packages, when shipped
-│   ├── tokens/                        ← DTCG token build (CSS/TS/Swift/Kotlin/Flutter/Figma); light default
-│   ├── react/                         ← React components (Button, TextField, Dialog, DataTable,
-│   │                                     AIDisclosureBadge, HumanReviewGate, Logo) + base styles
-│   ├── style-packs/                   ← 50 separately-stored visual styles (data-cs-style); see AUTHORING.md
-│   ├── brand-assets/                  ← official CyberSkill logo (svg + png) + usage rule
-│   └── …                              ← mcp-tokens, mcp-components, provenance, legal-telemetry, …
-└── src/                               ← (optional) reference application, when shipped
-```
-
-**Distribution rule:** downstream projects copy only the three top-level files (`README.md`, `DESIGN.md`, `CHANGELOG.md`). The local working state never travels — each project's audit-framework outputs and BRAIN memory belong to that project.
-
-**Implementation quick reference (when packages are present):**
-
-| Need | Where |
+| Immutable | Value |
 |---|---|
-| Build tokens (light is the default theme) | `npm run tokens:build` → `packages/tokens/dist/` |
-| Use a component | `import { Button, Logo } from "@cyberskill/react"` |
-| Apply the official logo | `<Logo/>` or `packages/brand-assets/assets/logo-mark.svg` — required whenever a product is for/owned by CyberSkill (`DESIGN.md` §2.2a) |
-| Re-skin into a visual style | set `data-cs-style="<id>"`; load `@cyberskill/style-packs/dist/style-packs.css`; catalog in `packages/style-packs/dist/catalog.md` |
-| Add a new style | follow `packages/style-packs/AUTHORING.md`, then `npm run stylepacks:build && npm run stylepacks:verify` |
-| Switch theme | `data-theme="light" | "dark" | "system"` (default light) |
-| Verify everything | `npm run verify:all` |
+| **Slogan** | *Turn Your Will Into Real* / *Hiện Thực Hoá Ý Chí* |
+| **Primary brand** | **Umber** `#45210E` · `oklch(0.265 0.073 44.3)` |
+| **Primary accent** | **Ochre** `#F4BA17` · `oklch(0.811 0.162 83.7)` |
+| **Voice** | warm · direct · honest · respectful (a chord — all four at once) |
+| **Vietnamese-first** | every UI string ships an EN + VN pair |
+| **Accessibility floor** | APCA Lc ≥ 75 body text, focus rings never removed, ≥ 44px touch targets |
 
 ---
 
-## 3. Anchor immutables
+## CONTENT FUNDAMENTALS
 
-These are the four commitments that no agent, no edit, and no audit may relax. They predate v1.0 and override every other rule in conflict.
+**Voice is a four-axis chord, sounded all at once:** *warm · direct · honest · respectful.* Never "fun/playful/edgy" — that is explicitly off-brand.
 
-| Immutable | Value | Source |
-|---|---|---|
-| **Slogan** | EN: *Turn Your Will Into Real* / VN: *Hiện Thực Hoá Ý Chí* | `DESIGN.md` [§1.2 Brand Architecture](./DESIGN.md#1-2-brand-architecture) |
-| **Primary brand colour** | **Umber** — `oklch(0.265 0.073 44.3)` / `#45210E` / `color(display-p3 0.265 0.13 0.06)` | `DESIGN.md` [§2.2 Anchor Brand Tokens](./DESIGN.md#2-2-anchor-brand-tokens) |
-| **Primary accent** | **Ochre** — `oklch(0.811 0.162 83.7)` / `#F4BA17` / `color(display-p3 0.95 0.74 0.13)` | `DESIGN.md` [§2.2 Anchor Brand Tokens](./DESIGN.md#2-2-anchor-brand-tokens) |
-| **Voice axes** | warm · direct · honest · respectful (chord, not slider — all four simultaneously) | `DESIGN.md` [§1.3 Personality, Voice, and Tone](./DESIGN.md#1-3-personality-voice-and-tone) |
-| **Vietnamese-first commitment** | Every UI string ships a VN counterpart or an explicit deferral note | `DESIGN.md` [§5.7 20+ locales baseline](./DESIGN.md#5-7-20-locales-baseline) |
-| **APCA contrast floor** | Lc ≥ 75 for body text, Lc ≥ 90 for interactive elements. Liquid Glass surfaces must measure at the rendered translucent state, not the solid color. | `DESIGN.md` [§21.8 Accessibility floor](./DESIGN.md#21-8-accessibility-floor) |
+- **Warm, human, second-person.** Speak to "you"; the studio is "we". Lumi speaks as "I". Copy is gentle and encouraging, never corporate. e.g. *"Lovely. What should I call you?"*, *"The lamp is resting for a moment."*
+- **Direct and concrete.** Short sentences, plain outcomes, no hedging. e.g. *"Send a short note. We reply within one business day."*, *"Built to ship, and built to last."*
+- **Honest about trade-offs.** The brand advertises candour: *"senior, small, and honest about trade-offs."* Risks are stated in words, never hidden or colour-only.
+- **Respectful of consent & privacy.** Ask before contacting; promise not to share. e.g. *"Your details go straight to the team. We never share them."*
+- **The "wish" metaphor is the spine.** Products are *wishes*; Lumi (a golden genie) *grants* them by handing them to a real human team. Verbs: *make a wish, grant, shape it, ship, last.* Use it warmly, never gimmicky.
 
-**Refuse to modify these.** If anyone — human or agent — proposes changing them, escalate to the Design System Lead and Brand Owner; do not merge an RFC that touches an immutable without the v2.0.0 protocol described in §7.
+**Casing & mechanics:** Sentence case for headings and buttons (*"Make a wish"*, *"Tell us your wish"*). UPPERCASE + wide tracking only for small eyebrows/labels/table headers. Titles avoid trailing punctuation; body uses full stops. Numerals as digits (*"one business day"* in prose is fine, but *"3 business days"* for concrete SLAs). Em dashes for asides.
 
-**Note on Part 21:** Liquid Glass adoption (v1.1.0 doctrine; implemented v1.3.0) does NOT modify any immutable. It adds a surface-rendering layer ON TOP of the existing Umber/Ochre anchors. Existing solid-surface components continue to render correctly — Part 21 is additive, opt-in via the shipped `.cs-surface-whisper|light|standard|heavy|solid` classes (and the `.cs-glass-card` alias), with `prefers-reduced-transparency`, `forced-colors`, `@media print`, and `@supports not (backdrop-filter)` collapsing back to solid surfaces.
+**Bilingual (Vietnamese-first):** Every user-facing string has an EN + VN counterpart or an explicit deferral note. VN is a first-class citizen, not a translation afterthought — diacritics are preserved everywhere (*Nguyễn Hoàng Vũ*, *Hiện Thực Hoá Ý Chí*). Vietnamese-safe line-heights (body 1.5 / heading 1.35) leave room for stacked marks.
 
----
-
-## 4. Distribution into production projects
-
-You can use this system in a downstream project in three ways, in order of progressive integration.
-
-### 4.1 Copy `DESIGN.md` only (lightest)
-
-Drop a single file into the target repo's root:
-
-```bash
-cp ../cyberskill-design-system/DESIGN.md ./DESIGN.md
-```
-
-Every contributor (human or AI agent) has access to the full doctrine. Cite `DESIGN.md` in your `AGENTS.md` / `CLAUDE.md` so agents know to read it first. Re-sync per CyberSkill release.
-
-### 4.2 Copy the three canonical files (recommended)
-
-Add `README.md`, `DESIGN.md`, and `CHANGELOG.md` together so downstream contributors get the full picture — the spec, the operating manual, and the version history:
-
-```bash
-cp ../cyberskill-design-system/{README.md,DESIGN.md,CHANGELOG.md} ./design-system/
-```
-
-Place all three inside a `design-system/` subfolder so they don't shadow the project's own root files.
-
-### 4.3 Submodule or subtree (heaviest, for products that contribute back)
-
-```bash
-git submodule add https://github.com/cyberskill/design-system.git design-system
-```
-
-Pin the submodule to a tagged release (currently `v1.3.0`). Product upgrades happen by bumping the submodule SHA, never by editing in-place.
-
-### 4.4 What changes per project, what doesn't
-
-| Layer | Per-project freedom | Rule |
-|---|---|---|
-| Tokens (override) | Yes — themes, density, typography weights | Must inherit from anchor immutables; Ochre never below APCA Lc 75 vs surface |
-| Components (compose) | Yes — extend with project-specific composites | Must reuse Tier-1 primitives; new compositions go through local RFC |
-| Components (modify behaviour) | No | Modifying Tier-1 behaviour requires an RFC against the global system |
-| Voice / brand | No | Anchor immutables apply across every product |
-| Accessibility floor | No | WCAG 2.2 AA is the floor; products may go beyond, never below |
-| Vertical patterns | Optional | Use `DESIGN.md` [Part 19 — Industry Vertical Packs](./DESIGN.md#part-19-industry-vertical-packs) as the template if your product is in a regulated vertical |
+**Emoji:** **Not used** in product UI or brand copy. Meaning is carried by words and the line-icon set, not emoji. (The mascot and the sparkle "wish" glyph do the affective work.)
 
 ---
 
-## 5. How to fine-tune the system (the change protocol)
+## VISUAL FOUNDATIONS
 
-Edits fall into three classes. Apply the matching protocol.
+**Palette — warm earth, never cold.** Umber `#45210E` grounds everything (it *is* the primary text colour); Ochre `#F4BA17` is the single accent — CTAs on dark, focus rings, highlights, the genie. Surfaces are warm paper: page `#FFFDF8`, panel `#FFFFFF`, raised `#FBF4E9`. Every neutral is warmed toward umber — borders are `#E7D9C6`, muted text `#6E5A4C`. Semantic colours (success `#166534`, danger `#B42318`, warning `#92400E`, info `#1D4ED8`) are used sparingly and never as the only signal. **Max one accent per surface** — on core surfaces that accent is Ochre; a *product* may swap in its element accent (see Elemental identity below), never add a second hue beside it. No bluish-purple gradients.
 
-### 5.1 Class A — Editorial (no RFC needed)
+**Typography.** UI/display: **Be Vietnam Pro** (300–800; a Vietnamese-first Google family). Code/data: **JetBrains Mono**. Display headings are heavy (800), tight tracking (−0.02em); body is 400/500 at 1.5. Uppercase eyebrows at 0.08–0.12em tracking. The size ramp runs xs 12 → 5xl 60 on a 16px base.
 
-Typo fixes, broken-link repairs, classification footers, formatting consistency, language quality. Ship as a patch release (v1.0.x).
+**Spacing & layout.** 4px base grid (`--cs-space-*`); section padding lives between 64 and 96px; content max-width ~1200–1320px. Generous, calm whitespace.
 
-**Workflow:**
-1. Branch off `main`: `git checkout -b editorial/<short-slug>`.
-2. Edit `DESIGN.md` directly.
-3. PR with the diff. Two reviewers from the affected part's chair-owner team approve.
-4. Merge → `v1.0.x` patch tag. Append a row to `CHANGELOG.md`.
+**Corners & cards.** Radii: sm 4, md 8 (default), **lg 14 (cards/panels)**, full 999 (pills, inputs, chips). A default card = white panel, 1px warm border `#E7D9C6`, 14px radius, soft warm shadow. No coloured-left-border cards.
 
-### 5.2 Class B — Substantive (RFC required, minor release)
+**Surfaces — Liquid Glass (the default treatment).** Five materials over the anchors: **Whisper** (hero washes), **Light** (nav/sidebar), **Standard** (cards over imagery), **Heavy** (modals/popovers), **Solid** (dense content, tables). Glass = `color-mix` translucency + `backdrop-filter` blur/saturate + a 1px lens-edge gradient. It is **opt-in and additive** — apply a `cs-surface-*` class after checking APCA against the backdrop; dense content stays Solid. Collapses to solid under `prefers-reduced-transparency`, `forced-colors`, print, and unsupported browsers.
 
-New components, new patterns, new tokens, new themes, new vertical packs, new surfaces, expanded coverage. Ship as a minor release (v1.x.0).
+**Shadows** are warm and umber-tinted (`rgba(69,33,14,…)`), a soft five-step scale from `xs` hairline to `xl` dialog lift. Never grey, never harsh.
 
-**Workflow:**
-1. Open a draft RFC under `meta/rfcs/<YYYY-MM-DD>-<slug>.md` using the template in `DESIGN.md` (Part 8) §2.
-2. Tag the RFC with one of the subtypes — *component, token, pattern, surface, vertical-pack, content, tooling, lifecycle, accessibility, governance*.
-3. Discussion period: minimum 14 calendar days for component / token / pattern; 21 days for surface / vertical-pack / governance.
-4. RFC requires sign-off from: chair owner of every affected part + at least one accessibility reviewer.
-5. Once accepted: edit `DESIGN.md` directly; append a row to `CHANGELOG.md`. (Audit-history rows in `meta/audits/_history.md` are local-only — they regenerate when a cycle runs.)
-6. Ship as `v1.x.0`.
+**Depth** is an explicit z-scale mapped to glass tiers: bg 0 → section 5 → card 10 → nav 50 → modal 100 → toast 200.
 
-### 5.3 Class C — Anchor or breaking change (v2.0.0 protocol)
+**Backgrounds & imagery** glow from within: deep-umber darks with **warm gold particle light** (`aurora-gold.jpg`), never cold or flat — and each element carries its own wash (`assets/aurora-{hoa,thuy,moc,kim}.png`, applied via the `.cs-aurora-wash` overlay class; Thổ's is the official gold). Photography is warm-toned. Full-bleed umber sections anchor heroes, careers bands, and footers; on umber, the Ochre slogan and white body carry the message. The mascot, **Lumi**, is a polished golden genie rendered on transparent backgrounds.
 
-Anything touching an immutable in [§3](#3-anchor-immutables), or any change that breaks API compatibility for downstream projects.
+**Elemental product identity — Ngũ Hành.** The studio itself is **Thổ/Earth** (Umber + Ochre — the traditional earth-yellow); each CyberSkill *product* may take one element — **Kim** (metal) · **Mộc** (wood) · **Thủy** (water) · **Hỏa** (fire) · **Thổ** (earth) — via `data-cs-element` (+ `data-cs-variant`, e.g. Hỏa: ember · lava · plasma). Each pack sets the nine **`--cs-accent-*`** role tokens (accent / strong / bright / on / tint / ink / glow / grad-a / grad-b) defined in `tokens/elements.css`; inside the scope the element fully takes Ochre's accent roles. Never elemental: semantic statuses, and the **3px Ochre focus ring** — the studio's accessibility signature on every product. Mixing follows the cycles: a secondary element may appear only as a gradient endpoint along **Tương sinh** (Mộc→Hỏa→Thổ→Kim→Thủy→Mộc); **Tương khắc** pairs never mix. Product→element mapping lives in `docs/products.md`. **Every template carries the Element tweak** — anything that should follow the product's element must consume `--cs-accent-*`, never raw hex. **Lumi stays golden in every element** — the genie is the studio's constant; only the environment re-tints.
 
-**Workflow:**
-1. RFC as above, but with a 60-day public discussion period and explicit founder sign-off.
-2. Compatibility codemod published in `packages/codemods/`.
-3. v2.0.0 release with a migration guide in `meta/runbooks/migration-v1-to-v2.md`.
-4. Two minor versions deprecation runway from the last v1.x.
+**Expressions — the treatment axis.** Surfaces resolve **Theme × Element × Expression** independently. An expression (`data-cs-expression="solid|paper|soft|bold"`, default liquid-glass) re-tunes treatment only — radius, shadow, glass scalars, border weight, motion — by overriding the existing tokens in `tokens/expressions.css`; hue, voice, semantics, and a11y floors are untouchable. The registry is curated (capped at seven — extended 6→7 by owner decision, Jul 2026, now full): `solid` (flat, Swiss-calm), `dense` (operational data UI; coarse pointers keep the 44px floor), `paper` (editorial, print-true), `soft` (plush, rounded), `bold` (neubrutalism, warmed — umber frames, hard offset shadows), `luxe` (ceremonial — pill CTAs, hairline borders, deep soft glow, unhurried motion). Neon/cyberpunk, memphis, and full skeuomorphism are rejected by doctrine.
 
-**Default answer for Class C: "no, find a way to keep the immutable."** Anchor changes have shipped exactly zero times since v1.0.0 lock and we expect that to continue.
+**Motion** is calm and purposeful: short durations (120–320ms), a soft decelerate `cubic-bezier(0.2,0,0,1)`, small translate/scale and fades (e.g. the hero mascot's gentle float). No bounce, no flash. Everything collapses to 0 under `prefers-reduced-motion`.
 
-### 5.4 What every change must include
+**Interaction states.** Hover: brighten ~8% (filled) or fill to `surface-raised` (subtle). Press: a 0.5–1px nudge. Focus: a **3px Ochre ring, 2px offset** — always visible, never removed. Disabled: opacity 0.58. Touch targets ≥ 44px on coarse pointers.
 
-Regardless of class, every accepted change carries:
-
-- **Diff against the doctrine** — the actual prose change.
-- **Cross-reference update** — every `[Part X](…)` link still resolves.
-- **Telemetry hook** if the change is a component / pattern / token, per `DESIGN.md` [§10.2 Telemetry schema](./DESIGN.md#10-2-telemetry-schema).
-- **Microcopy** in EN + VN per `DESIGN.md` [Part 14 — Content Design](./DESIGN.md#part-14-content-design-ux-writing-at-scale).
-- **Accessibility review** per `DESIGN.md` [Part 5 — Accessibility, Inclusion, Localization](./DESIGN.md#part-5-accessibility-inclusion-localization).
-- **Audit note** — surfaced in the next audit cycle's `_history.md` (local, regenerable). The summary lands in `CHANGELOG.md`.
+**Transparency & blur** appear only on glass surfaces and the hero wish-input — deliberate, backed by fallbacks — never as decoration.
 
 ---
 
-## 6. RFC process
+## ICONOGRAPHY
 
-RFC subtypes and required reviewers — sourced from `DESIGN.md` [§8.16 RFC subtypes](./DESIGN.md#8-16-rfc-subtypes):
+CyberSkill ships **no external icon library**. It uses its own small **in-repo line-icon set** (from the marketing site, `TASK-DS-010`): each icon is data (a viewBox + primitive paths) rendered through one `<Icon>` component. Style: **line icons, `currentColor` stroke, 1.75 weight, round caps/joins, 24×24 viewBox** — so icons follow the surrounding text token and recolour by setting `color`. Sizes come from `--cs-icon-sm|md|lg` (16/20/24).
 
-| Subtype | Required reviewers | Discussion period |
-|---|---|---|
-| component | Design Lead, Engineering Lead, A11y Lead | 14 days |
-| token | Design Lead, Brand Owner | 14 days |
-| pattern | Design Lead | 14 days |
-| surface | Design Lead, Engineering Lead, vertical owner if applicable | 21 days |
-| vertical-pack | Vertical-pack owner, Design Lead, A11y Lead, GC | 21 days |
-| content | Design Lead, Brand Owner, localisation reviewer | 14 days |
-| tooling | Engineering Lead, DesignOps Lead | 14 days |
-| lifecycle | DesignOps Lead, Engineering Lead | 14 days |
-| accessibility | A11y Lead, Design Lead | 14 days |
-| governance | General Counsel, Founder, Design System Lead | 21 days |
+The set: `close · sun · moon · arrow-right · check · sparkle · chat · sound-on · sound-off`, extended in v2.0 with `search · sliders · upload · download · calendar · user · plus · trash · external · menu` and in v2.13 with `chevron-down/up/left/right · edit · copy · info · alert-triangle` (same grammar, marked as extensions). `sparkle` is the brand's **"wish"** glyph. **No emoji** and no unicode-glyph icons in product UI. The one exception to "line icons" is the **brand mark** (`Logo`) and **Lumi** mascot, which are filled artwork.
 
-RFC template (place at `meta/rfcs/<YYYY-MM-DD>-<slug>.md`):
-
-```markdown
-# RFC: <Title>
-
-- **Subtype:** component | token | pattern | …
-- **Author:** <name>
-- **Status:** draft | discussion | accepted | rejected | withdrawn | superseded
-- **Discussion ends:** <date>
-- **Affected parts:** Part X, Part Y
-- **Affected immutables:** none | <list> (Class C if any)
-
-## Problem
-
-What user/team need is unmet today?
-
-## Proposal
-
-The change. Concrete, scoped, reviewable.
-
-## Alternatives considered
-
-What else was on the table and why not.
-
-## Migration
-
-Codemod path, deprecation runway, downstream impact.
-
-## Open questions
-
-What is unresolved and how it gets answered before acceptance.
-```
+Copied assets live in `assets/`: `logo-mark.svg` / `logo-mark.png` (official master mark, Umber ground + Ochre genie), `favicon.svg`, `aurora-gold.jpg` (warm gold hero wash), `lumi-poster.webp` (the golden-genie mascot). **The logo is the real master file — never recreate, recolour, or approximate it;** for third-party tenants, swap the tenant's own logo.
 
 ---
 
-## 7. Versioning and release cadence
+## Components
 
-We follow **Semantic Versioning 2.0.0**, with the following interpretation:
+**A comprehensive library — 67 exports across 8 groups.** Each has a `.jsx`, a `.d.ts` props contract, a `.prompt.md`, and a Design-System card. Mount from the compiled bundle: `const { Button } = window.CyberSkillDesignSystem_847b3c`.
 
-- **MAJOR** (v2.0.0+) — breaks downstream API compatibility OR touches an anchor immutable.
-- **MINOR** (v1.x.0) — adds new components, tokens, patterns, surfaces, vertical packs, themes, or surface-level features. Backward-compatible.
-- **PATCH** (v1.0.x) — editorial, link, classification, prose, codemod-only fixes.
+- **Core — actions & overlays** — `Button`, `Dialog`
+- **Forms** — `TextField`, `Textarea`, `Select`, `Checkbox`, `RadioGroup` (+ `Radio`), `Switch`, `SearchField`, `NumberField`, `Slider`, `FileUpload`, `SegmentedControl`
+- **Data & layout** — `DataTable`, `Card` (+ `CardHeader`, `CardBody`, `CardFooter`), `Stat`, `Avatar` (+ `AvatarGroup`), `Tooltip`, `Divider`, `List` (+ `ListItem`), `DescriptionList`, `Timeline`, `Accordion`, `Kbd`, `CodeBlock`
+- **Feedback & status** — `Badge`, `Tag`, `Alert`, `Toast` (+ `ToastStack`), `Spinner`, `ProgressBar`, `Skeleton`, `StatusIndicator`, `EmptyState`
+- **Navigation** — `Tabs` (+ `Tab`), `Breadcrumb`, `Pagination`, `Menu` (+ `MenuItem`), `Sidebar` (+ `NavItem`), `Steps`, `CommandPalette`
+- **Overlays** — `Popover`, `Drawer`
+- **AI-native** — `AIDisclosureBadge`, `HumanReviewGate`, `PromptInput`, `ChatMessage`, `ConfidenceMeter`, `PromptSuggestions`, `TypingIndicator`, `CitationList`
+- **Brand** — `Logo`, `Icon`, `LumiAvatar`
 
-| Release type | Cadence | Trigger |
-|---|---|---|
-| PATCH | Continuous | Any merged editorial PR |
-| MINOR | Quarterly target (Q1, Q3) | Bundle of accepted RFCs |
-| MAJOR | At-most every 18 months | Class C change accepted |
+Highlights: **Button** — Umber primary; variants primary/secondary/tertiary/ghost/danger/danger-ghost; sizes xs–lg; loading, icon, fullWidth. **TextField / Textarea / Select** share one `.cs-field` frame (label + description + inline error; diacritic/IME-safe). **DataTable** — caption, scoped headers, per-column render, empty state. **Card** — warm panel + header/body/footer. **Logo** renders the exact official mark; **Icon** drives the in-repo line-icon set. The **AI-native** family carries the brand's explainability doctrine — disclosure, human review, wish capture, and confidence, all stated in words (never colour alone).
 
-Every release ships:
-1. Updated `DESIGN.md`.
-2. New `CHANGELOG.md` entry at the repo root, using the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format.
-3. (Optional, local) Audit-history row appended in `meta/audits/_history.md` if an audit cycle was part of the release.
-4. Git tag `vX.Y.Z` on `main`.
-5. Per-package changelogs (when packages exist) at `packages/<name>/CHANGELOG.md`, generated from Changesets per `DESIGN.md` [§16.5 Version comms](./DESIGN.md#16-5-version-comms).
+**Source inventory vs. extensions.** `@cyberskill/react` ships six primitives — `Button`, `TextField`, `Dialog`, `DataTable`, `AIDisclosureBadge`, `HumanReviewGate` — plus `Logo` (`@cyberskill/brand-assets`). Everything else is an **intentional extension** built in the brand's own token vocabulary so consumers have a complete working kit: `Icon` (the marketing site's real in-repo line-icon set), the standard Forms / Feedback / Data / Navigation / Overlays primitives (search, stepper, slider, file upload, list, description list, timeline, accordion, kbd, code block, sidebar, steps, command palette, popover, drawer, and more), added AI-native pieces (`PromptInput`, `ChatMessage`, `ConfidenceMeter`, `PromptSuggestions`, `TypingIndicator`, `CitationList`) that formalise the Lumi wish-flow, and the `LumiAvatar` mascot. None invent new visual language — they reuse the anchors, surfaces, type, and motion already defined.
 
 ---
 
-## 8. Editing `DESIGN.md`
+## Templates
 
-`DESIGN.md` is the single source of truth — edit it directly. There is no build step.
+Copyable starting points for consuming projects (the **Templates** picker — these replace the old per-component "starting points"). Each lives in `templates/<slug>/` as a Design Component that loads this system via a sibling `ds-base.js`.
 
-### 8.1 Editing rules
+- **Marketing page** (`templates/marketing-page/`) — bilingual landing: umber hero with a `PromptInput` wish box, service cards, process band, Lumi chat launcher.
+- **Dashboard** (`templates/dashboard/`) — Status-Hub-style portfolio: KPI `Stat`s, `Tabs` board/table lenses, status cards with `ProgressBar` + `Badge`, and a `DataTable`.
+- **Slide deck** (`templates/slide-deck/`) — 16:9 brand deck: umber title + closing, ochre accents, light content layouts.
+- **Sign in** (`templates/auth/`) — split auth: umber brand panel + form (`TextField`, `Switch`, `Button`).
+- **Settings** (`templates/settings/`) — `Tabs`, form fields, switches, and a danger zone.
+- **App shell** (`templates/app-shell/`) — `Sidebar` nav, topbar with `SearchField`, KPI `Stat`s, and a `DataTable`.
+- **Article** (`templates/article/`) — long-form post: title, author meta, prose, `Alert` callout, `CodeBlock`.
+- **Email** (`templates/email/`) — centred 600px announcement: umber header, ochre CTA, footer.
 
-1. Open `DESIGN.md` at the repo root.
-2. Make your change in the relevant `## Part X — …` section.
-3. Preserve the front matter, the table of contents, and every `## Part X` H2 heading — these are anchor targets and are referenced from elsewhere.
-4. Preserve anchor immutables (§3 of this README). They cannot be changed without a Class C / v2.0.0 RFC.
-5. After every edit, run the verification snippet in §8.2.
-6. Append a row to `CHANGELOG.md`.
+Every template exposes the **Element (Ngũ Hành)** tweak (15 variants) and the **Expression** tweak (7 treatments) plus a behavior toggle; screen templates also carry theme light/dark, and the letter-print business docs are **light-only** (no theme tweak — print doctrine).
 
-### 8.2 Verification
+### Team artifact templates
 
-After every edit, confirm `DESIGN.md` is still well-formed:
+Branded documents, emails, reports, and decks per department — each a copyable `.dc.html` composing the design-system components. Groups now cover **Tech, Team, HR, Board, Marketing, Culture, Delivery, Legal, Finance, Sales** — the full operations map (coverage research, Jul 2026). Counsel-gated drafts (PIP, board resolution, VN employment contract) ship **banner-marked**: legal/HR review is mandatory before real use.
 
-```bash
-# Exactly one H1 (the doc title).
-grep -cE '^# ' DESIGN.md         # → 1
+- **Tech** — `tech-release-notes` (release email), `tech-incident-report` (blameless postmortem: timeline + action table), `tech-rfc` (design doc: proposal, trade-offs, rollout).
+- **Team** — `team-meeting-agenda` (time-boxed items, owners, decisions log, ground rules).
+- **HR** — `hr-announcement` (team-news email). *(The offer letter, onboarding checklist, and job description now live in the lawyer-validated Employment Suite below as `vn-offer-letter`, `vn-onboarding-checklist`, and `vn-job-description`.)*
+- **Board** — `bod-report` (quarterly review: KPI stats, portfolio table, risks, AI-assisted disclosure), `bod-deck` (16:9 board deck — stacked slides, PDF/PPTX-exportable), `bod-memo` (one-page exec memo with a single ask).
+- **Marketing** — `marketing-campaign-brief` (objective, audience, channels, metrics), `marketing-newsletter` (“The Lamp” issue email), `marketing-launch` (product launch announcement), `marketing-case-study` (result hero, proof stats, quote — print-ready), `marketing-press-release` (dateline, boilerplate, media contact — print-ready).
 
-# All TOC anchors resolve.
-python3 - <<'PY'
-import re, pathlib, unicodedata
-s = pathlib.Path("DESIGN.md").read_text(encoding="utf-8")
-def slug(t):
-    out=[]
-    for c in t.strip().lower():
-        cat = unicodedata.category(c)
-        if cat.startswith(("L","N")) or c in (" ","-","_"): out.append(c)
-    s2 = re.sub(r"\s+","-","".join(out)); s2 = re.sub(r"-+","-",s2)
-    return "#" + s2.strip("-")
-toc = re.findall(r"\]\((#[^)]+)\)", s.split("---", 2)[2].split("---", 1)[0])
-present = {slug(m.group(1)) for m in re.finditer(r"^## (.+)$", s, re.M)}
-missing = [a for a in toc if a not in present]
-print(f"TOC entries: {len(toc)}; missing anchors: {len(missing)}")
-for m in missing: print("  missing:", m)
-PY
-```
+### Business, legal & sales templates
 
----
+Print-ready letter documents and client decks — the paperwork a studio actually sends. Legal and finance docs are Letter-sized with an `@page` + `@media print` block, so **File → Print / Save as PDF** paginates cleanly with 0.6in margins; on screen they render as a warm sheet on a desk.
 
-## 9. Auditing the system
+- **Legal** — `legal-msa` (master services agreement — the umbrella SOWs hang off: definitions, IP, fees, liability, term), `legal-sow` (statement of work: deliverables & milestone tables, fees, acceptance, sign-off). *(The standalone mutual NDA now lives in the Employment Suite as the lawyer-validated `vn-mutual-nda`.)*
+- **Finance** — `finance-invoice` (bill-to/from, line items in đồng, VAT, total, bank details), `finance-quote` (scoped estimate with optional add-on, valid-until, accept CTA).
+- **Sales** — `sales-one-pager` (leave-behind: umber hero, services, proof stats, the wish process, contact CTA), `sales-proposal-deck` (8-slide 16:9 client proposal — the wish, understanding, approach, scope, timeline, team, investment, next steps).
 
-The system is audited using the open-source **CyberSkill Design System Audit Framework** — a vendor-neutral framework with 125 criteria across 20 categories.
+**Bilingual — full coverage.** Every one of the 84 templates is bilingual. The 37 `vn-*` HR-suite instruments and the three `doc-*` references are Vietnamese-first with English stacked beneath (Ink/Slate). Every other template carries a **Language** tweak (*English · Tiếng Việt*) that swaps the entire body between the two; several emails (`email`, `marketing-launch`, `tech-release-notes`, `delivery-status-email`, `finance-dunning-email`) add a *Both* mode that stacks them. Legal and finance docs (MSA, SOW, invoice, quote) print their Vietnamese side as an **unreviewed draft** behind a warning banner stating the English governs — have counsel review before real use. As of v2.6.0 the last English-only holdouts — board & comms (`bod-report`, `bod-deck`, `bod-investor-update`, `bod-resolution`) and the client decks/docs (`sales-proposal-deck`, `tech-rfc`, `delivery-kickoff`, `delivery-qbr-deck`) — carry the tweak too.
 
-### 9.1 Where the framework lives
+### Reference documents (govern EVERY template)
 
-| What | Where |
+Three suite-wide reference documents define and catalogue the whole template library — legal, HR, finance, sales, client-facing paperwork, and EN-first communications alike. They live in `templates/doc-*/` and print as A4 bilingual documents themselves:
+
+- **Documents · Style Guide** (`templates/doc-style-guide/`) — the presentation standard: palette, type ramp, bilingual Ink/Slate rule, tables, fill-ins, tick-boxes, signing blocks, data hygiene, header/footer (Articles 1–10, verbatim from the lawyer-validated original), plus **Article 11 — scope & archetypes**, mapping the A4 rules onto Letter-print, email, product-screen, deck and social archetypes.
+- **Documents · Suite Index & Usage Guide** (`templates/doc-suite-index/`) — Part I catalogues every template by group (HR suite, legal, finance, sales, product, comms); Part II is the usage guide (employment lifecycle, which documents carry disciplinary force, the eight house presentation rules, and the 8-step “add a new template” workflow).
+- **Documents · Templates** (`templates/doc-templates/`) — Part A is the blank A4 bilingual shell (header, title block, sample clause, Party A pre-filled / Party B blank, signing block); Part B is the archetype map (A4 · Letter print · email · product screen · deck · social) with an example per family.
+
+### HR & Employment Suite (lawyer-validated)
+
+Thirty-seven **counsel-validated** bilingual instruments supplied by the client (built on an earlier version of the system) were **converted one-by-one into templates, content preserved verbatim**, and re-skinned to the latest design system. They live under the **HR Suite** group (`templates/vn-*/`) and follow the house standard set out in the reference documents above: **A4, Vietnamese-first bilingual** (Ink `#1A1614` VN over Slate `#3F4C55` italic EN pairs), state-motto header, umber table title bars, yellow fill-in blanks, PDPL data-hygiene (Party B always blank), and signing blocks that never split. Every one carries the Element (15) + Expression (7) tweaks like all templates; none carries a language tweak (they are inherently bilingual). Because these are validated instruments, **`vn-labor-contract` supersedes the earlier fictional `legal-employment-contract`**, and `vn-mutual-nda` / `vn-offer-letter` / `vn-onboarding-checklist` / `vn-job-description` supersede the fictional `legal-nda` / `hr-offer-letter` / `hr-onboarding` / `hr-job-description` (all removed); the remaining fictional templates are EN-first comms (announcements, newsletters, press releases) and client-facing sales/finance paperwork — a different purpose, so they stay.
+- **Core employment** — `vn-labor-contract`, `vn-probation-contract`, `vn-offer-letter`, `vn-ndnca-ip` (bảo mật · không cạnh tranh · SHTT), `vn-appointment-transfer`, `vn-contract-amendment`, `vn-termination-decision`, `vn-exit-handover` (with settlement + handover schedules).
+- **Compensation & rewards** — `vn-total-rewards-appendix`, `vn-phantom-stock`, `vn-salary-scale`, `vn-compensation-regulation`.
+- **Policies & regulations** — `vn-internal-labor-regulations`, `vn-disciplinary-schedule`, `vn-performance-evaluation-regulation`, `vn-grassroots-democracy`, `vn-code-of-conduct`, `vn-infosec-policy`, `vn-data-protection-policy`, `vn-remote-work-policy`, `vn-travel-expense-policy`.
+- **Hiring & records** — `vn-job-description`, `vn-onboarding-checklist`, `vn-receipt-acknowledgement`, `vn-labour-management-book`, `vn-foreign-employee-pack`, `vn-pdpl-consent`.
+- **Performance & requests** — `vn-performance-review-form`, `vn-employee-request` (leave · overtime consent · other).
+- **Outside relationships** — `vn-internship-agreement`, `vn-contractor-agreement`, `vn-sow-appendix`, `vn-mutual-nda`.
+- **Discipline & exit** — `vn-disciplinary-case-file` (4-part A→D), `vn-resignation-letter`, `vn-certificate-of-employment` (deliberately neutral), `vn-training-commitment`.
+
+These are the client's validated legal text; keep the content as-is and have counsel review any edits before real use. Source extractions are retained at `docs-src/` for provenance.
+
+### Component coverage map
+
+How the templates exercise the component library — every group is covered by at least one starting point:
+
+| Component group | Exercised by templates |
 |---|---|
-| Framework rules (modes, actors, scoring, no-downgrade rule) | [`02-framework.md`](https://github.com/cyberskill-official/design-system-audit-framework/blob/main/docs/02-framework.md) |
-| 125 criteria — Part A (system, 63 criteria) | [`03-criteria-part-a.md`](https://github.com/cyberskill-official/design-system-audit-framework/blob/main/docs/03-criteria-part-a.md) |
-| 125 criteria — Part B (UX, 62 criteria) | [`04-criteria-part-b.md`](https://github.com/cyberskill-official/design-system-audit-framework/blob/main/docs/04-criteria-part-b.md) |
-| Step-by-step playbook | [`05-running-an-audit.md`](https://github.com/cyberskill-official/design-system-audit-framework/blob/main/docs/05-running-an-audit.md) |
-| LLM prompt pack (SCAN, FIX, research, plan) | [`prompts/`](https://github.com/cyberskill-official/design-system-audit-framework/tree/main/prompts) |
-| Audit report template | [`templates/audit-report-template.md`](https://github.com/cyberskill-official/design-system-audit-framework/blob/main/templates/audit-report-template.md) |
+| **Core** (Button, Dialog) | marketing-page · auth · settings · sales-one-pager · finance-quote |
+| **Forms** (TextField, Select, Switch, SearchField…) | auth · settings · app-shell |
+| **Data & layout** (Stat, DataTable, Card, Avatar, Divider) | dashboard · app-shell · bod-report · sales-proposal-deck · hr-announcement |
+| **Feedback & status** (Badge, Alert, ProgressBar) | dashboard · bod-report · bod-memo |
+| **Navigation** (Tabs, Sidebar, NavItem) | dashboard · app-shell · settings |
+| **AI-native** (AIDisclosureBadge, PromptInput) | marketing-page · bod-report |
+| **Brand** (Logo, Icon, LumiAvatar) | every template |
 
-### 9.2 Where audit outputs live
+Raw markup (numbered clauses, invoice tables, milestone rows) in the legal/finance/HR-suite docs is composed from tokens + `.cs-*` type utilities rather than components, by design — these are documents, not app UI. Their frame is defined by the three reference documents (Style Guide · Suite Index & Usage Guide · Templates), not the component library.
 
-Audit outputs are **local-only and gitignored** (see §2). They land under `meta/audits/` when an audit runs, and they're regenerable by re-running the framework — so they never need to ship.
+### Archetype coverage map
 
-When an audit cycle runs, expect these files in `meta/audits/`:
+Every template resolves to one of six archetypes, framed by `templates/doc-templates`:
 
-- `audit-report-<YYYY-MM-DD>.md` — full SCAN/FIX report following the framework template.
-- `_history.md` — append-only register row per signed audit.
-- `improvement-plan.md` — open / deferred findings, with target audit dates.
-- `research-<YYYY-MM-DD>-<topic>.md` — sister research artefacts when a cycle does deep research.
-
-**The canonical record of what changed lands in `CHANGELOG.md`** at the repo root. Audit-cycle highlights — score deltas, tier transitions, findings closed, standards adopted — are summarised in each release entry. If you need the underlying evidence trail, re-run the audit locally; the framework reproduces it from `DESIGN.md` deterministically.
-
-### 9.3 How to run an audit on this system
-
-**Quick path — deterministic engine (wired into CI):**
-
-```bash
-git clone https://github.com/cyberskill-official/design-system-audit-framework ../design-system-audit-framework
-npm run audit             # scores the repo (three-band evidence model), gates vs docs/audit-baseline.json
-npm run audit:baseline    # promote the fresh scores to the committed baseline (signed acceptance)
-```
-
-The engine scores prose mentions (max 40), structural artifacts (max 40) and verification signals (max 20) per criterion, computes the category roll-up + enterprise floors, and emits `meta/audits/<date>/scores.json`. The committed baseline `docs/audit-baseline.json` arms the **no-silent-regression gate**: CI fails when any criterion drops without a baseline update in the same, reviewed commit. Engine scores are heuristic evidence scans — the publicly citable level stays capped at L3 without third-party verification, and MANUAL criteria cap at 60/100 until dated human evidence is attached. Target-side tuning lives in `dsaf.config.json`.
-
-**Deep path — LLM SCAN/FIX cycle (quarterly):**
-
-1. Clone the framework as a sibling: `git clone https://github.com/cyberskill-official/design-system-audit-framework.git`.
-2. Run the scaffolder: `node ../design-system-audit-framework/scripts/audit-init.mjs .`.
-3. Open `prompts/scan-mode.md` from the framework, paste it into Claude / Cursor / Copilot, point at this system's `DESIGN.md` (and `tokens/` if present).
-4. After the scaffolder creates `_audit/`, move it to `meta/audits/`.
-5. Review the draft audit at §4 and approve / defer findings.
-6. Paste `prompts/fix-mode.md` to apply approved fixes.
-7. Sign §9 and append a row to `meta/audits/_history.md`.
-
-### 9.4 What the audit checks against
-
-The framework is system-agnostic; the bits below are CyberSkill-specific and override framework defaults where they conflict:
-
-- **Slogan:** *Hiện Thực Hoá Ý Chí* / *Turn Your Will Into Real*. Immutable per §3.
-- **Primary brand colour:** Umber. Secondary / accent: Ochre.
-- **Vietnamese-first commitment:** every UI string ships a VN counterpart or an explicit deferral note.
-- **Voice axes:** warm · direct · honest · respectful.
-
-Any agent operating against this design system **must refuse** to modify these.
-
----
-
-## 10. Operating cadence
-
-| Cadence | Activity | Reference |
+| Archetype | Frame | Templates |
 |---|---|---|
-| Continuous | Editorial PRs (Class A) | §5.1 |
-| Monthly | DesignOps dashboard review (adoption KPIs, deprecation lag, drift index) | `DESIGN.md` [§10.1 Adoption KPIs](./DESIGN.md#10-1-adoption-kpis) + [§10.9 Dashboards](./DESIGN.md#10-9-dashboards) |
-| Quarterly (Q1, Q3) | DYNAMIC criterion re-score | Framework §10 |
-| Quarterly | Per-part chair-owner review | `DESIGN.md` [Master Index](./DESIGN.md#master-index) — Ownership & cadence table |
-| Quarterly | Minor release window — bundle accepted RFCs | §7 |
-| Annually | Full Mode S audit with human Co-Auditor calibration | Per audit framework — `prompts/scan-mode.md` then `prompts/fix-mode.md` |
-| Per release | Append row to `CHANGELOG.md`; doc-freshness check | §8 |
-| Ad-hoc | Vertical-pack reviews | `DESIGN.md` [Part 19 — Industry Vertical Packs](./DESIGN.md#part-19-industry-vertical-packs) |
+| **A4 bilingual instrument** | State-motto header · Articles · Party A/B tables · signing block; Style-Guide 1–10 in full | the 37 `vn-*` HR-suite instruments |
+| **Letter print doc** | Letter, 0.6in margins, desk + sheet, clean Print/PDF | `finance-invoice` · `finance-quote` · `finance-expense-report` · `legal-msa` · `legal-sow` · `sales-one-pager` · `bod-*` docs |
+| **Email (600px)** | Centred body, system header/CTA, no motto/signing; bilingual via Language tweak | `email` · `hr-announcement` · `marketing-newsletter` · `tech-release-notes` · `delivery-status-email` · `finance-dunning-email` |
+| **Product screen** | Components + tokens; Theme × Element × Expression; no print geometry | `marketing-page` · `dashboard` · `app-shell` · `auth` · `settings` · `article` |
+| **Deck (16:9)** | Stacked 16:9 slides, umber cover, element accent, bilingual via Language tweak, PDF/PPTX | `slide-deck` · `bod-deck` · `sales-proposal-deck` · `delivery-qbr-deck` |
+| **Social image** | Fixed per-channel size (1080² · 1200×630 · 1080×1920) | `marketing-social-kit` |
 
 ---
 
-## 11. Roles and ownership
-
-| Role / seat | Owns | Approves |
-|---|---|---|
-| Founder | The system overall; anchor immutables (refusal authority) | Class C / v2.0.0 changes |
-| Design System Lead | Master index, audit framework, glossary; cross-part coordination | Editorial; any RFC affecting more than one part |
-| Brand Owner | Parts 1, 11, 13, 14 (with Design Lead) | Token / brand RFCs |
-| Design Lead | Parts 2, 3, 12, 20; Parts 4, 18 (with Engineering Lead) | Component / pattern / surface RFCs |
-| Engineering Lead | Parts 7, 15, 17 | Tooling / lifecycle / engineering RFCs |
-| Accessibility Lead | Part 5 | Accessibility RFCs (mandatory reviewer for all RFCs) |
-| AI / Ethics Lead | Parts 6, 9 | AI / ethics / sustainability RFCs |
-| General Counsel | Part 8 (with Design Lead) | Governance / legal / commerce RFCs |
-| Research Lead | Part 10 | Research methodology, telemetry schema |
-| DesignOps Lead | Part 16 | Adoption playbook, deprecation comms |
-| Vertical-pack owner | Part 19 (per pack) | Pack RFCs, pack pricing |
-
-At our current size of ten employees, multiple chair seats may be held by the same human; the seat persists when the human changes.
-
----
-
-## 12. Working with AI agents
-
-This system is MCP-native and AGENTS.md-aware. Every agent (Claude Code, Cursor, Windsurf, Copilot, custom MCP clients) follows the same contract.
-
-### 12.1 What an agent must do
-
-- **Read `DESIGN.md` before any change**, scoped to the part being modified plus its cross-references.
-- **Refuse to modify the anchor immutables** (§3). If asked, escalate to the user.
-- **Use the RFC process** for any substantive change (§6).
-- **Surface audit-relevant changes in `CHANGELOG.md`** so the next audit cycle picks them up. `meta/audits/` is local and regenerable; never the canonical record.
-- **Honour the BRAIN protocol** — see `AGENTS.md` for the memory-store rules at `.cyberos-memory/`.
-
-### 12.2 What an agent must not do
-
-- Alter slogan, anchor colours, voice axes, or the Vietnamese-first commitment without an explicit Class C RFC.
-- Skip accessibility review on a component change.
-- Promote a component out of `alpha` / `beta` without the lifecycle gate (`DESIGN.md` [§17.3 Promotion gates](./DESIGN.md#17-3-promotion-gates)).
-- Auto-resolve an RFC discussion by acclamation; the discussion period is a hard floor.
-
-### 12.3 Suggested per-agent prompt
+## Index / manifest
 
 ```
-You are working in the CyberSkill design system repository. Read README.md first
-(start with the Current state snapshot at top), then DESIGN.md for the doctrine.
-Anchor immutables (slogan, Umber, Ochre, voice axes, Vietnamese-first, APCA Lc ≥ 75
-floor) are non-negotiable — refuse any request to change them. For substantive
-changes, write an RFC under meta/rfcs/ following the template in §6 of README.md.
-The current audit tier is L3 (combined 80.3%); the no-downgrade rule is hard.
-Liquid Glass (Part 21) is the default surface treatment as of v1.1.0,
-implemented in code in v1.3.0 — use .cs-surface-* classes (opt-in, after the
-§21.8 contrast check) for structural/transient surfaces; dense content stays
-solid. glass.css ships in @cyberskill/react.
+styles.css                 ← single entry point (@import manifest only) · VERSION 2.4.0
+tokens/                    fonts · colors · typography · spacing · elevation · motion · component-tokens · elements (Ngũ Hành packs) · expressions (treatment packs)
+base/                      reset · typography · components · forms · feedback · data · navigation · ai · controls · collections · shell · glass · interaction
+components/                button · textfield · dialog · datatable · forms · feedback · data · navigation · overlays · ai · logo · icon · brand
+                           (each Name: Name.jsx + Name.d.ts + Name.prompt.md; one *.card.html per group)
+guidelines/                specimen cards (Colors · Type · Spacing · Surfaces · Brand incl. Iconography · Motion incl. Interaction · Elements ×3 · Expressions · Responsive & Bilingual)
+templates/                 marketing-page · dashboard · slide-deck · auth · settings · app-shell · article · email (copyable .dc.html)
+                           + team artifacts — tech (release/incident/rfc) · team (meeting-agenda) · hr (announcement) · board (report/deck/memo) · marketing (brief/newsletter/launch/case-study/press-release)
+                           + business — legal (nda/msa/sow) · finance (invoice/quote) · sales (one-pager/proposal-deck) — letter print docs + client deck
+                           + Documents (reference, govern all templates) — doc-style-guide · doc-suite-index (index & usage) · doc-templates (archetypes)
+                           + HR Suite — 37 lawyer-validated bilingual A4 instruments (vn-*); content verbatim, latest-DS skin
+ui_kits/status-hub/        Status Hub recreation (index · login · settings · project · identity-lab + status.css · data.js · StatusHub.jsx)
+ui_kits/website/           cyberskill.world recreation (index · work · careers · chat + site.css · copy.js · Website.jsx)
+ui_kits/deck/              brand deck on deck-stage (index.html; deck-stage runtime lives in templates/_vendor/, outside the compiled bundle; export PPTX/PDF on demand)
+assets/                    logo-mark.svg/png · favicon.svg · aurora-gold.jpg + aurora-{hoa,thuy,moc,kim}.png · lumi-poster.webp
+docs/                      conventions (incl. decision log) · products registry · contrast report
+fonts/                     self-hosted Be Vietnam Pro + JetBrains Mono woff2 (latin · latin-ext · vietnamese)
+thumbnail.html             project tile
+SKILL.md                   Agent-Skills-compatible entry
 ```
 
----
+**UI kits** (product recreations, composing the tokens + `.cs-*` classes): **Status Hub** (portfolio dashboard — KPIs, board/table/releases lenses, drawer — plus **sign-in**, **settings**, **project detail**, and the **Identity Lab** for live Theme × Element × Expression switching), **cyberskill.world** (bilingual marketing home with Lumi chat — plus **Work**, **Careers**, and a full-page **Lumi assistant**), and a **Brand deck** (16:9, `deck-stage`, PDF/PPTX-ready). See each kit's `README.md`.
 
-## 13. Anti-patterns to refuse
-
-If any of the following come up in an RFC, a PR, or an agent suggestion, refuse and explain why.
-
-| Anti-pattern | Why we refuse |
-|---|---|
-| "Let's switch the brand colour to something more on-trend" | Anchor immutable; every product depends on Umber/Ochre identity |
-| "Drop Vietnamese for v2; we're going English-only globally" | Anchor immutable; the Vietnamese-first commitment IS the brand |
-| "Make voice 'fun' / 'playful' / 'edgy'" | Voice is a 4-axis chord, not a slider; off-brand |
-| "Skip the RFC — it's a small change" | RFC discussion period is a hard floor, not a courtesy |
-| "Use Material 3 / Polaris / Carbon as a base" | We compose with primitives, not foundations; this is in the doctrine for a reason |
-| "Bypass accessibility because we'll fix it later" | A11y is the floor, not a feature; refuse to ship below it |
-| "Hardcode `#45210E` everywhere" | Use `cs-color-brand-umber` token; no magic colours |
-| "Disable the audit framework for this release" | Audit frequency is a hard contract; never optional |
+**Design System tab** renders every card: Components (67 exports — Core, Forms, Data, Feedback, Navigation, Overlays, AI-native, Brand), Colors, Type, Spacing, Surfaces, Brand, Motion, Responsive & Bilingual, **Elements**, **Expressions**, plus the Status Hub (incl. Identity Lab), Website, and Deck surfaces.
 
 ---
 
+## Changelog
 
-Version history is in [`CHANGELOG.md`](./CHANGELOG.md).
+> Full version history: [`CHANGELOG.md`](./CHANGELOG.md). Recent releases below.
 
----
+- **2.16.1** (Jul 2026) — **Maintenance: count reconciliation + consumer-path health re-proof.** Corrected a stale Templates count in the README Quick-start (85→84, the compiler's true count); re-ran `_audit/consumer-smoke-test.html` on the *freshly-compiled* bundle — **PASS** (68 namespace exports · tokens resolve · 11 key components mount · umber `Button` inherits the brand token). Reconciled the 67-vs-68 export denominator: 3 internal data constants (`CS_ICONS`, `CS_LOGO_*`) sit beside the 67 `.d.ts`-paired components — not a registration gap. Added `_audit/docs-consistency.html` — an automated guardrail asserting every count/version claim in the live docs matches the compiler's manifest (caught + fixed a stale `llms.txt` component-file count).
+- **2.16.0** (Jul 2026) — **Optional-set completion (O1–O3).** Built the remaining send-path email-safe copy-swaps (`email-launch/status/announcement/investor` — bilingual, table-based, leak-scanned clean); the playground element picker now covers all 15 Ngũ Hành variants; added `docs/consuming.md` (how an external project adopts the system — static stylesheet vs. compiled bundle vs. templates — and upgrades safely).
+- **2.15.0** (Jul 2026) — **Consumer proof, playground & imagery finish (S1–S3).** Added a consumer smoke test (`_audit/consumer-smoke-test.html`, PASS — imports the packaged bundle + styles the way an external project would); finished the social-kit slots (link + story); added `templates/playground.html` (live Theme × Element × Expression switcher).
+- **2.14.0** (Jul 2026) — **Image-slot retrofits (R1–R4).** Applied the real-imagery pattern to `marketing-page`, `marketing-social-kit` (square), and `culture-event-invite` heroes — source-ordered `<image-slot>` behind aurora + warm scrim, verified. `article` skipped (text-first layout).
+- **2.13.0** (Jul 2026) — **Consumer polish & completeness (K1–K6).** Finished the email-safe set (newsletter + dunning structures); retrofitted `<image-slot>` into `marketing-case-study` (+ documented pattern); split history into `CHANGELOG.md`; added `CONTRIBUTING.md`; extended the icon set 19→27 (chevrons, edit, copy, info, alert-triangle); confirmed RTL-readiness (logical properties, verified at `dir="rtl"`).
+- **2.12.0** (Jul 2026) — **Dev-consumer & imagery polish (M1–M5).** (M1) Generated machine-readable token exports — `tokens/tokens.json` + `tokens/tokens.js` (ESM), root grouped by 16 categories plus theme/element/expression override maps (134 root · dark/system 22 · 15 elements · 6 expressions); regenerate from `tokens/*.css`. (M2) Added `templates/email-safe/` — a send-ready, table-based, fully-inlined bilingual email (bulletproof CTA, Outlook conditionals, preheader, email-safe fonts, dark-mode-safe brand colors) as the canonical pattern for the DC emails, which use client-stripped modern CSS. (M3) Rebuilt the Motion specimen card with **live** animating easing tracks + duration chips (was a static value table). (M4) Added the `<image-slot>` mechanism + `templates/image-slots-demo.html` showing the layout-safe real-imagery pattern (full-bleed hero with warm scrim, avatars, card images). (M5) Added `templates/kitchen-sink.html` — the whole component library in one scroll for fast cross-component review.
+- **2.11.0** (Jul 2026) — **Follow-up polish (N1–N6).** (N1) Closed the last bilingual-`lang` gap: wrapped every `sc-if isVN` block in the 24 dual-block templates with a layout-neutral `<div lang="vi" style="display:contents">`, so VN is pronounced correctly even in *Both* mode. (N2) Added a token-contract test — static (element role-token completeness + no undefined `var()` in tokens/base) and runtime (`_audit/token-contract.html`); both pass. (N3) Verified print-CSS is identical across all 61 docs and triggered a real A4 PDF export for visual pagination confirmation. (N5) Added `[data-theme="dark"]` shadow overrides (near-black) so elevation reads on dark surfaces — the umber-tinted light shadows vanished there. (N6) Added `_audit/index.html`, a launcher for the whole verification suite. (N4) Seeded `_audit/baselines/` with product/document/deck reference captures for visual regression.
+- **2.10.3** (Jul 2026) — **Dual-block *Both*-mode language marking (N1).** Wrapped every `sc-if isVN` block in the 24 dual-block templates with a layout-neutral `<div lang="vi" style="display:contents">`, so VN text is pronounced correctly even in **Both** mode (where the root carries the primary `en`). Verified: email in Both mode renders both languages with the VN block under `lang="vi"` and no layout shift. Closes the last documented bilingual-`lang` gap — pronunciation is now correct in every language mode.
+- **2.10.2** (Jul 2026) — **Bilingual `lang` rollout completed + P6 fix confirmed.** Extended screen-reader language marking from the 37 `vn-*` instruments to **all 44 tweakable bilingual templates** — each root now binds `lang="{{ langAttr }}"` to the Language tweak (injected into `renderVals`; 23 swap + 21 dual-block), so switching to Tiếng Việt marks the document `lang="vi"` (verified: email resolves `vi` in VN mode). Every bilingual template now carries a root `lang`. Also re-ran `_audit/component-children-test.html` against the freshly-compiled bundle: all 8 hardened void-element components mount cleanly with stray children (`anyThrew: false`) — the P6 fix is confirmed at runtime. Remaining nuance: dual-block **Both** mode marks the root primary (`en`) with VN blocks unmarked (per-block `lang="vi"` is the documented refinement).
+- **2.10.1** (Jul 2026) — **Docs & tooling (Phase 7).** Verified every one of the 55 components ships a `.prompt.md` (complete AI-consumer coverage). Formalized `_audit/` as a named regression suite in `_audit/README.md` (responsive · vn-overflow · a11y · component-children harnesses + exports), and cleaned stray captures. Synced `SKILL.md` — added an **Exporting** section (PPTX/PDF/standalone paths), refreshed the a11y hard-rule (coarse-pointer 44px, reduced-motion, prefers-contrast, dark AA) and the guidelines groups. Contribution/expansion process is the Expansion rule + the `docs/conventions.md` decision log (no separate file needed).
+- **2.10.0** (Jul 2026) — **Component gaps & API consistency (Phase 6).** Audited the 55-component / 67-export set — coverage is complete (all common primitives present: Tooltip, Popover, Alert, Badge, Tag, EmptyState, ProgressBar, Skeleton, Spinner, Card, Avatar, Accordion, CommandPalette, Sidebar, Steps, …); DatePicker/Combobox are deliberately out of scope for a base DS. Hardened the whole void-element family against the React #137 footgun that hit `settings`: TextField, Checkbox, Radio, Switch, SearchField, NumberField, Slider, and Divider now destructure `children` out of `...props` so a stray child can never spread onto an `<input>`/`<hr>`. State coverage is supported across the set (Button loading/disabled, fields error/disabled/readOnly, plus EmptyState/Skeleton/Spinner/ProgressBar). Retained `_audit/component-children-test.html` to re-confirm against each fresh bundle.
+- **2.9.2** (Jul 2026) — **Responsive completeness verification (Phase 5).** Deep-checked print + ultrawide, no changes needed. Print is clean by construction: a whole-project scan found the only bare `@media (max-width)` queries are `.cs-dialog` (640px, below A4/Letter print width so never fires on paper; dialogs aren't printed) and exempt UI-kit/vendor pages — every responsive collapse rule in `responsive.css`/`a11y.css` is `@media screen`, so no screen reflow reaches print. Confirmed every content template caps its width (emails 600–640px · docs 760–820px · article 720px · decks/social/dashboard 1280px), so nothing stretches at ultrawide; app-shell is intentionally full-width. Inline-grid collapse is handled globally by `responsive.css §7`.
+- **2.9.1** (Jul 2026) — **Typography & locale verification (Phase 4).** Deep-checked the Vietnamese type foundations — no code changes needed, all sound: both self-hosted fonts ship a full `vietnamese` subset for every weight; line-heights are VN-safe (`:where(h*)`=1.35 + balanced wrap, `.cs-display`=1.15); and a scan confirmed English-format dates appear only in English branches while VN branches use VN formats (`DD/MM/YYYY`, `₫` suffix, dot-thousands). Codified the VN typography + locale conventions in `docs/conventions.md`.
+- **2.9.0** (Jul 2026) — **Contrast & theming (Phase 3).** Audited every dark-theme text/surface pairing (all pass WCAG AA body, 9–15:1) and confirmed the 15 elemental packs still pass APCA Lc ≥ 60 (unchanged). Verified dark completeness: core dark already remaps the primary button to Ochre and warms the field border, so no dark control is low-contrast. Added a high-contrast accommodation — `@media (prefers-contrast: more)` strengthens the soft hairline border + muted text on request. Documented the new dark-semantic pairings in `docs/contrast-report.md`.
+- **2.8.0** (Jul 2026) — **Accessibility hardening (Phase 2).** Added `base/a11y.css`: 44px touch targets on `@media (pointer: coarse)` for every interactive control (tabs, pagination, menu items, stepper, checkbox/radio, segmented) while keeping desktop mouse density, plus a global `prefers-reduced-motion` safety net. Fixed a real focus-ring regression — `.cs-menu__item` set `outline:none` on `:focus-visible` (keyboard users got no ring); now a 3px inset ochre ring. Marked the 37 Vietnamese instruments `lang="vi"` for correct screen-reader pronunciation (bilingual `lang` convention documented). Fixed a real **dark-theme contrast defect** found by a full pairing audit: the semantic colours had no dark overrides and failed on dark surfaces (~2.5:1); added dark-safe `success/danger/warning/info` (now 6–10:1). Verified component ARIA is already complete across all interactive components. Audit harness: `_audit/a11y-harness.html`.
+- **2.7.0** (Jul 2026) — **Export & handoff fidelity (Phase 1).** Proved and hardened every export path, all preserving Vietnamese. (1) **All 61 document templates are now one-click PDF-exportable** — added `<meta name="omelette-owns-print">` to each doc's raw `<head>` so the browser print engine paginates them at A4/Letter (the export dialog now accepts them directly; no rebuild). (2) **All 4 decks export to editable PPTX in VN** — verified by unzipping the slide XML: VN diacritics survive as native text runs (26–69 runs/deck, zero empty, only the Logo is an image). (3) **Standalone offline-HTML path proven** for DCs — the dynamic `ds-base.js` loader is invisible to the bundler, so the pattern is a same-folder `*-standalone.html` copy with static `<link>`/`<script>` resource tags; shipped a VN email bundle (fonts inlined, faithful offline). (4) Documented the **export-path matrix + font-embedding policy** in `docs/conventions.md`. Artifacts in `_audit/exports/`.
+- **2.6.2** (Jul 2026) — **Deep-verification pass (found real bugs).** A complete VN render audit forced every one of the 44 toggle-able templates into Tiếng Việt (via `__dcSetProps`) and measured clipping/overflow — **0 offenders**, diacritics clean at display and body sizes. It caught a genuine crash: `settings` passed a `TextField` value as **children**, which the component spreads onto its `<input>` (a void element) → **React #137 on every prop re-render** (any tweak toggle, not just language); fixed by using `default-value`, and documented the rule (never children on `TextField`). Also: **print regression fixed** — responsive media rules are now `@media screen` so a <900px print page keeps the native A4/Letter layout instead of collapsing; **mobile touch targets** (§8) grow sidebar nav rows (39→44) and the search input (26→44) to the 44px floor on ≤760px; dark-theme reflow confirmed (layout and theme are orthogonal at 390px). New dev harnesses in `_audit/` (responsive + VN overflow). Verification-depth rule codified in `CLAUDE.md`.
+- **2.6.1** (Jul 2026) — **Responsive & bilingual hardening.** Fixed the responsive layer, which was inert: its `[style*=…]` selectors used no-space syntax while the DC runtime serializes React styles *spaced* (`grid-template-columns: repeat(4, 1fr)`), so nothing matched. Rewrote every substring selector, added inline fixed-column grid collapse (3+→2 tablet, →1 phone) and deck/social `cs-canvas-desk` scroll (keeps export geometry), and **verified at 390/768/1280 px** via a new harness (`_audit/responsive-harness.html`) — reaching into the same-origin frames confirmed the 4-col agenda bar collapses 4→2→1 and decks scroll with 3-col slides intact. Header eyebrow labels (Agenda, Runbook, Master agreement, …) now swap with the Language tweak. Ran a **complete bilingual audit across all 84 templates** (mechanism, en/vi key parity, hole coverage, hardcoded-leak scan): parity clean everywhere, and fixed 6 residual leaks — `delivery-change-note` English-month dates + party name, `article` team label, `marketing-page` footer slogan + "golden genie", and the board runway unit (`19 mo`→`19 tháng`).
+- **2.6.0** (Jul 2026) — **Full bilingual coverage + responsive layer.** The last 8 English-only templates gained the *English · Tiếng Việt* Language tweak — board & comms (`bod-report`, `bod-deck`, `bod-investor-update`, `bod-resolution`) and client decks/docs (`sales-proposal-deck`, `tech-rfc`, `delivery-kickoff`, `delivery-qbr-deck`). **All 84 templates are now bilingual** (37 `vn-*` + 3 `doc-*` stacked Vietnamese-first; every other template swaps via the Language tweak, several emails add *Both*). Also shipped a global responsive layer (`base/responsive.css`) — fluid media, print-doc padding reflow, table + fixed-canvas scroll (decks/social carry `cs-canvas-desk` and scroll to keep export geometry), sidebar collapse, and inline fixed-column grids that collapse (3+→2 on tablet, →1 on phone) across every archetype; its `[style*=…]` selectors match the DC runtime's spaced style serialization (`grid-template-columns: repeat(4, 1fr)`). Enforced full **language separation**: swept the header brand line to the canonical bilingual lockup (`Hiện Thực Hoá Ý Chí · Turn Your Will Into Real`) across 17 doc headers, and made every header eyebrow label (Agenda, Runbook, Master agreement, …) swap with the tweak — a selected language now renders with no stray English/Vietnamese (rule codified in `docs/conventions.md`).
+- *Older releases (2.5.0 → 1.7.0): see [`CHANGELOG.md`](./CHANGELOG.md).*
 
-*Welcome to the CyberSkill Global Design System. **Hiện Thực Hoá Ý Chí.***
+## Substitutions & caveats
+
+- **Fonts:** Be Vietnam Pro (300–800 + italics) and JetBrains Mono are **self-hosted** in `fonts/` as subset-split woff2 (latin · latin-ext · vietnamese) — no CDN dependency. Same families as the source (which ships them via `next/font`); no visual substitution.
+- **Type size ramp & motion tokens** are a documented convention layered on the doctrine (the token source ships families + line-heights only); they mirror real in-product usage. The ramp also carries semantic role aliases (`--cs-text-h1`…) and `.cs-h1` / `.cs-body` / … utilities in `base/typography.css`.
+- **UI kits are cosmetic recreations** — data is fictional, interactions are shallow, and the marketing site's production 3D/genie layer is not reproduced (the HTML-first base is).
+
+*Welcome. Hiện Thực Hoá Ý Chí.*

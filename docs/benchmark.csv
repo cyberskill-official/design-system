@@ -1,6 +1,0 @@
-system,impl,tokens,dtcg,a11y,ai,legal,sustainability,confidence,notes
-CyberSkill current artifacts,1,3,3,1,2,2,2,C,"Prototype token package, generated registers, component specs, and domain packages exist; no GA or audited claims."
-CyberSkill doctrine target,1,4,5,4,5,5,4,B,Strong standalone doctrine; implementation still behind.
-IBM Carbon,5,4,2,4,4,3,2,A,Public shipped components and AI Label pattern.
-GOV.UK Design System,4,2,0,5,0,4,2,A,Accessibility humility and community benchmark.
-Adobe Spectrum / React Aria,4,4,2,5,2,2,1,A,Accessibility and i18n behavior benchmark.

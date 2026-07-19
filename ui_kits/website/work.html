@@ -1,0 +1,102 @@
+<!-- @dsCard group="Website" viewport="1200x820" name="cyberskill.world — work" subtitle="Case-study grid, results band, CTA" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CyberSkill · Work</title>
+<link rel="icon" href="../../assets/favicon.svg" />
+<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="site.css" />
+<style>
+  html, body { margin: 0; }
+  .work-hero { background: var(--cs-color-brand-umber); color: #fff; padding: 72px 0 60px; position: relative; overflow: hidden; }
+  .work-hero::before { content: ""; position: absolute; inset: 0; background-image: url("../../assets/aurora-gold.jpg"); background-size: cover; background-position: center; opacity: .34; }
+  .work-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,17,8,.3), rgba(26,17,8,.75)); }
+  .work-hero .container { position: relative; z-index: 1; }
+  .work-hero h1 { font-size: clamp(36px, 5vw, 54px); font-weight: 800; letter-spacing: -.02em; color: var(--cs-color-brand-ochre); margin: 12px 0 6px; }
+  .work-hero p { font-size: 18px; opacity: .92; max-width: 620px; margin: 0; }
+  .case-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 22px; }
+  .case { border: 1px solid var(--cs-color-border-default); border-radius: var(--cs-radius-lg); overflow: hidden; background: var(--cs-color-surface-panel); box-shadow: var(--cs-shadow-sm); transition: border-color .12s, box-shadow .12s; }
+  .case:hover { border-color: var(--cs-color-brand-ochre); box-shadow: var(--cs-shadow-md); }
+  .case-cap { height: 128px; display: flex; align-items: flex-end; padding: 16px 18px; font-family: var(--cs-font-family-mono); font-weight: 700; font-size: 22px; }
+  .case-cap.a { background: var(--cs-color-brand-umber); color: var(--cs-color-brand-ochre); }
+  .case-cap.b { background: var(--cs-color-brand-ochre); color: var(--cs-color-brand-umber); }
+  .case-cap.c { background: #6E3B0E; color: #fff; }
+  .case-b { padding: 18px 20px 22px; }
+  .case-b h3 { margin: 0 0 6px; font-size: 20px; }
+  .case-b p { margin: 0 0 14px; color: var(--cs-color-text-muted); font-size: 14.5px; line-height: 1.5; }
+  .case-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .case-tags span { font-size: 12px; font-weight: 600; background: var(--cs-color-surface-raised); border: 1px solid var(--cs-color-border-default); border-radius: var(--cs-radius-full); padding: 4px 10px; color: var(--cs-color-text-accent); }
+  .results { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+  .results .n { font-size: 44px; font-weight: 800; letter-spacing: -.02em; color: var(--cs-color-brand-umber); }
+  .results .l { color: var(--cs-color-text-muted); font-size: 14px; margin-top: 2px; }
+  @media (max-width: 760px) { .results { grid-template-columns: 1fr 1fr; } .nav { display: none; } }
+</style>
+</head>
+<body>
+<div class="site">
+  <header class="hdr cs-surface-light">
+    <div class="container hdr-in">
+      <a class="brand" href="index.html"><img src="../../assets/logo-mark.svg" alt="" />CyberSkill</a>
+      <nav class="nav"><a href="index.html">Services</a><a href="work.html">Work</a><a href="careers.html">Careers</a><a href="index.html">Contact</a></nav>
+      <div class="hdr-side"><a class="mini" href="#">Tiếng Việt</a><a class="mini" style="background:var(--cs-color-brand-umber);color:#fff;border-color:transparent" href="index.html">Talk to Lumi</a></div>
+    </div>
+  </header>
+
+  <section class="work-hero">
+    <div class="container">
+      <div class="eyebrow" style="color:var(--cs-color-brand-ochre)">Selected work</div>
+      <h1>Wishes we've granted</h1>
+      <p>A few of the products we've shipped since 2020 — from customer-facing apps to the internal systems teams run on.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="container">
+      <div class="case-grid">
+        <article class="case"><div class="case-cap a">SHOP</div><div class="case-b"><h3>One-tap checkout</h3><p>Rebuilt a retailer's checkout for speed and accessibility — bilingual, mobile-first.</p><div class="case-tags"><span>Web app</span><span>Payments</span><span>VN + EN</span></div></div></article>
+        <article class="case"><div class="case-cap b">OPS</div><div class="case-b"><h3>Field operations console</h3><p>A real-time internal dashboard replacing five spreadsheets and a group chat.</p><div class="case-tags"><span>Internal system</span><span>Dashboard</span></div></div></article>
+        <article class="case"><div class="case-cap c">FLOW</div><div class="case-b"><h3>Approvals, automated</h3><p>Human-in-the-loop automation with clear review gates and a full audit trail.</p><div class="case-tags"><span>Automation</span><span>AI-native</span></div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-alt">
+    <div class="container">
+      <div class="results">
+        <div><div class="n">2020</div><div class="l">Founded in Saigon</div></div>
+        <div><div class="n">40+</div><div class="l">Wishes granted</div></div>
+        <div><div class="n">1 day</div><div class="l">Reply time</div></div>
+        <div><div class="n">EN·VN</div><div class="l">Bilingual by default</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="container">
+      <div class="band">
+        <div><h2>Have a wish of your own?</h2><p>Tell us the outcome in a sentence. We reply within one business day.</p></div>
+        <a class="btn-gold" href="index.html">Make a wish →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ft">
+    <div class="container ft-in">
+      <a class="brand" href="index.html"><img src="../../assets/logo-mark.svg" alt="" />CyberSkill</a>
+      <div class="ft-links"><a href="#">Privacy</a><a href="#">Accessibility</a><a href="#">Terms</a></div>
+      <small>© 2026 CyberSkill · Saigon · Hiện Thực Hoá Ý Chí</small>
+    </div>
+  </footer>
+</div>
+<button id="themeToggle" aria-label="Toggle theme" style="position:fixed;right:20px;bottom:20px;z-index:60;border:1px solid var(--cs-color-border-default);background:var(--cs-color-surface-panel);color:var(--cs-color-text-primary);width:44px;height:44px;border-radius:999px;cursor:pointer;box-shadow:var(--cs-shadow-md)">☾</button>
+<script>
+  document.getElementById("themeToggle").addEventListener("click", function () {
+    var el = document.documentElement, dark = el.getAttribute("data-theme") === "dark";
+    el.setAttribute("data-theme", dark ? "light" : "dark");
+    this.textContent = dark ? "☾" : "☀";
+  });
+</script>
+</body>
+</html>

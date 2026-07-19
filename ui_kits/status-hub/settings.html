@@ -1,0 +1,88 @@
+<!-- @dsCard group="Status Hub" viewport="1280x840" name="Status Hub — settings" subtitle="Tabs, form controls, switches, danger zone" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CyberSkill · Settings</title>
+<link rel="icon" href="../../assets/favicon.svg" />
+<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="status.css" />
+<style>
+  html, body { margin: 0; background: var(--cs-color-surface-page); }
+  .set-grid { display: grid; gap: 18px; margin: 22px 0 64px; }
+  .panel h3.sec { margin: 0 0 4px; font-size: 18px; }
+  .panel .hint { margin: 0 0 18px; color: var(--cs-color-text-muted); font-size: 14px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+  .toggle-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 14px 0; border-top: 1px solid var(--cs-color-border-default); }
+  .toggle-row:first-of-type { border-top: 0; }
+  .toggle-row .t { font-weight: 600; }
+  .toggle-row .d { color: var(--cs-color-text-muted); font-size: 13.5px; margin-top: 2px; max-width: 460px; }
+  .danger { border: 1px solid var(--cs-color-semantic-danger); border-radius: 14px; padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; background: color-mix(in oklab, var(--cs-color-semantic-danger) 5%, var(--cs-color-surface-panel)); }
+  .danger .t { font-weight: 700; }
+  .actions { display: flex; gap: 10px; justify-content: flex-end; }
+  @media (max-width: 700px) { .field-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="sh">
+  <header class="hd">
+    <div class="hd-in">
+      <div class="hd-id">
+        <span class="hd-mark"><img src="../../assets/logo-mark.svg" alt="" /></span>
+        <div><h1>Settings</h1><p class="hd-sub">CyberSkill · workspace &amp; preferences</p></div>
+      </div>
+      <div class="hd-side"><p class="hd-meta">Signed in as<br />an@cyberskill.world</p></div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <nav class="cs-tabs" style="margin-top:24px" aria-label="Settings sections">
+      <button class="cs-tab" aria-selected="true">Profile</button>
+      <button class="cs-tab">Notifications</button>
+      <button class="cs-tab">Appearance</button>
+      <button class="cs-tab">Team <span class="cs-tab__count">6</span></button>
+    </nav>
+
+    <div class="set-grid">
+      <section class="panel">
+        <h3 class="sec">Profile</h3>
+        <p class="hint">This is how you appear across the Status Hub.</p>
+        <div class="field-row">
+          <label class="cs-field"><span class="cs-field__label">Full name</span><input class="cs-field__control" value="Nguyễn Hoàng An" /></label>
+          <label class="cs-field"><span class="cs-field__label">Work email</span><input class="cs-field__control" type="email" value="an@cyberskill.world" /></label>
+          <label class="cs-field"><span class="cs-field__label">Squad</span><span class="cs-select"><select class="cs-field__control"><option>Platform</option><option>AI</option><option>Growth</option></select><span class="cs-select__chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></span></label>
+          <label class="cs-field"><span class="cs-field__label">Interface language</span><span class="cs-select"><select class="cs-field__control"><option>English</option><option>Tiếng Việt</option></select><span class="cs-select__chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></span></label>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h3 class="sec">Notifications</h3>
+        <p class="hint">We keep it quiet — only what you ask for.</p>
+        <div class="toggle-row"><div><div class="t">Release notes</div><div class="d">A summary each time a project ships. Bilingual (EN + VN).</div></div><label class="cs-switch"><input type="checkbox" role="switch" checked /><span class="cs-switch__track"></span></label></div>
+        <div class="toggle-row"><div><div class="t">Blocked-project alerts</div><div class="d">Get pinged when a project moves to Blocked.</div></div><label class="cs-switch"><input type="checkbox" role="switch" checked /><span class="cs-switch__track"></span></label></div>
+        <div class="toggle-row"><div><div class="t">Weekly velocity digest</div><div class="d">Tasks shipped per week, every Monday morning.</div></div><label class="cs-switch"><input type="checkbox" role="switch" /><span class="cs-switch__track"></span></label></div>
+      </section>
+
+      <section class="danger">
+        <div><div class="t">Delete workspace</div><div class="d" style="color:var(--cs-color-text-muted);font-size:13.5px;margin-top:2px">Removes every project and release. This cannot be undone.</div></div>
+        <button class="cs-button cs-button--danger-ghost">Delete workspace</button>
+      </section>
+
+      <div class="actions">
+        <button class="cs-button cs-button--ghost">Cancel</button>
+        <button class="cs-button cs-button--primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<button id="themeToggle" aria-label="Toggle theme" style="position:fixed;right:20px;bottom:20px;z-index:60;border:1px solid var(--cs-color-border-default);background:var(--cs-color-surface-panel);color:var(--cs-color-text-primary);width:44px;height:44px;border-radius:999px;cursor:pointer;box-shadow:var(--cs-shadow-md)">☾</button>
+<script>
+  document.getElementById("themeToggle").addEventListener("click", function () {
+    var el = document.documentElement, dark = el.getAttribute("data-theme") === "dark";
+    el.setAttribute("data-theme", dark ? "light" : "dark");
+    this.textContent = dark ? "☾" : "☀";
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="omelette-owns-print" content="1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Delivery · Change note" description="CyberSkill change note — the signed scope/fee/timeline amendment the MSA and SOW reference. Bilingual (English · Tiếng Việt). Letter-sized, print-ready." -->
+<helmet>
+<script src="./ds-base.js"></script>
+<style>@page{size:letter;margin:0.6in}@media print{html,body{background:#fff!important}.cs-desk{background:#fff!important;padding:0!important;min-height:0!important}.cs-sheet{box-shadow:none!important;border:none!important;max-width:none!important;border-radius:0!important;padding:0!important}.cs-avoid{break-inside:avoid}}</style>
+</helmet>
+<div lang="{{ langAttr }}" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" data-cs-expression="{{ exAttr }}" class="cs-desk" style="background:#efe6d8;min-height:100vh;padding:40px 16px;font-family:var(--cs-font-family-ui);color:var(--cs-color-text-primary)">
+  <div class="cs-sheet" style="max-width:816px;margin:0 auto;background:#fff;border:1px solid var(--cs-color-border-default);border-radius:12px;box-shadow:var(--cs-shadow-md);padding:56px 64px">
+    <header style="display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--cs-color-brand-umber);padding-bottom:18px;margin-bottom:24px">
+      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="34" hint-size="34px,34px"></x-import>
+      <div><div style="font-weight:800;font-size:17px;color:var(--cs-color-brand-umber);line-height:1.1">CyberSkill</div><div style="font-size:11px;color:var(--cs-color-text-muted)">Hiện Thực Hoá Ý Chí · Turn Your Will Into Real</div></div>
+      <span style="margin-left:auto;font-family:var(--cs-font-family-mono);font-size:12px;color:var(--cs-color-text-muted)">CN-2026-003</span>
+    </header>
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--cs-color-text-accent)">{{ eyebrow }}</div>
+    <h1 style="font-size:26px;font-weight:800;letter-spacing:-0.02em;margin:6px 0 6px">{{ h1 }}</h1>
+    <p style="font-size:11.5px;color:var(--cs-color-text-muted);font-style:italic;margin:0 0 12px">{{ altTitle }}</p>
+    <p style="font-size:13.5px;line-height:1.7;margin:0 0 22px">{{ intro }}</p>
+    <div class="cs-avoid" style="display:grid;gap:14px;margin-bottom:22px">
+      <div><h2 style="font-size:13.5px;font-weight:800;color:var(--cs-color-brand-umber);margin:0 0 5px">{{ changeH }}</h2><p style="font-size:13px;line-height:1.7;margin:0;color:var(--cs-color-text-muted)">{{ changeP }}</p></div>
+      <div><h2 style="font-size:13.5px;font-weight:800;color:var(--cs-color-brand-umber);margin:0 0 5px">{{ whyH }}</h2><p style="font-size:13px;line-height:1.7;margin:0;color:var(--cs-color-text-muted)">{{ whyP }}</p></div>
+    </div>
+    <h2 class="cs-avoid" style="font-size:13.5px;font-weight:800;color:var(--cs-color-brand-umber);margin:0 0 10px">{{ impactH }}</h2>
+    <table class="cs-avoid" style="width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:24px">
+      <thead><tr style="border-bottom:2px solid var(--cs-color-brand-umber)"><th style="text-align:left;padding:8px 10px;font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted)">{{ thDim }}</th><th style="text-align:left;padding:8px 10px;font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted)">{{ thBefore }}</th><th style="text-align:left;padding:8px 10px;font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted)">{{ thAfter }}</th><th style="text-align:right;padding:8px 10px;font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted)">{{ thDelta }}</th></tr></thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--cs-color-border-default)"><td style="padding:9px 10px;font-weight:600">{{ rScope }}</td><td style="padding:9px 10px;color:var(--cs-color-text-muted)">{{ rScopeB }}</td><td style="padding:9px 10px;color:var(--cs-color-text-muted)">{{ rScopeA }}</td><td style="padding:9px 10px;text-align:right;font-family:var(--cs-font-family-mono)">+1</td></tr>
+        <tr style="border-bottom:1px solid var(--cs-color-border-default)"><td style="padding:9px 10px;font-weight:600">{{ rFee }}</td><td style="padding:9px 10px;font-family:var(--cs-font-family-mono)">₫3,100,000,000</td><td style="padding:9px 10px;font-family:var(--cs-font-family-mono)">₫3,320,000,000</td><td style="padding:9px 10px;text-align:right;font-family:var(--cs-font-family-mono)">+₫220,000,000</td></tr>
+        <tr><td style="padding:9px 10px;font-weight:600">{{ rTime }}</td><td style="padding:9px 10px;color:var(--cs-color-text-muted)">{{ rTimeB }}</td><td style="padding:9px 10px;color:var(--cs-color-text-muted)">{{ rTimeA }}</td><td style="padding:9px 10px;text-align:right;font-family:var(--cs-font-family-mono)">{{ rTimeD }}</td></tr>
+      </tbody>
+    </table>
+    <p class="cs-avoid" style="font-size:12px;line-height:1.65;margin:0 0 8px;color:var(--cs-color-text-muted)">{{ closing }}</p>
+    <sc-if value="{{ showSignatures }}" hint-placeholder-val="{{ true }}">
+    <div class="cs-avoid" style="display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:30px;padding-top:24px;border-top:1px solid var(--cs-color-border-default)">
+      <div><div style="height:44px;border-bottom:1.5px solid var(--cs-color-brand-umber)"></div><div style="font-size:12px;color:var(--cs-color-text-muted);margin-top:8px">{{ partyA }}</div><div style="font-size:12px;color:var(--cs-color-text-muted)">{{ sigMeta }}</div></div>
+      <div><div style="height:44px;border-bottom:1.5px solid var(--cs-color-brand-umber)"></div><div style="font-size:12px;color:var(--cs-color-text-muted);margin-top:8px">{{ clientName }}</div><div style="font-size:12px;color:var(--cs-color-text-muted)">{{ sigMeta }}</div></div>
+    </div>
+    </sc-if>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;language&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;English&quot;,&quot;Tiếng Việt&quot;],&quot;default&quot;:&quot;English&quot;,&quot;tsType&quot;:&quot;\&quot;English\&quot; | \&quot;Tiếng Việt\&quot;&quot;,&quot;section&quot;:&quot;Content&quot;},
+  &quot;element&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Thổ · studio&quot;,&quot;Thổ · clay&quot;,&quot;Thổ · sand&quot;,&quot;Hỏa · ember&quot;,&quot;Hỏa · lava&quot;,&quot;Hỏa · plasma&quot;,&quot;Thủy · river&quot;,&quot;Thủy · ocean&quot;,&quot;Thủy · mist&quot;,&quot;Mộc · leaf&quot;,&quot;Mộc · bamboo&quot;,&quot;Mộc · forest&quot;,&quot;Kim · champagne&quot;,&quot;Kim · steel&quot;,&quot;Kim · titanium&quot;],&quot;default&quot;:&quot;Thổ · studio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Element (Ngũ Hành)&quot;},
+  &quot;expression&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Liquid glass · default&quot;,&quot;Solid&quot;,&quot;Dense&quot;,&quot;Paper&quot;,&quot;Soft&quot;,&quot;Bold&quot;,&quot;Luxe&quot;],&quot;default&quot;:&quot;Liquid glass · default&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Expression&quot;},
+  &quot;showSignatures&quot;: {&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}
+}">
+class Component extends DCLogic {
+  renderVals() {
+    const EL = {"Thổ · studio":["tho",""],"Thổ · clay":["tho","clay"],"Thổ · sand":["tho","sand"],"Hỏa · ember":["hoa",""],"Hỏa · lava":["hoa","lava"],"Hỏa · plasma":["hoa","plasma"],"Thủy · river":["thuy",""],"Thủy · ocean":["thuy","ocean"],"Thủy · mist":["thuy","mist"],"Mộc · leaf":["moc",""],"Mộc · bamboo":["moc","bamboo"],"Mộc · forest":["moc","forest"],"Kim · champagne":["kim",""],"Kim · steel":["kim","steel"],"Kim · titanium":["kim","titanium"]};
+    const [elAttr, vaAttr] = EL[this.props.element] || EL["Thổ · studio"];
+    const EX = {"Liquid glass · default":"","Solid":"solid","Dense":"dense","Paper":"paper","Soft":"soft","Bold":"bold","Luxe":"luxe"};
+    const vn = this.props.language === "Tiếng Việt";
+    const en = {
+      eyebrow:"Change note · under SOW-2026-014", h1:"Add A/B experiment kit to the checkout scope",
+      altTitle:"Văn bản thay đổi phạm vi",
+      intro:"Per the MSA, changes happen in writing, signed by both parties. This note states the change, why, and exactly what it does to scope, fee, and timeline — nothing else in the SOW moves.",
+      changeH:"The change", changeP:"Add the optional A/B kit from quote QT-2026-0088: experiment framework on the new checkout plus the first two tests (copy variants; shipping-threshold banner).",
+      whyH:"Why now", whyP:"The canary shows recoverable drop-off at the shipping step. Testing while the team is in the code is cheaper than a second engagement later. Honest trade-off: it adds a week to M3.",
+      impactH:"Impact", thDim:"Dimension", thBefore:"Before", thAfter:"After", thDelta:"Delta",
+      rScope:"Scope", rScopeB:"3 deliverables", rScopeA:"+ A/B kit & 2 tests", rFee:"Fee (excl. VAT)", rTime:"Timeline (M3)", rTimeD:"+1 wk",
+      closing:"All other SOW-2026-014 and MSA terms unchanged. Effective on the later signature date below; the added fee joins the M3 invoice.",
+      sigMeta:"Name / title / date", clientName:"[Client Ltd]", rTimeB:"31 Oct 2026", rTimeA:"07 Nov 2026", partyA:"CyberSkill Co., Ltd",
+    };
+    const vi = {
+      eyebrow:"Văn bản thay đổi · theo SOW-2026-014", h1:"Bổ sung bộ thử nghiệm A/B vào phạm vi thanh toán",
+      altTitle:"Change note · scope amendment",
+      intro:"Theo Hợp đồng khung (MSA), mọi thay đổi được lập bằng văn bản, có chữ ký hai bên. Văn bản này nêu thay đổi, lý do, và tác động chính xác đến phạm vi, phí và tiến độ — không điều nào khác trong SOW thay đổi.",
+      changeH:"Nội dung thay đổi", changeP:"Bổ sung bộ A/B tùy chọn từ báo giá QT-2026-0088: khung thử nghiệm trên trang thanh toán mới cùng hai test đầu tiên (biến thể nội dung; banner ngưỡng phí vận chuyển).",
+      whyH:"Vì sao lúc này", whyP:"Bản canary cho thấy tỷ lệ rớt có thể thu hồi ở bước vận chuyển. Thử nghiệm khi đội còn trong mã nguồn rẻ hơn một đợt hợp tác thứ hai về sau. Đánh đổi thành thật: thêm một tuần vào M3.",
+      impactH:"Tác động", thDim:"Hạng mục", thBefore:"Trước", thAfter:"Sau", thDelta:"Chênh lệch",
+      rScope:"Phạm vi", rScopeB:"3 hạng mục bàn giao", rScopeA:"+ bộ A/B & 2 test", rFee:"Phí (chưa VAT)", rTime:"Tiến độ (M3)", rTimeD:"+1 tuần",
+      closing:"Mọi điều khoản khác của SOW-2026-014 và MSA giữ nguyên. Hiệu lực từ ngày ký sau cùng dưới đây; phí bổ sung được gộp vào hóa đơn M3.",
+      sigMeta:"Họ tên / chức danh / ngày", clientName:"[Công ty khách hàng]", rTimeB:"31/10/2026", rTimeA:"07/11/2026", partyA:"Công ty TNHH CyberSkill",
+    };
+    return Object.assign({ langAttr: (this.props.language ?? "English") === "Tiếng Việt" ? "vi" : "en", elAttr, vaAttr, exAttr: EX[this.props.expression] ?? "", showSignatures: this.props.showSignatures ?? true }, vn ? vi : en);
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!-- @dsCard group="Components" viewport="700x180" name="Icon" subtitle="In-repo line-icon set — currentColor, 1.75 stroke" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  body { margin: 0; background: var(--cs-color-surface-page); padding: 22px 24px; color: var(--cs-color-text-primary); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 10px; max-width: 640px; }
+  .cell { display: grid; place-items: center; gap: 8px; padding: 14px 6px; border: 1px solid var(--cs-color-border-default); border-radius: var(--cs-radius-md); background: var(--cs-color-surface-panel); }
+  .cell span { font-family: var(--cs-font-family-mono); font-size: 11px; color: var(--cs-color-text-muted); }
+  .cell .g { color: var(--cs-color-brand-umber); }
+  .cell:nth-child(6) .g { color: var(--cs-color-brand-ochre); }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { Icon } = window.CyberSkillDesignSystem_847b3c;
+const names = ["close","sun","moon","arrow-right","check","sparkle","chat","sound-on","sound-off","search","sliders","upload","download","calendar","user","plus","trash","external","menu","chevron-down","chevron-up","chevron-left","chevron-right","edit","copy","info","alert-triangle"];
+function Demo() {
+  return (
+    <div className="grid">
+      {names.map((n) => (
+        <div className="cell" key={n}><span className="g" style={{color:"inherit"}}><Icon name={n} size="lg" /></span><span>{n}</span></div>
+      ))}
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>
