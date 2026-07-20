@@ -283,7 +283,8 @@
 .cs-splitter { display: flex; align-items: stretch; border: 1px solid var(--cs-color-border-default); border-radius: var(--cs-radius-md); overflow: hidden; background: var(--cs-color-surface-panel); }
 .cs-splitter__pane { overflow: auto; padding: 14px; min-inline-size: 0; }
 .cs-splitter__bar { inline-size: 8px; cursor: col-resize; background: var(--cs-color-surface-raised); border-inline: 1px solid var(--cs-color-border-default); touch-action: none; }
-.cs-splitter__bar:hover, .cs-splitter__bar:focus-visible { background: var(--cs-accent-tint); outline: none; }
+.cs-splitter__bar:hover { background: var(--cs-accent-tint); }
+.cs-splitter__bar:focus-visible { background: var(--cs-accent-tint); outline: 2px solid var(--cs-color-accent-ochre); outline-offset: -2px; }
 .cs-hotkeys__sheet { position: fixed; inset: 0; z-index: var(--cs-depth-modal, 90); background: rgba(26, 17, 8, .45); display: grid; place-items: center; }
 .cs-hotkeys__card { background: var(--cs-color-surface-panel); border: 1px solid var(--cs-color-border-default); border-radius: var(--cs-radius-lg); box-shadow: var(--cs-shadow-xl); padding: 18px 20px; min-inline-size: 300px; }
 .cs-hotkeys__card b { font-size: 15px; color: var(--cs-color-text-primary); }

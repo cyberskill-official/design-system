@@ -1,0 +1,80 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "article",
+  "slots": [
+    {
+      "id": "eyebrow",
+      "type": "text",
+      "label": "Section eyebrow",
+      "maxLength": 40
+    },
+    {
+      "id": "h1",
+      "type": "text",
+      "label": "Article title",
+      "maxLength": 70,
+      "required": true
+    },
+    {
+      "id": "authorTeam",
+      "type": "text",
+      "label": "Author team",
+      "maxLength": 30
+    },
+    {
+      "id": "meta",
+      "type": "text",
+      "label": "Date · read time",
+      "maxLength": 40
+    },
+    {
+      "id": "badge",
+      "type": "text",
+      "label": "Status badge",
+      "maxLength": 20
+    },
+    {
+      "id": "lede",
+      "type": "richtext",
+      "label": "Lede paragraph",
+      "maxLength": 260,
+      "required": true
+    },
+    {
+      "id": "p1",
+      "type": "richtext",
+      "label": "Body paragraph 1",
+      "maxLength": 400
+    },
+    {
+      "id": "h2",
+      "type": "text",
+      "label": "Subheading",
+      "maxLength": 40
+    },
+    {
+      "id": "p2",
+      "type": "richtext",
+      "label": "Body paragraph 2",
+      "maxLength": 300
+    },
+    {
+      "id": "alertTitle",
+      "type": "text",
+      "label": "Callout title",
+      "maxLength": 30
+    },
+    {
+      "id": "alertBody",
+      "type": "text",
+      "label": "Callout body",
+      "maxLength": 150
+    },
+    {
+      "id": "p3",
+      "type": "richtext",
+      "label": "Closing paragraph",
+      "maxLength": 250
+    }
+  ]
+}

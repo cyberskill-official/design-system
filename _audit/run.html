@@ -34,11 +34,14 @@ const GATES=[
   {name:'Consumer smoke test',file:'consumer-smoke-test.html',sub:'packaged bundle mounts + tokens reach a Button',get:w=>w.__smoke},
   {name:'ESM smoke test',file:'esm-smoke-test.html',sub:'_esm/cs.mjs imports \u00b7 export/manifest parity',get:w=>w.__esm},
   {name:'Component children',file:'component-children-test.html',sub:'void-element #137 guard',get:w=>{const v=w.__result;return v&&v.anyThrew!==undefined?{pass:v.anyThrew===false}:null;}},
-  {name:'Component behavior',file:'component-behavior-test.html',sub:'21 real interaction assertions',get:w=>w.__behavior},
+  {name:'Component behavior',file:'component-behavior-test.html',sub:'27 real interaction assertions',get:w=>w.__behavior},
   {name:'A11y interactions',file:'a11y-gate.html',sub:'focus trap/restore · roving tabindex · ARIA contracts',get:w=>w.__a11y},
+  {name:'A11y CSSOM',file:'a11y-harness.html',sub:'touch-target floors · focus-ring source proof · reduced-motion/contrast',get:w=>w.__a11ycss},
+  {name:'Template schema v2',file:'template-schema-test.html',sub:'typed content slots — 21 hole-driven templates validated',get:w=>w.__schemav2},
   {name:'Bilingual parity',file:'bilingual-parity.html',sub:'EN·VI string-registry parity',get:w=>w.__bilingual},
   {name:'APCA dark packs',file:'apca-dark-preview.html',sub:'15 dark elemental packs hold APCA targets',get:w=>{const v=w.__apcaPreview;return v?{pass:v.currentFail===0,v}:null;}},
   {name:'Visual baselines',file:'visual-diff.html',sub:'baseline freshness — advisory (drift judged by eye)',advisory:true,get:w=>w.__visualdiff},
+  {name:'Component baselines',file:'component-visual-diff.html',sub:'12 curated component crops — advisory (drift judged by eye)',advisory:true,get:w=>w.__componentVisualDiff},
 ];
 const list=document.getElementById('list'), pool=document.getElementById('pool'), overall=document.getElementById('overall');
 const rows=GATES.map(g=>{const el=document.createElement('div');el.className='g';el.innerHTML='<span class="dot run"></span><span class="n">'+g.name+'<small>'+g.sub+'</small></span><span class="badge run">running</span>';list.appendChild(el);return el;});

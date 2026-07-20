@@ -1,0 +1,22 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "slide-deck",
+  "slots": [
+    { "id": "s1kicker", "type": "text", "label": "Slide 1 eyebrow", "maxLength": 40 },
+    { "id": "s1h", "type": "text", "label": "Slide 1 title", "maxLength": 60, "required": true },
+    { "id": "s1sub", "type": "text", "label": "Slide 1 subtitle", "maxLength": 90 },
+    { "id": "s2kicker", "type": "text", "label": "Slide 2 eyebrow", "maxLength": 40 },
+    { "id": "s2h", "type": "text", "label": "Slide 2 title", "maxLength": 60, "required": true },
+    { "id": "f1", "type": "text", "label": "Feature 1 body", "maxLength": 140 },
+    { "id": "f2h", "type": "text", "label": "Feature 2 title", "maxLength": 40 },
+    { "id": "f2", "type": "text", "label": "Feature 2 body", "maxLength": 140 },
+    { "id": "f3h", "type": "text", "label": "Feature 3 title", "maxLength": 40 },
+    { "id": "f3", "type": "text", "label": "Feature 3 body", "maxLength": 140 },
+    { "id": "quoteA", "type": "text", "label": "Quote — part before emphasis", "maxLength": 120 },
+    { "id": "quoteB", "type": "text", "label": "Quote — emphasized part", "maxLength": 60 },
+    { "id": "quoteC", "type": "text", "label": "Quote — part after emphasis", "maxLength": 120 },
+    { "id": "quoteWho", "type": "text", "label": "Quote attribution", "maxLength": 60 },
+    { "id": "closeH", "type": "text", "label": "Closing slide title", "maxLength": 50, "required": true },
+    { "id": "closeP", "type": "text", "label": "Closing slide subtitle", "maxLength": 90 }
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "sales-proposal-deck",
+  "slots": [
+    {
+      "id": "s1kicker",
+      "type": "text",
+      "label": "Slide 1 eyebrow",
+      "maxLength": 30
+    },
+    {
+      "id": "s1h",
+      "type": "text",
+      "label": "Slide 1 title (before client name)",
+      "maxLength": 40,
+      "required": true
+    },
+    {
+      "id": "s1client",
+      "type": "text",
+      "label": "Client name (accent span)",
+      "maxLength": 30
+    },
+    {
+      "id": "s1sub",
+      "type": "text",
+      "label": "Slide 1 subtitle",
+      "maxLength": 80
+    },
+    {
+      "id": "s1prep",
+      "type": "text",
+      "label": "\"Prepared for\" line",
+      "maxLength": 60
+    },
+    {
+      "id": "s2kicker",
+      "type": "text",
+      "label": "Slide 2 eyebrow",
+      "maxLength": 20
+    },
+    {
+      "id": "s2h",
+      "type": "text",
+      "label": "Slide 2 title (the wish)",
+      "maxLength": 60,
+      "required": true
+    },
+    {
+      "id": "s2p",
+      "type": "richtext",
+      "label": "Slide 2 body",
+      "maxLength": 260
+    },
+    {
+      "id": "s3kicker",
+      "type": "text",
+      "label": "Slide 3 eyebrow",
+      "maxLength": 30
+    },
+    {
+      "id": "s3h",
+      "type": "text",
+      "label": "Slide 3 title",
+      "maxLength": 40
+    },
+    {
+      "id": "u1t",
+      "type": "text",
+      "label": "Understanding 1 title",
+      "maxLength": 24
+    },
+    {
+      "id": "u1p",
+      "type": "text",
+      "label": "Understanding 1 body",
+      "maxLength": 80
+    },
+    {
+      "id": "u2t",
+      "type": "text",
+      "label": "Understanding 2 title",
+      "maxLength": 24
+    },
+    {
+      "id": "u2p",
+      "type": "text",
+      "label": "Understanding 2 body",
+      "maxLength": 80
+    },
+    {
+      "id": "u3t",
+      "type": "text",
+      "label": "Understanding 3 title",
+      "maxLength": 24
+    },
+    {
+      "id": "u3p",
+      "type": "text",
+      "label": "Understanding 3 body",
+      "maxLength": 80
+    },
+    {
+      "id": "s4kicker",
+      "type": "text",
+      "label": "Slide 4 eyebrow",
+      "maxLength": 20
+    },
+    {
+      "id": "s4h",
+      "type": "text",
+      "label": "Slide 4 title",
+      "maxLength": 40
+    },
+    {
+      "id": "a1b",
+      "type": "text",
+      "label": "Approach 1 bold",
+      "maxLength": 40
+    },
+    {
+      "id": "a1t",
+      "type": "text",
+      "label": "Approach 1 text",
+      "maxLength": 90
+    },
+    {
+      "id": "a2b",
+      "type": "text",
+      "label": "Approach 2 bold",
+      "maxLength": 40
+    },
+    {
+      "id": "a2t",
+      "type": "text",
+      "label": "Approach 2 text",
+      "maxLength": 90
+    },
+    {
+      "id": "a3b",
+      "type": "text",
+      "label": "Approach 3 bold",
+      "maxLength": 40
+    },
+    {
+      "id": "a3t",
+      "type": "text",
+      "label": "Approach 3 text",
+      "maxLength": 90
+    },
+    {
+      "id": "s5kicker",
+      "type": "text",
+      "label": "Slide 5 eyebrow",
+      "maxLength": 30
+    },
+    {
+      "id": "s5h",
+      "type": "text",
+      "label": "Slide 5 title",
+      "maxLength": 40
+    },
+    {
+      "id": "mo1",
+      "type": "text",
+      "label": "Month 1 abbrev",
+      "maxLength": 10
+    },
+    {
+      "id": "t1",
+      "type": "text",
+      "label": "Timeline item 1",
+      "maxLength": 60
+    },
+    {
+      "id": "mo2",
+      "type": "text",
+      "label": "Month 2 abbrev",
+      "maxLength": 10
+    },
+    {
+      "id": "t2",
+      "type": "text",
+      "label": "Timeline item 2",
+      "maxLength": 60
+    },
+    {
+      "id": "mo3",
+      "type": "text",
+      "label": "Month 3 abbrev",
+      "maxLength": 10
+    },
+    {
+      "id": "t3",
+      "type": "text",
+      "label": "Timeline item 3",
+      "maxLength": 60
+    },
+    {
+      "id": "s6kicker",
+      "type": "text",
+      "label": "Slide 6 eyebrow",
+      "maxLength": 20
+    },
+    {
+      "id": "s6h",
+      "type": "text",
+      "label": "Slide 6 title",
+      "maxLength": 40
+    },
+    {
+      "id": "role1",
+      "type": "text",
+      "label": "Team member 1 role",
+      "maxLength": 24
+    },
+    {
+      "id": "role2",
+      "type": "text",
+      "label": "Team member 2 role",
+      "maxLength": 24
+    },
+    {
+      "id": "role3",
+      "type": "text",
+      "label": "Team member 3 role",
+      "maxLength": 24
+    },
+    {
+      "id": "s7kicker",
+      "type": "text",
+      "label": "Slide 7 eyebrow",
+      "maxLength": 20
+    },
+    {
+      "id": "s7h",
+      "type": "text",
+      "label": "Slide 7 title",
+      "maxLength": 40
+    },
+    {
+      "id": "inv1",
+      "type": "text",
+      "label": "Investment stat 1 label",
+      "maxLength": 30
+    },
+    {
+      "id": "inv2",
+      "type": "text",
+      "label": "Investment stat 2 label",
+      "maxLength": 30
+    },
+    {
+      "id": "inv3",
+      "type": "text",
+      "label": "Investment stat 3 label",
+      "maxLength": 30
+    },
+    {
+      "id": "closeH",
+      "type": "text",
+      "label": "Closing title",
+      "maxLength": 30,
+      "required": true
+    },
+    {
+      "id": "closeP",
+      "type": "richtext",
+      "label": "Closing body",
+      "maxLength": 180
+    }
+  ]
+}

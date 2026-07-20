@@ -17,6 +17,13 @@ The whole system is a static file tree — **no build step, no server runtime**.
   ```
 - Cache headers for the fingerprint-free static assets (optional; Vercel's static defaults are already sane).
 
+## Social preview image (OG)
+
+`dashboard.html` already carries `og:title`/`og:description`; `og:image` is deliberately **not** set yet \u2014 it needs an absolute URL, which only exists once you have a production domain. Once deployed:
+1. Generate a 1200\u00d7630 PNG (screenshot the dashboard, or design a simple card: umber background, the CyberSkill wordmark, "Design System" subtitle).
+2. Save it as `assets/og-dashboard.png`.
+3. Add to `dashboard.html`'s `<head>`: `<meta property="og:image" content="https://<your-domain>/assets/og-dashboard.png">` (and optionally `twitter:card`/`twitter:image` mirroring it).
+
 **Common misconfig:** picking a JS framework preset — Vercel then looks for a `package.json` build script and fails. `package.json` here is metadata-only (`"private": true`, no `scripts`) by design (see `docs/agents.md`); the preset must stay "Other".
 
 ## Generic VPS / nginx / any static host

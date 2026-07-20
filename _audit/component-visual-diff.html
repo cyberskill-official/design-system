@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>CyberSkill — component visual-diff review</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+body{margin:0;font-family:system-ui;background:#efe6d8;color:#231a12;padding:14px 18px}
+h1{font-size:16px;margin:0 0 2px}
+.lede{color:#6b5d4f;max-width:1000px;line-height:1.5;margin:0 0 12px;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.cell{border:1px solid #c9b79c;border-radius:8px;background:#fff;overflow:hidden}
+.cell .cap{font:11.5px ui-monospace,monospace;color:#6b5d4f;padding:6px 10px;border-bottom:1px solid #e2d5c0;background:#faf6ef}
+.cell .box{width:280px;height:160px;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;overflow:hidden;background:var(--cs-color-surface-page,#FFFDF8)}
+.note{margin-top:16px;font-size:12px;color:#6b5d4f;max-width:1000px;line-height:1.6;border-top:1px dashed #c9b79c;padding-top:10px}
+code{background:#e2d5c0;border-radius:4px;padding:0 4px}
+#cov table{border-collapse:collapse;font:12px ui-monospace,monospace;margin-top:8px}
+#cov td{padding:2px 10px 2px 0}
+.y{color:#166534}
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../_ds_bundle.js"></script>
+</head><body>
+<h1>Component visual-diff review — direct render vs. stored baseline (not nested-iframe)</h1>
+<p class="lede">Deep visual-regression <b>review assist</b> for the atomic layer, not a numeric gate — mirrors <code>visual-diff.html</code>'s doctrine but renders components directly (no nested iframe, so this environment's html-to-image rasterizer can actually capture it). 12 curated components anchor the atomic tiers (Atom → Molecule → Organism); not every component/variant — see <code>guidelines/atomic-view.html</code> for the exhaustive live story set. Compare this page's live render against <code>_audit/baselines/components/&lt;slug&gt;.png</code> by eye after any component-source change. Regenerate the baseline crop after an intentional redesign.</p>
+<div id="root"></div>
+<h3 style="margin:18px 0 2px;font-size:13px">Baseline coverage</h3>
+<div id="cov"></div>
+<p class="note"><b>Add a baseline:</b> add the component to <code>ITEMS</code> below, screenshot this page, then crop its 280×160 cell into <code>_audit/baselines/components/&lt;slug&gt;.png</code> (see <code>_audit/baselines/components/README.md</code> for the crop coordinates helper).</p>
+<script type="text/babel">
+const NS = window[Object.keys(window).find(k=>/^CyberSkillDesignSystem_[0-9a-f]{6}$/.test(k))] || {};
+const { Button, Badge, Alert, Toast, Card, DataTable, Accordion, TextField, Avatar, ProgressBar, Switch, Tooltip } = NS;
+const ITEMS = [
+  {slug:'button', name:'Button', render:()=><div style={{display:'flex',gap:8,flexWrap:'wrap',justifyContent:'center'}}><Button>Save wish</Button><Button variant="secondary">Cancel</Button><Button variant="danger">Delete</Button></div>},
+  {slug:'badge', name:'Badge', render:()=><div style={{display:'flex',gap:8,flexWrap:'wrap',justifyContent:'center'}}><Badge variant="success">Shipped</Badge><Badge variant="danger">Blocked</Badge><Badge variant="warning">At risk</Badge><Badge variant="info">AI</Badge></div>},
+  {slug:'alert', name:'Alert', render:()=><Alert variant="warning" title="Heads up">Glass is additive and opt-in.</Alert>},
+  {slug:'toast', name:'Toast', render:()=><div className="cs-toast" style={{position:'static',width:220}}><span className="cs-toast__icon">✓</span><div><div className="cs-toast__title">Saved</div><div className="cs-toast__body">Your changes are live.</div></div></div>},
+  {slug:'card', name:'Card', render:()=><Card style={{width:220,padding:14}}><b>Design System v1.6</b><div style={{fontSize:12,opacity:0.7,marginTop:4}}>Platform squad</div></Card>},
+  {slug:'datatable', name:'DataTable', render:()=>has(DataTable)?<div style={{width:260}}><DataTable caption="Releases" rowKey="ver" columns={[{key:'ver',header:'Version'},{key:'d',header:'Date'}]} rows={[{ver:'1.6',d:'Jul 12'},{ver:'1.5',d:'Jun 03'}]}/></div>:<Miss/>},
+  {slug:'accordion', name:'Accordion', render:()=>has(Accordion)?<div style={{width:240}}><Accordion items={[{title:'What is CyberSkill?',content:'A design system.'},{title:'Pricing',content:'Ask sales.'}]}/></div>:<Miss/>},
+  {slug:'textfield', name:'TextField', render:()=>has(TextField)?<div style={{width:220}}><TextField label="Project name" defaultValue="CyberSkill"/></div>:<Miss/>},
+  {slug:'avatar', name:'Avatar', render:()=><div style={{display:'flex',gap:8}}><Avatar name="An Lê" size="lg"/><Avatar name="Vũ Trần" size="md"/><Avatar name="Kim" size="sm"/></div>},
+  {slug:'progressbar', name:'ProgressBar', render:()=><div style={{width:220}}><ProgressBar value={64} label="OS progress"/></div>},
+  {slug:'switch', name:'Switch', render:()=>has(Switch)?<div style={{display:'flex',flexDirection:'column',gap:10}}><Switch label="Email notifications" defaultChecked/><Switch label="SMS alerts"/></div>:<Miss/>},
+  {slug:'tooltip', name:'Tooltip', render:()=>has(Tooltip)?<Tooltip label="Blocked on infra"><span className="cs-badge cs-badge--danger">Blocked</span></Tooltip>:<Miss/>},
+];
+function has(...cs){ return cs.every(Boolean); }
+function Miss(){ return <span style={{fontSize:12,color:'#9a8a78',fontFamily:'ui-monospace,monospace'}}>missing export</span>; }
+function App(){
+  if(!NS || !Object.keys(NS).length) return <div style={{padding:24,fontFamily:'ui-monospace,monospace'}}>Bundle not loaded — _ds_bundle.js is compiled at end of turn; reopen on a fresh turn.</div>;
+  return <div className="grid">{ITEMS.map(it=>(
+    <div className="cell" key={it.slug}><div className="cap">{it.slug}.png · {it.name}</div><div className="box">{it.render()}</div></div>
+  ))}</div>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+(async()=>{
+  const cov=document.getElementById('cov');
+  const missing=[];
+  for(const it of ITEMS){ try{ const r=await fetch('./baselines/components/'+it.slug+'.png',{method:'HEAD'}); if(!r.ok) missing.push(it.slug+'.png ('+r.status+')'); }catch(e){ missing.push(it.slug+'.png (fetch)'); } }
+  cov.innerHTML='<table><tr><td>'+(ITEMS.length-missing.length)+' of '+ITEMS.length+' components baselined'+(missing.length?(' · missing: '+missing.join(', ')):'')+'</td></tr></table>';
+  window.__componentVisualDiff={pass:missing.length===0,advisory:true,total:ITEMS.length,missing};
+  console.log('COMPONENT-VISUALDIFF VERDICT '+JSON.stringify(window.__componentVisualDiff));
+})();
+</script>
+</body></html>

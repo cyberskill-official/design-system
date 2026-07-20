@@ -1,0 +1,103 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "marketing-case-study",
+  "slots": [
+    {
+      "id": "kicker",
+      "type": "text",
+      "label": "Header eyebrow",
+      "maxLength": 20
+    },
+    {
+      "id": "stat1",
+      "type": "text",
+      "label": "Stat 1 label",
+      "maxLength": 30
+    },
+    {
+      "id": "stat2",
+      "type": "text",
+      "label": "Stat 2 label",
+      "maxLength": 30
+    },
+    {
+      "id": "stat3v",
+      "type": "text",
+      "label": "Stat 3 value",
+      "maxLength": 16
+    },
+    {
+      "id": "stat3",
+      "type": "text",
+      "label": "Stat 3 label",
+      "maxLength": 30
+    },
+    {
+      "id": "h1",
+      "type": "text",
+      "label": "Section 1 heading (The wish)",
+      "maxLength": 30,
+      "required": true
+    },
+    {
+      "id": "p1",
+      "type": "richtext",
+      "label": "Section 1 body",
+      "maxLength": 300
+    },
+    {
+      "id": "h2",
+      "type": "text",
+      "label": "Section 2 heading (Approach)",
+      "maxLength": 30
+    },
+    {
+      "id": "p2",
+      "type": "richtext",
+      "label": "Section 2 body",
+      "maxLength": 400
+    },
+    {
+      "id": "h3",
+      "type": "text",
+      "label": "Section 3 heading (Result)",
+      "maxLength": 30
+    },
+    {
+      "id": "p3",
+      "type": "richtext",
+      "label": "Section 3 body",
+      "maxLength": 300
+    },
+    {
+      "id": "quote",
+      "type": "text",
+      "label": "Client quote",
+      "maxLength": 180
+    },
+    {
+      "id": "quoteWho",
+      "type": "text",
+      "label": "Quote attribution",
+      "maxLength": 40
+    },
+    {
+      "id": "ctaKicker",
+      "type": "text",
+      "label": "CTA eyebrow",
+      "maxLength": 40
+    },
+    {
+      "id": "ctaBody",
+      "type": "text",
+      "label": "CTA body",
+      "maxLength": 100
+    },
+    {
+      "id": "ctaBtn",
+      "type": "text",
+      "label": "CTA button label",
+      "maxLength": 24
+    }
+  ]
+}

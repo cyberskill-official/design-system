@@ -1,0 +1,24 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "marketing-page",
+  "slots": [
+    { "id": "heroKicker", "type": "text", "label": "Hero eyebrow", "maxLength": 40, "i18n": {"en": "Eyebrow above the headline", "vi": "Nhãn nhỏ phía trên tiêu đề"} },
+    { "id": "heroH", "type": "text", "label": "Hero headline", "maxLength": 70, "required": true },
+    { "id": "heroSub", "type": "text", "label": "Hero subhead", "maxLength": 90 },
+    { "id": "heroP", "type": "richtext", "label": "Hero paragraph", "maxLength": 220 },
+    { "id": "promptPh", "type": "text", "label": "Prompt input placeholder", "maxLength": 60 },
+    { "id": "svcKicker", "type": "text", "label": "Services section eyebrow", "maxLength": 40 },
+    { "id": "svcH", "type": "text", "label": "Services headline", "maxLength": 60, "required": true },
+    { "id": "svcP", "type": "richtext", "label": "Services intro paragraph", "maxLength": 160 },
+    { "id": "c1h", "type": "text", "label": "Service card 1 title", "maxLength": 40 },
+    { "id": "c1p", "type": "richtext", "label": "Service card 1 body", "maxLength": 140 },
+    { "id": "c2h", "type": "text", "label": "Service card 2 title", "maxLength": 40 },
+    { "id": "c2p", "type": "richtext", "label": "Service card 2 body", "maxLength": 140 },
+    { "id": "c3h", "type": "text", "label": "Service card 3 title", "maxLength": 40 },
+    { "id": "c3p", "type": "richtext", "label": "Service card 3 body", "maxLength": 140 },
+    { "id": "ctaH", "type": "text", "label": "Closing CTA headline", "maxLength": 60, "required": true },
+    { "id": "ctaP", "type": "richtext", "label": "Closing CTA paragraph", "maxLength": 160 },
+    { "id": "talkBtn", "type": "text", "label": "Primary CTA button label", "maxLength": 24, "required": true },
+    { "id": "footer", "type": "text", "label": "Footer line", "maxLength": 80 }
+  ]
+}

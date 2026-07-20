@@ -1,0 +1,83 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "dashboard",
+  "slots": [
+    {
+      "id": "tagline",
+      "type": "text",
+      "label": "Header tagline",
+      "maxLength": 50
+    },
+    {
+      "id": "newBtn",
+      "type": "text",
+      "label": "Primary button label",
+      "maxLength": 24,
+      "required": true
+    },
+    {
+      "id": "s1",
+      "type": "text",
+      "label": "Stat 1 label",
+      "maxLength": 24
+    },
+    {
+      "id": "s2",
+      "type": "text",
+      "label": "Stat 2 label",
+      "maxLength": 24
+    },
+    {
+      "id": "s3",
+      "type": "text",
+      "label": "Stat 3 label",
+      "maxLength": 24
+    },
+    {
+      "id": "s4",
+      "type": "text",
+      "label": "Stat 4 label",
+      "maxLength": 24
+    },
+    {
+      "id": "s4d",
+      "type": "text",
+      "label": "Stat 4 delta",
+      "maxLength": 20
+    },
+    {
+      "id": "c1",
+      "type": "text",
+      "label": "Board card 1 description",
+      "maxLength": 80
+    },
+    {
+      "id": "c2",
+      "type": "text",
+      "label": "Board card 2 description",
+      "maxLength": 80
+    },
+    {
+      "id": "c3",
+      "type": "text",
+      "label": "Board card 3 description",
+      "maxLength": 80
+    },
+    {
+      "id": "tblCap",
+      "type": "text",
+      "label": "Table caption",
+      "maxLength": 30
+    },
+    {
+      "id": "cols",
+      "type": "table",
+      "label": "Table columns"
+    },
+    {
+      "id": "rows",
+      "type": "table",
+      "label": "Table rows"
+    }
+  ]
+}

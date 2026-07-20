@@ -9,6 +9,7 @@
   .r{display:flex;justify-content:space-between;gap:8px;padding:2px 8px;border-radius:4px}
   .r.bad{background:#FEE2E2;color:#B42318;font-weight:700}
   .r.warn{background:#FEF9C3;color:#854d0e}
+  .r.reviewed{background:#E0F2FE;color:#075985}
   .r.na{color:#8b8378}
   .r.ok{color:#166534}
   .r span:last-child{white-space:nowrap}
@@ -17,14 +18,19 @@
   #adv{font-family:system-ui;font-size:12px;color:#6b5d4f;margin-top:8px;max-width:1100px;line-height:1.5}
 </style></head><body>
 <h1>Dark-theme audit — every template forced to dark @ mobile 390</h1>
-<p class="lede">Whole-set theme pass (owner doctrine: theme gets its OWN pass). Fresh single-navigation iframe per template — race-free — then <code>__dcSetProps(root,{theme:"dark"})</code>, settle, and check dark. <b>HARD GATE (fully reliable, <code>pass</code>):</b> (1) no document horizontal overflow in dark, and (2) dark actually applies where a Theme tweak exists. <b>Contrast is ADVISORY only (amber, never gates)</b> — a DOM ancestor-walk cannot reliably attribute the painted fg/bg pixel in this layered/branded/deck system (verified: the deck's "black-on-dark" reads are actually legible cream — the walk measured a container's inherited UA colour, not the styled child). The advisory scans only leaf text over a resolvable <i>solid, image/gradient-free</i> background and lists suspects for a human to eyeball; branded / pseudo-element / positioned / gradient surfaces are <code>skipped</code>. Authoritative dark-contrast proof stays the manual token audit (<code>docs/contrast-report.md</code>, v2.9.0) + the visual-diff review. <b>n/a</b> = light-only by design. ◇ = canvas deck/social.</p>
+<p class="lede">Whole-set theme pass (owner doctrine: theme gets its OWN pass). Fresh single-navigation iframe per template — race-free — then <code>__dcSetProps(root,{theme:"dark"})</code>, settle, and check dark. <b>HARD GATE (fully reliable, <code>pass</code>):</b> (1) no document horizontal overflow in dark, and (2) dark actually applies where a Theme tweak exists. <b>Contrast is ADVISORY only (amber, never gates)</b> — a DOM ancestor-walk cannot reliably attribute the painted fg/bg pixel in this layered/branded/deck system (verified: the deck's "black-on-dark" reads are actually legible cream — the walk measured a container's inherited UA colour, not the styled child). Each measurement runs twice 350ms apart and only counts a fail that reproduces both times (filters transient mid-paint reads), plus a resolved-blue <b>reviewed</b> row group for 8 templates already screenshot-confirmed legible (3 canvas decks + 5 wrapper-inherited-colour cases). <b>Residual known noise:</b> even after that hardening, roughly 1 template per run still shows a lone new advisory flag that isn't reproducible on a second run — traced to iframe-pool scheduling contention (a straggler among the <code>GROUP</code> concurrent iframes), not a real defect. Treat a <i>single new</i> advisory name with suspicion: re-run once; if it reflags on the SAME template twice in a row, it's worth a screenshot; if it rotates to a different template each run, it's this residual noise — documented here rather than silently hidden. The advisory scans only leaf text over a resolvable <i>solid, image/gradient-free</i> background and lists suspects for a human to eyeball; branded / pseudo-element / positioned / gradient surfaces are <code>skipped</code>. Authoritative dark-contrast proof stays the manual token audit (<code>docs/contrast-report.md</code>, v2.9.0) + the visual-diff review. <b>n/a</b> = light-only by design. ◇ = canvas deck/social.</p>
 <div id="busy">loading manifest…</div>
 <div class="grid" id="grid"></div>
 <div id="sum"></div>
 <div id="adv"></div>
 <div id="pool"></div>
 <script>
-const W=390, GROUP=5, BOOT_TRIES=45, BOOT_STEP=120, RENDER=1500, SETTLE=1000, MAXFAILS=6;
+const W=390, GROUP=4, BOOT_TRIES=45, BOOT_STEP=120, RENDER=2400, SETTLE=1200, MAXFAILS=6;
+// Confirmed false positives (post-v5.0.0 triage): DOM-walk contrast can't see these — 3 canvas-rendered decks
+// (painted via <canvas>, not DOM colour) + 4 templates whose header text sits inside a wrapper the walk reads
+// as a plain inherited UA colour while the real styled child paints correctly. Each screenshotted legible in
+// forced dark before being allowlisted here. Removing an entry re-exposes it to the open advisory list.
+const REVIEWED_OK=new Set(['Board · Meeting deck','HR · Internal announcement','Marketing · Launch announcement','Marketing · Newsletter','Sales · Proposal deck','Slide deck','Tech · Release notes email','Marketing page']);
 const pool=document.getElementById('pool'), grid=document.getElementById('grid'), busy=document.getElementById('busy');
 const results=[];
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
@@ -90,7 +96,14 @@ function probeOne(src){
       let forced=false;
       try{ const root=win.__dcRootName && win.__dcRootName(); if(win.__dcSetProps && root){ win.__dcSetProps(root,{theme:'dark'}); forced=true; } }catch(e){}
       await wait(forced?RENDER:SETTLE);
-      const m=measure(f.contentDocument);
+      const m1=measure(f.contentDocument);
+      await wait(350);
+      const m2=measure(f.contentDocument);
+      // Stability filter: a contrast fail only counts if it reproduces across two measurements 350ms apart —
+      // filters out transient mid-transition/mid-paint reads (the actual source of run-to-run advisory flake).
+      const stableTexts=new Set(m2.fails.map(x=>x.t));
+      const m={...m1, fails:m1.fails.filter(x=>stableTexts.has(x.t))};
+      m.failN=m.fails.length;
       f.remove(); res(m);
     };
   });
@@ -105,11 +118,14 @@ function probeOne(src){
     batch.forEach((t,j)=>{
       const m=measured[j];
       const fail=m.over>0;                 // HARD GATE: dark overflow only
-      const advise=m.dark && m.failN>0;    // contrast: advisory, never gates
-      results.push({name:t.name,...m,fail,advise});
-      const cls=fail?'bad':(advise?'warn':(m.dark?'ok':'na'));
+      const rawAdvise=m.dark && m.failN>0;
+      const reviewed=rawAdvise && REVIEWED_OK.has(t.name);
+      const advise=rawAdvise && !reviewed;   // contrast: advisory, never gates — reviewed items don't recount as open
+      results.push({name:t.name,...m,fail,advise,reviewed});
+      const cls=fail?'bad':(advise?'warn':(reviewed?'reviewed':(m.dark?'ok':'na')));
       let detail;
       if(fail) detail='+'+m.over+'px overflow';
+      else if(reviewed) detail='✓ reviewed (⚠'+m.failN+' DOM-walk false-read)';
       else if(advise) detail='⚠ '+m.failN+' review';
       else if(!m.dark) detail='n/a light-only';
       else detail='dark ✓ ('+m.checked+' AA ok)';
@@ -123,18 +139,20 @@ function probeOne(src){
     window.__all={done:results.length,total:tpls.length,results};
   }
   const bad=results.filter(r=>r.fail);          // gating failures (overflow)
-  const adv=results.filter(r=>r.advise);         // advisory (contrast review)
+  const adv=results.filter(r=>r.advise);         // advisory (contrast review) — open, unreviewed only
+  const reviewedRows=results.filter(r=>r.reviewed);
   const darkN=results.filter(r=>r.dark).length;
   const totChecked=results.reduce((a,r)=>a+(r.checked||0),0), totSkipped=results.reduce((a,r)=>a+(r.skipped||0),0);
   window.__theme={done:tpls.length,total:tpls.length,results,darkApplied:darkN,lightOnly:tpls.length-darkN,
     contrastChecked:totChecked,contrastSkipped:totSkipped,
     advisory:adv.map(r=>r.name+' ⚠'+r.failN),
+    reviewed:reviewedRows.map(r=>r.name+' ⚠'+r.failN),
     fail:bad.map(r=>r.name+' +'+r.over), pass:bad.length===0};
   window.__all=window.__theme;
   busy.textContent='done — '+tpls.length+' templates';
   const sum=document.getElementById('sum');
-  sum.textContent=bad.length?('✗ HARD GATE FAIL — '+bad.length+' dark overflow: '+window.__theme.fail.join(', ')):('✓ HARD GATE PASS — '+darkN+' themed templates: 0 dark overflow; '+(tpls.length-darkN)+' light-only (n/a). Advisory: '+adv.length+' template(s) with solid-bg contrast to eyeball.');
+  sum.textContent=bad.length?('✗ HARD GATE FAIL — '+bad.length+' dark overflow: '+window.__theme.fail.join(', ')):('✓ HARD GATE PASS — '+darkN+' themed templates: 0 dark overflow; '+(tpls.length-darkN)+' light-only (n/a). Open advisory: '+adv.length+(reviewedRows.length?(' · '+reviewedRows.length+' pre-reviewed (confirmed false-read, see allowlist)'):'')+'.');
   sum.style.color=bad.length?'#B42318':'#166534';
-  document.getElementById('adv').textContent='Advisory (non-gating): '+totChecked+' leaf text/solid-bg nodes measured, '+totSkipped+' skipped (branded/pseudo/gradient — uncomputable via DOM). '+(adv.length?('Eyeball these before shipping a redesign: '+window.__theme.advisory.join(', ')+'. Hover a row for fg/bg.'):'No solid-bg contrast suspects.')+' Reminder: DOM-walk contrast is unreliable here (verified false reads on decks); trust docs/contrast-report.md + visual-diff for branded surfaces.';
+  document.getElementById('adv').textContent='Advisory (non-gating): '+totChecked+' leaf text/solid-bg nodes measured (double-checked 350ms apart), '+totSkipped+' skipped (branded/pseudo/gradient — uncomputable via DOM). '+(adv.length?('Open — eyeball, then re-run once before filing as a bug (rotating single flags are iframe-timing noise, see lede): '+window.__theme.advisory.join(', ')+'. Hover a row for fg/bg.'):'No open contrast suspects this run.')+' '+(reviewedRows.length?(reviewedRows.length+' more are allowlisted as confirmed structural false-reads (screenshotted legible in dark): '+window.__theme.reviewed.join(', ')+'. '):'')+'Reminder: DOM-walk contrast is unreliable here (verified false reads on decks); trust docs/contrast-report.md + visual-diff for branded surfaces.';
 })();
 </script></body></html>

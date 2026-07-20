@@ -1,0 +1,115 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "tech-rfc",
+  "slots": [
+    {
+      "id": "badge",
+      "type": "text",
+      "label": "Status badge",
+      "maxLength": 20
+    },
+    {
+      "id": "kicker",
+      "type": "text",
+      "label": "RFC number + team",
+      "maxLength": 40
+    },
+    {
+      "id": "h1",
+      "type": "text",
+      "label": "RFC title",
+      "maxLength": 60,
+      "required": true
+    },
+    {
+      "id": "dtAuthor",
+      "type": "text",
+      "label": "Author field label",
+      "maxLength": 20
+    },
+    {
+      "id": "dtRev",
+      "type": "text",
+      "label": "Reviewers field label",
+      "maxLength": 20
+    },
+    {
+      "id": "dtStatus",
+      "type": "text",
+      "label": "Status field label",
+      "maxLength": 20
+    },
+    {
+      "id": "ddStatus",
+      "type": "text",
+      "label": "Status field value",
+      "maxLength": 24
+    },
+    {
+      "id": "dtTarget",
+      "type": "text",
+      "label": "Target field label",
+      "maxLength": 20
+    },
+    {
+      "id": "ctxH",
+      "type": "text",
+      "label": "Context heading",
+      "maxLength": 20
+    },
+    {
+      "id": "ctxP",
+      "type": "richtext",
+      "label": "Context body",
+      "maxLength": 400,
+      "required": true
+    },
+    {
+      "id": "propH",
+      "type": "text",
+      "label": "Proposal heading",
+      "maxLength": 20
+    },
+    {
+      "id": "toH",
+      "type": "text",
+      "label": "Trade-offs heading",
+      "maxLength": 20
+    },
+    {
+      "id": "gainsT",
+      "type": "text",
+      "label": "Gains alert title",
+      "maxLength": 20
+    },
+    {
+      "id": "gainsB",
+      "type": "text",
+      "label": "Gains alert body",
+      "maxLength": 200
+    },
+    {
+      "id": "costsT",
+      "type": "text",
+      "label": "Costs alert title",
+      "maxLength": 30
+    },
+    {
+      "id": "costsB",
+      "type": "text",
+      "label": "Costs alert body",
+      "maxLength": 200
+    },
+    {
+      "id": "rollH",
+      "type": "text",
+      "label": "Rollout heading",
+      "maxLength": 20
+    },
+    {
+      "id": "steps",
+      "type": "list",
+      "label": "Rollout steps"
+    }
+  ]
+}

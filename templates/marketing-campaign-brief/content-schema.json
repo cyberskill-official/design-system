@@ -1,0 +1,139 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "marketing-campaign-brief",
+  "slots": [
+    {
+      "id": "hdr",
+      "type": "text",
+      "label": "Header title suffix",
+      "maxLength": 30
+    },
+    {
+      "id": "draft",
+      "type": "text",
+      "label": "Draft badge label",
+      "maxLength": 20
+    },
+    {
+      "id": "eyebrow",
+      "type": "text",
+      "label": "Eyebrow (quarter · team)",
+      "maxLength": 30
+    },
+    {
+      "id": "h1",
+      "type": "text",
+      "label": "Campaign title",
+      "maxLength": 70,
+      "required": true
+    },
+    {
+      "id": "objL",
+      "type": "text",
+      "label": "Objective label",
+      "maxLength": 20
+    },
+    {
+      "id": "objP",
+      "type": "richtext",
+      "label": "Objective statement",
+      "maxLength": 220,
+      "required": true
+    },
+    {
+      "id": "audL",
+      "type": "text",
+      "label": "Audience label",
+      "maxLength": 20
+    },
+    {
+      "id": "audP",
+      "type": "text",
+      "label": "Audience description",
+      "maxLength": 220
+    },
+    {
+      "id": "msgL",
+      "type": "text",
+      "label": "Core message label",
+      "maxLength": 24
+    },
+    {
+      "id": "msgP",
+      "type": "text",
+      "label": "Core message body",
+      "maxLength": 220
+    },
+    {
+      "id": "chL",
+      "type": "text",
+      "label": "Channels label",
+      "maxLength": 20
+    },
+    {
+      "id": "ch1",
+      "type": "text",
+      "label": "Channel 1",
+      "maxLength": 24
+    },
+    {
+      "id": "ch2",
+      "type": "text",
+      "label": "Channel 2",
+      "maxLength": 24
+    },
+    {
+      "id": "ch4",
+      "type": "text",
+      "label": "Channel 4",
+      "maxLength": 24
+    },
+    {
+      "id": "ch5",
+      "type": "text",
+      "label": "Channel 5",
+      "maxLength": 24
+    },
+    {
+      "id": "tlL",
+      "type": "text",
+      "label": "Timeline label",
+      "maxLength": 20
+    },
+    {
+      "id": "steps",
+      "type": "list",
+      "label": "Timeline steps"
+    },
+    {
+      "id": "smL",
+      "type": "text",
+      "label": "Success metrics label",
+      "maxLength": 24
+    },
+    {
+      "id": "m1",
+      "type": "text",
+      "label": "Metric 1 label",
+      "maxLength": 30
+    },
+    {
+      "id": "m1d",
+      "type": "text",
+      "label": "Metric 1 delta",
+      "maxLength": 16
+    },
+    {
+      "id": "m2",
+      "type": "text",
+      "label": "Metric 2 label",
+      "maxLength": 30
+    },
+    {
+      "id": "m3d",
+      "type": "text",
+      "label": "Metric 3 delta",
+      "maxLength": 16
+    }
+  ]
+}

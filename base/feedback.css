@@ -4,10 +4,10 @@
 .cs-badge { display: inline-flex; align-items: center; gap: 5px; font-family: var(--cs-font-family-ui); font-size: var(--cs-font-size-xs); font-weight: 700; line-height: 1; padding: 4px 9px; border-radius: var(--cs-radius-full); text-transform: uppercase; letter-spacing: 0.04em; background: var(--cs-color-surface-raised); color: var(--cs-color-text-accent); border: 1px solid var(--cs-color-border-default); }
 .cs-badge--solid { border-color: transparent; color: #fff; background: var(--cs-color-brand-umber); }
 .cs-badge--ochre { background: var(--cs-color-brand-ochre); color: var(--cs-color-brand-umber); border-color: transparent; }
-.cs-badge--success { background: var(--cs-color-semantic-success); color: #fff; border-color: transparent; }
-.cs-badge--danger { background: var(--cs-color-semantic-danger); color: #fff; border-color: transparent; }
-.cs-badge--warning { background: var(--cs-color-semantic-warning); color: #fff; border-color: transparent; }
-.cs-badge--info { background: var(--cs-color-semantic-info); color: #fff; border-color: transparent; }
+.cs-badge--success { background: var(--cs-color-semantic-success); color: var(--cs-color-text-inverse); border-color: transparent; }
+.cs-badge--danger { background: var(--cs-color-semantic-danger); color: var(--cs-color-text-inverse); border-color: transparent; }
+.cs-badge--warning { background: var(--cs-color-semantic-warning); color: var(--cs-color-text-inverse); border-color: transparent; }
+.cs-badge--info { background: var(--cs-color-semantic-info); color: var(--cs-color-text-inverse); border-color: transparent; }
 .cs-badge__dot { inline-size: 7px; block-size: 7px; border-radius: 50%; background: currentColor; }
 
 /* Tag / Chip — removable */

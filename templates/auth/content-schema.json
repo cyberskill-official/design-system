@@ -1,0 +1,74 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "auth",
+  "slots": [
+    {
+      "id": "brandH",
+      "type": "text",
+      "label": "Brand panel headline",
+      "maxLength": 40,
+      "required": true
+    },
+    {
+      "id": "brandP",
+      "type": "text",
+      "label": "Brand panel paragraph",
+      "maxLength": 140
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Form title",
+      "maxLength": 24,
+      "required": true
+    },
+    {
+      "id": "sub",
+      "type": "text",
+      "label": "Form subtitle",
+      "maxLength": 60
+    },
+    {
+      "id": "emailL",
+      "type": "text",
+      "label": "Email field label",
+      "maxLength": 24
+    },
+    {
+      "id": "pwL",
+      "type": "text",
+      "label": "Password field label",
+      "maxLength": 24
+    },
+    {
+      "id": "rememberL",
+      "type": "text",
+      "label": "Remember-me label",
+      "maxLength": 24
+    },
+    {
+      "id": "signInBtn",
+      "type": "text",
+      "label": "Sign-in button label",
+      "maxLength": 24
+    },
+    {
+      "id": "lumiBtn",
+      "type": "text",
+      "label": "Secondary button label",
+      "maxLength": 30
+    },
+    {
+      "id": "newHere",
+      "type": "text",
+      "label": "\"New here?\" prompt",
+      "maxLength": 20
+    },
+    {
+      "id": "askAccess",
+      "type": "text",
+      "label": "Ask-for-access link label",
+      "maxLength": 24
+    }
+  ]
+}

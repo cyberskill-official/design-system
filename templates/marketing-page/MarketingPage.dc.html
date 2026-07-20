@@ -28,7 +28,7 @@
     </div>
   </header>
 
-  <section style="position:relative;overflow:hidden;background:var(--cs-accent-ink);color:#fff;padding:84px 32px 96px">
+  <section style="position:relative;overflow:hidden;background:var(--cs-accent-strong);color:#fff;padding:84px 32px 96px">
     <image-slot id="cs-mktg-hero" shape="rect" placeholder="Drop a hero image (optional)" style="position:absolute;inset:0"></image-slot>
     <div class="cs-aurora-wash" style="position:absolute;inset:0;opacity:0.55;pointer-events:none"></div>
     <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(42,26,13,0.62),rgba(42,26,13,0.42))"></div>
@@ -66,7 +66,7 @@
   </section>
 
   <section id="process" style="padding:0 32px 80px">
-    <div style="max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;background:linear-gradient(120deg,var(--cs-accent-ink) 35%,color-mix(in oklab,var(--cs-accent-grad-b) 26%,var(--cs-accent-ink)));color:#fff;border-radius:var(--cs-radius-lg);padding:40px 36px">
+    <div style="max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;background:linear-gradient(120deg,var(--cs-accent-strong) 35%,color-mix(in oklab,var(--cs-accent-grad-b) 26%,var(--cs-accent-strong)));color:#fff;border-radius:var(--cs-radius-lg);padding:40px 36px">
       <div>
         <h2 style="color:var(--cs-accent-bright);font-size:28px;font-weight:800;margin:0 0 6px;letter-spacing:-0.01em">{{ ctaH }}</h2>
         <p style="margin:0;opacity:0.9;max-width:520px">{{ ctaP }}</p>
@@ -77,7 +77,7 @@
     </div>
   </section>
 
-  <footer style="background:var(--cs-accent-ink);color:rgba(255,255,255,0.82);padding:40px 32px">
+  <footer style="background:var(--cs-accent-strong);color:rgba(255,255,255,0.82);padding:40px 32px">
     <div style="max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center">
       <div style="display:flex;align-items:center;gap:10px;color:#fff;font-weight:800">
         <x-import component-from-global-scope="CyberSkillDS.Logo" size="28" decorative="{{ true }}" hint-size="28px,28px"></x-import>
@@ -93,7 +93,7 @@
 
   <sc-if value="{{ chatOpen }}">
     <div style="position:fixed;right:22px;bottom:22px;z-index:201;width:360px;max-width:calc(100vw - 44px);border-radius:var(--cs-radius-lg);overflow:hidden;box-shadow:var(--cs-shadow-xl);display:flex;flex-direction:column;max-height:min(560px,84vh)">
-      <div style="background:var(--cs-accent-ink);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px">
+      <div style="background:var(--cs-accent-strong);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px">
         <span style="width:30px;height:30px;border-radius:50%;background:var(--cs-accent-bright);color:var(--cs-accent-on);display:grid;place-items:center;font-weight:800">✦</span>
         <b style="font-size:14px">Lumi · {{ genieLabel }}</b>
         <button onClick="{{ closeChat }}" aria-label="Close" style="margin-left:auto;background:transparent;border:0;color:rgba(255,255,255,0.8);cursor:pointer;font-size:18px">✕</button>

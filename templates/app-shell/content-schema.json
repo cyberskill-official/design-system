@@ -1,0 +1,114 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "app-shell",
+  "slots": [
+    {
+      "id": "navLabel",
+      "type": "text",
+      "label": "Sidebar section label",
+      "maxLength": 24
+    },
+    {
+      "id": "nav1",
+      "type": "text",
+      "label": "Nav item 1",
+      "maxLength": 24
+    },
+    {
+      "id": "nav2",
+      "type": "text",
+      "label": "Nav item 2",
+      "maxLength": 24
+    },
+    {
+      "id": "nav3",
+      "type": "text",
+      "label": "Nav item 3",
+      "maxLength": 24
+    },
+    {
+      "id": "nav4",
+      "type": "text",
+      "label": "Nav item 4",
+      "maxLength": 24
+    },
+    {
+      "id": "nav5",
+      "type": "text",
+      "label": "Nav item 5",
+      "maxLength": 24
+    },
+    {
+      "id": "searchPh",
+      "type": "text",
+      "label": "Search placeholder",
+      "maxLength": 40
+    },
+    {
+      "id": "newBtn",
+      "type": "text",
+      "label": "Primary button label",
+      "maxLength": 24,
+      "required": true
+    },
+    {
+      "id": "h1",
+      "type": "text",
+      "label": "Page title",
+      "maxLength": 40,
+      "required": true
+    },
+    {
+      "id": "sub",
+      "type": "text",
+      "label": "Page subtitle",
+      "maxLength": 80
+    },
+    {
+      "id": "s1",
+      "type": "text",
+      "label": "Stat 1 label",
+      "maxLength": 24
+    },
+    {
+      "id": "s2",
+      "type": "text",
+      "label": "Stat 2 label",
+      "maxLength": 24
+    },
+    {
+      "id": "s3",
+      "type": "text",
+      "label": "Stat 3 label",
+      "maxLength": 24
+    },
+    {
+      "id": "s4",
+      "type": "text",
+      "label": "Stat 4 label",
+      "maxLength": 24
+    },
+    {
+      "id": "s4d",
+      "type": "text",
+      "label": "Stat 4 delta",
+      "maxLength": 20
+    },
+    {
+      "id": "tblCap",
+      "type": "text",
+      "label": "Table caption",
+      "maxLength": 30
+    },
+    {
+      "id": "cols",
+      "type": "table",
+      "label": "Project table columns"
+    },
+    {
+      "id": "rows",
+      "type": "table",
+      "label": "Project table rows"
+    }
+  ]
+}

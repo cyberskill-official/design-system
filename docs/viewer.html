@@ -12,6 +12,13 @@
   aside a.on{color:var(--cs-color-brand-umber);background:var(--cs-color-surface-raised)}
   [data-theme="dark"] aside a.on{color:var(--cs-color-brand-ochre)}
   aside .grp{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--cs-color-text-muted);margin:14px 10px 5px}
+  #docsearch{box-sizing:border-box;border:1px solid var(--cs-color-border-default);border-radius:8px;background:var(--cs-color-surface-raised);padding:8px 10px;font:inherit;font-size:12.5px;margin:0 8px 10px;width:calc(100% - 16px)}
+  .searchres{font-size:12px;color:var(--cs-color-text-muted);padding:0 10px 6px}
+  .searchhit{display:block;padding:7px 10px;border-radius:8px;text-decoration:none;color:var(--cs-color-text-primary)}
+  .searchhit:hover{background:var(--cs-color-surface-raised)}
+  .searchhit b{color:var(--cs-color-brand-umber)}[data-theme="dark"] .searchhit b{color:var(--cs-color-brand-ochre)}
+  .searchhit .snip{display:block;font-size:11px;color:var(--cs-color-text-muted);font-weight:400;margin-top:2px}
+  mark{background:var(--cs-color-brand-ochre);color:var(--cs-color-brand-umber);border-radius:2px;padding:0 1px}
   main{overflow:auto;padding:30px 38px}
   article{max-width:820px;line-height:1.62;font-size:14.5px}
   article h1{font-size:24px;letter-spacing:-.015em;margin:0 0 12px}
@@ -31,19 +38,39 @@
   #err{color:#B42318;font-family:var(--cs-font-family-mono);font-size:13px}
 </style></head>
 <body>
-<aside id="nav"><h1>CyberSkill Docs</h1></aside>
+<aside id="nav"><h1>CyberSkill Docs</h1><input id="docsearch" type="search" placeholder="Search all docs…"><div id="navlinks"></div></aside>
 <main><article id="doc"><p style="color:var(--cs-color-text-muted)">Loading…</p></article><p id="err" hidden></p></main>
 <script>
 const DOCS=[
  ['Start',[['README.md','README'],['SKILL.md','SKILL (agent rules)'],['llms.txt','llms.txt'],['CONTRIBUTING.md','Contributing']]],
- ['Guides',[['docs/agents.md','AI-agent import'],['docs/deploy.md','Deploy (Vercel/VPS)'],['docs/consuming.md','Consuming & upgrading'],['docs/conventions.md','Conventions'],['docs/sync.md','Git sync & hygiene']]],
+ ['Guides',[['docs/agents.md','AI-agent import'],['docs/deploy.md','Deploy (Vercel/VPS)'],['docs/ci-cd.md','CI/CD automation'],['docs/template-schema-v2.md','Template content-schema v2'],['docs/consuming.md','Consuming & upgrading'],['docs/conventions.md','Conventions'],['docs/sync.md','Git sync & hygiene']]],
  ['Reference',[['CHANGELOG.md','Changelog'],['docs/audit-v3.md','Audit v3 + roadmap'],['docs/contrast-report.md','Contrast report'],['docs/products.md','Products'],['docs/design-styles.md','Design styles'],['docs/v3-roadmap.md','v3 roadmap (history)']]]
 ];
 const ALL=DOCS.flatMap(g=>g[1].map(d=>d[0]));
-const nav=document.getElementById('nav');
-for(const [g,items] of DOCS){ const h=document.createElement('div'); h.className='grp'; h.textContent=g; nav.appendChild(h);
-  for(const [p,label] of items){ const a=document.createElement('a'); a.href='#'+p; a.dataset.p=p; a.textContent=label; nav.appendChild(a); } }
+const nav=document.getElementById('navlinks');
+function renderNav(){ nav.innerHTML=''; for(const [g,items] of DOCS){ const h=document.createElement('div'); h.className='grp'; h.textContent=g; nav.appendChild(h);
+  for(const [p,label] of items){ const a=document.createElement('a'); a.href='#'+p; a.dataset.p=p; a.textContent=label; nav.appendChild(a); } } }
+renderNav();
 function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+const LABEL={}; for(const [,items] of DOCS) for(const [p,l] of items) LABEL[p]=l;
+let docCache=null;
+async function ensureCache(){ if(docCache) return docCache; docCache={}; await Promise.all(ALL.map(async p=>{ try{ docCache[p]=await (await fetch('../'+p)).text(); }catch(e){ docCache[p]=''; } })); return docCache; }
+function snippet(text,q){ const i=text.toLowerCase().indexOf(q.toLowerCase()); if(i<0) return ''; const s=Math.max(0,i-30), e=Math.min(text.length,i+q.length+50); return (s>0?'…':'')+esc(text.slice(s,e)).replace(new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'),'<mark>$1</mark>')+(e<text.length?'…':''); }
+function highlightIn(q){ if(!q) return; const doc=document.getElementById('doc'); const walker=document.createTreeWalker(doc,NodeFilter.SHOW_TEXT); const re=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i'); let node; while((node=walker.nextNode())){ if(re.test(node.nodeValue)){ const span=document.createElement('span'); const idx=node.nodeValue.search(re); const before=node.nodeValue.slice(0,idx), match=node.nodeValue.slice(idx,idx+q.length), after=node.nodeValue.slice(idx+q.length); span.innerHTML=esc(before)+'<mark>'+esc(match)+'</mark>'+esc(after); node.replaceWith(span); span.scrollIntoView({block:'center'}); break; } } }
+async function runSearch(q){
+  const cache=await ensureCache();
+  const hits=ALL.filter(p=>cache[p] && cache[p].toLowerCase().includes(q.toLowerCase()));
+  nav.innerHTML='';
+  const res=document.createElement('div'); res.className='searchres'; res.textContent=hits.length+' match'+(hits.length===1?'':'es')+' for “'+q+'”'; nav.appendChild(res);
+  for(const p of hits){ const a=document.createElement('a'); a.className='searchhit'; a.href='#'+p;
+    a.innerHTML='<b>'+esc(LABEL[p]||p)+'</b><span class="snip">'+snippet(cache[p],q)+'</span>';
+    a.addEventListener('click',()=>{ setTimeout(()=>highlightIn(q),200); });
+    nav.appendChild(a); }
+}
+const searchBox=document.getElementById('docsearch');
+let searchT=null;
+searchBox.addEventListener('input',()=>{ clearTimeout(searchT); const q=searchBox.value.trim(); searchT=setTimeout(()=>{ if(q.length<2){ renderNav(); markActive(); } else { runSearch(q); } },150); });
+function markActive(){ document.querySelectorAll('#navlinks a').forEach(a=>a.classList.toggle('on',a.dataset.p===cur)); }
 function inline(s){ return esc(s)
   .replace(/`([^`]+)`/g,(m,c)=>'<code>'+c+'</code>')
   .replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>')
@@ -74,7 +101,7 @@ function resolve(href,cur){ if(href.startsWith('./')) href=href.slice(2); const 
 let cur='';
 async function load(p){
   cur=p; document.title='CyberSkill · '+p;
-  document.querySelectorAll('aside a').forEach(a=>a.classList.toggle('on',a.dataset.p===p));
+  markActive();
   const doc=document.getElementById('doc'), err=document.getElementById('err');
   err.hidden=true;
   try{ const r=await fetch('../'+p); if(!r.ok) throw new Error(r.status+' '+r.statusText); doc.innerHTML=md(await r.text()); document.querySelector('main').scrollTop=0; }

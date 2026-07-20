@@ -1,0 +1,54 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "marketing-social-kit",
+  "slots": [
+    {
+      "id": "sqKicker",
+      "type": "text",
+      "label": "Square canvas eyebrow",
+      "maxLength": 30
+    },
+    {
+      "id": "lcLine1",
+      "type": "text",
+      "label": "Link-card line 1",
+      "maxLength": 40
+    },
+    {
+      "id": "lcLine2",
+      "type": "text",
+      "label": "Link-card line 2 (accent)",
+      "maxLength": 40
+    },
+    {
+      "id": "lcSub",
+      "type": "text",
+      "label": "Link-card subtitle",
+      "maxLength": 70
+    },
+    {
+      "id": "stKicker",
+      "type": "text",
+      "label": "Story canvas eyebrow",
+      "maxLength": 30
+    },
+    {
+      "id": "stLine1",
+      "type": "text",
+      "label": "Story line 1",
+      "maxLength": 30
+    },
+    {
+      "id": "stLine2",
+      "type": "text",
+      "label": "Story line 2",
+      "maxLength": 30
+    },
+    {
+      "id": "stSub",
+      "type": "text",
+      "label": "Story subtitle",
+      "maxLength": 80
+    }
+  ]
+}

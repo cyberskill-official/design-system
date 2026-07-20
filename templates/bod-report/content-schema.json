@@ -1,0 +1,29 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "bod-report",
+  "slots": [
+    { "id": "headTitle", "type": "text", "label": "Header title", "maxLength": 50, "required": true },
+    { "id": "conf", "type": "text", "label": "Confidentiality badge text", "maxLength": 30 },
+    { "id": "kicker", "type": "text", "label": "Report eyebrow", "maxLength": 40 },
+    { "id": "h1", "type": "text", "label": "Report title", "maxLength": 70, "required": true },
+    { "id": "st1", "type": "text", "label": "Stat 1 label", "maxLength": 30 },
+    { "id": "st2", "type": "text", "label": "Stat 2 label", "maxLength": 30 },
+    { "id": "st3", "type": "text", "label": "Stat 3 label", "maxLength": 30 },
+    { "id": "runway", "type": "text", "label": "Stat 3 value", "maxLength": 20 },
+    { "id": "steady", "type": "text", "label": "Stat 3 delta", "maxLength": 20 },
+    { "id": "st4", "type": "text", "label": "Stat 4 label", "maxLength": 30 },
+    { "id": "hlH", "type": "text", "label": "Highlights section heading", "maxLength": 50 },
+    { "id": "hlBody", "type": "richtext", "label": "Highlights body", "maxLength": 400 },
+    { "id": "aiLabel", "type": "text", "label": "AI-disclosure label", "maxLength": 40 },
+    { "id": "aiDetails", "type": "text", "label": "AI-disclosure details", "maxLength": 200 },
+    { "id": "sources", "type": "text", "label": "AI-disclosure sources", "maxLength": 200 },
+    { "id": "portH", "type": "text", "label": "Portfolio table heading", "maxLength": 50 },
+    { "id": "cols", "type": "table", "label": "Portfolio table columns" },
+    { "id": "rows", "type": "table", "label": "Portfolio table rows" },
+    { "id": "riskH", "type": "text", "label": "Risks section heading", "maxLength": 50 },
+    { "id": "risk1t", "type": "text", "label": "Risk 1 title", "maxLength": 60, "required": true },
+    { "id": "risk1b", "type": "richtext", "label": "Risk 1 body", "maxLength": 240 },
+    { "id": "risk2t", "type": "text", "label": "Risk 2 title", "maxLength": 60 },
+    { "id": "risk2b", "type": "richtext", "label": "Risk 2 body", "maxLength": 240 }
+  ]
+}

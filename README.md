@@ -4,7 +4,7 @@
 
 ## Start here
 
-This is the **entrance document** for the CyberSkill Design System — **v4.0.2** (see `VERSION` · changelog below). Open **`dashboard.html`** for the single-page hub (components + playgrounds · health · identity, all in one). One sentence: a warm, Vietnamese-first, enterprise-grade system where every surface resolves three independent axes — **Theme** (light · dark) × **Element** (Ngũ Hành product identity: Kim · Mộc · Thủy · Hỏa · Thổ, 15 variants) × **Expression** (treatment: liquid-glass default · solid · dense · paper · soft · bold · luxe).
+This is the **entrance document** for the CyberSkill Design System — **v5.0.0** (see `VERSION` · changelog below). Open **`dashboard.html`** for the single-page hub (components + playgrounds · health · identity, all in one). One sentence: a warm, Vietnamese-first, enterprise-grade system where every surface resolves three independent axes — **Theme** (light · dark) × **Element** (Ngũ Hành product identity: Kim · Mộc · Thủy · Hỏa · Thổ, 15 variants) × **Expression** (treatment: liquid-glass default · solid · dense · paper · soft · bold · luxe).
 
 **Quick start by audience**
 - **Designers** — open the Design System tab and the Templates picker (84 starting points, including the 41-document lawyer-validated Employment Suite); the Identity Lab (`ui_kits/status-hub/identity-lab.html`) lets you flip axes live.
@@ -21,7 +21,9 @@ This is the **entrance document** for the CyberSkill Design System — **v4.0.2*
 | `docs/products.md` | Product → element registry (provisional) |
 | `docs/contrast-report.md` | Generated APCA report — 0 failures at Lc ≥ 60 |
 | `docs/agents.md` | AI-agent import one-pager (Claude Code · no-build React · static HTML · DTCG token pipelines) |
+| `docs/template-schema-v2.md` | Typed content-slot spec for templates — opt-in, machine-checkable |
 | `docs/deploy.md` | Deploying the live site — Vercel (zero-config) · generic VPS/nginx · post-deploy checklist |
+| `docs/ci-cd.md` | CI/CD automation — GitHub Actions workflow, headless gate runner, token-provenance pre-check, badge |
 | `docs/audit-v3.md` | Final deep audit (v3.0.4): findings by severity, deploy verdict, Vercel showcase map, v4 roadmap |
 
 ---
@@ -260,6 +262,12 @@ SKILL.md                   Agent-Skills-compatible entry
 
 > Full version history: [`CHANGELOG.md`](./CHANGELOG.md). Recent releases below.
 
+- **5.0.0** (Jul 2026) — **The v5 cut**: rolls up A11y CSSOM gate, template content-schema v2, visual regression depth (12 baselines), CI/CD automation, and docs search — fast board grew 13→16 gates, all whole-set audits re-verified.
+- **4.5.0** (Jul 2026) — **Docs-site niceties**: full-text search across every doc in the Docs tab; OG social-image recipe documented in `docs/deploy.md`.
+- **4.4.0** (Jul 2026) — **CI/CD automation**: GitHub Actions workflow (headless Playwright gate run + browser-free token-provenance check + docs/bilingual merge blockers). See `docs/ci-cd.md`.
+- **4.3.0** (Jul 2026) — **Visual regression depth**: baselines grown 9→12, incl. `dashboard-dark` anchoring the v4.0.0 APCA dark-pack repaint.
+- **4.2.0** (Jul 2026) — **Template content-schema v2**: opt-in `content-schema.json` sidecars declare typed content slots (text/richtext/image/link/list/table/date) for a template's existing holes — no markup changes. 3 exemplars ship (product/document/deck); new gate validates shape + bidirectional hole-matching.
+- **4.1.0** (Jul 2026) — **A11y-harness promoted to a real gate**: fixed 2 real gaps found while building it (Switch/Slider had no coarse-pointer treatment; Splitter's resize handle had zero focus indicator). Floors read from source, tiered per control, focus-visible proven by static scan.
 - **4.0.2** (Jul 2026) — **Re-import bug fixed**: `docs/sync.md` never listed `_esm/` in the round-trip file set, so a faithful port skipped it as a presumed build artifact. Added explicitly + a warning against inferring gitignore status from an underscore prefix. New `docs/deploy.md` (Vercel/VPS); fixed a dangling `docs-src/` reference; junk cleanup.
 - **4.0.1** (Jul 2026) — **Behavior gate de-flaked**: `until()` polling replaces fixed waits on DOM-appearance asserts (verifier-caught under-load flake).
 - **4.0.0** (Jul 2026) — **The v4 cut.** Dark elemental packs are APCA-derived (owner-approved; 15/15 hold the targets, gate #14 enforces them) + the v4 batch roll-up: Density axis · ESM entry · Form controller. Schema v2 deferred to v4.x.

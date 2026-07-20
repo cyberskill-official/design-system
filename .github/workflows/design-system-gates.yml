@@ -1,0 +1,102 @@
+name: Design System Gates
+on:
+  push: { branches: [main] }
+  pull_request: { branches: [main] }
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 3 * * *'
+
+jobs:
+  fast-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Install Playwright (Chromium only)
+        run: npx --yes playwright@1.47.0 install --with-deps chromium
+      - name: Serve the repo statically
+        run: npx --yes serve@14 -l 8080 . &
+      - name: Wait for server
+        run: npx --yes wait-on@7 http://127.0.0.1:8080/dashboard.html
+      - name: Run the fast gate board (headless)
+        run: node _audit/ci/run-gates.mjs http://127.0.0.1:8080/_audit/run.html
+      - name: Upload import report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with: { name: import-report, path: _audit/ci/import-report.txt }
+
+  token-provenance:
+    runs-on: ubuntu-latest
+    needs: fast-gates
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Verify tokens/native/ is in lockstep with tokens.dtcg.json (fast, no browser)
+        run: node _audit/ci/check-token-provenance.mjs
+
+  docs-consistency-blocker:
+    runs-on: ubuntu-latest
+    needs: fast-gates
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Install Playwright (Chromium only)
+        run: npx --yes playwright@1.47.0 install --with-deps chromium
+      - name: Serve the repo statically
+        run: npx --yes serve@14 -l 8080 . &
+      - name: Wait for server
+        run: npx --yes wait-on@7 http://127.0.0.1:8080/dashboard.html
+      - name: docs-consistency must be green to merge
+        run: node _audit/ci/run-single-gate.mjs http://127.0.0.1:8080/_audit/docs-consistency.html __docs
+      - name: bilingual-parity must be green to merge
+        run: node _audit/ci/run-single-gate.mjs http://127.0.0.1:8080/_audit/bilingual-parity.html __bilingual
+
+  whole-set-audits:
+    # Scheduled (nightly) or manual only — kept off push/PR so the fast board stays fast.
+    # Each whole-set audit loads all 84 templates in fresh iframes (~4-5 min); 6 min timeout per gate.
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Install Playwright (Chromium only)
+        run: npx --yes playwright@1.47.0 install --with-deps chromium
+      - name: Serve the repo statically
+        run: npx --yes serve@14 -l 8080 . &
+      - name: Wait for server
+        run: npx --yes wait-on@7 http://127.0.0.1:8080/dashboard.html
+      - name: responsive-overflow (all 84 templates)
+        run: node _audit/ci/run-single-gate.mjs http://127.0.0.1:8080/_audit/responsive-overflow.html __overflow 360000
+      - name: language-overflow (all 84 templates, forced VN)
+        run: node _audit/ci/run-single-gate.mjs http://127.0.0.1:8080/_audit/language-overflow.html __language 360000
+      - name: theme-overflow (all 84 templates, forced dark — hard gate only; contrast stays advisory)
+        run: node _audit/ci/run-single-gate.mjs http://127.0.0.1:8080/_audit/theme-overflow.html __theme 360000
+      - name: density-overflow (all 84 templates, forced compact)
+        run: node _audit/ci/run-single-gate.mjs http://127.0.0.1:8080/_audit/density-overflow.html __density 360000
+
+  regenerate-tokens:
+    # Runs whenever a push/PR touches the DTCG source; regenerates tokens/native/* + provenance.json
+    # and commits the diff straight back to the branch, so a token PR never needs a manual pipeline
+    # step. A no-op (clean tree) when the source didn't actually change the derived output.
+    # Honesty note: git-auto-commit-action can't push back to a PR opened from a FORK (no write
+    # token) — on a fork PR this job will run and report the diff in logs but the commit step is a
+    # no-op; the fast-gates job's own token-provenance check still blocks the merge until a
+    # maintainer (or a same-repo branch) carries the regenerated files.
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: ${{ github.head_ref || github.ref }} }
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Regenerate native token targets from tokens.dtcg.json
+        run: node _audit/ci/generate-native-tokens.mjs
+      - name: Commit regenerated files if they changed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: regenerate tokens/native/* from tokens.dtcg.json [skip ci]'
+          file_pattern: 'tokens/native/*.swift tokens/native/*.kt tokens/native/*.dart tokens/provenance.json'

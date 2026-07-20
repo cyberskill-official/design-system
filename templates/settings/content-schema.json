@@ -1,0 +1,121 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "settings",
+  "slots": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Page title",
+      "maxLength": 24,
+      "required": true
+    },
+    {
+      "id": "sub",
+      "type": "text",
+      "label": "Page subtitle",
+      "maxLength": 80
+    },
+    {
+      "id": "profileH",
+      "type": "text",
+      "label": "Profile section heading",
+      "maxLength": 24
+    },
+    {
+      "id": "profileP",
+      "type": "text",
+      "label": "Profile section body",
+      "maxLength": 100
+    },
+    {
+      "id": "nameL",
+      "type": "text",
+      "label": "Name field label",
+      "maxLength": 24
+    },
+    {
+      "id": "emailL",
+      "type": "text",
+      "label": "Email field label",
+      "maxLength": 24
+    },
+    {
+      "id": "squadL",
+      "type": "text",
+      "label": "Squad field label",
+      "maxLength": 24
+    },
+    {
+      "id": "ifaceL",
+      "type": "text",
+      "label": "Interface language field label",
+      "maxLength": 30
+    },
+    {
+      "id": "notifH",
+      "type": "text",
+      "label": "Notifications section heading",
+      "maxLength": 24
+    },
+    {
+      "id": "notifP",
+      "type": "text",
+      "label": "Notifications section body",
+      "maxLength": 100
+    },
+    {
+      "id": "n1t",
+      "type": "text",
+      "label": "Notification 1 title",
+      "maxLength": 30
+    },
+    {
+      "id": "n1d",
+      "type": "text",
+      "label": "Notification 1 description",
+      "maxLength": 80
+    },
+    {
+      "id": "n2t",
+      "type": "text",
+      "label": "Notification 2 title",
+      "maxLength": 30
+    },
+    {
+      "id": "n2d",
+      "type": "text",
+      "label": "Notification 2 description",
+      "maxLength": 80
+    },
+    {
+      "id": "dangerT",
+      "type": "text",
+      "label": "Danger-zone title",
+      "maxLength": 30
+    },
+    {
+      "id": "dangerD",
+      "type": "text",
+      "label": "Danger-zone description",
+      "maxLength": 100
+    },
+    {
+      "id": "dangerBtn",
+      "type": "text",
+      "label": "Danger-zone button label",
+      "maxLength": 30
+    },
+    {
+      "id": "cancelBtn",
+      "type": "text",
+      "label": "Cancel button label",
+      "maxLength": 20
+    },
+    {
+      "id": "saveBtn",
+      "type": "text",
+      "label": "Save button label",
+      "maxLength": 20
+    }
+  ]
+}

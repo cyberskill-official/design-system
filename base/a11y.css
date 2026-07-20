@@ -25,10 +25,16 @@
   /* Selection controls: enlarge the native box; the label extends the target */
   .cs-check input, .cs-radio input { inline-size: 24px; block-size: 24px; }
   .cs-check, .cs-radio { min-height: 44px; align-items: center; }
+  .cs-switch { min-height: 44px; }
 
   /* Icon-only affordances inside a larger row */
   .cs-search__clear { min-inline-size: 32px; min-block-size: 32px; }
   .cs-ai-disclosure__badge { min-height: 32px; }
+
+  /* Slider: native <input type=range> thumb size is browser-controlled (no custom
+   * ::-webkit-slider-thumb here) so an exact 44px hit region can't be guaranteed —
+   * widen the track's rendered band to give the thumb more room to land. */
+  .cs-slider { block-size: 32px !important; }
 }
 
 /* ---- 2. Reduced motion: honour the user's OS setting everywhere ---- */

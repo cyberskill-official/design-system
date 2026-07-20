@@ -1,0 +1,105 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "bod-investor-update",
+  "slots": [
+    {
+      "id": "headTitle",
+      "type": "text",
+      "label": "Header title",
+      "maxLength": 40,
+      "required": true
+    },
+    {
+      "id": "h1",
+      "type": "text",
+      "label": "Update headline",
+      "maxLength": 60,
+      "required": true
+    },
+    {
+      "id": "k1",
+      "type": "text",
+      "label": "Stat 1 label",
+      "maxLength": 24
+    },
+    {
+      "id": "k2",
+      "type": "text",
+      "label": "Stat 2 label",
+      "maxLength": 24
+    },
+    {
+      "id": "runway",
+      "type": "text",
+      "label": "Stat 2 value",
+      "maxLength": 16
+    },
+    {
+      "id": "k3",
+      "type": "text",
+      "label": "Stat 3 label",
+      "maxLength": 24
+    },
+    {
+      "id": "hlH",
+      "type": "text",
+      "label": "Highlights label",
+      "maxLength": 20
+    },
+    {
+      "id": "hl1",
+      "type": "text",
+      "label": "Highlight 1",
+      "maxLength": 140
+    },
+    {
+      "id": "hl2",
+      "type": "text",
+      "label": "Highlight 2",
+      "maxLength": 140
+    },
+    {
+      "id": "hl3",
+      "type": "text",
+      "label": "Highlight 3",
+      "maxLength": 140
+    },
+    {
+      "id": "lowH",
+      "type": "text",
+      "label": "Lowlights label",
+      "maxLength": 30
+    },
+    {
+      "id": "lowBody",
+      "type": "richtext",
+      "label": "Lowlights body",
+      "maxLength": 400,
+      "required": true
+    },
+    {
+      "id": "asksL",
+      "type": "text",
+      "label": "Asks label",
+      "maxLength": 16
+    },
+    {
+      "id": "asksBody",
+      "type": "text",
+      "label": "Asks body",
+      "maxLength": 200
+    },
+    {
+      "id": "cta",
+      "type": "text",
+      "label": "CTA link label",
+      "maxLength": 30
+    },
+    {
+      "id": "footer",
+      "type": "text",
+      "label": "Footer line",
+      "maxLength": 100
+    }
+  ]
+}

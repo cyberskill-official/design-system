@@ -1,0 +1,116 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "marketing-press-release",
+  "slots": [
+    {
+      "id": "kicker",
+      "type": "text",
+      "label": "Header eyebrow",
+      "maxLength": 30
+    },
+    {
+      "id": "h1",
+      "type": "text",
+      "label": "Headline",
+      "maxLength": 160,
+      "required": true
+    },
+    {
+      "id": "sub",
+      "type": "text",
+      "label": "Subheadline",
+      "maxLength": 220
+    },
+    {
+      "id": "lead",
+      "type": "richtext",
+      "label": "Lead paragraph (dateline + intro)",
+      "maxLength": 600,
+      "required": true
+    },
+    {
+      "id": "body2",
+      "type": "richtext",
+      "label": "Body paragraph 2",
+      "maxLength": 400
+    },
+    {
+      "id": "body3",
+      "type": "richtext",
+      "label": "Body paragraph 3",
+      "maxLength": 400
+    },
+    {
+      "id": "glanceL",
+      "type": "text",
+      "label": "\"At a glance\" label",
+      "maxLength": 30
+    },
+    {
+      "id": "g1t",
+      "type": "text",
+      "label": "Glance item 1 title",
+      "maxLength": 30
+    },
+    {
+      "id": "g1b",
+      "type": "text",
+      "label": "Glance item 1 body",
+      "maxLength": 60
+    },
+    {
+      "id": "g2t",
+      "type": "text",
+      "label": "Glance item 2 title",
+      "maxLength": 30
+    },
+    {
+      "id": "g2b",
+      "type": "text",
+      "label": "Glance item 2 body",
+      "maxLength": 60
+    },
+    {
+      "id": "g3t",
+      "type": "text",
+      "label": "Glance item 3 title",
+      "maxLength": 30
+    },
+    {
+      "id": "g3b",
+      "type": "text",
+      "label": "Glance item 3 body",
+      "maxLength": 60
+    },
+    {
+      "id": "aboutL",
+      "type": "text",
+      "label": "Boilerplate heading",
+      "maxLength": 30
+    },
+    {
+      "id": "aboutP",
+      "type": "richtext",
+      "label": "Boilerplate paragraph",
+      "maxLength": 400
+    },
+    {
+      "id": "mediaL",
+      "type": "text",
+      "label": "Media contact label",
+      "maxLength": 30
+    },
+    {
+      "id": "place",
+      "type": "text",
+      "label": "Location line",
+      "maxLength": 40
+    },
+    {
+      "id": "assetsL",
+      "type": "text",
+      "label": "Assets note",
+      "maxLength": 60
+    }
+  ]
+}
