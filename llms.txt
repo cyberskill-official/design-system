@@ -1,5 +1,5 @@
 # CyberSkill Design System
-> HTML-first, Vietnamese-first design system. Immutable anchors: Umber #45210E · Ochre #F4BA17. Three independent axes — Theme × Element (Ngũ Hành) × Expression × Language. Current: v3.0.2. This file is the agent/tool front door: it maps each audience to the format it should consume.
+> HTML-first, Vietnamese-first design system. Immutable anchors: Umber #45210E · Ochre #F4BA17. Three independent axes — Theme × Element (Ngũ Hành) × Expression × Language. Current: v3.0.3. This file is the agent/tool front door: it maps each audience to the format it should consume.
 
 ## Consume by audience (the portable contract works everywhere; the DC layer is Claude-Design-only)
 - **Any web / framework / email (Vue, Svelte, plain HTML, React):** link `styles.css` — every `--cs-*` token, the `.cs-*` component classes, Liquid Glass surfaces. Framework-agnostic, no build step.

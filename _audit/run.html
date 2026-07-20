@@ -31,7 +31,7 @@ const GATES=[
   {name:'Story coverage',file:'story-coverage.html',sub:'every component has an Atomic View story',get:w=>w.__storycov},
   {name:'Consumer smoke test',file:'consumer-smoke-test.html',sub:'packaged bundle mounts + tokens reach a Button',get:w=>w.__smoke},
   {name:'Component children',file:'component-children-test.html',sub:'void-element #137 guard',get:w=>{const v=w.__result;return v&&v.anyThrew!==undefined?{pass:v.anyThrew===false}:null;}},
-  {name:'Component behavior',file:'component-behavior-test.html',sub:'11 real interaction assertions',get:w=>w.__behavior},
+  {name:'Component behavior',file:'component-behavior-test.html',sub:'20 real interaction assertions',get:w=>w.__behavior},
   {name:'Bilingual parity',file:'bilingual-parity.html',sub:'EN·VI string-registry parity',get:w=>w.__bilingual},
 ];
 const list=document.getElementById('list'), pool=document.getElementById('pool'), overall=document.getElementById('overall');
@@ -42,12 +42,14 @@ function runOne(g){
     const f=document.createElement('iframe');f.src='./'+g.file;pool.appendChild(f);
     let done=false;
     f.onload=async()=>{
-      for(let i=0;i<140;i++){ // up to ~42s (nested iframes: contrast-guard fetches many files; bundle gates load React)
-        let v=null; try{ v=g.get(f.contentWindow); }catch(e){}
+      let idle=0,last='',prog=null;
+      for(let i=0;i<400&&idle<140;i++){ // ~42s with no progress; hard cap ~2min while the gate keeps reporting progress
+        let v=null; try{ v=g.get(f.contentWindow); prog=f.contentWindow.__behaviorProgress||f.contentWindow.__gateProgress||null; }catch(e){}
         if(v && v.pass!==undefined){ done=true; f.remove(); return res({pass:!!v.pass, v}); }
+        const sig=prog?prog.done+'|'+prog.current:''; if(sig&&sig!==last){ last=sig; idle=0; } else idle++;
         await wait(300);
       }
-      if(!done){ f.remove(); res({pass:false,timeout:true}); }
+      if(!done){ f.remove(); res({pass:false,timeout:true,v:{timeout:true,stalledAt:prog?prog.current:null,done:prog?prog.done+'/'+prog.total:null}}); }
     };
   });
 }
@@ -74,7 +76,13 @@ function runOne(g){
   const box=document.createElement('textarea');
   box.value=rep; box.readOnly=true;
   box.style.cssText='width:100%;max-width:820px;height:150px;font:11px ui-monospace,monospace;padding:8px;border:1px solid #c9b79c;border-radius:6px;background:#fff;color:#231a12';
-  btn.onclick=()=>{ box.select(); try{ navigator.clipboard.writeText(rep); }catch(e){ document.execCommand('copy'); } btn.textContent='Copied ✓'; setTimeout(()=>btn.textContent='Copy import report',1500); };
+  btn.onclick=async()=>{
+    box.focus(); box.select(); box.setSelectionRange(0,rep.length);
+    let ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+    if(!ok&&navigator.clipboard){ try{ await navigator.clipboard.writeText(rep); ok=true; }catch(e){} }
+    btn.textContent=ok?'Copied \u2713':'Copy blocked here \u2014 text is selected, press Ctrl/Cmd+C';
+    setTimeout(()=>btn.textContent='Copy import report',ok?1500:5000);
+  };
   const list=document.getElementById('list');
   list.appendChild(btn); list.appendChild(box);
 })();

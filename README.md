@@ -4,7 +4,7 @@
 
 ## Start here
 
-This is the **entrance document** for the CyberSkill Design System — **v3.0.2** (see `VERSION` · changelog below). Open **`dashboard.html`** for the single-page hub (components + playgrounds · health · identity, all in one). One sentence: a warm, Vietnamese-first, enterprise-grade system where every surface resolves three independent axes — **Theme** (light · dark) × **Element** (Ngũ Hành product identity: Kim · Mộc · Thủy · Hỏa · Thổ, 15 variants) × **Expression** (treatment: liquid-glass default · solid · dense · paper · soft · bold · luxe).
+This is the **entrance document** for the CyberSkill Design System — **v3.0.3** (see `VERSION` · changelog below). Open **`dashboard.html`** for the single-page hub (components + playgrounds · health · identity, all in one). One sentence: a warm, Vietnamese-first, enterprise-grade system where every surface resolves three independent axes — **Theme** (light · dark) × **Element** (Ngũ Hành product identity: Kim · Mộc · Thủy · Hỏa · Thổ, 15 variants) × **Expression** (treatment: liquid-glass default · solid · dense · paper · soft · bold · luxe).
 
 **Quick start by audience**
 - **Designers** — open the Design System tab and the Templates picker (84 starting points, including the 41-document lawyer-validated Employment Suite); the Identity Lab (`ui_kits/status-hub/identity-lab.html`) lets you flip axes live.
@@ -255,6 +255,7 @@ SKILL.md                   Agent-Skills-compatible entry
 
 > Full version history: [`CHANGELOG.md`](./CHANGELOG.md). Recent releases below.
 
+- **3.0.3** (Jul 2026) — **Gate-runner hardening**: copy-report button now works in embedded previews (selection-first copy + honest failure state); behavior gate gets React/bundle preflight, per-test + suite watchdogs and progress reporting — a timeout now names the stalled test instead of a bare `{"timeout":true}`.
 - **3.0.2** (Jul 2026) — **Gate-coverage audit**: registry scan clean, behavior tests 11→20 (all green), kits added to the responsive audit.
 - **3.0.1** (Jul 2026) — **Import health report** in the gate runner (paste-ready per-gate diagnostics for re-imports).
 - **3.0.0** (Jul 2026) — **The v3 cut.** Bilingual-by-rule everywhere (components resolve `[lang]`; EN·VI registry + parity gate), 5-tier Atomic View with a Language axis, Element/Expression made visibly distinct, and 46 new components (67→113 exports). Breaking: built-in component strings now localize automatically.
