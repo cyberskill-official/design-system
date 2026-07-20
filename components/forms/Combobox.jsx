@@ -32,13 +32,14 @@ export function Combobox({ options = [], value, onChange, placeholder, label, di
   return (
     <div ref={(el) => { wrapRef.current = el; ref.current = el; }} className={cx("cs-combobox", className)}>
       <input role="combobox" aria-expanded={open} aria-controls={id} aria-autocomplete="list" aria-label={label}
+        aria-activedescendant={open && shown[hl] ? id + "-" + hl : undefined}
         disabled={disabled} placeholder={ph} value={open ? q : (sel ? sel.label : q)}
         onFocus={() => { setOpen(true); setHl(0); }} onChange={(e) => { setQ(e.target.value); setOpen(true); setHl(0); }} onKeyDown={key} />
       <span className="cs-combobox__caret" aria-hidden="true">▾</span>
       {open ? (
         <ul className="cs-combobox__list" role="listbox" id={id}>
           {shown.length ? shown.map((o, i) => (
-            <li key={o.value} role="option" aria-selected={o.value === value} className={cx("cs-combobox__opt", i === hl && "hl")}
+            <li key={o.value} id={id + "-" + i} role="option" aria-selected={o.value === value} className={cx("cs-combobox__opt", i === hl && "hl")}
               onMouseEnter={() => setHl(i)} onMouseDown={(e) => { e.preventDefault(); pick(o); }}>{o.label}</li>
           )) : <li className="cs-combobox__empty">{t("empty")}</li>}
         </ul>

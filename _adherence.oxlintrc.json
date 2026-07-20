@@ -235,8 +235,8 @@
         "message": "<FabAction> doesn't accept that prop. Declared props: icon, label, onSelect."
       },
       {
-        "selector": "JSXOpeningElement[name.name='Form'] > JSXAttribute > JSXIdentifier[name!=/^(?:onSubmit|errors|children|lang|className|key|ref|className|style|children)$/]",
-        "message": "<Form> doesn't accept that prop. Declared props: onSubmit, errors, children, lang, className."
+        "selector": "JSXOpeningElement[name.name='Form'] > JSXAttribute > JSXIdentifier[name!=/^(?:onSubmit|errors|rules|initialValues|children|lang|className|key|ref|className|style|children)$/]",
+        "message": "<Form> doesn't accept that prop. Declared props: onSubmit, errors, rules, initialValues, children, lang, className."
       },
       {
         "selector": "JSXOpeningElement[name.name='HotKeyBinding'] > JSXAttribute > JSXIdentifier[name!=/^(?:keys|description|onTrigger|key|ref|className|style|children)$/]",

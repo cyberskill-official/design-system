@@ -6,15 +6,16 @@ For humans and agents *extending this system*. (Consumers: read `SKILL.md`.) The
 
 **When anything grows, everything updates in the same change.** A new element/variant, expression, icon, component, token role, or language must propagate to: tokens/source → specimen cards (guidelines + the component group card) **and related guideline pages** → component contract trio (`.jsx` + `.d.ts` + `.prompt.md`) → **all** templates (tweak enums and maps) → Identity Lab pills → docs (README counts, SKILL, **and every related document the change touches** — kit READMEs, registry, contrast report regenerated after token changes) → changelog + `VERSION`. Gate every expansion with the compiler check **and a grep for the old enum/list** — nothing ships half-propagated. Documented scope boundaries (doctrine, not gaps): UI-kit pages stay pixel-faithful Thổ recreations (the axes are demoed in the Identity Lab); every template is bilingual EN·VN and English-default (client/media collateral stays English-primary), and language variants render **fully separated** — see the decision log.
 
-## The three axes
+## The four axes
 
-Every rendered surface resolves three orthogonal scopes — never encode one axis inside another:
+Every rendered surface resolves four orthogonal scopes — never encode one axis inside another:
 
 | Axis | Attribute | Owns | Packs live in |
 |---|---|---|---|
 | **Theme** | `data-theme="dark\|system"` | light/dark inversion | `tokens/colors.css` |
 | **Element** (Ngũ Hành) | `data-cs-element` + `data-cs-variant` | hue identity per product | `tokens/elements.css` |
 | **Expression** | `data-cs-expression="solid\|dense\|paper\|soft\|bold\|luxe"` | treatment: surface, radius, shadow, density, motion | `tokens/expressions.css` |
+| **Density** | `data-cs-density="compact"` (comfortable default) | control metrics only (button/field heights + paddings); pointer-fine-gated — coarse pointers keep the 44px floor | `tokens/density.css` |
 
 Immutable under all axes: Umber/Ochre anchors, voice, type families, semantic status colors, the 3px Ochre focus ring, APCA floors, ≥44px targets.
 

@@ -109,8 +109,8 @@ export const strings = {
     vi: { placeholder: "Thêm ghi chú — gõ @ để nhắc tên" },
   },
   Form: {
-    en: { summary: "Please fix the following:", required: "required" },
-    vi: { summary: "Vui lòng sửa các mục sau:", required: "bắt buộc" },
+    en: { summary: "Please fix the following:", required: "required", requiredField: "This field is required" },
+    vi: { summary: "Vui lòng sửa các mục sau:", required: "bắt buộc", requiredField: "Trường này là bắt buộc" },
   },
   BackTop: {
     en: { label: "Back to top" },

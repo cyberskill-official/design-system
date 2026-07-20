@@ -17,7 +17,7 @@
   #pool{position:fixed;left:-6000px;top:0;width:1000px;height:800px}
 </style></head><body>
 <h1><b>CyberSkill</b> · Gate runner</h1>
-<p class="sub">Runs every <b>fast</b> deterministic gate in sequence (fresh iframe each) and reads its verdict global. The four whole-set state audits (<code>responsive-overflow</code>, <code>language-overflow</code>, <code>theme-overflow</code> — ~4–5 min each) are intentionally excluded here; run those from the <a href="./index.html">suite index</a>. Gates that load <code>_ds_bundle.js</code> reflect the <b>last compiled</b> bundle, so re-run on a fresh turn after editing component sources.</p>
+<p class="sub">Runs every <b>fast</b> deterministic gate in sequence (fresh iframe each) and reads its verdict global. The whole-set state audits (responsive · language · theme · vn · density — ~4–5 min each) are intentionally excluded here; run those from the <a href="./index.html">suite index</a>. Gates that load <code>_ds_bundle.js</code> reflect the <b>last compiled</b> bundle, so re-run on a fresh turn after editing component sources.</p>
 <div id="overall">running…</div>
 <div id="list"></div>
 <p class="note">Green board = the system is internally consistent: dark-contrast safe, docs match the compiler, namespace portable, tokens resolve, consumer path works, components mount + behave, and every component has a story. <code>window.__run.pass</code> holds the aggregate.</p>
@@ -28,11 +28,17 @@ const GATES=[
   {name:'Docs consistency',file:'docs-consistency.html',sub:'counts + version pointers vs compiler',get:w=>w.__docs},
   {name:'Namespace portability',file:'namespace-portability.html',sub:'no hardcoded project-id suffix',get:w=>w.__nsguard},
   {name:'Token contract',file:'token-contract.html',sub:'15 element scopes resolve accent roles',get:w=>{const v=w.__contract;return v?{pass:(v.pass!==undefined?v.pass:(v.elementFails===0&&(!v.coreMissing||v.coreMissing.length===0)))}:null;}},
+  {name:'Token pipeline',file:'token-pipeline-test.html',sub:'native Swift/Kotlin/Flutter parity + provenance',get:w=>w.__tokenpipe},
+  {name:'Density',file:'density-gate.html',sub:'compact applies · defaults untouched · pointer-fine-gated',get:w=>w.__densitygate},
   {name:'Story coverage',file:'story-coverage.html',sub:'every component has an Atomic View story',get:w=>w.__storycov},
   {name:'Consumer smoke test',file:'consumer-smoke-test.html',sub:'packaged bundle mounts + tokens reach a Button',get:w=>w.__smoke},
+  {name:'ESM smoke test',file:'esm-smoke-test.html',sub:'esm/cs.js imports \u00b7 export/manifest parity',get:w=>w.__esm},
   {name:'Component children',file:'component-children-test.html',sub:'void-element #137 guard',get:w=>{const v=w.__result;return v&&v.anyThrew!==undefined?{pass:v.anyThrew===false}:null;}},
-  {name:'Component behavior',file:'component-behavior-test.html',sub:'20 real interaction assertions',get:w=>w.__behavior},
+  {name:'Component behavior',file:'component-behavior-test.html',sub:'21 real interaction assertions',get:w=>w.__behavior},
+  {name:'A11y interactions',file:'a11y-gate.html',sub:'focus trap/restore · roving tabindex · ARIA contracts',get:w=>w.__a11y},
   {name:'Bilingual parity',file:'bilingual-parity.html',sub:'EN·VI string-registry parity',get:w=>w.__bilingual},
+  {name:'APCA dark packs',file:'apca-dark-preview.html',sub:'15 dark elemental packs hold APCA targets',get:w=>{const v=w.__apcaPreview;return v?{pass:v.currentFail===0,v}:null;}},
+  {name:'Visual baselines',file:'visual-diff.html',sub:'baseline freshness — advisory (drift judged by eye)',advisory:true,get:w=>w.__visualdiff},
 ];
 const list=document.getElementById('list'), pool=document.getElementById('pool'), overall=document.getElementById('overall');
 const rows=GATES.map(g=>{const el=document.createElement('div');el.className='g';el.innerHTML='<span class="dot run"></span><span class="n">'+g.name+'<small>'+g.sub+'</small></span><span class="badge run">running</span>';list.appendChild(el);return el;});
@@ -58,17 +64,23 @@ function runOne(g){
   for(let i=0;i<GATES.length;i++){
     const r=await runOne(GATES[i]); results.push(r);
     const el=rows[i], dot=el.querySelector('.dot'), b=el.querySelector('.badge');
-    const cls=r.pass?'pass':'fail'; dot.className='dot '+cls; b.className='badge '+cls; b.textContent=r.pass?'pass':(r.timeout?'timeout':'fail');
+    const adv=!!GATES[i].advisory;
+    const cls=r.pass?'pass':(adv?'run':'fail');
+    dot.className='dot '+cls; b.className='badge '+cls;
+    b.textContent=r.pass?(adv?'pass · advisory':'pass'):(adv?'advisory ✗':(r.timeout?'timeout':'fail'));
   }
-  const bad=GATES.filter((g,i)=>!results[i].pass).map(g=>g.name);
+  const hard=GATES.filter(g=>!g.advisory);
+  const bad=GATES.filter((g,i)=>!g.advisory&&!results[i].pass).map(g=>g.name);
+  const advBad=GATES.filter((g,i)=>g.advisory&&!results[i].pass).map(g=>g.name);
   const details={}; GATES.forEach((g,i)=>{ details[g.name]=results[i].v||(results[i].timeout?{timeout:true}:null); });
-  window.__run={pass:bad.length===0,total:GATES.length,failed:bad,details};
-  overall.textContent=bad.length?('✗ '+bad.length+'/'+GATES.length+' FAILED — '+bad.join(', ')):('✓ ALL '+GATES.length+' FAST GATES PASS');
+  window.__run={pass:bad.length===0,total:hard.length,failed:bad,advisoryFailed:advBad,details};
+  overall.textContent=bad.length?('✗ '+bad.length+'/'+hard.length+' FAILED — '+bad.join(', ')):('✓ ALL '+hard.length+' FAST GATES PASS'+(advBad.length?(' · advisory: '+advBad.join(', ')):''));
   overall.style.background=bad.length?'#FEE2E2':'#dcfce7'; overall.style.color=bad.length?'#B42318':'#166534';
   // Import health report — copy/paste this back to Claude to diagnose a re-import.
   let ver=''; try{ ver=(await (await fetch('../VERSION')).text()).trim(); }catch(e){}
+  try{ localStorage.setItem('cs:last-gate-run', JSON.stringify({ver, ts:Date.now(), pass:bad.length===0, total:hard.length, failed:bad})); }catch(e){}
   const rep=['CyberSkill DS — import health report','version: v'+ver+' · '+new Date().toISOString(),'']
-    .concat(GATES.map((g,i)=>{const r=results[i];return (r.pass?'PASS':'FAIL')+'  '+g.name+(r.pass?'':'  → '+JSON.stringify(r.v||{timeout:r.timeout}).slice(0,600));}))
+    .concat(GATES.map((g,i)=>{const r=results[i];const tag=r.pass?(g.advisory?'ADVS':'PASS'):(g.advisory?'ADVS✗':'FAIL');return tag+'  '+g.name+(r.pass?'':'  → '+JSON.stringify(r.v||{timeout:r.timeout}).slice(0,600));}))
     .join('\n');
   const btn=document.createElement('button');
   btn.textContent='Copy import report';

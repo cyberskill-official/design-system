@@ -4,7 +4,7 @@
 
 ## Start here
 
-This is the **entrance document** for the CyberSkill Design System — **v3.0.3** (see `VERSION` · changelog below). Open **`dashboard.html`** for the single-page hub (components + playgrounds · health · identity, all in one). One sentence: a warm, Vietnamese-first, enterprise-grade system where every surface resolves three independent axes — **Theme** (light · dark) × **Element** (Ngũ Hành product identity: Kim · Mộc · Thủy · Hỏa · Thổ, 15 variants) × **Expression** (treatment: liquid-glass default · solid · dense · paper · soft · bold · luxe).
+This is the **entrance document** for the CyberSkill Design System — **v4.0.0** (see `VERSION` · changelog below). Open **`dashboard.html`** for the single-page hub (components + playgrounds · health · identity, all in one). One sentence: a warm, Vietnamese-first, enterprise-grade system where every surface resolves three independent axes — **Theme** (light · dark) × **Element** (Ngũ Hành product identity: Kim · Mộc · Thủy · Hỏa · Thổ, 15 variants) × **Expression** (treatment: liquid-glass default · solid · dense · paper · soft · bold · luxe).
 
 **Quick start by audience**
 - **Designers** — open the Design System tab and the Templates picker (84 starting points, including the 41-document lawyer-validated Employment Suite); the Identity Lab (`ui_kits/status-hub/identity-lab.html`) lets you flip axes live.
@@ -17,9 +17,11 @@ This is the **entrance document** for the CyberSkill Design System — **v3.0.3*
 |---|---|
 | `README.md` (this file, below) | The full guide: anchors, voice, visual foundations, components, templates, index |
 | `SKILL.md` | Agent entry — hard rules + fast orientation |
-| `docs/conventions.md` | How to extend the system (naming grammar, checklists, the three axes, decision log) |
+| `docs/conventions.md` | How to extend the system (naming grammar, checklists, the four axes, decision log) |
 | `docs/products.md` | Product → element registry (provisional) |
 | `docs/contrast-report.md` | Generated APCA report — 0 failures at Lc ≥ 60 |
+| `docs/agents.md` | AI-agent import one-pager (Claude Code · no-build React · static HTML · DTCG token pipelines) |
+| `docs/audit-v3.md` | Final deep audit (v3.0.4): findings by severity, deploy verdict, Vercel showcase map, v4 roadmap |
 
 ---
 
@@ -90,7 +92,9 @@ The doctrine itself is the single-file `DESIGN.md` (22 Parts, ~1.3 MB) in the de
 
 **Elemental product identity — Ngũ Hành.** The studio itself is **Thổ/Earth** (Umber + Ochre — the traditional earth-yellow); each CyberSkill *product* may take one element — **Kim** (metal) · **Mộc** (wood) · **Thủy** (water) · **Hỏa** (fire) · **Thổ** (earth) — via `data-cs-element` (+ `data-cs-variant`, e.g. Hỏa: ember · lava · plasma). Each pack sets the nine **`--cs-accent-*`** role tokens (accent / strong / bright / on / tint / ink / glow / grad-a / grad-b) defined in `tokens/elements.css`; inside the scope the element fully takes Ochre's accent roles. Never elemental: semantic statuses, and the **3px Ochre focus ring** — the studio's accessibility signature on every product. Mixing follows the cycles: a secondary element may appear only as a gradient endpoint along **Tương sinh** (Mộc→Hỏa→Thổ→Kim→Thủy→Mộc); **Tương khắc** pairs never mix. Product→element mapping lives in `docs/products.md`. **Every template carries the Element tweak** — anything that should follow the product's element must consume `--cs-accent-*`, never raw hex. **Lumi stays golden in every element** — the genie is the studio's constant; only the environment re-tints.
 
-**Expressions — the treatment axis.** Surfaces resolve **Theme × Element × Expression** independently. An expression (`data-cs-expression="solid|paper|soft|bold"`, default liquid-glass) re-tunes treatment only — radius, shadow, glass scalars, border weight, motion — by overriding the existing tokens in `tokens/expressions.css`; hue, voice, semantics, and a11y floors are untouchable. The registry is curated (capped at seven — extended 6→7 by owner decision, Jul 2026, now full): `solid` (flat, Swiss-calm), `dense` (operational data UI; coarse pointers keep the 44px floor), `paper` (editorial, print-true), `soft` (plush, rounded), `bold` (neubrutalism, warmed — umber frames, hard offset shadows), `luxe` (ceremonial — pill CTAs, hairline borders, deep soft glow, unhurried motion). Neon/cyberpunk, memphis, and full skeuomorphism are rejected by doctrine.
+**Expressions — the treatment axis.** Surfaces resolve **Theme × Element × Expression** independently. An expression (`data-cs-expression="solid|paper|soft|bold"`, default liquid-glass) re-tunes t
+
+**Density — the size axis (v3.5).** `data-cs-density="compact"` on any container tightens control metrics (button md 44→36, field 44→38) for dense product surfaces; comfortable is the default and identical to pre-3.5 rendering. Pointer-fine-gated — on touch, the 44px floor from `base/a11y.css` stays authoritative.reatment only — radius, shadow, glass scalars, border weight, motion — by overriding the existing tokens in `tokens/expressions.css`; hue, voice, semantics, and a11y floors are untouchable. The registry is curated (capped at seven — extended 6→7 by owner decision, Jul 2026, now full): `solid` (flat, Swiss-calm), `dense` (operational data UI; coarse pointers keep the 44px floor), `paper` (editorial, print-true), `soft` (plush, rounded), `bold` (neubrutalism, warmed — umber frames, hard offset shadows), `luxe` (ceremonial — pill CTAs, hairline borders, deep soft glow, unhurried motion). Neon/cyberpunk, memphis, and full skeuomorphism are rejected by doctrine.
 
 **Motion** is calm and purposeful: short durations (120–320ms), a soft decelerate `cubic-bezier(0.2,0,0,1)`, small translate/scale and fades (e.g. the hero mascot's gentle float). No bounce, no flash. Everything collapses to 0 under `prefers-reduced-motion`.
 
@@ -255,6 +259,17 @@ SKILL.md                   Agent-Skills-compatible entry
 
 > Full version history: [`CHANGELOG.md`](./CHANGELOG.md). Recent releases below.
 
+- **4.0.0** (Jul 2026) — **The v4 cut.** Dark elemental packs are APCA-derived (owner-approved; 15/15 hold the targets, gate #14 enforces them) + the v4 batch roll-up: Density axis · ESM entry · Form controller. Schema v2 deferred to v4.x.
+- **3.8.0** (Jul 2026) — **APCA dark-pack preview** (decision artifact): current dark elemental packs measured 0/15 against APCA targets; derived proposals pass 15/15 — awaiting owner approval before any token change.
+- **3.7.0** (Jul 2026) — **Form controller unification**: `Form` gains `rules`/`initialValues` + a context registry; `name`d FormFields auto-wire value/onChange and per-field errors; manual usage unchanged. Behavior gate 20→21; new Form organism story.
+- **3.6.0** (Jul 2026) — **ESM entry point** (`_esm/cs.mjs`): one no-build `import` for all 113 components (self-ensures React + bundle, prefix-resolved); ESM smoke gate enforces export/manifest parity.
+- **3.5.0** (Jul 2026) — **Density axis (v4 batch 1)**: opt-in `data-cs-density="compact"` control metrics (pointer-fine-gated; defaults byte-identical), wired across Atomic View/playground toolbars, specimen card, DTCG overrides + natives, plus a fast density gate and a whole-set compact overflow audit.
+- **3.4.0** (Jul 2026) — **Token pipeline**: pre-generated native builds (`tokens/native/` — SwiftUI · Compose · Flutter) + `tokens/provenance.json` (sha-256 pinning); parity gate in the fast runner keeps them lockstep with the DTCG source.
+- **3.3.1** (Jul 2026) — **A11y gate hardened against background-iframe focus quirks** (action retries + focus spies) — proven green direct + runner ×2.
+- **3.3.0** (Jul 2026) — **Visual regression**: per-tier baselines 3→9 (archetypes + kitchen-sink composite + UI-kit Pages); visual-diff wired into the runner as an advisory freshness row.
+- **3.2.0** (Jul 2026) — **A11y depth**: Dialog/Drawer focus trap + restore (+ Dialog Escape), roving tabindex on Tabs/SegmentedControl/Menubar, Combobox `aria-activedescendant`; new a11y interaction gate in the fast runner + advisory QR reader-scan sanity check (jsQR round-trip incl. VN UTF-8).
+- **3.1.0** (Jul 2026) — **v3.1 live-site polish**: dashboard Docs tab (in-page markdown viewer), gate-status badge (last run persisted by the runner), Atomic View per-story permalinks, OG meta, `package.json` (version gate-checked) + `docs/agents.md`.
+- **3.0.4** (Jul 2026) — **Final deep audit + deploy readiness** (`docs/audit-v3.md`): whole-tree scans clean (component units complete, assets all referenced, zero debt markers); added root `index.html` → dashboard so static hosts serve `/`; honest dashboard version fallback. Verdict: ready to deploy as source of truth.
 - **3.0.3** (Jul 2026) — **Gate-runner hardening**: copy-report button now works in embedded previews (selection-first copy + honest failure state); behavior gate gets React/bundle preflight, per-test + suite watchdogs and progress reporting — a timeout now names the stalled test instead of a bare `{"timeout":true}`.
 - **3.0.2** (Jul 2026) — **Gate-coverage audit**: registry scan clean, behavior tests 11→20 (all green), kits added to the responsive audit.
 - **3.0.1** (Jul 2026) — **Import health report** in the gate runner (paste-ready per-gate diagnostics for re-imports).

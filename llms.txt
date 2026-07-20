@@ -1,5 +1,5 @@
 # CyberSkill Design System
-> HTML-first, Vietnamese-first design system. Immutable anchors: Umber #45210E · Ochre #F4BA17. Three independent axes — Theme × Element (Ngũ Hành) × Expression × Language. Current: v3.0.3. This file is the agent/tool front door: it maps each audience to the format it should consume.
+> HTML-first, Vietnamese-first design system. Immutable anchors: Umber #45210E · Ochre #F4BA17. Independent axes — Theme × Element (Ngũ Hành) × Expression × Density × Language. Current: v4.0.0. This file is the agent/tool front door: it maps each audience to the format it should consume.
 
 ## Consume by audience (the portable contract works everywhere; the DC layer is Claude-Design-only)
 - **Any web / framework / email (Vue, Svelte, plain HTML, React):** link `styles.css` — every `--cs-*` token, the `.cs-*` component classes, Liquid Glass surfaces. Framework-agnostic, no build step.
@@ -8,15 +8,16 @@
 - **Claude Design (authoring + live preview):** `templates/**/*.dc.html` Design Components + the compiler (tweaks, `x-import`, `@dsCard` cards). Native to Claude Design — not portable; other tools consume the outputs above, not these.
 
 ## Key files
-- `dashboard.html` — single-page hub (tabs: Atomic View + playgrounds · 8-gate runner · Identity Lab; live version/counts)
-- `styles.css` — single entry point (`@import`s `tokens/` then `base/`)
-- `tokens/` — 505 tokens (colours · type · spacing · motion · elevation · `elements.css` · `expressions.css`) as CSS custom properties + `tokens.json` / `tokens.js` / `tokens.dtcg.json` (W3C DTCG)
+- `dashboard.html` — single-page hub (tabs: Atomic View + playgrounds · gate-runner health board · Identity Lab · Docs; live version/counts)
+- `styles.css` — single entry point (`@import`s `tokens/` then `base/`) · `_esm/cs.mjs` — ESM entry (imports every component, no build)
+- `tokens/` — 500+ design tokens (colours · type · spacing · motion · elevation · `elements.css` · `expressions.css` · `density.css`) as CSS custom properties + `tokens.json` / `tokens.js` / `tokens.dtcg.json` (W3C DTCG)
 - `base/` — reset, component classes (`.cs-*`), a11y, responsive, glass
 - `components/` — 99 components / 113 exports, each `.jsx` + `.d.ts` + `.prompt.md` + a `@dsCard` card
 - `templates/` — copyable starting points (`.dc.html`); `email-safe/` send-ready emails; `kitchen-sink.html`; `playground.html`
 - `guidelines/` — specimen cards + `atomic-view.html` (Storybook-style component browser: Atomic tiers × Theme × Element × Expression) · `ui_kits/` — full product recreations · `fonts/` — self-hosted woff2 (VN subset) · `assets/` — logo/favicon/mascot
-- `docs/` — `conventions.md` (authoring rules + decision log) · `consuming.md` · `sync.md` · `contrast-report.md` · `products.md`
-- `README.md` · `CHANGELOG.md` · `CONTRIBUTING.md` · `SKILL.md` · `VERSION`
+- `tokens/` — CSS custom properties (source) · `tokens.json`/`tokens.js` · `tokens.dtcg.json` (W3C DTCG) · `native/` (generated SwiftUI/Compose/Flutter + `provenance.json`, gate-pinned)
+- `docs/` — `conventions.md` (authoring rules + decision log) · `consuming.md` · `sync.md` · `contrast-report.md` · `products.md` · `agents.md` (AI-agent import one-pager) · `audit-v3.md` (deploy verdict + roadmap) · `viewer.html` (in-page docs reader, embedded in the dashboard)
+- `README.md` · `CHANGELOG.md` · `CONTRIBUTING.md` · `SKILL.md` · `VERSION` · `package.json`
 
 ## Non-negotiables (full list in CONTRIBUTING.md + docs/conventions.md)
 Immutable Umber/Ochre anchors · Vietnamese-first bilingual · APCA Lc ≥ 75 body · ≥44px touch targets · 3px ochre focus ring · honour `prefers-reduced-motion`/`prefers-contrast` · one accent per surface.

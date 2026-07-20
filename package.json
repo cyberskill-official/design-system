@@ -1,0 +1,12 @@
+{
+  "name": "cyberskill-design-system",
+  "version": "4.0.0",
+  "private": true,
+  "module": "_esm/cs.mjs",
+  "exports": { ".": { "import": "./_esm/cs.mjs" }, "./styles.css": "./styles.css", "./tokens/*": "./tokens/*" },
+  "description": "CyberSkill Design System — HTML-first, Vietnamese-first (EN·VI). Anchors: Umber #45210E · Ochre #F4BA17. Axes: Theme × Element (Ngũ Hành) × Expression × Language. No build step: styles.css + _ds_bundle.js.",
+  "style": "styles.css",
+  "files": ["styles.css", "tokens/", "base/", "fonts/", "assets/", "_ds_bundle.js", "_ds_manifest.json", "llms.txt", "SKILL.md", "docs/", "components/", "templates/", "guidelines/", "ui_kits/"],
+  "keywords": ["design-system", "design-tokens", "bilingual", "vietnamese", "cyberskill"],
+  "license": "UNLICENSED"
+}

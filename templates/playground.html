@@ -24,8 +24,9 @@
   <div class="grp" id="theme"><span class="k">Theme</span></div>
   <div class="grp" id="element"><span class="k">Element</span></div>
   <div class="grp" id="expression"><span class="k">Expression</span></div>
+  <div class="grp" id="density"><span class="k">Density</span></div>
 </div>
-<div class="stage"><div class="gal" id="stage" data-theme="" data-cs-element="tho" data-cs-variant="" data-cs-expression="">
+<div class="stage"><div class="gal" id="stage" data-theme="" data-cs-element="tho" data-cs-variant="" data-cs-expression="" data-cs-density="">
   <div class="row"><span class="lbl">Accent swatches (live)</span>
     <div class="swatches">
       <div class="sw" style="background:var(--cs-accent)"></div>
@@ -49,7 +50,7 @@
     <div class="panel" style="flex:1;min-width:220px"><div style="font-weight:700;margin-bottom:6px">Wish card</div><div class="cs-progress" style="margin:6px 0"><div class="cs-progress__fill" style="inline-size:64%"></div></div><span class="cs-badge cs-badge--success"><span class="cs-badge__dot"></span>On track</span></div>
   </div>
   <div class="cs-tabs"><button class="cs-tab" aria-selected="true">Overview</button><button class="cs-tab">Projects</button><button class="cs-tab">Team</button></div>
-  <div class="cs-alert cs-alert--info"><div class="cs-alert__icon">ⓘ</div><div><p class="cs-alert__title">Theme × Element × Expression are independent</p><p class="cs-alert__body">Switch any axis above — the same markup re-skins with zero code changes.</p></div></div>
+  <div class="cs-alert cs-alert--info"><div class="cs-alert__icon">ⓘ</div><div><p class="cs-alert__title">Theme × Element × Expression × Density are independent</p><p class="cs-alert__body">Switch any axis above — the same markup re-skins with zero code changes.</p></div></div>
 </div></div>
 <script>
 const stage=document.getElementById('stage');
@@ -57,6 +58,7 @@ const AX={
   theme:[["Light",""],["Dark","dark"]],
   element:[["Thổ","tho|"],["Thổ·clay","tho|clay"],["Thổ·sand","tho|sand"],["Hỏa","hoa|"],["Hỏa·lava","hoa|lava"],["Hỏa·plasma","hoa|plasma"],["Thủy","thuy|"],["Thủy·ocean","thuy|ocean"],["Thủy·mist","thuy|mist"],["Mộc","moc|"],["Mộc·bamboo","moc|bamboo"],["Mộc·forest","moc|forest"],["Kim","kim|"],["Kim·steel","kim|steel"],["Kim·titanium","kim|titanium"]],
   expression:[["Glass",""],["Solid","solid"],["Paper","paper"],["Soft","soft"],["Bold","bold"],["Dense","dense"],["Luxe","luxe"]],
+  density:[["Comfortable",""],["Compact","compact"]],
 };
 function build(axis, apply){
   const box=document.getElementById(axis);
@@ -70,5 +72,6 @@ function build(axis, apply){
 build('theme', v=>stage.setAttribute('data-theme',v));
 build('element', v=>{ const [el,va]=v.split('|'); stage.setAttribute('data-cs-element',el); stage.setAttribute('data-cs-variant',va||''); });
 build('expression', v=>stage.setAttribute('data-cs-expression',v));
+build('density', v=>stage.setAttribute('data-cs-density',v));
 </script>
 </body></html>

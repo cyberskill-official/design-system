@@ -26,6 +26,27 @@ export function Dialog({
 }) {
   const titleId = useId("cs-dialog") + "-title";
   const [ref, L] = useLang(lang);
+  const panel = React.useRef(null);
+  const closeRef = React.useRef(onClose); closeRef.current = onClose;
+  React.useEffect(() => {
+    if (!open) return;
+    const prev = document.activeElement;
+    const SEL = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+    const p = panel.current;
+    const first = p ? p.querySelector(SEL) : null;
+    (first || p) && (first || p).focus();
+    const k = (e) => {
+      if (e.key === "Escape") { closeRef.current && closeRef.current(); return; }
+      if (e.key !== "Tab" || !panel.current) return;
+      const f = [...panel.current.querySelectorAll(SEL)];
+      if (!f.length) return;
+      const a = f[0], z = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); }
+      else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
+    };
+    document.addEventListener("keydown", k);
+    return () => { document.removeEventListener("keydown", k); if (prev && prev.focus) prev.focus(); };
+  }, [open]);
   const cl = closeLabel != null ? closeLabel : makeT("Dialog", L)("close");
   if (!open) return null;
   return (
@@ -33,6 +54,8 @@ export function Dialog({
       <div className="cs-dialog__overlay" onClick={onClose} aria-hidden="true" />
       <section
         {...props}
+        ref={panel}
+        tabIndex={-1}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}

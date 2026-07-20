@@ -3,10 +3,10 @@
   "$extensions": {
     "com.cyberskill": {
       "system": "CyberSkill Design System",
-      "version": "2.19.0",
+      "version": "4.0.0",
       "generated": "2026-07-20",
       "source": "tokens/tokens.json",
-      "note": "Scope overrides (dark/system theme · 15 element×variant packs · expressions) are carried under $extensions.overrides keyed by CSS selector — apply the matching selector on :root/ancestor to activate.",
+      "note": "Scope overrides (dark/system theme · 15 element×variant packs · expressions · densities — compact is @media (pointer: fine)-gated in CSS) are carried under $extensions.overrides keyed by CSS selector — apply the matching selector on :root/ancestor to activate.",
       "overrides": {
         "themes": {
           "dark": {
@@ -380,6 +380,130 @@
             "--cs-glass-heavy-opacity": "100%",
             "--cs-duration-fast": "100ms",
             "--cs-duration-base": "140ms"
+          }
+        },
+        "densities": {
+          "compact": {
+            "--cs-component-button-md-minHeight": "36px",
+            "--cs-component-button-md-paddingY": "8px",
+            "--cs-component-button-md-paddingX": "16px",
+            "--cs-component-button-sm-minHeight": "30px",
+            "--cs-component-button-sm-paddingY": "5px",
+            "--cs-component-button-sm-paddingX": "10px",
+            "--cs-component-button-lg-minHeight": "44px",
+            "--cs-component-button-lg-paddingY": "12px",
+            "--cs-component-button-lg-paddingX": "22px",
+            "--cs-component-button-gap": "6px",
+            "--cs-component-textfield-minHeight": "38px",
+            "--cs-component-textfield-paddingY": "7px",
+            "--cs-component-textfield-paddingX": "10px"
+          }
+        },
+        "elementsDark": {
+          "tho": {
+            "--cs-accent-bright": "#FEC42C",
+            "--cs-accent-strong": "#795507",
+            "--cs-accent-on": "#f5ead9",
+            "--cs-accent-tint": "#2F2203",
+            "--cs-accent-ink": "#FEC849"
+          },
+          "tho-clay": {
+            "--cs-accent": "#F3A372",
+            "--cs-accent-bright": "#F4C5A3",
+            "--cs-accent-strong": "#864927",
+            "--cs-accent-on": "#f5ead9",
+            "--cs-accent-tint": "#371C0B",
+            "--cs-accent-ink": "#F7C8A6"
+          },
+          "tho-sand": {
+            "--cs-accent-strong": "#725615",
+            "--cs-accent-on": "#f5ead9",
+            "--cs-accent-tint": "#2F2203",
+            "--cs-accent-ink": "#EFDCB2"
+          },
+          "hoa": {
+            "--cs-accent": "#FB9E7A",
+            "--cs-accent-bright": "#FEC099",
+            "--cs-accent-strong": "#9F3405",
+            "--cs-accent-on": "#f5ead9",
+            "--cs-accent-tint": "#381B10",
+            "--cs-accent-ink": "#FEC5A1"
+          },
+          "hoa-lava": {
+            "--cs-accent": "#FE9982",
+            "--cs-accent-bright": "#FFBF9E",
+            "--cs-accent-on": "#f5ead9",
+            "--cs-accent-tint": "#391A13",
+            "--cs-accent-ink": "#FFC4A5"
+          },
+          "hoa-plasma": {
+            "--cs-accent": "#FD97A3",
+            "--cs-accent-bright": "#FDBECA",
+            "--cs-accent-strong": "#A91A43",
+            "--cs-accent-on": "#f5ead9",
+            "--cs-accent-tint": "#38191D",
+            "--cs-accent-ink": "#FDC3CE"
+          },
+          "thuy": {
+            "--cs-accent": "#7FC0CE",
+            "--cs-accent-bright": "#ACD7E1",
+            "--cs-accent-on": "#f5ead9",
+            "--cs-accent-tint": "#042930",
+            "--cs-accent-ink": "#AFDAE4"
+          },
+          "thuy-ocean": {
+            "--cs-accent": "#87B9DD",
+            "--cs-accent-bright": "#B2D6EA",
+            "--cs-accent-on": "#f5ead9",
+            "--cs-accent-tint": "#08273A",
+            "--cs-accent-ink": "#B2D6EA"
+          },
+          "thuy-mist": {
+            "--cs-accent-strong": "#3F5F65",
+            "--cs-accent-on": "#f5ead9",
+            "--cs-accent-tint": "#0F282C",
+            "--cs-accent-ink": "#C4DADD"
+          },
+          "moc": {
+            "--cs-accent": "#9BBE78",
+            "--cs-accent-bright": "#BFD88D",
+            "--cs-accent-strong": "#44622D",
+            "--cs-accent-on": "#f5ead9",
+            "--cs-accent-tint": "#1C290D",
+            "--cs-accent-ink": "#C2DB90"
+          },
+          "moc-bamboo": {
+            "--cs-accent-strong": "#4C6421",
+            "--cs-accent-on": "#f5ead9",
+            "--cs-accent-tint": "#1F280A",
+            "--cs-accent-ink": "#C7D99E"
+          },
+          "moc-forest": {
+            "--cs-accent": "#9EBE8D",
+            "--cs-accent-bright": "#BDD8A4",
+            "--cs-accent-on": "#f5ead9",
+            "--cs-accent-tint": "#19290F",
+            "--cs-accent-ink": "#C0DBA7"
+          },
+          "kim": {
+            "--cs-accent-strong": "#675A4A",
+            "--cs-accent-on": "#f5ead9",
+            "--cs-accent-tint": "#2D220F",
+            "--cs-accent-ink": "#DBCFB9"
+          },
+          "kim-steel": {
+            "--cs-accent": "#B2B6B6",
+            "--cs-accent-bright": "#CCD0D0",
+            "--cs-accent-strong": "#555B5D",
+            "--cs-accent-on": "#f5ead9",
+            "--cs-accent-tint": "#222525",
+            "--cs-accent-ink": "#CFD3D3"
+          },
+          "kim-titanium": {
+            "--cs-accent": "#BFB3A5",
+            "--cs-accent-on": "#f5ead9",
+            "--cs-accent-tint": "#2B2217",
+            "--cs-accent-ink": "#D9CFC0"
           }
         }
       }

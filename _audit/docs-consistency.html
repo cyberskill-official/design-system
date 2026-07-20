@@ -34,7 +34,7 @@ function ctx(s, i, n){ return s.slice(Math.max(0,i-4), i+n+18).replace(/\s+/g," 
 
 (async () => {
   // ---- fetch the sources (same project origin) ----
-  const names = ['_ds_manifest.json','VERSION','README.md','SKILL.md','llms.txt','CHANGELOG.md'];
+  const names = ['_ds_manifest.json','VERSION','README.md','SKILL.md','llms.txt','CHANGELOG.md','package.json'];
   const F = {};
   for (const n of names){
     try { const r = await fetch('../'+n); F[n] = await r.text(); }
@@ -67,6 +67,8 @@ function ctx(s, i, n){ return s.slice(Math.max(0,i-4), i+n+18).replace(/\s+/g," 
     if (!m){ step('version pointer present: '+label, false, 'NOT FOUND'); continue; }
     step('version pointer = '+VERSION+' ('+label+')', m[1]===VERSION, m[1]!==VERSION?('reads '+m[1]):'');
   }
+  try { const P = JSON.parse(F['package.json']); step('package.json version = '+VERSION, P.version===VERSION, P.version!==VERSION?('reads '+P.version):''); }
+  catch(e){ step('package.json parses', false, String(e).slice(0,80)); }
 
   // ---- 2) count claims in LIVE prose must equal the manifest ----
   // Live prose = README above "## Changelog" + SKILL + llms. Changelog bodies excluded on purpose.

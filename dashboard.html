@@ -4,6 +4,11 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CyberSkill Design System · Dashboard</title>
+<meta name="description" content="CyberSkill Design System — HTML-first, Vietnamese-first. Theme × Element × Expression × Density × Language.">
+<meta property="og:title" content="CyberSkill Design System">
+<meta property="og:description" content="Bilingual EN·VI design system — live components, templates, UI kits, health gates.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#45210E">
 <link rel="stylesheet" href="styles.css" />
 <style>
   *{box-sizing:border-box}
@@ -14,6 +19,8 @@
   .brand .ver{font:600 11px/1 var(--cs-font-family-mono);color:var(--cs-color-text-inverse);background:var(--cs-color-brand-umber);padding:4px 7px;border-radius:999px}
   .stats{display:flex;gap:16px;flex-wrap:wrap;margin-inline-start:auto;font-size:12px;color:var(--cs-color-text-muted)}
   .stats b{color:var(--cs-color-text-primary);font-family:var(--cs-font-family-mono)}
+  .gates{font:600 11px/1 var(--cs-font-family-mono);padding:5px 9px;border-radius:999px;border:1px solid var(--cs-color-border-default);background:var(--cs-color-surface-raised);color:var(--cs-color-text-muted);cursor:pointer}
+  .gates.ok{background:#dcfce7;color:#166534;border-color:#16a34a55}.gates.bad{background:#FEE2E2;color:#B42318;border-color:#dc262655}
   nav.tabs{display:flex;gap:2px;padding:0 16px;background:var(--cs-color-surface-panel);border-block-end:1px solid var(--cs-color-border-default);overflow-x:auto}
   nav.tabs button{appearance:none;border:0;background:transparent;font:inherit;font-weight:600;font-size:13.5px;color:var(--cs-color-text-muted);padding:11px 14px;cursor:pointer;border-block-end:2px solid transparent;white-space:nowrap}
   nav.tabs button:hover{color:var(--cs-color-text-primary)}
@@ -39,16 +46,18 @@
 <header>
   <span class="brand"><span>CyberSkill Design System</span><span class="ver" id="ver">v…</span></span>
   <span class="stats" id="stats"></span>
+  <button class="gates" id="gates" hidden></button>
 </header>
 <nav class="tabs" id="tabs" role="tablist"></nav>
 <main>
   <div id="overview">
-    <p class="lede">One hub for the whole system. <b>Components &amp; Playgrounds</b> is the Atomic View — every artifact across all five tiers, live, with tweakable props across <b>Theme × Element × Expression × Language</b>. <b>Health</b> runs every fast gate. Everything else is one click below. Each panel is the real tool, embedded — nothing is duplicated.</p>
+    <p class="lede">One hub for the whole system. <b>Components &amp; Playgrounds</b> is the Atomic View — every artifact across all five tiers, live, with tweakable props across <b>Theme × Element × Expression × Density × Language</b>. <b>Health</b> runs every fast gate. Everything else is one click below. Each panel is the real tool, embedded — nothing is duplicated.</p>
     <h2 class="sec">Explore</h2>
     <div class="grid">
       <button class="card" data-go="components"><div class="t">Components &amp; Playgrounds →</div><div class="d">Atomic View: 86 stories across the five tiers (Atoms · Molecules · Organisms · Templates · Pages), live playgrounds, reskinnable across all four axes.</div></button>
-      <button class="card" data-go="health"><div class="t">Health / Gates →</div><div class="d">Run all 9 fast deterministic gates (contrast, docs, portability, bilingual parity, behavior, coverage…) and see a pass/fail board.</div></button>
+      <button class="card" data-go="health"><div class="t">Health / Gates →</div><div class="d">Run the full fast gate board (contrast, docs, portability, bilingual parity, behavior, a11y, coverage…) and see a pass/fail board.</div></button>
       <button class="card" data-go="identity"><div class="t">Identity Lab →</div><div class="d">Live Theme × Element × Expression switcher over a product surface — see the Ngũ Hành packs reskin in context.</div></button>
+      <button class="card" data-go="docs"><div class="t">Docs →</div><div class="d">README, guides, conventions, agent import, changelog — rendered in-page.</div></button>
     </div>
     <h2 class="sec">Reference (opens in a new tab)</h2>
     <div class="grid">
@@ -66,6 +75,7 @@ const TABS=[
   {id:'components',label:'Components & Playgrounds',src:'guidelines/atomic-view.html'},
   {id:'health',label:'Health',src:'_audit/run.html'},
   {id:'identity',label:'Identity Lab',src:'ui_kits/status-hub/identity-lab.html'},
+  {id:'docs',label:'Docs',src:'docs/viewer.html'},
 ];
 const tabsEl=document.getElementById('tabs'), frame=document.getElementById('frame'), overview=document.getElementById('overview');
 let loaded={};
@@ -81,12 +91,20 @@ TABS.forEach(t=>{ const b=document.createElement('button'); b.textContent=t.labe
 document.querySelectorAll('[data-go]').forEach(el=>el.onclick=()=>select(el.dataset.go));
 // live header: version + counts from the compiler's truth
 (async()=>{
-  try{ document.getElementById('ver').textContent='v'+(await (await fetch('VERSION')).text()).trim(); }catch(e){ document.getElementById('ver').textContent='v2.21.2'; }
+  try{ document.getElementById('ver').textContent='v'+(await (await fetch('VERSION')).text()).trim(); }catch(e){ document.getElementById('ver').textContent='v—'; }
   try{ const M=await (await fetch('_ds_manifest.json')).json();
     const n=(x)=>Array.isArray(x)?x.length:(x&&typeof x==='object'?Object.keys(x).length:x);
     const t=n(M.templates), tok=M.tokenCount||n(M.tokens), cards=n(M.cards);
     const parts=[]; if(t)parts.push('<b>'+t+'</b> templates'); if(cards)parts.push('<b>'+cards+'</b> cards'); if(tok)parts.push('<b>'+tok+'</b> tokens');
     document.getElementById('stats').innerHTML=parts.join(' · ');
+  }catch(e){}
+  try{
+    const g=JSON.parse(localStorage.getItem('cs:last-gate-run')||'null'); const el=document.getElementById('gates');
+    el.hidden=false; el.onclick=()=>select('health');
+    if(g){ const m=Math.round((Date.now()-g.ts)/60000); const ago=m<1?'just now':m<60?m+'m ago':m<1440?Math.round(m/60)+'h ago':Math.round(m/1440)+'d ago';
+      el.className='gates '+(g.pass?'ok':'bad');
+      el.textContent=(g.pass?'✓ gates '+g.total+'/'+g.total:'✗ gates — '+(g.failed||[]).join(', ').slice(0,48))+' · v'+g.ver+' · '+ago;
+    } else { el.textContent='gates: not run yet →'; }
   }catch(e){}
 })();
 select((location.hash||'').replace('#','')||'overview');

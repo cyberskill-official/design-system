@@ -1,6 +1,6 @@
 # Consuming & upgrading the CyberSkill Design System
 
-How an external project adopts this HTML-first design system, and how to take updates safely.
+How an external project adopts this HTML-first design system, and how to take updates safely. (AI agents: the condensed recipe is `docs/agents.md`.)
 
 ## Adopt (two paths)
 
@@ -8,13 +8,15 @@ How an external project adopts this HTML-first design system, and how to take up
 
 **2. Production React — load the compiled bundle.** Link `styles.css` and `<script src="_ds_bundle.js">`, then read components off the namespace. The bundle exposes `window.CyberSkillDesignSystem_<projectId>`; that 6-hex suffix is compiler-assigned and **changes on import into another project**, so resolve it by prefix instead of hardcoding: `const CS = window[Object.keys(window).find(k => /^CyberSkillDesignSystem_/.test(k))]; const { Button, TextField, … } = CS;`. This is exactly what `_audit/consumer-smoke-test.html` exercises (and asserts green) — and the templates' `ds-base.js` does the same, publishing a stable `window.CyberSkillDS` alias. Tokens resolve from `styles.css`; components pick up brand tokens automatically.
 
+**2b. ESM (module) path — one import, no build.** `import { Button, CS } from "<path>/_esm/cs.mjs"` — the module self-ensures React (pinned; skipped when `window.React` exists), side-loads `_ds_bundle.js` once, resolves the namespace by prefix, and re-exports all components (`_audit/esm-smoke-test.html` keeps the export list in lockstep with the manifest). Still link `styles.css` yourself.
+
 **Templates.** Each `templates/<slug>/` is a Design Component seeded from `ds-base.js` (one `base` line to rebind the path to wherever this system lives relative to the consuming page). Copy the folder and edit copy/tweaks.
 
-**Machine-readable tokens.** `tokens/tokens.json` + `tokens/tokens.js` (ESM) expose every token grouped by category + theme/element/expression maps — for native/mobile/Style-Dictionary pipelines.
+**Machine-readable tokens.** `tokens/tokens.json` + `tokens/tokens.js` (ESM) expose every token grouped by category + theme/element/expression maps — for native/mobile/Style-Dictionary pipelines. **Native builds ship pre-generated** in `tokens/native/` (SwiftUI `CSTokens.swift` · Compose `CSTokens.kt` · Flutter `cs_tokens.dart`) with `tokens/provenance.json` (release, source sha-256, conversion rules, per-target sha-256); the `token-pipeline` gate keeps them in lockstep with the DTCG source.
 
-## The three axes
+## The four axes
 
-State any of Theme (`data-theme`), Element (`data-cs-element` + `data-cs-variant`), Expression (`data-cs-expression`) on a container; everything inside re-skins with no code change (see `templates/playground.html`). Defaults: `light · tho · liquid-glass`.
+State any of Theme (`data-theme`), Element (`data-cs-element` + `data-cs-variant`), Expression (`data-cs-expression`), Density (`data-cs-density="compact"` — tighter control metrics on fine pointers; comfortable default) on a container; everything inside re-skins with no code change (see `templates/playground.html`). Defaults: `light · tho · liquid-glass · comfortable`.
 
 ## Upgrading
 

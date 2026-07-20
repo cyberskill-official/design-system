@@ -1,4 +1,4 @@
-<!-- @dsCard group="Atomic View" viewport="1280x820" name="Atomic View" subtitle="Storybook-style browser — every component + variants, live across Theme × Element × Expression" -->
+<!-- @dsCard group="Atomic View" viewport="1280x820" name="Atomic View" subtitle="Storybook-style browser — every component + variants, live across Theme × Element × Expression × Density × Language" -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +38,8 @@
   .story h3{margin:0;font-size:14.5px;font-weight:700}
   .story .grp{font-size:11px;color:var(--cs-color-text-muted)}
   .story .exp{margin-inline-start:auto;font-family:var(--cs-font-family-mono);font-size:10.5px;color:var(--cs-color-text-muted)}
+  .story .perma{text-decoration:none;color:var(--cs-color-text-muted);font-family:var(--cs-font-family-mono);font-size:12px;padding:0 4px;border-radius:4px}
+  .story .perma:hover{color:var(--cs-color-brand-umber);background:var(--cs-color-surface-raised)}
   .canvasbox{padding:20px 18px}
   .framed{position:relative;z-index:0;min-height:250px;overflow:hidden;background:var(--cs-color-surface-raised);border-radius:var(--cs-radius-md)}
   .framed .cs-dialog-layer,.framed .cs-drawer-scrim,.framed .cs-drawer,.framed .cs-toast-stack,.framed .cs-popover-layer{position:absolute}
@@ -126,6 +128,15 @@ function CascD({L}){ const [p,setP]=useState(["hcm","d1"]); return has(Cascader)
 function TransD({L}){ const [v,setV]=useState(["web"]); return has(Transfer)?<Transfer value={v} onChange={setV} items={L==="vi"?[{key:"web",label:"Ứng dụng web"},{key:"mob",label:"Ứng dụng di động"},{key:"auto",label:"Tự động hóa"},{key:"ds",label:"Design system"}]:[{key:"web",label:"Web apps"},{key:"mob",label:"Mobile apps"},{key:"auto",label:"Automation"},{key:"ds",label:"Design systems"}]}/>:<Miss n="Transfer"/>; }
 function ComboD({L}){ const [v,setV]=useState("ai"); const V=L==="vi"; return has(Combobox)?<Combobox value={v} onChange={setV} label={V?"Nhóm":"Squad"} options={[{value:"plat",label:V?"Nền tảng":"Platform"},{value:"ai",label:"AI"},{value:"growth",label:V?"Tăng trưởng":"Growth"},{value:"design",label:V?"Thiết kế":"Design"}]}/>:<Miss n="Combobox"/>; }
 function PromptD({L}){ const [q,setQ]=useState(L==="vi"?"Một trang thanh toán nhanh hơn cho cửa hàng":"A faster checkout for our shop"); return has(PromptInput)?<PromptInput value={q} onChange={setQ} onSubmit={()=>{}} placeholder={L==="vi"?"Ước một điều…":"Make a wish…"}/>:<Miss n="PromptInput"/>; }
+function FormD({L}){ const [done,setDone]=useState(null); const V=L==="vi";
+  return has(Form,FormField,TextField,Button)?<div style={{maxWidth:420}}>
+    <Form rules={{email:["required",(v)=>/.+@.+\..+/.test(String(v||""))?null:(V?"Email chưa hợp lệ.":"Enter a valid email.")],wish:"required"}} onSubmit={(v)=>setDone(v)}>
+      <FormField label={V?"Email công việc":"Work email"} required name="email"><TextField label={V?"Email công việc":"Work email"} placeholder="an@cyberskill.world"/></FormField>
+      <FormField label={V?"Điều ước":"Your wish"} required name="wish" hint={V?"Một câu là đủ.":"One sentence is plenty."}><TextField label={V?"Điều ước":"Your wish"}/></FormField>
+      <Button type="submit">{V?"Gửi":"Send"}</Button>
+    </Form>
+    {done?<p style={{font:"12px var(--cs-font-family-mono)",color:"var(--cs-color-text-muted)",marginTop:10}}>onSubmit → {JSON.stringify(done)}</p>:null}
+  </div>:<Miss n="Form"/>; }
 
 const ICONS=["close","sun","moon","arrow-right","check","sparkle","chat","sound-on","sound-off","search","sliders","upload","download","calendar","user","plus","trash","external","menu","chevron-down","chevron-up","chevron-left","chevron-right","edit","copy","info","alert-triangle"];
 
@@ -197,6 +208,7 @@ const STORIES = [
   { tier:"Molecule", name:"CitationList", grp:"AI-native", render:()=> has(CitationList)?<div style={{maxWidth:420}}><CitationList items={[{title:"release-notes.md"},{title:"Task backlog",source:"Status Hub",href:"#"},{title:"DESIGN.md · Part 21",source:"Liquid Glass"}]}/></div>:<Miss n="CitationList"/> },
 
   // ============ ORGANISMS ============
+  { tier:"Organism", name:"Form", grp:"Forms", render:(L)=> <FormD L={L}/> },
   { tier:"Organism", name:"Calendar", grp:"Forms", render:(L)=> <CalD L={L}/> },
   { tier:"Organism", name:"DatePicker + TimePicker", grp:"Forms", render:(L)=> <DateD L={L}/> },
   { tier:"Organism", name:"Result", grp:"Feedback", render:(L)=> has(Result,Button)?<div style={{border:"1px solid var(--cs-color-border-default)",borderRadius:"var(--cs-radius-lg)"}}><Result status="success" actions={<Button size="sm">{L==="vi"?"Về trang chính":"Back home"}</Button>}>{L==="vi"?"Điều ước của bạn đã đến đội ngũ — chúng tôi trả lời trong một ngày làm việc.":"Your wish is with the team — we reply within one business day."}</Result></div>:<Miss n="Result"/> },
@@ -251,6 +263,7 @@ const ELEMENTS = [
   ["kim|","Kim · champagne"],["kim|steel","Kim · steel"],["kim|titanium","Kim · titanium"],
 ];
 const EXPRESSIONS = [["","Liquid glass"],["solid","Solid"],["dense","Dense"],["paper","Paper"],["soft","Soft"],["bold","Bold"],["luxe","Luxe"]];
+const DENSITIES = [["","Comfortable"],["compact","Compact"]];
 const LANGS = [["","Default"],["en","English"],["vi","Tiếng Việt"]];
 const PAGES = [
   { name:"Status Hub (product)", src:"../ui_kits/status-hub/index.html" },
@@ -266,6 +279,7 @@ function applyAxis(ifr, ax){
     ax.elm?h.setAttribute("data-cs-element",ax.elm):h.removeAttribute("data-cs-element");
     ax.elv?h.setAttribute("data-cs-variant",ax.elv):h.removeAttribute("data-cs-variant");
     ax.expr?h.setAttribute("data-cs-expression",ax.expr):h.removeAttribute("data-cs-expression");
+    ax.density?h.setAttribute("data-cs-density",ax.density):h.removeAttribute("data-cs-density");
     if(ax.lang) h.setAttribute("lang", ax.lang);
     const w=ifr.contentWindow;
     if(ax.lang && w && w.__dcSetProps && w.__dcRootName){ const r=w.__dcRootName&&w.__dcRootName(); if(r) w.__dcSetProps(r,{language: ax.lang==="vi"?"Tiếng Việt":"English"}); }
@@ -279,11 +293,15 @@ function Tile({ item, ax }){
 }
 function ArtifactTier({ items, ax }){ return <div className="tpltier">{items.map(it=><Tile key={it.src} item={it} ax={ax}/>)}</div>; }
 
+function Perma({id}){
+  const [ok,setOk]=useState(false);
+  return <a className="perma" href={"#"+id} title="Copy permalink" onClick={()=>{ const url=location.href.split("#")[0]+"#"+id; try{ navigator.clipboard.writeText(url).then(()=>{ setOk(true); setTimeout(()=>setOk(false),1200); }).catch(()=>{}); }catch(e){} }}>{ok?"\u2713":"#"}</a>;
+}
 function Story({ s, lang }){
   const L = lang === "vi" ? "vi" : "en";
   return (
     <section className="story" id={slug(s.name)}>
-      <header><h3>{s.name}</h3><span className="grp">{s.grp}</span><span className="exp">{s.tier}</span></header>
+      <header><h3>{s.name}</h3><span className="grp">{s.grp}</span><span className="exp">{s.tier}</span><Perma id={slug(s.name)}/></header>
       <div className="canvasbox">
         {s.controls?<Controlled spec={s}/>:null}
         <div className={s.framed?"framed":""}>{s.render(L)}</div>
@@ -296,10 +314,12 @@ function App(){
   const [theme,setTheme]=useState("light");
   const [el,setEl]=useState("tho|");
   const [expr,setExpr]=useState("");
+  const [density,setDensity]=useState("");
   const [lang,setLang]=useState("");
   const [collapsed,setCollapsed]=useState({tpl:true,pages:true});
   const [tpls,setTpls]=useState([]);
   useEffect(()=>{ fetch("../_ds_manifest.json").then(r=>r.json()).then(m=>setTpls((m.templates||[]).map(t=>({name:t.name,src:"../"+t.entryPath})))).catch(()=>{}); },[]);
+  useEffect(()=>{ const id=decodeURIComponent((location.hash||"").slice(1)); if(!id) return; let n=0; const t=setInterval(()=>{ const el=document.getElementById(id); n++; if(el){ clearInterval(t); const sc=document.querySelector("main"); const y=el.getBoundingClientRect().top-64; if(sc && sc.scrollHeight>sc.clientHeight+4){ sc.scrollTop += y - sc.getBoundingClientRect().top; } else { (document.scrollingElement||document.documentElement).scrollTop += y; } } else if(n>40){ clearInterval(t); } },150); return ()=>clearInterval(t); },[]);
   const [q,setQ]=useState("");
   const nq=q.trim().toLowerCase();
   const match=(s)=> !nq || s.name.toLowerCase().includes(nq) || s.grp.toLowerCase().includes(nq);
@@ -310,8 +330,9 @@ function App(){
   if(elm) axis["data-cs-element"]=elm;
   if(elv) axis["data-cs-variant"]=elv;
   if(expr) axis["data-cs-expression"]=expr;
+  if(density) axis["data-cs-density"]=density;
   if(lang) axis.lang=lang;
-  const artifactAx={theme,elm,elv,expr,lang};
+  const artifactAx={theme,elm,elv,expr,density,lang};
   const shownTpls=tpls.filter(t=>!nq||t.name.toLowerCase().includes(nq));
   const shownPages=PAGES.filter(t=>!nq||t.name.toLowerCase().includes(nq));
   if(!NS || !Object.keys(NS).length){ return <div style={{padding:40,fontFamily:"var(--cs-font-family-mono)"}}>Bundle not loaded — <code>_ds_bundle.js</code> is compiled at end of turn; reopen on a fresh turn.</div>; }
@@ -346,6 +367,9 @@ function App(){
           </label>
           <label className="ctl">Expression
             <select value={expr} onChange={(e)=>setExpr(e.target.value)}>{EXPRESSIONS.map(([v,l])=><option key={v} value={v}>{l}</option>)}</select>
+          </label>
+          <label className="ctl">Density
+            <select value={density} onChange={(e)=>setDensity(e.target.value)}>{DENSITIES.map(([v,l])=><option key={v} value={v}>{l}</option>)}</select>
           </label>
           <label className="ctl">Language
             <select value={lang} onChange={(e)=>setLang(e.target.value)}>{LANGS.map(([v,l])=><option key={v} value={v}>{l}</option>)}</select>

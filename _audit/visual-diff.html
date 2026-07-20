@@ -24,7 +24,7 @@
   code{background:#e2d5c0;border-radius:4px;padding:0 4px}
 </style></head><body>
 <h1>Visual-diff review — live template vs. stored baseline</h1>
-<p class="lede">Deep visual-regression <b>review assist</b>, not a numeric gate: this environment can't rasterize nested-iframe content (html-to-image limitation) and the baselines in <code>_audit/baselines/</code> are downscaled 909×540 JPEG references — so drift is judged by eye. Pick a baseline, then compare side-by-side, or <b>Overlay (difference)</b> — where the live render matches the baseline the blend goes black; anything that lights up has moved. Adjust native width if the overlay is misregistered.</p>
+<p class="lede">Deep visual-regression <b>review assist</b>, not a numeric gate: this environment can't rasterize nested-iframe content (html-to-image limitation) and the baselines in <code>_audit/baselines/</code> are downscaled 909×540 references — so drift is judged by eye. Pick a baseline, then compare side-by-side, or <b>Overlay (difference)</b> — where the live render matches the baseline the blend goes black; anything that lights up has moved. Adjust native width if the overlay is misregistered. The runner includes this page as an <b>advisory</b> row (baseline freshness: every declared baseline exists + its live source resolves — <code>window.__visualdiff</code>).</p>
 <div class="bar" id="picks"></div>
 <div class="bar">
   <label class="ctl"><input type="radio" name="mode" value="side" checked> Side-by-side</label>
@@ -37,13 +37,19 @@
 <div id="cov"></div>
 <p class="note"><b>Add a baseline:</b> open the template directly, capture it at its native width into a 16:9 frame, save as <code>_audit/baselines/&lt;slug&gt;.png</code>, then add <code>&lt;slug&gt;</code> here. Baselines are intentionally few (product · document · deck exemplars) — they anchor the archetypes, not every template. Regenerate after an intentional redesign so the baseline reflects the new truth.</p>
 <script>
-const BASE={ 'dashboard':1280, 'slide-deck':1280, 'bod-report':1000 }; // slug -> default native width
+const BASE={
+  'dashboard':{w:1280}, 'slide-deck':{w:1280}, 'bod-report':{w:1000},
+  'vn-labor-contract':{w:909}, 'email':{w:909}, 'marketing-page':{w:909},
+  'kitchen-sink':{w:909,src:'../templates/kitchen-sink.html'},
+  'status-hub':{w:909,src:'../ui_kits/status-hub/index.html'},
+  'website':{w:909,src:'../ui_kits/website/index.html'}
+}; // slug -> {w: default native width, src?: explicit page (non-manifest: composite/Pages tier)}
 const picks=document.getElementById('picks'), stage=document.getElementById('stage'), op=document.getElementById('op'), nw=document.getElementById('nw');
 let manifest=null, cur=Object.keys(BASE)[0];
 function mode(){ return document.querySelector('input[name=mode]:checked').value; }
-function entryFor(slug){ const t=manifest.templates.find(t=>t.entryPath.includes('/'+slug+'/')); return t?('../'+t.entryPath):null; }
+function entryFor(slug){ if(BASE[slug]&&BASE[slug].src) return BASE[slug].src; const t=manifest.templates.find(t=>t.entryPath.includes('/'+slug+'/')); return t?('../'+t.entryPath):null; }
 function render(){
-  const nativeW=+nw.value||BASE[cur]||1280;
+  const nativeW=+nw.value||BASE[cur].w||1280;
   const dw=560, scale=dw/nativeW, ratio=540/909, boxH=Math.round(dw*ratio), frameH=Math.round(boxH/scale);
   const src=entryFor(cur), img='./baselines/'+cur+'.png';
   stage.innerHTML='';
@@ -58,7 +64,7 @@ function render(){
 }
 function drawPicks(){
   picks.innerHTML='';
-  Object.keys(BASE).forEach(slug=>{ const b=document.createElement('button'); b.className='pick'+(slug===cur?' on':''); b.textContent=slug; b.onclick=()=>{cur=slug;nw.value=BASE[slug];drawPicks();render();}; picks.appendChild(b); });
+  Object.keys(BASE).forEach(slug=>{ const b=document.createElement('button'); b.className='pick'+(slug===cur?' on':''); b.textContent=slug; b.onclick=()=>{cur=slug;nw.value=BASE[slug].w;drawPicks();render();}; picks.appendChild(b); });
 }
 function drawCoverage(){
   const cov=document.getElementById('cov'); const rows=manifest.templates.map(t=>{
@@ -66,15 +72,26 @@ function drawCoverage(){
     return {name:t.name,slug,has};
   }).sort((a,b)=>(b.has-a.has)||a.name.localeCompare(b.name));
   const has=rows.filter(r=>r.has);
-  let html='<table><tr><td>'+has.length+' of '+rows.length+' templates baselined</td></tr></table>';
+  const extra=Object.entries(BASE).filter(([s,v])=>v.src).map(([s])=>s);
+  let html='<table><tr><td>'+has.length+' of '+rows.length+' templates baselined · +'+extra.length+' composite/Pages baselines ('+extra.join(', ')+')</td></tr></table>';
   html+='<table>'+rows.filter(r=>r.has).map(r=>'<tr><td class="y">✓ baseline</td><td>'+r.name+'</td><td>'+r.slug+'</td></tr>').join('')+'</table>';
   cov.innerHTML=html;
 }
 (async()=>{
   manifest=await (await fetch('../_ds_manifest.json')).json();
-  nw.value=BASE[cur];
+  nw.value=BASE[cur].w;
   drawPicks(); render(); drawCoverage();
   document.querySelectorAll('input[name=mode]').forEach(r=>r.onchange=render);
   op.oninput=render; nw.onchange=render;
+  // Advisory freshness verdict for the gate runner: every declared baseline image exists
+  // and its live source resolves. Drift itself stays judged by eye (documented limitation).
+  const missing=[];
+  for(const slug of Object.keys(BASE)){
+    try{ const r=await fetch('./baselines/'+slug+'.png',{method:'HEAD'}); if(!r.ok) missing.push(slug+'.png ('+r.status+')'); }
+    catch(e){ missing.push(slug+'.png (fetch)'); }
+    if(!entryFor(slug)) missing.push(slug+' (no live source)');
+  }
+  window.__visualdiff={pass:missing.length===0,advisory:true,total:Object.keys(BASE).length,missing};
+  console.log('VISUALDIFF VERDICT '+JSON.stringify(window.__visualdiff));
 })();
 </script></body></html>

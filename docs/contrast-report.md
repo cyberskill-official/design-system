@@ -105,3 +105,26 @@ The light-theme semantic foregrounds failed on dark surfaces (~2.5:1), so the da
 Core dark also remaps the primary button to Ochre (`#f4ba17` on `#1a1108`) and warms the field border — so no dark control is low-contrast. Dark shadows are umber-tinted (weak on dark by nature); the dark hairline border provides panel separation instead.
 
 This file is generated — re-run the APCA sweep script after any token change.
+
+
+## Dark elemental packs — APCA verification (v4.0.0, Jul 2026)
+
+Generated with the owner-approved dark packs applied; measured by the same SAPC-4g implementation as `_audit/apca-dark-preview.html` (also the regression gate). Targets: bright ≥ 75 · accent ≥ 60 · button ink ≥ 75 · ink-on-tint ≥ 75 — **15/15 packs pass**.
+
+| Pack | bright | accent | on/strong | ink/tint |
+|---|---|---|---|---|
+| tho | 75 | 69.2 | 75.1 | 75.3 |
+| tho · clay | 75.7 | 61.5 | 76 | 76.1 |
+| tho · sand | 85.1 | 74.3 | 75.7 | 83.6 |
+| hoa | 75.1 | 61.5 | 75.6 | 75.9 |
+| hoa · lava | 75 | 60.6 | 83.5 | 75.8 |
+| hoa · plasma | 75.9 | 60.8 | 75.4 | 76.7 |
+| thuy | 76.6 | 61.6 | 76.7 | 76.6 |
+| thuy · ocean | 77.2 | 60 | 86.6 | 75.5 |
+| thuy · mist | 80.3 | 66.6 | 76 | 78.7 |
+| moc | 76 | 60.1 | 76 | 76.1 |
+| moc · bamboo | 76 | 62.8 | 75 | 76.2 |
+| moc · forest | 76.4 | 60.9 | 88.6 | 76.6 |
+| kim | 75.1 | 60.1 | 75.2 | 75.4 |
+| kim · steel | 76.3 | 61.1 | 76 | 76.6 |
+| kim · titanium | 76.9 | 60.9 | 79.4 | 75.5 |
