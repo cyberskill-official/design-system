@@ -20,11 +20,11 @@ This is the **entrance document** for the CyberSkill Design System — **v5.0.0*
 | `docs/conventions.md` | How to extend the system (naming grammar, checklists, the four axes, decision log) |
 | `docs/products.md` | Product → element registry (provisional) |
 | `docs/contrast-report.md` | Generated APCA report — 0 failures at Lc ≥ 60 |
-| `docs/agents.md` | AI-agent import one-pager (Claude Code · no-build React · static HTML · DTCG token pipelines) |
+| `docs/consuming.md` | Adopting & upgrading — quick path for AI agents, adopt (static/React/ESM), the four axes, upgrade + extend |
 | `docs/template-schema-v2.md` | Typed content-slot spec for templates — opt-in, machine-checkable |
 | `docs/deploy.md` | Deploying the live site — Vercel (zero-config) · generic VPS/nginx · post-deploy checklist |
 | `docs/ci-cd.md` | CI/CD automation — GitHub Actions workflow, headless gate runner, token-provenance pre-check, badge |
-| `docs/audit-v3.md` | Final deep audit (v3.0.4): findings by severity, deploy verdict, Vercel showcase map, v4 roadmap |
+| `docs/BACKLOG.md` | Planned, not-yet-implemented work (approved direction, no ship date) |
 
 ---
 

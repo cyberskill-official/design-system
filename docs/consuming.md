@@ -1,22 +1,48 @@
 # Consuming & upgrading the CyberSkill Design System
 
-How an external project adopts this HTML-first design system, and how to take updates safely. (AI agents: the condensed recipe is `docs/agents.md`.)
+How any project — human-driven or agent-driven — adopts this HTML-first design system, and how to take updates safely.
 
-## Adopt (two paths)
+## Quick path for AI agents (Claude Code, or driving one)
+
+**What you get:** `styles.css` (500+ tokens + `.cs-*` classes + Liquid Glass surfaces, `@import`s `tokens/` + `base/`) · `_ds_bundle.js` (compiled React components, no build step) · `_esm/cs.mjs` (ESM entry re-exporting every component) · `_ds_manifest.json` (machine-readable inventory) · per-component `Name.d.ts` (API) + `Name.prompt.md` (usage brief) · `tokens/tokens.dtcg.json` (W3C DTCG) + `tokens.json`/`tokens.js`.
+
+**Repo checkout** — clone or copy the whole tree; everything is relative-path static. Entry points: `dashboard.html` (hub) · `guidelines/atomic-view.html` (every component live) · `templates/<slug>/` (copyable starting points). Read `SKILL.md` before authoring anything on-brand; deeper maps live in `llms.txt` (inventory) and this file (full adoption + upgrade guide below).
+
+**After import — prove health.** Open `_audit/run.html`, let the gate board finish (every fast gate), click **Copy import report**. All green = the copy is internally consistent (contrast, docs, portability, tokens, consumer path, behavior, a11y, stories, bilingual parity).
+
+**Rules that keep transfer lossless:**
+- Never hardcode the bundle namespace suffix (see "Resolve by prefix" below — gate-enforced).
+- Never recreate/recolour the logo — use `assets/logo-mark.svg` / the `Logo` component.
+- Every UI string ships EN + VN via the registry; don't inline one-language strings in components.
+- Anchors (Umber/Ochre), `.cs-*` class names, `--cs-*` token names are stable contracts.
+- Extending the system? Follow `CONTRIBUTING.md` (Expansion Rule: propagate to every deliverable in one change; verify via `_audit/`).
+
+## Adopt (two paths, plus a module shortcut)
 
 **1. Static / prototypes / mocks — link the stylesheet.** Copy `styles.css` (+ the `tokens/`, `base/`, `fonts/` it `@import`s, or serve the whole tree) and link it; you now have every `--cs-*` token, the `.cs-*` component classes, and the Liquid Glass surfaces. Compose with the classes (see `templates/kitchen-sink.html`). Copy any asset you reference from `assets/`.
 
-**2. Production React — load the compiled bundle.** Link `styles.css` and `<script src="_ds_bundle.js">`, then read components off the namespace. The bundle exposes `window.CyberSkillDesignSystem_<projectId>`; that 6-hex suffix is compiler-assigned and **changes on import into another project**, so resolve it by prefix instead of hardcoding: `const CS = window[Object.keys(window).find(k => /^CyberSkillDesignSystem_/.test(k))]; const { Button, TextField, … } = CS;`. This is exactly what `_audit/consumer-smoke-test.html` exercises (and asserts green) — and the templates' `ds-base.js` does the same, publishing a stable `window.CyberSkillDS` alias. Tokens resolve from `styles.css`; components pick up brand tokens automatically.
+**2. Production React — load the compiled bundle.** Link `styles.css` and `<script src="_ds_bundle.js">`, then read components off the namespace. **Resolve by prefix, never hardcode:** the bundle exposes `window.CyberSkillDesignSystem_<projectId>`, and that 6-hex suffix is compiler-assigned and **changes on import into another project**:
+```html
+<link rel="stylesheet" href="<path>/styles.css">
+<script src="<path>/_ds_bundle.js"></script>
+<script>
+  const CS = window[Object.keys(window).find(k => /^CyberSkillDesignSystem_/.test(k))];
+  const { Button, TextField, DataGrid } = CS;
+</script>
+```
+This is exactly what `_audit/consumer-smoke-test.html` exercises (and asserts green) — and the templates' `ds-base.js` does the same, publishing a stable `window.CyberSkillDS` alias.
 
-**2b. ESM (module) path — one import, no build.** `import { Button, CS } from "<path>/_esm/cs.mjs"` — the module self-ensures React (pinned; skipped when `window.React` exists), side-loads `_ds_bundle.js` once, resolves the namespace by prefix, and re-exports all components (`_audit/esm-smoke-test.html` keeps the export list in lockstep with the manifest). Still link `styles.css` yourself.
+**2b. ESM (module) path — one import, no build.** `import { Button, TextField } from "<path>/_esm/cs.mjs"` — the module self-ensures React (pinned; skipped when `window.React` exists), side-loads `_ds_bundle.js` once, resolves the namespace by prefix, and re-exports all components (`_audit/esm-smoke-test.html` keeps the export list in lockstep with the manifest). Still link `styles.css` yourself.
 
 **Templates.** Each `templates/<slug>/` is a Design Component seeded from `ds-base.js` (one `base` line to rebind the path to wherever this system lives relative to the consuming page). Copy the folder and edit copy/tweaks.
 
-**Machine-readable tokens.** `tokens/tokens.json` + `tokens/tokens.js` (ESM) expose every token grouped by category + theme/element/expression maps — for native/mobile/Style-Dictionary pipelines. **Native builds ship pre-generated** in `tokens/native/` (SwiftUI `CSTokens.swift` · Compose `CSTokens.kt` · Flutter `cs_tokens.dart`) with `tokens/provenance.json` (release, source sha-256, conversion rules, per-target sha-256); the `token-pipeline` gate keeps them in lockstep with the DTCG source.
+**Machine-readable tokens.** `tokens/tokens.json` + `tokens/tokens.js` (ESM) + `tokens/tokens.dtcg.json` (W3C DTCG, for Tokens Studio/Style Dictionary) expose every token grouped by category + theme/element/expression maps — for native/mobile/design-tool pipelines. **Native builds ship pre-generated** in `tokens/native/` (SwiftUI `CSTokens.swift` · Compose `CSTokens.kt` · Flutter `cs_tokens.dart`) with `tokens/provenance.json` (release, source sha-256, conversion rules, per-target sha-256); the `token-pipeline` gate keeps them in lockstep with the DTCG source.
+
+**Static HTML / no React / no build tooling.** Link `styles.css` and compose with `.cs-*` classes — full catalog demonstrated in `templates/kitchen-sink.html`.
 
 ## The four axes
 
-State any of Theme (`data-theme`), Element (`data-cs-element` + `data-cs-variant`), Expression (`data-cs-expression`), Density (`data-cs-density="compact"` — tighter control metrics on fine pointers; comfortable default) on a container; everything inside re-skins with no code change (see `templates/playground.html`). Defaults: `light · tho · liquid-glass · comfortable`.
+State any of Theme (`data-theme`), Element (`data-cs-element` + `data-cs-variant`), Expression (`data-cs-expression`), Density (`data-cs-density="compact"` — tighter control metrics on fine pointers; comfortable default) on a container; everything inside re-skins with no code change (see `templates/playground.html`). Defaults: `light · tho · liquid-glass · comfortable`. Bilingual: components resolve strings from `lang` (`lang="vi"` on any container → full Vietnamese).
 
 ## Upgrading
 

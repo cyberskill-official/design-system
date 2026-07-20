@@ -10,12 +10,7 @@ The whole system is a static file tree — **no build step, no server runtime**.
 4. Deploy. `/` → `index.html` → redirects to `/dashboard.html`.
 5. Custom domain: Project → Settings → Domains, add it, point DNS per Vercel's instructions.
 
-**That's it — no `vercel.json` is required.** Add one only if you want:
-- A **root rewrite** straight to the dashboard (skip the redirect hop): 
-  ```json
-  { "rewrites": [{ "source": "/", "destination": "/dashboard.html" }] }
-  ```
-- Cache headers for the fingerprint-free static assets (optional; Vercel's static defaults are already sane).
+**`vercel.json` ships at the repo root and pins this for you** (`"framework": null`, no build/install command, `outputDirectory: "."`) — step 3 is then a backstop, not a requirement. Without it, some dashboard states (an org default, a re-import) can still auto-detect a framework and break routing (see "Common misconfig" below) — a hosting bug, not a source bug, but worth knowing the shape of.
 
 ## Social preview image (OG)
 
@@ -24,7 +19,7 @@ The whole system is a static file tree — **no build step, no server runtime**.
 2. Save it as `assets/og-dashboard.png`.
 3. Add to `dashboard.html`'s `<head>`: `<meta property="og:image" content="https://<your-domain>/assets/og-dashboard.png">` (and optionally `twitter:card`/`twitter:image` mirroring it).
 
-**Common misconfig:** picking a JS framework preset — Vercel then looks for a `package.json` build script and fails. `package.json` here is metadata-only (`"private": true`, no `scripts`) by design (see `docs/agents.md`); the preset must stay "Other".
+**Common misconfig:** picking a JS framework preset — Vercel then looks for a `package.json` build script and fails, or silently serves its own 404/error page for root-level files like `README.md`/`package.json` while other paths still resolve (confusing — some fetches work, some don't). `package.json` here is metadata-only (`"private": true"`, no `scripts`) by design (see `docs/agents.md`); the preset must stay "Other" — `vercel.json` now enforces this. **How to tell a hosting misconfig from a real docs bug:** open `/_audit/docs-consistency.html` on the *deployed* URL — the gate now detects an HTML/error body coming back where a raw `.md`/`.json` file was expected and reports it explicitly ("hosting is intercepting this path, not a source bug") instead of a bare parse error. If you see that message, fix the Vercel project settings (or redeploy after `vercel.json` lands), not the source files.
 
 ## Generic VPS / nginx / any static host
 
@@ -43,7 +38,7 @@ No rewrites needed — every path in the system is a real file (`dashboard.html`
 ## Post-deploy checklist
 1. Open `/` — confirm it lands on the dashboard (not a 404 or directory listing).
 2. Open **Health** tab (or `/_audit/run.html` directly) — let the board finish, confirm all fast gates pass on the *deployed* copy (CDN caching, MIME types, or a missed file can surface here even when local checks were clean).
-3. If anything is red, click **Copy import report** and diagnose from the pasted diagnostics — see `docs/agents.md` → "After import — prove health".
+3. If anything is red, click **Copy import report** and diagnose from the pasted diagnostics — see `docs/consuming.md` → "After import — prove health".
 4. Check `/guidelines/atomic-view.html` directly loads (it's the heaviest page — React + the compiled bundle over the network).
 
 ## What NOT to do

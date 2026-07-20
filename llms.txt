@@ -16,7 +16,7 @@
 - `templates/` — copyable starting points (`.dc.html`); `email-safe/` send-ready emails; `kitchen-sink.html`; `playground.html`
 - `guidelines/` — specimen cards + `atomic-view.html` (Storybook-style component browser: Atomic tiers × Theme × Element × Expression) · `ui_kits/` — full product recreations · `fonts/` — self-hosted woff2 (VN subset) · `assets/` — logo/favicon/mascot
 - `tokens/` — CSS custom properties (source) · `tokens.json`/`tokens.js` · `tokens.dtcg.json` (W3C DTCG) · `native/` (generated SwiftUI/Compose/Flutter + `provenance.json`, gate-pinned)
-- `docs/` — `conventions.md` (authoring rules + decision log) · `consuming.md` · `sync.md` · `contrast-report.md` · `products.md` · `agents.md` (AI-agent import one-pager) · `deploy.md` (Vercel/VPS live-site deploy) · `template-schema-v2.md` (typed content-slot spec) · `audit-v3.md` (deploy verdict + roadmap) · `viewer.html` (in-page docs reader, embedded in the dashboard)
+- `docs/` — `conventions.md` (authoring rules + decision log) · `consuming.md` (adoption + upgrade guide, incl. the AI-agent quick path) · `sync.md` · `contrast-report.md` · `products.md` · `deploy.md` (Vercel/VPS live-site deploy) · `template-schema-v2.md` (typed content-slot spec) · `BACKLOG.md` (planned, not-yet-shipped work) · `viewer.html` (in-page docs reader, embedded in the dashboard)
 - `README.md` · `CHANGELOG.md` · `CONTRIBUTING.md` · `SKILL.md` · `VERSION` · `package.json`
 
 ## Non-negotiables (full list in CONTRIBUTING.md + docs/conventions.md)

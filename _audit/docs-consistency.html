@@ -37,7 +37,18 @@ function ctx(s, i, n){ return s.slice(Math.max(0,i-4), i+n+18).replace(/\s+/g," 
   const names = ['_ds_manifest.json','VERSION','README.md','SKILL.md','llms.txt','CHANGELOG.md','package.json'];
   const F = {};
   for (const n of names){
-    try { const r = await fetch('../'+n); F[n] = await r.text(); }
+    try {
+      const r = await fetch('../'+n);
+      const t = await r.text();
+      // Self-diagnosis: a static host that mis-detects a framework (Vercel auto-build, SPA fallback, etc.)
+      // serves its OWN 404/error page for an unmatched path instead of the raw file — same HTTP 200, wrong body.
+      // Catch that here so it reads as "deploy misconfig", never a cryptic parse error the source can't explain.
+      if (!r.ok || /^\s*<(!doctype|html)/i.test(t)) {
+        step('fetch '+n, false, (r.ok?'got HTML, not the raw file':('HTTP '+r.status))+' — hosting is intercepting this path, not a source bug; see docs/deploy.md ("Common misconfig")');
+        continue;
+      }
+      F[n] = t;
+    }
     catch(e){ step('fetch '+n, false, String(e).slice(0,80)); }
   }
   if (out.pass === false){ finish(); return; }
