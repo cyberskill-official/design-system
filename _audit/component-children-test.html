@@ -8,7 +8,7 @@
 <div id="root"></div>
 <div id="report" style="font-family:monospace;padding:16px;white-space:pre"></div>
 <script>
-const NS = window.CyberSkillDesignSystem_847b3c || {};
+const NS = (window[Object.keys(window).find(k=>/^CyberSkillDesignSystem_[0-9a-f]{6}$/.test(k))]||{}) || {};
 const h = React.createElement;
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // Each entry: mount the component WITH children (the pre-fix crash trigger)

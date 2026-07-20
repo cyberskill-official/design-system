@@ -19,7 +19,7 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-const { Card, CardHeader, CardBody, CardFooter, Stat, Avatar, AvatarGroup, Tooltip, Divider, Badge } = window.CyberSkillDesignSystem_847b3c;
+const { Card, CardHeader, CardBody, CardFooter, Stat, Avatar, AvatarGroup, Tooltip, Divider, Badge } = (window[Object.keys(window).find(k=>/^CyberSkillDesignSystem_[0-9a-f]{6}$/.test(k))]||{});
 function Demo() {
   return (
     <div className="grid">

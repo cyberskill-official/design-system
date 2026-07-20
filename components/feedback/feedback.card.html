@@ -21,7 +21,7 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-const { Badge, Tag, Alert, Toast, ToastStack, Spinner, ProgressBar, Skeleton } = window.CyberSkillDesignSystem_847b3c;
+const { Badge, Tag, Alert, Toast, ToastStack, Spinner, ProgressBar, Skeleton } = (window[Object.keys(window).find(k=>/^CyberSkillDesignSystem_[0-9a-f]{6}$/.test(k))]||{});
 function Demo() {
   return (
     <div className="stack">

@@ -17,7 +17,7 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-const { Select, Checkbox, RadioGroup, Switch, Textarea } = window.CyberSkillDesignSystem_847b3c;
+const { Select, Checkbox, RadioGroup, Switch, Textarea } = window[Object.keys(window).find(k=>/^CyberSkillDesignSystem_[0-9a-f]{6}$/.test(k))] || {};
 function Demo() {
   const [plan, setPlan] = React.useState("yr");
   const [dark, setDark] = React.useState(true);

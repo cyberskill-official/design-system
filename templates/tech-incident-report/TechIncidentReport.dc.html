@@ -14,9 +14,9 @@
 <div data-theme="{{ rootTheme }}" lang="{{ langAttr }}" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" data-cs-expression="{{ exAttr }}" style="background:var(--cs-color-surface-raised);min-height:100vh;padding:40px 16px;font-family:var(--cs-font-family-ui);color:var(--cs-color-text-primary)">
   <div style="max-width:820px;margin:0 auto;background:var(--cs-color-surface-panel);border:1px solid var(--cs-color-border-default);border-radius:var(--cs-radius-lg);box-shadow:var(--cs-shadow-sm);overflow:hidden">
     <header style="background:var(--cs-accent-ink);color:#fff;padding:26px 48px;display:flex;align-items:center;gap:12px">
-      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="28" hint-size="28px,28px"></x-import>
+      <x-import component-from-global-scope="CyberSkillDS.Logo" size="28" hint-size="28px,28px"></x-import>
       <span style="font-weight:800;font-size:16px">CyberSkill · Incident report</span>
-      <span style="margin-left:auto"><x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Badge" variant="danger" hint-size="60px,22px">SEV-2</x-import></span>
+      <span style="margin-left:auto"><x-import component-from-global-scope="CyberSkillDS.Badge" variant="danger" hint-size="60px,22px">SEV-2</x-import></span>
     </header>
     <div style="padding:40px 48px">
       <sc-if value="{{ isEN }}" hint-placeholder-val="{{ true }}">
@@ -29,7 +29,7 @@
         <div><dt style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--cs-color-text-muted)">Owner</dt><dd style="margin:2px 0 0;font-size:14px">An Le · Platform</dd></div>
       </dl>
       <div style="margin-bottom:24px">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Alert" variant="info" title="Summary" hint-size="100%,84px">A cache misconfiguration raised checkout p95 latency to 4.2s for 48 minutes. No data loss. ~1,900 sessions affected; automatic retries recovered all orders.</x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Alert" variant="info" title="Summary" hint-size="100%,84px">A cache misconfiguration raised checkout p95 latency to 4.2s for 48 minutes. No data loss. ~1,900 sessions affected; automatic retries recovered all orders.</x-import>
       </div>
       <h2 style="font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted);margin:0 0 12px">Timeline</h2>
       </sc-if>
@@ -43,12 +43,12 @@
         <div><dt style="font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--cs-color-text-muted)">Phụ trách</dt><dd style="margin:2px 0 0;font-size:14px">An Le · Platform</dd></div>
       </dl>
       <div style="margin-bottom:24px">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Alert" variant="info" title="Tóm tắt" hint-size="100%,84px">Cấu hình cache sai làm p95 của checkout tăng lên 4,2s trong 48 phút. Không mất dữ liệu. ~1.900 phiên bị ảnh hưởng; retry tự động đã khôi phục toàn bộ đơn.</x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Alert" variant="info" title="Tóm tắt" hint-size="100%,84px">Cấu hình cache sai làm p95 của checkout tăng lên 4,2s trong 48 phút. Không mất dữ liệu. ~1.900 phiên bị ảnh hưởng; retry tự động đã khôi phục toàn bộ đơn.</x-import>
       </div>
       <h2 style="font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted);margin:0 0 12px">Dòng thời gian</h2>
       </div></sc-if>
       <div style="margin-bottom:26px">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Timeline" items="{{ timeline }}" hint-size="100%,220px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Timeline" items="{{ timeline }}" hint-size="100%,220px"></x-import>
       </div>
 
       <sc-if value="{{ isEN }}">
@@ -62,7 +62,7 @@
       <h2 style="font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted);margin:0 0 12px">Hạng mục hành động</h2>
       </div></sc-if>
       <div style="border:1px solid var(--cs-color-border-default);border-radius:10px;padding:6px 16px 12px">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.DataTable" columns="{{ cols }}" rows="{{ actions }}" row-key="id" hint-size="100%,160px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.DataTable" columns="{{ cols }}" rows="{{ actions }}" row-key="id" hint-size="100%,160px"></x-import>
       </div>
     </div>
   </div>

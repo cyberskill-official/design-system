@@ -16,34 +16,34 @@
 <div lang="{{ langAttr }}" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" data-cs-expression="{{ exAttr }}" class="cs-desk" style="background:var(--cs-color-surface-raised);min-height:100vh;padding:40px 16px;font-family:var(--cs-font-family-ui);color:var(--cs-color-text-primary)">
   <div class="cs-sheet" style="max-width:880px;margin:0 auto;background:var(--cs-color-surface-panel);border:1px solid var(--cs-color-border-default);border-radius:var(--cs-radius-lg);box-shadow:var(--cs-shadow-sm);overflow:hidden">
     <header style="background:var(--cs-accent-ink);color:#fff;padding:30px 52px;display:flex;align-items:center;gap:12px">
-      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="30" hint-size="30px,30px"></x-import>
+      <x-import component-from-global-scope="CyberSkillDS.Logo" size="30" hint-size="30px,30px"></x-import>
       <span style="font-weight:800;font-size:17px">{{ headTitle }}</span>
-      <span style="margin-left:auto"><x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Badge" variant="solid" hint-size="120px,22px">{{ conf }}</x-import></span>
+      <span style="margin-left:auto"><x-import component-from-global-scope="CyberSkillDS.Badge" variant="solid" hint-size="120px,22px">{{ conf }}</x-import></span>
     </header>
     <div style="padding:40px 52px">
       <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--cs-color-text-accent)">{{ kicker }}</div>
       <h1 style="font-size:32px;font-weight:800;letter-spacing:-0.02em;margin:8px 0 24px">{{ h1 }}</h1>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:24px;padding:22px 26px;background:var(--cs-color-surface-raised);border:1px solid var(--cs-color-border-default);border-radius:12px;margin-bottom:26px">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Stat" label="{{ st1 }}" value="₫12.4B" delta="+18%" trend="up" hint-size="150px,72px"></x-import>
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Stat" label="{{ st2 }}" value="14" delta="+4" trend="up" hint-size="150px,72px"></x-import>
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Stat" label="{{ st3 }}" value="{{ runway }}" delta="{{ steady }}" trend="flat" hint-size="150px,72px"></x-import>
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Stat" label="{{ st4 }}" value="38" delta="+6" trend="up" hint-size="150px,72px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Stat" label="{{ st1 }}" value="₫12.4B" delta="+18%" trend="up" hint-size="150px,72px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Stat" label="{{ st2 }}" value="14" delta="+4" trend="up" hint-size="150px,72px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Stat" label="{{ st3 }}" value="{{ runway }}" delta="{{ steady }}" trend="flat" hint-size="150px,72px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Stat" label="{{ st4 }}" value="38" delta="+6" trend="up" hint-size="150px,72px"></x-import>
       </div>
 
       <h2 style="font-size:18px;font-weight:800;letter-spacing:-0.01em;margin:0 0 10px">{{ hlH }}</h2>
       <p style="font-size:15px;line-height:1.7;margin:0 0 12px">{{ hlBody }}</p>
-      <div style="margin-bottom:24px"><x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.AIDisclosureBadge" label="{{ aiLabel }}" details="{{ aiDetails }}" sources="{{ sources }}" hint-size="180px,40px"></x-import></div>
+      <div style="margin-bottom:24px"><x-import component-from-global-scope="CyberSkillDS.AIDisclosureBadge" label="{{ aiLabel }}" details="{{ aiDetails }}" sources="{{ sources }}" hint-size="180px,40px"></x-import></div>
 
       <h2 style="font-size:18px;font-weight:800;letter-spacing:-0.01em;margin:0 0 12px">{{ portH }}</h2>
       <div style="border:1px solid var(--cs-color-border-default);border-radius:10px;padding:6px 18px 12px;margin-bottom:26px">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.DataTable" columns="{{ cols }}" rows="{{ rows }}" row-key="name" hint-size="100%,200px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.DataTable" columns="{{ cols }}" rows="{{ rows }}" row-key="name" hint-size="100%,200px"></x-import>
       </div>
 
       <h2 style="font-size:18px;font-weight:800;letter-spacing:-0.01em;margin:0 0 12px">{{ riskH }}</h2>
       <div style="display:grid;gap:10px">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Alert" variant="warning" title="{{ risk1t }}" hint-size="100%,72px">{{ risk1b }}</x-import>
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Alert" variant="info" title="{{ risk2t }}" hint-size="100%,72px">{{ risk2b }}</x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Alert" variant="warning" title="{{ risk1t }}" hint-size="100%,72px">{{ risk1b }}</x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Alert" variant="info" title="{{ risk2t }}" hint-size="100%,72px">{{ risk2b }}</x-import>
       </div>
     </div>
   </div>

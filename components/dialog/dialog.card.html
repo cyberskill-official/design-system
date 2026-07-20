@@ -20,7 +20,7 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-const { Dialog, Button } = window.CyberSkillDesignSystem_847b3c;
+const { Dialog, Button } = (window[Object.keys(window).find(k=>/^CyberSkillDesignSystem_[0-9a-f]{6}$/.test(k))]||{});
 function Demo() {
   const [open, setOpen] = React.useState(true);
   return (

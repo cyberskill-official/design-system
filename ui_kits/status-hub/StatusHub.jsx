@@ -17,7 +17,35 @@ function ThemeGlyph({ dark }) {
     : <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M20 13.5A8 8 0 1 1 10.5 4a6.5 6.5 0 0 0 9.5 9.5z"/></svg>;
 }
 
-const STATUS_LABEL = { done: "Shipped", active: "In progress", hold: "Blocked", todo: "Planned" };
+/* Bilingual UI copy — kit fully EN⇄VN (owner decision, Jul 2026).
+ * Mock-data VN variants live in data.js (window.SH_VI). */
+const T = {
+  en: {
+    sub: "CyberSkill · one page, three lenses · Hiện Thực Hoá Ý Chí",
+    updated: "Updated", portfolio: "Portfolio",
+    projects: "Projects", inprog: "In progress", shipped: "Shipped", blocked: "Blocked", planned: "Planned", avg: "Avg progress",
+    velocity: "Velocity · tasks shipped / week", perShipped: " shipped",
+    nowTitle: "Now shipping",
+    search: "Search projects…", view: "View", lenses: { board: "Board", table: "Table", releases: "Releases" },
+    status: "Status", all: "All", of: "of",
+    key: "Key", project: "Project", squad: "Squad", owner: "Owner", progress: "Progress",
+    thisWeek: "This week", tasks: "Tasks", risk: "Risk", close: "Close",
+    langBtn: "VN", theme: "Toggle theme",
+  },
+  vi: {
+    sub: "CyberSkill · một trang, ba lăng kính · Hiện Thực Hoá Ý Chí",
+    updated: "Cập nhật", portfolio: "Danh mục",
+    projects: "Dự án", inprog: "Đang làm", shipped: "Đã ra mắt", blocked: "Bị chặn", planned: "Dự kiến", avg: "Tiến độ TB",
+    velocity: "Tốc độ · task giao / tuần", perShipped: " đã giao",
+    nowTitle: "Đang ra mắt",
+    search: "Tìm dự án…", view: "Chế độ xem", lenses: { board: "Bảng công việc", table: "Bảng dữ liệu", releases: "Phát hành" },
+    status: "Trạng thái", all: "Tất cả", of: "trên",
+    key: "Mã", project: "Dự án", squad: "Nhóm", owner: "Phụ trách", progress: "Tiến độ",
+    thisWeek: "Tuần này", tasks: "Công việc", risk: "Rủi ro", close: "Đóng",
+    langBtn: "EN", theme: "Đổi giao diện",
+  },
+};
+const statusLabels = (t) => ({ done: t.shipped, active: t.inprog, hold: t.blocked, todo: t.planned });
 
 function Segments({ seg, className }) {
   return (
@@ -30,8 +58,9 @@ function Segments({ seg, className }) {
   );
 }
 
-function Drawer({ p, onClose }) {
+function Drawer({ p, onClose, t }) {
   if (!p) return null;
+  const SL = statusLabels(t);
   return (
     <>
       <div className="scrim" onClick={onClose} />
@@ -39,28 +68,28 @@ function Drawer({ p, onClose }) {
         <div className="dw-h">
           <div className="row">
             <span className="mono muted" style={{ fontWeight: 700 }}>{p.key}</span>
-            <span className={"pill " + p.status}>{STATUS_LABEL[p.status]}</span>
-            <button className="dw-x" onClick={onClose} aria-label="Close"><Glyph d={ICON.close} size={20} /></button>
+            <span className={"pill " + p.status}>{SL[p.status]}</span>
+            <button className="dw-x" onClick={onClose} aria-label={t.close}><Glyph d={ICON.close} size={20} /></button>
           </div>
           <h2>{p.name}</h2>
         </div>
         <div className="dw-b">
           <p className="muted" style={{ marginTop: 0 }}>{p.blurb}</p>
           <dl className="meta">
-            <div><dt>Owner</dt><dd>{p.owner}</dd></div>
-            <div><dt>Squad</dt><dd>{p.squad}</dd></div>
-            <div><dt>Progress</dt><dd>{p.pct}%</dd></div>
-            <div><dt>Updated</dt><dd>{p.updated}</dd></div>
+            <div><dt>{t.owner}</dt><dd>{p.owner}</dd></div>
+            <div><dt>{t.squad}</dt><dd>{p.squad}</dd></div>
+            <div><dt>{t.progress}</dt><dd>{p.pct}%</dd></div>
+            <div><dt>{t.updated}</dt><dd>{p.updated}</dd></div>
           </dl>
           <Segments seg={p.seg} className="minibar" />
           <div className="sect">
-            <h3>Tasks</h3>
+            <h3>{t.tasks}</h3>
             <div className="task-chips">
-              {p.tasks.map((t) => <span key={t[0]} className={"chip " + t[2]} title={t[1]}>{t[0]}</span>)}
+              {p.tasks.map((tk) => <span key={tk[0]} className={"chip " + tk[2]} title={tk[1]}>{tk[0]}</span>)}
             </div>
-            <ul className="tasks">{p.tasks.map((t) => <li key={t[0]}>{t[1]} — <span className="muted">{STATUS_LABEL[t[2]]}</span></li>)}</ul>
+            <ul className="tasks">{p.tasks.map((tk) => <li key={tk[0]}>{tk[1]} — <span className="muted">{SL[tk[2]]}</span></li>)}</ul>
           </div>
-          {p.risk ? <div className="sect"><h3>Risk</h3><div className="risk">{p.risk}</div></div> : null}
+          {p.risk ? <div className="sect"><h3>{t.risk}</h3><div className="risk">{p.risk}</div></div> : null}
         </div>
       </aside>
     </>
@@ -70,11 +99,23 @@ function Drawer({ p, onClose }) {
 function StatusHub() {
   const D = window.SH_DATA;
   const [dark, setDark] = useState(false);
+  const [lang, setLang] = useState("en");
   const [lens, setLens] = useState("board");
   const [q, setQ] = useState("");
   const [facet, setFacet] = useState("all");
   const [kpi, setKpi] = useState(null);
   const [sel, setSel] = useState(null);
+
+  const t = T[lang];
+  const SL = statusLabels(t);
+  const VI = lang === "vi" ? (window.SH_VI || null) : null;
+  const loc = (p) => VI ? { ...p,
+    blurb: VI.blurbs[p.key] || p.blurb,
+    risk: (VI.risks[p.key] != null ? VI.risks[p.key] : p.risk),
+    owner: VI.owners[p.owner] || p.owner,
+    squad: VI.squads[p.squad] || p.squad,
+    updated: VI.updatedRel[p.updated] || p.updated,
+  } : p;
 
   const counts = useMemo(() => {
     const c = { active: 0, done: 0, hold: 0 };
@@ -97,19 +138,20 @@ function StatusHub() {
   const toggleKpi = (k) => setKpi((cur) => (cur === k ? null : k));
 
   return (
-    <div className="sh" data-theme={dark ? "dark" : undefined}>
+    <div className="sh" lang={lang} data-theme={dark ? "dark" : undefined}>
       <header className="hd">
         <div className="hd-in">
           <div className="hd-id">
             <span className="hd-mark"><img src="../../assets/logo-mark.svg" alt="" /></span>
             <div>
               <h1>Status Hub</h1>
-              <p className="hd-sub">CyberSkill · one page, three lenses · Hiện Thực Hoá Ý Chí</p>
+              <p className="hd-sub">{t.sub}</p>
             </div>
           </div>
           <div className="hd-side">
-            <p className="hd-meta">Updated<br />{D.updated}</p>
-            <button className="btn ghost" onClick={() => setDark((v) => !v)} aria-label="Toggle theme"><ThemeGlyph dark={dark} /></button>
+            <p className="hd-meta">{t.updated}<br />{VI ? VI.updated : D.updated}</p>
+            <button className="btn ghost" onClick={() => setLang((l) => l === "en" ? "vi" : "en")} aria-label="Toggle language" style={{ fontWeight: 700, fontSize: 13 }}>{t.langBtn}</button>
+            <button className="btn ghost" onClick={() => setDark((v) => !v)} aria-label={t.theme}><ThemeGlyph dark={dark} /></button>
           </div>
         </div>
       </header>
@@ -117,83 +159,85 @@ function StatusHub() {
       <div className="wrap">
         <div className="deck">
           <section className="panel">
-            <h2>Portfolio</h2>
+            <h2>{t.portfolio}</h2>
             <div className="kpis">
-              <button className="kpi" data-on={kpi === null ? "1" : "0"} onClick={() => setKpi(null)}><b>{counts.total}</b><span>Projects</span></button>
-              <button className="kpi" data-on={kpi === "active" ? "1" : "0"} onClick={() => toggleKpi("active")}><b>{counts.active}</b><span>In progress</span></button>
-              <button className="kpi" data-on={kpi === "done" ? "1" : "0"} onClick={() => toggleKpi("done")}><b>{counts.done}</b><span>Shipped</span></button>
-              <button className="kpi" data-on={kpi === "hold" ? "1" : "0"} onClick={() => toggleKpi("hold")}><b>{counts.hold}</b><span>Blocked</span></button>
-              <button className="kpi" onClick={() => setKpi(null)}><b>{counts.avg}%</b><span>Avg progress</span></button>
+              <button className="kpi" data-on={kpi === null ? "1" : "0"} onClick={() => setKpi(null)}><b>{counts.total}</b><span>{t.projects}</span></button>
+              <button className="kpi" data-on={kpi === "active" ? "1" : "0"} onClick={() => toggleKpi("active")}><b>{counts.active}</b><span>{t.inprog}</span></button>
+              <button className="kpi" data-on={kpi === "done" ? "1" : "0"} onClick={() => toggleKpi("done")}><b>{counts.done}</b><span>{t.shipped}</span></button>
+              <button className="kpi" data-on={kpi === "hold" ? "1" : "0"} onClick={() => toggleKpi("hold")}><b>{counts.hold}</b><span>{t.blocked}</span></button>
+              <button className="kpi" onClick={() => setKpi(null)}><b>{counts.avg}%</b><span>{t.avg}</span></button>
             </div>
             <Segments seg={{ done: 60, active: 22, hold: 6, todo: 12 }} className="bar-seg" />
             <div className="legend">
-              <span><i className="dot" style={{ background: "var(--cs-color-semantic-success)" }} />Shipped</span>
-              <span><i className="dot" style={{ background: "var(--cs-color-brand-ochre)" }} />In progress</span>
-              <span><i className="dot" style={{ background: "var(--cs-color-semantic-danger)" }} />Blocked</span>
-              <span><i className="dot" style={{ background: "var(--cs-status-todo)" }} />Planned</span>
+              <span><i className="dot" style={{ background: "var(--cs-color-semantic-success)" }} />{t.shipped}</span>
+              <span><i className="dot" style={{ background: "var(--cs-color-brand-ochre)" }} />{t.inprog}</span>
+              <span><i className="dot" style={{ background: "var(--cs-color-semantic-danger)" }} />{t.blocked}</span>
+              <span><i className="dot" style={{ background: "var(--cs-status-todo)" }} />{t.planned}</span>
             </div>
           </section>
           <section className="panel">
-            <h2>Velocity · tasks shipped / week</h2>
+            <h2>{t.velocity}</h2>
             <div className="spark">
               {D.velocity.map((v) => (
-                <a key={v.wk} title={v.n + " shipped"}><b>{v.n}</b><i style={{ height: (v.n / maxV) * 72 + "px" }} /><span>{v.wk}</span></a>
+                <a key={v.wk} title={v.n + t.perShipped}><b>{v.n}</b><i style={{ height: (v.n / maxV) * 72 + "px" }} /><span>{v.wk}</span></a>
               ))}
             </div>
           </section>
         </div>
 
         <div className="now">
-          <h2>Now shipping</h2>
-          <p><b>v1.6.0 — Glass bindings + style-pack v2.</b> Opt-in <span className="mono">.cs-surface-*</span> component bindings, a zero-warning verifier across all 50 packs, and a dark-mode APCA re-check. Ships this week.</p>
+          <h2>{t.nowTitle}</h2>
+          {lang === "vi"
+            ? <p><b>v1.6.0 — Liên kết Glass + gói phong cách v2.</b> Liên kết component <span className="mono">.cs-surface-*</span> (tùy chọn), trình kiểm 0 cảnh báo trên cả 50 gói, và kiểm tra lại APCA cho chế độ tối. Ra mắt tuần này.</p>
+            : <p><b>v1.6.0 — Glass bindings + style-pack v2.</b> Opt-in <span className="mono">.cs-surface-*</span> component bindings, a zero-warning verifier across all 50 packs, and a dark-mode APCA re-check. Ships this week.</p>}
         </div>
 
         <div className="bar">
           <div className="bar-top">
-            <label className="srch"><SearchGlyph /><input placeholder="Search projects…" value={q} onChange={(e) => setQ(e.target.value)} /></label>
-            <div className="lenses" role="tablist" aria-label="View">
+            <label className="srch"><SearchGlyph /><input placeholder={t.search} value={q} onChange={(e) => setQ(e.target.value)} /></label>
+            <div className="lenses" role="tablist" aria-label={t.view}>
               {["board", "table", "releases"].map((l) => (
-                <button key={l} className="ln" role="tab" aria-selected={lens === l} onClick={() => setLens(l)}>{l[0].toUpperCase() + l.slice(1)}</button>
+                <button key={l} className="ln" role="tab" aria-selected={lens === l} onClick={() => setLens(l)}>{t.lenses[l]}</button>
               ))}
             </div>
-            <label className="facet">Status
+            <label className="facet">{t.status}
               <select value={kpi || facet} onChange={(e) => { setFacet(e.target.value); setKpi(null); }}>
-                <option value="all">All</option><option value="active">In progress</option>
-                <option value="done">Shipped</option><option value="hold">Blocked</option>
+                <option value="all">{t.all}</option><option value="active">{t.inprog}</option>
+                <option value="done">{t.shipped}</option><option value="hold">{t.blocked}</option>
               </select>
             </label>
-            <span className="cnt">{shown.length} of {D.projects.length}</span>
+            <span className="cnt">{shown.length} {t.of} {D.projects.length}</span>
           </div>
         </div>
 
         {lens === "board" && (
           <div className="grid">
-            {shown.map((p) => (
-              <button className={"card" + (p.status === "active" ? " hot" : "")} key={p.key} onClick={() => setSel(p)}>
+            {shown.map((p0) => { const p = loc(p0); return (
+              <button className={"card" + (p.status === "active" ? " hot" : "")} key={p.key} onClick={() => setSel(p0)}>
                 <div className="card-h"><h3><span className="k mono">{p.key}</span> · {p.name}</h3><span className="pct">{p.pct}%</span></div>
                 <p>{p.blurb}</p>
                 <Segments seg={p.seg} className="minibar" />
                 <div className="task-chips">
-                  <span className={"pill " + p.status}>{STATUS_LABEL[p.status]}</span>
-                  {p.tasks.slice(0, 3).map((t) => <span key={t[0]} className={"chip " + t[2]}>{t[0]}</span>)}
+                  <span className={"pill " + p.status}>{SL[p.status]}</span>
+                  {p.tasks.slice(0, 3).map((tk) => <span key={tk[0]} className={"chip " + tk[2]}>{tk[0]}</span>)}
                 </div>
               </button>
-            ))}
+            ); })}
           </div>
         )}
 
         {lens === "table" && (
           <div className="tbl-wrap">
             <table className="tbl">
-              <thead><tr><th>Key</th><th>Project</th><th>Squad</th><th>Owner</th><th>Progress</th><th>Status</th></tr></thead>
+              <thead><tr><th>{t.key}</th><th>{t.project}</th><th>{t.squad}</th><th>{t.owner}</th><th>{t.progress}</th><th>{t.status}</th></tr></thead>
               <tbody>
-                {shown.map((p) => (
-                  <tr key={p.key} onClick={() => setSel(p)}>
+                {shown.map((p0) => { const p = loc(p0); return (
+                  <tr key={p.key} onClick={() => setSel(p0)}>
                     <td className="mono" style={{ fontWeight: 700 }}>{p.key}</td>
                     <td>{p.name}</td><td>{p.squad}</td><td>{p.owner}</td><td>{p.pct}%</td>
-                    <td><span className={"pill " + p.status}>{STATUS_LABEL[p.status]}</span></td>
+                    <td><span className={"pill " + p.status}>{SL[p.status]}</span></td>
                   </tr>
-                ))}
+                ); })}
               </tbody>
             </table>
           </div>
@@ -205,18 +249,20 @@ function StatusHub() {
               <div className={"rel" + (r.now ? " now" : "")} key={r.ver}>
                 <div className="tick">{r.done ? "✓" : "→"}</div>
                 <div>
-                  <div className="rel-h"><b>{r.ver}</b><span className={"pill " + (r.now ? "active" : "done")}>{r.now ? "This week" : "Shipped"}</span><span className="muted">{r.when}</span></div>
-                  <div className="rel-sec"><h4>{r.title}</h4><ul>{r.items.map((it, i) => <li key={i}>{it}</li>)}</ul></div>
+                  <div className="rel-h"><b>{r.ver}</b><span className={"pill " + (r.now ? "active" : "done")}>{r.now ? t.thisWeek : t.shipped}</span><span className="muted">{VI ? (VI.relWhen[r.ver] || r.when) : r.when}</span></div>
+                  <div className="rel-sec"><h4>{VI ? (VI.relTitles[r.ver] || r.title) : r.title}</h4><ul>{(VI ? (VI.relItems[r.ver] || r.items) : r.items).map((it, i) => <li key={i}>{it}</li>)}</ul></div>
                 </div>
               </div>
             ))}
           </div>
         )}
 
-        <p className="ft">CyberSkill Status Hub — a design-system UI kit recreation. Built on <span className="mono">styles.css</span> tokens. Turn Your Will Into Real.</p>
+        <p className="ft">{lang === "vi"
+          ? <>CyberSkill Status Hub — bản tái hiện UI kit của design system. Dựng trên token <span className="mono">styles.css</span>. Turn Your Will Into Real.</>
+          : <>CyberSkill Status Hub — a design-system UI kit recreation. Built on <span className="mono">styles.css</span> tokens. Turn Your Will Into Real.</>}</p>
       </div>
 
-      <Drawer p={sel} onClose={() => setSel(null)} />
+      <Drawer p={sel && loc(sel)} onClose={() => setSel(null)} t={t} />
     </div>
   );
 }

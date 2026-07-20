@@ -17,7 +17,7 @@
       <div class="cs-aurora-wash" style="position:absolute;inset:0;opacity:0.4"></div>
       <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,17,8,0.35),rgba(26,17,8,0.8))"></div>
       <div style="position:relative;z-index:1;display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="40" hint-size="40px,40px"></x-import>CyberSkill
+        <x-import component-from-global-scope="CyberSkillDS.Logo" size="40" hint-size="40px,40px"></x-import>CyberSkill
       </div>
       <h2 style="position:relative;z-index:1;font-size:40px;font-weight:800;letter-spacing:-0.02em;line-height:1.08;color:var(--cs-accent-bright);margin:auto 0 8px">{{ brandH }}</h2>
       <p style="position:relative;z-index:1;font-size:17px;opacity:0.9;margin:0;max-width:420px">{{ brandP }}</p>
@@ -28,11 +28,11 @@
       <h1 style="font-size:30px;font-weight:800;letter-spacing:-0.02em;margin:0 0 4px">{{ title }}</h1>
       <p style="color:var(--cs-color-text-muted);margin:0 0 28px">{{ sub }}</p>
       <div style="display:grid;gap:16px">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.TextField" label="{{ emailL }}" type="email" placeholder="you@cyberskill.world" hint-size="100%,74px"></x-import>
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.TextField" label="{{ pwL }}" type="password" placeholder="••••••••" hint-size="100%,74px"></x-import>
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Switch" label="{{ rememberL }}" hint-size="140px,26px"></x-import>
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Button" variant="primary" full-width="{{ true }}" hint-size="100%,44px">{{ signInBtn }}</x-import>
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Button" variant="ghost" full-width="{{ true }}" hint-size="100%,44px">{{ lumiBtn }}</x-import>
+        <x-import component-from-global-scope="CyberSkillDS.TextField" label="{{ emailL }}" type="email" placeholder="you@cyberskill.world" hint-size="100%,74px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.TextField" label="{{ pwL }}" type="password" placeholder="••••••••" hint-size="100%,74px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Switch" label="{{ rememberL }}" hint-size="140px,26px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Button" variant="primary" full-width="{{ true }}" hint-size="100%,44px">{{ signInBtn }}</x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Button" variant="ghost" full-width="{{ true }}" hint-size="100%,44px">{{ lumiBtn }}</x-import>
       </div>
       <p style="text-align:center;font-size:13px;color:var(--cs-color-text-muted);margin-top:16px">{{ newHere }} <a href="#">{{ askAccess }}</a></p>
     </div>

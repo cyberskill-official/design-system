@@ -1,10 +1,12 @@
 import React from "react";
+import { makeT, useLang } from "../_i18n/i18n.js";
 function cx(...c) { return c.filter(Boolean).join(" "); }
 
 /** CyberSkill Breadcrumb — hierarchical trail; last item is current. */
-export function Breadcrumb({ items = [], className, ...props }) {
+export function Breadcrumb({ items = [], lang, className, ...props }) {
+  const [ref, L] = useLang(lang);
   return (
-    <nav aria-label="Breadcrumb" {...props}>
+    <nav ref={ref} aria-label={makeT("Breadcrumb", L)("label")} {...props}>
       <ol className={cx("cs-breadcrumb", className)}>
         {items.map((it, i) => {
           const last = i === items.length - 1;

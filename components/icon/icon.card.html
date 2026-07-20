@@ -21,7 +21,7 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-const { Icon } = window.CyberSkillDesignSystem_847b3c;
+const { Icon } = (window[Object.keys(window).find(k=>/^CyberSkillDesignSystem_[0-9a-f]{6}$/.test(k))]||{});
 const names = ["close","sun","moon","arrow-right","check","sparkle","chat","sound-on","sound-off","search","sliders","upload","download","calendar","user","plus","trash","external","menu","chevron-down","chevron-up","chevron-left","chevron-right","edit","copy","info","alert-triangle"];
 function Demo() {
   return (

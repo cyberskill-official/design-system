@@ -13,9 +13,9 @@
 <script src="../../image-slot.js"></script>
 </helmet>
 <div data-theme="{{ rootTheme }}" lang="{{ langAttr }}" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" data-cs-expression="{{ exAttr }}" style="font-family:var(--cs-font-family-ui);color:var(--cs-color-text-primary);background:var(--cs-color-surface-page);min-height:100vh">
-  <header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:24px;padding:14px 32px;background:color-mix(in oklab,var(--cs-color-surface-panel) 82%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--cs-color-border-default)">
-    <div style="display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:var(--cs-color-brand-umber);letter-spacing:-0.01em">
-      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="32" hint-size="32px,32px"></x-import>
+  <header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;flex-wrap:wrap;gap:10px 24px;padding:14px 32px;background:color-mix(in oklab,var(--cs-color-surface-panel) 82%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--cs-color-border-default)">
+    <div style="display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:var(--cs-color-text-primary);letter-spacing:-0.01em">
+      <x-import component-from-global-scope="CyberSkillDS.Logo" size="32" hint-size="32px,32px"></x-import>
       CyberSkill
     </div>
     <nav style="display:flex;gap:22px;margin-left:8px;font-size:14px;font-weight:600">
@@ -24,7 +24,7 @@
       <a href="#contact" style="color:var(--cs-color-text-primary);text-decoration:none">{{ navContact }}</a>
     </nav>
     <div style="margin-left:auto">
-      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Button" variant="primary" size="sm" onClick="{{ openChat }}" hint-size="130px,36px">{{ talkBtn }}</x-import>
+      <x-import component-from-global-scope="CyberSkillDS.Button" variant="primary" size="sm" onClick="{{ openChat }}" hint-size="130px,36px">{{ talkBtn }}</x-import>
     </div>
   </header>
 
@@ -38,7 +38,7 @@
       <div class="cs-rise-in cs-rise-in--3" style="font-size:20px;font-weight:600;opacity:0.9;margin-bottom:18px">{{ heroSub }}</div>
       <p class="cs-rise-in cs-rise-in--4" style="font-size:18px;line-height:1.55;max-width:600px;opacity:0.95">{{ heroP }}</p>
       <div style="max-width:600px;margin-top:26px">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.PromptInput" placeholder="{{ promptPh }}" send-label="{{ promptSend }}" hint-size="100%,120px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.PromptInput" placeholder="{{ promptPh }}" send-label="{{ promptSend }}" hint-size="100%,120px"></x-import>
       </div>
     </div>
   </section>
@@ -72,7 +72,7 @@
         <p style="margin:0;opacity:0.9;max-width:520px">{{ ctaP }}</p>
       </div>
       <span id="contact">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Button" variant="primary" onClick="{{ openChat }}" hint-size="150px,44px">{{ talkBtn }}</x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Button" variant="primary" onClick="{{ openChat }}" hint-size="150px,44px">{{ talkBtn }}</x-import>
       </span>
     </div>
   </section>
@@ -80,7 +80,7 @@
   <footer style="background:var(--cs-accent-ink);color:rgba(255,255,255,0.82);padding:40px 32px">
     <div style="max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center">
       <div style="display:flex;align-items:center;gap:10px;color:#fff;font-weight:800">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="28" decorative="{{ true }}" hint-size="28px,28px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Logo" size="28" decorative="{{ true }}" hint-size="28px,28px"></x-import>
         CyberSkill
       </div>
       <small style="color:rgba(255,255,255,0.6);font-size:13px">{{ footer }}</small>
@@ -99,10 +99,10 @@
         <button onClick="{{ closeChat }}" aria-label="Close" style="margin-left:auto;background:transparent;border:0;color:rgba(255,255,255,0.8);cursor:pointer;font-size:18px">✕</button>
       </div>
       <div style="background:var(--cs-color-surface-panel);padding:16px;overflow:auto">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.ChatMessage" role="lumi" hint-size="100%,60px">{{ chatHello }}</x-import>
+        <x-import component-from-global-scope="CyberSkillDS.ChatMessage" role="lumi" hint-size="100%,60px">{{ chatHello }}</x-import>
       </div>
       <div style="background:var(--cs-color-surface-panel);padding:0 12px 12px">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.PromptInput" placeholder="{{ chatPh }}" send-label="{{ chatSend }}" hint-size="100%,110px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.PromptInput" placeholder="{{ chatPh }}" send-label="{{ chatSend }}" hint-size="100%,110px"></x-import>
       </div>
     </div>
   </sc-if>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>CyberSkill — visual-diff review</title>
+<style>
+  :root{--dw:560px}
+  body{margin:0;font-family:system-ui;background:#efe6d8;color:#231a12;padding:14px 18px}
+  h1{font-size:16px;margin:0 0 2px}
+  .lede{color:#6b5d4f;max-width:1000px;line-height:1.5;margin:0 0 12px;font-size:13px}
+  .bar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin-bottom:12px}
+  button.pick{border:1px solid #c9b79c;background:#fff;border-radius:7px;padding:6px 12px;font:13px system-ui;cursor:pointer}
+  button.pick.on{background:#45210E;color:#fff;border-color:#45210E}
+  label.ctl{font:12.5px system-ui;color:#4a3d31;display:flex;align-items:center;gap:6px}
+  .stage{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+  .pane{position:relative}
+  .cap{font:11.5px ui-monospace,monospace;color:#6b5d4f;margin:0 0 4px}
+  .box{width:var(--dw);overflow:hidden;border:1px solid #c9b79c;background:#fff;position:relative}
+  .box img{display:block;width:var(--dw)}
+  .box iframe{border:0;transform-origin:top left;display:block}
+  .ov{position:absolute;inset:0;pointer-events:none}
+  .ov img{width:var(--dw);display:block}
+  table{border-collapse:collapse;font:12px ui-monospace,monospace;margin-top:8px}
+  td{padding:2px 10px 2px 0}
+  .y{color:#166534}.n{color:#9a8a78}
+  .note{margin-top:16px;font-size:12px;color:#6b5d4f;max-width:1000px;line-height:1.6;border-top:1px dashed #c9b79c;padding-top:10px}
+  code{background:#e2d5c0;border-radius:4px;padding:0 4px}
+</style></head><body>
+<h1>Visual-diff review — live template vs. stored baseline</h1>
+<p class="lede">Deep visual-regression <b>review assist</b>, not a numeric gate: this environment can't rasterize nested-iframe content (html-to-image limitation) and the baselines in <code>_audit/baselines/</code> are downscaled 909×540 JPEG references — so drift is judged by eye. Pick a baseline, then compare side-by-side, or <b>Overlay (difference)</b> — where the live render matches the baseline the blend goes black; anything that lights up has moved. Adjust native width if the overlay is misregistered.</p>
+<div class="bar" id="picks"></div>
+<div class="bar">
+  <label class="ctl"><input type="radio" name="mode" value="side" checked> Side-by-side</label>
+  <label class="ctl"><input type="radio" name="mode" value="diff"> Overlay (difference)</label>
+  <label class="ctl">baseline opacity <input id="op" type="range" min="0" max="1" step="0.05" value="1"></label>
+  <label class="ctl">native width <input id="nw" type="number" style="width:72px" step="20"></label>
+</div>
+<div class="stage" id="stage"></div>
+<h3 style="margin:18px 0 2px;font-size:13px">Baseline coverage</h3>
+<div id="cov"></div>
+<p class="note"><b>Add a baseline:</b> open the template directly, capture it at its native width into a 16:9 frame, save as <code>_audit/baselines/&lt;slug&gt;.png</code>, then add <code>&lt;slug&gt;</code> here. Baselines are intentionally few (product · document · deck exemplars) — they anchor the archetypes, not every template. Regenerate after an intentional redesign so the baseline reflects the new truth.</p>
+<script>
+const BASE={ 'dashboard':1280, 'slide-deck':1280, 'bod-report':1000 }; // slug -> default native width
+const picks=document.getElementById('picks'), stage=document.getElementById('stage'), op=document.getElementById('op'), nw=document.getElementById('nw');
+let manifest=null, cur=Object.keys(BASE)[0];
+function mode(){ return document.querySelector('input[name=mode]:checked').value; }
+function entryFor(slug){ const t=manifest.templates.find(t=>t.entryPath.includes('/'+slug+'/')); return t?('../'+t.entryPath):null; }
+function render(){
+  const nativeW=+nw.value||BASE[cur]||1280;
+  const dw=560, scale=dw/nativeW, ratio=540/909, boxH=Math.round(dw*ratio), frameH=Math.round(boxH/scale);
+  const src=entryFor(cur), img='./baselines/'+cur+'.png';
+  stage.innerHTML='';
+  const live=`<div class="pane"><p class="cap">live · ${cur} @ ${nativeW}px → ${dw}px</p><div class="box" style="height:${boxH}px"><iframe src="${src}" style="width:${nativeW}px;height:${frameH}px;transform:scale(${scale.toFixed(4)})"></iframe>__OV__</div></div>`;
+  const base=`<div class="pane"><p class="cap">baseline · ${cur}.png (909×540)</p><div class="box" style="height:${boxH}px"><img src="${img}" alt=""></div></div>`;
+  if(mode()==='diff'){
+    const ov=`<div class="ov" style="mix-blend-mode:difference;opacity:${op.value}"><img src="${img}" alt=""></div>`;
+    stage.innerHTML=live.replace('__OV__',ov);
+  }else{
+    stage.innerHTML=live.replace('__OV__','')+base;
+  }
+}
+function drawPicks(){
+  picks.innerHTML='';
+  Object.keys(BASE).forEach(slug=>{ const b=document.createElement('button'); b.className='pick'+(slug===cur?' on':''); b.textContent=slug; b.onclick=()=>{cur=slug;nw.value=BASE[slug];drawPicks();render();}; picks.appendChild(b); });
+}
+function drawCoverage(){
+  const cov=document.getElementById('cov'); const rows=manifest.templates.map(t=>{
+    const slug=t.entryPath.split('/')[1]; const has=Object.keys(BASE).includes(slug);
+    return {name:t.name,slug,has};
+  }).sort((a,b)=>(b.has-a.has)||a.name.localeCompare(b.name));
+  const has=rows.filter(r=>r.has);
+  let html='<table><tr><td>'+has.length+' of '+rows.length+' templates baselined</td></tr></table>';
+  html+='<table>'+rows.filter(r=>r.has).map(r=>'<tr><td class="y">✓ baseline</td><td>'+r.name+'</td><td>'+r.slug+'</td></tr>').join('')+'</table>';
+  cov.innerHTML=html;
+}
+(async()=>{
+  manifest=await (await fetch('../_ds_manifest.json')).json();
+  nw.value=BASE[cur];
+  drawPicks(); render(); drawCoverage();
+  document.querySelectorAll('input[name=mode]').forEach(r=>r.onchange=render);
+  op.oninput=render; nw.onchange=render;
+})();
+</script></body></html>

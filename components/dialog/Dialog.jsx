@@ -1,4 +1,5 @@
 import React from "react";
+import { makeT, useLang } from "../_i18n/i18n.js";
 
 function cx(...c) { return c.filter(Boolean).join(" "); }
 
@@ -19,13 +20,16 @@ export function Dialog({
   actions,
   onClose,
   className,
-  closeLabel = "Close",
+  closeLabel,
+  lang,
   ...props
 }) {
   const titleId = useId("cs-dialog") + "-title";
+  const [ref, L] = useLang(lang);
+  const cl = closeLabel != null ? closeLabel : makeT("Dialog", L)("close");
   if (!open) return null;
   return (
-    <div className="cs-dialog-layer">
+    <div ref={ref} className="cs-dialog-layer">
       <div className="cs-dialog__overlay" onClick={onClose} aria-hidden="true" />
       <section
         {...props}
@@ -37,7 +41,7 @@ export function Dialog({
         <header className="cs-dialog__header">
           <h2 id={titleId} className="cs-dialog__title">{title}</h2>
           {onClose ? (
-            <button type="button" className="cs-button cs-button--ghost cs-button--sm" onClick={onClose} aria-label={closeLabel}>✕</button>
+            <button type="button" className="cs-button cs-button--ghost cs-button--sm" onClick={onClose} aria-label={cl}>✕</button>
           ) : null}
         </header>
         <div className="cs-dialog__body">{children}</div>

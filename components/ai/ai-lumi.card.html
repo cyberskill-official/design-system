@@ -17,7 +17,7 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-const { PromptSuggestions, TypingIndicator, CitationList, ChatMessage } = window.CyberSkillDesignSystem_847b3c;
+const { PromptSuggestions, TypingIndicator, CitationList, ChatMessage } = (window[Object.keys(window).find(k=>/^CyberSkillDesignSystem_[0-9a-f]{6}$/.test(k))]||{});
 function Demo() {
   return (
     <div style={{maxWidth:560}}>

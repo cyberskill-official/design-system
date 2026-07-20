@@ -16,19 +16,19 @@
     <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--cs-color-text-accent)">{{ eyebrow }}</div>
     <h1 style="font-size:clamp(32px,5vw,46px);font-weight:800;letter-spacing:-0.02em;line-height:1.14;margin:12px 0 16px">{{ h1 }}</h1>
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:32px">
-      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Avatar" name="An Le" hint-size="40px,40px"></x-import>
+      <x-import component-from-global-scope="CyberSkillDS.Avatar" name="An Le" hint-size="40px,40px"></x-import>
       <div style="font-size:14px"><div style="font-weight:600">An Le · {{ authorTeam }}</div><div style="color:var(--cs-color-text-muted)">{{ meta }}</div></div>
-      <span style="margin-left:auto"><x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Badge" variant="ochre" hint-size="70px,22px">{{ badge }}</x-import></span>
+      <span style="margin-left:auto"><x-import component-from-global-scope="CyberSkillDS.Badge" variant="ochre" hint-size="70px,22px">{{ badge }}</x-import></span>
     </div>
     <p style="font-size:19px;line-height:1.6;color:var(--cs-color-text-muted);margin:0 0 24px">{{ lede }}</p>
     <p style="font-size:17px;line-height:1.7;margin:0 0 18px">{{ p1 }}</p>
     <h2 style="font-size:26px;font-weight:800;letter-spacing:-0.01em;margin:32px 0 12px">{{ h2 }}</h2>
     <p style="font-size:17px;line-height:1.7;margin:0 0 20px">{{ p2 }}</p>
     <div style="margin:24px 0">
-      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Alert" variant="info" title="{{ alertTitle }}" hint-size="100%,80px">{{ alertBody }}</x-import>
+      <x-import component-from-global-scope="CyberSkillDS.Alert" variant="info" title="{{ alertTitle }}" hint-size="100%,80px">{{ alertBody }}</x-import>
     </div>
     <div style="margin:24px 0">
-      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.CodeBlock" filename="card.html" code="{{ code }}" hint-size="100%,120px"></x-import>
+      <x-import component-from-global-scope="CyberSkillDS.CodeBlock" filename="card.html" code="{{ code }}" hint-size="100%,120px"></x-import>
     </div>
     <p style="font-size:17px;line-height:1.7;margin:0 0 18px">{{ p3 }}</p>
   </article>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>CyberSkill — Language (Tiếng Việt) overflow audit</title>
+<style>
+  body{margin:0;font-family:ui-monospace,monospace;font-size:11.5px;padding:14px 18px;background:#efe6d8;color:#231a12}
+  h1{font-family:system-ui;font-size:15px;margin:0 0 2px}
+  .lede{font-family:system-ui;color:#6b5d4f;margin:0 0 8px;max-width:1100px;line-height:1.5}
+  #busy{margin:0 0 8px;color:#6b5d4f;font-family:system-ui}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px 20px;max-width:1180px}
+  .r{display:flex;justify-content:space-between;gap:8px;padding:2px 8px;border-radius:4px}
+  .r.bad{background:#FEE2E2;color:#B42318;font-weight:700}
+  .r.exp{background:#FEF3C7;color:#8a6d1a}
+  .r.warn{background:#FEF9C3;color:#854d0e}
+  .r.ok{color:#166534}
+  .r span:last-child{white-space:nowrap}
+  #pool{position:fixed;left:-6000px;top:0}
+  #sum{font-family:system-ui;font-size:14px;font-weight:800;margin:10px 0}
+</style></head><body>
+<h1>Language overflow audit — every template forced to Tiếng Việt @ mobile 390</h1>
+<p class="lede">Whole-set language pass (owner doctrine: language gets its OWN pass). Fresh single-navigation iframe per template — race-free, mirroring <code>responsive-overflow.html</code> — then <code>__dcSetProps(root,{language:"Tiếng Việt"})</code>, settle, and measure. Fails if VN introduces document horizontal overflow (<code>over</code>) or clips text inside a fixed-height/nowrap box (<code>clip</code> — the real VN risk: diacritics + longer strings). ⚑ = VN did not apply (no Language tweak reached). ◇ = canvas deck/social (scrolls inside <code>.cs-canvas-desk</code>; 0 document overflow).</p>
+<div id="busy">loading manifest…</div>
+<div class="grid" id="grid"></div>
+<div id="sum"></div>
+<div id="pool"></div>
+<script>
+const W=390, GROUP=5, BOOT_TRIES=45, BOOT_STEP=120, RENDER=1500, SETTLE=1000;
+const DIA=/[ăâđêôơưĂÂĐÊÔƠƯàáảãạằắẳẵặầấẩẫậèéẻẽẹềếểễệìíỉĩịòóỏõọồốổỗộờớởỡợùúủũụừứửữựỳýỷỹỵ]/;
+const pool=document.getElementById('pool'), grid=document.getElementById('grid'), busy=document.getElementById('busy');
+const results=[];
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+function measure(doc){
+  let over=0, canvas=false, vn=false, clip=0, clipEx='';
+  try{
+    over=doc.documentElement.scrollWidth-W;
+    canvas=!!doc.querySelector('.cs-canvas-desk');
+    vn=DIA.test(doc.body.innerText||'');
+    for(const el of doc.querySelectorAll('section,div,span,a,button,h1,h2,h3,h4,td,th,li,p,figcaption')){
+      const cs=doc.defaultView.getComputedStyle(el), o=cs.overflow, oy=cs.overflowY, ox=cs.overflowX;
+      const vClip=(oy==='hidden'||o==='hidden') && el.clientHeight>40 && (el.scrollHeight-el.clientHeight)>6 && (el.innerText||'').trim().length>1;
+      const hClip=(ox==='hidden'||o==='hidden') && cs.whiteSpace==='nowrap' && (el.scrollWidth-el.clientWidth)>3;
+      if(vClip||hClip){ clip++; if(!clipEx) clipEx=el.tagName.toLowerCase()+' "'+(el.innerText||'').slice(0,30).replace(/\s+/g,' ').trim()+'"'; }
+    }
+  }catch(e){ clipEx='ERR '+String(e).slice(0,40); }
+  return {over,canvas,vn,clip,clipEx};
+}
+function probeOne(src){
+  return new Promise(res=>{
+    const f=document.createElement('iframe');
+    f.style.cssText='width:'+W+'px;height:1100px;border:0;display:block';
+    f.src=src; pool.appendChild(f);
+    f.onload=async()=>{
+      const win=f.contentWindow;
+      try{ await f.contentDocument.fonts.ready; }catch(e){}
+      for(let i=0;i<BOOT_TRIES && !(win.__dcRootName && win.__dcRootName());i++) await wait(BOOT_STEP);
+      let forced=false;
+      try{
+        const root=win.__dcRootName && win.__dcRootName();
+        if(win.__dcSetProps && root){ win.__dcSetProps(root,{language:'Tiếng Việt'}); forced=true; }
+      }catch(e){}
+      await wait(forced?RENDER:SETTLE);
+      const m=measure(f.contentDocument); m.forced=forced;
+      f.remove(); res(m);
+    };
+  });
+}
+(async()=>{
+  const M=await (await fetch('../_ds_manifest.json')).json();
+  const tpls=M.templates.map(t=>({name:t.name,src:'../'+t.entryPath}));
+  busy.textContent='forcing Tiếng Việt on '+tpls.length+' templates in groups of '+GROUP+'…';
+  for(let i=0;i<tpls.length;i+=GROUP){
+    const batch=tpls.slice(i,i+GROUP);
+    const measured=await Promise.all(batch.map(t=>probeOne(t.src)));
+    batch.forEach((t,j)=>{
+      const m=measured[j];
+      const fail=m.over>0 || m.clip>0;
+      results.push({name:t.name,...m,fail});
+      const cls=fail?'bad':(!m.vn?'warn':(m.canvas?'exp':'ok'));
+      const detail=fail?((m.over>0?'+'+m.over+'px ':'')+(m.clip>0?'clip×'+m.clip:'')):(!m.vn?'⚑ no-VN':'0');
+      const row=document.createElement('div');
+      row.className='r '+cls;
+      row.innerHTML='<span>'+t.name+(m.canvas?' ◇':'')+'</span><span>'+detail+'</span>';
+      row.title=m.clipEx||'';
+      grid.appendChild(row);
+    });
+    busy.textContent='probed '+results.length+'/'+tpls.length+'…';
+    window.__all={done:results.length,total:tpls.length,results};
+  }
+  const bad=results.filter(r=>r.fail);
+  const noVN=results.filter(r=>!r.vn);
+  window.__language={done:tpls.length,total:tpls.length,results,
+    fail:bad.map(r=>r.name+' '+(r.over>0?'+'+r.over:'')+(r.clip>0?' clip×'+r.clip:'')),
+    noVN:noVN.map(r=>r.name), pass:bad.length===0};
+  window.__all=window.__language;
+  busy.textContent='done — '+tpls.length+' templates';
+  const sum=document.getElementById('sum');
+  sum.textContent=bad.length?('✗ '+bad.length+' VN overflow/clip: '+window.__language.fail.join(', ')):('✓ NO VN overflow or clipping across all '+tpls.length+' templates @390'+(noVN.length?(' — ⚑ '+noVN.length+' did not apply VN'):''));
+  sum.style.color=bad.length?'#B42318':'#166534';
+})();
+</script></body></html>

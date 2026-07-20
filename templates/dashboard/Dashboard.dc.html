@@ -16,7 +16,7 @@
     <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 28px;flex-wrap:wrap">
       <div style="display:flex;align-items:center;gap:14px">
         <span style="width:42px;height:42px;border-radius:12px;background:var(--cs-accent-bright);display:grid;place-items:center;overflow:hidden">
-          <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="42" decorative="{{ true }}" hint-size="42px,42px"></x-import>
+          <x-import component-from-global-scope="CyberSkillDS.Logo" size="42" decorative="{{ true }}" hint-size="42px,42px"></x-import>
         </span>
         <div>
           <h1 style="margin:0;font-size:22px;letter-spacing:0.2px">Status Hub</h1>
@@ -24,64 +24,64 @@
         </div>
       </div>
       <span>
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Button" variant="primary" size="sm" hint-size="130px,36px">{{ newBtn }}</x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Button" variant="primary" size="sm" hint-size="130px,36px">{{ newBtn }}</x-import>
       </span>
     </div>
   </header>
 
   <div style="max-width:1280px;margin:0 auto;padding:28px">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;padding:22px 24px;background:var(--cs-color-surface-panel);border:1px solid var(--cs-color-border-default);border-radius:var(--cs-radius-lg);box-shadow:var(--cs-shadow-sm)">
-      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Stat" label="{{ s1 }}" value="6" hint-size="140px,70px"></x-import>
-      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Stat" label="{{ s2 }}" value="4" hint-size="140px,70px"></x-import>
-      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Stat" label="{{ s3 }}" value="1" hint-size="140px,70px"></x-import>
-      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Stat" label="{{ s4 }}" value="70%" delta="{{ s4d }}" trend="up" hint-size="140px,70px"></x-import>
+      <x-import component-from-global-scope="CyberSkillDS.Stat" label="{{ s1 }}" value="6" hint-size="140px,70px"></x-import>
+      <x-import component-from-global-scope="CyberSkillDS.Stat" label="{{ s2 }}" value="4" hint-size="140px,70px"></x-import>
+      <x-import component-from-global-scope="CyberSkillDS.Stat" label="{{ s3 }}" value="1" hint-size="140px,70px"></x-import>
+      <x-import component-from-global-scope="CyberSkillDS.Stat" label="{{ s4 }}" value="70%" delta="{{ s4d }}" trend="up" hint-size="140px,70px"></x-import>
     </div>
 
     <div style="margin:24px 0 20px">
-      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Tabs" tabs="{{ tabs }}" value="{{ lens }}" on-change="{{ setLens }}" hint-size="100%,44px"></x-import>
+      <x-import component-from-global-scope="CyberSkillDS.Tabs" tabs="{{ tabs }}" value="{{ lens }}" on-change="{{ setLens }}" hint-size="100%,44px"></x-import>
     </div>
 
     <sc-if value="{{ isBoard }}" hint-placeholder-val="{{ true }}">
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px">
         <div style="background:var(--cs-color-surface-panel);border:1px solid var(--cs-accent);border-radius:var(--cs-radius-lg);padding:18px">
           <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px">
-            <h3 style="margin:0;font-size:15px"><span style="font-family:var(--cs-font-family-mono);color:var(--cs-color-brand-umber);font-weight:700">CDS</span> · Design System v1.6</h3>
+            <h3 style="margin:0;font-size:15px"><span style="font-family:var(--cs-font-family-mono);color:var(--cs-color-text-accent);font-weight:700">CDS</span> · Design System v1.6</h3>
             <span style="font-size:12.5px;color:var(--cs-color-text-muted)">72%</span>
           </div>
           <p style="margin:8px 0 0;font-size:13px;color:var(--cs-color-text-muted)">{{ c1 }}</p>
           <div style="margin:14px 0 12px">
-            <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.ProgressBar" value="72" label="Design System v1.6 progress" hint-size="100%,10px"></x-import>
+            <x-import component-from-global-scope="CyberSkillDS.ProgressBar" value="72" label="Design System v1.6 progress" hint-size="100%,10px"></x-import>
           </div>
-          <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Badge" variant="ochre" hint-size="70px,22px">{{ stInprog }}</x-import>
+          <x-import component-from-global-scope="CyberSkillDS.Badge" variant="ochre" hint-size="70px,22px">{{ stInprog }}</x-import>
         </div>
         <div style="background:var(--cs-color-surface-panel);border:1px solid var(--cs-color-border-default);border-radius:var(--cs-radius-lg);padding:18px">
           <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px">
-            <h3 style="margin:0;font-size:15px"><span style="font-family:var(--cs-font-family-mono);color:var(--cs-color-brand-umber);font-weight:700">SITE</span> · cyberskill.world</h3>
+            <h3 style="margin:0;font-size:15px"><span style="font-family:var(--cs-font-family-mono);color:var(--cs-color-text-accent);font-weight:700">SITE</span> · cyberskill.world</h3>
             <span style="font-size:12.5px;color:var(--cs-color-text-muted)">84%</span>
           </div>
           <p style="margin:8px 0 0;font-size:13px;color:var(--cs-color-text-muted)">{{ c2 }}</p>
           <div style="margin:14px 0 12px">
-            <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.ProgressBar" value="84" label="Site progress" hint-size="100%,10px"></x-import>
+            <x-import component-from-global-scope="CyberSkillDS.ProgressBar" value="84" label="Site progress" hint-size="100%,10px"></x-import>
           </div>
-          <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Badge" variant="ochre" hint-size="70px,22px">{{ stInprog }}</x-import>
+          <x-import component-from-global-scope="CyberSkillDS.Badge" variant="ochre" hint-size="70px,22px">{{ stInprog }}</x-import>
         </div>
         <div style="background:var(--cs-color-surface-panel);border:1px solid var(--cs-color-border-default);border-radius:var(--cs-radius-lg);padding:18px">
           <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px">
-            <h3 style="margin:0;font-size:15px"><span style="font-family:var(--cs-font-family-mono);color:var(--cs-color-brand-umber);font-weight:700">OS</span> · CyberOS Agent Spine</h3>
+            <h3 style="margin:0;font-size:15px"><span style="font-family:var(--cs-font-family-mono);color:var(--cs-color-text-accent);font-weight:700">OS</span> · CyberOS Agent Spine</h3>
             <span style="font-size:12.5px;color:var(--cs-color-text-muted)">41%</span>
           </div>
           <p style="margin:8px 0 0;font-size:13px;color:var(--cs-color-text-muted)">{{ c3 }}</p>
           <div style="margin:14px 0 12px">
-            <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.ProgressBar" value="41" variant="umber" label="OS progress" hint-size="100%,10px"></x-import>
+            <x-import component-from-global-scope="CyberSkillDS.ProgressBar" value="41" variant="umber" label="OS progress" hint-size="100%,10px"></x-import>
           </div>
-          <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Badge" variant="danger" hint-size="60px,22px">{{ stBlocked }}</x-import>
+          <x-import component-from-global-scope="CyberSkillDS.Badge" variant="danger" hint-size="60px,22px">{{ stBlocked }}</x-import>
         </div>
       </div>
     </sc-if>
 
     <sc-if value="{{ isTable }}">
       <div style="background:var(--cs-color-surface-panel);border:1px solid var(--cs-color-border-default);border-radius:var(--cs-radius-lg);padding:6px 18px 12px">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.DataTable" caption="{{ tblCap }}" columns="{{ cols }}" rows="{{ rows }}" row-key="key" hint-size="100%,240px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.DataTable" caption="{{ tblCap }}" columns="{{ cols }}" rows="{{ rows }}" row-key="key" hint-size="100%,240px"></x-import>
       </div>
     </sc-if>
   </div>

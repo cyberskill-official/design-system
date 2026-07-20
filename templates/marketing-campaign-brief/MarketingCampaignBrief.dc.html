@@ -14,9 +14,9 @@
 <div data-theme="{{ rootTheme }}" lang="{{ langAttr }}" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" data-cs-expression="{{ exAttr }}" style="background:var(--cs-color-surface-raised);min-height:100vh;padding:40px 16px;font-family:var(--cs-font-family-ui);color:var(--cs-color-text-primary)">
   <div style="max-width:860px;margin:0 auto;background:var(--cs-color-surface-panel);border:1px solid var(--cs-color-border-default);border-radius:var(--cs-radius-lg);box-shadow:var(--cs-shadow-sm);overflow:hidden">
     <header style="background:var(--cs-accent-ink);color:#fff;padding:28px 52px;display:flex;align-items:center;gap:12px">
-      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="28" hint-size="28px,28px"></x-import>
+      <x-import component-from-global-scope="CyberSkillDS.Logo" size="28" hint-size="28px,28px"></x-import>
       <span style="font-weight:800;font-size:16px">CyberSkill · {{ hdr }}</span>
-      <span style="margin-left:auto"><x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Badge" variant="ochre" hint-size="80px,22px">{{ draft }}</x-import></span>
+      <span style="margin-left:auto"><x-import component-from-global-scope="CyberSkillDS.Badge" variant="ochre" hint-size="80px,22px">{{ draft }}</x-import></span>
     </header>
     <div style="padding:40px 52px">
       <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--cs-color-text-accent)">{{ eyebrow }}</div>
@@ -39,14 +39,14 @@
 
       <h2 style="font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted);margin:0 0 12px">{{ tlL }}</h2>
       <div style="margin-bottom:26px">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Steps" steps="{{ steps }}" current="{{ 1 }}" hint-size="100%,90px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Steps" steps="{{ steps }}" current="{{ 1 }}" hint-size="100%,90px"></x-import>
       </div>
 
       <h2 style="font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cs-color-text-muted);margin:0 0 14px">{{ smL }}</h2>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Stat" label="{{ m1 }}" value="+40%" trend="up" delta="{{ m1d }}" hint-size="150px,72px"></x-import>
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Stat" label="{{ m2 }}" value="120" trend="up" delta="Q4" hint-size="150px,72px"></x-import>
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Stat" label="CAC" value="−15%" trend="up" delta="{{ m3d }}" hint-size="150px,72px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Stat" label="{{ m1 }}" value="+40%" trend="up" delta="{{ m1d }}" hint-size="150px,72px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Stat" label="{{ m2 }}" value="120" trend="up" delta="Q4" hint-size="150px,72px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Stat" label="CAC" value="−15%" trend="up" delta="{{ m3d }}" hint-size="150px,72px"></x-import>
       </div>
     </div>
   </div>

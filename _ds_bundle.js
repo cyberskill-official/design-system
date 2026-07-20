@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"CyberSkillDesignSystem_847b3c","components":[{"name":"AIDisclosureBadge","sourcePath":"components/ai/AIDisclosureBadge.jsx"},{"name":"ChatMessage","sourcePath":"components/ai/ChatMessage.jsx"},{"name":"CitationList","sourcePath":"components/ai/CitationList.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/ai/ConfidenceMeter.jsx"},{"name":"HumanReviewGate","sourcePath":"components/ai/HumanReviewGate.jsx"},{"name":"PromptInput","sourcePath":"components/ai/PromptInput.jsx"},{"name":"PromptSuggestions","sourcePath":"components/ai/PromptSuggestions.jsx"},{"name":"TypingIndicator","sourcePath":"components/ai/TypingIndicator.jsx"},{"name":"LumiAvatar","sourcePath":"components/brand/LumiAvatar.jsx"},{"name":"Button","sourcePath":"components/button/Button.jsx"},{"name":"Accordion","sourcePath":"components/data/Accordion.jsx"},{"name":"Avatar","sourcePath":"components/data/Avatar.jsx"},{"name":"AvatarGroup","sourcePath":"components/data/Avatar.jsx"},{"name":"Card","sourcePath":"components/data/Card.jsx"},{"name":"CardHeader","sourcePath":"components/data/Card.jsx"},{"name":"CardBody","sourcePath":"components/data/Card.jsx"},{"name":"CardFooter","sourcePath":"components/data/Card.jsx"},{"name":"CodeBlock","sourcePath":"components/data/CodeBlock.jsx"},{"name":"DescriptionList","sourcePath":"components/data/DescriptionList.jsx"},{"name":"Divider","sourcePath":"components/data/Divider.jsx"},{"name":"Kbd","sourcePath":"components/data/Kbd.jsx"},{"name":"List","sourcePath":"components/data/List.jsx"},{"name":"ListItem","sourcePath":"components/data/List.jsx"},{"name":"Stat","sourcePath":"components/data/Stat.jsx"},{"name":"Timeline","sourcePath":"components/data/Timeline.jsx"},{"name":"Tooltip","sourcePath":"components/data/Tooltip.jsx"},{"name":"DataTable","sourcePath":"components/datatable/DataTable.jsx"},{"name":"Dialog","sourcePath":"components/dialog/Dialog.jsx"},{"name":"Alert","sourcePath":"components/feedback/Alert.jsx"},{"name":"Badge","sourcePath":"components/feedback/Badge.jsx"},{"name":"EmptyState","sourcePath":"components/feedback/EmptyState.jsx"},{"name":"ProgressBar","sourcePath":"components/feedback/ProgressBar.jsx"},{"name":"Skeleton","sourcePath":"components/feedback/Skeleton.jsx"},{"name":"Spinner","sourcePath":"components/feedback/Spinner.jsx"},{"name":"StatusIndicator","sourcePath":"components/feedback/StatusIndicator.jsx"},{"name":"Tag","sourcePath":"components/feedback/Tag.jsx"},{"name":"ToastStack","sourcePath":"components/feedback/Toast.jsx"},{"name":"Toast","sourcePath":"components/feedback/Toast.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"FileUpload","sourcePath":"components/forms/FileUpload.jsx"},{"name":"NumberField","sourcePath":"components/forms/NumberField.jsx"},{"name":"Radio","sourcePath":"components/forms/RadioGroup.jsx"},{"name":"RadioGroup","sourcePath":"components/forms/RadioGroup.jsx"},{"name":"SearchField","sourcePath":"components/forms/SearchField.jsx"},{"name":"SegmentedControl","sourcePath":"components/forms/SegmentedControl.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Slider","sourcePath":"components/forms/Slider.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"Textarea","sourcePath":"components/forms/Textarea.jsx"},{"name":"CS_ICONS","sourcePath":"components/icon/Icon.jsx"},{"name":"Icon","sourcePath":"components/icon/Icon.jsx"},{"name":"Logo","sourcePath":"components/logo/Logo.jsx"},{"name":"CS_LOGO_VIEWBOX","sourcePath":"components/logo/logo-data.js"},{"name":"CS_LOGO_MARK_INNER","sourcePath":"components/logo/logo-data.js"},{"name":"Breadcrumb","sourcePath":"components/navigation/Breadcrumb.jsx"},{"name":"CommandPalette","sourcePath":"components/navigation/CommandPalette.jsx"},{"name":"Menu","sourcePath":"components/navigation/Menu.jsx"},{"name":"MenuItem","sourcePath":"components/navigation/Menu.jsx"},{"name":"Pagination","sourcePath":"components/navigation/Pagination.jsx"},{"name":"Sidebar","sourcePath":"components/navigation/Sidebar.jsx"},{"name":"NavItem","sourcePath":"components/navigation/Sidebar.jsx"},{"name":"Steps","sourcePath":"components/navigation/Steps.jsx"},{"name":"Tabs","sourcePath":"components/navigation/Tabs.jsx"},{"name":"Tab","sourcePath":"components/navigation/Tabs.jsx"},{"name":"Drawer","sourcePath":"components/overlays/Drawer.jsx"},{"name":"Popover","sourcePath":"components/overlays/Popover.jsx"},{"name":"TextField","sourcePath":"components/textfield/TextField.jsx"}],"sourceHashes":{"components/ai/AIDisclosureBadge.jsx":"f255b23e0b9b","components/ai/ChatMessage.jsx":"40fcf9e4a353","components/ai/CitationList.jsx":"3770c109bf22","components/ai/ConfidenceMeter.jsx":"ea5603e46f25","components/ai/HumanReviewGate.jsx":"2f85a1bf0889","components/ai/PromptInput.jsx":"188e1b8886fe","components/ai/PromptSuggestions.jsx":"218fe0db5faa","components/ai/TypingIndicator.jsx":"8018f4a104d2","components/brand/LumiAvatar.jsx":"0cd2fea9e02f","components/button/Button.jsx":"ae2a7067b59e","components/data/Accordion.jsx":"298e53237503","components/data/Avatar.jsx":"e1eeed2edcda","components/data/Card.jsx":"9f981091743e","components/data/CodeBlock.jsx":"7b4cd6eda5aa","components/data/DescriptionList.jsx":"089db27a3655","components/data/Divider.jsx":"e3bdcda9b02f","components/data/Kbd.jsx":"5dd1ce54836c","components/data/List.jsx":"830cbdeef110","components/data/Stat.jsx":"09be1d9a8070","components/data/Timeline.jsx":"4b9b8bd1d18d","components/data/Tooltip.jsx":"91e0df1e66ff","components/datatable/DataTable.jsx":"8d73b4d82aa2","components/dialog/Dialog.jsx":"287a8aa7550a","components/feedback/Alert.jsx":"c396e4a9fa0c","components/feedback/Badge.jsx":"e8a638cb173a","components/feedback/EmptyState.jsx":"44140bba6fc8","components/feedback/ProgressBar.jsx":"fd7f03c2756e","components/feedback/Skeleton.jsx":"3d53cc25cedc","components/feedback/Spinner.jsx":"790bac04260a","components/feedback/StatusIndicator.jsx":"3ff007c5d403","components/feedback/Tag.jsx":"e521979dc1ea","components/feedback/Toast.jsx":"42408b7ca669","components/forms/Checkbox.jsx":"4cc1c87fbc08","components/forms/FileUpload.jsx":"e6d978a92d7a","components/forms/NumberField.jsx":"e7fabb7dbfa2","components/forms/RadioGroup.jsx":"fa035fd63b35","components/forms/SearchField.jsx":"4f0f58433c6c","components/forms/SegmentedControl.jsx":"502aef359d3f","components/forms/Select.jsx":"4b1882bc8272","components/forms/Slider.jsx":"942bc9faeeff","components/forms/Switch.jsx":"7c98eef77841","components/forms/Textarea.jsx":"778e30632175","components/icon/Icon.jsx":"379dc6de903e","components/logo/Logo.jsx":"8f3ceaf67af1","components/logo/logo-data.js":"f1a251a50c8f","components/navigation/Breadcrumb.jsx":"d41d7ea07252","components/navigation/CommandPalette.jsx":"f595c68fc28b","components/navigation/Menu.jsx":"53a25edef7eb","components/navigation/Pagination.jsx":"12c1c9d49710","components/navigation/Sidebar.jsx":"6a86252d122d","components/navigation/Steps.jsx":"2c4071f02934","components/navigation/Tabs.jsx":"fa2ca817beaf","components/overlays/Drawer.jsx":"4db36a19ad11","components/overlays/Popover.jsx":"827b7c764c3a","components/textfield/TextField.jsx":"7e26d2493195","image-slot.js":"0394ad34f685","tokens/tokens.js":"85649eff2ac2","ui_kits/status-hub/StatusHub.jsx":"45f04e43c218","ui_kits/status-hub/data.js":"ac58c3167e3c","ui_kits/website/Website.jsx":"c3a0938d9279","ui_kits/website/copy.js":"9d42c52c17cb"},"inlinedExternals":[],"unexposedExports":[{"name":"tokens","sourcePath":"tokens/tokens.js"}]} */
+/* @ds-bundle: {"format":4,"namespace":"CyberSkillDesignSystem_847b3c","components":[{"name":"AIDisclosureBadge","sourcePath":"components/ai/AIDisclosureBadge.jsx"},{"name":"ChatMessage","sourcePath":"components/ai/ChatMessage.jsx"},{"name":"CitationList","sourcePath":"components/ai/CitationList.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/ai/ConfidenceMeter.jsx"},{"name":"HumanReviewGate","sourcePath":"components/ai/HumanReviewGate.jsx"},{"name":"PromptInput","sourcePath":"components/ai/PromptInput.jsx"},{"name":"PromptSuggestions","sourcePath":"components/ai/PromptSuggestions.jsx"},{"name":"TypingIndicator","sourcePath":"components/ai/TypingIndicator.jsx"},{"name":"LumiAvatar","sourcePath":"components/brand/LumiAvatar.jsx"},{"name":"Button","sourcePath":"components/button/Button.jsx"},{"name":"ButtonGroup","sourcePath":"components/button/ButtonGroup.jsx"},{"name":"FloatingActionButton","sourcePath":"components/button/FloatingActionButton.jsx"},{"name":"Accordion","sourcePath":"components/data/Accordion.jsx"},{"name":"Avatar","sourcePath":"components/data/Avatar.jsx"},{"name":"AvatarGroup","sourcePath":"components/data/Avatar.jsx"},{"name":"Card","sourcePath":"components/data/Card.jsx"},{"name":"CardHeader","sourcePath":"components/data/Card.jsx"},{"name":"CardBody","sourcePath":"components/data/Card.jsx"},{"name":"CardFooter","sourcePath":"components/data/Card.jsx"},{"name":"Carousel","sourcePath":"components/data/Carousel.jsx"},{"name":"Chart","sourcePath":"components/data/Chart.jsx"},{"name":"CodeBlock","sourcePath":"components/data/CodeBlock.jsx"},{"name":"Comment","sourcePath":"components/data/Comment.jsx"},{"name":"DescriptionList","sourcePath":"components/data/DescriptionList.jsx"},{"name":"Divider","sourcePath":"components/data/Divider.jsx"},{"name":"Image","sourcePath":"components/data/Image.jsx"},{"name":"Kbd","sourcePath":"components/data/Kbd.jsx"},{"name":"List","sourcePath":"components/data/List.jsx"},{"name":"ListItem","sourcePath":"components/data/List.jsx"},{"name":"Masonry","sourcePath":"components/data/Masonry.jsx"},{"name":"QRCode","sourcePath":"components/data/QRCode.jsx"},{"name":"Sortable","sourcePath":"components/data/Sortable.jsx"},{"name":"Splitter","sourcePath":"components/data/Splitter.jsx"},{"name":"Stat","sourcePath":"components/data/Stat.jsx"},{"name":"Terminal","sourcePath":"components/data/Terminal.jsx"},{"name":"Timeline","sourcePath":"components/data/Timeline.jsx"},{"name":"Tooltip","sourcePath":"components/data/Tooltip.jsx"},{"name":"Tree","sourcePath":"components/data/Tree.jsx"},{"name":"Watermark","sourcePath":"components/data/Watermark.jsx"},{"name":"DataGrid","sourcePath":"components/datatable/DataGrid.jsx"},{"name":"DataTable","sourcePath":"components/datatable/DataTable.jsx"},{"name":"TreeTable","sourcePath":"components/datatable/TreeTable.jsx"},{"name":"Dialog","sourcePath":"components/dialog/Dialog.jsx"},{"name":"Alert","sourcePath":"components/feedback/Alert.jsx"},{"name":"Badge","sourcePath":"components/feedback/Badge.jsx"},{"name":"EmptyState","sourcePath":"components/feedback/EmptyState.jsx"},{"name":"ProgressBar","sourcePath":"components/feedback/ProgressBar.jsx"},{"name":"Result","sourcePath":"components/feedback/Result.jsx"},{"name":"Skeleton","sourcePath":"components/feedback/Skeleton.jsx"},{"name":"Spinner","sourcePath":"components/feedback/Spinner.jsx"},{"name":"StatusIndicator","sourcePath":"components/feedback/StatusIndicator.jsx"},{"name":"Tag","sourcePath":"components/feedback/Tag.jsx"},{"name":"ToastStack","sourcePath":"components/feedback/Toast.jsx"},{"name":"Toast","sourcePath":"components/feedback/Toast.jsx"},{"name":"Calendar","sourcePath":"components/forms/Calendar.jsx"},{"name":"Cascader","sourcePath":"components/forms/Cascader.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"ColorPicker","sourcePath":"components/forms/ColorPicker.jsx"},{"name":"Combobox","sourcePath":"components/forms/Combobox.jsx"},{"name":"DatePicker","sourcePath":"components/forms/DatePicker.jsx"},{"name":"Editor","sourcePath":"components/forms/Editor.jsx"},{"name":"FileUpload","sourcePath":"components/forms/FileUpload.jsx"},{"name":"Form","sourcePath":"components/forms/Form.jsx"},{"name":"FormField","sourcePath":"components/forms/Form.jsx"},{"name":"InlineEdit","sourcePath":"components/forms/InlineEdit.jsx"},{"name":"InputGroup","sourcePath":"components/forms/InputGroup.jsx"},{"name":"InputOTP","sourcePath":"components/forms/InputOTP.jsx"},{"name":"Mentions","sourcePath":"components/forms/Mentions.jsx"},{"name":"NumberField","sourcePath":"components/forms/NumberField.jsx"},{"name":"Radio","sourcePath":"components/forms/RadioGroup.jsx"},{"name":"RadioGroup","sourcePath":"components/forms/RadioGroup.jsx"},{"name":"Rating","sourcePath":"components/forms/Rating.jsx"},{"name":"SearchField","sourcePath":"components/forms/SearchField.jsx"},{"name":"SegmentedControl","sourcePath":"components/forms/SegmentedControl.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Slider","sourcePath":"components/forms/Slider.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"TagInput","sourcePath":"components/forms/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/forms/Textarea.jsx"},{"name":"TimePicker","sourcePath":"components/forms/TimePicker.jsx"},{"name":"Toggle","sourcePath":"components/forms/Toggle.jsx"},{"name":"Transfer","sourcePath":"components/forms/Transfer.jsx"},{"name":"TreeSelect","sourcePath":"components/forms/TreeSelect.jsx"},{"name":"CS_ICONS","sourcePath":"components/icon/Icon.jsx"},{"name":"Icon","sourcePath":"components/icon/Icon.jsx"},{"name":"Logo","sourcePath":"components/logo/Logo.jsx"},{"name":"CS_LOGO_VIEWBOX","sourcePath":"components/logo/logo-data.js"},{"name":"CS_LOGO_MARK_INNER","sourcePath":"components/logo/logo-data.js"},{"name":"Anchor","sourcePath":"components/navigation/Anchor.jsx"},{"name":"BackTop","sourcePath":"components/navigation/BackTop.jsx"},{"name":"Breadcrumb","sourcePath":"components/navigation/Breadcrumb.jsx"},{"name":"CommandPalette","sourcePath":"components/navigation/CommandPalette.jsx"},{"name":"Dock","sourcePath":"components/navigation/Dock.jsx"},{"name":"HotKeys","sourcePath":"components/navigation/HotKeys.jsx"},{"name":"Link","sourcePath":"components/navigation/Link.jsx"},{"name":"Menu","sourcePath":"components/navigation/Menu.jsx"},{"name":"MenuItem","sourcePath":"components/navigation/Menu.jsx"},{"name":"Menubar","sourcePath":"components/navigation/Menubar.jsx"},{"name":"NavigationMenu","sourcePath":"components/navigation/NavigationMenu.jsx"},{"name":"Pagination","sourcePath":"components/navigation/Pagination.jsx"},{"name":"Sidebar","sourcePath":"components/navigation/Sidebar.jsx"},{"name":"NavItem","sourcePath":"components/navigation/Sidebar.jsx"},{"name":"Steps","sourcePath":"components/navigation/Steps.jsx"},{"name":"Tabs","sourcePath":"components/navigation/Tabs.jsx"},{"name":"Tab","sourcePath":"components/navigation/Tabs.jsx"},{"name":"Toolbar","sourcePath":"components/navigation/Toolbar.jsx"},{"name":"ContextMenu","sourcePath":"components/overlays/ContextMenu.jsx"},{"name":"Drawer","sourcePath":"components/overlays/Drawer.jsx"},{"name":"HoverCard","sourcePath":"components/overlays/HoverCard.jsx"},{"name":"Popconfirm","sourcePath":"components/overlays/Popconfirm.jsx"},{"name":"Popover","sourcePath":"components/overlays/Popover.jsx"},{"name":"Tour","sourcePath":"components/overlays/Tour.jsx"},{"name":"TextField","sourcePath":"components/textfield/TextField.jsx"}],"sourceHashes":{"components/_i18n/i18n.js":"c6c51a65bd79","components/_i18n/strings.js":"c233e177aad6","components/ai/AIDisclosureBadge.jsx":"f255b23e0b9b","components/ai/ChatMessage.jsx":"40fcf9e4a353","components/ai/CitationList.jsx":"3770c109bf22","components/ai/ConfidenceMeter.jsx":"0dd88f9f7a56","components/ai/HumanReviewGate.jsx":"2999298c619b","components/ai/PromptInput.jsx":"1e30dbc85ea1","components/ai/PromptSuggestions.jsx":"218fe0db5faa","components/ai/TypingIndicator.jsx":"97d66983f38a","components/brand/LumiAvatar.jsx":"0cd2fea9e02f","components/button/Button.jsx":"ae2a7067b59e","components/button/ButtonGroup.jsx":"0e979759cc66","components/button/FloatingActionButton.jsx":"4791beeda86b","components/data/Accordion.jsx":"298e53237503","components/data/Avatar.jsx":"e1eeed2edcda","components/data/Card.jsx":"9f981091743e","components/data/Carousel.jsx":"7543ddd98578","components/data/Chart.jsx":"eaf5da05e395","components/data/CodeBlock.jsx":"7b4cd6eda5aa","components/data/Comment.jsx":"e250fa2c7c3f","components/data/DescriptionList.jsx":"089db27a3655","components/data/Divider.jsx":"e3bdcda9b02f","components/data/Image.jsx":"bd1d918d0f8c","components/data/Kbd.jsx":"5dd1ce54836c","components/data/List.jsx":"830cbdeef110","components/data/Masonry.jsx":"c0095728514a","components/data/QRCode.jsx":"09f6dd52dbe4","components/data/Sortable.jsx":"d6e2e3fb6bdf","components/data/Splitter.jsx":"f0fb347d7433","components/data/Stat.jsx":"09be1d9a8070","components/data/Terminal.jsx":"f88dae10aed5","components/data/Timeline.jsx":"4b9b8bd1d18d","components/data/Tooltip.jsx":"91e0df1e66ff","components/data/Tree.jsx":"79f31799118d","components/data/Watermark.jsx":"469d2ac6906f","components/data/qr-encode.js":"14e8de77df5f","components/datatable/DataGrid.jsx":"b5c958a13fd9","components/datatable/DataTable.jsx":"f9ea4de62fb2","components/datatable/TreeTable.jsx":"67677c373e5f","components/dialog/Dialog.jsx":"090398362f56","components/feedback/Alert.jsx":"c396e4a9fa0c","components/feedback/Badge.jsx":"e8a638cb173a","components/feedback/EmptyState.jsx":"44140bba6fc8","components/feedback/ProgressBar.jsx":"fd7f03c2756e","components/feedback/Result.jsx":"dd11a7f1c2b6","components/feedback/Skeleton.jsx":"3d53cc25cedc","components/feedback/Spinner.jsx":"b0b57893a6a4","components/feedback/StatusIndicator.jsx":"3ff007c5d403","components/feedback/Tag.jsx":"af8d75248386","components/feedback/Toast.jsx":"5fa8dd8f36ae","components/forms/Calendar.jsx":"441694d60997","components/forms/Cascader.jsx":"407cfd9e2637","components/forms/Checkbox.jsx":"4cc1c87fbc08","components/forms/ColorPicker.jsx":"24e828011f93","components/forms/Combobox.jsx":"ab66ad54190a","components/forms/DatePicker.jsx":"1c715f88e4e9","components/forms/Editor.jsx":"8fac9a21ac41","components/forms/FileUpload.jsx":"20515f258276","components/forms/Form.jsx":"8e6f312cde46","components/forms/InlineEdit.jsx":"5247296a5169","components/forms/InputGroup.jsx":"49c250470e1f","components/forms/InputOTP.jsx":"d1c74accb731","components/forms/Mentions.jsx":"20b30c75782c","components/forms/NumberField.jsx":"a2b865d0b23b","components/forms/RadioGroup.jsx":"fa035fd63b35","components/forms/Rating.jsx":"efbaab3a6a48","components/forms/SearchField.jsx":"c577d5ca5ba8","components/forms/SegmentedControl.jsx":"502aef359d3f","components/forms/Select.jsx":"4b1882bc8272","components/forms/Slider.jsx":"942bc9faeeff","components/forms/Switch.jsx":"7c98eef77841","components/forms/TagInput.jsx":"06732f55a59e","components/forms/Textarea.jsx":"778e30632175","components/forms/TimePicker.jsx":"f79da1dbc0b1","components/forms/Toggle.jsx":"a230a79079d9","components/forms/Transfer.jsx":"c5f80f409fac","components/forms/TreeSelect.jsx":"e800b14f3b19","components/icon/Icon.jsx":"379dc6de903e","components/logo/Logo.jsx":"8f3ceaf67af1","components/logo/logo-data.js":"f1a251a50c8f","components/navigation/Anchor.jsx":"5c818f35f13f","components/navigation/BackTop.jsx":"318c3d08f280","components/navigation/Breadcrumb.jsx":"221413937b8d","components/navigation/CommandPalette.jsx":"eb901f213a7b","components/navigation/Dock.jsx":"836f986ea28b","components/navigation/HotKeys.jsx":"87bb54cd3371","components/navigation/Link.jsx":"021011e630a4","components/navigation/Menu.jsx":"53a25edef7eb","components/navigation/Menubar.jsx":"baab7362aab9","components/navigation/NavigationMenu.jsx":"4c6c4a179890","components/navigation/Pagination.jsx":"7bb86a585ca7","components/navigation/Sidebar.jsx":"6a86252d122d","components/navigation/Steps.jsx":"2c4071f02934","components/navigation/Tabs.jsx":"fa2ca817beaf","components/navigation/Toolbar.jsx":"fc8f3d81b704","components/overlays/ContextMenu.jsx":"eb6652b973d0","components/overlays/Drawer.jsx":"fab7c889ec57","components/overlays/HoverCard.jsx":"3e14b1e7e540","components/overlays/Popconfirm.jsx":"426cb9911626","components/overlays/Popover.jsx":"827b7c764c3a","components/overlays/Tour.jsx":"46085143f734","components/textfield/TextField.jsx":"7e26d2493195","image-slot.js":"0394ad34f685","tokens/tokens.js":"85649eff2ac2","ui_kits/status-hub/StatusHub.jsx":"4054b695854a","ui_kits/status-hub/data.js":"a3a3afdb73d8","ui_kits/website/Website.jsx":"c3a0938d9279","ui_kits/website/copy.js":"9d42c52c17cb"},"inlinedExternals":[],"unexposedExports":[{"name":"formatCurrency","sourcePath":"components/_i18n/i18n.js"},{"name":"formatDate","sourcePath":"components/_i18n/i18n.js"},{"name":"formatNumber","sourcePath":"components/_i18n/i18n.js"},{"name":"makeT","sourcePath":"components/_i18n/i18n.js"},{"name":"monthName","sourcePath":"components/_i18n/i18n.js"},{"name":"qrMatrix","sourcePath":"components/data/qr-encode.js"},{"name":"resolveLang","sourcePath":"components/_i18n/i18n.js"},{"name":"strings","sourcePath":"components/_i18n/strings.js"},{"name":"tokens","sourcePath":"tokens/tokens.js"},{"name":"tr","sourcePath":"components/_i18n/i18n.js"},{"name":"useLang","sourcePath":"components/_i18n/i18n.js"}]} */
 
 (() => {
 
@@ -7,6 +7,547 @@ const __ds_ns = (window.CyberSkillDesignSystem_847b3c = window.CyberSkillDesignS
 const __ds_scope = {};
 
 (__ds_ns.__errors = __ds_ns.__errors || []);
+
+// components/_i18n/strings.js
+try { (() => {
+/* CyberSkill — central bilingual string registry (v3 Batch 0/1).
+ * Every component with BUILT-IN UI text (text the consumer does NOT pass as a prop)
+ * registers its strings here, EN + VI. _audit/bilingual-parity.html enforces:
+ *   • each component has both `en` and `vi`
+ *   • identical key sets across en/vi (no missing/extra keys)
+ *   • no empty values
+ * Batch 1 wires each component to read these via i18n.js `makeT()` + `useLang()`,
+ * replacing hardcoded English. Export is lowercase so the DS compiler does NOT expose
+ * it on the component namespace. */
+const strings = {
+  Pagination: {
+    en: {
+      label: "Pagination",
+      prev: "Previous page",
+      next: "Next page"
+    },
+    vi: {
+      label: "Phân trang",
+      prev: "Trang trước",
+      next: "Trang sau"
+    }
+  },
+  Breadcrumb: {
+    en: {
+      label: "Breadcrumb"
+    },
+    vi: {
+      label: "Đường dẫn"
+    }
+  },
+  CommandPalette: {
+    en: {
+      placeholder: "Type a command or search…",
+      empty: "No results found",
+      aria: "Command palette",
+      esc: "Esc"
+    },
+    vi: {
+      placeholder: "Nhập lệnh hoặc tìm kiếm…",
+      empty: "Không tìm thấy kết quả",
+      aria: "Bảng lệnh",
+      esc: "Esc"
+    }
+  },
+  SearchField: {
+    en: {
+      placeholder: "Search…",
+      clear: "Clear search"
+    },
+    vi: {
+      placeholder: "Tìm kiếm…",
+      clear: "Xóa tìm kiếm"
+    }
+  },
+  NumberField: {
+    en: {
+      decrease: "Decrease",
+      increase: "Increase"
+    },
+    vi: {
+      decrease: "Giảm",
+      increase: "Tăng"
+    }
+  },
+  FileUpload: {
+    en: {
+      title: "Drop files here or browse",
+      hint: "PNG, JPG, or PDF up to 10MB"
+    },
+    vi: {
+      title: "Kéo tệp vào đây hoặc chọn",
+      hint: "PNG, JPG hoặc PDF, tối đa 10MB"
+    }
+  },
+  Dialog: {
+    en: {
+      close: "Close",
+      confirm: "Confirm",
+      cancel: "Cancel"
+    },
+    vi: {
+      close: "Đóng",
+      confirm: "Xác nhận",
+      cancel: "Hủy"
+    }
+  },
+  Drawer: {
+    en: {
+      close: "Close",
+      panel: "Panel"
+    },
+    vi: {
+      close: "Đóng",
+      panel: "Bảng"
+    }
+  },
+  DataTable: {
+    en: {
+      empty: "No records"
+    },
+    vi: {
+      empty: "Không có bản ghi"
+    }
+  },
+  ConfidenceMeter: {
+    en: {
+      label: "Confidence",
+      low: "Low",
+      medium: "Medium",
+      high: "High"
+    },
+    vi: {
+      label: "Độ tin cậy",
+      low: "Thấp",
+      medium: "Trung bình",
+      high: "Cao"
+    }
+  },
+  Spinner: {
+    en: {
+      label: "Loading"
+    },
+    vi: {
+      label: "Đang tải"
+    }
+  },
+  Tag: {
+    en: {
+      remove: "Remove"
+    },
+    vi: {
+      remove: "Gỡ bỏ"
+    }
+  },
+  Toast: {
+    en: {
+      notifications: "Notifications",
+      dismiss: "Dismiss"
+    },
+    vi: {
+      notifications: "Thông báo",
+      dismiss: "Đóng"
+    }
+  },
+  TypingIndicator: {
+    en: {
+      label: "Lumi is typing"
+    },
+    vi: {
+      label: "Lumi đang nhập"
+    }
+  },
+  Editor: {
+    en: {
+      toolbar: "Formatting",
+      bold: "Bold",
+      italic: "Italic",
+      list: "Bullet list",
+      area: "Rich text"
+    },
+    vi: {
+      toolbar: "Định dạng",
+      bold: "Đậm",
+      italic: "Nghiêng",
+      list: "Danh sách",
+      area: "Văn bản"
+    }
+  },
+  Terminal: {
+    en: {
+      input: "Terminal input"
+    },
+    vi: {
+      input: "Ô nhập lệnh"
+    }
+  },
+  DataGrid: {
+    en: {
+      empty: "No records",
+      selectAll: "Select all rows",
+      selectRow: "Select row"
+    },
+    vi: {
+      empty: "Không có bản ghi",
+      selectAll: "Chọn tất cả",
+      selectRow: "Chọn dòng"
+    }
+  },
+  Splitter: {
+    en: {
+      label: "Resize panes"
+    },
+    vi: {
+      label: "Đổi kích thước khung"
+    }
+  },
+  HotKeys: {
+    en: {
+      title: "Keyboard shortcuts",
+      toggle: "Toggle this sheet"
+    },
+    vi: {
+      title: "Phím tắt",
+      toggle: "Bật/tắt bảng này"
+    }
+  },
+  ColorPicker: {
+    en: {
+      label: "Color",
+      hex: "Hex value"
+    },
+    vi: {
+      label: "Màu",
+      hex: "Giá trị hex"
+    }
+  },
+  Tour: {
+    en: {
+      skip: "Skip",
+      back: "Back",
+      next: "Next",
+      done: "Done"
+    },
+    vi: {
+      skip: "Bỏ qua",
+      back: "Quay lại",
+      next: "Tiếp",
+      done: "Xong"
+    }
+  },
+  TreeSelect: {
+    en: {
+      placeholder: "Select…"
+    },
+    vi: {
+      placeholder: "Chọn…"
+    }
+  },
+  Cascader: {
+    en: {
+      placeholder: "Select…"
+    },
+    vi: {
+      placeholder: "Chọn…"
+    }
+  },
+  Transfer: {
+    en: {
+      source: "Available",
+      target: "Selected",
+      toTarget: "Move to selected",
+      toSource: "Move to available"
+    },
+    vi: {
+      source: "Có sẵn",
+      target: "Đã chọn",
+      toTarget: "Chuyển sang đã chọn",
+      toSource: "Chuyển về có sẵn"
+    }
+  },
+  Mentions: {
+    en: {
+      placeholder: "Add a note — @ to mention"
+    },
+    vi: {
+      placeholder: "Thêm ghi chú — gõ @ để nhắc tên"
+    }
+  },
+  Form: {
+    en: {
+      summary: "Please fix the following:",
+      required: "required"
+    },
+    vi: {
+      summary: "Vui lòng sửa các mục sau:",
+      required: "bắt buộc"
+    }
+  },
+  BackTop: {
+    en: {
+      label: "Back to top"
+    },
+    vi: {
+      label: "Về đầu trang"
+    }
+  },
+  Carousel: {
+    en: {
+      prev: "Previous slide",
+      next: "Next slide",
+      slide: "Slide"
+    },
+    vi: {
+      prev: "Trang trước",
+      next: "Trang sau",
+      slide: "Trang"
+    }
+  },
+  Comment: {
+    en: {
+      reply: "Reply"
+    },
+    vi: {
+      reply: "Trả lời"
+    }
+  },
+  Image: {
+    en: {
+      preview: "Preview image",
+      close: "Close"
+    },
+    vi: {
+      preview: "Xem ảnh",
+      close: "Đóng"
+    }
+  },
+  Toolbar: {
+    en: {
+      more: "More actions"
+    },
+    vi: {
+      more: "Thao tác khác"
+    }
+  },
+  Popconfirm: {
+    en: {
+      ok: "OK",
+      cancel: "Cancel"
+    },
+    vi: {
+      ok: "Đồng ý",
+      cancel: "Hủy"
+    }
+  },
+  Result: {
+    en: {
+      success: "Done",
+      error: "Something went wrong",
+      warning: "Please check",
+      info: "For your information"
+    },
+    vi: {
+      success: "Hoàn tất",
+      error: "Đã có lỗi xảy ra",
+      warning: "Vui lòng kiểm tra",
+      info: "Thông tin"
+    }
+  },
+  InlineEdit: {
+    en: {
+      edit: "Edit",
+      empty: "Add text"
+    },
+    vi: {
+      edit: "Sửa",
+      empty: "Thêm nội dung"
+    }
+  },
+  Calendar: {
+    en: {
+      prev: "Previous month",
+      next: "Next month"
+    },
+    vi: {
+      prev: "Tháng trước",
+      next: "Tháng sau"
+    }
+  },
+  DatePicker: {
+    en: {
+      placeholder: "Select a date"
+    },
+    vi: {
+      placeholder: "Chọn ngày"
+    }
+  },
+  TimePicker: {
+    en: {
+      label: "Time"
+    },
+    vi: {
+      label: "Giờ"
+    }
+  },
+  Combobox: {
+    en: {
+      placeholder: "Select or type…",
+      empty: "No matches"
+    },
+    vi: {
+      placeholder: "Chọn hoặc nhập…",
+      empty: "Không có kết quả phù hợp"
+    }
+  },
+  InputGroup: {
+    en: {
+      clear: "Clear",
+      show: "Show password",
+      hide: "Hide password"
+    },
+    vi: {
+      clear: "Xóa",
+      show: "Hiện mật khẩu",
+      hide: "Ẩn mật khẩu"
+    }
+  },
+  TagInput: {
+    en: {
+      placeholder: "Add a tag…",
+      remove: "Remove"
+    },
+    vi: {
+      placeholder: "Thêm thẻ…",
+      remove: "Gỡ"
+    }
+  },
+  Rating: {
+    en: {
+      label: "Rating"
+    },
+    vi: {
+      label: "Đánh giá"
+    }
+  },
+  InputOTP: {
+    en: {
+      label: "One-time code"
+    },
+    vi: {
+      label: "Mã dùng một lần"
+    }
+  },
+  PromptInput: {
+    en: {
+      placeholder: "Type your wish…",
+      send: "Send",
+      hint: "Lumi replies, then hands clear wishes to a human."
+    },
+    vi: {
+      placeholder: "Nhập điều ước của bạn…",
+      send: "Gửi",
+      hint: "Lumi trả lời, rồi chuyển điều ước rõ ràng cho con người."
+    }
+  },
+  HumanReviewGate: {
+    en: {
+      aria: "Human review gate",
+      risk: "review required",
+      approve: "Approve",
+      reject: "Reject",
+      reviewer: "Reviewer"
+    },
+    vi: {
+      aria: "Cổng kiểm duyệt của con người",
+      risk: "cần xem xét",
+      approve: "Phê duyệt",
+      reject: "Từ chối",
+      reviewer: "Người duyệt"
+    }
+  }
+};
+Object.assign(__ds_scope, { strings });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/_i18n/strings.js", error: String((e && e.message) || e) }); }
+
+// components/_i18n/i18n.js
+try { (() => {
+/* CyberSkill i18n — shared bilingual helper (v3 Batch 0).
+ * Vietnamese-first: default 'vi'. A component resolves its language from an explicit
+ * `lang` prop → nearest [lang] ancestor → document <html lang> → 'vi'. Built-in UI
+ * strings live in strings.js (EN + VI parity, enforced by _audit/bilingual-parity.html).
+ * Import from a component:  import { makeT, resolveLang, formatDate } from "../_i18n/i18n.js"; */
+
+function resolveLang(propLang, el) {
+  const norm = l => !l ? null : String(l).toLowerCase().startsWith("vi") ? "vi" : "en";
+  let l = norm(propLang);
+  if (!l && el && el.closest) {
+    const a = el.closest("[lang]");
+    if (a) l = norm(a.getAttribute("lang"));
+  }
+  if (!l && typeof document !== "undefined") l = norm(document.documentElement.getAttribute("lang"));
+  return l || "vi";
+}
+function tr(component, key, lang) {
+  const c = __ds_scope.strings[component] || {};
+  const table = c[lang] || c.vi || c.en || {};
+  if (table[key] != null) return table[key];
+  const en = c.en || {};
+  return en[key] != null ? en[key] : key;
+}
+
+/** Bind a component + language once: const t = makeT("Pagination", lang); t("next"). */
+function makeT(component, lang) {
+  return key => tr(component, key, lang);
+}
+
+/** React hook: attach the returned ref to the component root; resolves language from an
+ * explicit prop → nearest [lang] ancestor (e.g. a template's VN wrapper) → <html lang> → 'vi'.
+ * Corrects to the ancestor value in a layout effect (before paint). */
+function useLang(propLang) {
+  const ref = React.useRef(null);
+  const [lang, setLang] = React.useState(() => resolveLang(propLang, null));
+  React.useLayoutEffect(() => {
+    setLang(resolveLang(propLang, ref.current));
+  }, [propLang]);
+  return [ref, lang];
+}
+const VI_MONTHS = ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"];
+
+/** VN date = DD/MM/YYYY; EN = 02 Jul 2026. */
+function formatDate(d, lang) {
+  const dt = d instanceof Date ? d : new Date(d);
+  if (isNaN(dt.getTime())) return "";
+  if (lang === "vi") {
+    const p = n => String(n).padStart(2, "0");
+    return p(dt.getDate()) + "/" + p(dt.getMonth() + 1) + "/" + dt.getFullYear();
+  }
+  return dt.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric"
+  });
+}
+function monthName(i, lang) {
+  return lang === "vi" ? VI_MONTHS[i] : new Date(2000, i, 1).toLocaleDateString("en-US", {
+    month: "long"
+  });
+}
+function formatNumber(n, lang) {
+  if (n == null || isNaN(n)) return "";
+  return new Intl.NumberFormat(lang === "vi" ? "vi-VN" : "en-US").format(n);
+}
+/** VN currency = "1.234.567 ₫"; EN = "$1,234,567". */
+function formatCurrency(n, lang) {
+  if (n == null || isNaN(n)) return "";
+  return lang === "vi" ? new Intl.NumberFormat("vi-VN").format(n) + "\u00a0₫" : "$" + new Intl.NumberFormat("en-US").format(n);
+}
+Object.assign(__ds_scope, { resolveLang, tr, makeT, useLang, formatDate, monthName, formatNumber, formatCurrency });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/_i18n/i18n.js", error: String((e && e.message) || e) }); }
 
 // components/ai/AIDisclosureBadge.jsx
 try { (() => {
@@ -173,7 +714,8 @@ function ConfidenceMeter({
   value,
   level,
   segments = 5,
-  label = "Confidence",
+  label,
+  lang,
   className
 }) {
   let tone, filled;
@@ -185,22 +727,27 @@ function ConfidenceMeter({
     filled = Math.round(TONE[tone].fill / 5 * segments);
   }
   const meta = TONE[tone];
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("ConfidenceMeter", L);
+  const lbl = label != null ? label : t("label");
+  const levelText = t(tone);
   return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
     className: cx("cs-confidence", className)
   }, /*#__PURE__*/React.createElement("div", {
     className: "cs-confidence__head"
-  }, /*#__PURE__*/React.createElement("span", null, label), /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("span", null, lbl), /*#__PURE__*/React.createElement("span", {
     className: "cs-confidence__level",
     style: {
       color: meta.color
     }
-  }, meta.label)), /*#__PURE__*/React.createElement("div", {
+  }, levelText)), /*#__PURE__*/React.createElement("div", {
     className: "cs-confidence__track",
     role: "meter",
     "aria-valuemin": 0,
     "aria-valuemax": segments,
     "aria-valuenow": filled,
-    "aria-label": label + ": " + meta.label
+    "aria-label": lbl + ": " + levelText
   }, Array.from({
     length: segments
   }).map((_, i) => /*#__PURE__*/React.createElement("span", {
@@ -226,35 +773,42 @@ function cx(...c) {
  * Keeps a human in the loop before a high-stakes AI action proceeds.
  */
 function HumanReviewGate({
-  risk = "review required",
+  risk,
   summary,
   reviewer,
   onApprove,
   onReject,
-  approveLabel = "Approve",
-  rejectLabel = "Reject",
+  approveLabel,
+  rejectLabel,
+  lang,
   className
 }) {
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("HumanReviewGate", L);
+  const rk = risk != null ? risk : t("risk");
+  const al = approveLabel != null ? approveLabel : t("approve");
+  const rl = rejectLabel != null ? rejectLabel : t("reject");
   return /*#__PURE__*/React.createElement("section", {
+    ref: ref,
     className: cx("cs-review-gate", className),
-    "aria-label": "Human review gate"
+    "aria-label": t("aria")
   }, /*#__PURE__*/React.createElement("div", {
     className: "cs-review-gate__risk"
-  }, risk), /*#__PURE__*/React.createElement("p", {
+  }, rk), /*#__PURE__*/React.createElement("p", {
     className: "cs-review-gate__summary"
   }, summary), reviewer ? /*#__PURE__*/React.createElement("p", {
     className: "cs-review-gate__reviewer"
-  }, "Reviewer: ", reviewer) : null, /*#__PURE__*/React.createElement("div", {
+  }, t("reviewer"), ": ", reviewer) : null, /*#__PURE__*/React.createElement("div", {
     className: "cs-review-gate__actions"
   }, /*#__PURE__*/React.createElement("button", {
     type: "button",
     className: "cs-button cs-button--secondary",
     onClick: onReject
-  }, rejectLabel), /*#__PURE__*/React.createElement("button", {
+  }, rl), /*#__PURE__*/React.createElement("button", {
     type: "button",
     className: "cs-button cs-button--primary",
     onClick: onApprove
-  }, approveLabel)));
+  }, al)));
 }
 Object.assign(__ds_scope, { HumanReviewGate });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/ai/HumanReviewGate.jsx", error: String((e && e.message) || e) }); }
@@ -274,9 +828,10 @@ function PromptInput({
   value,
   onChange,
   onSubmit,
-  placeholder = "Type your wish…",
-  sendLabel = "Send",
-  hint = "Lumi replies, then hands clear wishes to a human.",
+  placeholder,
+  sendLabel,
+  hint,
+  lang,
   disabled = false,
   busy = false,
   className
@@ -287,13 +842,19 @@ function PromptInput({
   const submit = () => {
     if (!disabled && !busy && String(val).trim()) onSubmit && onSubmit(val);
   };
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("PromptInput", L);
+  const ph = placeholder != null ? placeholder : t("placeholder");
+  const sl = sendLabel != null ? sendLabel : t("send");
+  const ht = hint !== undefined ? hint : t("hint");
   return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
     className: cx("cs-prompt", className)
   }, /*#__PURE__*/React.createElement("textarea", {
     className: "cs-prompt__field",
     rows: 1,
     value: val,
-    placeholder: placeholder,
+    placeholder: ph,
     disabled: disabled,
     onChange: e => setVal(e.target.value),
     onKeyDown: e => {
@@ -304,7 +865,7 @@ function PromptInput({
     }
   }), /*#__PURE__*/React.createElement("div", {
     className: "cs-prompt__bar"
-  }, hint ? /*#__PURE__*/React.createElement("span", {
+  }, ht ? /*#__PURE__*/React.createElement("span", {
     className: "cs-prompt__hint"
   }, /*#__PURE__*/React.createElement("svg", {
     width: "14",
@@ -318,7 +879,7 @@ function PromptInput({
     "aria-hidden": "true"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6z"
-  })), hint) : null, /*#__PURE__*/React.createElement("button", {
+  })), ht) : null, /*#__PURE__*/React.createElement("button", {
     type: "button",
     className: "cs-button cs-button--primary cs-button--sm",
     onClick: submit,
@@ -326,7 +887,7 @@ function PromptInput({
   }, busy ? /*#__PURE__*/React.createElement("span", {
     className: "cs-button__spinner",
     "aria-hidden": "true"
-  }) : null, sendLabel)));
+  }) : null, sl)));
 }
 Object.assign(__ds_scope, { PromptInput });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/ai/PromptInput.jsx", error: String((e && e.message) || e) }); }
@@ -378,13 +939,17 @@ function cx(...c) {
 
 /** CyberSkill TypingIndicator — animated dots for when Lumi is composing a reply. */
 function TypingIndicator({
-  label = "Lumi is typing",
+  label,
+  lang,
   className
 }) {
+  const [ref, L] = __ds_scope.useLang(lang);
+  const lbl = label != null ? label : __ds_scope.makeT("TypingIndicator", L)("label");
   return /*#__PURE__*/React.createElement("span", {
+    ref: ref,
     className: cx("cs-typing", className),
     role: "status",
-    "aria-label": label
+    "aria-label": lbl
   }, /*#__PURE__*/React.createElement("span", null), /*#__PURE__*/React.createElement("span", null), /*#__PURE__*/React.createElement("span", null));
 }
 Object.assign(__ds_scope, { TypingIndicator });
@@ -459,6 +1024,73 @@ function Button({
 }
 Object.assign(__ds_scope, { Button });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/button/Button.jsx", error: String((e && e.message) || e) }); }
+
+// components/button/ButtonGroup.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill ButtonGroup — joins adjacent Buttons into one segmented cluster (role=group). */
+function ButtonGroup({
+  children,
+  label,
+  className,
+  ...props
+}) {
+  return /*#__PURE__*/React.createElement("div", _extends({
+    className: cx("cs-btngroup", className),
+    role: "group",
+    "aria-label": label
+  }, props), children);
+}
+Object.assign(__ds_scope, { ButtonGroup });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/button/ButtonGroup.jsx", error: String((e && e.message) || e) }); }
+
+// components/button/FloatingActionButton.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill FloatingActionButton — round primary action; optional speed-dial actions. */
+function FloatingActionButton({
+  icon,
+  label,
+  actions = [],
+  onClick,
+  position = "fixed",
+  className
+}) {
+  const [open, setOpen] = React.useState(false);
+  const main = () => {
+    if (actions.length) setOpen(o => !o);else onClick && onClick();
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    className: cx("cs-fab", position === "static" && "cs-fab--static", className)
+  }, open && actions.length ? /*#__PURE__*/React.createElement("div", {
+    className: "cs-fab__dial"
+  }, actions.map((a, i) => /*#__PURE__*/React.createElement("button", {
+    key: i,
+    type: "button",
+    className: "cs-fab__mini",
+    "aria-label": a.label,
+    title: a.label,
+    onClick: () => {
+      setOpen(false);
+      a.onSelect && a.onSelect();
+    }
+  }, a.icon))) : null, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-fab__main",
+    "aria-label": label,
+    "aria-expanded": actions.length ? open : undefined,
+    onClick: main
+  }, icon));
+}
+Object.assign(__ds_scope, { FloatingActionButton });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/button/FloatingActionButton.jsx", error: String((e && e.message) || e) }); }
 
 // components/data/Accordion.jsx
 try { (() => {
@@ -606,6 +1238,163 @@ function CardFooter({
 Object.assign(__ds_scope, { Card, CardHeader, CardBody, CardFooter });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Card.jsx", error: String((e && e.message) || e) }); }
 
+// components/data/Carousel.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Carousel — slides with prev/next + dots. children = slides. Bilingual aria. */
+function Carousel({
+  children,
+  startIndex = 0,
+  label,
+  lang,
+  className
+}) {
+  const slides = React.Children.toArray(children);
+  const [i, setI] = React.useState(Math.min(startIndex, Math.max(0, slides.length - 1)));
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Carousel", L);
+  const go = n => setI((n + slides.length) % slides.length);
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    className: cx("cs-carousel", className),
+    role: "group",
+    "aria-roledescription": "carousel",
+    "aria-label": label
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "cs-carousel__view"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "cs-carousel__track",
+    style: {
+      transform: "translateX(-" + i * 100 + "%)"
+    }
+  }, slides.map((s, j) => /*#__PURE__*/React.createElement("div", {
+    key: j,
+    className: "cs-carousel__slide",
+    "aria-hidden": j !== i
+  }, s))), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-carousel__nav prev",
+    "aria-label": t("prev"),
+    onClick: () => go(i - 1)
+  }, "\u2039"), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-carousel__nav next",
+    "aria-label": t("next"),
+    onClick: () => go(i + 1)
+  }, "\u203A")), /*#__PURE__*/React.createElement("div", {
+    className: "cs-carousel__dots"
+  }, slides.map((_, j) => /*#__PURE__*/React.createElement("button", {
+    key: j,
+    type: "button",
+    "aria-label": t("slide") + " " + (j + 1) + "/" + slides.length,
+    "aria-current": j === i,
+    onClick: () => setI(j)
+  }))));
+}
+Object.assign(__ds_scope, { Carousel });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Carousel.jsx", error: String((e && e.message) || e) }); }
+
+// components/data/Chart.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Chart — token-colored SVG charts: bar | line | spark | pie. data: [{label,value}]. */
+function Chart({
+  type = "bar",
+  data = [],
+  height = 160,
+  color = "var(--cs-accent)",
+  showValues = false,
+  label,
+  className
+}) {
+  const W = 320,
+    H = height,
+    max = Math.max(1, ...data.map(d => d.value));
+  let body = null;
+  if (type === "pie") {
+    const total = data.reduce((a, d) => a + d.value, 0) || 1;
+    const cols = [color, "var(--cs-accent-strong)", "var(--cs-accent-grad-b)", "var(--cs-color-text-muted)", "var(--cs-color-border-default)"];
+    let a0 = -Math.PI / 2;
+    body = /*#__PURE__*/React.createElement("svg", {
+      viewBox: "0 0 120 120",
+      width: H,
+      height: H,
+      "aria-hidden": "true"
+    }, data.map((d, i) => {
+      const a1 = a0 + d.value / total * Math.PI * 2;
+      const large = a1 - a0 > Math.PI ? 1 : 0;
+      const p = `M60 60 L${60 + 50 * Math.cos(a0)} ${60 + 50 * Math.sin(a0)} A50 50 0 ${large} 1 ${60 + 50 * Math.cos(a1)} ${60 + 50 * Math.sin(a1)} Z`;
+      a0 = a1;
+      return /*#__PURE__*/React.createElement("path", {
+        key: i,
+        d: p,
+        fill: cols[i % cols.length],
+        stroke: "var(--cs-color-surface-panel)",
+        strokeWidth: "1.5"
+      });
+    }));
+  } else if (type === "line" || type === "spark") {
+    const pts = data.map((d, i) => `${i / Math.max(1, data.length - 1) * (W - 8) + 4},${H - 6 - d.value / max * (H - 24)}`).join(" ");
+    body = /*#__PURE__*/React.createElement("svg", {
+      viewBox: `0 0 ${W} ${H}`,
+      width: "100%",
+      height: H,
+      preserveAspectRatio: "none",
+      "aria-hidden": "true"
+    }, /*#__PURE__*/React.createElement("polyline", {
+      points: pts,
+      fill: "none",
+      stroke: color,
+      strokeWidth: "2.4",
+      strokeLinejoin: "round",
+      strokeLinecap: "round"
+    }), type === "line" ? data.map((d, i) => /*#__PURE__*/React.createElement("circle", {
+      key: i,
+      cx: i / Math.max(1, data.length - 1) * (W - 8) + 4,
+      cy: H - 6 - d.value / max * (H - 24),
+      r: "3.4",
+      fill: color
+    })) : null);
+  } else {
+    const bw = (W - 8) / data.length;
+    body = /*#__PURE__*/React.createElement("svg", {
+      viewBox: `0 0 ${W} ${H}`,
+      width: "100%",
+      height: H,
+      preserveAspectRatio: "none",
+      "aria-hidden": "true"
+    }, data.map((d, i) => {
+      const h = d.value / max * (H - 26);
+      return /*#__PURE__*/React.createElement("rect", {
+        key: i,
+        x: 4 + i * bw + bw * 0.14,
+        y: H - 20 - h,
+        width: bw * 0.72,
+        height: h,
+        rx: "3",
+        fill: color
+      });
+    }));
+  }
+  return /*#__PURE__*/React.createElement("figure", {
+    className: cx("cs-chart", className),
+    role: "img",
+    "aria-label": label || data.map(d => d.label + ": " + d.value).join(", ")
+  }, body, type !== "spark" ? /*#__PURE__*/React.createElement("figcaption", {
+    className: "cs-chart__legend"
+  }, data.map((d, i) => /*#__PURE__*/React.createElement("span", {
+    key: i
+  }, d.label, showValues ? /*#__PURE__*/React.createElement("b", null, " ", d.value) : null))) : null);
+}
+Object.assign(__ds_scope, { Chart });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Chart.jsx", error: String((e && e.message) || e) }); }
+
 // components/data/CodeBlock.jsx
 try { (() => {
 function cx(...c) {
@@ -640,6 +1429,53 @@ function CodeBlock({
 }
 Object.assign(__ds_scope, { CodeBlock });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/CodeBlock.jsx", error: String((e && e.message) || e) }); }
+
+// components/data/Comment.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Comment — discussion entry: avatar, author, meta, body, actions, nested replies. */
+function Comment({
+  avatar,
+  author,
+  meta,
+  children,
+  actions = [],
+  replies,
+  lang,
+  className
+}) {
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Comment", L);
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    className: cx("cs-comment", className)
+  }, avatar ? /*#__PURE__*/React.createElement("span", {
+    className: "cs-comment__avatar"
+  }, avatar) : null, /*#__PURE__*/React.createElement("div", {
+    className: "cs-comment__main"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "cs-comment__head"
+  }, /*#__PURE__*/React.createElement("b", null, author), meta ? /*#__PURE__*/React.createElement("span", {
+    className: "cs-comment__meta"
+  }, meta) : null), /*#__PURE__*/React.createElement("div", {
+    className: "cs-comment__body"
+  }, children), /*#__PURE__*/React.createElement("div", {
+    className: "cs-comment__actions"
+  }, (actions.length ? actions : [{
+    label: t("reply")
+  }]).map((a, i) => /*#__PURE__*/React.createElement("button", {
+    key: i,
+    type: "button",
+    onClick: () => a.onSelect && a.onSelect()
+  }, a.label))), replies ? /*#__PURE__*/React.createElement("div", {
+    className: "cs-comment__replies"
+  }, replies) : null));
+}
+Object.assign(__ds_scope, { Comment });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Comment.jsx", error: String((e && e.message) || e) }); }
 
 // components/data/DescriptionList.jsx
 try { (() => {
@@ -691,6 +1527,92 @@ function Divider({
 }
 Object.assign(__ds_scope, { Divider });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Divider.jsx", error: String((e && e.message) || e) }); }
+
+// components/data/Image.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Image — img with loading skeleton, warm fallback on error, optional click-to-preview lightbox. */
+function Image({
+  src,
+  alt = "",
+  ratio,
+  preview = false,
+  fallback,
+  lang,
+  className,
+  ...props
+}) {
+  const [state, setState] = React.useState("loading");
+  const [zoom, setZoom] = React.useState(false);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Image", L);
+  React.useEffect(() => {
+    if (!zoom) return;
+    const k = e => {
+      if (e.key === "Escape") setZoom(false);
+    };
+    document.addEventListener("keydown", k);
+    return () => document.removeEventListener("keydown", k);
+  }, [zoom]);
+  const body = state === "error" ? /*#__PURE__*/React.createElement("span", {
+    className: "cs-image__fallback"
+  }, fallback || /*#__PURE__*/React.createElement("svg", {
+    width: "28",
+    height: "28",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.6",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("rect", {
+    x: "3",
+    y: "3",
+    width: "18",
+    height: "18",
+    rx: "2"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "9",
+    cy: "9",
+    r: "2"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M21 15l-5-5-9 9"
+  }))) : /*#__PURE__*/React.createElement("img", _extends({}, props, {
+    src: src,
+    alt: alt,
+    onLoad: () => setState("ok"),
+    onError: () => setState("error")
+  }));
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+    ref: ref,
+    className: cx("cs-image", state === "loading" && "is-loading", preview && state === "ok" && "is-zoomable", className),
+    style: ratio ? {
+      aspectRatio: ratio
+    } : undefined,
+    onClick: preview && state === "ok" ? () => setZoom(true) : undefined,
+    role: preview && state === "ok" ? "button" : undefined,
+    "aria-label": preview && state === "ok" ? t("preview") + (alt ? ": " + alt : "") : undefined
+  }, body), zoom ? /*#__PURE__*/React.createElement("span", {
+    className: "cs-image__zoom",
+    role: "dialog",
+    "aria-label": alt || t("preview"),
+    onClick: () => setZoom(false)
+  }, /*#__PURE__*/React.createElement("img", {
+    src: src,
+    alt: alt
+  }), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    "aria-label": t("close"),
+    onClick: () => setZoom(false)
+  }, "\u2715")) : null);
+}
+Object.assign(__ds_scope, { Image });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Image.jsx", error: String((e && e.message) || e) }); }
 
 // components/data/Kbd.jsx
 try { (() => {
@@ -763,6 +1685,157 @@ function ListItem({
 Object.assign(__ds_scope, { List, ListItem });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/List.jsx", error: String((e && e.message) || e) }); }
 
+// components/data/Masonry.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Masonry — column-packed gallery (CSS columns). */
+function Masonry({
+  columns = 3,
+  gap = 16,
+  children,
+  className,
+  style
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    className: cx("cs-masonry", className),
+    style: {
+      columnCount: columns,
+      columnGap: gap,
+      ...style
+    }
+  }, React.Children.map(children, c => /*#__PURE__*/React.createElement("div", {
+    className: "cs-masonry__item",
+    style: {
+      marginBottom: gap
+    }
+  }, c)));
+}
+Object.assign(__ds_scope, { Masonry });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Masonry.jsx", error: String((e && e.message) || e) }); }
+
+// components/data/Sortable.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Sortable — drag-to-reorder list (HTML5 DnD). items: [{key,label}]; onChange(newItems). */
+function Sortable({
+  items = [],
+  onChange,
+  className
+}) {
+  const [dragKey, setDragKey] = React.useState(null);
+  const [over, setOver] = React.useState(null);
+  const drop = () => {
+    if (dragKey == null || over == null || dragKey === over) {
+      setDragKey(null);
+      setOver(null);
+      return;
+    }
+    const from = items.findIndex(i => i.key === dragKey);
+    const to = items.findIndex(i => i.key === over);
+    const next = [...items];
+    next.splice(to, 0, next.splice(from, 1)[0]);
+    onChange && onChange(next);
+    setDragKey(null);
+    setOver(null);
+  };
+  return /*#__PURE__*/React.createElement("ul", {
+    className: cx("cs-sortable", className)
+  }, items.map(it => /*#__PURE__*/React.createElement("li", {
+    key: it.key,
+    draggable: true,
+    className: cx("cs-sortable__item", dragKey === it.key && "is-dragging", over === it.key && "is-over"),
+    onDragStart: () => setDragKey(it.key),
+    onDragOver: e => {
+      e.preventDefault();
+      setOver(it.key);
+    },
+    onDrop: drop,
+    onDragEnd: drop
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "cs-sortable__grip",
+    "aria-hidden": "true"
+  }, "\u283F"), it.label)));
+}
+Object.assign(__ds_scope, { Sortable });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Sortable.jsx", error: String((e && e.message) || e) }); }
+
+// components/data/Splitter.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Splitter — two resizable panes with a draggable (and arrow-key) divider. */
+function Splitter({
+  start,
+  end,
+  initial = 50,
+  min = 20,
+  max = 80,
+  height = 240,
+  lang,
+  className
+}) {
+  const [pct, setPct] = React.useState(initial);
+  const wrap = React.useRef(null);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Splitter", L);
+  const drag = e => {
+    e.preventDefault();
+    const move = ev => {
+      const r = wrap.current.getBoundingClientRect();
+      const x = (ev.touches ? ev.touches[0].clientX : ev.clientX) - r.left;
+      setPct(Math.min(max, Math.max(min, x / r.width * 100)));
+    };
+    const up = () => {
+      document.removeEventListener("pointermove", move);
+      document.removeEventListener("pointerup", up);
+    };
+    document.addEventListener("pointermove", move);
+    document.addEventListener("pointerup", up);
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    ref: el => {
+      wrap.current = el;
+      ref.current = el;
+    },
+    className: cx("cs-splitter", className),
+    style: {
+      height
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "cs-splitter__pane",
+    style: {
+      inlineSize: pct + "%"
+    }
+  }, start), /*#__PURE__*/React.createElement("div", {
+    className: "cs-splitter__bar",
+    role: "separator",
+    "aria-label": t("label"),
+    "aria-valuenow": Math.round(pct),
+    "aria-valuemin": min,
+    "aria-valuemax": max,
+    tabIndex: 0,
+    onPointerDown: drag,
+    onKeyDown: e => {
+      if (e.key === "ArrowLeft") setPct(p => Math.max(min, p - 2));else if (e.key === "ArrowRight") setPct(p => Math.min(max, p + 2));
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "cs-splitter__pane",
+    style: {
+      inlineSize: 100 - pct + "%"
+    }
+  }, end));
+}
+Object.assign(__ds_scope, { Splitter });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Splitter.jsx", error: String((e && e.message) || e) }); }
+
 // components/data/Stat.jsx
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
@@ -804,6 +1877,69 @@ function Stat({
 }
 Object.assign(__ds_scope, { Stat });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Stat.jsx", error: String((e && e.message) || e) }); }
+
+// components/data/Terminal.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Terminal — command console: history + prompt input; onCommand returns output (string or lines). */
+function Terminal({
+  title = "cyberskill — zsh",
+  welcome,
+  onCommand,
+  prompt = "➜",
+  lang,
+  className
+}) {
+  const [hist, setHist] = React.useState(() => welcome ? [{
+    out: welcome
+  }] : []);
+  const [q, setQ] = React.useState("");
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Terminal", L);
+  const run = () => {
+    if (!q.trim()) return;
+    const res = onCommand ? onCommand(q.trim()) : "";
+    setHist(h => [...h, {
+      cmd: q
+    }, ...(res ? [{
+      out: res
+    }] : [])]);
+    setQ("");
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    className: cx("cs-terminal", className)
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "cs-terminal__bar"
+  }, /*#__PURE__*/React.createElement("i", null), /*#__PURE__*/React.createElement("i", null), /*#__PURE__*/React.createElement("i", null), /*#__PURE__*/React.createElement("span", null, title)), /*#__PURE__*/React.createElement("div", {
+    className: "cs-terminal__body"
+  }, hist.map((l, i) => l.cmd != null ? /*#__PURE__*/React.createElement("div", {
+    key: i,
+    className: "cs-terminal__line"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "p"
+  }, prompt), " ", l.cmd) : /*#__PURE__*/React.createElement("div", {
+    key: i,
+    className: "cs-terminal__out"
+  }, l.out)), /*#__PURE__*/React.createElement("div", {
+    className: "cs-terminal__line"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "p"
+  }, prompt), /*#__PURE__*/React.createElement("input", {
+    value: q,
+    "aria-label": t("input"),
+    spellCheck: false,
+    onChange: e => setQ(e.target.value),
+    onKeyDown: e => {
+      if (e.key === "Enter") run();
+    }
+  }))));
+}
+Object.assign(__ds_scope, { Terminal });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Terminal.jsx", error: String((e && e.message) || e) }); }
 
 // components/data/Timeline.jsx
 try { (() => {
@@ -857,6 +1993,395 @@ function Tooltip({
 Object.assign(__ds_scope, { Tooltip });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Tooltip.jsx", error: String((e && e.message) || e) }); }
 
+// components/data/Tree.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+function Node({
+  n,
+  depth,
+  selected,
+  onSelect,
+  defaultOpen
+}) {
+  const [open, setOpen] = React.useState(!!defaultOpen);
+  const kids = n.children || [];
+  return /*#__PURE__*/React.createElement("li", {
+    role: "treeitem",
+    "aria-expanded": kids.length ? open : undefined,
+    "aria-selected": selected === n.key
+  }, /*#__PURE__*/React.createElement("span", {
+    className: cx("cs-tree__row", selected === n.key && "is-selected"),
+    style: {
+      paddingInlineStart: depth * 18 + 6
+    }
+  }, kids.length ? /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-tree__twist",
+    "aria-hidden": "true",
+    tabIndex: -1,
+    onClick: () => setOpen(o => !o)
+  }, open ? "▾" : "▸") : /*#__PURE__*/React.createElement("span", {
+    className: "cs-tree__twist",
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-tree__label",
+    onClick: () => {
+      onSelect && onSelect(n.key, n);
+      if (kids.length) setOpen(o => !o);
+    }
+  }, n.label)), kids.length && open ? /*#__PURE__*/React.createElement("ul", {
+    role: "group"
+  }, kids.map(c => /*#__PURE__*/React.createElement(Node, {
+    key: c.key,
+    n: c,
+    depth: depth + 1,
+    selected: selected,
+    onSelect: onSelect,
+    defaultOpen: defaultOpen
+  }))) : null);
+}
+
+/** CyberSkill Tree — expandable hierarchy. nodes: {key,label,children[]}. Single select via onSelect. */
+function Tree({
+  nodes = [],
+  selected,
+  onSelect,
+  defaultOpen = false,
+  className
+}) {
+  return /*#__PURE__*/React.createElement("ul", {
+    role: "tree",
+    className: cx("cs-tree", className)
+  }, nodes.map(n => /*#__PURE__*/React.createElement(Node, {
+    key: n.key,
+    n: n,
+    depth: 0,
+    selected: selected,
+    onSelect: onSelect,
+    defaultOpen: defaultOpen
+  })));
+}
+Object.assign(__ds_scope, { Tree });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Tree.jsx", error: String((e && e.message) || e) }); }
+
+// components/data/Watermark.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Watermark — repeats rotated text behind children (draft/confidential marking). */
+function Watermark({
+  text = "CyberSkill",
+  opacity = 0.09,
+  gap = 140,
+  rotate = -22,
+  children,
+  className
+}) {
+  const svg = encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${gap}" height="${gap}"><text x="50%" y="50%" font-family="Be Vietnam Pro, sans-serif" font-size="14" font-weight="700" fill="#45210E" fill-opacity="${opacity}" text-anchor="middle" transform="rotate(${rotate} ${gap / 2} ${gap / 2})">${String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;")}</text></svg>`);
+  return /*#__PURE__*/React.createElement("div", {
+    className: cx("cs-watermark", className),
+    style: {
+      position: "relative"
+    }
+  }, children, /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    style: {
+      position: "absolute",
+      inset: 0,
+      pointerEvents: "none",
+      backgroundImage: `url("data:image/svg+xml,${svg}")`
+    }
+  }));
+}
+Object.assign(__ds_scope, { Watermark });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Watermark.jsx", error: String((e && e.message) || e) }); }
+
+// components/data/qr-encode.js
+try { (() => {
+/* Minimal QR encoder — byte mode, EC level L, versions 1–4, mask 0.
+ * Single RS block per version (per the QR spec for 1L–4L). Not a component
+ * (lowercase export). Used by QRCode.jsx. */
+const EC = {
+  1: 7,
+  2: 10,
+  3: 15,
+  4: 20
+}; // EC codewords (L)
+const TOTAL = {
+  1: 26,
+  2: 44,
+  3: 70,
+  4: 100
+}; // total codewords
+const CAP = {
+  1: 17,
+  2: 32,
+  3: 53,
+  4: 78
+}; // data bytes (byte mode, L)
+const ALIGN = {
+  1: [],
+  2: [6, 18],
+  3: [6, 22],
+  4: [6, 26]
+};
+// format info for EC L + mask 0 (15 bits, MSB first)
+const FORMAT = [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0];
+const EXP = new Array(512),
+  LOG = new Array(256);
+(function () {
+  let x = 1;
+  for (let i = 0; i < 255; i++) {
+    EXP[i] = x;
+    LOG[x] = i;
+    x <<= 1;
+    if (x & 0x100) x ^= 0x11d;
+  }
+  for (let i = 255; i < 512; i++) EXP[i] = EXP[i - 255];
+})();
+function rs(data, ecLen) {
+  let gen = [1];
+  for (let i = 0; i < ecLen; i++) {
+    const next = new Array(gen.length + 1).fill(0);
+    for (let j = 0; j < gen.length; j++) {
+      next[j] ^= EXP[(LOG[gen[j]] + i) % 255];
+      next[j + 1] ^= gen[j];
+    }
+    gen = next;
+  }
+  const res = data.concat(new Array(ecLen).fill(0));
+  for (let i = 0; i < data.length; i++) {
+    const f = res[i];
+    if (f === 0) continue;
+    for (let j = 0; j < gen.length; j++) res[i + j] ^= EXP[(LOG[gen[j]] + LOG[f]) % 255];
+  }
+  return res.slice(data.length);
+}
+function qrMatrix(text) {
+  const bytes = Array.from(new TextEncoder().encode(text));
+  let v = 0;
+  for (const cand of [1, 2, 3, 4]) if (bytes.length <= CAP[cand]) {
+    v = cand;
+    break;
+  }
+  if (!v) throw new Error("too long");
+  const dataLen = TOTAL[v] - EC[v];
+  // bitstream: mode 0100 + 8-bit count + bytes + terminator
+  const bits = [];
+  const push = (val, n) => {
+    for (let i = n - 1; i >= 0; i--) bits.push(val >> i & 1);
+  };
+  push(4, 4);
+  push(bytes.length, 8);
+  bytes.forEach(b => push(b, 8));
+  push(0, Math.min(4, dataLen * 8 - bits.length));
+  while (bits.length % 8) bits.push(0);
+  const cw = [];
+  for (let i = 0; i < bits.length; i += 8) cw.push(parseInt(bits.slice(i, i + 8).join(""), 2));
+  const pads = [0xec, 0x11];
+  let p = 0;
+  while (cw.length < dataLen) cw.push(pads[p++ % 2]);
+  const all = cw.concat(rs(cw, EC[v]));
+  const n = 17 + v * 4;
+  const M = Array.from({
+    length: n
+  }, () => new Array(n).fill(null));
+  const setF = (x, y, val) => {
+    if (y >= 0 && y < n && x >= 0 && x < n) M[y][x] = val;
+  };
+  const finder = (cx0, cy0) => {
+    for (let y = -1; y <= 7; y++) for (let x = -1; x <= 7; x++) {
+      const in7 = x >= 0 && x < 7 && y >= 0 && y < 7;
+      const on = in7 && (x === 0 || x === 6 || y === 0 || y === 6 || x >= 2 && x <= 4 && y >= 2 && y <= 4);
+      setF(cx0 + x, cy0 + y, on ? 1 : 0);
+    }
+  };
+  finder(0, 0);
+  finder(n - 7, 0);
+  finder(0, n - 7);
+  for (let i = 8; i < n - 8; i++) {
+    const on = i % 2 === 0 ? 1 : 0;
+    if (M[6][i] == null) M[6][i] = on;
+    if (M[i][6] == null) M[i][6] = on;
+  }
+  const ap = ALIGN[v];
+  for (const ay of ap) for (const ax of ap) {
+    if (M[ay][ax] != null) continue;
+    for (let y = -2; y <= 2; y++) for (let x = -2; x <= 2; x++) setF(ax + x, ay + y, Math.max(Math.abs(x), Math.abs(y)) !== 1 ? 1 : 0);
+  }
+  M[n - 8][8] = 1; // dark module
+  const fpos1 = [[8, 0], [8, 1], [8, 2], [8, 3], [8, 4], [8, 5], [8, 7], [8, 8], [7, 8], [5, 8], [4, 8], [3, 8], [2, 8], [1, 8], [0, 8]];
+  const fpos2 = [[n - 1, 8], [n - 2, 8], [n - 3, 8], [n - 4, 8], [n - 5, 8], [n - 6, 8], [n - 7, 8], [8, n - 8], [8, n - 7], [8, n - 6], [8, n - 5], [8, n - 4], [8, n - 3], [8, n - 2], [8, n - 1]];
+  FORMAT.forEach((b, i) => {
+    const [x1, y1] = fpos1[i];
+    M[y1][x1] = b;
+    const [x2, y2] = fpos2[i];
+    M[y2][x2] = b;
+  });
+  // place data, mask 0 ((r+c)%2===0 flips)
+  let bi = 0;
+  const bit = i => i < all.length * 8 ? all[i >> 3] >> 7 - (i & 7) & 1 : 0;
+  for (let col = n - 1; col > 0; col -= 2) {
+    if (col === 6) col--;
+    for (let i = 0; i < n; i++) {
+      for (let dx = 0; dx < 2; dx++) {
+        const x = col - dx;
+        const y = (col + 1 & 2) === 0 ? n - 1 - i : i;
+        if (M[y][x] != null) continue;
+        let b = bit(bi++);
+        if ((y + x) % 2 === 0) b ^= 1;
+        M[y][x] = b;
+      }
+    }
+  }
+  return M;
+}
+Object.assign(__ds_scope, { qrMatrix });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/qr-encode.js", error: String((e && e.message) || e) }); }
+
+// components/data/QRCode.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill QRCode — SVG QR (byte mode, EC-L, versions 1–4 ≈ up to 78 bytes). Umber on transparent. */
+function QRCode({
+  value = "",
+  size = 128,
+  color = "var(--cs-color-text-primary)",
+  label,
+  className
+}) {
+  const m = React.useMemo(() => {
+    try {
+      return __ds_scope.qrMatrix(String(value));
+    } catch (e) {
+      return null;
+    }
+  }, [value]);
+  if (!m) return /*#__PURE__*/React.createElement("span", {
+    className: cx("cs-qrcode", className),
+    role: "img",
+    "aria-label": label || value
+  }, "\u2014");
+  const n = m.length,
+    cell = size / n;
+  let d = "";
+  for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) if (m[y][x]) d += `M${x * cell} ${y * cell}h${cell}v${cell}h${-cell}z`;
+  return /*#__PURE__*/React.createElement("span", {
+    className: cx("cs-qrcode", className),
+    role: "img",
+    "aria-label": label || value
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: size,
+    height: size,
+    viewBox: `0 0 ${size} ${size}`,
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: d,
+    fill: color
+  })));
+}
+Object.assign(__ds_scope, { QRCode });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/QRCode.jsx", error: String((e && e.message) || e) }); }
+
+// components/datatable/DataGrid.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill DataGrid — advanced table: sortable columns, selectable rows, sticky header scroll area. */
+function DataGrid({
+  columns = [],
+  rows = [],
+  rowKey = "id",
+  selectable = false,
+  selected = [],
+  onSelect,
+  height = 280,
+  caption,
+  empty,
+  lang,
+  className
+}) {
+  const [sort, setSort] = React.useState(null); // {key, dir}
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("DataGrid", L);
+  const sorted = React.useMemo(() => {
+    if (!sort) return rows;
+    const col = columns.find(c => c.key === sort.key);
+    const val = r => col && col.sortValue ? col.sortValue(r) : r[sort.key];
+    return [...rows].sort((a, b) => {
+      const x = val(a),
+        y = val(b);
+      return (x > y ? 1 : x < y ? -1 : 0) * (sort.dir === "asc" ? 1 : -1);
+    });
+  }, [rows, sort, columns]);
+  const allSel = selectable && rows.length && rows.every(r => selected.includes(r[rowKey]));
+  const toggleAll = () => onSelect && onSelect(allSel ? [] : rows.map(r => r[rowKey]));
+  const toggle = k => onSelect && onSelect(selected.includes(k) ? selected.filter(x => x !== k) : [...selected, k]);
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    className: cx("cs-datagrid", className),
+    style: {
+      maxBlockSize: height
+    }
+  }, /*#__PURE__*/React.createElement("table", {
+    className: "cs-table"
+  }, caption ? /*#__PURE__*/React.createElement("caption", null, caption) : null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, selectable ? /*#__PURE__*/React.createElement("th", {
+    scope: "col",
+    className: "cs-datagrid__selcol"
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "checkbox",
+    "aria-label": t("selectAll"),
+    checked: !!allSel,
+    onChange: toggleAll
+  })) : null, columns.map(c => /*#__PURE__*/React.createElement("th", {
+    key: c.key,
+    scope: "col",
+    "aria-sort": sort && sort.key === c.key ? sort.dir === "asc" ? "ascending" : "descending" : undefined
+  }, c.sortable ? /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-datagrid__sort",
+    onClick: () => setSort(s => !s || s.key !== c.key ? {
+      key: c.key,
+      dir: "asc"
+    } : s.dir === "asc" ? {
+      key: c.key,
+      dir: "desc"
+    } : null)
+  }, c.header, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }, sort && sort.key === c.key ? sort.dir === "asc" ? " ▲" : " ▼" : " ↕")) : c.header)))), /*#__PURE__*/React.createElement("tbody", null, sorted.length === 0 ? /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
+    colSpan: columns.length + (selectable ? 1 : 0),
+    className: "cs-table__empty"
+  }, empty != null ? empty : t("empty"))) : sorted.map((r, i) => {
+    const k = r[rowKey] != null ? r[rowKey] : i;
+    return /*#__PURE__*/React.createElement("tr", {
+      key: k,
+      className: selected.includes(k) ? "is-selected" : undefined
+    }, selectable ? /*#__PURE__*/React.createElement("td", {
+      className: "cs-datagrid__selcol"
+    }, /*#__PURE__*/React.createElement("input", {
+      type: "checkbox",
+      "aria-label": t("selectRow"),
+      checked: selected.includes(k),
+      onChange: () => toggle(k)
+    })) : null, columns.map(c => /*#__PURE__*/React.createElement("td", {
+      key: c.key
+    }, c.render ? c.render(r) : r[c.key])));
+  }))));
+}
+Object.assign(__ds_scope, { DataGrid });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/datatable/DataGrid.jsx", error: String((e && e.message) || e) }); }
+
 // components/datatable/DataTable.jsx
 try { (() => {
 function cx(...c) {
@@ -872,11 +2397,15 @@ function DataTable({
   columns,
   rows,
   rowKey = "id",
-  emptyState = "No records",
+  emptyState,
+  lang,
   className
 }) {
   const normalized = Array.isArray(rows) ? rows : [];
+  const [ref, L] = __ds_scope.useLang(lang);
+  const es = emptyState != null ? emptyState : __ds_scope.makeT("DataTable", L)("empty");
   return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
     className: cx("cs-table-wrap", className)
   }, /*#__PURE__*/React.createElement("table", {
     className: "cs-table"
@@ -886,7 +2415,7 @@ function DataTable({
   }, c.header)))), /*#__PURE__*/React.createElement("tbody", null, normalized.length === 0 ? /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
     colSpan: columns.length,
     className: "cs-table__empty"
-  }, emptyState)) : normalized.map((row, i) => /*#__PURE__*/React.createElement("tr", {
+  }, es)) : normalized.map((row, i) => /*#__PURE__*/React.createElement("tr", {
     key: row[rowKey] ?? i
   }, columns.map(c => /*#__PURE__*/React.createElement("td", {
     key: c.key
@@ -894,6 +2423,80 @@ function DataTable({
 }
 Object.assign(__ds_scope, { DataTable });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/datatable/DataTable.jsx", error: String((e && e.message) || e) }); }
+
+// components/datatable/TreeTable.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+function Row({
+  n,
+  depth,
+  columns,
+  expanded,
+  setExpanded
+}) {
+  const kids = n.children || [];
+  const open = expanded.includes(n.key);
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("tr", null, columns.map((c, i) => /*#__PURE__*/React.createElement("td", {
+    key: c.key
+  }, i === 0 ? /*#__PURE__*/React.createElement("span", {
+    className: "cs-treetable__cell",
+    style: {
+      paddingInlineStart: depth * 18
+    }
+  }, kids.length ? /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-tree__twist",
+    "aria-expanded": open,
+    onClick: () => setExpanded(open ? expanded.filter(k => k !== n.key) : [...expanded, n.key])
+  }, open ? "▾" : "▸") : /*#__PURE__*/React.createElement("span", {
+    className: "cs-tree__twist",
+    "aria-hidden": "true"
+  }), c.render ? c.render(n) : n[c.key]) : c.render ? c.render(n) : n[c.key]))), open ? kids.map(k => /*#__PURE__*/React.createElement(Row, {
+    key: k.key,
+    n: k,
+    depth: depth + 1,
+    columns: columns,
+    expanded: expanded,
+    setExpanded: setExpanded
+  })) : null);
+}
+
+/** CyberSkill TreeTable — table whose first column expands nested rows. nodes: rows with children[]. */
+function TreeTable({
+  columns = [],
+  nodes = [],
+  caption,
+  defaultExpanded = [],
+  lang,
+  className
+}) {
+  const [expanded, setExpanded] = React.useState(defaultExpanded);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("DataGrid", L);
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    className: cx("cs-table-wrap", className)
+  }, /*#__PURE__*/React.createElement("table", {
+    className: "cs-table cs-treetable"
+  }, caption ? /*#__PURE__*/React.createElement("caption", null, caption) : null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, columns.map(c => /*#__PURE__*/React.createElement("th", {
+    key: c.key,
+    scope: "col"
+  }, c.header)))), /*#__PURE__*/React.createElement("tbody", null, nodes.length === 0 ? /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
+    colSpan: columns.length,
+    className: "cs-table__empty"
+  }, t("empty"))) : nodes.map(n => /*#__PURE__*/React.createElement(Row, {
+    key: n.key,
+    n: n,
+    depth: 0,
+    columns: columns,
+    expanded: expanded,
+    setExpanded: setExpanded
+  })))));
+}
+Object.assign(__ds_scope, { TreeTable });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/datatable/TreeTable.jsx", error: String((e && e.message) || e) }); }
 
 // components/dialog/Dialog.jsx
 try { (() => {
@@ -918,12 +2521,16 @@ function Dialog({
   actions,
   onClose,
   className,
-  closeLabel = "Close",
+  closeLabel,
+  lang,
   ...props
 }) {
   const titleId = useId("cs-dialog") + "-title";
+  const [ref, L] = __ds_scope.useLang(lang);
+  const cl = closeLabel != null ? closeLabel : __ds_scope.makeT("Dialog", L)("close");
   if (!open) return null;
   return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
     className: "cs-dialog-layer"
   }, /*#__PURE__*/React.createElement("div", {
     className: "cs-dialog__overlay",
@@ -943,7 +2550,7 @@ function Dialog({
     type: "button",
     className: "cs-button cs-button--ghost cs-button--sm",
     onClick: onClose,
-    "aria-label": closeLabel
+    "aria-label": cl
   }, "\u2715") : null), /*#__PURE__*/React.createElement("div", {
     className: "cs-dialog__body"
   }, children), actions ? /*#__PURE__*/React.createElement("footer", {
@@ -1107,6 +2714,100 @@ function ProgressBar({
 Object.assign(__ds_scope, { ProgressBar });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/ProgressBar.jsx", error: String((e && e.message) || e) }); }
 
+// components/feedback/Result.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+const ART = {
+  success: /*#__PURE__*/React.createElement("svg", {
+    width: "30",
+    height: "30",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2.4",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M4 12.5l5 5 11-11"
+  })),
+  error: /*#__PURE__*/React.createElement("svg", {
+    width: "28",
+    height: "28",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2.4",
+    strokeLinecap: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M6 6l12 12M18 6L6 18"
+  })),
+  warning: /*#__PURE__*/React.createElement("svg", {
+    width: "28",
+    height: "28",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2.2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M12 3l10 18H2z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 10v5M12 18.2v.1"
+  })),
+  info: /*#__PURE__*/React.createElement("svg", {
+    width: "28",
+    height: "28",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2.2",
+    strokeLinecap: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("circle", {
+    cx: "12",
+    cy: "12",
+    r: "9"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 11v6M12 7.2v.1"
+  }))
+};
+
+/** CyberSkill Result — full status view (success/error/warning/info): icon, title, body, actions. */
+function Result({
+  status = "info",
+  title,
+  children,
+  actions,
+  lang,
+  className
+}) {
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Result", L);
+  const tt = title != null ? title : t(status);
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    className: cx("cs-result", "cs-result--" + status, className),
+    role: "status"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "cs-result__icon",
+    "aria-hidden": "true"
+  }, ART[status] || ART.info), /*#__PURE__*/React.createElement("h2", {
+    className: "cs-result__title"
+  }, tt), children ? /*#__PURE__*/React.createElement("div", {
+    className: "cs-result__body"
+  }, children) : null, actions ? /*#__PURE__*/React.createElement("div", {
+    className: "cs-result__actions"
+  }, actions) : null);
+}
+Object.assign(__ds_scope, { Result });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/Result.jsx", error: String((e && e.message) || e) }); }
+
 // components/feedback/Skeleton.jsx
 try { (() => {
 function cx(...c) {
@@ -1163,14 +2864,18 @@ function cx(...c) {
 /** CyberSkill Spinner — indeterminate loading indicator. */
 function Spinner({
   size = 20,
-  label = "Loading",
+  label,
+  lang,
   className,
   style,
   ...props
 }) {
+  const [ref, L] = __ds_scope.useLang(lang);
+  const lbl = label != null ? label : __ds_scope.makeT("Spinner", L)("label");
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     role: "status",
-    "aria-label": label,
+    "aria-label": lbl,
     className: cx("cs-spinner", className),
     style: {
       inlineSize: size,
@@ -1220,16 +2925,20 @@ function cx(...c) {
 function Tag({
   children,
   onRemove,
-  removeLabel = "Remove",
+  removeLabel,
+  lang,
   className,
   ...props
 }) {
+  const [ref, L] = __ds_scope.useLang(lang);
+  const rl = removeLabel != null ? removeLabel : __ds_scope.makeT("Tag", L)("remove");
   return /*#__PURE__*/React.createElement("span", _extends({
+    ref: ref,
     className: cx("cs-tag", className)
   }, props), children, onRemove ? /*#__PURE__*/React.createElement("button", {
     type: "button",
     className: "cs-tag__close",
-    "aria-label": removeLabel,
+    "aria-label": rl,
     onClick: onRemove
   }, /*#__PURE__*/React.createElement("svg", {
     width: "12",
@@ -1256,12 +2965,15 @@ function cx(...c) {
 /** Fixed-position stack for Toasts (bottom-right). */
 function ToastStack({
   children,
+  lang,
   className
 }) {
+  const [ref, L] = __ds_scope.useLang(lang);
   return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
     className: cx("cs-toast-stack", className),
     role: "region",
-    "aria-label": "Notifications"
+    "aria-label": __ds_scope.makeT("Toast", L)("notifications")
   }, children);
 }
 
@@ -1271,11 +2983,14 @@ function Toast({
   title,
   icon,
   onClose,
+  lang,
   children,
   className,
   ...props
 }) {
+  const [ref, L] = __ds_scope.useLang(lang);
   return /*#__PURE__*/React.createElement("div", _extends({
+    ref: ref,
     className: cx("cs-toast", `cs-toast--${variant}`, className),
     role: "status"
   }, props), /*#__PURE__*/React.createElement("span", {
@@ -1299,7 +3014,7 @@ function Toast({
   }, children) : null), onClose ? /*#__PURE__*/React.createElement("button", {
     type: "button",
     className: "cs-toast__close",
-    "aria-label": "Dismiss",
+    "aria-label": __ds_scope.makeT("Toast", L)("dismiss"),
     onClick: onClose
   }, /*#__PURE__*/React.createElement("svg", {
     width: "16",
@@ -1315,6 +3030,179 @@ function Toast({
 }
 Object.assign(__ds_scope, { ToastStack, Toast });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/Toast.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/Calendar.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+const WD = {
+  en: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+  vi: ["T2", "T3", "T4", "T5", "T6", "T7", "CN"]
+};
+function grid(year, month) {
+  // Monday week-start (VN convention)
+  const first = new Date(year, month, 1);
+  const lead = (first.getDay() + 6) % 7;
+  const days = new Date(year, month + 1, 0).getDate();
+  const cells = [];
+  for (let i = 0; i < lead; i++) cells.push(null);
+  for (let d = 1; d <= days; d++) cells.push(d);
+  while (cells.length % 7) cells.push(null);
+  return cells;
+}
+
+/** CyberSkill Calendar — month grid, Monday week-start, bilingual month/weekday names. Controlled value/onChange (Date). */
+function Calendar({
+  value,
+  onChange,
+  lang,
+  className
+}) {
+  const sel = value ? new Date(value) : null;
+  const today = new Date();
+  const [view, setView] = React.useState(() => sel ? [sel.getFullYear(), sel.getMonth()] : [today.getFullYear(), today.getMonth()]);
+  const [y, m] = view;
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Calendar", L);
+  const cells = grid(y, m);
+  const isSel = d => sel && d === sel.getDate() && m === sel.getMonth() && y === sel.getFullYear();
+  const isToday = d => d === today.getDate() && m === today.getMonth() && y === today.getFullYear();
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    className: cx("cs-cal", className)
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "cs-cal__head"
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    "aria-label": t("prev"),
+    onClick: () => setView(([yy, mm]) => mm ? [yy, mm - 1] : [yy - 1, 11])
+  }, "\u2039"), /*#__PURE__*/React.createElement("b", null, __ds_scope.monthName(m, L), " ", y), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    "aria-label": t("next"),
+    onClick: () => setView(([yy, mm]) => mm === 11 ? [yy + 1, 0] : [yy, mm + 1])
+  }, "\u203A")), /*#__PURE__*/React.createElement("div", {
+    className: "cs-cal__wd"
+  }, WD[L === "vi" ? "vi" : "en"].map(w => /*#__PURE__*/React.createElement("span", {
+    key: w
+  }, w))), /*#__PURE__*/React.createElement("div", {
+    className: "cs-cal__grid"
+  }, cells.map((d, i) => d == null ? /*#__PURE__*/React.createElement("span", {
+    key: i
+  }) : /*#__PURE__*/React.createElement("button", {
+    key: i,
+    type: "button",
+    className: cx(isSel(d) && "sel", isToday(d) && "today"),
+    "aria-pressed": isSel(d) || undefined,
+    onClick: () => onChange && onChange(new Date(y, m, d))
+  }, d))));
+}
+Object.assign(__ds_scope, { Calendar });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Calendar.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/Cascader.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Cascader — column-per-level picker for hierarchies (province → district style). */
+function Cascader({
+  nodes = [],
+  value = [],
+  onChange,
+  placeholder,
+  label,
+  disabled = false,
+  lang,
+  className
+}) {
+  const [open, setOpen] = React.useState(false);
+  const [path, setPath] = React.useState(value);
+  const wrap = React.useRef(null);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Cascader", L);
+  const ph = placeholder != null ? placeholder : t("placeholder");
+  React.useEffect(() => {
+    setPath(value);
+  }, [open]);
+  React.useEffect(() => {
+    if (!open) return;
+    const d = e => {
+      if (wrap.current && !wrap.current.contains(e.target)) setOpen(false);
+    };
+    const k = e => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", d);
+    document.addEventListener("keydown", k);
+    return () => {
+      document.removeEventListener("mousedown", d);
+      document.removeEventListener("keydown", k);
+    };
+  }, [open]);
+  const cols = [];
+  let level = nodes;
+  for (let i = 0; level && level.length; i++) {
+    cols.push(level);
+    const pick = level.find(n => n.key === path[i]);
+    level = pick && pick.children;
+  }
+  const labels = [];
+  {
+    let lv = nodes;
+    for (const k of value) {
+      const n = (lv || []).find(x => x.key === k);
+      if (!n) break;
+      labels.push(n.label);
+      lv = n.children;
+    }
+  }
+  return /*#__PURE__*/React.createElement("div", {
+    ref: el => {
+      wrap.current = el;
+      ref.current = el;
+    },
+    className: cx("cs-cascader", className)
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-treeselect__field",
+    disabled: disabled,
+    "aria-haspopup": "listbox",
+    "aria-expanded": open,
+    "aria-label": label,
+    onClick: () => setOpen(o => !o)
+  }, /*#__PURE__*/React.createElement("span", {
+    className: labels.length ? undefined : "ph"
+  }, labels.length ? labels.join(" / ") : ph), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }, "\u25BE")), open ? /*#__PURE__*/React.createElement("div", {
+    className: "cs-cascader__pop"
+  }, cols.map((col, i) => /*#__PURE__*/React.createElement("ul", {
+    key: i,
+    role: "listbox",
+    className: "cs-cascader__col"
+  }, col.map(n => /*#__PURE__*/React.createElement("li", {
+    key: n.key
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    role: "option",
+    "aria-selected": path[i] === n.key,
+    className: cx("cs-cascader__opt", path[i] === n.key && "on"),
+    onClick: () => {
+      const next = [...path.slice(0, i), n.key];
+      setPath(next);
+      if (!(n.children && n.children.length)) {
+        onChange && onChange(next);
+        setOpen(false);
+      }
+    }
+  }, n.label, n.children && n.children.length ? /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }, " \u203A") : null)))))) : null);
+}
+Object.assign(__ds_scope, { Cascader });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Cascader.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/Checkbox.jsx
 try { (() => {
@@ -1346,6 +3234,369 @@ function Checkbox({
 Object.assign(__ds_scope, { Checkbox });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Checkbox.jsx", error: String((e && e.message) || e) }); }
 
+// components/forms/ColorPicker.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+const SWATCHES = ["#F4BA17", "#C77B4A", "#E0632B", "#C43D1F", "#7A9B57", "#3E5A2E", "#4E8E9B", "#2E5E7E", "#BFB29B", "#45210E"];
+
+/** CyberSkill ColorPicker — curated brand swatches + custom hex input. */
+function ColorPicker({
+  value = "#F4BA17",
+  onChange,
+  swatches = SWATCHES,
+  label,
+  lang,
+  className
+}) {
+  const [open, setOpen] = React.useState(false);
+  const [hex, setHex] = React.useState(value);
+  const wrap = React.useRef(null);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("ColorPicker", L);
+  React.useEffect(() => setHex(value), [value]);
+  React.useEffect(() => {
+    if (!open) return;
+    const d = e => {
+      if (wrap.current && !wrap.current.contains(e.target)) setOpen(false);
+    };
+    const k = e => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", d);
+    document.addEventListener("keydown", k);
+    return () => {
+      document.removeEventListener("mousedown", d);
+      document.removeEventListener("keydown", k);
+    };
+  }, [open]);
+  const commit = v => {
+    if (/^#[0-9a-fA-F]{6}$/.test(v)) {
+      onChange && onChange(v);
+    }
+  };
+  return /*#__PURE__*/React.createElement("span", {
+    ref: el => {
+      wrap.current = el;
+      ref.current = el;
+    },
+    className: cx("cs-colorpicker", className)
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-colorpicker__field",
+    "aria-label": (label || t("label")) + ": " + value,
+    "aria-expanded": open,
+    onClick: () => setOpen(o => !o)
+  }, /*#__PURE__*/React.createElement("i", {
+    style: {
+      background: value
+    }
+  }), /*#__PURE__*/React.createElement("code", null, value)), open ? /*#__PURE__*/React.createElement("span", {
+    className: "cs-colorpicker__pop",
+    role: "dialog",
+    "aria-label": label || t("label")
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "cs-colorpicker__grid"
+  }, swatches.map(s => /*#__PURE__*/React.createElement("button", {
+    key: s,
+    type: "button",
+    "aria-label": s,
+    "aria-pressed": s.toLowerCase() === String(value).toLowerCase(),
+    style: {
+      background: s
+    },
+    className: s.toLowerCase() === String(value).toLowerCase() ? "on" : undefined,
+    onClick: () => {
+      onChange && onChange(s);
+      setOpen(false);
+    }
+  }))), /*#__PURE__*/React.createElement("span", {
+    className: "cs-colorpicker__hex"
+  }, /*#__PURE__*/React.createElement("input", {
+    value: hex,
+    "aria-label": t("hex"),
+    onChange: e => setHex(e.target.value),
+    onKeyDown: e => {
+      if (e.key === "Enter") {
+        commit(hex);
+        setOpen(false);
+      }
+    },
+    onBlur: () => commit(hex)
+  }))) : null);
+}
+Object.assign(__ds_scope, { ColorPicker });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/ColorPicker.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/Combobox.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+let cbUid = 0;
+
+/** CyberSkill Combobox — filterable single-select (input + listbox, ARIA combobox pattern). Controlled value/onChange. */
+function Combobox({
+  options = [],
+  value,
+  onChange,
+  placeholder,
+  label,
+  disabled = false,
+  lang,
+  className
+}) {
+  const [open, setOpen] = React.useState(false);
+  const [q, setQ] = React.useState("");
+  const [hl, setHl] = React.useState(0);
+  const [id] = React.useState(() => "cs-cb-" + ++cbUid);
+  const wrapRef = React.useRef(null);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Combobox", L);
+  const ph = placeholder != null ? placeholder : t("placeholder");
+  const sel = options.find(o => o.value === value) || null;
+  const needle = q.trim().toLowerCase();
+  const shown = needle ? options.filter(o => String(o.label).toLowerCase().includes(needle)) : options;
+  React.useEffect(() => {
+    if (!open) return;
+    const d = e => {
+      if (wrapRef.current && !wrapRef.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener("mousedown", d);
+    return () => document.removeEventListener("mousedown", d);
+  }, [open]);
+  const pick = o => {
+    onChange && onChange(o.value);
+    setQ("");
+    setOpen(false);
+  };
+  const key = e => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setOpen(true);
+      setHl(h => Math.min(shown.length - 1, h + 1));
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setHl(h => Math.max(0, h - 1));
+    } else if (e.key === "Enter") {
+      if (open && shown[hl]) {
+        e.preventDefault();
+        pick(shown[hl]);
+      }
+    } else if (e.key === "Escape") {
+      setOpen(false);
+    }
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    ref: el => {
+      wrapRef.current = el;
+      ref.current = el;
+    },
+    className: cx("cs-combobox", className)
+  }, /*#__PURE__*/React.createElement("input", {
+    role: "combobox",
+    "aria-expanded": open,
+    "aria-controls": id,
+    "aria-autocomplete": "list",
+    "aria-label": label,
+    disabled: disabled,
+    placeholder: ph,
+    value: open ? q : sel ? sel.label : q,
+    onFocus: () => {
+      setOpen(true);
+      setHl(0);
+    },
+    onChange: e => {
+      setQ(e.target.value);
+      setOpen(true);
+      setHl(0);
+    },
+    onKeyDown: key
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "cs-combobox__caret",
+    "aria-hidden": "true"
+  }, "\u25BE"), open ? /*#__PURE__*/React.createElement("ul", {
+    className: "cs-combobox__list",
+    role: "listbox",
+    id: id
+  }, shown.length ? shown.map((o, i) => /*#__PURE__*/React.createElement("li", {
+    key: o.value,
+    role: "option",
+    "aria-selected": o.value === value,
+    className: cx("cs-combobox__opt", i === hl && "hl"),
+    onMouseEnter: () => setHl(i),
+    onMouseDown: e => {
+      e.preventDefault();
+      pick(o);
+    }
+  }, o.label)) : /*#__PURE__*/React.createElement("li", {
+    className: "cs-combobox__empty"
+  }, t("empty"))) : null);
+}
+Object.assign(__ds_scope, { Combobox });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Combobox.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/DatePicker.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+const CAL_ICON = /*#__PURE__*/React.createElement("svg", {
+  width: "16",
+  height: "16",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "1.8",
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  "aria-hidden": "true"
+}, /*#__PURE__*/React.createElement("rect", {
+  x: "3",
+  y: "5",
+  width: "18",
+  height: "16",
+  rx: "2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M8 3v4M16 3v4M3 10h18"
+}));
+
+/** CyberSkill DatePicker — field + popover Calendar. VN shows DD/MM/YYYY. Controlled value (Date)/onChange. */
+function DatePicker({
+  value,
+  onChange,
+  placeholder,
+  label,
+  disabled = false,
+  lang,
+  className
+}) {
+  const [open, setOpen] = React.useState(false);
+  const wrap = React.useRef(null);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("DatePicker", L);
+  const ph = placeholder != null ? placeholder : t("placeholder");
+  React.useEffect(() => {
+    if (!open) return;
+    const d = e => {
+      if (wrap.current && !wrap.current.contains(e.target)) setOpen(false);
+    };
+    const k = e => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", d);
+    document.addEventListener("keydown", k);
+    return () => {
+      document.removeEventListener("mousedown", d);
+      document.removeEventListener("keydown", k);
+    };
+  }, [open]);
+  return /*#__PURE__*/React.createElement("div", {
+    ref: el => {
+      wrap.current = el;
+      ref.current = el;
+    },
+    className: cx("cs-datepicker", className)
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-datepicker__field",
+    disabled: disabled,
+    "aria-haspopup": "dialog",
+    "aria-expanded": open,
+    "aria-label": label,
+    onClick: () => setOpen(o => !o)
+  }, CAL_ICON, /*#__PURE__*/React.createElement("span", {
+    className: value ? undefined : "ph"
+  }, value ? __ds_scope.formatDate(value, L) : ph)), open ? /*#__PURE__*/React.createElement("div", {
+    className: "cs-datepicker__pop",
+    role: "dialog"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Calendar, {
+    value: value,
+    lang: L,
+    onChange: d => {
+      onChange && onChange(d);
+      setOpen(false);
+    }
+  })) : null);
+}
+Object.assign(__ds_scope, { DatePicker });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/DatePicker.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/Editor.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Editor — light rich-text (contentEditable): bold · italic · bullet list. onChange(html). */
+function Editor({
+  defaultValue = "",
+  onChange,
+  minHeight = 120,
+  lang,
+  className
+}) {
+  const box = React.useRef(null);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Editor", L);
+  const cmd = c => {
+    document.execCommand(c);
+    box.current && box.current.focus();
+    emit();
+  };
+  const emit = () => {
+    onChange && box.current && onChange(box.current.innerHTML);
+  };
+  const B = ({
+    c,
+    label,
+    children
+  }) => /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-toolbar__btn",
+    "aria-label": label,
+    onMouseDown: e => {
+      e.preventDefault();
+      cmd(c);
+    }
+  }, children);
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    className: cx("cs-editor", className)
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "cs-editor__bar",
+    role: "toolbar",
+    "aria-label": t("toolbar")
+  }, /*#__PURE__*/React.createElement(B, {
+    c: "bold",
+    label: t("bold")
+  }, /*#__PURE__*/React.createElement("b", null, "B")), /*#__PURE__*/React.createElement(B, {
+    c: "italic",
+    label: t("italic")
+  }, /*#__PURE__*/React.createElement("i", null, "I")), /*#__PURE__*/React.createElement(B, {
+    c: "insertUnorderedList",
+    label: t("list")
+  }, "\u2254")), /*#__PURE__*/React.createElement("div", {
+    ref: box,
+    className: "cs-editor__area",
+    contentEditable: true,
+    suppressContentEditableWarning: true,
+    role: "textbox",
+    "aria-multiline": "true",
+    "aria-label": t("area"),
+    style: {
+      minHeight
+    },
+    onInput: emit,
+    dangerouslySetInnerHTML: {
+      __html: defaultValue
+    }
+  }));
+}
+Object.assign(__ds_scope, { Editor });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Editor.jsx", error: String((e && e.message) || e) }); }
+
 // components/forms/FileUpload.jsx
 try { (() => {
 function cx(...c) {
@@ -1354,19 +3605,25 @@ function cx(...c) {
 
 /** CyberSkill FileUpload — click-or-drag dropzone. Calls onFiles(File[]) on select/drop. */
 function FileUpload({
-  title = "Drop files here or browse",
-  hint = "PNG, JPG, or PDF up to 10MB",
+  title,
+  hint,
   accept,
   multiple = false,
   onFiles,
   icon,
+  lang,
   className
 }) {
   const [drag, setDrag] = React.useState(false);
   const pick = files => {
     if (files && files.length && onFiles) onFiles(Array.from(files));
   };
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("FileUpload", L);
+  const tt = title != null ? title : t("title");
+  const hh = hint != null ? hint : t("hint");
   return /*#__PURE__*/React.createElement("label", {
+    ref: ref,
     className: cx("cs-dropzone", drag && "is-dragging", className),
     onDragOver: e => {
       e.preventDefault();
@@ -1396,9 +3653,9 @@ function FileUpload({
     d: "M5 16v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3"
   }))), /*#__PURE__*/React.createElement("span", {
     className: "cs-dropzone__title"
-  }, title), /*#__PURE__*/React.createElement("span", {
+  }, tt), /*#__PURE__*/React.createElement("span", {
     className: "cs-dropzone__hint"
-  }, hint), /*#__PURE__*/React.createElement("input", {
+  }, hh), /*#__PURE__*/React.createElement("input", {
     type: "file",
     accept: accept,
     multiple: multiple,
@@ -1410,6 +3667,388 @@ function FileUpload({
 }
 Object.assign(__ds_scope, { FileUpload });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/FileUpload.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/Form.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Form — semantic form: collects named field values on submit; shows a bilingual error summary. */
+function Form({
+  onSubmit,
+  errors = {},
+  children,
+  lang,
+  className,
+  ...props
+}) {
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Form", L);
+  const keys = Object.keys(errors).filter(k => errors[k]);
+  return /*#__PURE__*/React.createElement("form", _extends({}, props, {
+    ref: ref,
+    className: cx("cs-form", className),
+    noValidate: true,
+    onSubmit: e => {
+      e.preventDefault();
+      const fd = new FormData(e.currentTarget);
+      const v = {};
+      fd.forEach((val, k) => {
+        v[k] = val;
+      });
+      onSubmit && onSubmit(v);
+    }
+  }), keys.length ? /*#__PURE__*/React.createElement("div", {
+    className: "cs-form__summary",
+    role: "alert"
+  }, /*#__PURE__*/React.createElement("b", null, t("summary")), /*#__PURE__*/React.createElement("ul", null, keys.map(k => /*#__PURE__*/React.createElement("li", {
+    key: k
+  }, errors[k])))) : null, children);
+}
+
+/** CyberSkill FormField — label + control + hint/error line (pairs with Form `errors`). */
+function FormField({
+  label,
+  required = false,
+  hint,
+  error,
+  children,
+  lang,
+  className
+}) {
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Form", L);
+  return /*#__PURE__*/React.createElement("label", {
+    ref: ref,
+    className: cx("cs-formfield", error && "has-error", className)
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "cs-formfield__label"
+  }, label, required ? /*#__PURE__*/React.createElement("em", {
+    "aria-label": t("required")
+  }, " *") : null), children, error ? /*#__PURE__*/React.createElement("span", {
+    className: "cs-formfield__error",
+    role: "alert"
+  }, error) : hint ? /*#__PURE__*/React.createElement("span", {
+    className: "cs-formfield__hint"
+  }, hint) : null);
+}
+Object.assign(__ds_scope, { Form, FormField });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Form.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/InlineEdit.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+const PEN = /*#__PURE__*/React.createElement("svg", {
+  width: "13",
+  height: "13",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "1.9",
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  "aria-hidden": "true"
+}, /*#__PURE__*/React.createElement("path", {
+  d: "M4 20l4.5-.9L20 7.6a2 2 0 0 0-2.8-2.8L5.7 16.3 4 20z"
+}));
+
+/** CyberSkill InlineEdit — click-to-edit text. Enter/blur commits, Escape cancels. */
+function InlineEdit({
+  value,
+  defaultValue = "",
+  onChange,
+  label,
+  lang,
+  className
+}) {
+  const [inner, setInner] = React.useState(defaultValue);
+  const val = value != null ? value : inner;
+  const [edit, setEdit] = React.useState(false);
+  const [draft, setDraft] = React.useState(val);
+  const commit = () => {
+    setEdit(false);
+    if (draft !== val) {
+      if (value == null) setInner(draft);
+      onChange && onChange(draft);
+    }
+  };
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("InlineEdit", L);
+  return /*#__PURE__*/React.createElement("span", {
+    ref: ref,
+    className: cx("cs-inline-edit", className)
+  }, edit ? /*#__PURE__*/React.createElement("input", {
+    autoFocus: true,
+    value: draft,
+    "aria-label": label,
+    onChange: e => setDraft(e.target.value),
+    onBlur: commit,
+    onKeyDown: e => {
+      if (e.key === "Enter") commit();else if (e.key === "Escape") {
+        setDraft(val);
+        setEdit(false);
+      }
+    }
+  }) : /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-inline-edit__view",
+    "aria-label": t("edit") + (label ? ": " + label : ""),
+    onClick: () => {
+      setDraft(val);
+      setEdit(true);
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: val ? undefined : "ph"
+  }, val || t("empty")), PEN));
+}
+Object.assign(__ds_scope, { InlineEdit });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/InlineEdit.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/InputGroup.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+const EYE = /*#__PURE__*/React.createElement("svg", {
+  width: "16",
+  height: "16",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "1.8",
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  "aria-hidden": "true"
+}, /*#__PURE__*/React.createElement("path", {
+  d: "M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"
+}), /*#__PURE__*/React.createElement("circle", {
+  cx: "12",
+  cy: "12",
+  r: "3"
+}));
+const EYE_OFF = /*#__PURE__*/React.createElement("svg", {
+  width: "16",
+  height: "16",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "1.8",
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  "aria-hidden": "true"
+}, /*#__PURE__*/React.createElement("path", {
+  d: "M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"
+}), /*#__PURE__*/React.createElement("circle", {
+  cx: "12",
+  cy: "12",
+  r: "3"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M4 4l16 16"
+}));
+const X = /*#__PURE__*/React.createElement("svg", {
+  width: "14",
+  height: "14",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "2.2",
+  strokeLinecap: "round",
+  "aria-hidden": "true"
+}, /*#__PURE__*/React.createElement("path", {
+  d: "M6 6l12 12M18 6L6 18"
+}));
+
+/** CyberSkill InputGroup — input with prefix/suffix addons, clearable ×, and password reveal. */
+function InputGroup({
+  prefix,
+  suffix,
+  clearable = false,
+  password = false,
+  value,
+  onChange,
+  defaultValue = "",
+  placeholder,
+  disabled = false,
+  lang,
+  className,
+  ...props
+}) {
+  const [inner, setInner] = React.useState(defaultValue);
+  const val = value != null ? value : inner;
+  const set = v => {
+    if (value == null) setInner(v);
+    onChange && onChange(v);
+  };
+  const [show, setShow] = React.useState(false);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("InputGroup", L);
+  return /*#__PURE__*/React.createElement("span", {
+    ref: ref,
+    className: cx("cs-igroup", className)
+  }, prefix != null ? /*#__PURE__*/React.createElement("span", {
+    className: "cs-igroup__fix"
+  }, prefix) : null, /*#__PURE__*/React.createElement("input", _extends({}, props, {
+    type: password && !show ? "password" : "text",
+    value: val,
+    placeholder: placeholder,
+    disabled: disabled,
+    onChange: e => set(e.target.value)
+  })), clearable && String(val).length ? /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-igroup__btn",
+    "aria-label": t("clear"),
+    onClick: () => set("")
+  }, X) : null, password ? /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-igroup__btn",
+    "aria-label": show ? t("hide") : t("show"),
+    "aria-pressed": show,
+    onClick: () => setShow(s => !s)
+  }, show ? EYE_OFF : EYE) : null, suffix != null ? /*#__PURE__*/React.createElement("span", {
+    className: "cs-igroup__fix cs-igroup__fix--suffix"
+  }, suffix) : null);
+}
+Object.assign(__ds_scope, { InputGroup });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/InputGroup.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/InputOTP.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill InputOTP — one-time-code boxes: auto-advance, backspace, paste. Digits only. */
+function InputOTP({
+  length = 6,
+  value,
+  onChange,
+  onComplete,
+  label,
+  lang,
+  disabled = false,
+  className
+}) {
+  const [inner, setInner] = React.useState("");
+  const val = (value != null ? value : inner).slice(0, length);
+  const boxes = React.useRef([]);
+  const set = v => {
+    v = v.replace(/\D/g, "").slice(0, length);
+    if (value == null) setInner(v);
+    onChange && onChange(v);
+    if (v.length === length && onComplete) onComplete(v);
+  };
+  const [ref, L] = __ds_scope.useLang(lang);
+  const lbl = label != null ? label : __ds_scope.makeT("InputOTP", L)("label");
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    className: cx("cs-otp", className),
+    role: "group",
+    "aria-label": lbl
+  }, Array.from({
+    length
+  }).map((_, i) => /*#__PURE__*/React.createElement("input", {
+    key: i,
+    ref: el => boxes.current[i] = el,
+    inputMode: "numeric",
+    pattern: "[0-9]*",
+    maxLength: 1,
+    disabled: disabled,
+    value: val[i] || "",
+    "aria-label": lbl + " " + (i + 1) + "/" + length,
+    onChange: e => {
+      const c = e.target.value.replace(/\D/g, "");
+      if (!c) return;
+      set(val.slice(0, i) + c + val.slice(i + 1));
+      const nb = boxes.current[i + 1];
+      if (nb) nb.focus();
+    },
+    onKeyDown: e => {
+      if (e.key !== "Backspace") return;
+      e.preventDefault();
+      const arr = val.split("");
+      if (arr[i]) arr.splice(i, 1);else if (i > 0) arr.splice(i - 1, 1);
+      set(arr.join(""));
+      const pb = boxes.current[Math.max(0, i - 1)];
+      if (pb) pb.focus();
+    },
+    onPaste: e => {
+      e.preventDefault();
+      const p = (e.clipboardData.getData("text") || "").replace(/\D/g, "").slice(0, length);
+      set(p);
+      const nb = boxes.current[Math.min(length - 1, p.length)];
+      if (nb) nb.focus();
+    }
+  })));
+}
+Object.assign(__ds_scope, { InputOTP });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/InputOTP.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/Mentions.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Mentions — textarea that suggests @users while typing. */
+function Mentions({
+  value,
+  defaultValue = "",
+  onChange,
+  users = [],
+  placeholder,
+  rows = 3,
+  lang,
+  className
+}) {
+  const [inner, setInner] = React.useState(defaultValue);
+  const val = value != null ? value : inner;
+  const set = v => {
+    if (value == null) setInner(v);
+    onChange && onChange(v);
+  };
+  const [q, setQ] = React.useState(null);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Mentions", L);
+  const ph = placeholder != null ? placeholder : t("placeholder");
+  const onInput = v => {
+    set(v);
+    const m = /(^|\s)@(\w*)$/.exec(v);
+    setQ(m ? m[2].toLowerCase() : null);
+  };
+  const hits = q == null ? [] : users.filter(u => u.toLowerCase().includes(q)).slice(0, 6);
+  const pick = u => {
+    set(val.replace(/(^|\s)@\w*$/, "$1@" + u + " "));
+    setQ(null);
+  };
+  return /*#__PURE__*/React.createElement("span", {
+    ref: ref,
+    className: cx("cs-mentions", className)
+  }, /*#__PURE__*/React.createElement("textarea", {
+    className: "cs-field__control",
+    rows: rows,
+    value: val,
+    placeholder: ph,
+    onChange: e => onInput(e.target.value)
+  }), hits.length ? /*#__PURE__*/React.createElement("span", {
+    className: "cs-mentions__pop",
+    role: "listbox"
+  }, hits.map(u => /*#__PURE__*/React.createElement("button", {
+    key: u,
+    type: "button",
+    role: "option",
+    onMouseDown: e => {
+      e.preventDefault();
+      pick(u);
+    }
+  }, "@", u))) : null);
+}
+Object.assign(__ds_scope, { Mentions });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Mentions.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/NumberField.jsx
 try { (() => {
@@ -1426,6 +4065,7 @@ function NumberField({
   max,
   step = 1,
   disabled = false,
+  lang,
   className,
   children,
   ...props
@@ -1441,11 +4081,14 @@ function NumberField({
     const c = clamp(n);
     onChange ? onChange(c) : setInner(c);
   };
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("NumberField", L);
   return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
     className: cx("cs-stepper", className)
   }, /*#__PURE__*/React.createElement("button", {
     type: "button",
-    "aria-label": "Decrease",
+    "aria-label": t("decrease"),
     disabled: disabled || min != null && val <= min,
     onClick: () => set(val - step)
   }, "\u2212"), /*#__PURE__*/React.createElement("input", _extends({
@@ -1458,7 +4101,7 @@ function NumberField({
     onChange: e => set(Number(e.target.value))
   }, props)), /*#__PURE__*/React.createElement("button", {
     type: "button",
-    "aria-label": "Increase",
+    "aria-label": t("increase"),
     disabled: disabled || max != null && val >= max,
     onClick: () => set(val + step)
   }, "+"));
@@ -1521,6 +4164,67 @@ function RadioGroup({
 Object.assign(__ds_scope, { Radio, RadioGroup });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/RadioGroup.jsx", error: String((e && e.message) || e) }); }
 
+// components/forms/Rating.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+const STAR = "M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.5L12 16.9 6.1 20l1.3-6.5L2.5 9l6.6-.8z";
+
+/** CyberSkill Rating — whole-star rating. Controlled or uncontrolled; readOnly for display. Click the current value to clear. */
+function Rating({
+  value,
+  defaultValue = 0,
+  onChange,
+  max = 5,
+  readOnly = false,
+  label,
+  lang,
+  className
+}) {
+  const [inner, setInner] = React.useState(defaultValue);
+  const val = value != null ? value : inner;
+  const set = n => {
+    if (readOnly) return;
+    const v = n === val ? 0 : n;
+    if (value == null) setInner(v);
+    onChange && onChange(v);
+  };
+  const [ref, L] = __ds_scope.useLang(lang);
+  const lbl = label != null ? label : __ds_scope.makeT("Rating", L)("label");
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    className: cx("cs-rating", className),
+    role: "radiogroup",
+    "aria-label": lbl + ": " + val + " / " + max,
+    "data-readonly": readOnly ? "true" : undefined
+  }, Array.from({
+    length: max
+  }).map((_, i) => /*#__PURE__*/React.createElement("button", {
+    key: i,
+    type: "button",
+    role: "radio",
+    "aria-checked": i < val,
+    "aria-label": i + 1 + " / " + max,
+    className: i < val ? "on" : undefined,
+    onClick: () => set(i + 1),
+    tabIndex: readOnly ? -1 : 0
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "22",
+    height: "22",
+    viewBox: "0 0 24 24",
+    fill: i < val ? "currentColor" : "none",
+    stroke: "currentColor",
+    strokeWidth: "1.6",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: STAR
+  })))));
+}
+Object.assign(__ds_scope, { Rating });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Rating.jsx", error: String((e && e.message) || e) }); }
+
 // components/forms/SearchField.jsx
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
@@ -1533,7 +4237,8 @@ function SearchField({
   value,
   onChange,
   onClear,
-  placeholder = "Search…",
+  placeholder,
+  lang,
   className,
   children,
   ...props
@@ -1541,7 +4246,11 @@ function SearchField({
   const [inner, setInner] = React.useState("");
   const val = value != null ? value : inner;
   const set = v => onChange ? onChange(v) : setInner(v);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("SearchField", L);
+  const ph = placeholder != null ? placeholder : t("placeholder");
   return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
     className: cx("cs-search", className)
   }, /*#__PURE__*/React.createElement("svg", {
     width: "18",
@@ -1563,12 +4272,12 @@ function SearchField({
     type: "text",
     role: "searchbox",
     value: val,
-    placeholder: placeholder,
+    placeholder: ph,
     onChange: e => set(e.target.value)
   })), String(val).length ? /*#__PURE__*/React.createElement("button", {
     type: "button",
     className: "cs-search__clear",
-    "aria-label": "Clear search",
+    "aria-label": t("clear"),
     onClick: () => {
       set("");
       onClear && onClear();
@@ -1739,6 +4448,86 @@ function Switch({
 Object.assign(__ds_scope, { Switch });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Switch.jsx", error: String((e && e.message) || e) }); }
 
+// components/forms/TagInput.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill TagInput — multi-value token input. Enter/comma adds, Backspace removes last, blur commits. */
+function TagInput({
+  value,
+  defaultValue = [],
+  onChange,
+  placeholder,
+  max,
+  disabled = false,
+  lang,
+  className
+}) {
+  const [inner, setInner] = React.useState(defaultValue);
+  const tags = value != null ? value : inner;
+  const [q, setQ] = React.useState("");
+  const set = arr => {
+    if (value == null) setInner(arr);
+    onChange && onChange(arr);
+  };
+  const add = s => {
+    s = s.trim();
+    if (!s) return;
+    if (tags.includes(s)) {
+      setQ("");
+      return;
+    }
+    if (max != null && tags.length >= max) return;
+    set([...tags, s]);
+    setQ("");
+  };
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("TagInput", L);
+  const ph = placeholder != null ? placeholder : t("placeholder");
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    className: cx("cs-taginput", className)
+  }, tags.map(tag => /*#__PURE__*/React.createElement("span", {
+    key: tag,
+    className: "cs-tag"
+  }, tag, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-tag__close",
+    "aria-label": t("remove") + " " + tag,
+    onClick: () => set(tags.filter(x => x !== tag)),
+    disabled: disabled
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "12",
+    height: "12",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2.4",
+    strokeLinecap: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M6 6l12 12M18 6L6 18"
+  }))))), /*#__PURE__*/React.createElement("input", {
+    value: q,
+    placeholder: tags.length ? "" : ph,
+    disabled: disabled,
+    onChange: e => setQ(e.target.value),
+    onKeyDown: e => {
+      if (e.key === "Enter" || e.key === ",") {
+        e.preventDefault();
+        add(q);
+      } else if (e.key === "Backspace" && !q && tags.length) {
+        set(tags.slice(0, -1));
+      }
+    },
+    onBlur: () => add(q)
+  }));
+}
+Object.assign(__ds_scope, { TagInput });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/TagInput.jsx", error: String((e && e.message) || e) }); }
+
 // components/forms/Textarea.jsx
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
@@ -1785,6 +4574,248 @@ function Textarea({
 }
 Object.assign(__ds_scope, { Textarea });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Textarea.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/TimePicker.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+const CLOCK = /*#__PURE__*/React.createElement("svg", {
+  width: "16",
+  height: "16",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "1.8",
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  "aria-hidden": "true"
+}, /*#__PURE__*/React.createElement("circle", {
+  cx: "12",
+  cy: "12",
+  r: "9"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M12 7v5l3 3"
+}));
+
+/** CyberSkill TimePicker — 24h time select in fixed steps. Controlled value ("HH:MM")/onChange. */
+function TimePicker({
+  value = "09:00",
+  onChange,
+  step = 30,
+  label,
+  disabled = false,
+  lang,
+  className
+}) {
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("TimePicker", L);
+  const opts = [];
+  for (let m = 0; m < 24 * 60; m += step) {
+    opts.push(String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0"));
+  }
+  return /*#__PURE__*/React.createElement("span", {
+    ref: ref,
+    className: cx("cs-timepicker", className)
+  }, CLOCK, /*#__PURE__*/React.createElement("select", {
+    "aria-label": label != null ? label : t("label"),
+    disabled: disabled,
+    value: value,
+    onChange: e => onChange && onChange(e.target.value)
+  }, opts.map(o => /*#__PURE__*/React.createElement("option", {
+    key: o,
+    value: o
+  }, o))));
+}
+Object.assign(__ds_scope, { TimePicker });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/TimePicker.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/Toggle.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Toggle — a single pressable on/off button (≠ Switch: no form semantics; ≠ SegmentedControl: standalone). */
+function Toggle({
+  pressed,
+  defaultPressed = false,
+  onChange,
+  icon,
+  children,
+  disabled = false,
+  className,
+  ...props
+}) {
+  const [inner, setInner] = React.useState(defaultPressed);
+  const on = pressed != null ? pressed : inner;
+  const flip = () => {
+    const v = !on;
+    if (pressed == null) setInner(v);
+    onChange && onChange(v);
+  };
+  return /*#__PURE__*/React.createElement("button", _extends({
+    type: "button",
+    className: cx("cs-toggle", className),
+    "aria-pressed": on,
+    disabled: disabled,
+    onClick: flip
+  }, props), icon ? /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      display: "inline-flex"
+    }
+  }, icon) : null, children);
+}
+Object.assign(__ds_scope, { Toggle });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Toggle.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/Transfer.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Transfer — move items between two lists (checkbox select + ⇄ buttons). */
+function Transfer({
+  items = [],
+  value = [],
+  onChange,
+  titles,
+  lang,
+  className
+}) {
+  const [checked, setChecked] = React.useState([]);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Transfer", L);
+  const tt = titles || [t("source"), t("target")];
+  const inTarget = k => value.includes(k);
+  const toggle = k => setChecked(c => c.includes(k) ? c.filter(x => x !== k) : [...c, k]);
+  const move = toTarget => {
+    const mv = checked.filter(k => inTarget(k) !== toTarget);
+    if (!mv.length) return;
+    onChange && onChange(toTarget ? [...value, ...mv] : value.filter(k => !mv.includes(k)));
+    setChecked([]);
+  };
+  const List = ({
+    target
+  }) => /*#__PURE__*/React.createElement("div", {
+    className: "cs-transfer__list"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "cs-transfer__title"
+  }, target ? tt[1] : tt[0]), /*#__PURE__*/React.createElement("ul", null, items.filter(it => inTarget(it.key) === target).map(it => /*#__PURE__*/React.createElement("li", {
+    key: it.key
+  }, /*#__PURE__*/React.createElement("label", null, /*#__PURE__*/React.createElement("input", {
+    type: "checkbox",
+    checked: checked.includes(it.key),
+    onChange: () => toggle(it.key)
+  }), " ", it.label)))));
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    className: cx("cs-transfer", className)
+  }, /*#__PURE__*/React.createElement(List, {
+    target: false
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "cs-transfer__ops"
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-button cs-button--secondary cs-button--xs",
+    "aria-label": t("toTarget"),
+    onClick: () => move(true)
+  }, "\u203A"), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-button cs-button--secondary cs-button--xs",
+    "aria-label": t("toSource"),
+    onClick: () => move(false)
+  }, "\u2039")), /*#__PURE__*/React.createElement(List, {
+    target: true
+  }));
+}
+Object.assign(__ds_scope, { Transfer });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Transfer.jsx", error: String((e && e.message) || e) }); }
+
+// components/forms/TreeSelect.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill TreeSelect — field opening a Tree; picking a node sets the value. */
+function TreeSelect({
+  nodes = [],
+  value,
+  onChange,
+  placeholder,
+  label,
+  disabled = false,
+  lang,
+  className
+}) {
+  const [open, setOpen] = React.useState(false);
+  const wrap = React.useRef(null);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("TreeSelect", L);
+  const ph = placeholder != null ? placeholder : t("placeholder");
+  const find = ns => {
+    for (const n of ns) {
+      if (n.key === value) return n;
+      const c = n.children && find(n.children);
+      if (c) return c;
+    }
+    return null;
+  };
+  const sel = find(nodes);
+  React.useEffect(() => {
+    if (!open) return;
+    const d = e => {
+      if (wrap.current && !wrap.current.contains(e.target)) setOpen(false);
+    };
+    const k = e => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", d);
+    document.addEventListener("keydown", k);
+    return () => {
+      document.removeEventListener("mousedown", d);
+      document.removeEventListener("keydown", k);
+    };
+  }, [open]);
+  return /*#__PURE__*/React.createElement("div", {
+    ref: el => {
+      wrap.current = el;
+      ref.current = el;
+    },
+    className: cx("cs-treeselect", className)
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-treeselect__field",
+    disabled: disabled,
+    "aria-haspopup": "tree",
+    "aria-expanded": open,
+    "aria-label": label,
+    onClick: () => setOpen(o => !o)
+  }, /*#__PURE__*/React.createElement("span", {
+    className: sel ? undefined : "ph"
+  }, sel ? sel.label : ph), /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }, "\u25BE")), open ? /*#__PURE__*/React.createElement("div", {
+    className: "cs-treeselect__pop"
+  }, /*#__PURE__*/React.createElement(__ds_scope.Tree, {
+    nodes: nodes,
+    selected: value,
+    defaultOpen: true,
+    lang: L,
+    onSelect: (k, n) => {
+      if (!(n.children && n.children.length)) {
+        onChange && onChange(k, n);
+        setOpen(false);
+      }
+    }
+  })) : null);
+}
+Object.assign(__ds_scope, { TreeSelect });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/TreeSelect.jsx", error: String((e && e.message) || e) }); }
 
 // components/icon/Icon.jsx
 try { (() => {
@@ -2312,6 +5343,102 @@ function Logo({
 Object.assign(__ds_scope, { Logo });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/logo/Logo.jsx", error: String((e && e.message) || e) }); }
 
+// components/navigation/Anchor.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Anchor — in-page table of contents with scrollspy (IntersectionObserver). items: {id,label}. */
+function Anchor({
+  items = [],
+  title,
+  className
+}) {
+  const [act, setAct] = React.useState(items.length ? items[0].id : null);
+  React.useEffect(() => {
+    const els = items.map(it => document.getElementById(it.id)).filter(Boolean);
+    if (!els.length) return;
+    const io = new IntersectionObserver(es => {
+      const vis = es.filter(e => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (vis[0]) setAct(vis[0].target.id);
+    }, {
+      rootMargin: "-20% 0px -70% 0px"
+    });
+    els.forEach(el => io.observe(el));
+    return () => io.disconnect();
+  }, [items]);
+  return /*#__PURE__*/React.createElement("nav", {
+    className: cx("cs-anchor", className),
+    "aria-label": typeof title === "string" ? title : undefined
+  }, title ? /*#__PURE__*/React.createElement("div", {
+    className: "cs-anchor__title"
+  }, title) : null, items.map(it => /*#__PURE__*/React.createElement("a", {
+    key: it.id,
+    href: "#" + it.id,
+    className: cx("cs-anchor__item", act === it.id && "is-active"),
+    "aria-current": act === it.id ? "location" : undefined
+  }, it.label)));
+}
+Object.assign(__ds_scope, { Anchor });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Anchor.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/BackTop.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill BackTop — scroll-to-top button; appears after a scroll threshold. */
+function BackTop({
+  threshold = 320,
+  label,
+  lang,
+  className
+}) {
+  const [show, setShow] = React.useState(false);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const lbl = label != null ? label : __ds_scope.makeT("BackTop", L)("label");
+  React.useEffect(() => {
+    const on = () => setShow(window.scrollY > threshold);
+    on();
+    window.addEventListener("scroll", on, {
+      passive: true
+    });
+    return () => window.removeEventListener("scroll", on);
+  }, [threshold]);
+  if (!show) return /*#__PURE__*/React.createElement("span", {
+    ref: ref,
+    style: {
+      display: "none"
+    }
+  });
+  return /*#__PURE__*/React.createElement("button", {
+    ref: ref,
+    type: "button",
+    className: cx("cs-backtop", className),
+    "aria-label": lbl,
+    onClick: () => window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M12 19V5M5 12l7-7 7 7"
+  })));
+}
+Object.assign(__ds_scope, { BackTop });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/BackTop.jsx", error: String((e && e.message) || e) }); }
+
 // components/navigation/Breadcrumb.jsx
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
@@ -2322,11 +5449,14 @@ function cx(...c) {
 /** CyberSkill Breadcrumb — hierarchical trail; last item is current. */
 function Breadcrumb({
   items = [],
+  lang,
   className,
   ...props
 }) {
+  const [ref, L] = __ds_scope.useLang(lang);
   return /*#__PURE__*/React.createElement("nav", _extends({
-    "aria-label": "Breadcrumb"
+    ref: ref,
+    "aria-label": __ds_scope.makeT("Breadcrumb", L)("label")
   }, props), /*#__PURE__*/React.createElement("ol", {
     className: cx("cs-breadcrumb", className)
   }, items.map((it, i) => {
@@ -2357,8 +5487,9 @@ function cx(...c) {
 function CommandPalette({
   open,
   onClose,
-  placeholder = "Type a command or search…",
+  placeholder,
   groups = [],
+  lang,
   className
 }) {
   const [q, setQ] = React.useState("");
@@ -2370,16 +5501,20 @@ function CommandPalette({
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("CommandPalette", L);
+  const ph = placeholder != null ? placeholder : t("placeholder");
   if (!open) return null;
   const needle = q.trim().toLowerCase();
   return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
     className: "cs-cmdk-scrim",
     onClick: onClose
   }, /*#__PURE__*/React.createElement("div", {
     className: cx("cs-cmdk", className),
     role: "dialog",
     "aria-modal": "true",
-    "aria-label": "Command palette",
+    "aria-label": t("aria"),
     onClick: e => e.stopPropagation()
   }, /*#__PURE__*/React.createElement("div", {
     className: "cs-cmdk__search"
@@ -2403,10 +5538,10 @@ function CommandPalette({
     autoFocus: true,
     value: q,
     onChange: e => setQ(e.target.value),
-    placeholder: placeholder
+    placeholder: ph
   }), /*#__PURE__*/React.createElement("span", {
     className: "cs-kbd"
-  }, "Esc")), /*#__PURE__*/React.createElement("div", {
+  }, t("esc"))), /*#__PURE__*/React.createElement("div", {
     className: "cs-cmdk__list"
   }, groups.map((g, gi) => {
     const items = (g.items || []).filter(it => !needle || String(it.label).toLowerCase().includes(needle));
@@ -2432,6 +5567,140 @@ function CommandPalette({
 }
 Object.assign(__ds_scope, { CommandPalette });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/CommandPalette.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/Dock.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Dock — icon dock with hover magnification. items: {icon,label,onSelect,active}. */
+function Dock({
+  items = [],
+  label,
+  className
+}) {
+  const [hov, setHov] = React.useState(null);
+  return /*#__PURE__*/React.createElement("div", {
+    className: cx("cs-dock", className),
+    role: "toolbar",
+    "aria-label": label,
+    onMouseLeave: () => setHov(null)
+  }, items.map((it, i) => {
+    const d = hov == null ? 3 : Math.abs(i - hov);
+    const scale = d === 0 ? 1.35 : d === 1 ? 1.15 : 1;
+    return /*#__PURE__*/React.createElement("button", {
+      key: i,
+      type: "button",
+      className: cx("cs-dock__item", it.active && "is-active"),
+      "aria-label": it.label,
+      title: it.label,
+      style: {
+        transform: `scale(${scale}) translateY(${d === 0 ? -6 : d === 1 ? -2 : 0}px)`
+      },
+      onMouseEnter: () => setHov(i),
+      onFocus: () => setHov(i),
+      onBlur: () => setHov(null),
+      onClick: () => it.onSelect && it.onSelect()
+    }, it.icon);
+  }));
+}
+Object.assign(__ds_scope, { Dock });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Dock.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/HotKeys.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+function match(combo, e) {
+  const parts = combo.toLowerCase().split("+");
+  const key = parts[parts.length - 1];
+  const mod = parts.includes("mod") ? e.metaKey || e.ctrlKey : true;
+  const shift = parts.includes("shift") ? e.shiftKey : !e.shiftKey || key.length > 1;
+  const alt = parts.includes("alt") ? e.altKey : !e.altKey;
+  return mod && shift && alt && e.key.toLowerCase() === key;
+}
+
+/** CyberSkill HotKeys — global keymap: bindings [{keys:"mod+k",description,onTrigger}]. "?" opens a bilingual cheat-sheet. */
+function HotKeys({
+  bindings = [],
+  help = true,
+  children,
+  lang,
+  className
+}) {
+  const [show, setShow] = React.useState(false);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("HotKeys", L);
+  React.useEffect(() => {
+    const on = e => {
+      if (e.target && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
+      if (help && e.key === "?") {
+        setShow(s => !s);
+        return;
+      }
+      if (e.key === "Escape") setShow(false);
+      for (const b of bindings) if (match(b.keys, e)) {
+        e.preventDefault();
+        b.onTrigger && b.onTrigger();
+        return;
+      }
+    };
+    document.addEventListener("keydown", on);
+    return () => document.removeEventListener("keydown", on);
+  }, [bindings, help]);
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    className: cx("cs-hotkeys", className)
+  }, children, show ? /*#__PURE__*/React.createElement("div", {
+    className: "cs-hotkeys__sheet",
+    role: "dialog",
+    "aria-label": t("title"),
+    onClick: () => setShow(false)
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "cs-hotkeys__card",
+    onClick: e => e.stopPropagation()
+  }, /*#__PURE__*/React.createElement("b", null, t("title")), /*#__PURE__*/React.createElement("ul", null, bindings.map((b, i) => /*#__PURE__*/React.createElement("li", {
+    key: i
+  }, /*#__PURE__*/React.createElement("span", null, b.description), /*#__PURE__*/React.createElement("kbd", {
+    className: "cs-kbd"
+  }, b.keys))), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("span", null, t("toggle")), /*#__PURE__*/React.createElement("kbd", {
+    className: "cs-kbd"
+  }, "?"))))) : null);
+}
+Object.assign(__ds_scope, { HotKeys });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/HotKeys.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/Link.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Link — brand-styled anchor. variant: default | muted | standalone (arrow). external adds ↗ + rel. */
+function Link({
+  href = "#",
+  variant = "default",
+  external = false,
+  children,
+  className,
+  ...props
+}) {
+  return /*#__PURE__*/React.createElement("a", _extends({
+    href: href,
+    className: cx("cs-link", variant !== "default" && "cs-link--" + variant, className),
+    target: external ? "_blank" : undefined,
+    rel: external ? "noopener noreferrer" : undefined
+  }, props), children, external ? /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }, " \u2197") : variant === "standalone" ? /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }, " \u2192") : null);
+}
+Object.assign(__ds_scope, { Link });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Link.jsx", error: String((e && e.message) || e) }); }
 
 // components/navigation/Menu.jsx
 try { (() => {
@@ -2502,6 +5771,132 @@ function MenuItem({
 Object.assign(__ds_scope, { Menu, MenuItem });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Menu.jsx", error: String((e && e.message) || e) }); }
 
+// components/navigation/Menubar.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Menubar — app-style horizontal menu bar. menus: [{label, items:[{label,onSelect,danger}|"-"]}]. */
+function Menubar({
+  menus = [],
+  className
+}) {
+  const [open, setOpen] = React.useState(null);
+  const wrap = React.useRef(null);
+  React.useEffect(() => {
+    if (open == null) return;
+    const d = e => {
+      if (wrap.current && !wrap.current.contains(e.target)) setOpen(null);
+    };
+    const k = e => {
+      if (e.key === "Escape") setOpen(null);
+    };
+    document.addEventListener("mousedown", d);
+    document.addEventListener("keydown", k);
+    return () => {
+      document.removeEventListener("mousedown", d);
+      document.removeEventListener("keydown", k);
+    };
+  }, [open]);
+  return /*#__PURE__*/React.createElement("div", {
+    ref: wrap,
+    className: cx("cs-menubar", className),
+    role: "menubar"
+  }, menus.map((m, i) => /*#__PURE__*/React.createElement("span", {
+    key: i,
+    className: "cs-menubar__wrap"
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    role: "menuitem",
+    "aria-haspopup": "menu",
+    "aria-expanded": open === i,
+    className: cx("cs-menubar__top", open === i && "is-open"),
+    onClick: () => setOpen(open === i ? null : i),
+    onMouseEnter: () => {
+      if (open != null && open !== i) setOpen(i);
+    }
+  }, m.label), open === i ? /*#__PURE__*/React.createElement("span", {
+    className: "cs-menu__list",
+    role: "menu"
+  }, m.items.map((it, j) => it === "-" ? /*#__PURE__*/React.createElement("span", {
+    key: j,
+    className: "cs-menu__sep"
+  }) : /*#__PURE__*/React.createElement("button", {
+    key: j,
+    type: "button",
+    role: "menuitem",
+    className: cx("cs-menu__item", it.danger && "cs-menu__item--danger"),
+    onClick: () => {
+      setOpen(null);
+      it.onSelect && it.onSelect();
+    }
+  }, it.label))) : null)));
+}
+Object.assign(__ds_scope, { Menubar });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Menubar.jsx", error: String((e && e.message) || e) }); }
+
+// components/navigation/NavigationMenu.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill NavigationMenu — site nav; entries are links or open a rich panel of links. */
+function NavigationMenu({
+  items = [],
+  className
+}) {
+  const [open, setOpen] = React.useState(null);
+  const wrap = React.useRef(null);
+  React.useEffect(() => {
+    if (open == null) return;
+    const d = e => {
+      if (wrap.current && !wrap.current.contains(e.target)) setOpen(null);
+    };
+    const k = e => {
+      if (e.key === "Escape") setOpen(null);
+    };
+    document.addEventListener("mousedown", d);
+    document.addEventListener("keydown", k);
+    return () => {
+      document.removeEventListener("mousedown", d);
+      document.removeEventListener("keydown", k);
+    };
+  }, [open]);
+  return /*#__PURE__*/React.createElement("nav", {
+    ref: wrap,
+    className: cx("cs-navmenu", className)
+  }, items.map((it, i) => it.panel ? /*#__PURE__*/React.createElement("span", {
+    key: i,
+    className: "cs-navmenu__wrap"
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: cx("cs-navmenu__top", open === i && "is-open"),
+    "aria-expanded": open === i,
+    "aria-haspopup": "true",
+    onClick: () => setOpen(open === i ? null : i),
+    onMouseEnter: () => {
+      if (open != null && open !== i) setOpen(i);
+    }
+  }, it.label, " ", /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true"
+  }, "\u25BE")), open === i ? /*#__PURE__*/React.createElement("span", {
+    className: "cs-navmenu__panel"
+  }, it.panel.map((p, j) => /*#__PURE__*/React.createElement("a", {
+    key: j,
+    href: p.href || "#",
+    className: "cs-navmenu__card",
+    onClick: () => setOpen(null)
+  }, /*#__PURE__*/React.createElement("b", null, p.label), p.desc ? /*#__PURE__*/React.createElement("small", null, p.desc) : null))) : null) : /*#__PURE__*/React.createElement("a", {
+    key: i,
+    href: it.href || "#",
+    className: "cs-navmenu__top"
+  }, it.label)));
+}
+Object.assign(__ds_scope, { NavigationMenu });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/NavigationMenu.jsx", error: String((e && e.message) || e) }); }
+
 // components/navigation/Pagination.jsx
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
@@ -2527,18 +5922,22 @@ function Pagination({
   page = 1,
   pageCount = 1,
   onChange,
+  lang,
   className,
   ...props
 }) {
   const go = p => onChange && p >= 1 && p <= pageCount && p !== page && onChange(p);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Pagination", L);
   return /*#__PURE__*/React.createElement("nav", _extends({
-    "aria-label": "Pagination",
+    ref: ref,
+    "aria-label": t("label"),
     className: cx("cs-pagination", className)
   }, props), /*#__PURE__*/React.createElement("button", {
     type: "button",
     onClick: () => go(page - 1),
     disabled: page <= 1,
-    "aria-label": "Previous page"
+    "aria-label": t("prev")
   }, "\u2039"), pages(page, pageCount).map((p, i) => p === "…" ? /*#__PURE__*/React.createElement("span", {
     key: "e" + i,
     className: "cs-pagination__ellipsis",
@@ -2552,7 +5951,7 @@ function Pagination({
     type: "button",
     onClick: () => go(page + 1),
     disabled: page >= pageCount,
-    "aria-label": "Next page"
+    "aria-label": t("next")
   }, "\u203A"));
 }
 Object.assign(__ds_scope, { Pagination });
@@ -2686,6 +6085,139 @@ function Tab({
 Object.assign(__ds_scope, { Tabs, Tab });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Tabs.jsx", error: String((e && e.message) || e) }); }
 
+// components/navigation/Toolbar.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Toolbar — horizontal action bar; overflow items collapse into a "⋯" menu. items: {label,icon,onSelect} or "-". */
+function Toolbar({
+  items = [],
+  overflowAfter,
+  label,
+  lang,
+  className
+}) {
+  const [open, setOpen] = React.useState(false);
+  const wrap = React.useRef(null);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Toolbar", L);
+  const cut = overflowAfter != null ? overflowAfter : items.length;
+  const head = items.slice(0, cut),
+    tail = items.filter(x => x !== "-").slice(cut);
+  React.useEffect(() => {
+    if (!open) return;
+    const d = e => {
+      if (wrap.current && !wrap.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener("mousedown", d);
+    return () => document.removeEventListener("mousedown", d);
+  }, [open]);
+  return /*#__PURE__*/React.createElement("div", {
+    ref: el => {
+      wrap.current = el;
+      ref.current = el;
+    },
+    className: cx("cs-toolbar", className),
+    role: "toolbar",
+    "aria-label": label
+  }, head.map((it, i) => it === "-" ? /*#__PURE__*/React.createElement("span", {
+    key: i,
+    className: "cs-toolbar__sep",
+    "aria-hidden": "true"
+  }) : /*#__PURE__*/React.createElement("button", {
+    key: i,
+    type: "button",
+    className: "cs-toolbar__btn",
+    onClick: () => it.onSelect && it.onSelect()
+  }, it.icon, it.label ? /*#__PURE__*/React.createElement("span", null, it.label) : null)), tail.length ? /*#__PURE__*/React.createElement("span", {
+    className: "cs-toolbar__more"
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-toolbar__btn",
+    "aria-haspopup": "menu",
+    "aria-expanded": open,
+    "aria-label": t("more"),
+    onClick: () => setOpen(o => !o)
+  }, "\u22EF"), open ? /*#__PURE__*/React.createElement("span", {
+    className: "cs-menu__list",
+    role: "menu"
+  }, tail.map((it, i) => /*#__PURE__*/React.createElement("button", {
+    key: i,
+    type: "button",
+    role: "menuitem",
+    className: "cs-menu__item",
+    onClick: () => {
+      setOpen(false);
+      it.onSelect && it.onSelect();
+    }
+  }, it.label))) : null) : null);
+}
+Object.assign(__ds_scope, { Toolbar });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Toolbar.jsx", error: String((e && e.message) || e) }); }
+
+// components/overlays/ContextMenu.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill ContextMenu — right-click menu scoped to its children. items: {label,onSelect,danger} or "-" separator. */
+function ContextMenu({
+  items = [],
+  children,
+  className
+}) {
+  const [pos, setPos] = React.useState(null);
+  React.useEffect(() => {
+    if (!pos) return;
+    const close = () => setPos(null);
+    const k = e => {
+      if (e.key === "Escape") setPos(null);
+    };
+    document.addEventListener("click", close);
+    document.addEventListener("keydown", k);
+    return () => {
+      document.removeEventListener("click", close);
+      document.removeEventListener("keydown", k);
+    };
+  }, [pos]);
+  return /*#__PURE__*/React.createElement("div", {
+    className: cx("cs-ctxmenu-zone", className),
+    onContextMenu: e => {
+      e.preventDefault();
+      const r = e.currentTarget.getBoundingClientRect();
+      setPos({
+        x: e.clientX - r.left,
+        y: e.clientY - r.top
+      });
+    }
+  }, children, pos ? /*#__PURE__*/React.createElement("div", {
+    className: "cs-menu__list",
+    role: "menu",
+    style: {
+      position: "absolute",
+      insetInlineStart: pos.x,
+      insetBlockStart: pos.y
+    }
+  }, items.map((it, i) => it === "-" ? /*#__PURE__*/React.createElement("div", {
+    key: i,
+    className: "cs-menu__sep"
+  }) : /*#__PURE__*/React.createElement("button", {
+    key: i,
+    type: "button",
+    role: "menuitem",
+    className: cx("cs-menu__item", it.danger && "cs-menu__item--danger"),
+    onClick: () => {
+      setPos(null);
+      it.onSelect && it.onSelect();
+    }
+  }, it.label))) : null);
+}
+Object.assign(__ds_scope, { ContextMenu });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/overlays/ContextMenu.jsx", error: String((e && e.message) || e) }); }
+
 // components/overlays/Drawer.jsx
 try { (() => {
 function cx(...c) {
@@ -2700,6 +6232,7 @@ function Drawer({
   side = "right",
   children,
   actions,
+  lang,
   className
 }) {
   React.useEffect(() => {
@@ -2710,16 +6243,19 @@ function Drawer({
     document.addEventListener("keydown", k);
     return () => document.removeEventListener("keydown", k);
   }, [open]);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Drawer", L);
   if (!open) return null;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "cs-drawer-scrim",
     onClick: onClose,
     "aria-hidden": "true"
   }), /*#__PURE__*/React.createElement("aside", {
+    ref: ref,
     className: cx("cs-drawer", side === "left" && "cs-drawer--left", className),
     role: "dialog",
     "aria-modal": "true",
-    "aria-label": typeof title === "string" ? title : "Panel"
+    "aria-label": typeof title === "string" ? title : t("panel")
   }, /*#__PURE__*/React.createElement("div", {
     className: "cs-drawer__header"
   }, title ? /*#__PURE__*/React.createElement("h2", {
@@ -2727,7 +6263,7 @@ function Drawer({
   }, title) : null, /*#__PURE__*/React.createElement("button", {
     type: "button",
     className: "cs-drawer__close",
-    "aria-label": "Close",
+    "aria-label": t("close"),
     onClick: onClose
   }, /*#__PURE__*/React.createElement("svg", {
     width: "20",
@@ -2747,6 +6283,122 @@ function Drawer({
 }
 Object.assign(__ds_scope, { Drawer });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/overlays/Drawer.jsx", error: String((e && e.message) || e) }); }
+
+// components/overlays/HoverCard.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill HoverCard — hover/focus-triggered rich preview panel (delayed open/close). */
+function HoverCard({
+  trigger,
+  children,
+  openDelay = 150,
+  closeDelay = 200,
+  className
+}) {
+  const [open, setOpen] = React.useState(false);
+  const t1 = React.useRef();
+  const t2 = React.useRef();
+  const show = () => {
+    clearTimeout(t2.current);
+    t1.current = setTimeout(() => setOpen(true), openDelay);
+  };
+  const hide = () => {
+    clearTimeout(t1.current);
+    t2.current = setTimeout(() => setOpen(false), closeDelay);
+  };
+  React.useEffect(() => () => {
+    clearTimeout(t1.current);
+    clearTimeout(t2.current);
+  }, []);
+  return /*#__PURE__*/React.createElement("span", {
+    className: cx("cs-hovercard", className),
+    onMouseEnter: show,
+    onMouseLeave: hide,
+    onFocus: show,
+    onBlur: hide
+  }, trigger, open ? /*#__PURE__*/React.createElement("span", {
+    className: "cs-hovercard__panel",
+    role: "dialog"
+  }, children) : null);
+}
+Object.assign(__ds_scope, { HoverCard });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/overlays/HoverCard.jsx", error: String((e && e.message) || e) }); }
+
+// components/overlays/Popconfirm.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Popconfirm — inline confirm bubble on a destructive/consequential action. */
+function Popconfirm({
+  trigger,
+  title,
+  onConfirm,
+  onCancel,
+  okLabel,
+  cancelLabel,
+  lang,
+  className
+}) {
+  const [open, setOpen] = React.useState(false);
+  const wrap = React.useRef(null);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Popconfirm", L);
+  React.useEffect(() => {
+    if (!open) return;
+    const d = e => {
+      if (wrap.current && !wrap.current.contains(e.target)) setOpen(false);
+    };
+    const k = e => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", d);
+    document.addEventListener("keydown", k);
+    return () => {
+      document.removeEventListener("mousedown", d);
+      document.removeEventListener("keydown", k);
+    };
+  }, [open]);
+  return /*#__PURE__*/React.createElement("span", {
+    ref: el => {
+      wrap.current = el;
+      ref.current = el;
+    },
+    className: cx("cs-popconfirm", className)
+  }, /*#__PURE__*/React.createElement("span", {
+    onClick: () => setOpen(o => !o),
+    "aria-haspopup": "dialog",
+    "aria-expanded": open
+  }, trigger), open ? /*#__PURE__*/React.createElement("span", {
+    className: "cs-popconfirm__panel",
+    role: "alertdialog",
+    "aria-label": typeof title === "string" ? title : undefined
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "cs-popconfirm__title"
+  }, title), /*#__PURE__*/React.createElement("span", {
+    className: "cs-popconfirm__actions"
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-button cs-button--ghost cs-button--xs",
+    onClick: () => {
+      setOpen(false);
+      onCancel && onCancel();
+    }
+  }, cancelLabel != null ? cancelLabel : t("cancel")), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-button cs-button--primary cs-button--xs",
+    onClick: () => {
+      setOpen(false);
+      onConfirm && onConfirm();
+    }
+  }, okLabel != null ? okLabel : t("ok")))) : null);
+}
+Object.assign(__ds_scope, { Popconfirm });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/overlays/Popconfirm.jsx", error: String((e && e.message) || e) }); }
 
 // components/overlays/Popover.jsx
 try { (() => {
@@ -2796,6 +6448,100 @@ function Popover({
 }
 Object.assign(__ds_scope, { Popover });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/overlays/Popover.jsx", error: String((e && e.message) || e) }); }
+
+// components/overlays/Tour.jsx
+try { (() => {
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+
+/** CyberSkill Tour — spotlight walkthrough over target elements (by CSS selector). Controlled via open/onClose. */
+function Tour({
+  steps = [],
+  open,
+  onClose,
+  lang,
+  className
+}) {
+  const [i, setI] = React.useState(0);
+  const [rect, setRect] = React.useState(null);
+  const [ref, L] = __ds_scope.useLang(lang);
+  const t = __ds_scope.makeT("Tour", L);
+  React.useEffect(() => {
+    if (open) setI(0);
+  }, [open]);
+  React.useEffect(() => {
+    if (!open || !steps[i]) return;
+    const el = document.querySelector(steps[i].target);
+    if (el) {
+      const r = el.getBoundingClientRect();
+      setRect({
+        x: r.left - 6,
+        y: r.top - 6,
+        w: r.width + 12,
+        h: r.height + 12
+      });
+    } else setRect(null);
+    const k = e => {
+      if (e.key === "Escape") onClose && onClose();
+    };
+    document.addEventListener("keydown", k);
+    return () => document.removeEventListener("keydown", k);
+  }, [open, i, steps]);
+  if (!open || !steps.length) return /*#__PURE__*/React.createElement("span", {
+    ref: ref,
+    style: {
+      display: "none"
+    }
+  });
+  const s = steps[i];
+  const last = i === steps.length - 1;
+  const popTop = rect ? Math.min(window.innerHeight - 170, rect.y + rect.h + 12) : 80;
+  const popLeft = rect ? Math.max(12, Math.min(window.innerWidth - 292, rect.x)) : 40;
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    className: cx("cs-tour", className)
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "cs-tour__scrim",
+    onClick: onClose
+  }), rect ? /*#__PURE__*/React.createElement("div", {
+    className: "cs-tour__hole",
+    style: {
+      left: rect.x,
+      top: rect.y,
+      width: rect.w,
+      height: rect.h
+    }
+  }) : null, /*#__PURE__*/React.createElement("div", {
+    className: "cs-tour__pop",
+    role: "dialog",
+    "aria-label": typeof s.title === "string" ? s.title : undefined,
+    style: {
+      left: popLeft,
+      top: popTop
+    }
+  }, /*#__PURE__*/React.createElement("b", null, s.title), s.body ? /*#__PURE__*/React.createElement("p", null, s.body) : null, /*#__PURE__*/React.createElement("div", {
+    className: "cs-tour__bar"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "cs-tour__count"
+  }, i + 1 + " / " + steps.length), /*#__PURE__*/React.createElement("span", {
+    className: "cs-tour__btns"
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-button cs-button--ghost cs-button--xs",
+    onClick: onClose
+  }, t("skip")), i > 0 ? /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-button cs-button--secondary cs-button--xs",
+    onClick: () => setI(i - 1)
+  }, t("back")) : null, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-button cs-button--primary cs-button--xs",
+    onClick: () => last ? onClose && onClose() : setI(i + 1)
+  }, last ? t("done") : t("next"))))));
+}
+Object.assign(__ds_scope, { Tour });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/overlays/Tour.jsx", error: String((e && e.message) || e) }); }
 
 // components/textfield/TextField.jsx
 try { (() => {
@@ -4667,12 +8413,87 @@ function ThemeGlyph({
     d: "M20 13.5A8 8 0 1 1 10.5 4a6.5 6.5 0 0 0 9.5 9.5z"
   }));
 }
-const STATUS_LABEL = {
-  done: "Shipped",
-  active: "In progress",
-  hold: "Blocked",
-  todo: "Planned"
+
+/* Bilingual UI copy — kit fully EN⇄VN (owner decision, Jul 2026).
+ * Mock-data VN variants live in data.js (window.SH_VI). */
+const T = {
+  en: {
+    sub: "CyberSkill · one page, three lenses · Hiện Thực Hoá Ý Chí",
+    updated: "Updated",
+    portfolio: "Portfolio",
+    projects: "Projects",
+    inprog: "In progress",
+    shipped: "Shipped",
+    blocked: "Blocked",
+    planned: "Planned",
+    avg: "Avg progress",
+    velocity: "Velocity · tasks shipped / week",
+    perShipped: " shipped",
+    nowTitle: "Now shipping",
+    search: "Search projects…",
+    view: "View",
+    lenses: {
+      board: "Board",
+      table: "Table",
+      releases: "Releases"
+    },
+    status: "Status",
+    all: "All",
+    of: "of",
+    key: "Key",
+    project: "Project",
+    squad: "Squad",
+    owner: "Owner",
+    progress: "Progress",
+    thisWeek: "This week",
+    tasks: "Tasks",
+    risk: "Risk",
+    close: "Close",
+    langBtn: "VN",
+    theme: "Toggle theme"
+  },
+  vi: {
+    sub: "CyberSkill · một trang, ba lăng kính · Hiện Thực Hoá Ý Chí",
+    updated: "Cập nhật",
+    portfolio: "Danh mục",
+    projects: "Dự án",
+    inprog: "Đang làm",
+    shipped: "Đã ra mắt",
+    blocked: "Bị chặn",
+    planned: "Dự kiến",
+    avg: "Tiến độ TB",
+    velocity: "Tốc độ · task giao / tuần",
+    perShipped: " đã giao",
+    nowTitle: "Đang ra mắt",
+    search: "Tìm dự án…",
+    view: "Chế độ xem",
+    lenses: {
+      board: "Bảng công việc",
+      table: "Bảng dữ liệu",
+      releases: "Phát hành"
+    },
+    status: "Trạng thái",
+    all: "Tất cả",
+    of: "trên",
+    key: "Mã",
+    project: "Dự án",
+    squad: "Nhóm",
+    owner: "Phụ trách",
+    progress: "Tiến độ",
+    thisWeek: "Tuần này",
+    tasks: "Công việc",
+    risk: "Rủi ro",
+    close: "Đóng",
+    langBtn: "EN",
+    theme: "Đổi giao diện"
+  }
 };
+const statusLabels = t => ({
+  done: t.shipped,
+  active: t.inprog,
+  hold: t.blocked,
+  todo: t.planned
+});
 function Segments({
   seg,
   className
@@ -4703,9 +8524,11 @@ function Segments({
 }
 function Drawer({
   p,
-  onClose
+  onClose,
+  t
 }) {
   if (!p) return null;
+  const SL = statusLabels(t);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "scrim",
     onClick: onClose
@@ -4725,10 +8548,10 @@ function Drawer({
     }
   }, p.key), /*#__PURE__*/React.createElement("span", {
     className: "pill " + p.status
-  }, STATUS_LABEL[p.status]), /*#__PURE__*/React.createElement("button", {
+  }, SL[p.status]), /*#__PURE__*/React.createElement("button", {
     className: "dw-x",
     onClick: onClose,
-    "aria-label": "Close"
+    "aria-label": t.close
   }, /*#__PURE__*/React.createElement(Glyph, {
     d: ICON.close,
     size: 20
@@ -4741,37 +8564,49 @@ function Drawer({
     }
   }, p.blurb), /*#__PURE__*/React.createElement("dl", {
     className: "meta"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Owner"), /*#__PURE__*/React.createElement("dd", null, p.owner)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Squad"), /*#__PURE__*/React.createElement("dd", null, p.squad)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Progress"), /*#__PURE__*/React.createElement("dd", null, p.pct, "%")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, "Updated"), /*#__PURE__*/React.createElement("dd", null, p.updated))), /*#__PURE__*/React.createElement(Segments, {
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, t.owner), /*#__PURE__*/React.createElement("dd", null, p.owner)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, t.squad), /*#__PURE__*/React.createElement("dd", null, p.squad)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, t.progress), /*#__PURE__*/React.createElement("dd", null, p.pct, "%")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, t.updated), /*#__PURE__*/React.createElement("dd", null, p.updated))), /*#__PURE__*/React.createElement(Segments, {
     seg: p.seg,
     className: "minibar"
   }), /*#__PURE__*/React.createElement("div", {
     className: "sect"
-  }, /*#__PURE__*/React.createElement("h3", null, "Tasks"), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h3", null, t.tasks), /*#__PURE__*/React.createElement("div", {
     className: "task-chips"
-  }, p.tasks.map(t => /*#__PURE__*/React.createElement("span", {
-    key: t[0],
-    className: "chip " + t[2],
-    title: t[1]
-  }, t[0]))), /*#__PURE__*/React.createElement("ul", {
+  }, p.tasks.map(tk => /*#__PURE__*/React.createElement("span", {
+    key: tk[0],
+    className: "chip " + tk[2],
+    title: tk[1]
+  }, tk[0]))), /*#__PURE__*/React.createElement("ul", {
     className: "tasks"
-  }, p.tasks.map(t => /*#__PURE__*/React.createElement("li", {
-    key: t[0]
-  }, t[1], " \u2014 ", /*#__PURE__*/React.createElement("span", {
+  }, p.tasks.map(tk => /*#__PURE__*/React.createElement("li", {
+    key: tk[0]
+  }, tk[1], " \u2014 ", /*#__PURE__*/React.createElement("span", {
     className: "muted"
-  }, STATUS_LABEL[t[2]]))))), p.risk ? /*#__PURE__*/React.createElement("div", {
+  }, SL[tk[2]]))))), p.risk ? /*#__PURE__*/React.createElement("div", {
     className: "sect"
-  }, /*#__PURE__*/React.createElement("h3", null, "Risk"), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h3", null, t.risk), /*#__PURE__*/React.createElement("div", {
     className: "risk"
   }, p.risk)) : null)));
 }
 function StatusHub() {
   const D = window.SH_DATA;
   const [dark, setDark] = useState(false);
+  const [lang, setLang] = useState("en");
   const [lens, setLens] = useState("board");
   const [q, setQ] = useState("");
   const [facet, setFacet] = useState("all");
   const [kpi, setKpi] = useState(null);
   const [sel, setSel] = useState(null);
+  const t = T[lang];
+  const SL = statusLabels(t);
+  const VI = lang === "vi" ? window.SH_VI || null : null;
+  const loc = p => VI ? {
+    ...p,
+    blurb: VI.blurbs[p.key] || p.blurb,
+    risk: VI.risks[p.key] != null ? VI.risks[p.key] : p.risk,
+    owner: VI.owners[p.owner] || p.owner,
+    squad: VI.squads[p.squad] || p.squad,
+    updated: VI.updatedRel[p.updated] || p.updated
+  } : p;
   const counts = useMemo(() => {
     const c = {
       active: 0,
@@ -4801,6 +8636,7 @@ function StatusHub() {
   const toggleKpi = k => setKpi(cur => cur === k ? null : k);
   return /*#__PURE__*/React.createElement("div", {
     className: "sh",
+    lang: lang,
     "data-theme": dark ? "dark" : undefined
   }, /*#__PURE__*/React.createElement("header", {
     className: "hd"
@@ -4815,14 +8651,22 @@ function StatusHub() {
     alt: ""
   })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Status Hub"), /*#__PURE__*/React.createElement("p", {
     className: "hd-sub"
-  }, "CyberSkill \xB7 one page, three lenses \xB7 Hi\u1EC7n Th\u1EF1c Ho\xE1 \xDD Ch\xED"))), /*#__PURE__*/React.createElement("div", {
+  }, t.sub))), /*#__PURE__*/React.createElement("div", {
     className: "hd-side"
   }, /*#__PURE__*/React.createElement("p", {
     className: "hd-meta"
-  }, "Updated", /*#__PURE__*/React.createElement("br", null), D.updated), /*#__PURE__*/React.createElement("button", {
+  }, t.updated, /*#__PURE__*/React.createElement("br", null), VI ? VI.updated : D.updated), /*#__PURE__*/React.createElement("button", {
+    className: "btn ghost",
+    onClick: () => setLang(l => l === "en" ? "vi" : "en"),
+    "aria-label": "Toggle language",
+    style: {
+      fontWeight: 700,
+      fontSize: 13
+    }
+  }, t.langBtn), /*#__PURE__*/React.createElement("button", {
     className: "btn ghost",
     onClick: () => setDark(v => !v),
-    "aria-label": "Toggle theme"
+    "aria-label": t.theme
   }, /*#__PURE__*/React.createElement(ThemeGlyph, {
     dark: dark
   }))))), /*#__PURE__*/React.createElement("div", {
@@ -4831,28 +8675,28 @@ function StatusHub() {
     className: "deck"
   }, /*#__PURE__*/React.createElement("section", {
     className: "panel"
-  }, /*#__PURE__*/React.createElement("h2", null, "Portfolio"), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h2", null, t.portfolio), /*#__PURE__*/React.createElement("div", {
     className: "kpis"
   }, /*#__PURE__*/React.createElement("button", {
     className: "kpi",
     "data-on": kpi === null ? "1" : "0",
     onClick: () => setKpi(null)
-  }, /*#__PURE__*/React.createElement("b", null, counts.total), /*#__PURE__*/React.createElement("span", null, "Projects")), /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement("b", null, counts.total), /*#__PURE__*/React.createElement("span", null, t.projects)), /*#__PURE__*/React.createElement("button", {
     className: "kpi",
     "data-on": kpi === "active" ? "1" : "0",
     onClick: () => toggleKpi("active")
-  }, /*#__PURE__*/React.createElement("b", null, counts.active), /*#__PURE__*/React.createElement("span", null, "In progress")), /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement("b", null, counts.active), /*#__PURE__*/React.createElement("span", null, t.inprog)), /*#__PURE__*/React.createElement("button", {
     className: "kpi",
     "data-on": kpi === "done" ? "1" : "0",
     onClick: () => toggleKpi("done")
-  }, /*#__PURE__*/React.createElement("b", null, counts.done), /*#__PURE__*/React.createElement("span", null, "Shipped")), /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement("b", null, counts.done), /*#__PURE__*/React.createElement("span", null, t.shipped)), /*#__PURE__*/React.createElement("button", {
     className: "kpi",
     "data-on": kpi === "hold" ? "1" : "0",
     onClick: () => toggleKpi("hold")
-  }, /*#__PURE__*/React.createElement("b", null, counts.hold), /*#__PURE__*/React.createElement("span", null, "Blocked")), /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement("b", null, counts.hold), /*#__PURE__*/React.createElement("span", null, t.blocked)), /*#__PURE__*/React.createElement("button", {
     className: "kpi",
     onClick: () => setKpi(null)
-  }, /*#__PURE__*/React.createElement("b", null, counts.avg, "%"), /*#__PURE__*/React.createElement("span", null, "Avg progress"))), /*#__PURE__*/React.createElement(Segments, {
+  }, /*#__PURE__*/React.createElement("b", null, counts.avg, "%"), /*#__PURE__*/React.createElement("span", null, t.avg))), /*#__PURE__*/React.createElement(Segments, {
     seg: {
       done: 60,
       active: 22,
@@ -4867,35 +8711,37 @@ function StatusHub() {
     style: {
       background: "var(--cs-color-semantic-success)"
     }
-  }), "Shipped"), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("i", {
+  }), t.shipped), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("i", {
     className: "dot",
     style: {
       background: "var(--cs-color-brand-ochre)"
     }
-  }), "In progress"), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("i", {
+  }), t.inprog), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("i", {
     className: "dot",
     style: {
       background: "var(--cs-color-semantic-danger)"
     }
-  }), "Blocked"), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("i", {
+  }), t.blocked), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("i", {
     className: "dot",
     style: {
       background: "var(--cs-status-todo)"
     }
-  }), "Planned"))), /*#__PURE__*/React.createElement("section", {
+  }), t.planned))), /*#__PURE__*/React.createElement("section", {
     className: "panel"
-  }, /*#__PURE__*/React.createElement("h2", null, "Velocity \xB7 tasks shipped / week"), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h2", null, t.velocity), /*#__PURE__*/React.createElement("div", {
     className: "spark"
   }, D.velocity.map(v => /*#__PURE__*/React.createElement("a", {
     key: v.wk,
-    title: v.n + " shipped"
+    title: v.n + t.perShipped
   }, /*#__PURE__*/React.createElement("b", null, v.n), /*#__PURE__*/React.createElement("i", {
     style: {
       height: v.n / maxV * 72 + "px"
     }
   }), /*#__PURE__*/React.createElement("span", null, v.wk)))))), /*#__PURE__*/React.createElement("div", {
     className: "now"
-  }, /*#__PURE__*/React.createElement("h2", null, "Now shipping"), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("b", null, "v1.6.0 \u2014 Glass bindings + style-pack v2."), " Opt-in ", /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("h2", null, t.nowTitle), lang === "vi" ? /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("b", null, "v1.6.0 \u2014 Li\xEAn k\u1EBFt Glass + g\xF3i phong c\xE1ch v2."), " Li\xEAn k\u1EBFt component ", /*#__PURE__*/React.createElement("span", {
+    className: "mono"
+  }, ".cs-surface-*"), " (t\xF9y ch\u1ECDn), tr\xECnh ki\u1EC3m 0 c\u1EA3nh b\xE1o tr\xEAn c\u1EA3 50 g\xF3i, v\xE0 ki\u1EC3m tra l\u1EA1i APCA cho ch\u1EBF \u0111\u1ED9 t\u1ED1i. Ra m\u1EAFt tu\u1EA7n n\xE0y.") : /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("b", null, "v1.6.0 \u2014 Glass bindings + style-pack v2."), " Opt-in ", /*#__PURE__*/React.createElement("span", {
     className: "mono"
   }, ".cs-surface-*"), " component bindings, a zero-warning verifier across all 50 packs, and a dark-mode APCA re-check. Ships this week.")), /*#__PURE__*/React.createElement("div", {
     className: "bar"
@@ -4904,22 +8750,22 @@ function StatusHub() {
   }, /*#__PURE__*/React.createElement("label", {
     className: "srch"
   }, /*#__PURE__*/React.createElement(SearchGlyph, null), /*#__PURE__*/React.createElement("input", {
-    placeholder: "Search projects\u2026",
+    placeholder: t.search,
     value: q,
     onChange: e => setQ(e.target.value)
   })), /*#__PURE__*/React.createElement("div", {
     className: "lenses",
     role: "tablist",
-    "aria-label": "View"
+    "aria-label": t.view
   }, ["board", "table", "releases"].map(l => /*#__PURE__*/React.createElement("button", {
     key: l,
     className: "ln",
     role: "tab",
     "aria-selected": lens === l,
     onClick: () => setLens(l)
-  }, l[0].toUpperCase() + l.slice(1)))), /*#__PURE__*/React.createElement("label", {
+  }, t.lenses[l]))), /*#__PURE__*/React.createElement("label", {
     className: "facet"
-  }, "Status", /*#__PURE__*/React.createElement("select", {
+  }, t.status, /*#__PURE__*/React.createElement("select", {
     value: kpi || facet,
     onChange: e => {
       setFacet(e.target.value);
@@ -4927,51 +8773,57 @@ function StatusHub() {
     }
   }, /*#__PURE__*/React.createElement("option", {
     value: "all"
-  }, "All"), /*#__PURE__*/React.createElement("option", {
+  }, t.all), /*#__PURE__*/React.createElement("option", {
     value: "active"
-  }, "In progress"), /*#__PURE__*/React.createElement("option", {
+  }, t.inprog), /*#__PURE__*/React.createElement("option", {
     value: "done"
-  }, "Shipped"), /*#__PURE__*/React.createElement("option", {
+  }, t.shipped), /*#__PURE__*/React.createElement("option", {
     value: "hold"
-  }, "Blocked"))), /*#__PURE__*/React.createElement("span", {
+  }, t.blocked))), /*#__PURE__*/React.createElement("span", {
     className: "cnt"
-  }, shown.length, " of ", D.projects.length))), lens === "board" && /*#__PURE__*/React.createElement("div", {
+  }, shown.length, " ", t.of, " ", D.projects.length))), lens === "board" && /*#__PURE__*/React.createElement("div", {
     className: "grid"
-  }, shown.map(p => /*#__PURE__*/React.createElement("button", {
-    className: "card" + (p.status === "active" ? " hot" : ""),
-    key: p.key,
-    onClick: () => setSel(p)
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "card-h"
-  }, /*#__PURE__*/React.createElement("h3", null, /*#__PURE__*/React.createElement("span", {
-    className: "k mono"
-  }, p.key), " \xB7 ", p.name), /*#__PURE__*/React.createElement("span", {
-    className: "pct"
-  }, p.pct, "%")), /*#__PURE__*/React.createElement("p", null, p.blurb), /*#__PURE__*/React.createElement(Segments, {
-    seg: p.seg,
-    className: "minibar"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "task-chips"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "pill " + p.status
-  }, STATUS_LABEL[p.status]), p.tasks.slice(0, 3).map(t => /*#__PURE__*/React.createElement("span", {
-    key: t[0],
-    className: "chip " + t[2]
-  }, t[0])))))), lens === "table" && /*#__PURE__*/React.createElement("div", {
+  }, shown.map(p0 => {
+    const p = loc(p0);
+    return /*#__PURE__*/React.createElement("button", {
+      className: "card" + (p.status === "active" ? " hot" : ""),
+      key: p.key,
+      onClick: () => setSel(p0)
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "card-h"
+    }, /*#__PURE__*/React.createElement("h3", null, /*#__PURE__*/React.createElement("span", {
+      className: "k mono"
+    }, p.key), " \xB7 ", p.name), /*#__PURE__*/React.createElement("span", {
+      className: "pct"
+    }, p.pct, "%")), /*#__PURE__*/React.createElement("p", null, p.blurb), /*#__PURE__*/React.createElement(Segments, {
+      seg: p.seg,
+      className: "minibar"
+    }), /*#__PURE__*/React.createElement("div", {
+      className: "task-chips"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "pill " + p.status
+    }, SL[p.status]), p.tasks.slice(0, 3).map(tk => /*#__PURE__*/React.createElement("span", {
+      key: tk[0],
+      className: "chip " + tk[2]
+    }, tk[0]))));
+  })), lens === "table" && /*#__PURE__*/React.createElement("div", {
     className: "tbl-wrap"
   }, /*#__PURE__*/React.createElement("table", {
     className: "tbl"
-  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Key"), /*#__PURE__*/React.createElement("th", null, "Project"), /*#__PURE__*/React.createElement("th", null, "Squad"), /*#__PURE__*/React.createElement("th", null, "Owner"), /*#__PURE__*/React.createElement("th", null, "Progress"), /*#__PURE__*/React.createElement("th", null, "Status"))), /*#__PURE__*/React.createElement("tbody", null, shown.map(p => /*#__PURE__*/React.createElement("tr", {
-    key: p.key,
-    onClick: () => setSel(p)
-  }, /*#__PURE__*/React.createElement("td", {
-    className: "mono",
-    style: {
-      fontWeight: 700
-    }
-  }, p.key), /*#__PURE__*/React.createElement("td", null, p.name), /*#__PURE__*/React.createElement("td", null, p.squad), /*#__PURE__*/React.createElement("td", null, p.owner), /*#__PURE__*/React.createElement("td", null, p.pct, "%"), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("span", {
-    className: "pill " + p.status
-  }, STATUS_LABEL[p.status]))))))), lens === "releases" && /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, t.key), /*#__PURE__*/React.createElement("th", null, t.project), /*#__PURE__*/React.createElement("th", null, t.squad), /*#__PURE__*/React.createElement("th", null, t.owner), /*#__PURE__*/React.createElement("th", null, t.progress), /*#__PURE__*/React.createElement("th", null, t.status))), /*#__PURE__*/React.createElement("tbody", null, shown.map(p0 => {
+    const p = loc(p0);
+    return /*#__PURE__*/React.createElement("tr", {
+      key: p.key,
+      onClick: () => setSel(p0)
+    }, /*#__PURE__*/React.createElement("td", {
+      className: "mono",
+      style: {
+        fontWeight: 700
+      }
+    }, p.key), /*#__PURE__*/React.createElement("td", null, p.name), /*#__PURE__*/React.createElement("td", null, p.squad), /*#__PURE__*/React.createElement("td", null, p.owner), /*#__PURE__*/React.createElement("td", null, p.pct, "%"), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("span", {
+      className: "pill " + p.status
+    }, SL[p.status])));
+  })))), lens === "releases" && /*#__PURE__*/React.createElement("div", {
     className: "rels"
   }, D.releases.map(r => /*#__PURE__*/React.createElement("div", {
     className: "rel" + (r.now ? " now" : ""),
@@ -4982,19 +8834,22 @@ function StatusHub() {
     className: "rel-h"
   }, /*#__PURE__*/React.createElement("b", null, r.ver), /*#__PURE__*/React.createElement("span", {
     className: "pill " + (r.now ? "active" : "done")
-  }, r.now ? "This week" : "Shipped"), /*#__PURE__*/React.createElement("span", {
+  }, r.now ? t.thisWeek : t.shipped), /*#__PURE__*/React.createElement("span", {
     className: "muted"
-  }, r.when)), /*#__PURE__*/React.createElement("div", {
+  }, VI ? VI.relWhen[r.ver] || r.when : r.when)), /*#__PURE__*/React.createElement("div", {
     className: "rel-sec"
-  }, /*#__PURE__*/React.createElement("h4", null, r.title), /*#__PURE__*/React.createElement("ul", null, r.items.map((it, i) => /*#__PURE__*/React.createElement("li", {
+  }, /*#__PURE__*/React.createElement("h4", null, VI ? VI.relTitles[r.ver] || r.title : r.title), /*#__PURE__*/React.createElement("ul", null, (VI ? VI.relItems[r.ver] || r.items : r.items).map((it, i) => /*#__PURE__*/React.createElement("li", {
     key: i
   }, it)))))))), /*#__PURE__*/React.createElement("p", {
     className: "ft"
-  }, "CyberSkill Status Hub \u2014 a design-system UI kit recreation. Built on ", /*#__PURE__*/React.createElement("span", {
+  }, lang === "vi" ? /*#__PURE__*/React.createElement(React.Fragment, null, "CyberSkill Status Hub \u2014 b\u1EA3n t\xE1i hi\u1EC7n UI kit c\u1EE7a design system. D\u1EF1ng tr\xEAn token ", /*#__PURE__*/React.createElement("span", {
     className: "mono"
-  }, "styles.css"), " tokens. Turn Your Will Into Real.")), /*#__PURE__*/React.createElement(Drawer, {
-    p: sel,
-    onClose: () => setSel(null)
+  }, "styles.css"), ". Turn Your Will Into Real.") : /*#__PURE__*/React.createElement(React.Fragment, null, "CyberSkill Status Hub \u2014 a design-system UI kit recreation. Built on ", /*#__PURE__*/React.createElement("span", {
+    className: "mono"
+  }, "styles.css"), " tokens. Turn Your Will Into Real."))), /*#__PURE__*/React.createElement(Drawer, {
+    p: sel && loc(sel),
+    onClose: () => setSel(null),
+    t: t
   }));
 }
 window.StatusHub = StatusHub;
@@ -5159,6 +9014,61 @@ window.SH_DATA = {
     title: "Brand assets + Logo",
     items: ["Official master mark ships", "React <Logo> from master artwork", "Light becomes default theme"]
   }]
+};
+
+// Vietnamese variants (kit fully EN⇄VN per owner decision, Jul 2026). window.SH_VI
+window.SH_VI = {
+  updated: "18/07/2026, 13:20 ICT",
+  blurbs: {
+    CDS: "Liên kết component Liquid Glass + 50 gói phong cách.",
+    GENIE: "Proxy Claude không cần khóa; luồng tiếp nhận điều ước theo kịch bản.",
+    SITE: "Trang giới thiệu song ngữ kể chuyện; thu lead đang chạy.",
+    OS: "Kho nhớ BRAIN + cổng nghiệm thu có con người.",
+    AUDIT: "Bộ kiểm định trung lập 125 tiêu chí; giữ hạng L3.",
+    TOKENS: "DTCG → CSS/TS/Swift/Kotlin/Flutter/Figma."
+  },
+  risks: {
+    GENIE: "Tài sản GLB là phụ thuộc ngoài khó — chưa chốt đặt hàng (TASK-CHAR-021).",
+    OS: "Bị chặn bởi hạ tầng: sổ cái nguồn gốc cần dịch vụ ký số (mục tiêu Q1 2027)."
+  },
+  owners: {
+    "Design Lead": "Trưởng thiết kế",
+    "AI Lead": "Trưởng AI",
+    "Web Lead": "Trưởng web",
+    "Eng Lead": "Trưởng kỹ thuật",
+    "DesignOps": "DesignOps"
+  },
+  squads: {
+    Platform: "Nền tảng",
+    AI: "AI",
+    Growth: "Tăng trưởng"
+  },
+  updatedRel: {
+    "2h ago": "2 giờ trước",
+    "5h ago": "5 giờ trước",
+    "1h ago": "1 giờ trước",
+    "1d ago": "1 ngày trước",
+    "3d ago": "3 ngày trước",
+    "6h ago": "6 giờ trước"
+  },
+  relWhen: {
+    "v1.6.0": "Tuần này",
+    "v1.5.1": "04/07/2026",
+    "v1.4.0": "13/06/2026",
+    "v1.3.0": "14/05/2026"
+  },
+  relTitles: {
+    "v1.6.0": "Liên kết Glass + gói phong cách v2",
+    "v1.5.1": "50 gói phong cách ra mắt",
+    "v1.4.0": "Liquid Glass vào mã",
+    "v1.3.0": "Tài sản thương hiệu + Logo"
+  },
+  relItems: {
+    "v1.6.0": ["Liên kết component .cs-surface-* (tùy chọn)", "Trình kiểm gói phong cách v2 (0 cảnh báo trên 50 gói)", "Kiểm tra lại APCA cho chế độ tối"],
+    "v1.5.1": ["Cả 50 gói lên trạng thái đã ra mắt", "Regression ảnh chụp từng gói", "Script dựng gallery"],
+    "v1.4.0": ["Scalar --cs-glass-* + --cs-depth-*", "Lớp chất liệu glass.css", "Fallback khi giảm độ trong suốt"],
+    "v1.3.0": ["Master mark chính thức ra mắt", "<Logo> React từ artwork gốc", "Light thành theme mặc định"]
+  }
 };
 })(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/status-hub/data.js", error: String((e && e.message) || e) }); }
 
@@ -5671,6 +9581,10 @@ __ds_ns.LumiAvatar = __ds_scope.LumiAvatar;
 
 __ds_ns.Button = __ds_scope.Button;
 
+__ds_ns.ButtonGroup = __ds_scope.ButtonGroup;
+
+__ds_ns.FloatingActionButton = __ds_scope.FloatingActionButton;
+
 __ds_ns.Accordion = __ds_scope.Accordion;
 
 __ds_ns.Avatar = __ds_scope.Avatar;
@@ -5685,11 +9599,19 @@ __ds_ns.CardBody = __ds_scope.CardBody;
 
 __ds_ns.CardFooter = __ds_scope.CardFooter;
 
+__ds_ns.Carousel = __ds_scope.Carousel;
+
+__ds_ns.Chart = __ds_scope.Chart;
+
 __ds_ns.CodeBlock = __ds_scope.CodeBlock;
+
+__ds_ns.Comment = __ds_scope.Comment;
 
 __ds_ns.DescriptionList = __ds_scope.DescriptionList;
 
 __ds_ns.Divider = __ds_scope.Divider;
+
+__ds_ns.Image = __ds_scope.Image;
 
 __ds_ns.Kbd = __ds_scope.Kbd;
 
@@ -5697,13 +9619,31 @@ __ds_ns.List = __ds_scope.List;
 
 __ds_ns.ListItem = __ds_scope.ListItem;
 
+__ds_ns.Masonry = __ds_scope.Masonry;
+
+__ds_ns.QRCode = __ds_scope.QRCode;
+
+__ds_ns.Sortable = __ds_scope.Sortable;
+
+__ds_ns.Splitter = __ds_scope.Splitter;
+
 __ds_ns.Stat = __ds_scope.Stat;
+
+__ds_ns.Terminal = __ds_scope.Terminal;
 
 __ds_ns.Timeline = __ds_scope.Timeline;
 
 __ds_ns.Tooltip = __ds_scope.Tooltip;
 
+__ds_ns.Tree = __ds_scope.Tree;
+
+__ds_ns.Watermark = __ds_scope.Watermark;
+
+__ds_ns.DataGrid = __ds_scope.DataGrid;
+
 __ds_ns.DataTable = __ds_scope.DataTable;
+
+__ds_ns.TreeTable = __ds_scope.TreeTable;
 
 __ds_ns.Dialog = __ds_scope.Dialog;
 
@@ -5714,6 +9654,8 @@ __ds_ns.Badge = __ds_scope.Badge;
 __ds_ns.EmptyState = __ds_scope.EmptyState;
 
 __ds_ns.ProgressBar = __ds_scope.ProgressBar;
+
+__ds_ns.Result = __ds_scope.Result;
 
 __ds_ns.Skeleton = __ds_scope.Skeleton;
 
@@ -5727,15 +9669,41 @@ __ds_ns.ToastStack = __ds_scope.ToastStack;
 
 __ds_ns.Toast = __ds_scope.Toast;
 
+__ds_ns.Calendar = __ds_scope.Calendar;
+
+__ds_ns.Cascader = __ds_scope.Cascader;
+
 __ds_ns.Checkbox = __ds_scope.Checkbox;
 
+__ds_ns.ColorPicker = __ds_scope.ColorPicker;
+
+__ds_ns.Combobox = __ds_scope.Combobox;
+
+__ds_ns.DatePicker = __ds_scope.DatePicker;
+
+__ds_ns.Editor = __ds_scope.Editor;
+
 __ds_ns.FileUpload = __ds_scope.FileUpload;
+
+__ds_ns.Form = __ds_scope.Form;
+
+__ds_ns.FormField = __ds_scope.FormField;
+
+__ds_ns.InlineEdit = __ds_scope.InlineEdit;
+
+__ds_ns.InputGroup = __ds_scope.InputGroup;
+
+__ds_ns.InputOTP = __ds_scope.InputOTP;
+
+__ds_ns.Mentions = __ds_scope.Mentions;
 
 __ds_ns.NumberField = __ds_scope.NumberField;
 
 __ds_ns.Radio = __ds_scope.Radio;
 
 __ds_ns.RadioGroup = __ds_scope.RadioGroup;
+
+__ds_ns.Rating = __ds_scope.Rating;
 
 __ds_ns.SearchField = __ds_scope.SearchField;
 
@@ -5747,7 +9715,17 @@ __ds_ns.Slider = __ds_scope.Slider;
 
 __ds_ns.Switch = __ds_scope.Switch;
 
+__ds_ns.TagInput = __ds_scope.TagInput;
+
 __ds_ns.Textarea = __ds_scope.Textarea;
+
+__ds_ns.TimePicker = __ds_scope.TimePicker;
+
+__ds_ns.Toggle = __ds_scope.Toggle;
+
+__ds_ns.Transfer = __ds_scope.Transfer;
+
+__ds_ns.TreeSelect = __ds_scope.TreeSelect;
 
 __ds_ns.CS_ICONS = __ds_scope.CS_ICONS;
 
@@ -5759,13 +9737,27 @@ __ds_ns.CS_LOGO_VIEWBOX = __ds_scope.CS_LOGO_VIEWBOX;
 
 __ds_ns.CS_LOGO_MARK_INNER = __ds_scope.CS_LOGO_MARK_INNER;
 
+__ds_ns.Anchor = __ds_scope.Anchor;
+
+__ds_ns.BackTop = __ds_scope.BackTop;
+
 __ds_ns.Breadcrumb = __ds_scope.Breadcrumb;
 
 __ds_ns.CommandPalette = __ds_scope.CommandPalette;
 
+__ds_ns.Dock = __ds_scope.Dock;
+
+__ds_ns.HotKeys = __ds_scope.HotKeys;
+
+__ds_ns.Link = __ds_scope.Link;
+
 __ds_ns.Menu = __ds_scope.Menu;
 
 __ds_ns.MenuItem = __ds_scope.MenuItem;
+
+__ds_ns.Menubar = __ds_scope.Menubar;
+
+__ds_ns.NavigationMenu = __ds_scope.NavigationMenu;
 
 __ds_ns.Pagination = __ds_scope.Pagination;
 
@@ -5779,9 +9771,19 @@ __ds_ns.Tabs = __ds_scope.Tabs;
 
 __ds_ns.Tab = __ds_scope.Tab;
 
+__ds_ns.Toolbar = __ds_scope.Toolbar;
+
+__ds_ns.ContextMenu = __ds_scope.ContextMenu;
+
 __ds_ns.Drawer = __ds_scope.Drawer;
 
+__ds_ns.HoverCard = __ds_scope.HoverCard;
+
+__ds_ns.Popconfirm = __ds_scope.Popconfirm;
+
 __ds_ns.Popover = __ds_scope.Popover;
+
+__ds_ns.Tour = __ds_scope.Tour;
 
 __ds_ns.TextField = __ds_scope.TextField;
 

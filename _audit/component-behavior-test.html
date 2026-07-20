@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>CyberSkill — component behavior smoke test</title>
+<link rel="stylesheet" href="../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../_ds_bundle.js"></script>
+<style>
+  body{margin:0;font-family:var(--cs-font-family-ui,system-ui);background:#efe6d8;color:#231a12;padding:16px 20px}
+  h1{font-size:16px;margin:0 0 2px}
+  .lede{color:#6b5d4f;max-width:900px;line-height:1.5;margin:0 0 14px;font-size:13px}
+  .row{display:flex;justify-content:space-between;gap:10px;padding:6px 10px;border-radius:6px;font:12.5px ui-monospace,monospace;max-width:820px;margin-bottom:2px}
+  .row.ok{background:#dcfce7;color:#166534}
+  .row.bad{background:#FEE2E2;color:#B42318;font-weight:700}
+  .row .d{color:#6b5d4f;font-weight:400}
+  #sum{font-size:15px;font-weight:800;margin:12px 0}
+  #stage{position:fixed;left:-6000px;top:0}
+</style></head><body>
+<h1>Component behavior smoke test</h1>
+<p class="lede">Beyond mount (<code>component-children-test</code>): drives real interactions on the compiled components and asserts state changes — Switch/Checkbox toggle, Accordion single-open, Tabs + SegmentedControl + Pagination controlled selection, CommandPalette filtering, and Menu/Popover/Dialog/Drawer open+close (trigger, Escape, overlay/close-button). Loads <code>_ds_bundle.js</code> (regenerated at end of turn), so re-run on a <b>fresh</b> turn after editing component sources. <code>window.__behavior.pass</code> must be true.</p>
+<div id="list"></div>
+<div id="sum">running…</div>
+<div id="stage"></div>
+<script>
+const h=React.createElement, wait=ms=>new Promise(r=>setTimeout(r,ms));
+const NS=window[Object.keys(window).find(k=>/^CyberSkillDesignSystem_[0-9a-f]{6}$/.test(k))];
+const list=document.getElementById('list'), stage=document.getElementById('stage');
+const results=[];
+function mount(el){ const c=document.createElement('div'); stage.appendChild(c); const root=ReactDOM.createRoot(c); root.render(el); return c; }
+function setInput(input,val){ const set=Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype,'value').set; set.call(input,val); input.dispatchEvent(new Event('input',{bubbles:true})); }
+function record(name,ok,detail){ results.push({name,ok,detail}); const r=document.createElement('div'); r.className='row '+(ok?'ok':'bad'); r.innerHTML='<span>'+(ok?'✓ ':'✗ ')+name+'</span><span class="d">'+detail+'</span>'; list.appendChild(r); }
+async function test(name,fn){ try{ const d=await fn(); record(name,true,d); }catch(e){ record(name,false,String(e.message||e).slice(0,90)); } }
+function assert(c,msg){ if(!c) throw new Error(msg); }
+
+async function run(){
+  if(!NS){ document.getElementById('sum').textContent='✗ bundle namespace not found — is _ds_bundle.js compiled?'; window.__behavior={pass:false,error:'no-namespace'}; return; }
+  const {Switch,Checkbox,Accordion,Tabs,CommandPalette,Menu,MenuItem,Popover,Dialog,Drawer,Pagination,SegmentedControl,Toggle,Rating,InputOTP,Combobox,TagInput,InlineEdit,Popconfirm,Carousel,DataGrid,Button}=NS;
+
+  await test('Switch — click toggles checked',async()=>{
+    assert(Switch,'Switch export missing');
+    const c=mount(h(Switch,{label:'Notify','aria-label':'n'})); await wait(80);
+    const input=c.querySelector('input[role="switch"]'); assert(input,'no switch input');
+    assert(!input.checked,'expected off initially');
+    input.click(); await wait(60);
+    assert(input.checked,'expected on after click');
+    return 'off→on OK';
+  });
+
+  await test('Checkbox — click toggles checked',async()=>{
+    assert(Checkbox,'Checkbox export missing');
+    const c=mount(h(Checkbox,{label:'Agree'})); await wait(80);
+    const input=c.querySelector('.cs-check input[type="checkbox"]'); assert(input,'no checkbox input');
+    assert(!input.checked,'expected unchecked'); input.click(); await wait(60);
+    assert(input.checked,'expected checked after click'); return 'unchecked→checked OK';
+  });
+
+  await test('Accordion — single-open switches panel',async()=>{
+    assert(Accordion,'Accordion export missing');
+    const items=[{title:'One',content:'a'},{title:'Two',content:'b'},{title:'Three',content:'c'}];
+    const c=mount(h(Accordion,{items,defaultOpen:0})); await wait(90);
+    const trig=c.querySelectorAll('.cs-accordion__trigger'); assert(trig.length===3,'want 3 triggers, got '+trig.length);
+    assert(trig[0].getAttribute('aria-expanded')==='true','item0 should start open');
+    assert(c.querySelectorAll('.cs-accordion__panel').length===1,'exactly one panel open');
+    trig[1].click(); await wait(70);
+    assert(trig[1].getAttribute('aria-expanded')==='true','item1 should open on click');
+    assert(trig[0].getAttribute('aria-expanded')==='false','item0 should close (single-open)');
+    return 'open moved 0→1, prior closed';
+  });
+
+  await test('Tabs — controlled selection follows clicks',async()=>{
+    assert(Tabs,'Tabs export missing');
+    function Harness(){ const [v,setV]=React.useState('a');
+      return h(Tabs,{value:v,onChange:setV,tabs:[{label:'A',value:'a'},{label:'B',value:'b'},{label:'C',value:'c'}]}); }
+    const c=mount(h(Harness)); await wait(90);
+    const tabs=c.querySelectorAll('[role="tab"]'); assert(tabs.length===3,'want 3 tabs');
+    assert(tabs[0].getAttribute('aria-selected')==='true','tab A selected initially');
+    tabs[2].click(); await wait(70);
+    assert(tabs[2].getAttribute('aria-selected')==='true','tab C selected after click');
+    assert(tabs[0].getAttribute('aria-selected')==='false','tab A deselected');
+    return 'selection A→C';
+  });
+
+  await test('CommandPalette — typing filters the list',async()=>{
+    assert(CommandPalette,'CommandPalette export missing');
+    const groups=[{label:'Go',items:[{label:'Alpha'},{label:'Beta'},{label:'Gamma'}]}];
+    const c=mount(h(CommandPalette,{open:true,onClose:()=>{},groups})); await wait(90);
+    const scrim=document.querySelector('.cs-cmdk-scrim'); assert(scrim,'palette not open');
+    const before=document.querySelectorAll('.cs-cmdk__item').length; assert(before===3,'want 3 items, got '+before);
+    const input=document.querySelector('.cs-cmdk__search input'); assert(input,'no search input');
+    setInput(input,'alph'); await wait(90);
+    const after=document.querySelectorAll('.cs-cmdk__item').length;
+    assert(after===1,'want 1 filtered item, got '+after);
+    return '3→1 on "alph"';
+  });
+
+  await test('Menu — trigger opens list, Esc closes',async()=>{
+    assert(Menu&&MenuItem,'Menu export missing');
+    const c=mount(h(Menu,{trigger:h('button',{className:'mt'},'Open')},h(MenuItem,{},'A'),h(MenuItem,{},'B'))); await wait(80);
+    assert(!c.querySelector('[role="menu"]'),'menu should start closed');
+    c.querySelector('.mt').click(); await wait(60);
+    assert(c.querySelector('[role="menu"]'),'menu should open on trigger click');
+    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape'})); await wait(60);
+    assert(!c.querySelector('[role="menu"]'),'Escape should close menu');
+    return 'open→Esc close OK';
+  });
+
+  await test('Popover — trigger opens panel, Esc closes',async()=>{
+    assert(Popover,'Popover export missing');
+    const c=mount(h(Popover,{trigger:h('button',{className:'pt'},'Open')},h('div',{},'panel'))); await wait(80);
+    assert(!c.querySelector('.cs-popover__panel'),'popover closed initially');
+    c.querySelector('.pt').click(); await wait(60);
+    assert(c.querySelector('.cs-popover__panel'),'popover opens on click');
+    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape'})); await wait(60);
+    assert(!c.querySelector('.cs-popover__panel'),'Escape closes popover');
+    return 'open→Esc close OK';
+  });
+
+  await test('Dialog — opens modal, overlay click closes',async()=>{
+    assert(Dialog,'Dialog export missing');
+    function DH(){const[o,setO]=React.useState(true);return o?h(Dialog,{open:true,title:'T',onClose:()=>setO(false)},'body'):h('span',{className:'dlgclosed'});}
+    const c=mount(h(DH)); await wait(90);
+    assert(c.querySelector('[role="dialog"][aria-modal="true"]'),'dialog should be open');
+    c.querySelector('.cs-dialog__overlay').click(); await wait(70);
+    assert(!c.querySelector('[role="dialog"]')&&c.querySelector('.dlgclosed'),'overlay click should close');
+    return 'open→overlay close OK';
+  });
+
+  await test('Drawer — opens modal, close button closes',async()=>{
+    assert(Drawer,'Drawer export missing');
+    function DrH(){const[o,setO]=React.useState(true);return h('div',null,o?h(Drawer,{open:true,title:'T',onClose:()=>setO(false)},'body'):h('span',{className:'drwclosed'}));}
+    const c=mount(h(DrH)); await wait(90);
+    assert(c.querySelector('.cs-drawer[role="dialog"]'),'drawer should be open');
+    c.querySelector('.cs-drawer__close').click(); await wait(70);
+    assert(!c.querySelector('.cs-drawer')&&c.querySelector('.drwclosed'),'close button should close');
+    return 'open→close OK';
+  });
+
+  await test('Pagination — clicking a page moves aria-current',async()=>{
+    assert(Pagination,'Pagination export missing');
+    function PH(){const[p,setP]=React.useState(3);return h(Pagination,{page:p,pageCount:12,onChange:setP});}
+    const c=mount(h(PH)); await wait(80);
+    const cur0=c.querySelector('[aria-current="page"]'); assert(cur0&&cur0.textContent==='3','page 3 current initially');
+    const b4=[...c.querySelectorAll('button')].find(b=>b.textContent==='4'); assert(b4,'no page 4 button'); b4.click(); await wait(60);
+    const cur1=c.querySelector('[aria-current="page"]'); assert(cur1&&cur1.textContent==='4','page 4 current after click');
+    return '3→4';
+  });
+
+  await test('SegmentedControl — click moves selection',async()=>{
+    assert(SegmentedControl,'SegmentedControl export missing');
+    function SH(){const[v,setV]=React.useState('a');return h(SegmentedControl,{value:v,onChange:setV,options:[{value:'a',label:'A'},{value:'b',label:'B'},{value:'c',label:'C'}]});}
+    const c=mount(h(SH)); await wait(80);
+    const btns=c.querySelectorAll('[role="tab"]'); assert(btns[0].getAttribute('aria-selected')==='true','A selected initially');
+    btns[2].click(); await wait(60);
+    assert(btns[2].getAttribute('aria-selected')==='true'&&btns[0].getAttribute('aria-selected')==='false','C selected after click');
+    return 'A→C';
+  });
+
+  await test('Toggle — press flips aria-pressed',async()=>{
+    assert(Toggle,'missing'); const c=mount(h(Toggle,{},'B')); await wait(70);
+    const b=c.querySelector('.cs-toggle'); assert(b.getAttribute('aria-pressed')==='false','starts off');
+    b.click(); await wait(50); assert(b.getAttribute('aria-pressed')==='true','on after press'); return 'off→on';
+  });
+  await test('Rating — clicking star 4 checks 4',async()=>{
+    assert(Rating,'missing'); const c=mount(h(Rating,{defaultValue:0})); await wait(70);
+    const r=c.querySelectorAll('[role="radio"]'); assert(r.length===5,'5 stars');
+    r[3].click(); await wait(50); assert(r[3].getAttribute('aria-checked')==='true'&&r[4].getAttribute('aria-checked')==='false','4 checked'); return '0→4';
+  });
+  await test('InputOTP — digit fills box',async()=>{
+    assert(InputOTP,'missing'); const c=mount(h(InputOTP,{length:4})); await wait(70);
+    const ins=c.querySelectorAll('.cs-otp input'); setInput(ins[0],'7'); await wait(60);
+    assert(c.querySelectorAll('.cs-otp input')[0].value==='7','box0=7'); return 'typed 7';
+  });
+  await test('Combobox — filter narrows + pick selects',async()=>{
+    assert(Combobox,'missing'); let got=null;
+    const c=mount(h(Combobox,{options:[{value:'a',label:'Alpha'},{value:'b',label:'Beta'}],onChange:(v)=>{got=v;}})); await wait(70);
+    const inp=c.querySelector('input'); setInput(inp,'Be'); await wait(70);
+    const opts=c.querySelectorAll('.cs-combobox__opt'); assert(opts.length===1,'filtered to 1, got '+opts.length);
+    opts[0].dispatchEvent(new MouseEvent('mousedown',{bubbles:true})); await wait(50);
+    assert(got==='b','picked b'); return 'Be→Beta';
+  });
+  await test('TagInput — Enter adds, Backspace removes',async()=>{
+    assert(TagInput,'missing'); const c=mount(h(TagInput,{defaultValue:['x']})); await wait(70);
+    const inp=c.querySelector('.cs-taginput > input'); setInput(inp,'y'); await wait(40);
+    inp.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true})); await wait(60);
+    assert(c.querySelectorAll('.cs-tag').length===2,'2 tags after add');
+    inp.dispatchEvent(new KeyboardEvent('keydown',{key:'Backspace',bubbles:true})); await wait(60);
+    assert(c.querySelectorAll('.cs-tag').length===1,'1 after backspace'); return 'add+remove';
+  });
+  await test('InlineEdit — Enter commits new text',async()=>{
+    assert(InlineEdit,'missing'); const c=mount(h(InlineEdit,{defaultValue:'A'})); await wait(70);
+    c.querySelector('.cs-inline-edit__view').click(); await wait(60);
+    const inp=c.querySelector('.cs-inline-edit input'); assert(inp,'edit mode'); setInput(inp,'B'); await wait(40);
+    inp.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true})); await wait(60);
+    assert(c.querySelector('.cs-inline-edit__view').textContent.includes('B'),'committed B'); return 'A→B';
+  });
+  await test('Popconfirm — confirm fires onConfirm',async()=>{
+    assert(Popconfirm&&Button,'missing'); let ok=false;
+    const c=mount(h(Popconfirm,{title:'Sure?',onConfirm:()=>{ok=true;},trigger:h(Button,{size:'sm'},'Del')})); await wait(70);
+    c.querySelector('.cs-button').click(); await wait(60);
+    assert(c.querySelector('[role="alertdialog"]'),'bubble open');
+    c.querySelector('.cs-popconfirm__actions .cs-button--primary').click(); await wait(50);
+    assert(ok&&!c.querySelector('[role="alertdialog"]'),'confirmed+closed'); return 'confirm OK';
+  });
+  await test('Carousel — next advances slide',async()=>{
+    assert(Carousel,'missing'); const c=mount(h(Carousel,{},[h('div',{key:1},'S1'),h('div',{key:2},'S2')])); await wait(70);
+    const s=()=>c.querySelectorAll('.cs-carousel__slide');
+    assert(s()[0].getAttribute('aria-hidden')==='false','slide0 visible');
+    c.querySelector('.cs-carousel__nav.next').click(); await wait(60);
+    assert(s()[1].getAttribute('aria-hidden')==='false','slide1 visible'); return '0→1';
+  });
+  await test('DataGrid — sort reorders + checkbox selects',async()=>{
+    assert(DataGrid,'missing'); let sel=[];
+    function GH(){ const [s,setS]=React.useState([]); sel=s; return h(DataGrid,{selectable:true,selected:s,onSelect:setS,rowKey:'k',columns:[{key:'n',header:'N',sortable:true}],rows:[{k:'b',n:'Beta'},{k:'a',n:'Alpha'}]}); }
+    const c=mount(h(GH)); await wait(90);
+    c.querySelector('.cs-datagrid__sort').click(); await wait(60);
+    assert(c.querySelectorAll('tbody td')[1].textContent==='Alpha','sorted asc');
+    c.querySelectorAll('tbody .cs-datagrid__selcol input')[0].click(); await wait(60);
+    assert(sel.length===1,'row selected'); return 'sort+select';
+  });
+
+  const bad=results.filter(r=>!r.ok);
+  window.__behavior={pass:bad.length===0,total:results.length,failed:bad.map(r=>r.name),results};
+  const sum=document.getElementById('sum');
+  sum.textContent=bad.length?('✗ '+bad.length+'/'+results.length+' failed: '+bad.map(r=>r.name).join(', ')):('✓ all '+results.length+' behavior checks pass');
+  sum.style.color=bad.length?'#B42318':'#166534';
+}
+window.addEventListener('load',()=>setTimeout(run,120));
+</script></body></html>

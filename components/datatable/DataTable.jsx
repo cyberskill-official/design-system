@@ -1,4 +1,5 @@
 import React from "react";
+import { makeT, useLang } from "../_i18n/i18n.js";
 
 function cx(...c) { return c.filter(Boolean).join(" "); }
 
@@ -11,12 +12,15 @@ export function DataTable({
   columns,
   rows,
   rowKey = "id",
-  emptyState = "No records",
+  emptyState,
+  lang,
   className,
 }) {
   const normalized = Array.isArray(rows) ? rows : [];
+  const [ref, L] = useLang(lang);
+  const es = emptyState != null ? emptyState : makeT("DataTable", L)("empty");
   return (
-    <div className={cx("cs-table-wrap", className)}>
+    <div ref={ref} className={cx("cs-table-wrap", className)}>
       <table className="cs-table">
         {caption ? <caption>{caption}</caption> : null}
         <thead>
@@ -24,7 +28,7 @@ export function DataTable({
         </thead>
         <tbody>
           {normalized.length === 0 ? (
-            <tr><td colSpan={columns.length} className="cs-table__empty">{emptyState}</td></tr>
+            <tr><td colSpan={columns.length} className="cs-table__empty">{es}</td></tr>
           ) : (
             normalized.map((row, i) => (
               <tr key={row[rowKey] ?? i}>

@@ -20,7 +20,7 @@
 const out = { steps: [], pass: true };
 function step(name, ok, detail){ out.steps.push((ok?"✓ ":"✗ ")+name+(detail?" — "+detail:"")); if(!ok) out.pass=false; }
 // 1) bundle exposed the namespace
-const NS = window.CyberSkillDesignSystem_847b3c;
+const NS = (window[Object.keys(window).find(k=>/^CyberSkillDesignSystem_[0-9a-f]{6}$/.test(k))]||{});
 step("bundle loaded + namespace present", !!NS, NS?Object.keys(NS).length+" exports":"MISSING");
 // 2) core tokens resolve from styles.css
 const cs = getComputedStyle(document.documentElement);

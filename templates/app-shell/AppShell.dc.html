@@ -13,8 +13,8 @@
 </helmet>
 <div data-theme="{{ rootTheme }}" lang="{{ langAttr }}" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" data-cs-expression="{{ exAttr }}" style="display:grid;grid-template-columns:248px 1fr;min-height:100vh;font-family:var(--cs-font-family-ui);color:var(--cs-color-text-primary);background:var(--cs-color-surface-page)">
   <nav class="cs-sidebar">
-    <div style="display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;color:var(--cs-color-brand-umber);padding:6px 12px 14px">
-      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="28" hint-size="28px,28px"></x-import>CyberSkill
+    <div style="display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;color:var(--cs-color-text-primary);padding:6px 12px 14px">
+      <x-import component-from-global-scope="CyberSkillDS.Logo" size="28" hint-size="28px,28px"></x-import>CyberSkill
     </div>
     <div class="cs-sidebar__label">{{ navLabel }}</div>
     <a class="cs-nav-item is-active" href="#">{{ nav1 }}</a>
@@ -26,12 +26,12 @@
 
   <div style="display:flex;flex-direction:column;min-width:0">
     <header style="display:flex;align-items:center;gap:16px;padding:14px 28px;border-bottom:1px solid var(--cs-color-border-default);background:var(--cs-color-surface-panel)">
-      <div style="flex:1;max-width:420px">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.SearchField" placeholder="{{ searchPh }}" hint-size="100%,44px"></x-import>
+      <div style="flex:1;max-width:420px;min-width:0">
+        <x-import component-from-global-scope="CyberSkillDS.SearchField" placeholder="{{ searchPh }}" hint-size="100%,44px"></x-import>
       </div>
       <span style="margin-left:auto"></span>
-      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Button" variant="primary" size="sm" hint-size="130px,36px">{{ newBtn }}</x-import>
-      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Avatar" name="An Le" hint-size="40px,40px"></x-import>
+      <x-import component-from-global-scope="CyberSkillDS.Button" variant="primary" size="sm" hint-size="130px,36px">{{ newBtn }}</x-import>
+      <x-import component-from-global-scope="CyberSkillDS.Avatar" name="An Le" hint-size="40px,40px"></x-import>
     </header>
 
     <main style="padding:28px;display:grid;gap:24px">
@@ -40,13 +40,13 @@
         <p style="color:var(--cs-color-text-muted);margin:0">{{ sub }}</p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;background:var(--cs-color-surface-panel);border:1px solid var(--cs-color-border-default);border-radius:var(--cs-radius-lg);padding:22px 24px">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Stat" label="{{ s1 }}" value="6" hint-size="140px,70px"></x-import>
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Stat" label="{{ s2 }}" value="4" hint-size="140px,70px"></x-import>
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Stat" label="{{ s3 }}" value="1" hint-size="140px,70px"></x-import>
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Stat" label="{{ s4 }}" value="70%" delta="{{ s4d }}" trend="up" hint-size="140px,70px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Stat" label="{{ s1 }}" value="6" hint-size="140px,70px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Stat" label="{{ s2 }}" value="4" hint-size="140px,70px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Stat" label="{{ s3 }}" value="1" hint-size="140px,70px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Stat" label="{{ s4 }}" value="70%" delta="{{ s4d }}" trend="up" hint-size="140px,70px"></x-import>
       </div>
       <div style="background:var(--cs-color-surface-panel);border:1px solid var(--cs-color-border-default);border-radius:var(--cs-radius-lg);padding:6px 18px 12px">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.DataTable" caption="{{ tblCap }}" columns="{{ cols }}" rows="{{ rows }}" row-key="key" hint-size="100%,220px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.DataTable" caption="{{ tblCap }}" columns="{{ cols }}" rows="{{ rows }}" row-key="key" hint-size="100%,220px"></x-import>
       </div>
     </main>
   </div>

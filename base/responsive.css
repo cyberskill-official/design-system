@@ -43,10 +43,13 @@ img, svg, video, canvas { max-width: 100%; height: auto; }
 }
 
 /* 5 — Fixed-pixel export canvases (16:9 decks, social 1080/1200 canvases) sit in a
- * dark desk wrapper tagged .cs-canvas-desk. On narrow screens the wrapper scrolls and
- * the inner track keeps a legible minimum width, so slides never squish or clip. */
+ * dark desk wrapper tagged .cs-canvas-desk. It is ALWAYS a horizontal scroll viewport,
+ * so a slide/canvas wider than the window scrolls INSIDE the desk instead of pushing
+ * the whole page wide — a 16:9 slide's content min-width can exceed the window a little
+ * even on a laptop (≈1280), which otherwise overflowed the document. The legible
+ * min-width floor for the inner track only applies once the window itself is narrow. */
+.cs-canvas-desk { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 @media screen and (max-width: 1120px) {
-  .cs-canvas-desk { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .cs-canvas-desk > * { min-width: 960px; }
 }
 
@@ -94,4 +97,32 @@ img, svg, video, canvas { max-width: 100%; height: auto; }
   .cs-sidebar .cs-nav-item, .cs-nav-item { min-height: 44px; }
   .cs-search { display: flex; align-items: center; min-height: 44px; }
   .cs-search input, .cs-search select { min-height: 44px; }
+}
+
+/* 9 — Unbreakable long tokens force horizontal overflow on narrow screens.
+ * Write-on lines ("______"), long URLs, IDs, hashes, and account numbers have a
+ * min-content width that can exceed a phone column and push the page wider than the
+ * viewport (observed: the agenda / review / PIP fill-in lines overflowed at 390px).
+ * `overflow-wrap: anywhere` lets them break — and unlike `break-word` it ALSO shrinks
+ * the min-content contribution, so grid/flex tracks size down correctly instead of
+ * being propped open. It only breaks a token when it would otherwise overflow, so
+ * ordinary prose is untouched. Scoped to the print-doc wrapper; the print @page is
+ * wide, so this screen breakpoint never fires during export. */
+@media screen and (max-width: 760px) {
+  .cs-desk, .cs-sheet { overflow-wrap: anywhere; }
+}
+
+/* 10 — App-shell layout: sidebar + main is a fixed two-column INLINE grid
+ * (grid-template-columns: 248px 1fr). §4 restyles the .cs-sidebar itself, but the
+ * parent grid still reserved the 248px column, so on a phone the main column (and its
+ * DataTable) was squeezed and overflowed. Collapse the shell grid to one column with
+ * an attribute selector — the compiler serializes the inline value with spaces, and an
+ * attribute selector reliably overrides an inline grid-template-columns (a class
+ * selector does not). Then let the app-region grids shrink (min-width:0) and the data
+ * table scroll inside its panel instead of forcing the page wide. */
+@media screen and (max-width: 760px) {
+  [style*="grid-template-columns: 248px 1fr"] { grid-template-columns: 1fr !important; }
+  main { min-width: 0; }
+  main > * { min-width: 0; }
+  .cs-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 }

@@ -19,7 +19,7 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-const { Tabs, Breadcrumb, Pagination, Menu, MenuItem } = window.CyberSkillDesignSystem_847b3c;
+const { Tabs, Breadcrumb, Pagination, Menu, MenuItem } = (window[Object.keys(window).find(k=>/^CyberSkillDesignSystem_[0-9a-f]{6}$/.test(k))]||{});
 function Demo() {
   const [lens, setLens] = React.useState("board");
   const [page, setPage] = React.useState(3);

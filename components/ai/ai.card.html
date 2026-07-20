@@ -18,7 +18,7 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-const { AIDisclosureBadge, HumanReviewGate } = window.CyberSkillDesignSystem_847b3c;
+const { AIDisclosureBadge, HumanReviewGate } = (window[Object.keys(window).find(k=>/^CyberSkillDesignSystem_[0-9a-f]{6}$/.test(k))]||{});
 function Demo() {
   return (
     <div className="stack">

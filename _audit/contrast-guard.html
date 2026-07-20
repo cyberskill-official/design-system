@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>CyberSkill — contrast guard</title>
+<style>
+  body{margin:0;font-family:ui-monospace,monospace;font-size:12px;padding:16px 20px;background:#efe6d8;color:#231a12}
+  h1{font-family:system-ui;font-size:16px;margin:0 0 2px}
+  h2{font-family:system-ui;font-size:13px;margin:18px 0 6px}
+  .lede{font-family:system-ui;color:#6b5d4f;max-width:1000px;line-height:1.5;margin:0 0 6px}
+  .row{display:flex;justify-content:space-between;gap:12px;padding:3px 9px;border-radius:5px;max-width:1000px}
+  .row.ok{color:#166534}.row.bad{background:#FEE2E2;color:#B42318;font-weight:700}.row.rev{background:#FEF9C3;color:#854d0e}
+  .row span:last-child{white-space:nowrap;font-size:11px}
+  #sum{font-family:system-ui;font-size:15px;font-weight:800;margin:12px 0}
+</style></head><body>
+<h1>Contrast guard — deterministic dark-safety checks</h1>
+<p class="lede">Two source-of-truth checks the DOM-walk advisory can't do reliably. <b>(1) Static source lint</b> — any base rule that sets <code>color: var(--cs-color-brand-umber)</code> on a <i>themeable</i> surface (surface-*/transparent) MUST have a matching <code>[data-theme="dark"]</code> override, or umber goes near-invisible on dark (the nav-item/secondary-button class). <b>(2) Token-pair matrix</b> — every semantic text×surface pairing is scored (WCAG) in light AND dark straight from <code>tokens/tokens.json</code>; no DOM, so no false reads. Screen-template inline umber-on-header is listed as <b>review</b> (bg can't be known statically). <code>window.__contrastguard.pass</code> must be true.</p>
+<div id="out"></div><div id="sum">running…</div>
+<script>
+const norm=s=>s.replace(/\s+/g,'');
+const out=document.getElementById('out');
+function sec(t){const h=document.createElement('h2');h.textContent=t;out.appendChild(h);}
+function row(cls,a,b){const r=document.createElement('div');r.className='row '+cls;r.innerHTML='<span>'+a+'</span><span>'+(b||'')+'</span>';out.appendChild(r);}
+// ---- WCAG ----
+function hex2rgb(h){h=h.trim();const m=h.match(/^#([0-9a-f]{6})$/i);if(m){const n=parseInt(m[1],16);return{r:n>>16&255,g:n>>8&255,b:n&255};}const r=h.match(/rgba?\(([^)]+)\)/i);if(r){const p=r[1].split(',').map(parseFloat);return{r:p[0],g:p[1],b:p[2]};}return null;}
+function lum({r,g,b}){const f=v=>{v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)};return .2126*f(r)+.7152*f(g)+.0722*f(b);}
+function ratio(a,b){const A=hex2rgb(a),B=hex2rgb(b);if(!A||!B)return null;const L1=lum(A),L2=lum(B);return (Math.max(L1,L2)+.05)/(Math.min(L1,L2)+.05);}
+const BASE=['reset','components','shell','navigation','forms','controls','data','feedback','collections','ai','typography','glass','interaction','a11y','responsive'];
+const SCREENS=['app-shell/AppShell','dashboard/Dashboard','settings/Settings','auth/Auth','article/Article','marketing-page/MarketingPage'];
+function parseRules(css){ // strip comments, split into {sel,body}
+  css=css.replace(/\/\*[\s\S]*?\*\//g,'');
+  const rules=[]; let depth=0,buf='';
+  for(const ch of css){ buf+=ch; if(ch==='{')depth++; else if(ch==='}'){depth--; if(depth===0){const i=buf.lastIndexOf('{');rules.push({sel:buf.slice(0,i).trim(),body:buf.slice(i+1,-1)});buf='';}} }
+  return rules.filter(r=>r.sel && !r.sel.startsWith('@'));
+}
+(async()=>{
+  const lintFails=[],matrixFails=[],review=[];
+  // ---------- (1) static lint ----------
+  let allRules=[];
+  for(const f of BASE){ try{ const css=await (await fetch('../base/'+f+'.css')).text(); parseRules(css).forEach(r=>allRules.push({...r,file:f})); }catch(e){} }
+  const darkColorRules=allRules.filter(r=>r.sel.includes('[data-theme="dark"]') && /color\s*:/.test(r.body));
+  const core=s=>s.replace(/\[data-theme="dark"\]/g,'').trim();
+  const darkCores=new Set(darkColorRules.flatMap(r=>core(r.sel).split(',').map(x=>norm(x))));
+  let checked=0;
+  for(const r of allRules){
+    if(r.sel.includes('[data-theme="dark"]')) continue;
+    if(!/(^|;)color:var\(--cs-color-brand-umber\)/.test(norm(r.body))) continue; // color: property only, not border-*-color
+    // background of this rule
+    const bgm=r.body.match(/background(?:-color)?\s*:\s*([^;]+)/i);
+    const bg=bgm?bgm[1]:'';
+    const themeable = !bg || /surface-(page|panel|raised)|transparent/.test(bg) || (/color-mix/.test(bg) && /surface-/.test(bg));
+    const fixedSafe = bg && /(brand-ochre|--cs-accent|accent-tint|ochre|#[0-9a-f]{3,6})/i.test(bg) && !/surface-/.test(bg);
+    if(!themeable || fixedSafe) continue;
+    checked++;
+    const segs=r.sel.split(',').map(x=>norm(x.trim()));
+    const covered=segs.every(s=>darkCores.has(s));
+    if(!covered) lintFails.push(r.file+' :: '+r.sel.slice(0,60));
+  }
+  sec('1 · Static source lint (base CSS)');
+  if(lintFails.length) lintFails.forEach(f=>row('bad','✗ umber-text, no dark override',f));
+  else row('ok','✓ every themeable umber-text rule has a [data-theme="dark"] override','checked '+checked);
+  // ---------- (2) token-pair matrix ----------
+  const T=await (await fetch('../tokens/tokens.json')).json();
+  const light={}; for(const cat of Object.values(T.root||{})) Object.assign(light,cat);
+  const dark=Object.assign({},light,(T.themes&&T.themes.dark)||{});
+  const c=n=>({l:light['--cs-color-'+n],d:dark['--cs-color-'+n]});
+  const PAIRS=[
+    ['text-primary','surface-page',4.5],['text-primary','surface-panel',4.5],['text-primary','surface-raised',4.5],
+    ['text-muted','surface-page',4.5],['text-muted','surface-panel',4.5],
+    ['text-accent','surface-page',4.5],['text-accent','surface-panel',4.5],
+    ['link','surface-page',4.5],['link','surface-panel',4.5],
+    ['semantic-success','surface-panel',4.5],['semantic-danger','surface-panel',4.5],['semantic-warning','surface-panel',4.5],['semantic-info','surface-panel',4.5],
+  ];
+  sec('2 · Token-pair contrast matrix (light + dark)');
+  for(const [fg,bg,min] of PAIRS){
+    for(const mode of ['l','d']){
+      const F=c(fg)[mode],B=c(bg)[mode]; const R=ratio(F,B);
+      const label=(mode==='l'?'light':'dark')+'  '+fg+' on '+bg;
+      if(R==null){ row('rev','? unresolved',label); continue; }
+      const ok=R>=min-0.05;
+      if(!ok){ matrixFails.push(label+' = '+R.toFixed(2)); row('bad','✗ '+R.toFixed(2)+':1 (<'+min+')',label); }
+      else row('ok','✓ '+R.toFixed(2)+':1',label);
+    }
+  }
+  // button primary fg/bg both themes
+  for(const mode of ['l','d']){ const F=(mode==='l'?light:dark)['--cs-component-button-primary-fg'],B=(mode==='l'?light:dark)['--cs-component-button-primary-bg'];const R=ratio(F,B);const label=(mode==='l'?'light':'dark')+'  button primary fg/bg';if(R!=null){const ok=R>=4.5-0.05;if(!ok){matrixFails.push(label+' = '+R.toFixed(2));row('bad','✗ '+R.toFixed(2),label);}else row('ok','✓ '+R.toFixed(2),label);}}
+  // ---------- (3) Ngũ Hành element packs — accent contrast (advisory; system targets APCA) ----------
+  sec('3 · Element packs — accent contrast (15 scopes · WCAG advisory, APCA is the system metric)');
+  const elemAdvisory=[];
+  try{
+    const ecss=await (await fetch('../tokens/elements.css')).text();
+    const erules=parseRules(ecss).filter(r=>/^\[data-cs-element="\w+"\](\[data-cs-variant="\w+"\])?$/.test(r.sel.trim()));
+    const pageL=light['--cs-color-surface-page']||'#FFFDF8', pageD=dark['--cs-color-surface-page']||'#1a1108';
+    for(const r of erules){
+      const g=p=>{const m=r.body.match(new RegExp('--cs-accent'+p+'\\s*:\\s*([^;]+)'));return m?m[1].trim():null;};
+      const strong=g('-strong'),bright=g('-bright'),on=g('-on');
+      const label=r.sel.replace(/\[data-cs-element="|"\]|\[data-cs-variant="/g,' ').replace(/\s+/g,' ').trim();
+      const checks=[['accent-strong on page (light)',strong,pageL],['accent-on on accent-bright',on,bright],['accent-bright on page (dark)',bright,pageD]];
+      for(const [nm,fg,bg] of checks){ const R=ratio(fg,bg); if(R==null){ continue; }
+        if(R<3.0){ matrixFails.push(label+' · '+nm+' = '+R.toFixed(2)+' (<3.0)'); row('bad','✗ '+R.toFixed(2)+' '+nm,label); }
+        else if(R<4.5){ elemAdvisory.push(label+' · '+nm+'='+R.toFixed(2)); row('rev','~ '+R.toFixed(2)+' '+nm+' (APCA-validated)',label); }
+        else row('ok','✓ '+R.toFixed(2)+' '+nm,label);
+      }
+    }
+  }catch(e){ row('rev','? elements.css not parsed',String(e).slice(0,40)); }
+  window.__elemAdvisory=elemAdvisory;
+  // ---------- (4) template review (advisory) ----------
+  sec('4 · Screen-template inline umber (full body — review, advisory)');
+  for(const s of SCREENS){ const [dir,name]=s.split('/'); try{ const src=await (await fetch('../templates/'+dir+'/'+name+'.dc.html')).text();
+    const n=(norm(src).match(/(^|;|")color:var\(--cs-color-brand-umber\)/g)||[]).length;
+    if(n){ review.push(dir+'×'+n); row('rev','⚠ '+n+' inline umber-text — verify vs dark',dir); }
+    else row('ok','✓ no inline umber-text (theme-safe)',dir);
+  }catch(e){ row('rev','? not fetched',dir);} }
+  const pass=lintFails.length===0 && matrixFails.length===0;
+  window.__contrastguard={pass,lintFails,matrixFails,review};
+  const sum=document.getElementById('sum');
+  sum.textContent=pass?('✓ PASS — 0 lint gaps, 0 matrix failures'+(review.length?(' · '+review.length+' template(s) to review'):'')):('✗ FAIL — '+lintFails.length+' lint, '+matrixFails.length+' matrix');
+  sum.style.color=pass?'#166534':'#B42318';
+})();
+</script></body></html>

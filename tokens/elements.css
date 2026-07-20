@@ -36,6 +36,34 @@
   --cs-accent-grad-b: #C77B4A;
 }
 
+/* ---- Element reach beyond accent (v3 Batch-0 foundation, Jul 2026) ----
+ * Owner concern: switching Element barely changed the page because elements only
+ * remapped the 9 ACCENT tokens (a small % of pixels). Now every element scope also
+ * washes page + panel + raised surfaces + borders with its own accent, so the WHOLE
+ * surface reads as the element. Per-theme literal bases keep each elevation tier's
+ * hierarchy and contrast intact (tints capped low: text still sits ≥AA on every
+ * surface). Pages with NO element attribute are untouched (default Thổ look). */
+[data-cs-element] {
+  --cs-color-surface-panel: color-mix(in oklab, var(--cs-accent) 4%, #FFFFFF);
+  --cs-color-surface-page: color-mix(in oklab, var(--cs-accent) 8%, #FFFDF8);
+  --cs-color-surface-raised: color-mix(in oklab, var(--cs-accent) 15%, #FBF4E9);
+  --cs-color-border-default: color-mix(in oklab, var(--cs-accent) 40%, #E7D9C6);
+}
+[data-theme="dark"] [data-cs-element], [data-cs-element][data-theme="dark"] {
+  --cs-color-surface-panel: color-mix(in oklab, var(--cs-accent) 10%, #221710);
+  --cs-color-surface-page: color-mix(in oklab, var(--cs-accent) 8%, #1a1108);
+  --cs-color-surface-raised: color-mix(in oklab, var(--cs-accent) 14%, #2b1e14);
+  --cs-color-border-default: color-mix(in oklab, var(--cs-accent) 40%, #4a3a2c);
+}
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"] [data-cs-element], [data-cs-element][data-theme="system"] {
+    --cs-color-surface-panel: color-mix(in oklab, var(--cs-accent) 10%, #221710);
+    --cs-color-surface-page: color-mix(in oklab, var(--cs-accent) 8%, #1a1108);
+    --cs-color-surface-raised: color-mix(in oklab, var(--cs-accent) 14%, #2b1e14);
+    --cs-color-border-default: color-mix(in oklab, var(--cs-accent) 40%, #4a3a2c);
+  }
+}
+
 /* ---- Thổ · Earth — the mother brand (explicit; equals the defaults) ---- */
 [data-cs-element="tho"] {
   --cs-accent: #F4BA17; --cs-accent-strong: #B98200; --cs-accent-bright: #F4BA17;

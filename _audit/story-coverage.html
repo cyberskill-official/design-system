@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>CyberSkill — Atomic View story coverage</title>
+<link rel="stylesheet" href="../styles.css">
+<script src="../_ds_bundle.js"></script>
+<style>
+  body{margin:0;font-family:ui-monospace,monospace;font-size:12.5px;padding:16px 20px;background:#efe6d8;color:#231a12}
+  h1{font-family:system-ui;font-size:16px;margin:0 0 2px}
+  .lede{font-family:system-ui;color:#6b5d4f;max-width:960px;line-height:1.5;margin:0 0 10px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px 18px;max-width:1000px}
+  .r{padding:2px 8px;border-radius:4px}.r.ok{color:#166534}.r.bad{background:#FEE2E2;color:#B42318;font-weight:700}
+  #sum{font-family:system-ui;font-size:15px;font-weight:800;margin:12px 0}
+</style></head><body>
+<h1>Atomic View — story coverage</h1>
+<p class="lede">Guards <code>guidelines/atomic-view.html</code> against drift: every primary component export on the bundle must appear in the Atomic View source (sub-parts like <code>Tab</code>, <code>MenuItem</code>, <code>CardHeader</code> and data consts are excluded — they're shown inside a parent's story). Add a component without a story → this fails. Loads the bundle (compiled at end of turn); re-run on a fresh turn. <code>window.__storycov.pass</code> must be true.</p>
+<div class="grid" id="out"></div><div id="sum">running…</div>
+<script>
+const EXCLUDE=new Set(['Tab','Radio','MenuItem','ListItem','AvatarGroup','ToastStack','CardHeader','CardBody','CardFooter','CS_ICONS','CS_LOGO_MARK_INNER','CS_LOGO_VIEWBOX']);
+(async()=>{
+  const NS=window[Object.keys(window).find(k=>/^CyberSkillDesignSystem_[0-9a-f]{6}$/.test(k))];
+  const out=document.getElementById('out'),sum=document.getElementById('sum');
+  if(!NS){ sum.textContent='✗ bundle not loaded (compiled at end of turn)'; window.__storycov={pass:false,error:'no-namespace'}; return; }
+  const src=await (await fetch('../guidelines/atomic-view.html')).text();
+  const exports=Object.keys(NS).filter(k=>/^[A-Z]/.test(k) && !EXCLUDE.has(k));
+  const missing=[];
+  exports.sort().forEach(name=>{
+    const present=new RegExp('\\b'+name+'\\b').test(src);
+    if(!present) missing.push(name);
+    const d=document.createElement('div');d.className='r '+(present?'ok':'bad');d.textContent=(present?'✓ ':'✗ ')+name;out.appendChild(d);
+  });
+  const pass=missing.length===0;
+  window.__storycov={pass,total:exports.length,missing};
+  sum.textContent=pass?('✓ all '+exports.length+' primary components have a story'):('✗ '+missing.length+' without a story: '+missing.join(', '));
+  sum.style.color=pass?'#166534':'#B42318';
+})();
+</script></body></html>

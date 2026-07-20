@@ -55,6 +55,12 @@
 }
 .cs-button--ghost:hover { background: var(--cs-color-surface-raised, #fbf4e9); filter: none; }
 
+/* Dark theme: umber text/border on the low-emphasis buttons is invisible on dark surfaces —
+   remap so secondary reads as an ochre outline and tertiary/ghost use the light body colour. */
+[data-theme="dark"] .cs-button--secondary { color: var(--cs-color-brand-ochre); border-color: var(--cs-color-brand-ochre); }
+[data-theme="dark"] .cs-button--tertiary { color: var(--cs-color-text-primary); }
+[data-theme="dark"] .cs-button--ghost { color: var(--cs-color-text-primary); }
+
 .cs-button--danger {
   background: var(--cs-color-semantic-danger, #b42318);
   color: var(--cs-color-text-inverse, #ffffff);

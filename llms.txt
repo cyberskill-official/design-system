@@ -1,19 +1,20 @@
 # CyberSkill Design System
-> HTML-first, Vietnamese-first design system. Immutable anchors: Umber #45210E · Ochre #F4BA17. Three independent axes — Theme × Element (Ngũ Hành) × Expression. Current: v2.16.1. This file is the agent/tool front door: it maps each audience to the format it should consume.
+> HTML-first, Vietnamese-first design system. Immutable anchors: Umber #45210E · Ochre #F4BA17. Three independent axes — Theme × Element (Ngũ Hành) × Expression × Language. Current: v3.0.2. This file is the agent/tool front door: it maps each audience to the format it should consume.
 
 ## Consume by audience (the portable contract works everywhere; the DC layer is Claude-Design-only)
 - **Any web / framework / email (Vue, Svelte, plain HTML, React):** link `styles.css` — every `--cs-*` token, the `.cs-*` component classes, Liquid Glass surfaces. Framework-agnostic, no build step.
-- **React (production):** `styles.css` + `<script src="_ds_bundle.js">`, then `const { Button, … } = window.CyberSkillDesignSystem_847b3c`. Proven green by `_audit/consumer-smoke-test.html`.
-- **Design tools / native / token pipelines / other agents (Figma, Google Stitch, Style Dictionary):** `tokens/tokens.json` (+ `tokens/tokens.js` ESM) — every token grouped by category, plus theme/element/expression override maps. This is the canonical cross-tool contract.
+- **React (production):** `styles.css` + `<script src="_ds_bundle.js">`, then resolve the bundle global by prefix (its `_<projectId>` suffix is compiler-assigned and changes on re-import): `const CS = window[Object.keys(window).find(k => /^CyberSkillDesignSystem_/.test(k))]; const { Button, … } = CS`. Proven green by `_audit/consumer-smoke-test.html`. (Templates load via `ds-base.js`, which publishes a stable `window.CyberSkillDS` alias for the same reason.)
+- **Design tools / native / token pipelines / other agents (Figma, Google Stitch, Style Dictionary):** `tokens/tokens.json` (+ `tokens/tokens.js` ESM, + `tokens/tokens.dtcg.json` in **W3C DTCG** format for Tokens Studio for Figma / Style Dictionary) — every token grouped by category, plus theme/element/expression override maps. This is the canonical cross-tool contract.
 - **Claude Design (authoring + live preview):** `templates/**/*.dc.html` Design Components + the compiler (tweaks, `x-import`, `@dsCard` cards). Native to Claude Design — not portable; other tools consume the outputs above, not these.
 
 ## Key files
+- `dashboard.html` — single-page hub (tabs: Atomic View + playgrounds · 8-gate runner · Identity Lab; live version/counts)
 - `styles.css` — single entry point (`@import`s `tokens/` then `base/`)
-- `tokens/` — 476 tokens (colours · type · spacing · motion · elevation · `elements.css` · `expressions.css`) as CSS custom properties + `tokens.json` / `tokens.js`
+- `tokens/` — 505 tokens (colours · type · spacing · motion · elevation · `elements.css` · `expressions.css`) as CSS custom properties + `tokens.json` / `tokens.js` / `tokens.dtcg.json` (W3C DTCG)
 - `base/` — reset, component classes (`.cs-*`), a11y, responsive, glass
-- `components/` — 54 components / 67 exports, each `.jsx` + `.d.ts` + `.prompt.md` + a `@dsCard` card
+- `components/` — 99 components / 113 exports, each `.jsx` + `.d.ts` + `.prompt.md` + a `@dsCard` card
 - `templates/` — copyable starting points (`.dc.html`); `email-safe/` send-ready emails; `kitchen-sink.html`; `playground.html`
-- `guidelines/` — specimen cards · `ui_kits/` — full product recreations · `fonts/` — self-hosted woff2 (VN subset) · `assets/` — logo/favicon/mascot
+- `guidelines/` — specimen cards + `atomic-view.html` (Storybook-style component browser: Atomic tiers × Theme × Element × Expression) · `ui_kits/` — full product recreations · `fonts/` — self-hosted woff2 (VN subset) · `assets/` — logo/favicon/mascot
 - `docs/` — `conventions.md` (authoring rules + decision log) · `consuming.md` · `sync.md` · `contrast-report.md` · `products.md`
 - `README.md` · `CHANGELOG.md` · `CONTRIBUTING.md` · `SKILL.md` · `VERSION`
 

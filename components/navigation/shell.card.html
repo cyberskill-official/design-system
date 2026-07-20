@@ -11,6 +11,7 @@
   .sb { border: 1px solid var(--cs-color-border-default); border-radius: var(--cs-radius-lg); overflow: hidden; }
   .frame { position: relative; overflow: hidden; height: 210px; border: 1px solid var(--cs-color-border-default); border-radius: var(--cs-radius-lg); margin-top: 18px; background: var(--cs-color-surface-raised); }
   .frame .cs-cmdk-scrim { position: absolute; padding-top: 14px; }
+  .frame .cs-cmdk { inline-size: 100%; box-shadow: none; }
 </style>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
@@ -20,7 +21,7 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-const { Sidebar, NavItem, Steps, CommandPalette, Badge } = window.CyberSkillDesignSystem_847b3c;
+const { Sidebar, NavItem, Steps, CommandPalette, Badge } = (window[Object.keys(window).find(k=>/^CyberSkillDesignSystem_[0-9a-f]{6}$/.test(k))]||{});
 function Demo() {
   return (
     <div>

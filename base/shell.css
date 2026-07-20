@@ -8,6 +8,8 @@
 .cs-nav-item__icon { flex: none; color: var(--cs-color-text-muted); display: grid; place-items: center; }
 .cs-nav-item.is-active { background: color-mix(in oklab, var(--cs-color-brand-ochre) 22%, var(--cs-color-surface-panel)); color: var(--cs-color-brand-umber); }
 .cs-nav-item.is-active .cs-nav-item__icon { color: var(--cs-color-brand-umber); }
+[data-theme="dark"] .cs-nav-item.is-active { color: var(--cs-color-brand-ochre); }
+[data-theme="dark"] .cs-nav-item.is-active .cs-nav-item__icon { color: var(--cs-color-brand-ochre); }
 .cs-nav-item__trail { margin-inline-start: auto; }
 
 /* Steps */

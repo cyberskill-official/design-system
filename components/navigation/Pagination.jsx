@@ -1,4 +1,5 @@
 import React from "react";
+import { makeT, useLang } from "../_i18n/i18n.js";
 function cx(...c) { return c.filter(Boolean).join(" "); }
 
 function pages(page, count) {
@@ -13,17 +14,19 @@ function pages(page, count) {
 }
 
 /** CyberSkill Pagination — page controls with prev/next and ellipsis. */
-export function Pagination({ page = 1, pageCount = 1, onChange, className, ...props }) {
+export function Pagination({ page = 1, pageCount = 1, onChange, lang, className, ...props }) {
   const go = (p) => onChange && p >= 1 && p <= pageCount && p !== page && onChange(p);
+  const [ref, L] = useLang(lang);
+  const t = makeT("Pagination", L);
   return (
-    <nav aria-label="Pagination" className={cx("cs-pagination", className)} {...props}>
-      <button type="button" onClick={() => go(page - 1)} disabled={page <= 1} aria-label="Previous page">‹</button>
+    <nav ref={ref} aria-label={t("label")} className={cx("cs-pagination", className)} {...props}>
+      <button type="button" onClick={() => go(page - 1)} disabled={page <= 1} aria-label={t("prev")}>‹</button>
       {pages(page, pageCount).map((p, i) =>
         p === "…"
           ? <span key={"e" + i} className="cs-pagination__ellipsis" aria-hidden="true">…</span>
           : <button key={p} type="button" aria-current={p === page ? "page" : undefined} onClick={() => go(p)}>{p}</button>
       )}
-      <button type="button" onClick={() => go(page + 1)} disabled={page >= pageCount} aria-label="Next page">›</button>
+      <button type="button" onClick={() => go(page + 1)} disabled={page >= pageCount} aria-label={t("next")}>›</button>
     </nav>
   );
 }

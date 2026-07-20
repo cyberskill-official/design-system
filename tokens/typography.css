@@ -52,6 +52,14 @@
   --cs-letter-spacing-normal: 0;
   --cs-letter-spacing-caps: 0.08em; /* uppercase eyebrows / table headers */
 
+  /* Heading treatment (Expression-overridable — the TYPE half of the treatment axis,
+   * v3 Batch 0). Expressions retune these so headings read Swiss / editorial / luxe /
+   * brutalist, not just via radius+shadow. Base = today's values (extrabold, tight). */
+  --cs-heading-family: var(--cs-font-family-ui);
+  --cs-heading-weight-strong: var(--cs-font-weight-extrabold); /* display · h1 */
+  --cs-heading-weight: var(--cs-font-weight-bold);             /* h2 · h3 */
+  --cs-heading-tracking: var(--cs-letter-spacing-tight);
+
   /* Icon sizes (line-icon set) */
   --cs-icon-sm: 16px;
   --cs-icon-md: 20px;

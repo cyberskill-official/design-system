@@ -18,7 +18,7 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-const { SearchField, NumberField, Slider, FileUpload, SegmentedControl } = window.CyberSkillDesignSystem_847b3c;
+const { SearchField, NumberField, Slider, FileUpload, SegmentedControl } = (window[Object.keys(window).find(k=>/^CyberSkillDesignSystem_[0-9a-f]{6}$/.test(k))]||{});
 const { useState } = React;
 function Demo() {
   const [q, setQ] = useState("Design System");

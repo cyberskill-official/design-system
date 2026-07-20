@@ -17,7 +17,7 @@
     <section style="position:relative;width:100%;aspect-ratio:16/9;background:var(--cs-accent-ink);color:#fff;border-radius:var(--cs-radius-lg);overflow:hidden;box-shadow:var(--cs-shadow-xl);display:flex;flex-direction:column;justify-content:center;padding:0 88px">
       <div style="position:absolute;inset:0;background:radial-gradient(110% 80% at 85% -5%, color-mix(in srgb, var(--cs-accent-glow) 52%, transparent), transparent 58%);pointer-events:none"></div>
       <div style="position:relative;display:flex;align-items:center;gap:14px;margin-bottom:26px">
-        <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="46" hint-size="46px,46px"></x-import>
+        <x-import component-from-global-scope="CyberSkillDS.Logo" size="46" hint-size="46px,46px"></x-import>
         <span style="font-weight:800;font-size:22px;letter-spacing:-0.01em">CyberSkill</span>
       </div>
       <div style="position:relative;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--cs-accent-bright)">{{ s1kicker }}</div>
@@ -71,9 +71,9 @@
       <div style="font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--cs-color-text-accent)">{{ s6kicker }}</div>
       <h2 style="font-size:44px;font-weight:800;letter-spacing:-0.02em;margin:10px 0 34px">{{ s6h }}</h2>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
-        <div style="display:flex;align-items:center;gap:16px"><x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Avatar" name="Minh Trần" size="lg" hint-size="52px,52px"></x-import><div><div style="font-weight:800;font-size:20px">Minh Trần</div><div style="font-size:16px;color:var(--cs-color-text-muted)">{{ role1 }}</div></div></div>
-        <div style="display:flex;align-items:center;gap:16px"><x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Avatar" name="Lan Phạm" size="lg" hint-size="52px,52px"></x-import><div><div style="font-weight:800;font-size:20px">Lan Phạm</div><div style="font-size:16px;color:var(--cs-color-text-muted)">{{ role2 }}</div></div></div>
-        <div style="display:flex;align-items:center;gap:16px"><x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Avatar" name="Vũ Nguyễn" size="lg" hint-size="52px,52px"></x-import><div><div style="font-weight:800;font-size:20px">Vũ Nguyễn</div><div style="font-size:16px;color:var(--cs-color-text-muted)">{{ role3 }}</div></div></div>
+        <div style="display:flex;align-items:center;gap:16px"><x-import component-from-global-scope="CyberSkillDS.Avatar" name="Minh Trần" size="lg" hint-size="52px,52px"></x-import><div><div style="font-weight:800;font-size:20px">Minh Trần</div><div style="font-size:16px;color:var(--cs-color-text-muted)">{{ role1 }}</div></div></div>
+        <div style="display:flex;align-items:center;gap:16px"><x-import component-from-global-scope="CyberSkillDS.Avatar" name="Lan Phạm" size="lg" hint-size="52px,52px"></x-import><div><div style="font-weight:800;font-size:20px">Lan Phạm</div><div style="font-size:16px;color:var(--cs-color-text-muted)">{{ role2 }}</div></div></div>
+        <div style="display:flex;align-items:center;gap:16px"><x-import component-from-global-scope="CyberSkillDS.Avatar" name="Vũ Nguyễn" size="lg" hint-size="52px,52px"></x-import><div><div style="font-weight:800;font-size:20px">Vũ Nguyễn</div><div style="font-size:16px;color:var(--cs-color-text-muted)">{{ role3 }}</div></div></div>
       </div>
       <sc-if value="{{ showNumbers }}"><div style="position:absolute;bottom:40px;right:88px;font-family:var(--cs-font-family-mono);font-size:14px;color:var(--cs-color-text-muted)">06 / 08</div></sc-if>
     </section>
@@ -90,7 +90,7 @@
     </section>
 
     <section style="position:relative;width:100%;aspect-ratio:16/9;background:var(--cs-accent-ink);color:#fff;border-radius:var(--cs-radius-lg);overflow:hidden;box-shadow:var(--cs-shadow-xl);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 88px">
-      <x-import component-from-global-scope="CyberSkillDesignSystem_847b3c.Logo" size="66" hint-size="66px,66px"></x-import>
+      <x-import component-from-global-scope="CyberSkillDS.Logo" size="66" hint-size="66px,66px"></x-import>
       <h2 style="font-size:50px;font-weight:800;letter-spacing:-0.02em;color:var(--cs-accent-bright);margin:24px 0 10px">{{ closeH }}</h2>
       <p style="font-size:22px;opacity:0.9;margin:0 0 8px;max-width:820px">{{ closeP }}</p>
       <p style="font-size:17px;opacity:0.7;margin:0">hello@cyberskill.world · cyberskill.world</p>
