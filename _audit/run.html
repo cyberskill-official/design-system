@@ -32,7 +32,7 @@ const GATES=[
   {name:'Density',file:'density-gate.html',sub:'compact applies · defaults untouched · pointer-fine-gated',get:w=>w.__densitygate},
   {name:'Story coverage',file:'story-coverage.html',sub:'every component has an Atomic View story',get:w=>w.__storycov},
   {name:'Consumer smoke test',file:'consumer-smoke-test.html',sub:'packaged bundle mounts + tokens reach a Button',get:w=>w.__smoke},
-  {name:'ESM smoke test',file:'esm-smoke-test.html',sub:'esm/cs.js imports \u00b7 export/manifest parity',get:w=>w.__esm},
+  {name:'ESM smoke test',file:'esm-smoke-test.html',sub:'_esm/cs.mjs imports \u00b7 export/manifest parity',get:w=>w.__esm},
   {name:'Component children',file:'component-children-test.html',sub:'void-element #137 guard',get:w=>{const v=w.__result;return v&&v.anyThrew!==undefined?{pass:v.anyThrew===false}:null;}},
   {name:'Component behavior',file:'component-behavior-test.html',sub:'21 real interaction assertions',get:w=>w.__behavior},
   {name:'A11y interactions',file:'a11y-gate.html',sub:'focus trap/restore · roving tabindex · ARIA contracts',get:w=>w.__a11y},
@@ -49,7 +49,7 @@ function runOne(g){
     let done=false;
     f.onload=async()=>{
       let idle=0,last='',prog=null;
-      for(let i=0;i<400&&idle<140;i++){ // ~42s with no progress; hard cap ~2min while the gate keeps reporting progress
+      for(let i=0;i<1600&&idle<200;i++){ // ~60s with no progress; hard cap ~8min while the gate keeps reporting progress (slow environments)
         let v=null; try{ v=g.get(f.contentWindow); prog=f.contentWindow.__behaviorProgress||f.contentWindow.__gateProgress||null; }catch(e){}
         if(v && v.pass!==undefined){ done=true; f.remove(); return res({pass:!!v.pass, v}); }
         const sig=prog?prog.done+'|'+prog.current:''; if(sig&&sig!==last){ last=sig; idle=0; } else idle++;

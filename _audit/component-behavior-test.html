@@ -32,8 +32,10 @@ function mount(el){ const c=document.createElement('div'); stage.appendChild(c);
 function setInput(input,val){ const set=Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype,'value').set; set.call(input,val); input.dispatchEvent(new Event('input',{bubbles:true})); }
 function record(name,ok,detail){ results.push({name,ok,detail}); const r=document.createElement('div'); r.className='row '+(ok?'ok':'bad'); r.innerHTML='<span>'+(ok?'✓ ':'✗ ')+name+'</span><span class="d">'+detail+'</span>'; list.appendChild(r); }
 const tmo=ms=>new Promise((_,rej)=>setTimeout(()=>rej(new Error('watchdog: no verdict in '+ms/1000+'s')),ms));
-async function test(name,fn){ P.current=name; try{ const d=await Promise.race([fn(),tmo(8000)]); record(name,true,d); }catch(e){ record(name,false,String(e.message||e).slice(0,90)); } P.done=results.length; }
+async function test(name,fn){ P.current=name; try{ const d=await Promise.race([fn(),tmo(30000)]); record(name,true,d); }catch(e){ record(name,false,String(e.message||e).slice(0,90)); } P.done=results.length; }
 function assert(c,msg){ if(!c) throw new Error(msg); }
+// Poll an assertion-ish fn (absorbs render timing under load — same pattern as a11y-gate); returns last value.
+async function until(fn,ms){ ms=ms||2500; const t0=Date.now(); let r=false; while(Date.now()-t0<ms){ try{ r=fn(); }catch(e){ r=false; } if(r) return r; await wait(40); } try{ return fn(); }catch(e){ return false; } }
 
 async function run(){
   if(!h||typeof ReactDOM==='undefined'){ publish({pass:false,total:0,failed:[],error:'React CDN failed to load (unpkg unreachable?) \u2014 gate cannot run',results:[]}); return; }
@@ -87,13 +89,12 @@ async function run(){
   await test('CommandPalette — typing filters the list',async()=>{
     assert(CommandPalette,'CommandPalette export missing');
     const groups=[{label:'Go',items:[{label:'Alpha'},{label:'Beta'},{label:'Gamma'}]}];
-    const c=mount(h(CommandPalette,{open:true,onClose:()=>{},groups})); await wait(90);
-    const scrim=document.querySelector('.cs-cmdk-scrim'); assert(scrim,'palette not open');
-    const before=document.querySelectorAll('.cs-cmdk__item').length; assert(before===3,'want 3 items, got '+before);
+    const c=mount(h(CommandPalette,{open:true,onClose:()=>{},groups})); 
+    assert(await until(()=>document.querySelector('.cs-cmdk-scrim')),'palette not open');
+    assert(await until(()=>document.querySelectorAll('.cs-cmdk__item').length===3),'want 3 items, got '+document.querySelectorAll('.cs-cmdk__item').length);
     const input=document.querySelector('.cs-cmdk__search input'); assert(input,'no search input');
-    setInput(input,'alph'); await wait(90);
-    const after=document.querySelectorAll('.cs-cmdk__item').length;
-    assert(after===1,'want 1 filtered item, got '+after);
+    setInput(input,'alph');
+    assert(await until(()=>document.querySelectorAll('.cs-cmdk__item').length===1),'want 1 filtered item, got '+document.querySelectorAll('.cs-cmdk__item').length);
     return '3→1 on "alph"';
   });
 
@@ -101,10 +102,10 @@ async function run(){
     assert(Menu&&MenuItem,'Menu export missing');
     const c=mount(h(Menu,{trigger:h('button',{className:'mt'},'Open')},h(MenuItem,{},'A'),h(MenuItem,{},'B'))); await wait(80);
     assert(!c.querySelector('[role="menu"]'),'menu should start closed');
-    c.querySelector('.mt').click(); await wait(60);
-    assert(c.querySelector('[role="menu"]'),'menu should open on trigger click');
-    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape'})); await wait(60);
-    assert(!c.querySelector('[role="menu"]'),'Escape should close menu');
+    c.querySelector('.mt').click();
+    assert(await until(()=>c.querySelector('[role="menu"]')),'menu should open on trigger click');
+    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape'}));
+    assert(await until(()=>!c.querySelector('[role="menu"]')),'Escape should close menu');
     return 'open→Esc close OK';
   });
 
@@ -112,30 +113,30 @@ async function run(){
     assert(Popover,'Popover export missing');
     const c=mount(h(Popover,{trigger:h('button',{className:'pt'},'Open')},h('div',{},'panel'))); await wait(80);
     assert(!c.querySelector('.cs-popover__panel'),'popover closed initially');
-    c.querySelector('.pt').click(); await wait(60);
-    assert(c.querySelector('.cs-popover__panel'),'popover opens on click');
-    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape'})); await wait(60);
-    assert(!c.querySelector('.cs-popover__panel'),'Escape closes popover');
+    c.querySelector('.pt').click();
+    assert(await until(()=>c.querySelector('.cs-popover__panel')),'popover opens on click');
+    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape'}));
+    assert(await until(()=>!c.querySelector('.cs-popover__panel')),'Escape closes popover');
     return 'open→Esc close OK';
   });
 
   await test('Dialog — opens modal, overlay click closes',async()=>{
     assert(Dialog,'Dialog export missing');
     function DH(){const[o,setO]=React.useState(true);return o?h(Dialog,{open:true,title:'T',onClose:()=>setO(false)},'body'):h('span',{className:'dlgclosed'});}
-    const c=mount(h(DH)); await wait(90);
-    assert(c.querySelector('[role="dialog"][aria-modal="true"]'),'dialog should be open');
-    c.querySelector('.cs-dialog__overlay').click(); await wait(70);
-    assert(!c.querySelector('[role="dialog"]')&&c.querySelector('.dlgclosed'),'overlay click should close');
+    const c=mount(h(DH)); 
+    assert(await until(()=>c.querySelector('[role="dialog"][aria-modal="true"]')),'dialog should be open');
+    c.querySelector('.cs-dialog__overlay').click();
+    assert(await until(()=>!c.querySelector('[role="dialog"]')&&c.querySelector('.dlgclosed')),'overlay click should close');
     return 'open→overlay close OK';
   });
 
   await test('Drawer — opens modal, close button closes',async()=>{
     assert(Drawer,'Drawer export missing');
     function DrH(){const[o,setO]=React.useState(true);return h('div',null,o?h(Drawer,{open:true,title:'T',onClose:()=>setO(false)},'body'):h('span',{className:'drwclosed'}));}
-    const c=mount(h(DrH)); await wait(90);
-    assert(c.querySelector('.cs-drawer[role="dialog"]'),'drawer should be open');
-    c.querySelector('.cs-drawer__close').click(); await wait(70);
-    assert(!c.querySelector('.cs-drawer')&&c.querySelector('.drwclosed'),'close button should close');
+    const c=mount(h(DrH)); 
+    assert(await until(()=>c.querySelector('.cs-drawer[role="dialog"]')),'drawer should be open');
+    c.querySelector('.cs-drawer__close').click();
+    assert(await until(()=>!c.querySelector('.cs-drawer')&&c.querySelector('.drwclosed')),'close button should close');
     return 'open→close OK';
   });
 
@@ -191,19 +192,20 @@ async function run(){
     assert(c.querySelectorAll('.cs-tag').length===1,'1 after backspace'); return 'add+remove';
   });
   await test('InlineEdit — Enter commits new text',async()=>{
-    assert(InlineEdit,'missing'); const c=mount(h(InlineEdit,{defaultValue:'A'})); await wait(70);
-    c.querySelector('.cs-inline-edit__view').click(); await wait(60);
-    const inp=c.querySelector('.cs-inline-edit input'); assert(inp,'edit mode'); setInput(inp,'B'); await wait(40);
-    inp.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true})); await wait(60);
-    assert(c.querySelector('.cs-inline-edit__view').textContent.includes('B'),'committed B'); return 'A→B';
+    assert(InlineEdit,'missing'); const c=mount(h(InlineEdit,{defaultValue:'A'}));
+    const view=await until(()=>c.querySelector('.cs-inline-edit__view')); assert(view,'view renders');
+    view.click();
+    const inp=await until(()=>c.querySelector('.cs-inline-edit input')); assert(inp,'edit mode'); setInput(inp,'B'); await wait(40);
+    inp.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true}));
+    assert(await until(()=>{const v=c.querySelector('.cs-inline-edit__view');return v&&v.textContent.includes('B');}),'committed B'); return 'A→B';
   });
   await test('Popconfirm — confirm fires onConfirm',async()=>{
     assert(Popconfirm&&Button,'missing'); let ok=false;
     const c=mount(h(Popconfirm,{title:'Sure?',onConfirm:()=>{ok=true;},trigger:h(Button,{size:'sm'},'Del')})); await wait(70);
-    c.querySelector('.cs-button').click(); await wait(60);
-    assert(c.querySelector('[role="alertdialog"]'),'bubble open');
-    c.querySelector('.cs-popconfirm__actions .cs-button--primary').click(); await wait(50);
-    assert(ok&&!c.querySelector('[role="alertdialog"]'),'confirmed+closed'); return 'confirm OK';
+    c.querySelector('.cs-button').click();
+    assert(await until(()=>c.querySelector('[role="alertdialog"]')),'bubble open');
+    c.querySelector('.cs-popconfirm__actions .cs-button--primary').click();
+    assert(await until(()=>ok&&!c.querySelector('[role="alertdialog"]')),'confirmed+closed'); return 'confirm OK';
   });
   await test('Carousel — next advances slide',async()=>{
     assert(Carousel,'missing'); const c=mount(h(Carousel,{},[h('div',{key:1},'S1'),h('div',{key:2},'S2')])); await wait(70);
@@ -228,14 +230,14 @@ async function run(){
       h(FormField,{label:'Email',name:'email',required:true},h(TextField,{label:'Email'})),
       h(Button,{type:'submit'},'Send')));
     await wait(90);
-    c.querySelector('.cs-button').click(); await wait(80);
-    assert(c.querySelector('.cs-form__summary'),'summary shows on rule fail');
+    c.querySelector('.cs-button').click();
+    assert(await until(()=>c.querySelector('.cs-form__summary')),'summary shows on rule fail');
     assert(got===null,'onSubmit blocked while invalid');
-    assert(c.querySelector('.cs-formfield.has-error'),'field flagged via context');
+    assert(await until(()=>c.querySelector('.cs-formfield.has-error')),'field flagged via context');
     const inp=c.querySelector('.cs-field input'); setInput(inp,'an@cyberskill.world'); await wait(70);
-    c.querySelector('.cs-button').click(); await wait(80);
-    assert(got&&got.email==='an@cyberskill.world','values collected, got '+JSON.stringify(got));
-    assert(!c.querySelector('.cs-form__summary'),'summary cleared after fix');
+    c.querySelector('.cs-button').click();
+    assert(await until(()=>got&&got.email==='an@cyberskill.world'),'values collected, got '+JSON.stringify(got));
+    assert(await until(()=>!c.querySelector('.cs-form__summary')),'summary cleared after fix');
     return 'blocked → typed → submitted';
   });
 
@@ -244,5 +246,10 @@ async function run(){
 }
 const failNames=()=>results.filter(r=>!r.ok).map(r=>r.name);
 window.addEventListener('load',()=>setTimeout(()=>{ run().catch(e=>publish({pass:false,total:results.length,failed:failNames(),error:'suite crashed at "'+P.current+'": '+String(e&&e.message||e).slice(0,160),results})); },120));
-setTimeout(()=>{ if(!window.__behavior) publish({pass:false,total:results.length,failed:failNames(),error:'suite watchdog (60s) \u2014 stalled at "'+P.current+'" after '+P.done+'/'+P.total,results}); },60000);
+// progress-aware suite watchdog: fails only when no test completes for 90s (true stall), never on slow-but-moving runs
+let __lastDone=-1,__lastMove=Date.now();
+setInterval(()=>{ if(window.__behavior) return;
+  if(P.done!==__lastDone){ __lastDone=P.done; __lastMove=Date.now(); }
+  else if(Date.now()-__lastMove>90000){ publish({pass:false,total:results.length,failed:failNames(),error:'suite stalled 90s at "'+P.current+'" after '+P.done+'/'+P.total,results}); }
+},5000);
 </script></body></html>

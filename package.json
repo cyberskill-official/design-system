@@ -1,6 +1,6 @@
 {
   "name": "cyberskill-design-system",
-  "version": "4.0.0",
+  "version": "4.0.2",
   "private": true,
   "module": "_esm/cs.mjs",
   "exports": { ".": { "import": "./_esm/cs.mjs" }, "./styles.css": "./styles.css", "./tokens/*": "./tokens/*" },
