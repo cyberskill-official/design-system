@@ -17,7 +17,7 @@ A high-fidelity recreation of **CyberSkill Status Hub** (`status-hub@2`): the si
 - `login.html` — split sign-in (brand panel + form; dark toggle).
 - `settings.html` — Tabs, form controls, switches, danger zone (dark toggle).
 - `project.html` — full project detail view: breadcrumb, KPI stats, tasks, `cs-steps`, `cs-timeline`, `cs-dl` (dark toggle).
-- `identity-lab.html` — live Theme × Element × Expression switching on a product surface (15 element-variant pills · 7 treatment pills).
+- `identity-lab.html` — live Theme × Element switching on a product surface (15 element-variant pills · light/dark).
 - `status.css` — product component styles ported from the real status-hub stylesheet; **tokens come from the design system**, not redeclared.
 - `data.js` — fictional, on-brand sample data (`window.SH_DATA`).
 - `StatusHub.jsx` — the interactive app (`window.StatusHub`).

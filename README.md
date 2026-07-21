@@ -4,12 +4,12 @@
 
 ## Start here
 
-This is the **entrance document** for the CyberSkill Design System — **v5.0.0** (see `VERSION` · changelog below). Open **`dashboard.html`** for the single-page hub (components + playgrounds · health · identity, all in one). One sentence: a warm, Vietnamese-first, enterprise-grade system where every surface resolves three independent axes — **Theme** (light · dark) × **Element** (Ngũ Hành product identity: Kim · Mộc · Thủy · Hỏa · Thổ, 15 variants) × **Expression** (treatment: liquid-glass default · solid · dense · paper · soft · bold · luxe).
+This is the **entrance document** for the CyberSkill Design System — **v7.0.0** (see `VERSION` · changelog below). Open **`dashboard.html`** for the single-page hub (Overview · Docs · Live View · Health). One sentence: a warm, Vietnamese-first, enterprise-grade system where every surface resolves three independent axes — **Theme** (light · dark) × **Element** (Ngũ Hành product identity: Kim · Mộc · Thủy · Hỏa · Thổ, 15 variants) × **Language** (EN · VI). Surface treatment is liquid-glass (fixed).
 
 **Quick start by audience**
 - **Designers** — open the Design System tab and the Templates picker (84 starting points, including the 41-document lawyer-validated Employment Suite); the Identity Lab (`ui_kits/status-hub/identity-lab.html`) lets you flip axes live.
 - **AI agents** — read `SKILL.md` (normative Hard rules + orientation), then the guide below; component contracts live beside each component (`.d.ts` + `.prompt.md`).
-- **Consuming projects** — link **`styles.css`** (one file = everything), or copy a `templates/<slug>/` folder and edit one line in its `ds-base.js` (one-line rebind, validated end-to-end Jul 2026). Scope identity with `data-theme` · `data-cs-element` (+`data-cs-variant`) · `data-cs-expression`.
+- **Consuming projects** — link **`styles.css`** (one file = everything), or copy a `templates/<slug>/` folder and edit one line in its `ds-base.js` (one-line rebind, validated end-to-end Jul 2026). Scope identity with `data-theme` · `data-cs-element` (+`data-cs-variant`) · `lang`.
 
 **Document map**
 
@@ -17,10 +17,10 @@ This is the **entrance document** for the CyberSkill Design System — **v5.0.0*
 |---|---|
 | `README.md` (this file, below) | The full guide: anchors, voice, visual foundations, components, templates, index |
 | `SKILL.md` | Agent entry — hard rules + fast orientation |
-| `docs/conventions.md` | How to extend the system (naming grammar, checklists, the four axes, decision log) |
+| `docs/conventions.md` | How to extend the system (naming grammar, checklists, the three axes, decision log) |
 | `docs/products.md` | Product → element registry (provisional) |
 | `docs/contrast-report.md` | Generated APCA report — 0 failures at Lc ≥ 60 |
-| `docs/consuming.md` | Adopting & upgrading — quick path for AI agents, adopt (static/React/ESM), the four axes, upgrade + extend |
+| `docs/consuming.md` | Adopting & upgrading — quick path for AI agents, adopt (static/React/ESM), the three axes, upgrade + extend |
 | `docs/template-schema-v2.md` | Typed content-slot spec for templates — opt-in, machine-checkable |
 | `docs/deploy.md` | Deploying the live site — Vercel (zero-config) · generic VPS/nginx · post-deploy checklist |
 | `docs/ci-cd.md` | CI/CD automation — GitHub Actions workflow, headless gate runner, token-provenance pre-check, badge |
@@ -95,9 +95,9 @@ The doctrine itself is the single-file `DESIGN.md` (22 Parts, ~1.3 MB) in the de
 
 **Elemental product identity — Ngũ Hành.** The studio itself is **Thổ/Earth** (Umber + Ochre — the traditional earth-yellow); each CyberSkill *product* may take one element — **Kim** (metal) · **Mộc** (wood) · **Thủy** (water) · **Hỏa** (fire) · **Thổ** (earth) — via `data-cs-element` (+ `data-cs-variant`, e.g. Hỏa: ember · lava · plasma). Each pack sets the nine **`--cs-accent-*`** role tokens (accent / strong / bright / on / tint / ink / glow / grad-a / grad-b) defined in `tokens/elements.css`; inside the scope the element fully takes Ochre's accent roles. Never elemental: semantic statuses, and the **3px Ochre focus ring** — the studio's accessibility signature on every product. Mixing follows the cycles: a secondary element may appear only as a gradient endpoint along **Tương sinh** (Mộc→Hỏa→Thổ→Kim→Thủy→Mộc); **Tương khắc** pairs never mix. Product→element mapping lives in `docs/products.md`. **Every template carries the Element tweak** — anything that should follow the product's element must consume `--cs-accent-*`, never raw hex. **Lumi stays golden in every element** — the genie is the studio's constant; only the environment re-tints.
 
-**Expressions — the treatment axis.** Surfaces resolve **Theme × Element × Expression** independently. An expression (`data-cs-expression="solid|paper|soft|bold"`, default liquid-glass) re-tunes t
+**Surface treatment.** Liquid-glass is fixed. Surfaces resolve **Theme × Element × Language** independently.
 
-**Density — the size axis (v3.5).** `data-cs-density="compact"` on any container tightens control metrics (button md 44→36, field 44→38) for dense product surfaces; comfortable is the default and identical to pre-3.5 rendering. Pointer-fine-gated — on touch, the 44px floor from `base/a11y.css` stays authoritative.reatment only — radius, shadow, glass scalars, border weight, motion — by overriding the existing tokens in `tokens/expressions.css`; hue, voice, semantics, and a11y floors are untouchable. The registry is curated (capped at seven — extended 6→7 by owner decision, Jul 2026, now full): `solid` (flat, Swiss-calm), `dense` (operational data UI; coarse pointers keep the 44px floor), `paper` (editorial, print-true), `soft` (plush, rounded), `bold` (neubrutalism, warmed — umber frames, hard offset shadows), `luxe` (ceremonial — pill CTAs, hairline borders, deep soft glow, unhurried motion). Neon/cyberpunk, memphis, and full skeuomorphism are rejected by doctrine.
+
 
 **Motion** is calm and purposeful: short durations (120–320ms), a soft decelerate `cubic-bezier(0.2,0,0,1)`, small translate/scale and fades (e.g. the hero mascot's gentle float). No bounce, no flash. Everything collapses to 0 under `prefers-reduced-motion`.
 
@@ -130,7 +130,7 @@ Copied assets live in `assets/`: `logo-mark.svg` / `logo-mark.png` (official mas
 - **AI-native** — `AIDisclosureBadge`, `HumanReviewGate`, `PromptInput`, `ChatMessage`, `ConfidenceMeter`, `PromptSuggestions`, `TypingIndicator`, `CitationList`
 - **Brand** — `Logo`, `Icon`, `LumiAvatar`
 
-**Atomic tiers** — the same 113 exports seen through the design-composition lens (browsable live in `guidelines/atomic-view.html`, where one toolbar reskins every tier across Theme × Element × Expression). The eight groups above are the *functional/import* grouping (how the bundle is organized); these tiers are the *composition* grouping — same components, two lenses.
+**Atomic tiers** — the same 113 exports seen through the design-composition lens (browsable live in `guidelines/atomic-view.html`, where one toolbar reskins every tier across Theme × Element × Language). The eight groups above are the *functional/import* grouping (how the bundle is organized); these tiers are the *composition* grouping — same components, two lenses.
 - **Atoms** (indivisible primitives) — `Button`, `Icon`, `Badge`, `Tag`, `StatusIndicator`, `Spinner`, `ProgressBar`, `Skeleton`, `Avatar` (+ `AvatarGroup`), `Divider`, `Kbd`, `Logo`, `LumiAvatar`, `Toggle`, `Link`
 - **Molecules** (a few atoms bonded into one control) — `TextField`, `Textarea`, `Select`, `Checkbox`, `RadioGroup`, `Switch`, `SearchField`, `NumberField`, `Slider`, `FileUpload`, `SegmentedControl`, `Tabs`, `Breadcrumb`, `Pagination`, `Menu`, `Steps`, `Stat`, `Card`, `Tooltip`, `List`, `DescriptionList`, `CodeBlock`, `Alert`, `Toast`, `ConfidenceMeter`, `AIDisclosureBadge`, `PromptSuggestions`, `TypingIndicator`, `CitationList`, `Rating`, `InputOTP`, `ButtonGroup`, `Combobox`, `InputGroup`, `TagInput`, `TimePicker`, `HoverCard`, `Popconfirm`, `ContextMenu`, `FloatingActionButton`, `InlineEdit`, `Toolbar`, `Anchor`, `Image`, `Watermark`, `BackTop`, `Mentions`, `ColorPicker`, `QRCode`
 - **Organisms** (composite, self-contained sections) — `Sidebar` (+ `NavItem`), `CommandPalette`, `DataTable`, `Accordion`, `Timeline`, `EmptyState`, `Dialog`, `Drawer`, `Popover`, the `PromptInput` + `ChatMessage` conversation, `HumanReviewGate`, `Calendar`, `DatePicker`, `Result`, `Menubar`, `NavigationMenu`, `Carousel`, `Comment`, `Form` (+ `FormField`), `Tree`, `TreeSelect`, `Cascader`, `Transfer`, `Tour`, `Masonry`, `Splitter`, `HotKeys`, `Dock`, `DataGrid`, `TreeTable`, `Sortable`, `Chart`, `Editor`, `Terminal`
@@ -154,7 +154,7 @@ Copyable starting points for consuming projects (the **Templates** picker — th
 - **Article** (`templates/article/`) — long-form post: title, author meta, prose, `Alert` callout, `CodeBlock`.
 - **Email** (`templates/email/`) — centred 600px announcement: umber header, ochre CTA, footer.
 
-Every template exposes the **Element (Ngũ Hành)** tweak (15 variants) and the **Expression** tweak (7 treatments) plus a behavior toggle; screen templates also carry theme light/dark, and the letter-print business docs are **light-only** (no theme tweak — print doctrine).
+Every template exposes the **Element (Ngũ Hành)** tweak (15 variants) plus a behavior toggle; screen templates also carry theme light/dark, and the letter-print business docs are **light-only** (no theme tweak — print doctrine).
 
 ### Team artifact templates
 
@@ -186,7 +186,7 @@ Three suite-wide reference documents define and catalogue the whole template lib
 
 ### HR & Employment Suite (lawyer-validated)
 
-Thirty-seven **counsel-validated** bilingual instruments supplied by the client (built on an earlier version of the system) were **converted one-by-one into templates, content preserved verbatim**, and re-skinned to the latest design system. They live under the **HR Suite** group (`templates/vn-*/`) and follow the house standard set out in the reference documents above: **A4, Vietnamese-first bilingual** (Ink `#1A1614` VN over Slate `#3F4C55` italic EN pairs), state-motto header, umber table title bars, yellow fill-in blanks, PDPL data-hygiene (Party B always blank), and signing blocks that never split. Every one carries the Element (15) + Expression (7) tweaks like all templates; none carries a language tweak (they are inherently bilingual). Because these are validated instruments, **`vn-labor-contract` supersedes the earlier fictional `legal-employment-contract`**, and `vn-mutual-nda` / `vn-offer-letter` / `vn-onboarding-checklist` / `vn-job-description` supersede the fictional `legal-nda` / `hr-offer-letter` / `hr-onboarding` / `hr-job-description` (all removed); the remaining fictional templates are EN-first comms (announcements, newsletters, press releases) and client-facing sales/finance paperwork — a different purpose, so they stay.
+Thirty-seven **counsel-validated** bilingual instruments supplied by the client (built on an earlier version of the system) were **converted one-by-one into templates, content preserved verbatim**, and re-skinned to the latest design system. They live under the **HR Suite** group (`templates/vn-*/`) and follow the house standard set out in the reference documents above: **A4, Vietnamese-first bilingual** (Ink `#1A1614` VN over Slate `#3F4C55` italic EN pairs), state-motto header, umber table title bars, yellow fill-in blanks, PDPL data-hygiene (Party B always blank), and signing blocks that never split. Every one carries the Element (15) tweaks like all templates; none carries a language tweak (they are inherently bilingual). Because these are validated instruments, **`vn-labor-contract` supersedes the earlier fictional `legal-employment-contract`**, and `vn-mutual-nda` / `vn-offer-letter` / `vn-onboarding-checklist` / `vn-job-description` supersede the fictional `legal-nda` / `hr-offer-letter` / `hr-onboarding` / `hr-job-description` (all removed); the remaining fictional templates are EN-first comms (announcements, newsletters, press releases) and client-facing sales/finance paperwork — a different purpose, so they stay.
 - **Core employment** — `vn-labor-contract`, `vn-probation-contract`, `vn-offer-letter`, `vn-ndnca-ip` (bảo mật · không cạnh tranh · SHTT), `vn-appointment-transfer`, `vn-contract-amendment`, `vn-termination-decision`, `vn-exit-handover` (with settlement + handover schedules).
 - **Compensation & rewards** — `vn-total-rewards-appendix`, `vn-phantom-stock`, `vn-salary-scale`, `vn-compensation-regulation`.
 - **Policies & regulations** — `vn-internal-labor-regulations`, `vn-disciplinary-schedule`, `vn-performance-evaluation-regulation`, `vn-grassroots-democracy`, `vn-code-of-conduct`, `vn-infosec-policy`, `vn-data-protection-policy`, `vn-remote-work-policy`, `vn-travel-expense-policy`.
@@ -222,7 +222,7 @@ Every template resolves to one of six archetypes, framed by `templates/doc-templ
 | **A4 bilingual instrument** | State-motto header · Articles · Party A/B tables · signing block; Style-Guide 1–10 in full | the 37 `vn-*` HR-suite instruments |
 | **Letter print doc** | Letter, 0.6in margins, desk + sheet, clean Print/PDF | `finance-invoice` · `finance-quote` · `finance-expense-report` · `legal-msa` · `legal-sow` · `sales-one-pager` · `bod-*` docs |
 | **Email (600px)** | Centred body, system header/CTA, no motto/signing; bilingual via Language tweak | `email` · `hr-announcement` · `marketing-newsletter` · `tech-release-notes` · `delivery-status-email` · `finance-dunning-email` |
-| **Product screen** | Components + tokens; Theme × Element × Expression; no print geometry | `marketing-page` · `dashboard` · `app-shell` · `auth` · `settings` · `article` |
+| **Product screen** | Components + tokens; Theme × Element × Language; no print geometry | `marketing-page` · `dashboard` · `app-shell` · `auth` · `settings` · `article` |
 | **Deck (16:9)** | Stacked 16:9 slides, umber cover, element accent, bilingual via Language tweak, PDF/PPTX | `slide-deck` · `bod-deck` · `sales-proposal-deck` · `delivery-qbr-deck` |
 | **Social image** | Fixed per-channel size (1080² · 1200×630 · 1080×1920) | `marketing-social-kit` |
 
@@ -231,12 +231,12 @@ Every template resolves to one of six archetypes, framed by `templates/doc-templ
 ## Index / manifest
 
 ```
-styles.css                 ← single entry point (@import manifest only) · VERSION 2.4.0
-tokens/                    fonts · colors · typography · spacing · elevation · motion · component-tokens · elements (Ngũ Hành packs) · expressions (treatment packs)
-base/                      reset · typography · components · forms · feedback · data · navigation · ai · controls · collections · shell · glass · interaction
+styles.css                 ← single entry point (@import manifest only) · VERSION 7.0.0
+tokens/                    fonts · colors · typography · spacing · elevation · motion · component-tokens · elements (Ngũ Hành packs)
+base/                      reset · typography · components · forms · feedback · data · navigation · ai · controls · collections · shell · glass · interaction · a11y · responsive
 components/                button · textfield · dialog · datatable · forms · feedback · data · navigation · overlays · ai · logo · icon · brand
                            (each Name: Name.jsx + Name.d.ts + Name.prompt.md; one *.card.html per group)
-guidelines/                specimen cards (Colors · Type · Spacing · Surfaces · Brand incl. Iconography · Motion incl. Interaction · Elements ×3 · Expressions · Responsive & Bilingual)
+guidelines/                specimen cards (Colors · Type · Spacing · Surfaces · Brand · Motion · Elements · Responsive & Bilingual) · live-view.html · atomic-view.html
 templates/                 marketing-page · dashboard · slide-deck · auth · settings · app-shell · article · email (copyable .dc.html)
                            + team artifacts — tech (release/incident/rfc) · team (meeting-agenda) · hr (announcement) · board (report/deck/memo) · marketing (brief/newsletter/launch/case-study/press-release)
                            + business — legal (nda/msa/sow) · finance (invoice/quote) · sales (one-pager/proposal-deck) — letter print docs + client deck
@@ -252,13 +252,16 @@ thumbnail.html             project tile
 SKILL.md                   Agent-Skills-compatible entry
 ```
 
-**UI kits** (product recreations, composing the tokens + `.cs-*` classes): **Status Hub** (portfolio dashboard — KPIs, board/table/releases lenses, drawer — plus **sign-in**, **settings**, **project detail**, and the **Identity Lab** for live Theme × Element × Expression switching), **cyberskill.world** (bilingual marketing home with Lumi chat — plus **Work**, **Careers**, and a full-page **Lumi assistant**), and a **Brand deck** (16:9, `deck-stage`, PDF/PPTX-ready). See each kit's `README.md`.
+**UI kits** (product recreations, composing the tokens + `.cs-*` classes): **Status Hub** (portfolio dashboard — KPIs, board/table/releases lenses, drawer — plus **sign-in**, **settings**, **project detail**, and the **Identity Lab** for live Theme × Element × Language switching), **cyberskill.world** (bilingual marketing home with Lumi chat — plus **Work**, **Careers**, and a full-page **Lumi assistant**), and a **Brand deck** (16:9, `deck-stage`, PDF/PPTX-ready). See each kit's `README.md`.
 
-**Design System tab** renders every card: Components (113 exports — Core, Forms, Data, Feedback, Navigation, Overlays, AI-native, Brand), Colors, Type, Spacing, Surfaces, Brand, Motion, Responsive & Bilingual, **Elements**, **Expressions**, plus the Status Hub (incl. Identity Lab), Website, and Deck surfaces.
+**Design System tab** renders every card: Components (113 exports — Core, Forms, Data, Feedback, Navigation, Overlays, AI-native, Brand), Colors, Type, Spacing, Surfaces, Brand, Motion, Responsive & Bilingual, **Elements**, plus the Status Hub (incl. Identity Lab), Website, and Deck surfaces.
 
 ---
 
 ## Changelog
+
+- **7.0.0** (Jul 2026) — **The v7 cut**: Language demos, Live View shared axes, gate depth (behavior 35, schema 26, print/axe/pixel scaffolds), packaging + CSP, VERSION 7.0.0.
+- **6.0.0** (Jul 2026) — **The v6 cut**: Theme × Element × Language only; liquid-glass fixed; dashboard Overview → Docs → Live View → Health; Docs viewer hardened.
 
 > Full version history: [`CHANGELOG.md`](./CHANGELOG.md). Recent releases below.
 

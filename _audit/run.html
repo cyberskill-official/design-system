@@ -10,77 +10,116 @@
   .g .n{font-weight:700;font-size:14px}.g .n small{display:block;font-weight:400;color:var(--cs-color-text-muted);font-size:12px}
   .badge{font:700 11px/1 var(--cs-font-family-mono);text-transform:uppercase;letter-spacing:.06em;padding:5px 10px;border-radius:999px}
   .pass{background:#dcfce7;color:#166534}.fail{background:#FEE2E2;color:#B42318}.run{background:var(--cs-color-surface-raised);color:var(--cs-color-text-muted)}
+  .pending{background:var(--cs-color-surface-raised);color:var(--cs-color-text-muted);opacity:.72}
   .dot{width:11px;height:11px;border-radius:50%;background:var(--cs-color-border-default)}
-  .dot.pass{background:#16a34a}.dot.fail{background:#dc2626}.dot.run{background:var(--cs-color-brand-ochre)}
+  .dot.pass{background:#16a34a}.dot.fail{background:#dc2626}.dot.run{background:var(--cs-color-brand-ochre)}.dot.pending{background:var(--cs-color-border-default);opacity:.55}
   .note{margin-top:16px;font-size:12px;color:var(--cs-color-text-muted);line-height:1.6;border-top:1px dashed var(--cs-color-border-default);padding-top:12px}
   .note a{color:var(--cs-color-link)} a:hover{color:var(--cs-color-link-hover)}
   #pool{position:fixed;left:-6000px;top:0;width:1000px;height:800px}
 </style></head><body>
 <h1><b>CyberSkill</b> · Gate runner</h1>
-<p class="sub">Runs every <b>fast</b> deterministic gate in sequence (fresh iframe each) and reads its verdict global. The whole-set state audits (responsive · language · theme · vn · density — ~4–5 min each) are intentionally excluded here; run those from the <a href="./index.html">suite index</a>. Gates that load <code>_ds_bundle.js</code> reflect the <b>last compiled</b> bundle, so re-run on a fresh turn after editing component sources.</p>
-<div id="overall">running…</div>
+<p class="sub">Runs every <b>fast</b> deterministic gate <b>in sequence</b> (fresh iframe each) and reads its verdict global. Only the gate currently executing shows <b>running</b>; the rest stay pending until started, then pass/fail. The whole-set state audits (responsive · language · theme — ~4–5 min each) are intentionally excluded here; run those from the <a href="./index.html">suite index</a>. Gates that load <code>_ds_bundle.js</code> reflect the <b>last compiled</b> bundle, so re-run on a fresh turn after editing component sources.</p>
+<div id="overall">queued…</div>
 <div id="list"></div>
-<p class="note">Green board = the system is internally consistent: dark-contrast safe, docs match the compiler, namespace portable, tokens resolve, consumer path works, components mount + behave, and every component has a story. <code>window.__run.pass</code> holds the aggregate.</p>
+<p class="note">Green board = the system is internally consistent: dark-contrast safe, docs match the compiler, namespace portable, tokens resolve, consumer path works, components mount + behave, and every component has a story. <code>window.__run.pass</code> holds the aggregate. The board lists only the current fast gates.</p>
 <div id="pool"></div>
 <script>
 const GATES=[
   {name:'Contrast guard',file:'contrast-guard.html',sub:'dark lint + token WCAG matrix',get:w=>w.__contrastguard},
+  {name:'Three-axes guard',file:'axis-guard.html',sub:'no Expression/Density product surface reintroduced',get:w=>w.__axisguard},
+  {name:'Manifest CSS paths',file:'manifest-css-guard.html',sub:'globalCssPaths exist + match styles.css imports',get:w=>w.__cssguard},
   {name:'Docs consistency',file:'docs-consistency.html',sub:'counts + version pointers vs compiler',get:w=>w.__docs},
   {name:'Namespace portability',file:'namespace-portability.html',sub:'no hardcoded project-id suffix',get:w=>w.__nsguard},
   {name:'Token contract',file:'token-contract.html',sub:'15 element scopes resolve accent roles',get:w=>{const v=w.__contract;return v?{pass:(v.pass!==undefined?v.pass:(v.elementFails===0&&(!v.coreMissing||v.coreMissing.length===0)))}:null;}},
   {name:'Token pipeline',file:'token-pipeline-test.html',sub:'native Swift/Kotlin/Flutter parity + provenance',get:w=>w.__tokenpipe},
-  {name:'Density',file:'density-gate.html',sub:'compact applies · defaults untouched · pointer-fine-gated',get:w=>w.__densitygate},
   {name:'Story coverage',file:'story-coverage.html',sub:'every component has an Atomic View story',get:w=>w.__storycov},
   {name:'Consumer smoke test',file:'consumer-smoke-test.html',sub:'packaged bundle mounts + tokens reach a Button',get:w=>w.__smoke},
   {name:'ESM smoke test',file:'esm-smoke-test.html',sub:'_esm/cs.mjs imports \u00b7 export/manifest parity',get:w=>w.__esm},
   {name:'Component children',file:'component-children-test.html',sub:'void-element #137 guard',get:w=>{const v=w.__result;return v&&v.anyThrew!==undefined?{pass:v.anyThrew===false}:null;}},
-  {name:'Component behavior',file:'component-behavior-test.html',sub:'27 real interaction assertions',get:w=>w.__behavior},
+  {name:'Component behavior',file:'component-behavior-test.html',sub:'35 real interaction assertions',get:w=>w.__behavior},
   {name:'A11y interactions',file:'a11y-gate.html',sub:'focus trap/restore · roving tabindex · ARIA contracts',get:w=>w.__a11y},
   {name:'A11y CSSOM',file:'a11y-harness.html',sub:'touch-target floors · focus-ring source proof · reduced-motion/contrast',get:w=>w.__a11ycss},
-  {name:'Template schema v2',file:'template-schema-test.html',sub:'typed content slots — 21 hole-driven templates validated',get:w=>w.__schemav2},
+  {name:'Template schema v2',file:'template-schema-test.html',sub:'typed content slots — 26 hole-driven templates validated',get:w=>w.__schemav2},
   {name:'Bilingual parity',file:'bilingual-parity.html',sub:'EN·VI string-registry parity',get:w=>w.__bilingual},
   {name:'APCA dark packs',file:'apca-dark-preview.html',sub:'15 dark elemental packs hold APCA targets',get:w=>{const v=w.__apcaPreview;return v?{pass:v.currentFail===0,v}:null;}},
   {name:'Visual baselines',file:'visual-diff.html',sub:'baseline freshness — advisory (drift judged by eye)',advisory:true,get:w=>w.__visualdiff},
   {name:'Component baselines',file:'component-visual-diff.html',sub:'12 curated component crops — advisory (drift judged by eye)',advisory:true,get:w=>w.__componentVisualDiff},
+  {name:'Axe smoke',file:'axe-smoke.html',sub:'axe-core serious/critical on component cluster — advisory (CDN)',advisory:true,get:w=>w.__axesmoke},
+  {name:'Print smoke',file:'print-smoke.html',sub:'document templates declare print ownership / @page',get:w=>w.__printsmoke},
+  {name:'Pixel CI scaffold',file:'pixel-ci.html',sub:'baselines + harness + CI script contract — advisory',advisory:true,get:w=>w.__pixelci},
 ];
 const list=document.getElementById('list'), pool=document.getElementById('pool'), overall=document.getElementById('overall');
-const rows=GATES.map(g=>{const el=document.createElement('div');el.className='g';el.innerHTML='<span class="dot run"></span><span class="n">'+g.name+'<small>'+g.sub+'</small></span><span class="badge run">running</span>';list.appendChild(el);return el;});
+// Row lifecycle: pending (queued) → running (only the active gate) → pass/fail/timeout.
+const rows=GATES.map(g=>{
+  const el=document.createElement('div');el.className='g';
+  el.innerHTML='<span class="dot pending"></span><span class="n">'+g.name+'<small>'+g.sub+'</small></span><span class="badge pending">pending</span>';
+  list.appendChild(el); return el;
+});
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
+function setPhase(i, phase, label){
+  const el=rows[i], dot=el.querySelector('.dot'), b=el.querySelector('.badge');
+  const cls=phase==='running'?'run':phase==='pending'?'pending':phase;
+  dot.className='dot '+cls; b.className='badge '+cls;
+  b.textContent=label||phase;
+}
+function snapshotPhases(){
+  return rows.map((el,i)=>({
+    name:GATES[i].name,
+    badge:(el.querySelector('.badge')||{}).textContent||'',
+    phase:/running/i.test((el.querySelector('.badge')||{}).textContent||'')?'running'
+      :/pending/i.test((el.querySelector('.badge')||{}).textContent||'')?'pending':'done'
+  }));
+}
 function runOne(g){
   return new Promise(res=>{
-    const f=document.createElement('iframe');f.src='./'+g.file;pool.appendChild(f);
-    let done=false;
-    f.onload=async()=>{
-      let idle=0,last='',prog=null;
-      for(let i=0;i<1600&&idle<200;i++){ // ~60s with no progress; hard cap ~8min while the gate keeps reporting progress (slow environments)
-        let v=null; try{ v=g.get(f.contentWindow); prog=f.contentWindow.__behaviorProgress||f.contentWindow.__gateProgress||null; }catch(e){}
-        if(v && v.pass!==undefined){ done=true; f.remove(); return res({pass:!!v.pass, v}); }
+    const f=document.createElement('iframe');
+    // Cache-bust so re-runs never reuse a stale gate document; no-store is also set inside gates that fetch VERSION/tokens.
+    f.src='./'+g.file+(g.file.includes('?')?'&':'?')+'t='+Date.now();
+    pool.appendChild(f);
+    let settled=false;
+    const settle=(r)=>{ if(settled) return; settled=true; try{ f.remove(); }catch(e){} res(r); };
+    // Poll immediately — do not wait only on onload (some embeds never fire it reliably).
+    (async()=>{
+      let idle=0,last='',prog=null, sawLoad=false;
+      f.onload=()=>{ sawLoad=true; };
+      f.onerror=()=>settle({pass:false,timeout:true,v:{timeout:true,error:'iframe onerror'}});
+      for(let i=0;i<1600&&idle<200;i++){ // ~60s idle / ~8min hard while progress ticks
+        let v=null;
+        try{ v=g.get(f.contentWindow); prog=f.contentWindow.__behaviorProgress||f.contentWindow.__gateProgress||null; }catch(e){}
+        if(v && v.pass!==undefined){ return settle({pass:!!v.pass, v}); }
         const sig=prog?prog.done+'|'+prog.current:''; if(sig&&sig!==last){ last=sig; idle=0; } else idle++;
         await wait(300);
       }
-      if(!done){ f.remove(); res({pass:false,timeout:true,v:{timeout:true,stalledAt:prog?prog.current:null,done:prog?prog.done+'/'+prog.total:null}}); }
-    };
+      settle({pass:false,timeout:true,v:{timeout:true,stalledAt:prog?prog.current:null,done:prog?prog.done+'/'+prog.total:null,sawLoad}});
+    })();
   });
 }
 (async()=>{
   const results=[];
+  const midSnapshots=[]; // phase samples while board is in flight (for audits)
+  window.__runProgress={current:null,index:-1,total:GATES.length,phases:snapshotPhases(),midSnapshots};
   for(let i=0;i<GATES.length;i++){
+    setPhase(i,'running','running');
+    overall.textContent='running '+GATES[i].name+' ('+(i+1)+'/'+GATES.length+')…';
+    window.__runProgress={current:GATES[i].name,index:i,total:GATES.length,phases:snapshotPhases(),midSnapshots};
+    // Capture mid-run state once early in the first gate (and again each gate) for verification.
+    midSnapshots.push({at:Date.now(),index:i,current:GATES[i].name,phases:snapshotPhases()});
     const r=await runOne(GATES[i]); results.push(r);
-    const el=rows[i], dot=el.querySelector('.dot'), b=el.querySelector('.badge');
     const adv=!!GATES[i].advisory;
     const cls=r.pass?'pass':(adv?'run':'fail');
-    dot.className='dot '+cls; b.className='badge '+cls;
-    b.textContent=r.pass?(adv?'pass · advisory':'pass'):(adv?'advisory ✗':(r.timeout?'timeout':'fail'));
+    const label=r.pass?(adv?'pass · advisory':'pass'):(adv?'advisory ✗':(r.timeout?'timeout':'fail'));
+    setPhase(i, cls, label);
   }
   const hard=GATES.filter(g=>!g.advisory);
   const bad=GATES.filter((g,i)=>!g.advisory&&!results[i].pass).map(g=>g.name);
   const advBad=GATES.filter((g,i)=>g.advisory&&!results[i].pass).map(g=>g.name);
   const details={}; GATES.forEach((g,i)=>{ details[g.name]=results[i].v||(results[i].timeout?{timeout:true}:null); });
-  window.__run={pass:bad.length===0,total:hard.length,failed:bad,advisoryFailed:advBad,details};
+  window.__run={pass:bad.length===0,total:hard.length,failed:bad,advisoryFailed:advBad,details,midSnapshots};
+  window.__runProgress={current:null,index:GATES.length,total:GATES.length,phases:snapshotPhases(),midSnapshots,done:true};
   overall.textContent=bad.length?('✗ '+bad.length+'/'+hard.length+' FAILED — '+bad.join(', ')):('✓ ALL '+hard.length+' FAST GATES PASS'+(advBad.length?(' · advisory: '+advBad.join(', ')):''));
   overall.style.background=bad.length?'#FEE2E2':'#dcfce7'; overall.style.color=bad.length?'#B42318':'#166534';
   // Import health report — copy/paste this back to Claude to diagnose a re-import.
-  let ver=''; try{ ver=(await (await fetch('../VERSION')).text()).trim(); }catch(e){}
+  let ver=''; try{ ver=(await (await fetch('../VERSION',{cache:'no-store'})).text()).trim(); }catch(e){}
   try{ localStorage.setItem('cs:last-gate-run', JSON.stringify({ver, ts:Date.now(), pass:bad.length===0, total:hard.length, failed:bad})); }catch(e){}
   const rep=['CyberSkill DS — import health report','version: v'+ver+' · '+new Date().toISOString(),'']
     .concat(GATES.map((g,i)=>{const r=results[i];const tag=r.pass?(g.advisory?'ADVS':'PASS'):(g.advisory?'ADVS✗':'FAIL');return tag+'  '+g.name+(r.pass?'':'  → '+JSON.stringify(r.v||{timeout:r.timeout}).slice(0,600));}))
@@ -98,7 +137,6 @@ function runOne(g){
     btn.textContent=ok?'Copied \u2713':'Copy blocked here \u2014 text is selected, press Ctrl/Cmd+C';
     setTimeout(()=>btn.textContent='Copy import report',ok?1500:5000);
   };
-  const list=document.getElementById('list');
   list.appendChild(btn); list.appendChild(box);
 })();
 </script></body></html>

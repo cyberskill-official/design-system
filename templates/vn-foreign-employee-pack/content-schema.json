@@ -1,0 +1,22 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "vn-foreign-employee-pack",
+  "slots": [
+    {
+      "id": "checklist",
+      "type": "list",
+      "label": "Compliance checklist",
+      "required": true
+    },
+    {
+      "id": "steps",
+      "type": "list",
+      "label": "Process steps"
+    },
+    {
+      "id": "exemptions",
+      "type": "list",
+      "label": "Exemptions"
+    }
+  ]
+}

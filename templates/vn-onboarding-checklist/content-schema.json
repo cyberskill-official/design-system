@@ -1,0 +1,12 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "vn-onboarding-checklist",
+  "slots": [
+    {
+      "id": "groups",
+      "type": "list",
+      "label": "Checklist groups",
+      "required": true
+    }
+  ]
+}

@@ -13,7 +13,7 @@
 <script src="./ds-base.js"></script>
 <style>@page{size:A4;margin:23mm 20mm 20mm 20mm}@media print{html,body{background:#fff!important}.cs-desk{background:#fff!important;padding:0!important;min-height:0!important}.cs-sheet{box-shadow:none!important;border:none!important;max-width:none!important;border-radius:0!important;padding:0!important}.cs-avoid{break-inside:avoid}.cs-break{break-before:page}}</style>
 </helmet>
-<div data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" data-cs-expression="{{ exAttr }}" class="cs-desk" style="background:#efe6d8;min-height:100vh;padding:40px 16px;font-family:var(--cs-font-family-ui);color:#1A1614">
+<div data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" class="cs-desk" style="background:#efe6d8;min-height:100vh;padding:40px 16px;font-family:var(--cs-font-family-ui);color:#1A1614">
   <div class="cs-sheet" style="max-width:794px;margin:0 auto;background:#fff;border:1px solid var(--cs-color-border-default);border-radius:12px;box-shadow:var(--cs-shadow-md);padding:56px 60px;text-align:left">
     <div style="display:flex;align-items:center;gap:8px;font-size:10.5px;color:var(--cs-color-text-muted);padding-bottom:6px;border-bottom:1px solid var(--cs-color-border-default);margin-bottom:14px">
       <x-import component-from-global-scope="CyberSkillDS.Logo" size="18" hint-size="18px,18px"></x-import>
@@ -95,7 +95,7 @@
         <tr style="border-bottom:1px solid var(--cs-color-border-default);background:var(--cs-color-surface-raised)"><td style="padding:6px 9px;font-family:var(--cs-font-family-mono)">2</td><td style="padding:6px 9px">Tạo thư mục templates/&lt;slug&gt;/ và viết &lt;Slug&gt;.dc.html bằng dc_write; dòng đầu là chú thích @template với name và description.<div style="color:#3F4C55;font-style:italic;font-size:11px">Create templates/&lt;slug&gt;/ and write &lt;Slug&gt;.dc.html via dc_write; the first line is the @template comment with name and description.</div></td></tr>
         <tr style="border-bottom:1px solid var(--cs-color-border-default)"><td style="padding:6px 9px;font-family:var(--cs-font-family-mono)">3</td><td style="padding:6px 9px">Nạp hệ thống qua &lt;helmet&gt;&lt;script src="./ds-base.js"&gt;; tài liệu chính thức đặt khối @page A4/Letter và class cs-desk/cs-sheet.<div style="color:#3F4C55;font-style:italic;font-size:11px">Load the system via &lt;helmet&gt;&lt;script src="./ds-base.js"&gt;; formal docs set the A4/Letter @page block and cs-desk/cs-sheet.</div></td></tr>
         <tr style="border-bottom:1px solid var(--cs-color-border-default);background:var(--cs-color-surface-raised)"><td style="padding:6px 9px;font-family:var(--cs-font-family-mono)">4</td><td style="padding:6px 9px">Áp dụng Điều 1–10 Cẩm nang: cặp Việt/Anh (Ink/Slate nghiêng), thanh bảng Umber, ô điền vàng, BÊN B trống, khối ký cs-avoid.<div style="color:#3F4C55;font-style:italic;font-size:11px">Apply Style-Guide Articles 1–10: VN/EN pairs (Ink/Slate italic), umber table bars, yellow blanks, blank Party B, cs-avoid signing block.</div></td></tr>
-        <tr style="border-bottom:1px solid var(--cs-color-border-default)"><td style="padding:6px 9px;font-family:var(--cs-font-family-mono)">5</td><td style="padding:6px 9px">Thêm hai tweak chuẩn: Element (15 biến thể Ngũ Hành) và Expression (7 kiểu). Nhấn dùng token --cs-accent-*.<div style="color:#3F4C55;font-style:italic;font-size:11px">Add the two standard tweaks: Element (15 Ngũ Hành variants) and Expression (7 treatments). Accents consume --cs-accent-*.</div></td></tr>
+        <tr style="border-bottom:1px solid var(--cs-color-border-default)"><td style="padding:6px 9px;font-family:var(--cs-font-family-mono)">5</td><td style="padding:6px 9px">Thêm tweak chuẩn: Element (15 biến thể Ngũ Hành) và Language (EN·VI). Nhấn dùng token --cs-accent-*.<div style="color:#3F4C55;font-style:italic;font-size:11px">Add the standard tweaks: Element (15 Ngũ Hành variants) and Language (EN·VI). Accents consume --cs-accent-*.</div></td></tr>
         <tr style="border-bottom:1px solid var(--cs-color-border-default);background:var(--cs-color-surface-raised)"><td style="padding:6px 9px;font-family:var(--cs-font-family-mono)">6</td><td style="padding:6px 9px">Giữ nguyên nội dung đã được luật sư thẩm định; mọi sửa đổi phải qua rà soát pháp lý.<div style="color:#3F4C55;font-style:italic;font-size:11px">Keep lawyer-validated content verbatim; any change goes through counsel review.</div></td></tr>
         <tr style="border-bottom:1px solid var(--cs-color-border-default)"><td style="padding:6px 9px;font-family:var(--cs-font-family-mono)">7</td><td style="padding:6px 9px">Thêm mẫu mới vào Phần I của tài liệu này, và cập nhật README + SKILL.md theo quy tắc mở rộng.<div style="color:#3F4C55;font-style:italic;font-size:11px">Add the new template to Part I here, and update README + SKILL.md per the expansion rule.</div></td></tr>
         <tr><td style="padding:6px 9px;font-family:var(--cs-font-family-mono)">8</td><td style="padding:6px 9px">Chạy check_design_system đến khi sạch, rồi kiểm tra bản in (Print / Save as PDF) không vỡ khối.<div style="color:#3F4C55;font-style:italic;font-size:11px">Run check_design_system until clean, then verify the print output (Print / Save as PDF) has no broken blocks.</div></td></tr>
@@ -107,15 +107,13 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{
-  &quot;element&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Thổ · studio&quot;,&quot;Thổ · clay&quot;,&quot;Thổ · sand&quot;,&quot;Hỏa · ember&quot;,&quot;Hỏa · lava&quot;,&quot;Hỏa · plasma&quot;,&quot;Thủy · river&quot;,&quot;Thủy · ocean&quot;,&quot;Thủy · mist&quot;,&quot;Mộc · leaf&quot;,&quot;Mộc · bamboo&quot;,&quot;Mộc · forest&quot;,&quot;Kim · champagne&quot;,&quot;Kim · steel&quot;,&quot;Kim · titanium&quot;],&quot;default&quot;:&quot;Thổ · studio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Element (Ngũ Hành)&quot;},
-  &quot;expression&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Liquid glass · default&quot;,&quot;Solid&quot;,&quot;Dense&quot;,&quot;Paper&quot;,&quot;Soft&quot;,&quot;Bold&quot;,&quot;Luxe&quot;],&quot;default&quot;:&quot;Liquid glass · default&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Expression&quot;}
+  &quot;element&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Thổ · studio&quot;,&quot;Thổ · clay&quot;,&quot;Thổ · sand&quot;,&quot;Hỏa · ember&quot;,&quot;Hỏa · lava&quot;,&quot;Hỏa · plasma&quot;,&quot;Thủy · river&quot;,&quot;Thủy · ocean&quot;,&quot;Thủy · mist&quot;,&quot;Mộc · leaf&quot;,&quot;Mộc · bamboo&quot;,&quot;Mộc · forest&quot;,&quot;Kim · champagne&quot;,&quot;Kim · steel&quot;,&quot;Kim · titanium&quot;],&quot;default&quot;:&quot;Thổ · studio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Element (Ngũ Hành)&quot;}
 }">
 class Component extends DCLogic {
   renderVals() {
     const EL = {"Thổ · studio":["tho",""],"Thổ · clay":["tho","clay"],"Thổ · sand":["tho","sand"],"Hỏa · ember":["hoa",""],"Hỏa · lava":["hoa","lava"],"Hỏa · plasma":["hoa","plasma"],"Thủy · river":["thuy",""],"Thủy · ocean":["thuy","ocean"],"Thủy · mist":["thuy","mist"],"Mộc · leaf":["moc",""],"Mộc · bamboo":["moc","bamboo"],"Mộc · forest":["moc","forest"],"Kim · champagne":["kim",""],"Kim · steel":["kim","steel"],"Kim · titanium":["kim","titanium"]};
     const [elAttr, vaAttr] = EL[this.props.element] || EL["Thổ · studio"];
-    const EX = {"Liquid glass · default":"","Solid":"solid","Dense":"dense","Paper":"paper","Soft":"soft","Bold":"bold","Luxe":"luxe"};
-    const sections = [
+const sections = [
       { vi:"A · Tham chiếu", en:"Reference", rows:[
         { vi:"Cẩm nang Trình bày Tài liệu", en:"Document Style Guide", code:"doc-style-guide" },
         { vi:"Danh mục & Hướng dẫn sử dụng (tài liệu này)", en:"Suite Index & Usage Guide (this doc)", code:"doc-suite-index" },
@@ -195,7 +193,7 @@ class Component extends DCLogic {
         { vi:"Team & Email", en:"Meeting agenda · Email", code:"team-meeting-agenda · email" },
       ]},
     ];
-    return { elAttr, vaAttr, exAttr: EX[this.props.expression] ?? "", sections };
+    return { elAttr, vaAttr, sections };
   }
 }
 </script>

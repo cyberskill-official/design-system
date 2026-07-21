@@ -1,6 +1,6 @@
 # CLAUDE.md — persistent project rules
 
-**Expansion rule (owner-mandated, Jul 2026):** when anything in this design system grows — a new element/variant, expression, icon, component, token role, language, or template pattern — propagate it to **every deliverable in the same change**:
+**Expansion rule (owner-mandated, Jul 2026):** when anything in this design system grows — a new element/variant, icon, component, token role, language, or template pattern — propagate it to **every deliverable in the same change**:
 
 1. Tokens/source (`tokens/`, component `.jsx` + `.d.ts` + `.prompt.md`)
 2. Specimen cards (guidelines + the component group card) **and any related guideline pages**

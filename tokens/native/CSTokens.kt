@@ -1,8 +1,8 @@
 // CyberSkill Design System — native design tokens.
 // GENERATED from tokens/tokens.dtcg.json — do not hand-edit; regenerate on token change.
-// release v4.0.0 · generated 2026-07-20T14:30:14.650Z · source sha256 c3480aebcc895996…
+// release v6.0.0 · generated 2026-07-21T18:35:16.691Z · source sha256 4995d751afc8e47a…
 // conversions: rem→px at 16 · em→…Em relative doubles · rgba alpha→ARGB byte (round(a*255)) · durations in ms
-// density: …Compact constants (fine-pointer only) · dark element packs: see $extensions.overrides.elementsDark
+// dark element packs: see $extensions.overrides.elementsDark · Density axis retired v6.0.0
 // provenance: tokens/provenance.json · parity gate: _audit/token-pipeline-test.html
 
 package world.cyberskill.tokens
@@ -54,33 +54,33 @@ object CSTokens {
   val accentGlow = Color(0x80F4BA17)
   val accentGradA = Color(0xFFF4BA17)
   val accentGradB = Color(0xFFC77B4A)
-  const val depthBg = 0
-  const val depthSection = 5
-  const val depthCard = 10
-  const val depthNav = 50
-  const val depthModal = 100
-  const val depthToast = 200
+  val depthBg = 0
+  val depthSection = 5
+  val depthCard = 10
+  val depthNav = 50
+  val depthModal = 100
+  val depthToast = 200
   val glassWhisperBlur = 8.dp
-  const val glassWhisperSaturate = "110%"
-  const val glassWhisperOpacity = "60%"
+  val glassWhisperSaturate = "110%"
+  val glassWhisperOpacity = "60%"
   val glassLightBlur = 12.dp
-  const val glassLightSaturate = "130%"
-  const val glassLightOpacity = "70%"
+  val glassLightSaturate = "130%"
+  val glassLightOpacity = "70%"
   val glassStandardBlur = 16.dp
-  const val glassStandardSaturate = "150%"
-  const val glassStandardOpacity = "80%"
+  val glassStandardSaturate = "150%"
+  val glassStandardOpacity = "80%"
   val glassHeavyBlur = 24.dp
-  const val glassHeavySaturate = "180%"
-  const val glassHeavyOpacity = "90%"
-  const val shadowXs = "0 1px 2px rgba(69, 33, 14, 0.06)"
-  const val shadowSm = "0 1px 3px rgba(69, 33, 14, 0.04), 0 8px 24px rgba(69, 33, 14, 0.06)"
-  const val shadowMd = "0 12px 30px rgba(31, 19, 11, 0.18)"
-  const val shadowLg = "0 20px 60px rgba(69, 33, 14, 0.18)"
-  const val shadowXl = "0 24px 80px rgba(31, 19, 11, 0.26)"
-  const val durationInstantMs = 0
-  const val durationFastMs = 0
-  const val durationBaseMs = 0
-  const val durationSlowMs = 0
+  val glassHeavySaturate = "180%"
+  val glassHeavyOpacity = "90%"
+  val shadowXs = "0 1px 2px rgba(69, 33, 14, 0.06)"
+  val shadowSm = "0 1px 3px rgba(69, 33, 14, 0.04), 0 8px 24px rgba(69, 33, 14, 0.06)"
+  val shadowMd = "0 12px 30px rgba(31, 19, 11, 0.18)"
+  val shadowLg = "0 20px 60px rgba(69, 33, 14, 0.18)"
+  val shadowXl = "0 24px 80px rgba(31, 19, 11, 0.26)"
+  val durationInstantMs = 0
+  val durationFastMs = 0
+  val durationBaseMs = 0
+  val durationSlowMs = 0
   val easeStandard = doubleArrayOf(0.2, 0, 0, 1)
   val easeEntrance = doubleArrayOf(0, 0, 0, 1)
   val easeExit = doubleArrayOf(0.4, 0, 1, 1)
@@ -109,16 +109,16 @@ object CSTokens {
   val breakpointXl = 1280.dp
   val breakpoint2xl = 1536.dp
   val containerMax = 1320.dp
-  const val fontFamilyUi = "Be Vietnam Pro, ui-sans-serif, system-ui, sans-serif"
-  const val fontFamilyMono = "JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-  const val fontWeightRegular = 400
-  const val fontWeightMedium = 500
-  const val fontWeightSemibold = 600
-  const val fontWeightBold = 700
-  const val fontWeightExtrabold = 800
-  const val fontLineHeightBody = 1.5f
-  const val fontLineHeightHeading = 1.35f
-  const val fontLineHeightTight = 1.15f
+  val fontFamilyUi = "Be Vietnam Pro, ui-sans-serif, system-ui, sans-serif"
+  val fontFamilyMono = "JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  val fontWeightRegular = 400
+  val fontWeightMedium = 500
+  val fontWeightSemibold = 600
+  val fontWeightBold = 700
+  val fontWeightExtrabold = 800
+  val fontLineHeightBody = 1.5f
+  val fontLineHeightHeading = 1.35f
+  val fontLineHeightTight = 1.15f
   val fontSizeXs = 12.dp
   val fontSizeSm = 14.dp
   val fontSizeBase = 16.dp
@@ -129,19 +129,19 @@ object CSTokens {
   val fontSize3xl = 36.dp
   val fontSize4xl = 48.dp
   val fontSize5xl = 60.dp
-  const val textDisplay = "var(--cs-font-size-5xl)"
-  const val textH1 = "var(--cs-font-size-3xl)"
-  const val textH2 = "var(--cs-font-size-2xl)"
-  const val textH3 = "var(--cs-font-size-xl)"
-  const val textH4 = "var(--cs-font-size-lg)"
-  const val textBodyLg = "var(--cs-font-size-md)"
-  const val textBody = "var(--cs-font-size-base)"
-  const val textSecondary = "var(--cs-font-size-sm)"
-  const val textCaption = "var(--cs-font-size-xs)"
-  const val textEyebrow = "var(--cs-font-size-xs)"
-  const val letterSpacingTightEm = -0.01f
-  const val letterSpacingNormal = 0
-  const val letterSpacingCapsEm = 0.08f
+  val textDisplay = "var(--cs-font-size-5xl)"
+  val textH1 = "var(--cs-font-size-3xl)"
+  val textH2 = "var(--cs-font-size-2xl)"
+  val textH3 = "var(--cs-font-size-xl)"
+  val textH4 = "var(--cs-font-size-lg)"
+  val textBodyLg = "var(--cs-font-size-md)"
+  val textBody = "var(--cs-font-size-base)"
+  val textSecondary = "var(--cs-font-size-sm)"
+  val textCaption = "var(--cs-font-size-xs)"
+  val textEyebrow = "var(--cs-font-size-xs)"
+  val letterSpacingTightEm = -0.01f
+  val letterSpacingNormal = 0
+  val letterSpacingCapsEm = 0.08f
   val iconSm = 16.dp
   val iconMd = 20.dp
   val iconLg = 24.dp
@@ -164,21 +164,6 @@ object CSTokens {
   val componentButtonPrimaryBgDark = Color(0xFFF4BA17)
   val componentButtonPrimaryFgDark = Color(0xFF1A1108)
   val componentTextfieldBorderDefaultDark = Color(0xFF5A4636)
-
-  // compact-density control metrics
-  val componentButtonMdMinHeightCompact = 36.dp
-  val componentButtonMdPaddingYCompact = 8.dp
-  val componentButtonMdPaddingXCompact = 16.dp
-  val componentButtonSmMinHeightCompact = 30.dp
-  val componentButtonSmPaddingYCompact = 5.dp
-  val componentButtonSmPaddingXCompact = 10.dp
-  val componentButtonLgMinHeightCompact = 44.dp
-  val componentButtonLgPaddingYCompact = 12.dp
-  val componentButtonLgPaddingXCompact = 22.dp
-  val componentButtonGapCompact = 6.dp
-  val componentTextfieldMinHeightCompact = 38.dp
-  val componentTextfieldPaddingYCompact = 7.dp
-  val componentTextfieldPaddingXCompact = 10.dp
 
   // dark elemental accent packs (APCA-derived, v4.0.0)
   val accentBrightThoDark = Color(0xFFFEC42C)

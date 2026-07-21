@@ -30,11 +30,24 @@ function parseRules(css){ // strip comments, split into {sel,body}
   for(const ch of css){ buf+=ch; if(ch==='{')depth++; else if(ch==='}'){depth--; if(depth===0){const i=buf.lastIndexOf('{');rules.push({sel:buf.slice(0,i).trim(),body:buf.slice(i+1,-1)});buf='';}} }
   return rules.filter(r=>r.sel && !r.sel.startsWith('@'));
 }
-(async()=>{
+(async()=>{ window.__gateProgress={current:'start',done:0,total:4};
   const lintFails=[],matrixFails=[],review=[];
+  const finish=(extra)=>{
+    if(window.__contrastguard) return;
+    const pass=lintFails.length===0 && matrixFails.length===0 && !(extra&&extra.error);
+    window.__contrastguard={pass,lintFails,matrixFails,review,...(extra||{})};
+    const sum=document.getElementById('sum');
+    if(extra&&extra.error){ sum.textContent='✗ FAIL — '+extra.error; sum.style.color='#B42318'; }
+    else {
+      sum.textContent=pass?('✓ PASS — 0 lint gaps, 0 matrix failures'+(review.length?(' · '+review.length+' template(s) to review'):'')):('✗ FAIL — '+lintFails.length+' lint, '+matrixFails.length+' matrix');
+      sum.style.color=pass?'#166534':'#B42318';
+    }
+  };
+  try {
+  window.__gateProgress={current:'lint',done:0,total:4};
   // ---------- (1) static lint ----------
   let allRules=[];
-  for(const f of BASE){ try{ const css=await (await fetch('../base/'+f+'.css')).text(); parseRules(css).forEach(r=>allRules.push({...r,file:f})); }catch(e){} }
+  for(const f of BASE){ try{ const css=await (await fetch('../base/'+f+'.css',{cache:'no-store'})).text(); parseRules(css).forEach(r=>allRules.push({...r,file:f})); }catch(e){} }
   const darkColorRules=allRules.filter(r=>r.sel.includes('[data-theme="dark"]') && /color\s*:/.test(r.body));
   const core=s=>s.replace(/\[data-theme="dark"\]/g,'').trim();
   const darkCores=new Set(darkColorRules.flatMap(r=>core(r.sel).split(',').map(x=>norm(x))));
@@ -56,8 +69,9 @@ function parseRules(css){ // strip comments, split into {sel,body}
   sec('1 · Static source lint (base CSS)');
   if(lintFails.length) lintFails.forEach(f=>row('bad','✗ umber-text, no dark override',f));
   else row('ok','✓ every themeable umber-text rule has a [data-theme="dark"] override','checked '+checked);
+  window.__gateProgress={current:'matrix',done:1,total:4};
   // ---------- (2) token-pair matrix ----------
-  const T=await (await fetch('../tokens/tokens.json')).json();
+  const T=await (await fetch('../tokens/tokens.json',{cache:'no-store'})).json();
   const light={}; for(const cat of Object.values(T.root||{})) Object.assign(light,cat);
   const dark=Object.assign({},light,(T.themes&&T.themes.dark)||{});
   const c=n=>({l:light['--cs-color-'+n],d:dark['--cs-color-'+n]});
@@ -81,11 +95,12 @@ function parseRules(css){ // strip comments, split into {sel,body}
   }
   // button primary fg/bg both themes
   for(const mode of ['l','d']){ const F=(mode==='l'?light:dark)['--cs-component-button-primary-fg'],B=(mode==='l'?light:dark)['--cs-component-button-primary-bg'];const R=ratio(F,B);const label=(mode==='l'?'light':'dark')+'  button primary fg/bg';if(R!=null){const ok=R>=4.5-0.05;if(!ok){matrixFails.push(label+' = '+R.toFixed(2));row('bad','✗ '+R.toFixed(2),label);}else row('ok','✓ '+R.toFixed(2),label);}}
+  window.__gateProgress={current:'elements',done:2,total:4};
   // ---------- (3) Ngũ Hành element packs — accent contrast (advisory; system targets APCA) ----------
   sec('3 · Element packs — accent contrast (15 scopes · WCAG advisory, APCA is the system metric)');
   const elemAdvisory=[];
   try{
-    const ecss=await (await fetch('../tokens/elements.css')).text();
+    const ecss=await (await fetch('../tokens/elements.css',{cache:'no-store'})).text();
     const erules=parseRules(ecss).filter(r=>/^\[data-cs-element="\w+"\](\[data-cs-variant="\w+"\])?$/.test(r.sel.trim()));
     const pageL=light['--cs-color-surface-page']||'#FFFDF8', pageD=dark['--cs-color-surface-page']||'#1a1108';
     for(const r of erules){
@@ -101,17 +116,19 @@ function parseRules(css){ // strip comments, split into {sel,body}
     }
   }catch(e){ row('rev','? elements.css not parsed',String(e).slice(0,40)); }
   window.__elemAdvisory=elemAdvisory;
+  window.__gateProgress={current:'templates',done:3,total:4};
   // ---------- (4) template review (advisory) ----------
   sec('4 · Screen-template inline umber (full body — review, advisory)');
-  for(const s of SCREENS){ const [dir,name]=s.split('/'); try{ const src=await (await fetch('../templates/'+dir+'/'+name+'.dc.html')).text();
+  for(const s of SCREENS){ const [dir,name]=s.split('/'); try{ const src=await (await fetch('../templates/'+dir+'/'+name+'.dc.html',{cache:'no-store'})).text();
     const n=(norm(src).match(/(^|;|")color:var\(--cs-color-brand-umber\)/g)||[]).length;
     if(n){ review.push(dir+'×'+n); row('rev','⚠ '+n+' inline umber-text — verify vs dark',dir); }
     else row('ok','✓ no inline umber-text (theme-safe)',dir);
   }catch(e){ row('rev','? not fetched',dir);} }
-  const pass=lintFails.length===0 && matrixFails.length===0;
-  window.__contrastguard={pass,lintFails,matrixFails,review};
-  const sum=document.getElementById('sum');
-  sum.textContent=pass?('✓ PASS — 0 lint gaps, 0 matrix failures'+(review.length?(' · '+review.length+' template(s) to review'):'')):('✗ FAIL — '+lintFails.length+' lint, '+matrixFails.length+' matrix');
-  sum.style.color=pass?'#166534':'#B42318';
+  window.__gateProgress={current:'done',done:4,total:4}; finish();
+  } catch(e) {
+    finish({error:String(e&&e.message||e).slice(0,160),pass:false});
+  }
 })();
+// Watchdog — never leave the runner hanging if a fetch stalls
+setTimeout(()=>{ if(!window.__contrastguard){ window.__contrastguard={pass:false,lintFails:['watchdog'],matrixFails:[],review:[],error:'watchdog (45s)'}; const sum=document.getElementById('sum'); if(sum){ sum.textContent='✗ FAIL — watchdog (45s)'; sum.style.color='#B42318'; } } },45000);
 </script></body></html>

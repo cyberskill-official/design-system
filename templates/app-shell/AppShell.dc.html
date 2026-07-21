@@ -11,7 +11,7 @@
 <helmet>
 <script src="./ds-base.js"></script>
 </helmet>
-<div data-theme="{{ rootTheme }}" lang="{{ langAttr }}" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" data-cs-expression="{{ exAttr }}" style="display:grid;grid-template-columns:248px 1fr;min-height:100vh;font-family:var(--cs-font-family-ui);color:var(--cs-color-text-primary);background:var(--cs-color-surface-page)">
+<div data-theme="{{ rootTheme }}" lang="{{ langAttr }}" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" style="display:grid;grid-template-columns:248px 1fr;min-height:100vh;font-family:var(--cs-font-family-ui);color:var(--cs-color-text-primary);background:var(--cs-color-surface-page)">
   <nav class="cs-sidebar">
     <div style="display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;color:var(--cs-color-text-primary);padding:6px 12px 14px">
       <x-import component-from-global-scope="CyberSkillDS.Logo" size="28" hint-size="28px,28px"></x-import>CyberSkill
@@ -55,27 +55,24 @@
 <script type="text/x-dc" data-dc-script data-props="{
   &quot;language&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;English&quot;,&quot;Tiếng Việt&quot;],&quot;default&quot;:&quot;English&quot;,&quot;tsType&quot;:&quot;\&quot;English\&quot; | \&quot;Tiếng Việt\&quot;&quot;,&quot;section&quot;:&quot;Content&quot;},
   &quot;element&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Thổ · studio&quot;,&quot;Thổ · clay&quot;,&quot;Thổ · sand&quot;,&quot;Hỏa · ember&quot;,&quot;Hỏa · lava&quot;,&quot;Hỏa · plasma&quot;,&quot;Thủy · river&quot;,&quot;Thủy · ocean&quot;,&quot;Thủy · mist&quot;,&quot;Mộc · leaf&quot;,&quot;Mộc · bamboo&quot;,&quot;Mộc · forest&quot;,&quot;Kim · champagne&quot;,&quot;Kim · steel&quot;,&quot;Kim · titanium&quot;],&quot;default&quot;:&quot;Thổ · studio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Element (Ngũ Hành)&quot;},
-  &quot;expression&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Liquid glass · default&quot;,&quot;Solid&quot;,&quot;Dense&quot;,&quot;Paper&quot;,&quot;Soft&quot;,&quot;Bold&quot;,&quot;Luxe&quot;],&quot;default&quot;:&quot;Liquid glass · default&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Expression&quot;},
   &quot;theme&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;\&quot;light\&quot; | \&quot;dark\&quot;&quot;,&quot;section&quot;:&quot;Theme&quot;}
 }">
 class Component extends DCLogic {
   renderVals() {
     const EL = {"Thổ · studio":["tho",""],"Thổ · clay":["tho","clay"],"Thổ · sand":["tho","sand"],"Hỏa · ember":["hoa",""],"Hỏa · lava":["hoa","lava"],"Hỏa · plasma":["hoa","plasma"],"Thủy · river":["thuy",""],"Thủy · ocean":["thuy","ocean"],"Thủy · mist":["thuy","mist"],"Mộc · leaf":["moc",""],"Mộc · bamboo":["moc","bamboo"],"Mộc · forest":["moc","forest"],"Kim · champagne":["kim",""],"Kim · steel":["kim","steel"],"Kim · titanium":["kim","titanium"]};
     const [elAttr, vaAttr] = EL[this.props.element] || EL["Thổ · studio"];
-    const EX = {"Liquid glass · default":"","Solid":"solid","Dense":"dense","Paper":"paper","Soft":"soft","Bold":"bold","Luxe":"luxe"};
-    const vn = this.props.language === "Tiếng Việt";
+const vn = this.props.language === "Tiếng Việt";
     const en = { navLabel:"Workspace", nav1:"Overview", nav2:"Projects", nav3:"Releases", nav4:"Team", nav5:"Settings", searchPh:"Search projects…", newBtn:"New project", h1:"Overview", sub:"Every wish in flight, at a glance.", s1:"Projects", s2:"In progress", s3:"Shipped", s4:"Avg progress", s4d:"+6 this week", tblCap:"Projects", cKey:"Key", cName:"Project", cSquad:"Squad", cProg:"Progress", cStatus:"Status", stInprog:"In progress", stBlocked:"Blocked" };
     const vi = { navLabel:"Không gian", nav1:"Tổng quan", nav2:"Dự án", nav3:"Phát hành", nav4:"Đội ngũ", nav5:"Cài đặt", searchPh:"Tìm dự án…", newBtn:"Dự án mới", h1:"Tổng quan", sub:"Mọi điều ước đang chạy, trong một cái nhìn.", s1:"Dự án", s2:"Đang làm", s3:"Đã ra mắt", s4:"Tiến độ TB", s4d:"+6 tuần này", tblCap:"Dự án", cKey:"Mã", cName:"Dự án", cSquad:"Nhóm", cProg:"Tiến độ", cStatus:"Trạng thái", stInprog:"Đang làm", stBlocked:"Bị chặn" };
     const t = vn ? vi : en;
-    return Object.assign({ langAttr: (this.props.language ?? "English") === "Tiếng Việt" ? "vi" : "en", elAttr, vaAttr, exAttr: EX[this.props.expression] ?? "", rootTheme: this.props.theme === "dark" ? "dark" : "",
+    return Object.assign({ langAttr: (this.props.language ?? "English") === "Tiếng Việt" ? "vi" : "en", elAttr, vaAttr, rootTheme: this.props.theme === "dark" ? "dark" : "",
       cols: [ { key: "key", header: t.cKey }, { key: "name", header: t.cName }, { key: "squad", header: t.cSquad }, { key: "pct", header: t.cProg, render: (r) => r.pct + "%" }, { key: "status", header: t.cStatus } ],
       rows: [
         { key: "CDS", name: "Design System v1.6", squad: "Platform", pct: 72, status: t.stInprog },
         { key: "SITE", name: "cyberskill.world", squad: "Growth", pct: 84, status: t.stInprog },
         { key: "GENIE", name: "Lumi Genie Chat", squad: "AI", pct: 58, status: t.stInprog },
         { key: "OS", name: "CyberOS Agent Spine", squad: "Platform", pct: 41, status: t.stBlocked },
-      ],
-    }, t);
+      ]}, t);
   }
 }
 </script>

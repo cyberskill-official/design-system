@@ -1,8 +1,8 @@
 // CyberSkill Design System — native design tokens.
 // GENERATED from tokens/tokens.dtcg.json — do not hand-edit; regenerate on token change.
-// release v4.0.0 · generated 2026-07-20T14:30:14.650Z · source sha256 c3480aebcc895996…
+// release v6.0.0 · generated 2026-07-21T18:35:16.691Z · source sha256 4995d751afc8e47a…
 // conversions: rem→px at 16 · em→…Em relative doubles · rgba alpha→ARGB byte (round(a*255)) · durations in ms
-// density: …Compact constants (fine-pointer only) · dark element packs: see $extensions.overrides.elementsDark
+// dark element packs: see $extensions.overrides.elementsDark · Density axis retired v6.0.0
 // provenance: tokens/provenance.json · parity gate: _audit/token-pipeline-test.html
 
 import SwiftUI
@@ -166,21 +166,6 @@ public enum CSTokens {
   public static let componentButtonPrimaryBgDark = color(0xF4BA17)
   public static let componentButtonPrimaryFgDark = color(0x1A1108)
   public static let componentTextfieldBorderDefaultDark = color(0x5A4636)
-
-  // MARK: compact-density control metrics
-  public static let componentButtonMdMinHeightCompact: CGFloat = 36
-  public static let componentButtonMdPaddingYCompact: CGFloat = 8
-  public static let componentButtonMdPaddingXCompact: CGFloat = 16
-  public static let componentButtonSmMinHeightCompact: CGFloat = 30
-  public static let componentButtonSmPaddingYCompact: CGFloat = 5
-  public static let componentButtonSmPaddingXCompact: CGFloat = 10
-  public static let componentButtonLgMinHeightCompact: CGFloat = 44
-  public static let componentButtonLgPaddingYCompact: CGFloat = 12
-  public static let componentButtonLgPaddingXCompact: CGFloat = 22
-  public static let componentButtonGapCompact: CGFloat = 6
-  public static let componentTextfieldMinHeightCompact: CGFloat = 38
-  public static let componentTextfieldPaddingYCompact: CGFloat = 7
-  public static let componentTextfieldPaddingXCompact: CGFloat = 10
 
   // MARK: dark elemental accent packs (APCA-derived, v4.0.0)
   public static let accentBrightThoDark = color(0xFEC42C)

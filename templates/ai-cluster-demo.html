@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CyberSkill — AI cluster demo</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;font-family:var(--cs-font-family-ui);background:var(--cs-color-surface-page);color:var(--cs-color-text-primary);padding:24px;max-width:720px}
+  h1{font-size:18px;margin:0 0 8px} .sub{color:var(--cs-color-text-muted);font-size:13px;line-height:1.5;margin:0 0 18px}
+  #root{display:grid;gap:14px}
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="../_ds_bundle.js"></script>
+</head><body data-cs-theme="light" data-cs-element="tho">
+<h1>AI cluster demo</h1>
+<p class="sub">End-to-end productization story for Lumi AI surfaces: disclosure, confidence, citations, chat message, prompt input. Axes: Theme × Element × Language (parent Live View posts <code>__cs_axes</code>).</p>
+<div id="root"></div>
+<script>
+const NS=window[Object.keys(window).find(k=>/^CyberSkillDesignSystem_[0-9a-f]{6}$/.test(k))];
+const h=React.createElement;
+function App(){
+  const [lang,setLang]=React.useState('en');
+  React.useEffect(()=>{
+    const on=e=>{const d=e.data||{}; if(d.type==='__cs_axes'){
+      if(d.theme) document.documentElement.setAttribute('data-cs-theme', d.theme);
+      if(d.element) document.documentElement.setAttribute('data-cs-element', d.element);
+      if(d.lang) setLang(d.lang);
+    }};
+    window.addEventListener('message',on); return ()=>window.removeEventListener('message',on);
+  },[]);
+  if(!NS) return h('p',null,'Bundle missing');
+  const {AIDisclosureBadge,ConfidenceMeter,CitationList,ChatMessage,PromptInput,PromptSuggestions,TypingIndicator,HumanReviewGate}=NS;
+  return h('div',{id:'cluster',lang},
+    AIDisclosureBadge?h(AIDisclosureBadge,{lang}):null,
+    ConfidenceMeter?h(ConfidenceMeter,{value:0.82,lang}):null,
+    CitationList?h(CitationList,{items:[{title:'SKILL.md',url:'#skill'},{title:'llms.txt',url:'#llms'}],lang}):null,
+    ChatMessage?h(ChatMessage,{role:'assistant',children: lang==='vi'?'Xin chào — Lumi sẵn sàng.':'Hello — Lumi is ready.',lang}):null,
+    TypingIndicator?h(TypingIndicator,{lang}):null,
+    PromptSuggestions?h(PromptSuggestions,{items: lang==='vi'?['Tóm tắt ticket','Soạn email']:['Summarise ticket','Draft email'],lang}):null,
+    PromptInput?h(PromptInput,{placeholder:lang==='vi'?'Hỏi Lumi…':'Ask Lumi…',lang}):null,
+    HumanReviewGate?h(HumanReviewGate,{status:'pending',lang}):null
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body></html>

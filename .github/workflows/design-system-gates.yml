@@ -75,8 +75,6 @@ jobs:
         run: node _audit/ci/run-single-gate.mjs http://127.0.0.1:8080/_audit/language-overflow.html __language 360000
       - name: theme-overflow (all 84 templates, forced dark — hard gate only; contrast stays advisory)
         run: node _audit/ci/run-single-gate.mjs http://127.0.0.1:8080/_audit/theme-overflow.html __theme 360000
-      - name: density-overflow (all 84 templates, forced compact)
-        run: node _audit/ci/run-single-gate.mjs http://127.0.0.1:8080/_audit/density-overflow.html __density 360000
 
   regenerate-tokens:
     # Runs whenever a push/PR touches the DTCG source; regenerates tokens/native/* + provenance.json

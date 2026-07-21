@@ -6,6 +6,8 @@ export interface DataGridColumn<R = any> {
   key: string;
   header: ReactNode;
   sortable?: boolean;
+  /** Sticky first-column style pin (inline-start). */
+  pinned?: boolean;
   /** Custom sort value; defaults to row[key]. */
   sortValue?: (row: R) => string | number;
   render?: (row: R) => ReactNode;
@@ -21,6 +23,10 @@ export interface DataGridProps<R = any> {
   height?: number;
   caption?: ReactNode;
   empty?: ReactNode;
+  /** Client-side filter query; matches any column value (or filterKeys). */
+  filterText?: string;
+  /** Column keys to filter when filterText is set. Defaults to all column keys. */
+  filterKeys?: string[];
   lang?: string;
   className?: string;
 }

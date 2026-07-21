@@ -1,6 +1,6 @@
 # Contrast report — elemental pairings (APCA)
 
-Generated 2026-07-18 · sweep v3 (final for v2.0). Threshold **Lc ≥ 60** for every text role checked. Body text uses `--cs-color-text-primary/muted` (Lc ≥ 75, unchanged).
+Generated 2026-07-22 · sweep v7 (lockstep with VERSION 7.0.0).
 
 **Doctrine encoded by this sweep:** text sits on `-bright` or `-tint`, never on the mid-tone `-accent` — at any size. The accent is for bars, borders, progress fills, and non-text fills only. (Rule stated in `tokens/elements.css` and conventions.)
 

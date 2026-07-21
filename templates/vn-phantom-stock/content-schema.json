@@ -1,0 +1,17 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "vn-phantom-stock",
+  "slots": [
+    {
+      "id": "articles",
+      "type": "list",
+      "label": "Articles",
+      "required": true
+    },
+    {
+      "id": "defs",
+      "type": "list",
+      "label": "Definitions"
+    }
+  ]
+}

@@ -90,8 +90,8 @@ const darkOverrides = Object.entries(ext.overrides.themes.dark || {})
   .filter(([, v]) => parseColor(v))
   .map(([css, v]) => ({ css, name: camel(css) + 'Dark', value: v, type: 'color' }));
 
-// 3. Compact-density overrides (all dimensions in this pack).
-const densityCompact = Object.entries(ext.overrides.densities.compact || {}).map(([css, v]) => ({ css, name: camel(css) + 'Compact', value: v, type: 'dimension' }));
+// 3. Compact-density overrides — none in current system (empty).
+const densityCompact = Object.entries((ext.overrides.densities && ext.overrides.densities.compact) || {}).map(([css, v]) => ({ css, name: camel(css) + 'Compact', value: v, type: 'dimension' }));
 
 // 4. Dark elemental accent packs (APCA-derived) — element key e.g. "tho-clay" -> suffix "ThoClayDark".
 const elementsDark = [];
@@ -119,7 +119,7 @@ const HEADER = (lang) => [
   '// GENERATED from tokens/tokens.dtcg.json — do not hand-edit; regenerate on token change.',
   `// release v${VERSION} · generated ${generatedAt} · source sha256 ${shaShort}`,
   '// conversions: rem→px at 16 · em→…Em relative doubles · rgba alpha→ARGB byte (round(a*255)) · durations in ms',
-  '// density: …Compact constants (fine-pointer only) · dark element packs: see $extensions.overrides.elementsDark',
+  '// dark element packs: see $extensions.overrides.elementsDark',
   '// provenance: tokens/provenance.json · parity gate: _audit/token-pipeline-test.html',
   '',
 ].join('\n');
@@ -133,8 +133,10 @@ function buildSwift() {
   for (const l of render(base, 'swift')) lines.push('  public static ' + l);
   lines.push('', '  // MARK: dark-theme color overrides');
   for (const l of render(darkOverrides, 'swift')) lines.push('  public static ' + l);
-  lines.push('', '  // MARK: compact-density control metrics');
-  for (const l of render(densityCompact, 'swift')) lines.push('  public static ' + l);
+  if (densityCompact.length) {
+    lines.push('', '  // MARK: compact-density control metrics');
+    for (const l of render(densityCompact, 'swift')) lines.push('  public static ' + l);
+  }
   lines.push('', '  // MARK: dark elemental accent packs (APCA-derived, v4.0.0)');
   for (const l of render(elementsDark, 'swift')) lines.push('  public static ' + l);
   lines.push('}', '');
@@ -145,8 +147,10 @@ function buildKt() {
   for (const l of render(base, 'kt')) lines.push('  ' + l);
   lines.push('', '  // dark-theme color overrides');
   for (const l of render(darkOverrides, 'kt')) lines.push('  ' + l);
-  lines.push('', '  // compact-density control metrics');
-  for (const l of render(densityCompact, 'kt')) lines.push('  ' + l);
+  if (densityCompact.length) {
+    lines.push('', '  // compact-density control metrics');
+    for (const l of render(densityCompact, 'kt')) lines.push('  ' + l);
+  }
   lines.push('', '  // dark elemental accent packs (APCA-derived, v4.0.0)');
   for (const l of render(elementsDark, 'kt')) lines.push('  ' + l);
   lines.push('}', '');
@@ -157,8 +161,10 @@ function buildDart() {
   for (const l of render(base, 'dart')) lines.push('  static const ' + l.replace(/^const /, ''));
   lines.push('', '  // dark-theme color overrides');
   for (const l of render(darkOverrides, 'dart')) lines.push('  static const ' + l.replace(/^const /, ''));
-  lines.push('', '  // compact-density control metrics');
-  for (const l of render(densityCompact, 'dart')) lines.push('  static const ' + l.replace(/^const /, ''));
+  if (densityCompact.length) {
+    lines.push('', '  // compact-density control metrics');
+    for (const l of render(densityCompact, 'dart')) lines.push('  static const ' + l.replace(/^const /, ''));
+  }
   lines.push('', '  // dark elemental accent packs (APCA-derived, v4.0.0)');
   for (const l of render(elementsDark, 'dart')) lines.push('  static const ' + l.replace(/^const /, ''));
   lines.push('}', '');

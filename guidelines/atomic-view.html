@@ -1,4 +1,4 @@
-<!-- @dsCard group="Atomic View" viewport="1280x820" name="Atomic View" subtitle="Storybook-style browser — every component + variants, live across Theme × Element × Expression × Density × Language" -->
+<!-- @dsCard group="Atomic View" viewport="1280x820" name="Atomic View" subtitle="Storybook-style browser — every component + variants, live across Theme × Element × Language" -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -262,8 +262,6 @@ const ELEMENTS = [
   ["moc|","Mộc · leaf"],["moc|bamboo","Mộc · bamboo"],["moc|forest","Mộc · forest"],
   ["kim|","Kim · champagne"],["kim|steel","Kim · steel"],["kim|titanium","Kim · titanium"],
 ];
-const EXPRESSIONS = [["","Liquid glass"],["solid","Solid"],["dense","Dense"],["paper","Paper"],["soft","Soft"],["bold","Bold"],["luxe","Luxe"]];
-const DENSITIES = [["","Comfortable"],["compact","Compact"]];
 const LANGS = [["","Default"],["en","English"],["vi","Tiếng Việt"]];
 const PAGES = [
   { name:"Status Hub (product)", src:"../ui_kits/status-hub/index.html" },
@@ -278,8 +276,6 @@ function applyAxis(ifr, ax){
     (ax.theme&&ax.theme!=="light")?h.setAttribute("data-theme",ax.theme):h.removeAttribute("data-theme");
     ax.elm?h.setAttribute("data-cs-element",ax.elm):h.removeAttribute("data-cs-element");
     ax.elv?h.setAttribute("data-cs-variant",ax.elv):h.removeAttribute("data-cs-variant");
-    ax.expr?h.setAttribute("data-cs-expression",ax.expr):h.removeAttribute("data-cs-expression");
-    ax.density?h.setAttribute("data-cs-density",ax.density):h.removeAttribute("data-cs-density");
     if(ax.lang) h.setAttribute("lang", ax.lang);
     const w=ifr.contentWindow;
     if(ax.lang && w && w.__dcSetProps && w.__dcRootName){ const r=w.__dcRootName&&w.__dcRootName(); if(r) w.__dcSetProps(r,{language: ax.lang==="vi"?"Tiếng Việt":"English"}); }
@@ -313,8 +309,6 @@ function Story({ s, lang }){
 function App(){
   const [theme,setTheme]=useState("light");
   const [el,setEl]=useState("tho|");
-  const [expr,setExpr]=useState("");
-  const [density,setDensity]=useState("");
   const [lang,setLang]=useState("");
   const [collapsed,setCollapsed]=useState({tpl:true,pages:true});
   const [tpls,setTpls]=useState([]);
@@ -329,10 +323,8 @@ function App(){
   if(theme!=="light") axis["data-theme"]=theme;
   if(elm) axis["data-cs-element"]=elm;
   if(elv) axis["data-cs-variant"]=elv;
-  if(expr) axis["data-cs-expression"]=expr;
-  if(density) axis["data-cs-density"]=density;
   if(lang) axis.lang=lang;
-  const artifactAx={theme,elm,elv,expr,density,lang};
+  const artifactAx={theme,elm,elv,lang};
   const shownTpls=tpls.filter(t=>!nq||t.name.toLowerCase().includes(nq));
   const shownPages=PAGES.filter(t=>!nq||t.name.toLowerCase().includes(nq));
   if(!NS || !Object.keys(NS).length){ return <div style={{padding:40,fontFamily:"var(--cs-font-family-mono)"}}>Bundle not loaded — <code>_ds_bundle.js</code> is compiled at end of turn; reopen on a fresh turn.</div>; }
@@ -358,18 +350,12 @@ function App(){
       </aside>
       <main>
         <div className="toolbar">
-          <h1>CyberSkill · Atomic View</h1>
+          <h1>CyberSkill · Live View</h1>
           <label className="ctl">Theme
             <select value={theme} onChange={(e)=>setTheme(e.target.value)}><option value="light">Light</option><option value="dark">Dark</option></select>
           </label>
           <label className="ctl">Element
             <select value={el} onChange={(e)=>setEl(e.target.value)}>{ELEMENTS.map(([v,l])=><option key={v} value={v}>{l}</option>)}</select>
-          </label>
-          <label className="ctl">Expression
-            <select value={expr} onChange={(e)=>setExpr(e.target.value)}>{EXPRESSIONS.map(([v,l])=><option key={v} value={v}>{l}</option>)}</select>
-          </label>
-          <label className="ctl">Density
-            <select value={density} onChange={(e)=>setDensity(e.target.value)}>{DENSITIES.map(([v,l])=><option key={v} value={v}>{l}</option>)}</select>
           </label>
           <label className="ctl">Language
             <select value={lang} onChange={(e)=>setLang(e.target.value)}>{LANGS.map(([v,l])=><option key={v} value={v}>{l}</option>)}</select>
@@ -385,7 +371,7 @@ function App(){
             </div>
           ); })}
           </div>
-          {shownTpls.length>0 && <div><h2 className="tierhead" id="tier-templates">Templates<span className="sub">Starting-point artifacts ({shownTpls.length}) — live, and reskinned by the toolbar above (Theme · Element · Expression · Language).</span></h2><ArtifactTier items={shownTpls} ax={artifactAx}/></div>}
+          {shownTpls.length>0 && <div><h2 className="tierhead" id="tier-templates">Templates<span className="sub">Starting-point artifacts ({shownTpls.length}) — live, and reskinned by the toolbar above (Theme · Element · Language).</span></h2><ArtifactTier items={shownTpls} ax={artifactAx}/></div>}
           {shownPages.length>0 && <div><h2 className="tierhead" id="tier-pages">Pages<span className="sub">Full product recreations (UI kits) — the same axes applied to whole apps.</span></h2><ArtifactTier items={shownPages} ax={artifactAx}/></div>}
         </div>
       </main>

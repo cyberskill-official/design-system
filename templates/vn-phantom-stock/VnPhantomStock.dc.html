@@ -13,7 +13,7 @@
 <script src="./ds-base.js"></script>
 <style>@page{size:A4;margin:23mm 20mm 20mm 20mm}@media print{html,body{background:#fff!important}.cs-desk{background:#fff!important;padding:0!important;min-height:0!important}.cs-sheet{box-shadow:none!important;border:none!important;max-width:none!important;border-radius:0!important;padding:0!important}.cs-avoid{break-inside:avoid}}</style>
 </helmet>
-<div lang="vi" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" data-cs-expression="{{ exAttr }}" class="cs-desk" style="background:#efe6d8;min-height:100vh;padding:40px 16px;font-family:var(--cs-font-family-ui);color:#1A1614">
+<div lang="vi" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" class="cs-desk" style="background:#efe6d8;min-height:100vh;padding:40px 16px;font-family:var(--cs-font-family-ui);color:#1A1614">
   <div class="cs-sheet" style="max-width:794px;margin:0 auto;background:#fff;border:1px solid var(--cs-color-border-default);border-radius:12px;box-shadow:var(--cs-shadow-md);padding:56px 60px;text-align:left">
     <div style="display:flex;align-items:center;gap:8px;font-size:10.5px;color:var(--cs-color-text-muted);padding-bottom:6px;border-bottom:1px solid var(--cs-color-border-default);margin-bottom:14px">
       <x-import component-from-global-scope="CyberSkillDS.Logo" size="18" hint-size="18px,18px"></x-import>
@@ -96,15 +96,13 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{
-  &quot;element&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Thổ · studio&quot;,&quot;Thổ · clay&quot;,&quot;Thổ · sand&quot;,&quot;Hỏa · ember&quot;,&quot;Hỏa · lava&quot;,&quot;Hỏa · plasma&quot;,&quot;Thủy · river&quot;,&quot;Thủy · ocean&quot;,&quot;Thủy · mist&quot;,&quot;Mộc · leaf&quot;,&quot;Mộc · bamboo&quot;,&quot;Mộc · forest&quot;,&quot;Kim · champagne&quot;,&quot;Kim · steel&quot;,&quot;Kim · titanium&quot;],&quot;default&quot;:&quot;Thổ · studio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Element (Ngũ Hành)&quot;},
-  &quot;expression&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Liquid glass · default&quot;,&quot;Solid&quot;,&quot;Dense&quot;,&quot;Paper&quot;,&quot;Soft&quot;,&quot;Bold&quot;,&quot;Luxe&quot;],&quot;default&quot;:&quot;Liquid glass · default&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Expression&quot;}
+  &quot;element&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Thổ · studio&quot;,&quot;Thổ · clay&quot;,&quot;Thổ · sand&quot;,&quot;Hỏa · ember&quot;,&quot;Hỏa · lava&quot;,&quot;Hỏa · plasma&quot;,&quot;Thủy · river&quot;,&quot;Thủy · ocean&quot;,&quot;Thủy · mist&quot;,&quot;Mộc · leaf&quot;,&quot;Mộc · bamboo&quot;,&quot;Mộc · forest&quot;,&quot;Kim · champagne&quot;,&quot;Kim · steel&quot;,&quot;Kim · titanium&quot;],&quot;default&quot;:&quot;Thổ · studio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Element (Ngũ Hành)&quot;}
 }">
 class Component extends DCLogic {
   renderVals() {
     const EL = {"Thổ · studio":["tho",""],"Thổ · clay":["tho","clay"],"Thổ · sand":["tho","sand"],"Hỏa · ember":["hoa",""],"Hỏa · lava":["hoa","lava"],"Hỏa · plasma":["hoa","plasma"],"Thủy · river":["thuy",""],"Thủy · ocean":["thuy","ocean"],"Thủy · mist":["thuy","mist"],"Mộc · leaf":["moc",""],"Mộc · bamboo":["moc","bamboo"],"Mộc · forest":["moc","forest"],"Kim · champagne":["kim",""],"Kim · steel":["kim","steel"],"Kim · titanium":["kim","titanium"]};
     const [elAttr, vaAttr] = EL[this.props.element] || EL["Thổ · studio"];
-    const EX = {"Liquid glass · default":"","Solid":"solid","Dense":"dense","Paper":"paper","Soft":"soft","Bold":"bold","Luxe":"luxe"};
-    const defs = [
+const defs = [
       { term:"Cổ phần ảo (SP) / Phantom Stock (SP):", vi:"quyền tài sản theo hợp đồng do Công ty cấp cho Thành viên, cho phép Thành viên nhận thanh toán bằng tiền theo công thức định giá tại Điều 3, không phải là cổ phần và không mang bất kỳ quyền cổ đông nào.", en:"A contractual property right granted by the Company to the Member, entitling the Member to cash payments under the valuation formula in Article 3; SP is not a share and carries no shareholder rights." },
       { term:"Thông báo Cấp phát / Grant Notice:", vi:"văn bản theo mẫu tại Phụ lục A, xác định danh tính Thành viên, số lượng SP, ngày cấp, ngày bắt đầu tính mở khóa và số Nghị quyết HĐQT phê duyệt lần cấp đó.", en:"The instrument in the form of Schedule A identifies the Member, the number of SP, the grant date, the vesting commencement date, and the Board Resolution number approving that grant." },
       { term:"Mở khóa (Vesting):", vi:"việc SP trở thành SP đã mở khóa theo lộ trình và điều kiện tại Điều 4; SP chưa đạt điều kiện là SP chưa mở khóa.", en:"The process by which SP becomes Vested SP under the schedule and conditions in Article 4; SP not yet satisfying those conditions is Unvested SP." },
@@ -178,7 +176,7 @@ class Component extends DCLogic {
         P("Mọi tranh chấp phát sinh từ hoặc liên quan đến Thỏa thuận này sẽ được giải quyết chung thẩm bằng trọng tài tại Trung tâm Trọng tài Quốc tế Việt Nam (VIAC) theo Quy tắc tố tụng trọng tài của VIAC có hiệu lực tại thời điểm phát sinh tranh chấp. Địa điểm trọng tài là Thành phố Hồ Chí Minh, Việt Nam. Hội đồng trọng tài gồm một trọng tài viên duy nhất. Luật áp dụng cho nội dung tranh chấp là pháp luật Việt Nam. Ngôn ngữ trọng tài là tiếng Việt; tài liệu bằng tiếng Anh được nộp không cần bản dịch, trừ khi Hội đồng trọng tài yêu cầu khác. Trường hợp tranh chấp có yếu tố nước ngoài hoặc có một bên là doanh nghiệp có vốn đầu tư nước ngoài, các bên có thể thỏa thuận tiến hành tố tụng bằng tiếng Việt và tiếng Anh. Trước khi Hội đồng trọng tài được thành lập, mỗi Bên có quyền yêu cầu Tòa án có thẩm quyền áp dụng biện pháp khẩn cấp tạm thời theo Điều 48, Điều 53 Luật Trọng tài Thương mại 2010 mà không bị coi là từ bỏ thỏa thuận trọng tài.","Any dispute arising out of or in relation to this Agreement shall be finally resolved by arbitration at the Vietnam International Arbitration Centre (VIAC) in accordance with its Rules of Arbitration in force at the time of the dispute. The place of arbitration is Ho Chi Minh City, Vietnam. The arbitral tribunal comprises a sole arbitrator. The law governing the merits is the law of Vietnam. The language of the arbitration is Vietnamese; documents in English may be submitted without translation unless the Arbitral Tribunal directs otherwise. Where the dispute involves a foreign element or a party that is a foreign-invested enterprise, the parties may agree to conduct the proceedings in Vietnamese and English. Before the tribunal is constituted, either Party may apply to the competent Court for interim urgent measures under Articles 48 and 53 of the Law on Commercial Arbitration 2010 without being deemed to have waived the arbitration agreement."),
       ]},
     ];
-    return { elAttr, vaAttr, exAttr: EX[this.props.expression] ?? "", defs, articles };
+    return { elAttr, vaAttr, defs, articles };
   }
 }
 </script>

@@ -32,13 +32,13 @@ const out = { steps: [], pass: true };
 function step(name, ok, detail){ out.steps.push((ok?"\u2713 ":"\u2717 ")+name+(detail?" \u2014 "+detail:"")); if(!ok) out.pass=false; }
 function ctx(s, i, n){ return s.slice(Math.max(0,i-4), i+n+18).replace(/\s+/g," ").trim(); }
 
-(async () => {
+(async () => { window.__gateProgress={current:'fetch',done:0,total:3};
   // ---- fetch the sources (same project origin) ----
   const names = ['_ds_manifest.json','VERSION','README.md','SKILL.md','llms.txt','CHANGELOG.md','package.json'];
   const F = {};
   for (const n of names){
     try {
-      const r = await fetch('../'+n);
+      const r = await fetch('../'+n, {cache:'no-store'});
       const t = await r.text();
       // Self-diagnosis: a static host that mis-detects a framework (Vercel auto-build, SPA fallback, etc.)
       // serves its OWN 404/error page for an unmatched path instead of the raw file — same HTTP 200, wrong body.
@@ -53,7 +53,7 @@ function ctx(s, i, n){ return s.slice(Math.max(0,i-4), i+n+18).replace(/\s+/g," 
   }
   if (out.pass === false){ finish(); return; }
 
-  const M = JSON.parse(F['_ds_manifest.json']);
+  window.__gateProgress={current:'parse',done:1,total:3}; const M = JSON.parse(F['_ds_manifest.json']);
   const VERSION = F['VERSION'].trim();
   const truth = {
     templates: M.templates.length,
@@ -122,7 +122,7 @@ function ctx(s, i, n){ return s.slice(Math.max(0,i-4), i+n+18).replace(/\s+/g," 
   finish();
 })().catch(e => { step('checker ran', false, String(e).slice(0,140)); finish(); });
 
-function finish(){
+window.__gateProgress={current:'done',done:3,total:3}; function finish(){
   const r = document.getElementById('report');
   r.className = out.pass ? 'pass' : 'fail';
   r.innerHTML = '<span class="b '+(out.pass?'pass':'fail')+'">'+(out.pass?'\u2713 PASS':'\u2717 FAIL')+'</span>\nDOCS-CONSISTENCY CHECK\n\n'+out.steps.join('\n');

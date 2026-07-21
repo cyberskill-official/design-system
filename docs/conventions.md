@@ -4,20 +4,19 @@ For humans and agents *extending this system*. (Consumers: read `SKILL.md`.) The
 
 ## The expansion rule
 
-**When anything grows, everything updates in the same change.** A new element/variant, expression, icon, component, token role, or language must propagate to: tokens/source → specimen cards (guidelines + the component group card) **and related guideline pages** → component contract trio (`.jsx` + `.d.ts` + `.prompt.md`) → **all** templates (tweak enums and maps) → Identity Lab pills → docs (README counts, SKILL, **and every related document the change touches** — kit READMEs, registry, contrast report regenerated after token changes) → changelog + `VERSION`. Gate every expansion with the compiler check **and a grep for the old enum/list** — nothing ships half-propagated. Documented scope boundaries (doctrine, not gaps): UI-kit pages stay pixel-faithful Thổ recreations (the axes are demoed in the Identity Lab); every template is bilingual EN·VN and English-default (client/media collateral stays English-primary), and language variants render **fully separated** — see the decision log.
+**When anything grows, everything updates in the same change.** A new element/variant, icon, component, token role, language, or template pattern must propagate to: tokens/source → specimen cards (guidelines + the component group card) **and related guideline pages** → component contract trio (`.jsx` + `.d.ts` + `.prompt.md`) → **all** templates (tweak enums and maps) → Live View / Identity Lab → docs (README counts, SKILL, **and every related document the change touches** — kit READMEs, registry, contrast report regenerated after token changes) → changelog + `VERSION`. Gate every expansion with the compiler check **and a grep for the old enum/list** — nothing ships half-propagated. Documented scope boundaries (doctrine, not gaps): UI-kit pages stay pixel-faithful Thổ recreations (axes demoed in Live View); every template is bilingual EN·VN and English-default (client/media collateral stays English-primary), and language variants render **fully separated** — see the decision log.
 
-## The four axes
+## The three axes
 
-Every rendered surface resolves four orthogonal scopes — never encode one axis inside another:
+Every rendered surface resolves three orthogonal scopes — never encode one axis inside another:
 
 | Axis | Attribute | Owns | Packs live in |
 |---|---|---|---|
 | **Theme** | `data-theme="dark\|system"` | light/dark inversion | `tokens/colors.css` |
 | **Element** (Ngũ Hành) | `data-cs-element` + `data-cs-variant` | hue identity per product | `tokens/elements.css` |
-| **Expression** | `data-cs-expression="solid\|dense\|paper\|soft\|bold\|luxe"` | treatment: surface, radius, shadow, density, motion | `tokens/expressions.css` |
-| **Density** | `data-cs-density="compact"` (comfortable default) | control metrics only (button/field heights + paddings); pointer-fine-gated — coarse pointers keep the 44px floor | `tokens/density.css` |
+| **Language** | `lang` / Language tweak | EN · VI copy | component registry + template props |
 
-Immutable under all axes: Umber/Ochre anchors, voice, type families, semantic status colors, the 3px Ochre focus ring, APCA floors, ≥44px targets.
+Surface treatment is liquid-glass (fixed). Immutable under all axes: Umber/Ochre anchors, voice, type families, semantic status colors, the 3px Ochre focus ring, APCA floors, ≥44px targets.
 
 ## Naming grammar
 
@@ -41,7 +40,7 @@ Immutable under all axes: Umber/Ochre anchors, voice, type families, semantic st
 ## Decision log (owner-approved)
 
 - Elements fully replace Ochre inside product scopes; plasma's hot-pink edge approved (Jul 2026).
-- Expression registry cap extended 6→7 (`luxe`) by owner decision (Jul 2026); adding an 8th should normally retire one.
+- Axes are Theme × Element × Language only. Surface treatment is liquid-glass (fixed).
 - Product registry is provisional ("decide for me", Jul 2026) until a real product list exists.
 - Text never sits on the mid-tone `-accent` — codified after the APCA sweep (see `docs/contrast-report.md`).
 - Language variants render **fully separated**: switching the Language tweak yields a complete single-language artifact — no partial translation left in headings, labels, helper text, footers, or body. The only bilingual-by-design elements are the CyberSkill name + slogan lockup (`Hiện Thực Hoá Ý Chí · Turn Your Will Into Real`, the canonical form — never a lone half) and the A4 legal identity block (company legal name + state motto). Everything else swaps with the tweak (Jul 2026).

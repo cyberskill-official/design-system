@@ -12,7 +12,7 @@
   #cov{font:12px ui-monospace,monospace;color:#6b5d4f;margin-top:10px}
 </style></head><body>
 <h1>Template content-schema v2 gate</h1>
-<p class="lede">Validates every <b>opt-in</b> <code>templates/&lt;slug&gt;/content-schema.json</code> sidecar (spec: <code>docs/template-schema-v2.md</code>) against the JSON Schema in <code>templates/schema/content-schema.schema.json</code>, then bidirectionally against the sibling <code>.dc.html</code>: every declared slot id must resolve to a real <code>{{ id }}</code> hole, and (informationally, non-blocking) reports how many holes in the template have <b>no</b> schema entry yet. Coverage across all templates is reported but not required — like the visual-diff baselines, this is an intentionally incremental rollout (3 exemplars ship in v4.2.0). Verdict on <code>window.__schemav2</code>.</p>
+<p class="lede">Validates every <b>opt-in</b> <code>templates/&lt;slug&gt;/content-schema.json</code> sidecar (spec: <code>docs/template-schema-v2.md</code>) against the JSON Schema in <code>templates/schema/content-schema.schema.json</code>, then bidirectionally against the sibling <code>.dc.html</code>: every declared slot id must resolve to a real <code>{{ id }}</code> hole, and (informationally, non-blocking) reports how many holes in the template have <b>no</b> schema entry yet. Coverage across all templates is reported but not required — like the visual-diff baselines, this is an intentionally incremental rollout (26 opt-in sidecars ship in v4.2.0). Verdict on <code>window.__schemav2</code>.</p>
 <div id="list"></div>
 <div id="sum">running…</div>
 <div id="cov"></div>

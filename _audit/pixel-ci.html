@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>CyberSkill — pixel CI scaffold (advisory)</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;font-family:var(--cs-font-family-ui);background:#efe6d8;color:#231a12;padding:16px 20px}
+  h1{font-size:16px;margin:0 0 6px}.lede{font-size:13px;color:#6b5d4f;max-width:920px;line-height:1.5}
+  .row{font:12.5px ui-monospace,monospace;padding:4px 8px;border-radius:5px;margin:2px 0}
+  .ok{background:#dcfce7;color:#166534}.bad{background:#FEE2E2;color:#B42318;font-weight:700}
+  #sum{font-size:15px;font-weight:800;margin:12px 0}
+</style></head><body>
+<h1>Pixel CI scaffold (advisory)</h1>
+<p class="lede">In-browser scaffold for true pixel regression. Proves baselines exist, visual-diff harness is wired, and publishes a machine-readable contract for <code>_audit/ci/pixel-diff.mjs</code> (Playwright). Does not invent green screenshots without capture. Verdict: <code>window.__pixelci.pass</code>.</p>
+<div id="list"></div><div id="sum">running…</div>
+<script>
+const list=document.getElementById('list');
+const P=window.__gateProgress={done:0,total:3,current:'boot'};
+function row(ok,t){const d=document.createElement('div');d.className='row '+(ok?'ok':'bad');d.textContent=(ok?'✓ ':'✗ ')+t;list.appendChild(d);}
+(async()=>{
+  const fails=[];
+  P.current='baselines';
+  // Sample known baseline names from visual-diff contract
+  const names=['kitchen-sink','auth','dashboard-dark','bod-report'];
+  let found=0;
+  for(const n of names){
+    try{
+      const r=await fetch('./baselines/'+n+'.png',{method:'HEAD',cache:'no-store'});
+      if(r.ok){ found++; row(true,'baseline '+n+'.png'); }
+      else { fails.push(n); row(false,'missing baseline '+n); }
+    }catch(e){ fails.push(n+':'+e); row(false,String(e)); }
+  }
+  P.done=1; P.current='harness';
+  try{
+    const vd=await (await fetch('./visual-diff.html',{cache:'no-store'})).text();
+    const ok=/__visualdiff|BASE/.test(vd);
+    row(ok,'visual-diff.html harness present');
+    if(!ok) fails.push('visual-diff missing');
+  }catch(e){ fails.push(String(e)); row(false,String(e)); }
+  P.done=2; P.current='ci-script';
+  try{
+    const sc=await (await fetch('./ci/pixel-diff.mjs',{cache:'no-store'})).text();
+    const ok=/pixel|baseline|playwright/i.test(sc);
+    row(ok,'ci/pixel-diff.mjs scaffold present');
+    if(!ok) fails.push('pixel-diff.mjs weak');
+  }catch(e){ fails.push('pixel-diff.mjs: '+e); row(false,'pixel-diff.mjs missing — '+e); }
+  P.done=3; P.current='done';
+  const pass=fails.length===0;
+  window.__pixelci={pass,found,fails,advisory:true,note:'True pixel thresholds require Playwright capture outside this page'};
+  const s=document.getElementById('sum');
+  s.textContent=pass?('✓ PASS — scaffold ready · '+found+' baselines checked'):('✗ FAIL — '+fails.join('; '));
+  s.style.color=pass?'#166534':'#B42318';
+})();
+</script></body></html>

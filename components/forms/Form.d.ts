@@ -13,6 +13,8 @@ export interface FormProps {
   errors?: Record<string, string | undefined>;
   /** name → rule or rule[]; validated on submit. */
   rules?: Record<string, FormRule | FormRule[]>;
+  /** name → async (value, values) => message | null; runs after sync rules pass. */
+  asyncRules?: Record<string, (value: unknown, values: Record<string, unknown>) => Promise<string | null | undefined>>;
   /** Seed for controller-registered fields. */
   initialValues?: Record<string, unknown>;
   children?: ReactNode;

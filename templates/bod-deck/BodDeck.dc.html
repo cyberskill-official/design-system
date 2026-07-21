@@ -11,7 +11,7 @@
 <helmet>
 <script src="./ds-base.js"></script>
 </helmet>
-<div data-theme="{{ rootTheme }}" lang="{{ langAttr }}" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" data-cs-expression="{{ exAttr }}" class="cs-canvas-desk" style="background:#2a1a0d;padding:28px;font-family:var(--cs-font-family-ui)">
+<div data-theme="{{ rootTheme }}" lang="{{ langAttr }}" data-cs-element="{{ elAttr }}" data-cs-variant="{{ vaAttr }}" class="cs-canvas-desk" style="background:#2a1a0d;padding:28px;font-family:var(--cs-font-family-ui)">
   <div style="display:grid;gap:28px;max-width:1280px;margin:0 auto">
 
     <section style="position:relative;width:100%;aspect-ratio:16/9;background:var(--cs-accent-strong);color:#fff;border-radius:var(--cs-radius-lg);overflow:hidden;box-shadow:var(--cs-shadow-xl);display:flex;flex-direction:column;justify-content:center;padding:0 88px">
@@ -72,14 +72,11 @@
 <script type="text/x-dc" data-dc-script data-props="{
   &quot;language&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;English&quot;,&quot;Tiếng Việt&quot;],&quot;default&quot;:&quot;English&quot;,&quot;tsType&quot;:&quot;\&quot;English\&quot; | \&quot;Tiếng Việt\&quot;&quot;,&quot;section&quot;:&quot;Content&quot;},
   &quot;element&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Thổ · studio&quot;,&quot;Thổ · clay&quot;,&quot;Thổ · sand&quot;,&quot;Hỏa · ember&quot;,&quot;Hỏa · lava&quot;,&quot;Hỏa · plasma&quot;,&quot;Thủy · river&quot;,&quot;Thủy · ocean&quot;,&quot;Thủy · mist&quot;,&quot;Mộc · leaf&quot;,&quot;Mộc · bamboo&quot;,&quot;Mộc · forest&quot;,&quot;Kim · champagne&quot;,&quot;Kim · steel&quot;,&quot;Kim · titanium&quot;],&quot;default&quot;:&quot;Thổ · studio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Element (Ngũ Hành)&quot;},
-  &quot;expression&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Liquid glass · default&quot;,&quot;Solid&quot;,&quot;Dense&quot;,&quot;Paper&quot;,&quot;Soft&quot;,&quot;Bold&quot;,&quot;Luxe&quot;],&quot;default&quot;:&quot;Liquid glass · default&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Expression&quot;},
   &quot;theme&quot;: {&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;\&quot;light\&quot; | \&quot;dark\&quot;&quot;,&quot;section&quot;:&quot;Theme&quot;},
   &quot;showPageNumbers&quot;: {&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;}
 }">
 class Component extends DCLogic {
   renderVals() {
-    const EX = {"Liquid glass · default":"","Solid":"solid","Dense":"dense","Paper":"paper","Soft":"soft","Bold":"bold","Luxe":"luxe"};
-    const exAttr = EX[this.props.expression] ?? "";
     const EL = {"Thổ · studio":["tho",""],"Thổ · clay":["tho","clay"],"Thổ · sand":["tho","sand"],"Hỏa · ember":["hoa",""],"Hỏa · lava":["hoa","lava"],"Hỏa · plasma":["hoa","plasma"],"Thủy · river":["thuy",""],"Thủy · ocean":["thuy","ocean"],"Thủy · mist":["thuy","mist"],"Mộc · leaf":["moc",""],"Mộc · bamboo":["moc","bamboo"],"Mộc · forest":["moc","forest"],"Kim · champagne":["kim",""],"Kim · steel":["kim","steel"],"Kim · titanium":["kim","titanium"]};
     const [elAttr, vaAttr] = EL[this.props.element] || EL["Thổ · studio"];
     const vn = this.props.language === "Tiếng Việt";
@@ -91,8 +88,7 @@ class Component extends DCLogic {
       s4kicker:"Honest about trade-offs", s4h:"Risks & asks",
       r1b:"Key-person risk on AI.", r1t:"Ask: approve a second senior AI hire in Q4.",
       r2b:"CyberOS infra spend.", r2t:"Ask: sign off to unblock the provenance ledger.",
-      closeH:"Thank you", closeP:"Questions & discussion · Turn Your Will Into Real",
-    };
+      closeH:"Thank you", closeP:"Questions & discussion · Turn Your Will Into Real"};
     const vi = {
       s1kicker:"Hội đồng Quản trị · Mật", s1h:"Đánh giá Quý 3 2026", s1sub:"Turn Your Will Into Real · nhìn lại quý & chặng tiếp theo", dateLine:"18 tháng 7 2026 · Sài Gòn",
       s2kicker:"Theo con số", s2h:"Một quý vững vàng", n1:"Doanh thu QoQ", n2:"Điều ước đã thực hiện", n3:"Số tháng còn vốn", n4:"Nhân sự", runway:"19 tháng",
@@ -101,9 +97,8 @@ class Component extends DCLogic {
       s4kicker:"Thẳng thắn về đánh đổi", s4h:"Rủi ro & đề xuất",
       r1b:"Rủi ro nhân sự chủ chốt về AI.", r1t:"Đề xuất: duyệt tuyển thêm một nhân sự AI cấp cao trong Q4.",
       r2b:"Chi phí hạ tầng CyberOS.", r2t:"Đề xuất: phê duyệt để mở đường cho sổ cái nguồn gốc.",
-      closeH:"Cảm ơn", closeP:"Hỏi đáp & thảo luận · Hiện Thực Hoá Ý Chí",
-    };
-    return Object.assign({ langAttr: (this.props.language ?? "English") === "Tiếng Việt" ? "vi" : "en", exAttr, elAttr, vaAttr, rootTheme: this.props.theme === "dark" ? "dark" : "", showNumbers: this.props.showPageNumbers ?? true }, vn ? vi : en);
+      closeH:"Cảm ơn", closeP:"Hỏi đáp & thảo luận · Hiện Thực Hoá Ý Chí"};
+    return Object.assign({ langAttr: (this.props.language ?? "English") === "Tiếng Việt" ? "vi" : "en", elAttr, vaAttr, rootTheme: this.props.theme === "dark" ? "dark" : "", showNumbers: this.props.showPageNumbers ?? true }, vn ? vi : en);
   }
 }
 </script>

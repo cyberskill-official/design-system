@@ -7,12 +7,12 @@ How to extend the system without breaking its guarantees. The operative rules li
 - **Anchors are immutable** — Umber `#45210E`, Ochre `#F4BA17`. One accent per surface (Ochre on core; a product's element accent inside its `data-cs-element` scope). Every neutral warmed toward umber — no cold grey.
 - **Vietnamese-first & bilingual** — ship EN + VN, preserve diacritics, VN-safe line-heights. Every bilingual template carries a root `lang` (see conventions → Screen-reader language).
 - **Accessibility floor** — never remove the 3px Ochre `:focus-visible` ring; ≥44px touch targets on coarse pointers; body text APCA Lc ≥ 75; honour `prefers-reduced-motion`/`prefers-contrast`. All in `base/a11y.css` — don't regress it.
-- **Grammar** — Theme × Element × Expression are independent axes. Expressions change treatment only (surface/radius/shadow/motion), never hue/voice/type/a11y. Use the shipped names; don't invent styles.
+- **Grammar** — Theme × Element × Language are independent axes. Surface treatment is liquid-glass (fixed).
 - **Voice** — warm / direct / honest / respectful. Products are "wishes" Lumi helps grant. Lumi stays golden in every element.
 
 ## The Expansion Rule (owner-mandated)
 
-When **anything** grows — a new element/variant, expression, icon, component, token role, language, or template pattern — propagate it to **every** deliverable in the *same* change:
+When **anything** grows — a new element/variant, icon, component, token role, language, or template pattern — propagate it to **every** deliverable in the *same* change:
 
 1. Tokens/source (`tokens/`, component `.jsx` + `.d.ts` + `.prompt.md`)
 2. Specimen cards (guidelines + the component-group card) **and related guideline pages**
@@ -31,7 +31,7 @@ Deep checks, never surface spot-checks. Cover the **whole set and every relevant
 
 - **Component** — `components/<group>/<Name>.{jsx,d.ts,prompt.md}` + a `.cs-*` style block in the matching `base/*.css` + add to the group's `*.card.html`. Void-element components (`<input>`/`<hr>`) must destructure `children` out of `...props` (React #137 rule). Correct ARIA roles/labels. Run `check_design_system`.
 - **Token** — add to the right `tokens/*.css`; if it's a semantic/surface token, give it a `[data-theme="dark"]` (+ system) override and verify contrast on `#221710`. Regenerate `tokens/tokens.json`/`.js`. New element/variant sets all 9 `--cs-accent-*` roles (`_audit/token-contract.html` checks this).
-- **Template** — `templates/<slug>/<Slug>.dc.html` (DC) with `<!-- @template … -->` first + `ds-base.js`. Bilingual with a Language tweak + root `lang`. Docs get `@page{size}` + `<meta name="omelette-owns-print">`. Element ×15 + Expression ×7 tweaks.
+- **Template** — `templates/<slug>/<Slug>.dc.html` (DC) with `<!-- @template … -->` first + `ds-base.js`. Bilingual with a Language tweak + root `lang`. Docs get `@page{size}` + `<meta name="omelette-owns-print">`. Element ×15 tweaks.
 - **Card / guideline** — `.html` with `<!-- @dsCard group="…" … -->` first line.
 
 ## Documented scope boundaries (not gaps)

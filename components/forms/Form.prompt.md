@@ -9,3 +9,5 @@
 ```
 
 Manual mode unchanged: omit `rules`/`name`, pass `errors={{email:"…"}}` yourself.
+
+**asyncRules** (7.0): optional map of field name → async `(value, values) => message|null`. Runs after sync `rules` pass; blocks submit while pending.

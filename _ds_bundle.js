@@ -2299,7 +2299,7 @@ function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
 
-/** CyberSkill DataGrid — advanced table: sortable columns, selectable rows, sticky header scroll area. */
+/** CyberSkill DataGrid — advanced table: sortable columns, selectable rows, sticky header, optional pin + filter. */
 function DataGrid({
   columns = [],
   rows = [],
@@ -2311,23 +2311,31 @@ function DataGrid({
   caption,
   empty,
   lang,
-  className
+  className,
+  filterText,
+  filterKeys
 }) {
   const [sort, setSort] = React.useState(null); // {key, dir}
   const [ref, L] = __ds_scope.useLang(lang);
   const t = __ds_scope.makeT("DataGrid", L);
+  const filtered = React.useMemo(() => {
+    const q = (filterText == null ? "" : String(filterText)).trim().toLowerCase();
+    if (!q) return rows;
+    const keys = filterKeys && filterKeys.length ? filterKeys : columns.map(c => c.key);
+    return rows.filter(r => keys.some(k => String(r[k] == null ? "" : r[k]).toLowerCase().includes(q)));
+  }, [rows, filterText, filterKeys, columns]);
   const sorted = React.useMemo(() => {
-    if (!sort) return rows;
+    if (!sort) return filtered;
     const col = columns.find(c => c.key === sort.key);
     const val = r => col && col.sortValue ? col.sortValue(r) : r[sort.key];
-    return [...rows].sort((a, b) => {
+    return [...filtered].sort((a, b) => {
       const x = val(a),
         y = val(b);
       return (x > y ? 1 : x < y ? -1 : 0) * (sort.dir === "asc" ? 1 : -1);
     });
-  }, [rows, sort, columns]);
-  const allSel = selectable && rows.length && rows.every(r => selected.includes(r[rowKey]));
-  const toggleAll = () => onSelect && onSelect(allSel ? [] : rows.map(r => r[rowKey]));
+  }, [filtered, sort, columns]);
+  const allSel = selectable && filtered.length && filtered.every(r => selected.includes(r[rowKey]));
+  const toggleAll = () => onSelect && onSelect(allSel ? [] : filtered.map(r => r[rowKey]));
   const toggle = k => onSelect && onSelect(selected.includes(k) ? selected.filter(x => x !== k) : [...selected, k]);
   return /*#__PURE__*/React.createElement("div", {
     ref: ref,
@@ -2348,6 +2356,13 @@ function DataGrid({
   })) : null, columns.map(c => /*#__PURE__*/React.createElement("th", {
     key: c.key,
     scope: "col",
+    className: c.pinned ? "cs-datagrid__pinned" : undefined,
+    style: c.pinned ? {
+      position: "sticky",
+      insetInlineStart: 0,
+      zIndex: 1,
+      background: "var(--cs-color-surface-panel)"
+    } : undefined,
     "aria-sort": sort && sort.key === c.key ? sort.dir === "asc" ? "ascending" : "descending" : undefined
   }, c.sortable ? /*#__PURE__*/React.createElement("button", {
     type: "button",
@@ -2377,7 +2392,13 @@ function DataGrid({
       checked: selected.includes(k),
       onChange: () => toggle(k)
     })) : null, columns.map(c => /*#__PURE__*/React.createElement("td", {
-      key: c.key
+      key: c.key,
+      className: c.pinned ? "cs-datagrid__pinned" : undefined,
+      style: c.pinned ? {
+        position: "sticky",
+        insetInlineStart: 0,
+        background: "var(--cs-color-surface-panel)"
+      } : undefined
     }, c.render ? c.render(r) : r[c.key])));
   }))));
 }
@@ -3727,6 +3748,7 @@ function Form({
   onSubmit,
   errors = {},
   rules,
+  asyncRules,
   initialValues,
   children,
   lang,
@@ -3737,6 +3759,7 @@ function Form({
   const t = __ds_scope.makeT("Form", L);
   const [values, setValues] = React.useState(() => initialValues || {});
   const [ruleErrors, setRuleErrors] = React.useState({});
+  const [pending, setPending] = React.useState(false);
   const setValue = React.useCallback((name, v) => {
     setValues(s => ({
       ...s,
@@ -3766,18 +3789,33 @@ function Form({
     }
     return out;
   };
+  const runAsyncRules = async v => {
+    if (!asyncRules) return {};
+    const out = {};
+    for (const [name, fn] of Object.entries(asyncRules)) {
+      if (typeof fn !== "function") continue;
+      try {
+        const msg = await fn(v[name], v);
+        if (msg) out[name] = msg;
+      } catch (e) {
+        out[name] = String(e && e.message || e);
+      }
+    }
+    return out;
+  };
   const ctx = {
     values,
     setValue,
-    errors: merged
+    errors: merged,
+    pending
   };
   return /*#__PURE__*/React.createElement(FormCtx.Provider, {
     value: ctx
   }, /*#__PURE__*/React.createElement("form", _extends({}, props, {
     ref: ref,
-    className: cx("cs-form", className),
+    className: cx("cs-form", pending && "is-pending", className),
     noValidate: true,
-    onSubmit: e => {
+    onSubmit: async e => {
       e.preventDefault();
       const fd = new FormData(e.currentTarget);
       const v = {};
@@ -3786,9 +3824,19 @@ function Form({
       });
       Object.assign(v, values); // controller-registered fields are the source of truth
       const errs = runRules(v);
-      setRuleErrors(errs);
-      if (Object.keys(errs).some(k => errs[k])) return;
-      onSubmit && onSubmit(v);
+      if (Object.keys(errs).some(k => errs[k])) {
+        setRuleErrors(errs);
+        return;
+      }
+      setPending(true);
+      try {
+        const aerrs = await runAsyncRules(v);
+        setRuleErrors(aerrs);
+        if (Object.keys(aerrs).some(k => aerrs[k])) return;
+        onSubmit && onSubmit(v);
+      } finally {
+        setPending(false);
+      }
     }
   }), keys.length ? /*#__PURE__*/React.createElement("div", {
     className: "cs-form__summary",

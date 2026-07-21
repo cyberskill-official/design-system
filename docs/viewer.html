@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="../styles.css">
 <style>
   *{box-sizing:border-box}html,body{height:100%}
-  body{margin:0;font-family:var(--cs-font-family-ui);background:var(--cs-color-surface-page);color:var(--cs-color-text-primary);display:grid;grid-template-columns:230px 1fr}
+  body{margin:0;font-family:var(--cs-font-family-ui);background:var(--cs-color-surface-page);color:var(--cs-color-text-primary);display:grid;grid-template-columns:min(230px,36vw) 1fr}
   aside{border-inline-end:1px solid var(--cs-color-border-default);background:var(--cs-color-surface-panel);overflow:auto;padding:14px 10px}
   aside h1{font-size:13px;font-weight:800;margin:2px 8px 10px;color:var(--cs-color-brand-umber)}
   [data-theme="dark"] aside h1{color:var(--cs-color-brand-ochre)}
@@ -36,6 +36,11 @@
   article hr{border:0;border-top:1px dashed var(--cs-color-border-default);margin:20px 0}
   article a{color:var(--cs-color-link)}article a:hover{color:var(--cs-color-link-hover)}
   #err{color:#B42318;font-family:var(--cs-font-family-mono);font-size:13px}
+  @media (max-width:640px){
+    body{grid-template-columns:1fr}
+    aside{border-inline-end:0;border-block-end:1px solid var(--cs-color-border-default);max-height:38vh}
+    main{padding:18px 16px}
+  }
 </style></head>
 <body>
 <aside id="nav"><h1>CyberSkill Docs</h1><input id="docsearch" type="search" placeholder="Search all docs…"><div id="navlinks"></div></aside>
@@ -54,7 +59,7 @@ renderNav();
 function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 const LABEL={}; for(const [,items] of DOCS) for(const [p,l] of items) LABEL[p]=l;
 let docCache=null;
-async function ensureCache(){ if(docCache) return docCache; docCache={}; await Promise.all(ALL.map(async p=>{ try{ docCache[p]=await (await fetch('../'+p)).text(); }catch(e){ docCache[p]=''; } })); return docCache; }
+async function ensureCache(){ if(docCache) return docCache; docCache={}; await Promise.all(ALL.map(async p=>{ try{ docCache[p]=await fetchDoc(p); }catch(e){ docCache[p]=''; } })); return docCache; }
 function snippet(text,q){ const i=text.toLowerCase().indexOf(q.toLowerCase()); if(i<0) return ''; const s=Math.max(0,i-30), e=Math.min(text.length,i+q.length+50); return (s>0?'…':'')+esc(text.slice(s,e)).replace(new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'),'<mark>$1</mark>')+(e<text.length?'…':''); }
 function highlightIn(q){ if(!q) return; const doc=document.getElementById('doc'); const walker=document.createTreeWalker(doc,NodeFilter.SHOW_TEXT); const re=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i'); let node; while((node=walker.nextNode())){ if(re.test(node.nodeValue)){ const span=document.createElement('span'); const idx=node.nodeValue.search(re); const before=node.nodeValue.slice(0,idx), match=node.nodeValue.slice(idx,idx+q.length), after=node.nodeValue.slice(idx+q.length); span.innerHTML=esc(before)+'<mark>'+esc(match)+'</mark>'+esc(after); node.replaceWith(span); span.scrollIntoView({block:'center'}); break; } } }
 async function runSearch(q){
@@ -99,13 +104,40 @@ function md(src){
 }
 function resolve(href,cur){ if(href.startsWith('./')) href=href.slice(2); const base=cur.includes('/')?cur.slice(0,cur.lastIndexOf('/')+1):''; let p=base+href; for(let k=0;k<6&&/(^|\/)\.\.\//.test(p);k++){ p=p.replace(/(^|\/)[^\/]+\/\.\.\//,'$1'); } return p.replace(/^\.\//,'').replace(/^\/+/,''); }
 let cur='';
+function docUrls(p){
+  // Prefer relative-to-viewer (../README.md when viewer is in docs/), then root-relative, then same-dir.
+  const base = new URL('.', location.href);
+  return [
+    new URL('../'+p, base).href,
+    new URL('/'+p, location.origin).href,
+    new URL(p, base).href,
+  ];
+}
+async function fetchDoc(p){
+  let lastErr;
+  for (const u of docUrls(p)){
+    try{
+      const r = await fetch(u, {cache:'no-cache'});
+      if(!r.ok){ lastErr = new Error(r.status+' '+r.statusText+' @ '+u); continue; }
+      const ct = (r.headers.get('content-type')||'').toLowerCase();
+      const text = await r.text();
+      if (ct.includes('text/html') && /<!DOCTYPE html|<html[\s>]/i.test(text.slice(0,200))) {
+        lastErr = new Error('hosting intercepted '+u+' (got HTML, not markdown)');
+        continue;
+      }
+      return text;
+    }catch(e){ lastErr = e; }
+  }
+  throw lastErr || new Error('all fetch paths failed');
+}
 async function load(p){
   cur=p; document.title='CyberSkill · '+p;
   markActive();
   const doc=document.getElementById('doc'), err=document.getElementById('err');
   err.hidden=true;
-  try{ const r=await fetch('../'+p); if(!r.ok) throw new Error(r.status+' '+r.statusText); doc.innerHTML=md(await r.text()); document.querySelector('main').scrollTop=0; }
-  catch(e){ doc.innerHTML=''; err.hidden=false; err.textContent='Could not load '+p+' — '+e.message; }
+  doc.innerHTML='<p style="color:var(--cs-color-text-muted)">Loading…</p>';
+  try{ doc.innerHTML=md(await fetchDoc(p)); document.querySelector('main').scrollTop=0; }
+  catch(e){ doc.innerHTML=''; err.hidden=false; err.textContent='Could not load '+p+' — '+(e && e.message || e); }
 }
 document.getElementById('doc').addEventListener('click',(e)=>{
   const a=e.target.closest('a'); if(!a) return; const href=a.getAttribute('href')||'';

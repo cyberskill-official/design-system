@@ -14,12 +14,16 @@ The whole system is a static file tree — **no app build step, no server runtim
 
 ## Social preview image (OG)
 
-`dashboard.html` already carries `og:title`/`og:description`; `og:image` is deliberately **not** set yet \u2014 it needs an absolute URL, which only exists once you have a production domain. Once deployed:
-1. Generate a 1200\u00d7630 PNG (screenshot the dashboard, or design a simple card: umber background, the CyberSkill wordmark, "Design System" subtitle).
-2. Save it as `assets/og-dashboard.png`.
-3. Add to `dashboard.html`'s `<head>`: `<meta property="og:image" content="https://<your-domain>/assets/og-dashboard.png">` (and optionally `twitter:card`/`twitter:image` mirroring it).
+Shipped for production (`design.cyberskill.world`):
+- Asset: `assets/og-dashboard.png` (1200×630, umber/ochre brand card)
+- `dashboard.html` head already includes:
+  - `og:image` → `https://design.cyberskill.world/assets/og-dashboard.png`
+  - `twitter:card` = `summary_large_image`
+  - `twitter:image` (same URL)
 
-**Common misconfig:** picking a JS framework preset — Vercel then looks for a `package.json` build script and fails, or silently serves its own 404/error page for root-level files like `README.md`/`package.json` while other paths still resolve (confusing — some fetches work, some don't). `package.json` here is metadata-only (`"private": true"`, no `scripts`) by design (see `docs/agents.md`); the preset must stay "Other". Vercel also excludes root `README.md`/`package.json` from a direct repo-root static output, so `vercel.json` now runs `scripts/vercel-static-output.mjs` to copy the static webroot into `.vercel-static` before upload. **How to tell a hosting misconfig from a real docs bug:** open `/_audit/docs-consistency.html` on the *deployed* URL — the gate now detects an HTML/error body coming back where a raw `.md`/`.json` file was expected and reports it explicitly ("hosting is intercepting this path, not a source bug") instead of a bare parse error. If you see that message, fix the Vercel project settings (or redeploy after `vercel.json` lands), not the source files.
+If you host under a **different** domain, change the absolute URLs in those three meta tags to match your origin, or re-export the PNG and keep the path `assets/og-dashboard.png`.
+
+**Common misconfig:** picking a JS framework preset — Vercel then looks for a `package.json` build script and fails, or silently serves its own 404/error page for root-level files like `README.md`/`package.json` while other paths still resolve (confusing — some fetches work, some don't). `package.json` here is metadata-only (`"private": true`, no `scripts`) by design (see `docs/consuming.md`); the preset must stay "Other". Vercel also excludes root `README.md`/`package.json` from a direct repo-root static output, so `vercel.json` now runs `scripts/vercel-static-output.mjs` to copy the static webroot into `.vercel-static` before upload. **How to tell a hosting misconfig from a real docs bug:** open `/_audit/docs-consistency.html` on the *deployed* URL — the gate now detects an HTML/error body coming back where a raw `.md`/`.json` file was expected and reports it explicitly ("hosting is intercepting this path, not a source bug") instead of a bare parse error. If you see that message, fix the Vercel project settings (or redeploy after `vercel.json` lands), not the source files.
 
 ## Generic VPS / nginx / any static host
 
@@ -44,3 +48,27 @@ No rewrites needed — every path in the system is a real file (`dashboard.html`
 ## What NOT to do
 - Don't add a build step (webpack/vite/Next) — there's nothing to build; it breaks the "clone and open" contract every consuming project and agent relies on.
 - Don't gitignore any top-level folder beyond what `.gitignore` already lists (`uploads/`, `scraps/`, `_audit/exports/`) — every other folder, **including underscore-prefixed ones like `_esm/`**, is source and must ship. See `docs/sync.md` for the full round-trip list; a folder skipped here breaks the deployed site.
+
+
+## Post-deploy Health re-run protocol (release gate)
+
+After every production deploy:
+1. Open `https://<host>/_audit/run.html` and wait for **all hard gates green**.
+2. Open Docs tab / `docs/viewer.html#README.md` — body must not stay on Loading…
+3. `curl -sS https://<host>/VERSION` must return plain semver text, not HTML.
+4. `curl -sS -I https://<host>/package.json` must be `application/json` or `text/plain`, not an SPA shell.
+
+
+## Content-Security-Policy notes
+
+Static hosting can ship a strict CSP. Typical allowances for this system:
+- `style-src 'self' 'unsafe-inline'` (component/demo pages use inline styles heavily)
+- `script-src 'self' https://unpkg.com` if you load React from CDN for Atomic View
+- `font-src 'self'`
+- `img-src 'self' data:`
+Prefer self-hosting React next to `_ds_bundle.js` for air-gapped installs.
+
+
+## Multi-domain OG
+
+Production meta points at `https://design.cyberskill.world/assets/og-dashboard.png`. On another host, replace the absolute origin in `dashboard.html` `og:image` and `twitter:image` only — keep the path `/assets/og-dashboard.png`.

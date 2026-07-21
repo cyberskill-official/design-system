@@ -89,6 +89,12 @@ function expected(name,type,value){
     assert(miss.length===0,miss.length+' missing: '+miss.slice(0,6).join(' | '));
     return n+' dark overrides \u00d7 3 targets';
   });
+  
+  await test('densityCompact overrides stay zero (no Density axis)',async()=>{
+    assert(Number(prov.counts.densityCompactOverrides||0)===0,'densityCompactOverrides must be 0, got '+prov.counts.densityCompactOverrides);
+    return '0 compact density constants';
+  });
+
   await test('counts match provenance',async()=>{
     assert(toks.length===prov.counts.baseTokens,'base '+toks.length+' vs '+prov.counts.baseTokens);
     assert((prov.counts.skipped||0)===0,'provenance reports skipped tokens: '+JSON.stringify(prov.skipped));

@@ -1,8 +1,8 @@
 // CyberSkill Design System — native design tokens.
 // GENERATED from tokens/tokens.dtcg.json — do not hand-edit; regenerate on token change.
-// release v4.0.0 · generated 2026-07-20T14:30:14.650Z · source sha256 c3480aebcc895996…
+// release v6.0.0 · generated 2026-07-21T18:35:16.691Z · source sha256 4995d751afc8e47a…
 // conversions: rem→px at 16 · em→…Em relative doubles · rgba alpha→ARGB byte (round(a*255)) · durations in ms
-// density: …Compact constants (fine-pointer only) · dark element packs: see $extensions.overrides.elementsDark
+// dark element packs: see $extensions.overrides.elementsDark · Density axis retired v6.0.0
 // provenance: tokens/provenance.json · parity gate: _audit/token-pipeline-test.html
 
 import 'package:flutter/material.dart';
@@ -162,21 +162,6 @@ class CSTokens {
   static const Color componentButtonPrimaryBgDark = Color(0xFFF4BA17);
   static const Color componentButtonPrimaryFgDark = Color(0xFF1A1108);
   static const Color componentTextfieldBorderDefaultDark = Color(0xFF5A4636);
-
-  // compact-density control metrics
-  static const double componentButtonMdMinHeightCompact = 36;
-  static const double componentButtonMdPaddingYCompact = 8;
-  static const double componentButtonMdPaddingXCompact = 16;
-  static const double componentButtonSmMinHeightCompact = 30;
-  static const double componentButtonSmPaddingYCompact = 5;
-  static const double componentButtonSmPaddingXCompact = 10;
-  static const double componentButtonLgMinHeightCompact = 44;
-  static const double componentButtonLgPaddingYCompact = 12;
-  static const double componentButtonLgPaddingXCompact = 22;
-  static const double componentButtonGapCompact = 6;
-  static const double componentTextfieldMinHeightCompact = 38;
-  static const double componentTextfieldPaddingYCompact = 7;
-  static const double componentTextfieldPaddingXCompact = 10;
 
   // dark elemental accent packs (APCA-derived, v4.0.0)
   static const Color accentBrightThoDark = Color(0xFFFEC42C);

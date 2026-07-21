@@ -1,0 +1,12 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "doc-suite-index",
+  "slots": [
+    {
+      "id": "sections",
+      "type": "list",
+      "label": "Section catalogue",
+      "required": true
+    }
+  ]
+}

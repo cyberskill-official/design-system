@@ -11,11 +11,12 @@ const FormCtx = React.createContext(null);
  * fn(value, values) => msg|null | array of those); FormField children with `name` register via
  * context — value/onChange auto-wired, per-field errors auto-shown, submit blocked until clean.
  */
-export function Form({ onSubmit, errors = {}, rules, initialValues, children, lang, className, ...props }) {
+export function Form({ onSubmit, errors = {}, rules, asyncRules, initialValues, children, lang, className, ...props }) {
   const [ref, L] = useLang(lang);
   const t = makeT("Form", L);
   const [values, setValues] = React.useState(() => initialValues || {});
   const [ruleErrors, setRuleErrors] = React.useState({});
+  const [pending, setPending] = React.useState(false);
   const setValue = React.useCallback((name, v) => {
     setValues((s) => ({ ...s, [name]: v }));
     setRuleErrors((e) => (e[name] ? { ...e, [name]: undefined } : e));
@@ -35,19 +36,38 @@ export function Form({ onSubmit, errors = {}, rules, initialValues, children, la
     }
     return out;
   };
-  const ctx = { values, setValue, errors: merged };
+  const runAsyncRules = async (v) => {
+    if (!asyncRules) return {};
+    const out = {};
+    for (const [name, fn] of Object.entries(asyncRules)) {
+      if (typeof fn !== "function") continue;
+      try {
+        const msg = await fn(v[name], v);
+        if (msg) out[name] = msg;
+      } catch (e) {
+        out[name] = String(e && e.message || e);
+      }
+    }
+    return out;
+  };
+  const ctx = { values, setValue, errors: merged, pending };
   return (
     <FormCtx.Provider value={ctx}>
-      <form {...props} ref={ref} className={cx("cs-form", className)} noValidate
-        onSubmit={(e) => {
+      <form {...props} ref={ref} className={cx("cs-form", pending && "is-pending", className)} noValidate
+        onSubmit={async (e) => {
           e.preventDefault();
           const fd = new FormData(e.currentTarget);
           const v = {}; fd.forEach((val, k) => { v[k] = val; });
           Object.assign(v, values); // controller-registered fields are the source of truth
           const errs = runRules(v);
-          setRuleErrors(errs);
-          if (Object.keys(errs).some((k) => errs[k])) return;
-          onSubmit && onSubmit(v);
+          if (Object.keys(errs).some((k) => errs[k])) { setRuleErrors(errs); return; }
+          setPending(true);
+          try {
+            const aerrs = await runAsyncRules(v);
+            setRuleErrors(aerrs);
+            if (Object.keys(aerrs).some((k) => aerrs[k])) return;
+            onSubmit && onSubmit(v);
+          } finally { setPending(false); }
         }}>
         {keys.length ? (
           <div className="cs-form__summary" role="alert">

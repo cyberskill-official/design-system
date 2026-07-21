@@ -752,8 +752,7 @@
         }
       });
       this._liveObserver.observe(this, {
-        subtree: true, childList: true, characterData: true, attributes: true,
-      });
+        subtree: true, childList: true, characterData: true, attributes: true});
       // Lazy thumbnail materialization — clone the slide only when its
       // frame scrolls into (or near) the rail viewport. rootMargin gives
       // ~4 thumbs of pre-load so fast scrolling doesn't flash blanks.
@@ -858,8 +857,7 @@
       });
       this._headObserver.observe(document.head, {
         childList: true, subtree: true, characterData: true,
-        attributes: true, attributeFilter: ['rel', 'href', 'media', 'disabled'],
-      });
+        attributes: true, attributeFilter: ['rel', 'href', 'media', 'disabled']});
       this._snapshotAuthorCss();
       // Re-snapshot once any still-loading stylesheet settles — it throws on
       // .cssRules above and silently contributes '' → unstyled thumbs on a
@@ -1389,8 +1387,7 @@
         this.dispatchEvent(new CustomEvent('slidechange', {
           detail,
           bubbles: true,
-          composed: true,
-        }));
+          composed: true}));
       }
 
       this._prevIndex = curr;
@@ -2392,8 +2389,7 @@
         }
       }
       this.dispatchEvent(new CustomEvent('dc-op', {
-        detail: op, bubbles: true, composed: true,
-      }));
+        detail: op, bubbles: true, composed: true}));
       return op.emitOnly;
     }
 
