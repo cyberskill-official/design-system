@@ -47,8 +47,9 @@
     "test:nav-model": "node _audit/ci/test-nav-model.mjs",
     "test:ui-contracts": "node _audit/ci/test-health-tokens-contract.mjs",
     "test:form-paths": "node _audit/ci/test-form-paths.mjs",
-    "test:unit": "node _audit/ci/test-nav-model.mjs && node _audit/ci/test-health-tokens-contract.mjs && node _audit/ci/test-form-paths.mjs && node _audit/ci/test-storybook-contract.mjs",
-    "test:storybook-contract": "node _audit/ci/test-storybook-contract.mjs"
+    "test:unit": "node _audit/ci/test-nav-model.mjs && node _audit/ci/test-health-tokens-contract.mjs && node _audit/ci/test-form-paths.mjs && node _audit/ci/test-storybook-contract.mjs && node _audit/ci/test-figma-push-helpers.mjs",
+    "test:storybook-contract": "node _audit/ci/test-storybook-contract.mjs",
+    "test:figma-helpers": "node _audit/ci/test-figma-push-helpers.mjs"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^8.6.14",

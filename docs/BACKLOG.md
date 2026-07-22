@@ -4,7 +4,6 @@ Work that is approved in direction but not built yet. Version stays pinned at **
 
 ## Not yet implemented
 
-- Figma / Tokens Studio automated push pipeline — **blocked on credentials** (how to create a token: `docs/decisions-pending.md` §3)
 - Deeper native sample host apps (SwiftUI / Compose / Flutter UI shells beyond token constants) — multi-week product shells
 
 ## Decided / closed (not active work)
@@ -14,6 +13,7 @@ Work that is approved in direction but not built yet. Version stays pinned at **
 
 ## Shipped recently (removed from active list)
 
+- Figma colour variables push (`_audit/ci/push-figma-variables.mjs` + `figma-variables-push` CI job) — needs `FIGMA_TOKEN` + `FIGMA_FILE_KEY`
 - Storybook host playground (`/playground/`, Theme × Element × Language toolbar) — portable contract unchanged
 - Form field-array helpers (`FormFieldArray`) + multi-step wizard controller (`FormWizard`)
 - DataGrid row virtualization + column-order persistence (`virtual`, `persistKey`)

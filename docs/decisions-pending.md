@@ -16,7 +16,7 @@ Pixel / visual-baseline rows stay **advisory** on the fast board (`pixel-ci`, vi
 
 ## 3. Figma / Tokens Studio push
 
-**Owner choice: not yet — waiting on credentials**
+**Owner choice: secrets configured (FIGMA_TOKEN + FIGMA_FILE_KEY)** — colour push job shipped; open the Figma file after the next `main` push or run **Actions → Design System Gates → Run workflow**.
 
 ### Where to get a Figma token
 

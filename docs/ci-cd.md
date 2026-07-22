@@ -10,7 +10,8 @@
 2. **`token-provenance`** — a fast, **browser-free** Node script (`_audit/ci/check-token-provenance.mjs`) that re-hashes `tokens/tokens.dtcg.json` and `tokens/native/*` and compares against `tokens/provenance.json` — same drift authority (source sha-256) as the in-browser `token-pipeline-test.html` gate, just cheaper to run as a pre-flight.
 3. **`docs-consistency-blocker`** — runs `docs-consistency` and `bilingual-parity` individually via `_audit/ci/run-single-gate.mjs` and fails the job if either is red — per `CLAUDE.md`'s doctrine that these two are merge blockers, not just board members.
 4. **`whole-set-audits`** — **on every push/PR** (owner decision B) plus nightly schedule and manual `workflow_dispatch`. Runs the three whole-set state audits (`responsive-overflow`, `language-overflow`, `theme-overflow`) via `run-single-gate.mjs` with a 6-minute timeout each (all templates in fresh iframes, ~4–5 min each; plan ~15–20 min for the job).
-5. **`regenerate-tokens`** — on every push/PR, runs `_audit/ci/generate-native-tokens.mjs` (browser-free Node script, same transform algorithm as `token-pipeline-test.html`'s `expected()`) to regenerate `tokens/native/*` + `tokens/provenance.json` from `tokens/tokens.dtcg.json`, then auto-commits the diff back to the branch via `git-auto-commit-action` — a no-op when the source didn't change.
+5. **`figma-variables-push`** — on push to `main` and `workflow_dispatch`, pushes DTCG colour tokens into Figma local Variables (secrets `FIGMA_TOKEN`, `FIGMA_FILE_KEY`). See `docs/figma.md`.
+6. **`regenerate-tokens`** — on every push/PR, runs `_audit/ci/generate-native-tokens.mjs` (browser-free Node script, same transform algorithm as `token-pipeline-test.html`'s `expected()`) to regenerate `tokens/native/*` + `tokens/provenance.json` from `tokens/tokens.dtcg.json`, then auto-commits the diff back to the branch via `git-auto-commit-action` — a no-op when the source didn't change.
 
 All jobs run on push and PR to `main` (and `workflow_dispatch` / schedule where listed). **Pixel / visual rows stay advisory** (owner decision A) — they do not fail the PR on % pixel diff.
 
@@ -34,7 +35,7 @@ Once the workflow has run at least once on `main`:
 ## What this does NOT auto-fail (by design)
 
 - **Pixel-threshold hard fail** — owner choice A: visual/pixel rows stay advisory; no PR fail-on-% until that decision changes (`docs/decisions-pending.md`).
-- **Figma push** — needs `FIGMA_TOKEN` + `FIGMA_FILE_KEY` secrets (see decisions doc).
+- Non-colour Figma tokens (type/space) and Tokens Studio full pipeline — colour push is live; extend later if needed.
 
 ## Honesty note
 

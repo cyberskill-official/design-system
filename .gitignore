@@ -27,3 +27,4 @@ npm-debug.log*
 storybook-static/
 .vercel-static/
 _audit/ci/import-report.txt
+_audit/ci/figma-push-report.json

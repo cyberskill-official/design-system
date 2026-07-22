@@ -98,3 +98,40 @@ jobs:
         with:
           commit_message: 'chore: regenerate tokens/native/* from tokens.dtcg.json [skip ci]'
           file_pattern: 'tokens/native/*.swift tokens/native/*.kt tokens/native/*.dart tokens/provenance.json'
+
+  figma-variables-push:
+    # Pushes colour tokens from tokens/tokens.dtcg.json into Figma local Variables.
+    # Requires repo secrets FIGMA_TOKEN + FIGMA_FILE_KEY (never commit them).
+    # Runs on main when tokens change, and always via workflow_dispatch.
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Require Figma secrets
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+          FIGMA_FILE_KEY: ${{ secrets.FIGMA_FILE_KEY }}
+        run: |
+          if [ -z "$FIGMA_TOKEN" ] || [ -z "$FIGMA_FILE_KEY" ]; then
+            echo "Missing FIGMA_TOKEN or FIGMA_FILE_KEY — add them under Settings → Secrets → Actions."
+            exit 1
+          fi
+          echo "Secrets present (values not printed)."
+      - name: Dry-run colour token plan
+        run: node _audit/ci/push-figma-variables.mjs --dry-run
+      - name: Push colour variables to Figma
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+          FIGMA_FILE_KEY: ${{ secrets.FIGMA_FILE_KEY }}
+        run: node _audit/ci/push-figma-variables.mjs
+      - name: Upload Figma push report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: figma-push-report
+          path: _audit/ci/figma-push-report.json
+          if-no-files-found: ignore
