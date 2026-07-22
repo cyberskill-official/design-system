@@ -114,7 +114,7 @@ a{color:var(--cs-color-link)}a:hover{color:var(--cs-color-link-hover)}
     else{stage.removeAttribute('data-theme');document.documentElement.removeAttribute('data-theme');}
   });
   wire('langs',function(b){ applyLang(b.dataset.lang||'en'); });
-  // Live View parent can postMessage axes
+  // Parent frame (e.g. Storybook Live iframe host) can postMessage axes
   window.addEventListener('message',function(ev){
     var d=ev.data||{}; if(d.type!=='__cs_axes') return;
     if(d.theme!==undefined){

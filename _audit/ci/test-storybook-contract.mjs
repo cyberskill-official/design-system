@@ -1,6 +1,6 @@
 /**
  * Host Storybook contract:
- * - Live hub = Storybook (Live View shell is redirect)
+ * - Live hub = Storybook only (guidelines/live-view.html must not exist)
  * - Complete CSF for every public primary
  * - Honest deep matrix: non-empty argTypes; Matrix/AllVariants/… render mounts primary
  */
@@ -38,18 +38,18 @@ assert(pack.includes('playground') && pack.includes('storybook-static'), 'packag
 const dash = readFileSync(join(root, 'dashboard.html'), 'utf8');
 assert(dash.includes('playground/index.html'), 'hub Live targets playground');
 assert(dash.includes("src:'playground/index.html'"), 'Live tab is playground');
-assert(!dash.includes("src:'guidelines/live-view.html'"), 'dashboard Live tab no longer live-view shell');
+assert(!dash.includes('live-view'), 'dashboard has no live-view references');
 
-const liveShell = readFileSync(join(root, 'guidelines/live-view.html'), 'utf8');
-assert(/location\.replace|http-equiv="refresh"|Continue to Live/i.test(liveShell), 'live-view.html is redirect only');
-assert(!liveShell.includes('const SURFACES='), 'live-view shell SURFACES removed');
+assert(!existsSync(join(root, 'guidelines/live-view.html')), 'guidelines/live-view.html deleted');
 
-const liveVs = readFileSync(join(root, 'docs/live-view-vs-storybook.md'), 'utf8');
-assert(/single live|Storybook is the single|single Live hub/i.test(liveVs), 'docs: Storybook single live hub');
-assert(/Live\/Surfaces|surface map/i.test(liveVs), 'docs surface map present');
+const liveHub = readFileSync(join(root, 'docs/live-hub.md'), 'utf8');
+assert(/single live|Storybook is the single|single Live hub/i.test(liveHub), 'docs: Storybook single live hub');
+assert(/Live\/Surfaces|surface map/i.test(liveHub), 'docs surface map present');
+assert(!/live-view\.html|redirect only/i.test(liveHub), 'docs do not revive live-view.html');
 
 const decisions = readFileSync(join(root, 'docs/decisions-pending.md'), 'utf8');
-assert(/Storybook is the single live hub|absorbs Live View/i.test(decisions), 'decision §4 Storybook hub');
+assert(/Storybook is the single live hub/i.test(decisions), 'decision §4 Storybook hub');
+assert(!/live-view\.html/i.test(decisions), 'decisions do not reference live-view.html');
 
 const consuming = readFileSync(join(root, 'docs/consuming.md'), 'utf8');
 assert(consuming.includes('host-only') || consuming.includes('Storybook'), 'consuming documents host-only');

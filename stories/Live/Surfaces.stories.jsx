@@ -2,8 +2,8 @@ import React from 'react';
 import { IframeSurface } from './IframeSurface.jsx';
 
 /**
- * Former Live View non-component tabs, absorbed into Storybook Live/*.
- * Portable HTML remains in-tree; this hub iframes it for operators.
+ * Non-component portable surfaces iframed into Storybook Live/*.
+ * Portable HTML remains in-tree; Storybook is the single operator Live hub.
  */
 export default {
   title: 'Live/Surfaces',
@@ -12,7 +12,7 @@ export default {
     docs: {
       description: {
         component:
-          'Live hub surfaces formerly under guidelines/live-view.html. Portable HTML is unchanged; Storybook is the single operator Live entry.',
+          'Live hub surfaces (Atomic View, Motion, Identity Lab, templates, kitchen-sink, AI cluster, RTL). Portable HTML is unchanged; Storybook is the single operator Live entry.',
       },
     },
   },

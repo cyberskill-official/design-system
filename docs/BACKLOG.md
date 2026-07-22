@@ -12,22 +12,21 @@ Work that is approved in direction but not built yet. Version stays pinned at **
 - Whole-set audits on every PR — **B enabled**
 - Pixel CI auto-fail — **A advisory only**
 - Figma — **A non-Enterprise** for now; Tokens Studio / hand-sync; REST soft-skip
-- **Live hub = Storybook** (Live View shell absorbed; redirect only) — `docs/live-view-vs-storybook.md`
+- **Live hub = Storybook only** (no separate Live View page) — `docs/live-hub.md`
 - Dual token JSON (`tokens.json` + `tokens.dtcg.json`) — intentional
 
 ## Shipped recently (removed from active list)
 
-- Storybook as single Live hub; `guidelines/live-view.html` redirect; Live/Surfaces map former tabs
+- Storybook as single Live hub; Live/Surfaces map; `live-view.html` removed from tree
 - Deep CSF control matrices (argTypes + Matrix/AllVariants/States) for all public primaries
 - Storybook CSF for every public React component (99 primaries) + completeness gate
 - Full multi-screen native samples under `examples/native/{swiftui,compose,flutter}`
 - Figma colour variables push (Enterprise soft-skip)
-- Storybook host playground (`/playground/`)
 - Form field-array helpers + FormWizard
 - DataGrid virtualization + column-order persistence
 - Atomic View template iframe virtualization
 - RTL locale surfaces
-- Live View Motion + Foundations motion
+- Motion foundation embed
 - Sidebar IA grouping
 
 ## Process

@@ -34,9 +34,8 @@ assert(tokens.includes('data-copy="value"') || tokens.includes('copyText'), 'cop
 assert(tokens.includes('window.__csTokensViewer'), 'tokens contract global');
 assert(tokens.includes('__csTokensLastCopy'), 'last copy observability');
 
-// Live hub is Storybook; former Live View shell is redirect-only.
-const live = readFileSync(join(root, 'guidelines/live-view.html'), 'utf8');
-assert(/location\.replace|http-equiv="refresh"|playground/i.test(live), 'live-view redirects to playground');
+// Live hub is Storybook only — no live-view.html shell or redirect.
+assert(!existsSync(join(root, 'guidelines/live-view.html')), 'live-view.html removed');
 const liveSurfaces = readFileSync(join(root, 'stories/Live/Surfaces.stories.jsx'), 'utf8');
 assert(liveSurfaces.includes('motion.html'), 'motion surface in Storybook Live');
 assert(liveSurfaces.includes('rtl-preview.html'), 'rtl surface in Storybook Live');

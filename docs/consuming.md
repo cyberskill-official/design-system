@@ -57,7 +57,7 @@ State Theme (`data-theme`), Element (`data-cs-element` + `data-cs-variant`), and
 
 ## Host playground (optional)
 
-The live site serves Storybook at `/playground/` as the **single Live hub** for operators (Theme × Element × Language + control matrices). That is **host-only tooling** — do not depend on Storybook in product apps. Portable Atomic View remains at `guidelines/atomic-view.html`. See `docs/storybook.md` and `docs/live-view-vs-storybook.md`.
+The live site serves Storybook at `/playground/` as the **single Live hub** for operators (Theme × Element × Language + control matrices). That is **host-only tooling** — do not depend on Storybook in product apps. Portable Atomic View remains at `guidelines/atomic-view.html`. See `docs/storybook.md` and `docs/live-hub.md`.
 
 ## Five-minute consumer spike
 

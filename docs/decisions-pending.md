@@ -20,15 +20,15 @@ Pixel / visual-baseline rows stay advisory. PRs are not auto-failed on % pixel d
 
 Stay on the current Figma plan. Variables REST API is Enterprise-only — CI soft-skips. Colour sync = hand-sync and/or Tokens Studio from `tokens/tokens.dtcg.json`. See `docs/figma.md`.
 
-## 4. Live hub = Storybook (absorbs Live View)
+## 4. Live hub = Storybook only
 
-**Owner choice: Storybook is the single live hub** (Jul 2026 — **supersedes** keep-Live-View)
+**Owner choice: Storybook is the single live hub** (Jul 2026)
 
-- Operators use `/playground/` (Storybook) for Theme × Element × Language exploration and component control matrices.
-- `guidelines/live-view.html` is a **redirect only** (not a parallel shell).
+- Operators use `/playground/` (Storybook) for Theme × Element × Language and component control matrices.
+- No separate Live View page exists in the tree.
 - Dashboard **Live** tab loads Storybook/playground.
 - Portable Atomic View and other static HTML remain for zero-build gates and consumers; they are not the site Live hub.
-- See `docs/live-view-vs-storybook.md` surface map.
+- Surface map: `docs/live-hub.md`.
 
 ## 5. Dual token JSON sources
 

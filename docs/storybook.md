@@ -14,7 +14,7 @@ Storybook is the **only live interactive hub** for operators on `design.cyberski
 
 - Full component CSF with **Default + deep control matrices** (argTypes + multi-variant stories)
 - Toolbar globals: Theme × Element × Language (same axes as templates)
-- **Live/** stories for former Live View non-component tabs (Motion, Identity Lab, template playground, kitchen-sink, image slots, AI cluster, RTL, Atomic View iframe)
+- **Live/** stories for non-component portable surfaces (Motion, Identity Lab, template playground, kitchen-sink, image slots, AI cluster, RTL, Atomic View iframe)
 - Same `styles.css` as production
 
 ## What consumers still use (unchanged)
@@ -37,6 +37,6 @@ npm run build:site         # packages Live hub under .vercel-static/playground/
 npm run test:storybook-contract
 ```
 
-## Retired shell
+## Map
 
-`guidelines/live-view.html` redirects into this hub. Do not revive a parallel Live View shell. Map: `docs/live-view-vs-storybook.md`.
+Portable HTML surfaces iframed from Live/* are listed in `docs/live-hub.md`.

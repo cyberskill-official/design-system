@@ -1,5 +1,5 @@
 /**
- * Pure nav model for Atomic / Live View sidebars.
+ * Pure nav model for Atomic View sidebars.
  * Shared so grouping + sort stay unit-testable and not hand-edited in JSX.
  */
 (function (root, factory) {

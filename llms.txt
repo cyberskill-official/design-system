@@ -11,14 +11,14 @@ HTML-first, Vietnamese-first design system. Immutable anchors: Umber #45210E · 
 - **Claude Design (authoring + live preview):** `templates/**/*.dc.html` Design Components + the compiler (tweaks, `x-import`, `@dsCard` cards). Native to Claude Design — not portable; other tools consume the outputs above, not these.
 
 ## Key files
-- `dashboard.html` — single-page hub (tabs: Overview · Docs · Live View · Health · Tokens)
+- `dashboard.html` — single-page hub (tabs: Overview · Docs · Live · Health · Tokens); Live = Storybook `/playground/`
 - `styles.css` — single entry point (`@import`s `tokens/` then `base/`) · `_esm/cs.mjs` — ESM entry (imports every component, no build)
 - `tokens/` — design tokens as CSS custom properties + `tokens.json` / `tokens.js` / `tokens.dtcg.json` (W3C DTCG) + `viewer.html` (table + raw modes) + `native/` (SwiftUI/Compose/Flutter)
 - `base/` — reset, component classes (`.cs-*`), a11y, responsive, glass
 - `components/` — 99 components / 115 exports, each `.jsx` + `.d.ts` + `.prompt.md` + a `@dsCard` card
 - `templates/` — copyable starting points (`.dc.html`); `email-safe/` send-ready emails; `kitchen-sink.html`; `playground.html`
 
-- `guidelines/` — specimen cards + `atomic-view.html` / `live-view.html` (Theme × Element × Language) · `ui_kits/` · `fonts/` · `assets/`
+- `guidelines/` — specimen cards + `atomic-view.html` (portable component grid) · host Live hub is Storybook at `/playground/` · `ui_kits/` · `fonts/` · `assets/`
 
 - `docs/` — `conventions.md` · `consuming.md` · `sync.md` · `contrast-report.md` · `products.md` · `deploy.md` · `template-schema-v2.md` · `BACKLOG.md` · `viewer.html`
 

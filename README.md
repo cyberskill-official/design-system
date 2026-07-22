@@ -28,7 +28,7 @@ This is the **entrance document** for the CyberSkill Design System — pinned **
 | `docs/template-schema-v2.md` | Typed content-slot spec for templates — opt-in, machine-checkable |
 | `docs/deploy.md` | Deploying the live site — Vercel (zero-config) · generic VPS/nginx · post-deploy checklist |
 | `docs/ci-cd.md` | CI/CD automation — GitHub Actions workflow, headless gate runner, token-provenance pre-check, badge |
-| `docs/live-view-vs-storybook.md` | Storybook is the single Live hub; surface map |
+| `docs/live-hub.md` | Storybook is the single Live hub; surface map |
 | `docs/figma.md` | Figma / Tokens Studio (non-Enterprise decision A) |
 | `docs/storybook.md` | Host playground at `/playground/` |
 
@@ -262,7 +262,7 @@ tokens/                    fonts · colors · typography · spacing · elevation
 base/                      reset · typography · components · forms · feedback · data · navigation · ai · controls · collections · shell · glass · interaction · a11y · responsive
 components/                button · textfield · dialog · datatable · forms · feedback · data · navigation · overlays · ai · logo · icon · brand
                            (each Name: Name.jsx + Name.d.ts + Name.prompt.md; one *.card.html per group)
-guidelines/                specimen cards (Colors · Type · Spacing · Surfaces · Brand · Motion · Elements · Responsive & Bilingual) · atomic-view.html · live-view.html (redirect → playground)
+guidelines/                specimen cards (Colors · Type · Spacing · Surfaces · Brand · Motion · Elements · Responsive & Bilingual) · atomic-view.html
 templates/                 marketing-page · dashboard · slide-deck · auth · settings · app-shell · article · email (copyable .dc.html)
                            + team artifacts — tech (release/incident/rfc) · team (meeting-agenda) · hr (announcement) · board (report/deck/memo) · marketing (brief/newsletter/launch/case-study/press-release)
                            + business — legal (nda/msa/sow) · finance (invoice/quote) · sales (one-pager/proposal-deck) — letter print docs + client deck
