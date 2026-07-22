@@ -57,7 +57,18 @@ State Theme (`data-theme`), Element (`data-cs-element` + `data-cs-variant`), and
 
 ## Host playground (optional)
 
-The live site may serve Storybook at `/playground/` for operators. That is **host-only tooling** — do not depend on Storybook in product apps. See `docs/storybook.md`.
+The live site may serve Storybook at `/playground/` for operators. That is **host-only tooling** — do not depend on Storybook in product apps. See `docs/storybook.md` and `docs/live-view-vs-storybook.md` (Live View stays the zero-build hub).
+
+## Five-minute consumer spike
+
+```bash
+# from monorepo root
+python3 -m http.server 8765 --bind 127.0.0.1
+# open http://127.0.0.1:8765/examples/static-hello/
+# then http://127.0.0.1:8765/_audit/consumer-smoke-test.html
+```
+
+Edit `examples/static-hello/index.html`: flip `data-theme="dark"` or `data-cs-element="thuy"` on `<body>`. No install, no Storybook.
 
 ## Extending
 

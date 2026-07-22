@@ -4,57 +4,57 @@
 
 **Host deploy** (Vercel, separate from this workflow) does run `npm install` + `npm run build:site` so the optional Storybook playground ships at `/playground/` — see `docs/deploy.md` and `docs/storybook.md`. That host packaging path is not required for consuming projects or for the gate jobs below.
 
+## Badge
+
+[![Design System Gates](https://github.com/cyberskill-official/design-system/actions/workflows/design-system-gates.yml/badge.svg)](https://github.com/cyberskill-official/design-system/actions/workflows/design-system-gates.yml)
+
 ## What's wired up (`.github/workflows/design-system-gates.yml`)
 
-1. **`fast-gates`** — `npm ci` + Playwright Chromium, serves the repo statically, opens `_audit/run.html` headlessly via Playwright (`_audit/ci/run-gates.mjs`), waits for `window.__run`, fails the build on any hard-gate failure. Uploads the import-report text as a build artifact on failure (CI diagnostic dump from the headless runner).
-2. **`token-provenance`** — a fast, **browser-free** Node script (`_audit/ci/check-token-provenance.mjs`) that re-hashes `tokens/tokens.dtcg.json` and `tokens/native/*` and compares against `tokens/provenance.json` — same drift authority (source sha-256) as the in-browser `token-pipeline-test.html` gate, just cheaper to run as a pre-flight.
-3. **`docs-consistency-blocker`** — same Playwright install as fast-gates; runs `docs-consistency` and `bilingual-parity` individually via `_audit/ci/run-single-gate.mjs` and fails the job if either is red — per `CLAUDE.md`'s doctrine that these two are merge blockers, not just board members.
-4. **`whole-set-audits`** — **on every push/PR** (owner decision B) plus nightly schedule and manual `workflow_dispatch`. Runs the three whole-set state audits (`responsive-overflow`, `language-overflow`, `theme-overflow`) via `run-single-gate.mjs` with a 6-minute timeout each (all templates in fresh iframes, ~4–5 min each; plan ~15–20 min for the job).
-5. **`figma-variables-push`** — on push to `main` and `workflow_dispatch`, pushes DTCG colour tokens into Figma local Variables (repository secrets `FIGMA_TOKEN`, `FIGMA_FILE_KEY`). **Figma Variables REST API is Enterprise-only**; on other plans the job soft-skips after proving file access. See `docs/figma.md`.
-6. **`regenerate-tokens`** — on every push/PR, runs `_audit/ci/generate-native-tokens.mjs` (browser-free Node script, same transform algorithm as `token-pipeline-test.html`'s `expected()`) to regenerate `tokens/native/*` + `tokens/provenance.json` from `tokens/tokens.dtcg.json`, then auto-commits the diff back to the branch via `git-auto-commit-action` — a no-op when the source didn't change. Job requests `permissions: contents: write` so the default read-only `GITHUB_TOKEN` can push.
+1. **`fast-gates`** — `npm ci` + cached Playwright Chromium, serves the repo, opens `_audit/run.html` headlessly (`_audit/ci/run-gates.mjs`), fails on any hard-gate failure. Uploads import-report on failure.
+2. **`token-provenance`** — browser-free Node check that natives + `provenance.json` match DTCG source sha-256.
+3. **`docs-consistency-blocker`** — `docs-consistency` + `bilingual-parity` merge blockers.
+4. **`whole-set-audits`** — owner decision B: every push/PR, plus nightly `0 3 * * *` and `workflow_dispatch` (responsive + language + theme overflow, ~15–20 min).
+5. **`figma-variables-push`** — on `main` push + manual. Owner decision A (non-Enterprise): Variables REST soft-skips; secrets still prove file open. See `docs/figma.md`.
+6. **`regenerate-tokens`** — path-filtered on push/PR (`tokens.dtcg.json`, natives, generator, `VERSION`); always available on schedule/manual. Deterministic native output; pushes with `contents: write` (or `DS_PUSH_TOKEN`).
 
-All jobs run on push and PR to `main` (and `workflow_dispatch` / schedule where listed). **Pixel / visual rows stay advisory** (owner decision A) — they do not fail the PR on % pixel diff.
+Node **22** on runners (avoids Node 20 action deprecation). Playwright browser cache key: `package-lock.json`.
 
 ## Runner install pattern (Playwright jobs)
 
-`npx playwright install` only downloads browsers. Gate scripts `import { chromium } from 'playwright'`, so CI must install the npm package first:
-
 ```yaml
 - run: npm ci
+- uses: actions/cache@v4
+  with:
+    path: ~/.cache/ms-playwright
+    key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-chromium
 - run: npx playwright install --with-deps chromium
 ```
 
 ## Token auto-commit permissions
 
-If `regenerate-tokens` fails with `Permission to ... denied to github-actions[bot]` / HTTP 403, the org has locked the default `GITHUB_TOKEN` to **read** (the repo radio for "Read and write permissions" is greyed out). Fix **one** of:
+Job requests `permissions: contents: write`. If org locks the default token to read-only, set repository secret `DS_PUSH_TOKEN` (fine-grained PAT, Contents read/write) or unlock write at org Actions settings. See earlier notes in git history / org settings.
 
-1. **Org policy (preferred if you control the org)** — as an org owner with Actions policy access: [Organization Actions settings](https://github.com/organizations/cyberskill-official/settings/actions) → **Workflow permissions** → **Read and write permissions**, or keep read default but allow repositories to choose. Then the repo radio is enabled again.
-2. **Repository secret `DS_PUSH_TOKEN`** — create a [fine-grained PAT](https://github.com/settings/personal-access-tokens/new) owned by a user with push access: repository access = this repo only, permission **Contents: Read and write**. Add it as a **repository** secret named exactly `DS_PUSH_TOKEN`. The workflow uses that token for checkout + push when present.
+## Branch protection (recommended)
 
-`token-provenance` / fast gates still fail the PR if natives drift and nobody commits them — auto-push is convenience, not the only gate.
+Require status checks on `main` before merge:
 
+- `fast-gates`
+- `docs-consistency-blocker`
+
+Optional: `whole-set-audits` (long). Configure under repo **Settings → Branches** or via `gh api` (admin).
 
 ## Running locally
 
 ```bash
-npx serve -l 8080 .                                    # in one terminal
-npx playwright install --with-deps chromium             # once
+npx serve -l 8080 .
+npx playwright install --with-deps chromium
 node _audit/ci/run-gates.mjs http://127.0.0.1:8080/_audit/run.html
-node _audit/ci/check-token-provenance.mjs                # no server needed
+node _audit/ci/check-token-provenance.mjs
 node _audit/ci/run-single-gate.mjs http://127.0.0.1:8080/_audit/docs-consistency.html __docs
-node _audit/ci/generate-native-tokens.mjs                # no server needed — regenerates tokens/native/*
+node _audit/ci/generate-native-tokens.mjs
 ```
-
-## Badge
-
-Once the workflow has run at least once on `main`:
-![Design System Gates](https://github.com/cyberskill-official/design-system/actions/workflows/design-system-gates.yml/badge.svg)
 
 ## What this does NOT auto-fail (by design)
 
-- **Pixel-threshold hard fail** — owner choice A: visual/pixel rows stay advisory; no PR fail-on-% until that decision changes (`docs/decisions-pending.md`).
-- Non-colour Figma tokens (type/space) and Tokens Studio full pipeline — colour push is live; extend later if needed.
-
-## Honesty note
-
-This workflow file and its scripts are authored to the same contract as everything in `_audit/` (deterministic verdict globals, static serving for gates) and the token-provenance logic has been hand-verified against this repo's real files — but the workflow itself has not been run inside an actual GitHub Actions runner from this environment (no CI execution available here). Run it once after the first push and fix any environment-specific hiccup (Playwright's Ubuntu dependency list is the most likely one) before relying on it as a merge gate. Host Storybook packaging is owned by `vercel.json` / `npm run build:site`, not by this gates workflow.
+- **Pixel-threshold hard fail** — owner choice A (advisory visual rows only).
+- **Figma Variables write on non-Enterprise** — soft-skip with report artifact.

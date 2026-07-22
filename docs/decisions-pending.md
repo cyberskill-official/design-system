@@ -1,51 +1,51 @@
-# Decisions pending (owner)
+# Decisions (owner)
 
-Recorded owner choices and remaining blockers.
+Recorded owner choices. Setup how-tos live in `docs/figma.md` and `docs/ci-cd.md` — this file is decisions only.
 
 ## 1. Whole-set audits on every PR
 
-**Owner choice: B — Enable on every PR** (recorded Jul 2026)
+**Owner choice: B — Enable on every PR** (Jul 2026)
 
-Wired in `.github/workflows/design-system-gates.yml`: `whole-set-audits` runs on push, pull_request, schedule, and `workflow_dispatch` (no event filter). Expect about 15–20 minutes for that job (responsive + language + theme across all templates).
+`whole-set-audits` runs on push, pull_request, schedule (`0 3 * * *`), and `workflow_dispatch`. Plan ~15–20 minutes for that job.
 
 ## 2. Pixel-threshold CI auto-fail
 
-**Owner choice: A — Advisory only** (recorded Jul 2026)
+**Owner choice: A — Advisory only** (Jul 2026)
 
-Pixel / visual-baseline rows stay **advisory** on the fast board (`pixel-ci`, visual-diff). Humans judge drift; PRs are not auto-failed on pixel %. No further wiring required until you change this choice.
+Pixel / visual-baseline rows stay advisory. PRs are not auto-failed on % pixel diff until this choice changes.
 
-## 3. Figma / Tokens Studio push
+## 3. Figma / Tokens Studio
 
-**Owner choice: secrets configured (FIGMA_TOKEN + FIGMA_FILE_KEY)** — secrets inject; file opens. Figma Variables REST API is **Enterprise-only** (`file_variables:read` / `file_variables:write`). Non-Enterprise PATs never show those scopes. CI soft-skips the push with a report unless the org is on Enterprise. Alternatives: hand-sync or Tokens Studio (`docs/figma.md`).
+**Owner choice: A — non-Enterprise for now** (Jul 2026)
 
-**Token auto-commit:** write permission unlocked; native regen is deterministic (source-sha only).
+Stay on the current Figma plan. Variables REST API (`file_variables:read` / `file_variables:write`) is Enterprise-only — CI soft-skips the push. Colour sync = hand-sync and/or Tokens Studio from `tokens/tokens.dtcg.json`. Revisit when CyberSkill moves the design org to Enterprise (or adopts Tokens Studio as the primary bridge).
 
-### Where to get a Figma token
+Secrets `FIGMA_TOKEN` + `FIGMA_FILE_KEY` may stay set (file open / future Enterprise). See `docs/figma.md`.
 
-1. Sign in at [https://www.figma.com](https://www.figma.com) with the account that owns (or can edit) the design-system file.
-2. Open **Settings** → **Security** (or account menu → **Settings** → **Personal access tokens**).
-   - Direct: [https://www.figma.com/developers/api#access-tokens](https://www.figma.com/developers/api#access-tokens) describes token use; create the token under your Figma account settings.
-3. Click **Generate new token**, name it e.g. `cyberskill-design-system-ci`, copy it **once** (Figma will not show it again).
-4. Scopes: need at least **file content read/write** for the target file (for a push pipeline). If you only want read for now, read is enough to prototype; write is required to update variables/styles in Figma.
-5. Find the **file key**: open the Figma file in the browser; the URL looks like  
-   `https://www.figma.com/design/<FILE_KEY>/...`  
-   The middle segment is `FIGMA_FILE_KEY`.
+## 4. Live View vs Storybook
 
-### What to give the implementer (GitHub secrets)
+**Owner choice: keep Live View; Storybook stays host-only** (Jul 2026)
 
-In the GitHub repo: **Settings → Secrets and variables → Actions → New repository secret**
+**Do not delete `guidelines/live-view.html`.** Live View is the zero-build axis shell (Theme × Element × Language) that iframes Components (Atomic View), Motion, Identity Lab, template playground, kitchen-sink, AI cluster, RTL, and optionally Storybook.
 
-| Secret name | Value |
+Storybook (`/playground/`) is the **host** React prop playground. It cannot absorb Identity Lab, template playground, motion specimens, kitchen-sink, or full Atomic View without abandoning the portable static contract and a multi-week CSF port.
+
+Direction: expand Storybook CSF stories for operators; keep Live View as the single static hub. Full removal of Live View is **out of scope** until/unless the portable doctrine changes.
+
+## 5. Dual token JSON sources
+
+**Owner choice: keep both `tokens.json` and `tokens.dtcg.json`** (Jul 2026)
+
+Separate formats are intentional:
+
+| File | Role |
 |---|---|
-| `FIGMA_TOKEN` | the personal access token you generated |
-| `FIGMA_FILE_KEY` | the file key from the URL |
+| `tokens/tokens.dtcg.json` | W3C DTCG interchange (Figma / Tokens Studio / Style Dictionary / native regen source) |
+| `tokens/tokens.json` | CSS-oriented grouped export for agents and simple tools |
+| `tokens/*.css` + `styles.css` | Runtime source of truth for the product UI |
 
-Optional later: Tokens Studio plugin settings if we push DTCG through their API instead of raw Figma REST.
-
-**Do not paste the token into chat, the repo, or a PR.** Only into GitHub Actions secrets (or a password manager).
-
-When secrets exist, say “Figma secrets are set” and we can add the push job without you pasting the token here.
+Viewer default is DTCG. Regenerating natives uses DTCG only. Do not merge into one file — tools disagree on schema.
 
 ## How to change a decision
 
-Edit the **Owner choice** lines above (or comment on a PR). Implementer rewires CI/docs and updates `docs/BACKLOG.md`.
+Edit the **Owner choice** line here (or comment on a PR). Implementer rewires CI/docs and updates `docs/BACKLOG.md` when needed.

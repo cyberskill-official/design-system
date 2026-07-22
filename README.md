@@ -2,6 +2,8 @@
 
 > **Turn Your Will Into Real — Hiện Thực Hoá Ý Chí**
 
+[![Design System Gates](https://github.com/cyberskill-official/design-system/actions/workflows/design-system-gates.yml/badge.svg)](https://github.com/cyberskill-official/design-system/actions/workflows/design-system-gates.yml)
+
 ## Start here
 
 This is the **entrance document** for the CyberSkill Design System — pinned **v1.0.0** until launch (see `VERSION`). Open **`dashboard.html`** for the single-page hub (Overview · Docs · Live View · Health · Tokens). One sentence: a warm, Vietnamese-first, enterprise-grade system where every surface resolves three independent axes — **Theme** (light · dark) × **Element** (Ngũ Hành product identity: Kim · Mộc · Thủy · Hỏa · Thổ, 15 variants) × **Language** (EN · VI). Surface treatment is liquid-glass (fixed).
@@ -26,6 +28,9 @@ This is the **entrance document** for the CyberSkill Design System — pinned **
 | `docs/template-schema-v2.md` | Typed content-slot spec for templates — opt-in, machine-checkable |
 | `docs/deploy.md` | Deploying the live site — Vercel (zero-config) · generic VPS/nginx · post-deploy checklist |
 | `docs/ci-cd.md` | CI/CD automation — GitHub Actions workflow, headless gate runner, token-provenance pre-check, badge |
+| `docs/live-view-vs-storybook.md` | Why Live View stays; Storybook is host-only |
+| `docs/figma.md` | Figma / Tokens Studio (non-Enterprise decision A) |
+| `docs/storybook.md` | Host playground at `/playground/` |
 
 ---
 

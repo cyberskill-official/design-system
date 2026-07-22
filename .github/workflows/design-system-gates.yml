@@ -4,11 +4,14 @@ on:
   pull_request: { branches: [main] }
   workflow_dispatch: {}
   schedule:
+    # Nightly deep path (same whole-set job also runs on every PR — owner decision B).
     - cron: '0 3 * * *'
 
-# Default token is read-only at the repo setting level; jobs that push request write explicitly.
 permissions:
   contents: read
+
+# Reusable Node + Playwright install (browser cache).
+# Jobs below copy the same steps so each job stays self-contained.
 
 jobs:
   fast-gates:
@@ -17,11 +20,17 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: npm
-      - name: Install npm dependencies (includes playwright package)
+      - name: Install npm dependencies
         run: npm ci
-      - name: Install Playwright Chromium browser + OS deps
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        id: pw-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-chromium
+      - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
       - name: Serve the repo statically
         run: npx --yes serve@14 -l 8080 . &
@@ -40,7 +49,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: '20' }
+        with:
+          node-version: '22'
       - name: Verify tokens/native/ is in lockstep with tokens.dtcg.json (fast, no browser)
         run: node _audit/ci/check-token-provenance.mjs
 
@@ -51,11 +61,16 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: npm
-      - name: Install npm dependencies (includes playwright package)
+      - name: Install npm dependencies
         run: npm ci
-      - name: Install Playwright Chromium browser + OS deps
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-chromium
+      - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
       - name: Serve the repo statically
         run: npx --yes serve@14 -l 8080 . &
@@ -67,19 +82,22 @@ jobs:
         run: node _audit/ci/run-single-gate.mjs http://127.0.0.1:8080/_audit/bilingual-parity.html __bilingual
 
   whole-set-audits:
-    # Owner decision B (Jul 2026): run on every push/PR as well as nightly + manual.
-    # Each whole-set audit loads all templates in fresh iframes (~4-5 min); 6 min timeout per gate.
-    # Expect ~15–20 min wall time for this job on PR.
+    # Owner decision B: every push/PR + nightly + manual. ~15–20 min wall time.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: npm
-      - name: Install npm dependencies (includes playwright package)
+      - name: Install npm dependencies
         run: npm ci
-      - name: Install Playwright Chromium browser + OS deps
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-chromium
+      - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
       - name: Serve the repo statically
         run: npx --yes serve@14 -l 8080 . &
@@ -93,35 +111,51 @@ jobs:
         run: node _audit/ci/run-single-gate.mjs http://127.0.0.1:8080/_audit/theme-overflow.html __theme 360000
 
   regenerate-tokens:
-    # Runs whenever a push/PR touches the DTCG source; regenerates tokens/native/* + provenance.json
-    # and commits the diff straight back to the branch, so a token PR never needs a manual pipeline
-    # step. A no-op (clean tree) when the source didn't actually change the derived output.
-    # Honesty note: git-auto-commit-action can't push back to a PR opened from a FORK (no write
-    # token) — on a fork PR this job will run and report the diff in logs but the commit step is a
-    # no-op; the fast-gates job's own token-provenance check still blocks the merge until a
-    # maintainer (or a same-repo branch) carries the regenerated files.
-    #
-    # Push auth: org policy may lock GITHUB_TOKEN to read-only (repo radio disabled). Prefer repo
-    # secret DS_PUSH_TOKEN (fine-grained PAT: Contents Read/Write on this repo). Falls back to
-    # GITHUB_TOKEN when the org allows write or job permissions: contents: write is honoured.
-    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    # Only when DTCG / generator / native targets can drift. Deterministic output → no-op commit when clean.
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'schedule' ||
+      (github.event_name == 'push' || github.event_name == 'pull_request')
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
         with:
-          # Expand flow-map form — nested ${{ }} with || breaks YAML parsers on GHA.
           ref: ${{ github.head_ref || github.ref }}
-          # DS_PUSH_TOKEN when set; else GITHUB_TOKEN (needs org/repo write for Actions).
           token: ${{ secrets.DS_PUSH_TOKEN || github.token }}
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
+      - name: Detect token-related path changes
+        id: filter
+        if: github.event_name == 'push' || github.event_name == 'pull_request'
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE="${{ github.event.pull_request.base.sha }}"
+          else
+            BASE="${{ github.event.before }}"
+          fi
+          if [ -z "${BASE:-}" ] || [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "No usable base SHA — always regenerate."
+            exit 0
+          fi
+          if git diff --name-only "$BASE" HEAD | grep -E '^(tokens/tokens\.dtcg\.json|tokens/native/|_audit/ci/generate-native-tokens\.mjs|VERSION)$' >/dev/null; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "Token-related paths changed."
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "No token-related path changes — skip regenerate."
+          fi
       - name: Regenerate native token targets from tokens.dtcg.json
+        if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' || steps.filter.outputs.run == 'true'
         run: node _audit/ci/generate-native-tokens.mjs
       - name: Check for generated drift
         id: drift
+        if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' || steps.filter.outputs.run == 'true'
         run: |
           if git diff --quiet -- tokens/native tokens/provenance.json; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
@@ -137,7 +171,6 @@ jobs:
           BRANCH="${{ github.head_ref || github.ref_name }}"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # Always re-apply on the latest tip so concurrent main pushes cannot non-fast-forward.
           git fetch origin "$BRANCH"
           git reset --hard "origin/$BRANCH"
           node _audit/ci/generate-native-tokens.mjs
@@ -150,9 +183,7 @@ jobs:
           git push origin "HEAD:$BRANCH"
 
   figma-variables-push:
-    # Pushes colour tokens from tokens/tokens.dtcg.json into Figma local Variables.
-    # Requires repo secrets FIGMA_TOKEN + FIGMA_FILE_KEY (never commit them).
-    # Runs on main when tokens change, and always via workflow_dispatch.
+    # Soft-skips when Variables API is Enterprise-only (owner decision A: non-Enterprise for now).
     if: |
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'push' && github.ref == 'refs/heads/main')
@@ -160,7 +191,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: '20' }
+        with:
+          node-version: '22'
       - name: Require Figma secrets
         env:
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
@@ -180,11 +212,8 @@ jobs:
             echo "FIGMA_FILE_KEY: present (length ${#FIGMA_FILE_KEY}, value not printed)"
           fi
           if [ "$missing" -ne 0 ]; then
-            echo ""
-            echo "Add both as *repository* secrets (not Environment secrets, not Variables):"
-            echo "  https://github.com/${{ github.repository }}/settings/secrets/actions"
-            echo "Exact names: FIGMA_TOKEN and FIGMA_FILE_KEY"
-            echo "Then re-run: Actions → Design System Gates → Run workflow"
+            echo "Add repository secrets FIGMA_TOKEN and FIGMA_FILE_KEY, or omit this job's secrets until Enterprise."
+            echo "Owner decision A: non-Enterprise soft-skip is fine once secrets exist; empty secrets still fail closed here."
             exit 1
           fi
       - name: Dry-run colour token plan

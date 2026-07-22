@@ -30,8 +30,16 @@ assert(consuming.includes('host-only') || consuming.includes('Storybook'), 'cons
 // Portable paths must not require storybook
 assert(!consuming.includes('must use Storybook') && !consuming.includes('require Storybook'), 'no required storybook for consumers');
 
-const stories = ['Button.stories.jsx','Form.stories.jsx','Badge.stories.jsx','TextField.stories.jsx','Alert.stories.jsx'];
+const stories = [
+  'Button.stories.jsx','Form.stories.jsx','Badge.stories.jsx','TextField.stories.jsx','Alert.stories.jsx',
+  'Spinner.stories.jsx','Dialog.stories.jsx','Toast.stories.jsx','Checkbox.stories.jsx',
+];
 for (const s of stories) assert(existsSync(join(root,'stories',s)), 'story '+s);
+
+const liveVs = readFileSync(join(root,'docs/live-view-vs-storybook.md'),'utf8');
+assert(/Do not delete|keep Live View|zero-build/i.test(liveVs), 'live-view-vs-storybook documents keep Live View');
+const live = readFileSync(join(root,'guidelines/live-view.html'),'utf8');
+assert(live.includes('live-view-vs-storybook'), 'live-view points at split doc');
 
 const deploy = readFileSync(join(root,'docs/deploy.md'),'utf8');
 assert(deploy.includes('npm install') && deploy.includes('build:site'), 'deploy.md host packaging');

@@ -58,11 +58,15 @@ After a successful push, open the file in Figma → **Local variables** → coll
 2. **Settings → Security → Personal access tokens** → generate.
 3. File key: open the target file; URL segment after `/design/` or `/file/`.
 
-## Hand-sync guidance
+## Hand-sync / Tokens Studio (owner decision A — non-Enterprise)
 
-1. Treat `tokens/tokens.dtcg.json` as the source of colour/type/spacing truth.
-2. Map Figma variables 1:1 to DTCG names when hand-syncing non-colour tokens (type, space) until those types are added to the push script.
-3. Code Connect mappings can stay in a design-ops workflow if needed.
+Recommended path until the design org is on Enterprise:
+
+1. Treat `tokens/tokens.dtcg.json` as the colour/type/spacing interchange source.
+2. **Tokens Studio** (or similar): import DTCG into the Figma file as local variables / tokens; re-export only when you intentionally change design-side values (prefer code → design direction).
+3. Hand-sync map: DTCG path → Figma variable name via the same slash naming as `_audit/ci/push-figma-variables.mjs` (`toFigmaName`).
+4. Code Connect stays optional design-ops.
+5. When the org moves to Enterprise, re-enable full REST push (remove soft-skip need) with `file_variables:read` + `file_variables:write` on the PAT.
 
 ## Scope limits (honest)
 

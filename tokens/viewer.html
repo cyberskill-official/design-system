@@ -40,6 +40,8 @@
   .empty{padding:28px;color:var(--cs-color-text-primary);font-size:13.5px}
   .src{font-size:12px;color:var(--cs-color-text-primary);font-weight:600}
   .src select{font:inherit;font-size:12px;padding:4px 8px;border-radius:6px;border:1px solid var(--cs-color-border-default);background:var(--cs-color-surface-page);color:var(--cs-color-text-primary)}
+  .src-help{margin:0;padding:8px 16px;font:12.5px/1.45 var(--cs-font-family-ui);color:var(--cs-color-text-primary);background:var(--cs-color-surface-panel);border-block-end:1px solid var(--cs-color-border-default)}
+  .src-help code{font-family:var(--cs-font-family-mono);font-size:11.5px}
   .toast{position:fixed;inset-block-end:16px;inset-inline-end:16px;background:var(--cs-color-brand-umber);color:var(--cs-color-text-inverse);font:600 12.5px var(--cs-font-family-ui);padding:8px 12px;border-radius:8px;opacity:0;pointer-events:none;transition:opacity .15s}
   .toast.on{opacity:1}
 </style>
@@ -58,11 +60,12 @@
   <div class="src">
     Source
     <select id="source" aria-label="Token source">
-      <option value="tokens.dtcg.json">tokens.dtcg.json (W3C)</option>
-      <option value="tokens.json">tokens.json</option>
+      <option value="tokens.dtcg.json" selected>tokens.dtcg.json (W3C DTCG)</option>
+      <option value="tokens.json">tokens.json (CSS-grouped)</option>
     </select>
   </div>
 </div>
+<p class="src-help" id="srcHelp">DTCG is the design-tool + native-regen interchange. <code>tokens.json</code> is the CSS-oriented grouped export for agents. Runtime UI still resolves from <code>styles.css</code> / <code>tokens/*.css</code>. Keeping both files is intentional — see <code>docs/decisions-pending.md</code> §5.</p>
 <div class="chips" id="chips" aria-label="Token groups"></div>
 <div class="panel" id="tablePanel">
   <table>

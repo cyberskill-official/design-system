@@ -4,12 +4,16 @@ Work that is approved in direction but not built yet. Version stays pinned at **
 
 ## Not yet implemented
 
-- Deeper native sample host apps (SwiftUI / Compose / Flutter UI shells beyond token constants) — multi-week product shells
+- Full multi-screen native host apps (SwiftUI / Compose / Flutter product shells) — multi-week; stub notes in `examples/native/`
+- Broad Storybook CSF coverage for every React component (host-only; Atomic View remains the complete portable inventory)
 
 ## Decided / closed (not active work)
 
-- Whole-set audits on every PR — **B enabled** in `design-system-gates.yml` (push + PR + nightly + manual)
-- Pixel CI auto-fail — **A advisory only**; no PR fail-on-% (scaffold + advisory rows remain)
+- Whole-set audits on every PR — **B enabled**
+- Pixel CI auto-fail — **A advisory only**
+- Figma — **A non-Enterprise** for now; Tokens Studio / hand-sync; REST soft-skip
+- Live View kept — **do not delete**; Storybook is host-only (`docs/live-view-vs-storybook.md`)
+- Dual token JSON (`tokens.json` + `tokens.dtcg.json`) — intentional
 
 ## Shipped recently (removed from active list)
 

@@ -2,6 +2,8 @@
 
 Storybook is the **hosted live playground** for operators on `design.cyberskill.world`. It is **not** part of the portable consumer contract.
 
+**Live View is not deleted or replaced by Storybook.** See `docs/live-view-vs-storybook.md` and owner decision §4 in `docs/decisions-pending.md`.
+
 ## URL
 
 | Context | Path |
