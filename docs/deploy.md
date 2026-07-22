@@ -5,7 +5,7 @@ Two tracks:
 1. **Portable design system (consumers)** — still a static file tree: no bundler required. Link `styles.css` + optionally `_ds_bundle.js` / ESM. Claude Design, Google Stitch, and product apps never need Node or Storybook.
 2. **Host site (`design.cyberskill.world`)** — static output packaged for Vercel. Packaging **does** run Node once at deploy time so the optional Storybook playground can ship at `/playground/`. There is still no long-running app server.
 
-`index.html` redirects to `dashboard.html` (Overview · Docs · Live View · Health · Tokens).
+`index.html` redirects to `dashboard.html` (Overview · Docs · Live · Health · Tokens). Live = Storybook at `/playground/`.
 
 ## Vercel (recommended)
 

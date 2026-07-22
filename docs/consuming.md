@@ -45,7 +45,7 @@ This is exactly what `_audit/consumer-smoke-test.html` exercises (and asserts gr
 
 ## The three axes
 
-State Theme (`data-theme`), Element (`data-cs-element` + `data-cs-variant`), and Language (`lang` / template Language tweak) on a container; everything inside re-skins with no code change (see `templates/playground.html` and Live View). Defaults: `light · tho · en`. Surface treatment is liquid-glass (fixed). Bilingual: components resolve strings from `lang` (`lang="vi"` on any container → full Vietnamese).
+State Theme (`data-theme`), Element (`data-cs-element` + `data-cs-variant`), and Language (`lang` / template Language tweak) on a container; everything inside re-skins with no code change (see `templates/playground.html`). Defaults: `light · tho · en`. Surface treatment is liquid-glass (fixed). Bilingual: components resolve strings from `lang` (`lang="vi"` on any container → full Vietnamese).
 
 ## Upgrading
 
@@ -57,7 +57,7 @@ State Theme (`data-theme`), Element (`data-cs-element` + `data-cs-variant`), and
 
 ## Host playground (optional)
 
-The live site may serve Storybook at `/playground/` for operators. That is **host-only tooling** — do not depend on Storybook in product apps. See `docs/storybook.md` and `docs/live-view-vs-storybook.md` (Live View stays the zero-build hub).
+The live site serves Storybook at `/playground/` as the **single Live hub** for operators (Theme × Element × Language + control matrices). That is **host-only tooling** — do not depend on Storybook in product apps. Portable Atomic View remains at `guidelines/atomic-view.html`. See `docs/storybook.md` and `docs/live-view-vs-storybook.md`.
 
 ## Five-minute consumer spike
 

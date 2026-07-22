@@ -1,33 +1,38 @@
-# Live View vs Storybook
+# Live hub = Storybook
 
-## Short answer
+## Owner decision (Jul 2026 — supersedes keep-Live-View)
 
-**No — do not absorb Live View completely into Storybook and delete Live View.** Storybook is a host React playground. Live View is the portable, zero-build axis shell for the whole design-system site.
+**Storybook is the single live interactive hub** for operators on `design.cyberskill.world`. The former Live View shell (`guidelines/live-view.html`) is retired (redirect only). Dashboard **Live** opens `/playground/`.
 
-## What each owns
+## What each surface is now
 
-| Surface | Build needed? | Owns |
-|---|---|---|
-| **Live View** (`guidelines/live-view.html`) | No | Shared Theme × Element × Language bar; tabs into Atomic View, Motion, Identity Lab, template playground, kitchen-sink, image slots, AI cluster, RTL, Storybook iframe |
-| **Atomic View** | No | Full component specimen grid + prop playgrounds (gate: `story-coverage`) |
-| **Storybook** (`/playground/`) | Yes (`npm run build:site`) | Thin CSF stories over React sources; toolbar axes; a11y addon; operator prop-tweaking |
+| Surface | Role |
+|---|---|
+| **Storybook Live** (`/playground/`) | Host interactive hub: Theme × Element × Language toolbar, full component CSF (Default + control matrices), and former Live View tabs as Live/* stories (iframes into portable HTML) |
+| **Atomic View** (`guidelines/atomic-view.html`) | Portable zero-build component grid for gates and clone-and-open browsing — not the site Live hub |
+| **Other guidelines / templates** | Portable specimens; opened from Storybook Live/* stories when exploring Motion, Identity Lab, kitchen-sink, etc. |
 
-## Why full absorption fails
+## Surface map (former Live View tabs → Storybook)
 
-1. **Portable doctrine** — consumers and Claude Design open HTML with no Node. Live View and Atomic View work after clone. Storybook does not.
-2. **Non-component surfaces** — Identity Lab, Motion specimens, template playground, kitchen-sink, AI cluster, RTL are not CSF components.
-3. **Coverage gap** — Storybook today has a small story set; Atomic View is the complete component inventory enforced by gates.
-4. **Host packaging** — Storybook ships only on the Vercel host under `/playground/`. Live View ships in the static tree always.
+| Former Live View tab | Storybook entry |
+|---|---|
+| Components | Components/* CSF + Live/Components (Atomic View iframe) |
+| Motion | Live/Motion |
+| Identity Lab | Live/Identity Lab |
+| Playground (templates) | Live/Template Playground |
+| Kitchen sink | Live/Kitchen Sink |
+| Image slots | Live/Image Slots |
+| AI cluster | Live/AI Cluster |
+| RTL | Live/RTL |
+| Storybook (self) | — (this is the hub) |
 
-## Current direction (owner Jul 2026)
+## Portable consumers (unchanged)
 
-- Keep Live View as the dashboard **Live View** tab and primary in-tree hub.
-- Grow Storybook stories for high-traffic React components (operators on the host).
-- Link Storybook from Live View as a tab (already present); never claim Storybook replaces the portable tree.
-- Revisit only if the project abandons HTML-first portable delivery.
+Consumers still link `styles.css` / `_ds_bundle.js` / ESM / templates. **Do not** require Storybook in product apps. See `docs/consuming.md`.
 
-## Related
+## Local
 
-- `docs/storybook.md` — host playground contract
-- `docs/consuming.md` — what consumers link
-- `docs/decisions-pending.md` §4
+```bash
+npm run storybook          # Live hub at http://localhost:6006
+npm run build:site         # packages Live hub at /playground/
+```

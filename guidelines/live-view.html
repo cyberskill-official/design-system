@@ -3,123 +3,23 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CyberSkill · Live View</title>
-<link rel="stylesheet" href="../styles.css" />
-<style>
-  *{box-sizing:border-box} html,body{height:100%;margin:0}
-  body{font-family:var(--cs-font-family-ui);color:var(--cs-color-text-primary);background:var(--cs-color-surface-page);display:flex;flex-direction:column}
-  .axisbar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;padding:10px 16px;background:var(--cs-color-surface-panel);border-block-end:1px solid var(--cs-color-border-default)}
-  .axisbar .lb{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--cs-color-text-muted)}
-  .axisbar select{font:inherit;font-size:12.5px;font-weight:600;padding:6px 10px;border-radius:8px;border:1px solid var(--cs-color-border-default);background:var(--cs-color-surface-raised);color:var(--cs-color-text-primary);min-height:34px}
-  .axisbar .filter{flex:1;min-width:160px;max-width:280px}
-  .subtabs{display:flex;gap:2px;padding:0 14px;background:var(--cs-color-surface-panel);border-block-end:1px solid var(--cs-color-border-default);flex-wrap:wrap}
-  .subtabs button{appearance:none;border:0;background:transparent;font:inherit;font-weight:600;font-size:13px;color:var(--cs-color-text-muted);padding:10px 14px;cursor:pointer;border-block-end:2px solid transparent}
-  .subtabs button:hover{color:var(--cs-color-text-primary)}
-  .subtabs button[aria-selected="true"]{color:var(--cs-color-brand-umber);border-block-end-color:var(--cs-color-brand-ochre)}
-  [data-theme="dark"] .subtabs button[aria-selected="true"]{color:var(--cs-color-brand-ochre)}
-  .hint{font-size:12.5px;color:var(--cs-color-text-primary);padding:8px 18px;background:var(--cs-color-surface-panel);border-block-end:1px solid var(--cs-color-border-default);line-height:1.5}
-  .hint b{color:var(--cs-color-brand-umber)}
-  [data-theme="dark"] .hint b{color:var(--cs-color-brand-ochre)}
-  .axisbar .lb{color:var(--cs-color-text-primary);opacity:.72}
-  .axisbar select{background:var(--cs-color-surface-page);color:var(--cs-color-text-primary)}
-  iframe{flex:1;width:100%;border:0;min-height:0;background:var(--cs-color-surface-page)}
-</style>
+<title>Redirect · Live is Storybook</title>
+<meta name="robots" content="noindex" />
+<script>
+(function () {
+  // Permanent move: Live View shell → Storybook hub at /playground/
+  var path = location.pathname || '';
+  var base = path.replace(/guidelines\/live-view\.html.*$/i, '');
+  if (!/\/$/.test(base) && base.length) base += '/';
+  var target = base + 'playground/' + (location.search || '') + (location.hash || '');
+  location.replace(target);
+})();
+</script>
+<meta http-equiv="refresh" content="0;url=../playground/" />
+<link rel="canonical" href="../playground/" />
 </head>
 <body>
-<div class="axisbar" id="axisbar" aria-label="Shared axes" data-chrome="live-axisbar">
-  <span class="lb">Theme</span>
-  <select id="ax-theme"><option value="">Light</option><option value="dark">Dark</option></select>
-  <span class="lb">Element</span>
-  <select id="ax-el">
-    <option value="tho|">Thổ · studio</option>
-    <option value="tho|clay">Thổ · clay</option>
-    <option value="tho|sand">Thổ · sand</option>
-    <option value="hoa|">Hỏa · ember</option>
-    <option value="hoa|lava">Hỏa · lava</option>
-    <option value="hoa|plasma">Hỏa · plasma</option>
-    <option value="thuy|">Thủy · river</option>
-    <option value="thuy|ocean">Thủy · ocean</option>
-    <option value="thuy|mist">Thủy · mist</option>
-    <option value="moc|">Mộc · leaf</option>
-    <option value="moc|bamboo">Mộc · bamboo</option>
-    <option value="moc|forest">Mộc · forest</option>
-    <option value="kim|">Kim · champagne</option>
-    <option value="kim|steel">Kim · steel</option>
-    <option value="kim|titanium">Kim · titanium</option>
-  </select>
-  <span class="lb">Language</span>
-  <select id="ax-lang"><option value="en">English</option><option value="vi">Tiếng Việt</option></select>
-  <input class="filter" id="tpl-filter" type="search" placeholder="Filter templates…" aria-label="Filter templates" hidden>
-</div>
-<nav class="subtabs" id="sub" role="tablist" aria-label="Live View surfaces"></nav>
-<p class="hint"><b>Live View</b> is the zero-build axis hub (Theme × Element × Language). Tabs: Components (Atomic View), Motion, Identity Lab, template playground, kitchen-sink, image slots, AI cluster, RTL, and the <b>Storybook</b> host playground when <code>/playground/</code> is built. Storybook does <b>not</b> replace Live View — see <code>docs/live-view-vs-storybook.md</code>. Portable consumers still use CSS + bundle only.</p>
-<iframe id="pane" title="Live surface"></iframe>
-<script>
-const SURFACES=[
-  {id:'components',label:'Components',src:'atomic-view.html',filter:false},
-  {id:'motion',label:'Motion',src:'motion.html',filter:false},
-  {id:'identity',label:'Identity Lab',src:'../ui_kits/status-hub/identity-lab.html',filter:false},
-  {id:'playground',label:'Playground',src:'../templates/playground.html',filter:false},
-  {id:'storybook',label:'Storybook',src:'../playground/index.html',filter:false,externalHint:true},
-  {id:'kitchen',label:'Kitchen sink',src:'../templates/kitchen-sink.html',filter:false},
-  {id:'images',label:'Image slots',src:'../templates/image-slots-demo.html',filter:false},
-  {id:'ai-cluster',label:'AI cluster',src:'../templates/ai-cluster-demo.html',filter:false},
-  {id:'rtl',label:'RTL',src:'rtl-preview.html',filter:false},
-];
-const sub=document.getElementById('sub'), pane=document.getElementById('pane');
-const themeEl=document.getElementById('ax-theme'), elEl=document.getElementById('ax-el'), langEl=document.getElementById('ax-lang');
-const filterEl=document.getElementById('tpl-filter');
-let current=SURFACES[0];
-
-function axes(){
-  const [element,variant]=(elEl.value||'|').split('|');
-  return {theme:themeEl.value||'', element:element||'', variant:variant||'', lang:langEl.value||'en'};
-}
-function pushAxes(){
-  const ax=axes();
-  try{
-    const w=pane.contentWindow; if(!w) return;
-    // postMessage for identity lab / playground listeners
-    w.postMessage(Object.assign({type:'__cs_axes'}, ax), '*');
-    // attribute-scope on child document (Atomic View / static pages)
-    const d=pane.contentDocument, h=d&&d.documentElement; if(!h) return;
-    if(ax.theme) h.setAttribute('data-theme',ax.theme); else h.removeAttribute('data-theme');
-    if(ax.element) h.setAttribute('data-cs-element',ax.element); else h.removeAttribute('data-cs-element');
-    if(ax.variant) h.setAttribute('data-cs-variant',ax.variant); else h.removeAttribute('data-cs-variant');
-    h.setAttribute('lang', ax.lang);
-    if(w.__dcSetProps && w.__dcRootName){
-      try{ const r=w.__dcRootName(); if(r) w.__dcSetProps(r,{language: ax.lang==='vi'?'Tiếng Việt':'English', theme: ax.theme==='dark'?'dark':'light'}); }catch(e){}
-    }
-    // Atomic View toolbar sync if present
-    if(w.__csLiveAxes) try{ w.__csLiveAxes(ax); }catch(e){}
-  }catch(e){}
-}
-function pick(id){
-  const s=SURFACES.find(x=>x.id===id)||SURFACES[0];
-  current=s;
-  [...sub.children].forEach(b=>b.setAttribute('aria-selected', b.dataset.id===s.id));
-  filterEl.hidden=!s.filter;
-  if(pane.getAttribute('data-src')!==s.src){
-    pane.src=s.src;
-    pane.setAttribute('data-src',s.src);
-  } else pushAxes();
-  location.hash=s.id;
-}
-pane.addEventListener('load',()=>setTimeout(pushAxes,80));
-[themeEl,elEl,langEl].forEach(el=>el.addEventListener('change',pushAxes));
-filterEl.addEventListener('input',()=>{
-  try{
-    const w=pane.contentWindow;
-    if(w && w.__csFilterTemplates) w.__csFilterTemplates(filterEl.value);
-  }catch(e){}
-});
-SURFACES.forEach(s=>{
-  const b=document.createElement('button');
-  b.textContent=s.label; b.dataset.id=s.id; b.setAttribute('role','tab');
-  b.onclick=()=>pick(s.id); sub.appendChild(b);
-});
-pick((location.hash||'').replace('#','')||'components');
-window.addEventListener('hashchange',()=>pick((location.hash||'').replace('#','')||'components'));
-</script>
+<p>Live View is now Storybook. <a href="../playground/">Continue to Live →</a></p>
+<p>Portable Atomic View (zero-build): <a href="atomic-view.html">guidelines/atomic-view.html</a></p>
 </body>
 </html>

@@ -2,7 +2,7 @@
  * Structural contract tests for shipped Health + Tokens UI source.
  * Reads the real HTML entry points (no reimplementation).
  */
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -34,10 +34,14 @@ assert(tokens.includes('data-copy="value"') || tokens.includes('copyText'), 'cop
 assert(tokens.includes('window.__csTokensViewer'), 'tokens contract global');
 assert(tokens.includes('__csTokensLastCopy'), 'last copy observability');
 
+// Live hub is Storybook; former Live View shell is redirect-only.
 const live = readFileSync(join(root, 'guidelines/live-view.html'), 'utf8');
-assert(live.includes("id:'motion'") || live.includes('id:\'motion\''), 'motion surface');
-assert(live.includes('motion.html'), 'motion.html wired');
-assert(live.includes('rtl-preview.html'), 'rtl surface');
+assert(/location\.replace|http-equiv="refresh"|playground/i.test(live), 'live-view redirects to playground');
+const liveSurfaces = readFileSync(join(root, 'stories/Live/Surfaces.stories.jsx'), 'utf8');
+assert(liveSurfaces.includes('motion.html'), 'motion surface in Storybook Live');
+assert(liveSurfaces.includes('rtl-preview.html'), 'rtl surface in Storybook Live');
+assert(existsSync(join(root, 'guidelines/motion.html')), 'motion.html still portable');
+assert(existsSync(join(root, 'guidelines/rtl-preview.html')), 'rtl-preview still portable');
 
 const atomic = readFileSync(join(root, 'guidelines/atomic-view.html'), 'utf8');
 assert(atomic.includes('nav-model.cjs') || atomic.includes('nav-model.js'), 'nav-model loaded');

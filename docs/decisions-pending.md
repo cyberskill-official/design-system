@@ -18,34 +18,28 @@ Pixel / visual-baseline rows stay advisory. PRs are not auto-failed on % pixel d
 
 **Owner choice: A — non-Enterprise for now** (Jul 2026)
 
-Stay on the current Figma plan. Variables REST API (`file_variables:read` / `file_variables:write`) is Enterprise-only — CI soft-skips the push. Colour sync = hand-sync and/or Tokens Studio from `tokens/tokens.dtcg.json`. Revisit when CyberSkill moves the design org to Enterprise (or adopts Tokens Studio as the primary bridge).
+Stay on the current Figma plan. Variables REST API is Enterprise-only — CI soft-skips. Colour sync = hand-sync and/or Tokens Studio from `tokens/tokens.dtcg.json`. See `docs/figma.md`.
 
-Secrets `FIGMA_TOKEN` + `FIGMA_FILE_KEY` may stay set (file open / future Enterprise). See `docs/figma.md`.
+## 4. Live hub = Storybook (absorbs Live View)
 
-## 4. Live View vs Storybook
+**Owner choice: Storybook is the single live hub** (Jul 2026 — **supersedes** keep-Live-View)
 
-**Owner choice: keep Live View; Storybook stays host-only** (Jul 2026)
-
-**Do not delete `guidelines/live-view.html`.** Live View is the zero-build axis shell (Theme × Element × Language) that iframes Components (Atomic View), Motion, Identity Lab, template playground, kitchen-sink, AI cluster, RTL, and optionally Storybook.
-
-Storybook (`/playground/`) is the **host** React prop playground. It cannot absorb Identity Lab, template playground, motion specimens, kitchen-sink, or full Atomic View without abandoning the portable static contract and a multi-week CSF port.
-
-Direction: expand Storybook CSF stories for operators; keep Live View as the single static hub. Full removal of Live View is **out of scope** until/unless the portable doctrine changes.
+- Operators use `/playground/` (Storybook) for Theme × Element × Language exploration and component control matrices.
+- `guidelines/live-view.html` is a **redirect only** (not a parallel shell).
+- Dashboard **Live** tab loads Storybook/playground.
+- Portable Atomic View and other static HTML remain for zero-build gates and consumers; they are not the site Live hub.
+- See `docs/live-view-vs-storybook.md` surface map.
 
 ## 5. Dual token JSON sources
 
 **Owner choice: keep both `tokens.json` and `tokens.dtcg.json`** (Jul 2026)
 
-Separate formats are intentional:
-
 | File | Role |
 |---|---|
-| `tokens/tokens.dtcg.json` | W3C DTCG interchange (Figma / Tokens Studio / Style Dictionary / native regen source) |
-| `tokens/tokens.json` | CSS-oriented grouped export for agents and simple tools |
-| `tokens/*.css` + `styles.css` | Runtime source of truth for the product UI |
-
-Viewer default is DTCG. Regenerating natives uses DTCG only. Do not merge into one file — tools disagree on schema.
+| `tokens/tokens.dtcg.json` | W3C DTCG interchange / native regen |
+| `tokens/tokens.json` | CSS-oriented grouped export |
+| `tokens/*.css` + `styles.css` | Runtime UI |
 
 ## How to change a decision
 
-Edit the **Owner choice** line here (or comment on a PR). Implementer rewires CI/docs and updates `docs/BACKLOG.md` when needed.
+Edit the **Owner choice** line here. Implementer rewires CI/docs and `docs/BACKLOG.md` when needed.

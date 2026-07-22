@@ -62,9 +62,16 @@ export function listPublicComponents() {
 export function listStoryFiles() {
   const storiesDir = join(ROOT, 'stories');
   if (!statSync(storiesDir, { throwIfNoEntry: false })?.isDirectory()) return [];
-  return readdirSync(storiesDir)
-    .filter((n) => n.endsWith('.stories.jsx') || n.endsWith('.stories.tsx') || n.endsWith('.stories.js'))
-    .map((n) => join(storiesDir, n));
+  const out = [];
+  function walk(dir) {
+    for (const e of readdirSync(dir)) {
+      const p = join(dir, e);
+      if (statSync(p).isDirectory()) walk(p);
+      else if (/\.stories\.(jsx|tsx|js|ts)$/.test(e)) out.push(p);
+    }
+  }
+  walk(storiesDir);
+  return out;
 }
 
 /** Which primary components are referenced by import from a stories/*.stories.* file. */

@@ -1,29 +1,19 @@
 import { Meta } from '@storybook/blocks';
 
-<Meta title="Intro/Host playground" />
+<Meta title="Live/Intro" />
 
-# CyberSkill Storybook (host playground)
+# CyberSkill Live (Storybook)
 
-This Storybook is a **hosted live playground** for `design.cyberskill.world` — Theme × Element × Language controls in the toolbar match the rest of the design system.
+This is the **single Live hub** for operators: Theme × Element × Language toolbar, full component CSF with control matrices, and **Live/Surfaces** for Motion, Identity Lab, templates, kitchen-sink, AI cluster, and RTL.
 
-## Portable contract (unchanged)
+## Navigation
 
-Storybook is **optional and host-only**. Consuming projects, Claude Design, Google Stitch, and static HTML do **not** depend on Storybook.
+- **Components/** — every public React primary with Default + matrix stories
+- **Live/Surfaces** — portable HTML iframes (Atomic View, Motion, Identity Lab, …)
+- Toolbar — same axes as product templates
 
-| Audience | Consume |
-|---|---|
-| Any web / email / framework | `styles.css` + `.cs-*` classes |
-| React (production) | `styles.css` + `_ds_bundle.js` (prefix-resolve namespace) |
-| ESM | `_esm/cs.mjs` |
-| Design tools / native | `tokens/tokens.json` · `tokens.dtcg.json` · `tokens/native/*` |
-| Claude Design | `templates/**/*.dc.html` |
+## Portable consumers
 
-See `docs/consuming.md` and `llms.txt`.
+Product apps still use `styles.css` + bundle/ESM — never this Storybook. Zero-build Atomic View remains at `guidelines/atomic-view.html` for gates and clone-and-open.
 
-## Axes
-
-Use the Storybook toolbar:
-
-- **Theme** → `data-theme="dark"` when dark
-- **Element** → `data-cs-element` + optional `data-cs-variant`
-- **Language** → `lang="en"` / `lang="vi"`
+See `docs/storybook.md` and `docs/live-view-vs-storybook.md`.

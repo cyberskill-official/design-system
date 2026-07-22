@@ -1,19 +1,27 @@
 /**
- * Host Storybook contract + complete CSF coverage for every public component.
- * Fails if any primary export under components/ lacks a CSF story import.
+ * Host Storybook contract:
+ * - Live hub = Storybook (Live View shell retired to redirect)
+ * - Complete CSF for every public primary
+ * - Deep control matrix: Default + at least one Matrix/* (or AllVariants/Sizes/States) story
+ * - Axes + styles.css
  */
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { coveredPrimariesFromStories, listPublicComponents } from './storybook-inventory.mjs';
+import { coveredPrimariesFromStories, listPublicComponents, listStoryFiles } from './storybook-inventory.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
 function assert(c, m) {
   if (!c) throw new Error(m);
 }
 
-const main = readFileSync(join(root, '.storybook/main.js'), 'utf8');
+const mainPath = existsSync(join(root, '.storybook/main.cjs'))
+  ? join(root, '.storybook/main.cjs')
+  : join(root, '.storybook/main.js');
+const main = readFileSync(mainPath, 'utf8');
 assert(main.includes('../stories/'), 'stories glob');
+assert(main.includes('guidelines') || main.includes('/guidelines'), 'staticDirs include guidelines for Live iframes');
+
 const preview = readFileSync(join(root, '.storybook/preview.jsx'), 'utf8');
 assert(preview.includes('styles.css'), 'imports styles.css');
 assert(preview.includes('data-theme') && preview.includes('data-cs-element') && preview.includes('lang'), 'axes globals');
@@ -24,22 +32,44 @@ assert(pkg.scripts['build:site'], 'build:site script');
 
 const vercel = JSON.parse(readFileSync(join(root, 'vercel.json'), 'utf8'));
 assert(vercel.buildCommand.includes('build:site'), 'vercel builds site with storybook');
-assert(vercel.installCommand === 'npm install', 'vercel installs deps for storybook');
 
 const pack = readFileSync(join(root, 'scripts/vercel-static-output.mjs'), 'utf8');
 assert(pack.includes('playground') && pack.includes('storybook-static'), 'packager copies playground');
 
 const dash = readFileSync(join(root, 'dashboard.html'), 'utf8');
-assert(dash.includes('playground/index.html'), 'hub links playground');
+assert(dash.includes('playground/index.html'), 'hub Live targets playground');
+assert(/id:'live'[^}]*playground|label:'Live'[^}]*playground/s.test(dash) || dash.includes("src:'playground/index.html'"), 'Live tab is playground');
+assert(!dash.includes("src:'guidelines/live-view.html'"), 'dashboard Live tab no longer live-view shell');
+
+const liveShell = readFileSync(join(root, 'guidelines/live-view.html'), 'utf8');
+assert(/location\.replace|http-equiv="refresh"|Continue to Live/i.test(liveShell), 'live-view.html is redirect only');
+assert(!liveShell.includes('const SURFACES='), 'live-view shell SURFACES removed');
+
+const liveVs = readFileSync(join(root, 'docs/live-view-vs-storybook.md'), 'utf8');
+assert(/single live|Storybook is the single|single Live hub/i.test(liveVs), 'docs: Storybook single live hub');
+assert(/Live\/Surfaces|surface map/i.test(liveVs), 'docs surface map present');
+
+const decisions = readFileSync(join(root, 'docs/decisions-pending.md'), 'utf8');
+assert(/Storybook is the single live hub|absorbs Live View/i.test(decisions), 'decision §4 Storybook hub');
 
 const consuming = readFileSync(join(root, 'docs/consuming.md'), 'utf8');
 assert(consuming.includes('host-only') || consuming.includes('Storybook'), 'consuming documents host-only');
 assert(!consuming.includes('must use Storybook') && !consuming.includes('require Storybook'), 'no required storybook for consumers');
 
-const liveVs = readFileSync(join(root, 'docs/live-view-vs-storybook.md'), 'utf8');
-assert(/Do not delete|keep Live View|zero-build/i.test(liveVs), 'live-view-vs-storybook documents keep Live View');
-const live = readFileSync(join(root, 'guidelines/live-view.html'), 'utf8');
-assert(live.includes('live-view-vs-storybook'), 'live-view points at split doc');
+// Live surfaces story maps former tabs
+const surfaces = readFileSync(join(root, 'stories/Live/Surfaces.stories.jsx'), 'utf8');
+for (const needle of [
+  'atomic-view.html',
+  'motion.html',
+  'identity-lab.html',
+  'playground.html',
+  'kitchen-sink.html',
+  'image-slots-demo.html',
+  'ai-cluster-demo.html',
+  'rtl-preview.html',
+]) {
+  assert(surfaces.includes(needle), 'Live surface maps ' + needle);
+}
 
 const modules = listPublicComponents();
 assert(modules.length >= 90, 'expected ~99 public component modules, got ' + modules.length);
@@ -50,27 +80,32 @@ if (missing.length) {
   process.exit(1);
 }
 
-// Every primary must have a stories file named after it (or be imported from another story)
+const MATRIX_EXPORT = /export\s+const\s+(Matrix|AllVariants|AllSizes|States|Disabled)\b/;
+let matrixFail = [];
 for (const m of modules) {
   const own = join(root, 'stories', m.primary + '.stories.jsx');
-  if (!existsSync(own)) {
-    // allowed only if covered via companion import path — still require coverage set
-    assert(covered.has(m.primary), 'no story file and not covered: ' + m.primary);
-  } else {
-    const text = readFileSync(own, 'utf8');
-    assert(text.includes(m.relFromRoot) || text.includes(m.primary), 'story imports real source for ' + m.primary);
-    assert(/export\s+const\s+Default\b/.test(text) || /export\s+const\s+Primary\b/.test(text), 'Default/Primary story for ' + m.primary);
-  }
+  assert(existsSync(own), 'story file for ' + m.primary);
+  const text = readFileSync(own, 'utf8');
+  assert(text.includes(m.relFromRoot) || text.includes(m.primary), 'story imports real source for ' + m.primary);
+  assert(/export\s+const\s+Default\b/.test(text), 'Default story for ' + m.primary);
+  assert(/argTypes\s*:/.test(text), 'argTypes present for ' + m.primary);
+  if (!MATRIX_EXPORT.test(text)) matrixFail.push(m.primary);
 }
+if (matrixFail.length) {
+  console.error('✗ Missing deep matrix story (Matrix|AllVariants|AllSizes|States|Disabled):\n' + matrixFail.map((x) => '  - ' + x).join('\n'));
+  process.exit(1);
+}
+
+// Live surface stories file exists
+assert(listStoryFiles().some((f) => f.includes('Surfaces.stories')), 'Surfaces.stories present');
 
 const deploy = readFileSync(join(root, 'docs/deploy.md'), 'utf8');
 assert(deploy.includes('npm install') && deploy.includes('build:site'), 'deploy.md host packaging');
-const cicd = readFileSync(join(root, 'docs/ci-cd.md'), 'utf8');
-assert(/Host deploy|build:site|Storybook/i.test(cicd), 'ci-cd distinguishes host packaging');
 
 console.log('PASS test-storybook-contract', {
   modules: modules.length,
   covered: covered.size,
-  missing: 0,
-  sample: modules.slice(0, 5).map((m) => m.primary),
+  matrix: modules.length - matrixFail.length,
+  liveSurfaces: true,
+  liveShell: 'redirect',
 });

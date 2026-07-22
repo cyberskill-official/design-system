@@ -6,7 +6,7 @@
 
 ## Start here
 
-This is the **entrance document** for the CyberSkill Design System — pinned **v1.0.0** until launch (see `VERSION`). Open **`dashboard.html`** for the single-page hub (Overview · Docs · Live View · Health · Tokens). One sentence: a warm, Vietnamese-first, enterprise-grade system where every surface resolves three independent axes — **Theme** (light · dark) × **Element** (Ngũ Hành product identity: Kim · Mộc · Thủy · Hỏa · Thổ, 15 variants) × **Language** (EN · VI). Surface treatment is liquid-glass (fixed).
+This is the **entrance document** for the CyberSkill Design System — pinned **v1.0.0** until launch (see `VERSION`). Open **`dashboard.html`** for the single-page hub (Overview · Docs · Live · Health · Tokens). **Live** is Storybook at `/playground/` (host-only). One sentence: a warm, Vietnamese-first, enterprise-grade system where every surface resolves three independent axes — **Theme** (light · dark) × **Element** (Ngũ Hành product identity: Kim · Mộc · Thủy · Hỏa · Thổ, 15 variants) × **Language** (EN · VI). Surface treatment is liquid-glass (fixed).
 
 **Quick start by audience**
 - **Designers** — open the Design System tab and the Templates picker (84 starting points, including the 41-document lawyer-validated Employment Suite); the Identity Lab (`ui_kits/status-hub/identity-lab.html`) lets you flip axes live.
@@ -28,7 +28,7 @@ This is the **entrance document** for the CyberSkill Design System — pinned **
 | `docs/template-schema-v2.md` | Typed content-slot spec for templates — opt-in, machine-checkable |
 | `docs/deploy.md` | Deploying the live site — Vercel (zero-config) · generic VPS/nginx · post-deploy checklist |
 | `docs/ci-cd.md` | CI/CD automation — GitHub Actions workflow, headless gate runner, token-provenance pre-check, badge |
-| `docs/live-view-vs-storybook.md` | Why Live View stays; Storybook is host-only |
+| `docs/live-view-vs-storybook.md` | Storybook is the single Live hub; surface map |
 | `docs/figma.md` | Figma / Tokens Studio (non-Enterprise decision A) |
 | `docs/storybook.md` | Host playground at `/playground/` |
 
@@ -262,7 +262,7 @@ tokens/                    fonts · colors · typography · spacing · elevation
 base/                      reset · typography · components · forms · feedback · data · navigation · ai · controls · collections · shell · glass · interaction · a11y · responsive
 components/                button · textfield · dialog · datatable · forms · feedback · data · navigation · overlays · ai · logo · icon · brand
                            (each Name: Name.jsx + Name.d.ts + Name.prompt.md; one *.card.html per group)
-guidelines/                specimen cards (Colors · Type · Spacing · Surfaces · Brand · Motion · Elements · Responsive & Bilingual) · live-view.html · atomic-view.html
+guidelines/                specimen cards (Colors · Type · Spacing · Surfaces · Brand · Motion · Elements · Responsive & Bilingual) · atomic-view.html · live-view.html (redirect → playground)
 templates/                 marketing-page · dashboard · slide-deck · auth · settings · app-shell · article · email (copyable .dc.html)
                            + team artifacts — tech (release/incident/rfc) · team (meeting-agenda) · hr (announcement) · board (report/deck/memo) · marketing (brief/newsletter/launch/case-study/press-release)
                            + business — legal (nda/msa/sow) · finance (invoice/quote) · sales (one-pager/proposal-deck) — letter print docs + client deck

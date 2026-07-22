@@ -4,6 +4,40 @@ export default {
   title: 'Components/Brand/Icon',
   component: Icon,
   tags: ['autodocs'],
+  argTypes: {
+  "size": {
+    "control": "select",
+    "options": [
+      "sm",
+      "md",
+      "lg"
+    ]
+  },
+  "label": {
+    "control": "text"
+  },
+  "strokeWidth": {
+    "control": "number"
+  }
+},
+  parameters: {
+    docs: {
+      description: {
+        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+      },
+    },
+  },
 };
 
 export const Default = { args: { name: 'sparkle', size: 'md' } };
+
+export const AllSizes = {
+  name: 'Matrix / All sizes',
+  render: (args) => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
+      <Icon {...args} size="sm">sm</Icon>
+      <Icon {...args} size="md">md</Icon>
+      <Icon {...args} size="lg">lg</Icon>
+    </div>
+  ),
+};

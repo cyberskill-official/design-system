@@ -5,20 +5,22 @@ Work that is approved in direction but not built yet. Version stays pinned at **
 ## Not yet implemented
 
 - App Store / Play Store packaging of native samples (samples only until product need)
-- Pixel-perfect CSF control matrices for every prop on every component (Default story per primary is the bar)
+- Exhaustive combinatorial CSF cells for every prop combination (matrix bar is argTypes + multi-variant/state stories, not full product of all enums)
 
 ## Decided / closed (not active work)
 
 - Whole-set audits on every PR — **B enabled**
 - Pixel CI auto-fail — **A advisory only**
 - Figma — **A non-Enterprise** for now; Tokens Studio / hand-sync; REST soft-skip
-- Live View kept — **do not delete**; Storybook is host-only (`docs/live-view-vs-storybook.md`)
+- **Live hub = Storybook** (Live View shell absorbed; redirect only) — `docs/live-view-vs-storybook.md`
 - Dual token JSON (`tokens.json` + `tokens.dtcg.json`) — intentional
 
 ## Shipped recently (removed from active list)
 
-- **Storybook CSF for every public React component** (99 primaries) + `test:storybook-contract` completeness gate
-- **Full multi-screen native samples** under `examples/native/{swiftui,compose,flutter}` (Sign in · Home · Settings) + `test:native-samples` + `sync-tokens.mjs`
+- Storybook as single Live hub; `guidelines/live-view.html` redirect; Live/Surfaces map former tabs
+- Deep CSF control matrices (argTypes + Matrix/AllVariants/States) for all public primaries
+- Storybook CSF for every public React component (99 primaries) + completeness gate
+- Full multi-screen native samples under `examples/native/{swiftui,compose,flutter}`
 - Figma colour variables push (Enterprise soft-skip)
 - Storybook host playground (`/playground/`)
 - Form field-array helpers + FormWizard

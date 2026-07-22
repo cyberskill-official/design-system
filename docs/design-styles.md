@@ -22,4 +22,4 @@ Prefer:
 2. Local composition with existing tokens/classes when the shift is one-off layout.
 3. A documented pattern in `docs/conventions.md` + a specimen card when the pattern should be reusable.
 
-Do not invent a fourth product axis without an Expansion Rule pass across tokens, Live View, templates, docs, and gates.
+Do not invent a fourth product axis without an Expansion Rule pass across tokens, Storybook Live, templates, docs, and gates.

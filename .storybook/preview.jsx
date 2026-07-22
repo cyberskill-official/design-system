@@ -13,7 +13,7 @@ const preview = {
     docs: {
       description: {
         component:
-          'Host playground only. Portable consumers still use styles.css + _ds_bundle.js / ESM — never Storybook.',
+          'Host Live hub only (single interactive site). Portable consumers still use styles.css + _ds_bundle.js / ESM — never Storybook.',
       },
     },
   },
