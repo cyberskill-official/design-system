@@ -6,14 +6,30 @@
 
 ## What's wired up (`.github/workflows/design-system-gates.yml`)
 
-1. **`fast-gates`** — serves the repo statically, opens `_audit/run.html` headlessly via Playwright (`_audit/ci/run-gates.mjs`), waits for `window.__run`, fails the build on any hard-gate failure. Uploads the import-report text as a build artifact on failure (CI diagnostic dump from the headless runner).
+1. **`fast-gates`** — `npm ci` + Playwright Chromium, serves the repo statically, opens `_audit/run.html` headlessly via Playwright (`_audit/ci/run-gates.mjs`), waits for `window.__run`, fails the build on any hard-gate failure. Uploads the import-report text as a build artifact on failure (CI diagnostic dump from the headless runner).
 2. **`token-provenance`** — a fast, **browser-free** Node script (`_audit/ci/check-token-provenance.mjs`) that re-hashes `tokens/tokens.dtcg.json` and `tokens/native/*` and compares against `tokens/provenance.json` — same drift authority (source sha-256) as the in-browser `token-pipeline-test.html` gate, just cheaper to run as a pre-flight.
-3. **`docs-consistency-blocker`** — runs `docs-consistency` and `bilingual-parity` individually via `_audit/ci/run-single-gate.mjs` and fails the job if either is red — per `CLAUDE.md`'s doctrine that these two are merge blockers, not just board members.
+3. **`docs-consistency-blocker`** — same Playwright install as fast-gates; runs `docs-consistency` and `bilingual-parity` individually via `_audit/ci/run-single-gate.mjs` and fails the job if either is red — per `CLAUDE.md`'s doctrine that these two are merge blockers, not just board members.
 4. **`whole-set-audits`** — **on every push/PR** (owner decision B) plus nightly schedule and manual `workflow_dispatch`. Runs the three whole-set state audits (`responsive-overflow`, `language-overflow`, `theme-overflow`) via `run-single-gate.mjs` with a 6-minute timeout each (all templates in fresh iframes, ~4–5 min each; plan ~15–20 min for the job).
-5. **`figma-variables-push`** — on push to `main` and `workflow_dispatch`, pushes DTCG colour tokens into Figma local Variables (secrets `FIGMA_TOKEN`, `FIGMA_FILE_KEY`). See `docs/figma.md`.
-6. **`regenerate-tokens`** — on every push/PR, runs `_audit/ci/generate-native-tokens.mjs` (browser-free Node script, same transform algorithm as `token-pipeline-test.html`'s `expected()`) to regenerate `tokens/native/*` + `tokens/provenance.json` from `tokens/tokens.dtcg.json`, then auto-commits the diff back to the branch via `git-auto-commit-action` — a no-op when the source didn't change.
+5. **`figma-variables-push`** — on push to `main` and `workflow_dispatch`, pushes DTCG colour tokens into Figma local Variables (repository secrets `FIGMA_TOKEN`, `FIGMA_FILE_KEY`). See `docs/figma.md`.
+6. **`regenerate-tokens`** — on every push/PR, runs `_audit/ci/generate-native-tokens.mjs` (browser-free Node script, same transform algorithm as `token-pipeline-test.html`'s `expected()`) to regenerate `tokens/native/*` + `tokens/provenance.json` from `tokens/tokens.dtcg.json`, then auto-commits the diff back to the branch via `git-auto-commit-action` — a no-op when the source didn't change. Job requests `permissions: contents: write` so the default read-only `GITHUB_TOKEN` can push.
 
 All jobs run on push and PR to `main` (and `workflow_dispatch` / schedule where listed). **Pixel / visual rows stay advisory** (owner decision A) — they do not fail the PR on % pixel diff.
+
+## Runner install pattern (Playwright jobs)
+
+`npx playwright install` only downloads browsers. Gate scripts `import { chromium } from 'playwright'`, so CI must install the npm package first:
+
+```yaml
+- run: npm ci
+- run: npx playwright install --with-deps chromium
+```
+
+## Token auto-commit permissions
+
+If `regenerate-tokens` fails with `Permission to ... denied to github-actions[bot]` / HTTP 403:
+
+1. Workflow already sets job `permissions: contents: write`.
+2. Confirm repo **Settings → Actions → General → Workflow permissions** allows workflows to request write (not locked to read-only at org policy).
 
 
 ## Running locally

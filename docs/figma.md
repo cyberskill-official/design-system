@@ -21,6 +21,8 @@ CI job **`figma-variables-push`** (in `.github/workflows/design-system-gates.yml
 | `FIGMA_TOKEN` | Figma personal access token |
 | `FIGMA_FILE_KEY` | File key from `https://www.figma.com/design/<KEY>/...` |
 
+Must be **repository secrets** under the Actions tab (exact names, case-sensitive). Not Environment secrets (those only inject when a job sets `environment:`), not Variables, and not org secrets that exclude this repo. CI log for a missing secret shows `FIGMA_TOKEN:` / `FIGMA_FILE_KEY:` with empty values.
+
 ### Local
 
 ```bash

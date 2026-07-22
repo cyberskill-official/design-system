@@ -16,7 +16,7 @@ Pixel / visual-baseline rows stay **advisory** on the fast board (`pixel-ci`, vi
 
 ## 3. Figma / Tokens Studio push
 
-**Owner choice: secrets configured (FIGMA_TOKEN + FIGMA_FILE_KEY)** — colour push job shipped; open the Figma file after the next `main` push or run **Actions → Design System Gates → Run workflow**.
+**Owner choice: secrets configured (FIGMA_TOKEN + FIGMA_FILE_KEY)** — colour push job shipped. CI run `80973527709` still saw both secrets empty (not injected). Re-add them as **repository** secrets (exact names), then open the Figma file after the next green `figma-variables-push` or run **Actions → Design System Gates → Run workflow**.
 
 ### Where to get a Figma token
 

@@ -6,15 +6,23 @@ on:
   schedule:
     - cron: '0 3 * * *'
 
+# Default token is read-only at the repo setting level; jobs that push request write explicitly.
+permissions:
+  contents: read
+
 jobs:
   fast-gates:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: '20' }
-      - name: Install Playwright (Chromium only)
-        run: npx --yes playwright@1.47.0 install --with-deps chromium
+        with:
+          node-version: '20'
+          cache: npm
+      - name: Install npm dependencies (includes playwright package)
+        run: npm ci
+      - name: Install Playwright Chromium browser + OS deps
+        run: npx playwright install --with-deps chromium
       - name: Serve the repo statically
         run: npx --yes serve@14 -l 8080 . &
       - name: Wait for server
@@ -42,9 +50,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: '20' }
-      - name: Install Playwright (Chromium only)
-        run: npx --yes playwright@1.47.0 install --with-deps chromium
+        with:
+          node-version: '20'
+          cache: npm
+      - name: Install npm dependencies (includes playwright package)
+        run: npm ci
+      - name: Install Playwright Chromium browser + OS deps
+        run: npx playwright install --with-deps chromium
       - name: Serve the repo statically
         run: npx --yes serve@14 -l 8080 . &
       - name: Wait for server
@@ -62,9 +74,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: '20' }
-      - name: Install Playwright (Chromium only)
-        run: npx --yes playwright@1.47.0 install --with-deps chromium
+        with:
+          node-version: '20'
+          cache: npm
+      - name: Install npm dependencies (includes playwright package)
+        run: npm ci
+      - name: Install Playwright Chromium browser + OS deps
+        run: npx playwright install --with-deps chromium
       - name: Serve the repo statically
         run: npx --yes serve@14 -l 8080 . &
       - name: Wait for server
@@ -84,13 +100,20 @@ jobs:
     # token) — on a fork PR this job will run and report the diff in logs but the commit step is a
     # no-op; the fast-gates job's own token-provenance check still blocks the merge until a
     # maintainer (or a same-repo branch) carries the regenerated files.
+    #
+    # Requires contents: write. Repo Settings → Actions → General → Workflow permissions must allow
+    # the GITHUB_TOKEN to be granted write (job-level permissions request it explicitly).
     if: github.event_name == 'push' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
           # Expand flow-map form — nested ${{ }} with || breaks YAML parsers on GHA.
           ref: ${{ github.head_ref || github.ref }}
+          # Persist credentials so git-auto-commit can push with the write-scoped GITHUB_TOKEN.
+          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -119,11 +142,27 @@ jobs:
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
           FIGMA_FILE_KEY: ${{ secrets.FIGMA_FILE_KEY }}
         run: |
-          if [ -z "$FIGMA_TOKEN" ] || [ -z "$FIGMA_FILE_KEY" ]; then
-            echo "Missing FIGMA_TOKEN or FIGMA_FILE_KEY — add them under Settings → Secrets → Actions."
+          missing=0
+          if [ -z "$FIGMA_TOKEN" ]; then
+            echo "::error::FIGMA_TOKEN is empty — Actions did not inject it."
+            missing=1
+          else
+            echo "FIGMA_TOKEN: present (length ${#FIGMA_TOKEN}, value not printed)"
+          fi
+          if [ -z "$FIGMA_FILE_KEY" ]; then
+            echo "::error::FIGMA_FILE_KEY is empty — Actions did not inject it."
+            missing=1
+          else
+            echo "FIGMA_FILE_KEY: present (length ${#FIGMA_FILE_KEY}, value not printed)"
+          fi
+          if [ "$missing" -ne 0 ]; then
+            echo ""
+            echo "Add both as *repository* secrets (not Environment secrets, not Variables):"
+            echo "  https://github.com/${{ github.repository }}/settings/secrets/actions"
+            echo "Exact names: FIGMA_TOKEN and FIGMA_FILE_KEY"
+            echo "Then re-run: Actions → Design System Gates → Run workflow"
             exit 1
           fi
-          echo "Secrets present (values not printed)."
       - name: Dry-run colour token plan
         run: node _audit/ci/push-figma-variables.mjs --dry-run
       - name: Push colour variables to Figma
