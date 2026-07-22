@@ -12,7 +12,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Tag. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -21,11 +21,12 @@ export default {
 export const Default = { args: { children: 'Thổ' } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Labels',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <Tag {...args} />
-      <Tag {...args} disabled={true} />
+    <div style={{ display: 'flex', gap: 8 }}>
+      <Tag {...args}>Thổ</Tag>
+      <Tag {...args}>Hỏa</Tag>
+      <Tag {...args}>Kim</Tag>
     </div>
   ),
 };

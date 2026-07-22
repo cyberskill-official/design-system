@@ -5,6 +5,15 @@ export default {
   component: TextField,
   tags: ['autodocs'],
   argTypes: {
+  "label": {
+    "control": "text"
+  },
+  "description": {
+    "control": "text"
+  },
+  "error": {
+    "control": "text"
+  },
   "disabled": {
     "control": "boolean"
   }
@@ -12,7 +21,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting TextField. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -24,9 +33,8 @@ export const States = {
   name: 'Matrix / States',
   render: (args) => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <TextField {...args}>Default</TextField>
-      <TextField {...args} disabled>Disabled</TextField>
-      
+      <TextField {...args} />
+      <TextField {...args} disabled />
     </div>
   ),
 };

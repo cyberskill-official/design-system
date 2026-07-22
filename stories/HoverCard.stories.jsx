@@ -16,7 +16,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting HoverCard. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -25,14 +25,11 @@ export default {
 export const Default = { render: () => (<HoverCard content="Lumi the golden genie"><Button variant="ghost">Hover</Button></HoverCard>) };
 
 export const Matrix = {
-  name: 'Matrix / Composition',
-  render: (args) => (
-    <div style={{ display: 'grid', gap: 16 }}>
-      <div data-matrix-cell="primary">Primary composition</div>
-      <div data-matrix-cell="secondary" style={{ opacity: 0.92 }}>
-        {/* Second cell forces multi-story depth for control-matrix gate */}
-        Secondary composition context
-      </div>
+  name: 'Matrix / Content',
+  render: () => (
+    <div style={{ display: 'flex', gap: 12 }}>
+      <HoverCard content="Lumi"><Button variant="ghost">A</Button></HoverCard>
+      <HoverCard content="CyberSkill genie"><Button variant="ghost">B</Button></HoverCard>
     </div>
   ),
 };

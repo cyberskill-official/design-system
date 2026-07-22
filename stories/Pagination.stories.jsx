@@ -12,14 +12,14 @@ export default {
   "pageCount": {
     "control": "number"
   },
-  "disabled": {
-    "control": "boolean"
+  "onChange": {
+    "control": "object"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Pagination. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -27,13 +27,10 @@ export default {
 
 export const Default = { render: function P() { const [page, setPage] = React.useState(1); return <Pagination page={page} pageCount={8} onChange={setPage} />; } };
 
-export const States = {
-  name: 'Matrix / States',
-  render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Pagination {...args}>Default</Pagination>
-      <Pagination {...args} disabled>Disabled</Pagination>
-      
-    </div>
-  ),
+export const Matrix = {
+  name: 'Matrix / Pages',
+  render: function P() {
+    const [page, setPage] = React.useState(2);
+    return <Pagination page={page} pageCount={12} onChange={setPage} />;
+  },
 };

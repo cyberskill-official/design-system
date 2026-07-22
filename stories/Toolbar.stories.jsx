@@ -11,12 +11,18 @@ export default {
   },
   "label": {
     "control": "text"
+  },
+  "lang": {
+    "control": "text"
+  },
+  "items": {
+    "control": "object"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Toolbar. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -25,14 +31,11 @@ export default {
 export const Default = { render: () => (<Toolbar><Button size="sm" variant="ghost">Bold</Button><Button size="sm" variant="ghost">Italic</Button></Toolbar>) };
 
 export const Matrix = {
-  name: 'Matrix / Composition',
-  render: (args) => (
-    <div style={{ display: 'grid', gap: 16 }}>
-      <div data-matrix-cell="primary">Primary composition</div>
-      <div data-matrix-cell="secondary" style={{ opacity: 0.92 }}>
-        {/* Second cell forces multi-story depth for control-matrix gate */}
-        Secondary composition context
-      </div>
+  name: 'Matrix / Tools',
+  render: () => (
+    <div style={{ display: 'grid', gap: 12 }}>
+      <Toolbar><Button size="sm" variant="ghost">Bold</Button><Button size="sm" variant="ghost">Italic</Button></Toolbar>
+      <Toolbar><Button size="sm" variant="secondary">Save</Button><Button size="sm">Publish</Button></Toolbar>
     </div>
   ),
 };

@@ -10,12 +10,15 @@ export default {
   },
   "label": {
     "control": "text"
+  },
+  "lang": {
+    "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Carousel. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -24,11 +27,11 @@ export default {
 export const Default = { args: { slides: [{ id: 1, content: 'Slide one' }, { id: 2, content: 'Slide two' }] } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Slides',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <Carousel {...args} />
-      <Carousel {...args} disabled={true} />
+    <div style={{ display: 'grid', gap: 16 }}>
+      <Carousel {...args} slides={[{ id: 1, content: 'One' }]} />
+      <Carousel {...args} slides={[{ id: 1, content: 'One' }, { id: 2, content: 'Two' }, { id: 3, content: 'Three' }]} />
     </div>
   ),
 };

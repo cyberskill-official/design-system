@@ -7,12 +7,15 @@ export default {
   argTypes: {
   "label": {
     "control": "text"
+  },
+  "sources": {
+    "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting AIDisclosureBadge. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -21,11 +24,11 @@ export default {
 export const Default = { args: {} };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Instances',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
+    <div style={{ display: 'flex', gap: 12 }}>
       <AIDisclosureBadge {...args} />
-      <AIDisclosureBadge {...args} disabled={true} />
+      <AIDisclosureBadge {...args} />
     </div>
   ),
 };

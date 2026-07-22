@@ -18,7 +18,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Toggle. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -26,13 +26,12 @@ export default {
 
 export const Default = { args: { label: 'Notifications', defaultPressed: true } };
 
-export const States = {
-  name: 'Matrix / States',
+export const Matrix = {
+  name: 'Matrix / pressed',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Toggle {...args}>Default</Toggle>
-      <Toggle {...args} disabled>Disabled</Toggle>
-      
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
+      <Toggle {...args} pressed={false} />
+      <Toggle {...args} pressed={true} />
     </div>
   ),
 };

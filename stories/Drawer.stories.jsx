@@ -17,14 +17,14 @@ export default {
       "left"
     ]
   },
-  "disabled": {
-    "control": "boolean"
+  "title": {
+    "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Drawer. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -32,13 +32,12 @@ export default {
 
 export const Default = { render: function D() { const [open, setOpen] = React.useState(true); return (<><Button onClick={() => setOpen(true)}>Open drawer</Button><Drawer open={open} onClose={() => setOpen(false)} title="Filters"><p>Drawer body</p></Drawer></>); } };
 
-export const States = {
-  name: 'Matrix / States',
+export const Matrix = {
+  name: 'Matrix / open',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Drawer {...args}>Default</Drawer>
-      <Drawer {...args} disabled>Disabled</Drawer>
-      
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
+      <Drawer {...args} open={false} />
+      <Drawer {...args} open={true} />
     </div>
   ),
 };

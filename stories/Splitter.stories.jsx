@@ -16,12 +16,15 @@ export default {
   },
   "height": {
     "control": "number"
+  },
+  "lang": {
+    "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Splitter. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -30,14 +33,13 @@ export default {
 export const Default = { render: () => (<Splitter><div style={{ padding: 12 }}>Left</div><div style={{ padding: 12 }}>Right</div></Splitter>) };
 
 export const Matrix = {
-  name: 'Matrix / Composition',
-  render: (args) => (
-    <div style={{ display: 'grid', gap: 16 }}>
-      <div data-matrix-cell="primary">Primary composition</div>
-      <div data-matrix-cell="secondary" style={{ opacity: 0.92 }}>
-        {/* Second cell forces multi-story depth for control-matrix gate */}
-        Secondary composition context
-      </div>
+  name: 'Matrix / Panes',
+  render: () => (
+    <div style={{ height: 160 }}>
+      <Splitter>
+        <div style={{ padding: 12 }}>Left</div>
+        <div style={{ padding: 12 }}>Right</div>
+      </Splitter>
     </div>
   ),
 };

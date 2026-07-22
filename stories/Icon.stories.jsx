@@ -18,12 +18,15 @@ export default {
   },
   "strokeWidth": {
     "control": "number"
+  },
+  "name": {
+    "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Icon. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -35,9 +38,9 @@ export const AllSizes = {
   name: 'Matrix / All sizes',
   render: (args) => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Icon {...args} size="sm">sm</Icon>
-      <Icon {...args} size="md">md</Icon>
-      <Icon {...args} size="lg">lg</Icon>
+      <Icon {...args} size="sm" />
+      <Icon {...args} size="md" />
+      <Icon {...args} size="lg" />
     </div>
   ),
 };

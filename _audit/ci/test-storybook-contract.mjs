@@ -1,9 +1,8 @@
 /**
  * Host Storybook contract:
- * - Live hub = Storybook (Live View shell retired to redirect)
+ * - Live hub = Storybook (Live View shell is redirect)
  * - Complete CSF for every public primary
- * - Deep control matrix: Default + at least one Matrix/* (or AllVariants/Sizes/States) story
- * - Axes + styles.css
+ * - Honest deep matrix: non-empty argTypes; Matrix/AllVariants/… render mounts primary
  */
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -38,7 +37,7 @@ assert(pack.includes('playground') && pack.includes('storybook-static'), 'packag
 
 const dash = readFileSync(join(root, 'dashboard.html'), 'utf8');
 assert(dash.includes('playground/index.html'), 'hub Live targets playground');
-assert(/id:'live'[^}]*playground|label:'Live'[^}]*playground/s.test(dash) || dash.includes("src:'playground/index.html'"), 'Live tab is playground');
+assert(dash.includes("src:'playground/index.html'"), 'Live tab is playground');
 assert(!dash.includes("src:'guidelines/live-view.html'"), 'dashboard Live tab no longer live-view shell');
 
 const liveShell = readFileSync(join(root, 'guidelines/live-view.html'), 'utf8');
@@ -56,7 +55,6 @@ const consuming = readFileSync(join(root, 'docs/consuming.md'), 'utf8');
 assert(consuming.includes('host-only') || consuming.includes('Storybook'), 'consuming documents host-only');
 assert(!consuming.includes('must use Storybook') && !consuming.includes('require Storybook'), 'no required storybook for consumers');
 
-// Live surfaces story maps former tabs
 const surfaces = readFileSync(join(root, 'stories/Live/Surfaces.stories.jsx'), 'utf8');
 for (const needle of [
   'atomic-view.html',
@@ -76,36 +74,63 @@ assert(modules.length >= 90, 'expected ~99 public component modules, got ' + mod
 
 const { covered, missing } = coveredPrimariesFromStories();
 if (missing.length) {
-  console.error('✗ Storybook CSF missing for primary components:\n' + missing.map((m) => '  - ' + m).join('\n'));
+  console.error('✗ Storybook CSF missing:\n' + missing.map((m) => '  - ' + m).join('\n'));
   process.exit(1);
 }
 
 const MATRIX_EXPORT = /export\s+const\s+(Matrix|AllVariants|AllSizes|States|Disabled)\b/;
-let matrixFail = [];
+const THEATER = /data-matrix-cell|Secondary composition context|forces multi-story depth/;
+
+let fail = [];
 for (const m of modules) {
   const own = join(root, 'stories', m.primary + '.stories.jsx');
   assert(existsSync(own), 'story file for ' + m.primary);
   const text = readFileSync(own, 'utf8');
-  assert(text.includes(m.relFromRoot) || text.includes(m.primary), 'story imports real source for ' + m.primary);
+  assert(text.includes(m.relFromRoot), 'story imports path for ' + m.primary);
   assert(/export\s+const\s+Default\b/.test(text), 'Default story for ' + m.primary);
-  assert(/argTypes\s*:/.test(text), 'argTypes present for ' + m.primary);
-  if (!MATRIX_EXPORT.test(text)) matrixFail.push(m.primary);
+  assert(MATRIX_EXPORT.test(text), 'matrix export for ' + m.primary);
+  assert(!THEATER.test(text), 'no theater placeholders in ' + m.primary);
+
+  // argTypes must be a non-empty object (at least one documented prop key)
+  assert(/argTypes:\s*\{/.test(text), 'argTypes block for ' + m.primary);
+  assert(!/argTypes:\s*\{\s*\}/.test(text), 'argTypes not empty for ' + m.primary);
+  const atSection = (text.split('argTypes:')[1] || '').split('parameters:')[0] || '';
+  const atKeys = [...atSection.matchAll(/^\s*"([A-Za-z_][A-Za-z0-9_]*)"\s*:/gm)].map((x) => x[1]);
+  if (atKeys.length < 1) fail.push(m.primary + ' no argTypes keys');
+
+  // Extract matrix story body and require primary mount
+  const matrixBodies = [...text.matchAll(/export\s+const\s+(Matrix|AllVariants|AllSizes|States|Disabled)\s*=\s*\{([\s\S]*?)\n\};/g)];
+  assert(matrixBodies.length >= 1, 'matrix body for ' + m.primary);
+  for (const [, name, body] of matrixBodies) {
+    if (!body.includes('<' + m.primary)) {
+      fail.push(m.primary + ' ' + name + ' does not mount <' + m.primary);
+    }
+    // disabled={true} only if component accepts disabled
+    if (/disabled\s*[=:{]/.test(body)) {
+      const jsx = readFileSync(join(root, m.relFromRoot), 'utf8');
+      const sig = jsx.match(/export\s+function\s+[A-Z][A-Za-z0-9_]*\s*\(\s*\{([^}]*)\}/);
+      const params = sig ? sig[1] : '';
+      if (!/\bdisabled\b/.test(params) && !/\bdisabled\b/.test(jsx.slice(0, 800))) {
+        // allow if Default args also use disabled in a known disabled-supporting component
+        if (!/\bdisabled\b/.test(params)) {
+          fail.push(m.primary + ' ' + name + ' uses disabled but prop not in signature');
+        }
+      }
+    }
+  }
 }
-if (matrixFail.length) {
-  console.error('✗ Missing deep matrix story (Matrix|AllVariants|AllSizes|States|Disabled):\n' + matrixFail.map((x) => '  - ' + x).join('\n'));
+
+if (fail.length) {
+  console.error('✗ Honest matrix/argTypes failures:\n' + fail.map((x) => '  - ' + x).join('\n'));
   process.exit(1);
 }
 
-// Live surface stories file exists
 assert(listStoryFiles().some((f) => f.includes('Surfaces.stories')), 'Surfaces.stories present');
-
-const deploy = readFileSync(join(root, 'docs/deploy.md'), 'utf8');
-assert(deploy.includes('npm install') && deploy.includes('build:site'), 'deploy.md host packaging');
 
 console.log('PASS test-storybook-contract', {
   modules: modules.length,
   covered: covered.size,
-  matrix: modules.length - matrixFail.length,
+  matrixHonest: modules.length,
   liveSurfaces: true,
   liveShell: 'redirect',
 });

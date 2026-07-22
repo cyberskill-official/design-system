@@ -1,4 +1,5 @@
 import { Menu, MenuItem } from '../components/navigation/Menu.jsx';
+import { Button } from '../components/button/Button.jsx';
 
 export default {
   title: 'Components/Navigation/Menu',
@@ -22,23 +23,20 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Menu. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
 };
 
-export const Default = { render: () => (<Menu><MenuItem onSelect={() => {}}>Edit</MenuItem><MenuItem onSelect={() => {}}>Duplicate</MenuItem></Menu>) };
+export const Default = { render: () => (<Menu trigger={<Button variant="secondary">Open menu</Button>}><MenuItem onSelect={() => {}}>Edit</MenuItem><MenuItem onSelect={() => {}}>Duplicate</MenuItem></Menu>) };
 
 export const Matrix = {
-  name: 'Matrix / Composition',
+  name: 'Matrix / open',
   render: (args) => (
-    <div style={{ display: 'grid', gap: 16 }}>
-      <div data-matrix-cell="primary">Primary composition</div>
-      <div data-matrix-cell="secondary" style={{ opacity: 0.92 }}>
-        {/* Second cell forces multi-story depth for control-matrix gate */}
-        Secondary composition context
-      </div>
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
+      <Menu {...args} open={false} />
+      <Menu {...args} open={true} />
     </div>
   ),
 };

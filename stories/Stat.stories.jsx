@@ -12,12 +12,18 @@ export default {
       "down",
       "flat"
     ]
+  },
+  "label": {
+    "control": "text"
+  },
+  "value": {
+    "control": "number"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Stat. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -26,11 +32,11 @@ export default {
 export const Default = { args: { label: 'Open wishes', value: '12', delta: '+2' } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Values',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <Stat {...args} />
-      <Stat {...args} disabled={true} />
+    <div style={{ display: 'flex', gap: 16 }}>
+      <Stat {...args} label="Open" value="12" delta="+2" />
+      <Stat {...args} label="Done" value="40" delta="+8" />
     </div>
   ),
 };

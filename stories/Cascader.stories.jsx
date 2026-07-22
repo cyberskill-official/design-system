@@ -5,6 +5,12 @@ export default {
   component: Cascader,
   tags: ['autodocs'],
   argTypes: {
+  "value": {
+    "control": "text"
+  },
+  "onChange": {
+    "control": "text"
+  },
   "placeholder": {
     "control": "text"
   },
@@ -13,12 +19,18 @@ export default {
   },
   "disabled": {
     "control": "boolean"
+  },
+  "lang": {
+    "control": "text"
+  },
+  "nodes": {
+    "control": "object"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Cascader. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -30,9 +42,8 @@ export const States = {
   name: 'Matrix / States',
   render: (args) => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Cascader {...args}>Default</Cascader>
-      <Cascader {...args} disabled>Disabled</Cascader>
-      
+      <Cascader {...args} />
+      <Cascader {...args} disabled />
     </div>
   ),
 };

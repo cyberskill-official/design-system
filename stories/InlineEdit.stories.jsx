@@ -11,14 +11,20 @@ export default {
   "defaultValue": {
     "control": "text"
   },
+  "onChange": {
+    "control": "text"
+  },
   "label": {
+    "control": "text"
+  },
+  "lang": {
     "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting InlineEdit. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -27,11 +33,11 @@ export default {
 export const Default = { args: { defaultValue: 'Editable title' } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Values',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <InlineEdit {...args} />
-      <InlineEdit {...args} disabled={true} />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <InlineEdit {...args} defaultValue="Title A" />
+      <InlineEdit {...args} defaultValue="Title B" />
     </div>
   ),
 };

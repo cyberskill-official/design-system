@@ -12,12 +12,15 @@ export default {
       "now",
       "todo"
     ]
+  },
+  "items": {
+    "control": "object"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Timeline. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -26,11 +29,11 @@ export default {
 export const Default = { args: { items: [{ title: 'Wish captured', time: '09:00' }, { title: 'Shipped', time: '16:00' }] } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Length',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <Timeline {...args} />
-      <Timeline {...args} disabled={true} />
+    <div style={{ display: 'grid', gap: 16 }}>
+      <Timeline {...args} items={[{ title: 'One', time: '09:00' }]} />
+      <Timeline {...args} items={[{ title: 'One', time: '09:00' }, { title: 'Two', time: '12:00' }, { title: 'Three', time: '16:00' }]} />
     </div>
   ),
 };

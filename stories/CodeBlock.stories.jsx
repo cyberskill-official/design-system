@@ -21,7 +21,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting CodeBlock. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -30,11 +30,11 @@ export default {
 export const Default = { args: { code: 'const wish = "ship";', language: 'js' } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / showBar',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <CodeBlock {...args} />
-      <CodeBlock {...args} disabled={true} />
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
+      <CodeBlock {...args} showBar={false} />
+      <CodeBlock {...args} showBar={true} />
     </div>
   ),
 };

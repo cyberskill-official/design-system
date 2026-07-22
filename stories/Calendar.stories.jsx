@@ -5,11 +5,25 @@ export default {
   title: 'Components/Forms/Calendar',
   component: Calendar,
   tags: ['autodocs'],
-  argTypes: {},
+  argTypes: {
+  "value": {
+    "control": "object"
+  },
+  "onChange": {
+    "control": "object"
+  },
+  "lang": {
+    "control": "select",
+    "options": [
+      "en",
+      "vi"
+    ]
+  }
+},
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Calendar. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -18,14 +32,15 @@ export default {
 export const Default = { render: function C() { const [v, setV] = React.useState(new Date(2026, 6, 22)); return <Calendar value={v} onChange={setV} />; } };
 
 export const Matrix = {
-  name: 'Matrix / Composition',
-  render: (args) => (
-    <div style={{ display: 'grid', gap: 16 }}>
-      <div data-matrix-cell="primary">Primary composition</div>
-      <div data-matrix-cell="secondary" style={{ opacity: 0.92 }}>
-        {/* Second cell forces multi-story depth for control-matrix gate */}
-        Secondary composition context
+  name: 'Matrix / Languages',
+  render: () => {
+    const [en, setEn] = React.useState(new Date(2026, 6, 22));
+    const [vi, setVi] = React.useState(new Date(2026, 6, 22));
+    return (
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24 }}>
+        <Calendar value={en} onChange={setEn} lang="en" />
+        <Calendar value={vi} onChange={setVi} lang="vi" />
       </div>
-    </div>
-  ),
+    );
+  },
 };

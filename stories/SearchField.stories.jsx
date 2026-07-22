@@ -8,6 +8,9 @@ export default {
   "value": {
     "control": "text"
   },
+  "onChange": {
+    "control": "text"
+  },
   "placeholder": {
     "control": "text"
   }
@@ -15,20 +18,20 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting SearchField. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
 };
 
-export const Default = { args: { placeholder: 'Search components…', label: 'Search' } };
+export const Default = { args: { placeholder: 'Search…', label: 'Search' } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Placeholders',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <SearchField {...args} />
-      <SearchField {...args} disabled={true} />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <SearchField {...args} label="Search" placeholder="Components…" />
+      <SearchField {...args} label="Search" placeholder="Templates…" />
     </div>
   ),
 };

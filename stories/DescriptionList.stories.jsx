@@ -4,24 +4,28 @@ export default {
   title: 'Components/Data/DescriptionList',
   component: DescriptionList,
   tags: ['autodocs'],
-  argTypes: {},
+  argTypes: {
+  "items": {
+    "control": "object"
+  }
+},
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting DescriptionList. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
 };
 
-export const Default = { args: { items: [{ term: 'Element', description: 'Thổ · studio' }, { term: 'Theme', description: 'Light' }] } };
+export const Default = { args: { items: [{ term: 'Element', description: 'Thổ · studio' }] } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Items',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <DescriptionList {...args} />
-      <DescriptionList {...args} disabled={true} />
+    <div style={{ display: 'grid', gap: 16 }}>
+      <DescriptionList {...args} items={[{ term: 'A', description: '1' }]} />
+      <DescriptionList {...args} items={[{ term: 'A', description: '1' }, { term: 'B', description: '2' }]} />
     </div>
   ),
 };

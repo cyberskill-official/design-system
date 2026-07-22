@@ -12,14 +12,23 @@ export default {
       "circle"
     ]
   },
+  "width": {
+    "control": "number"
+  },
+  "height": {
+    "control": "number"
+  },
   "lines": {
+    "control": "number"
+  },
+  "radius": {
     "control": "number"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Skeleton. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },

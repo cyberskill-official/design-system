@@ -17,14 +17,14 @@ export default {
   "preview": {
     "control": "boolean"
   },
-  "loading": {
-    "control": "boolean"
+  "lang": {
+    "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Image. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -32,13 +32,12 @@ export default {
 
 export const Default = { args: { src: '/assets/logo-mark.svg', alt: 'CyberSkill mark', width: 64, height: 64 } };
 
-export const States = {
-  name: 'Matrix / States',
+export const Matrix = {
+  name: 'Matrix / preview',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Image {...args}>Default</Image>
-      
-      <Image {...args} loading>Loading</Image>
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
+      <Image {...args} preview={false} />
+      <Image {...args} preview={true} />
     </div>
   ),
 };

@@ -18,7 +18,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Logo. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -27,11 +27,11 @@ export default {
 export const Default = { args: { size: 40 } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / decorative',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <Logo {...args} />
-      <Logo {...args} disabled={true} />
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
+      <Logo {...args} decorative={false} />
+      <Logo {...args} decorative={true} />
     </div>
   ),
 };

@@ -25,12 +25,15 @@ export default {
   },
   "label": {
     "control": "text"
+  },
+  "data": {
+    "control": "object"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Chart. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -39,11 +42,11 @@ export default {
 export const Default = { args: { type: 'bar', data: [{ label: 'Mon', value: 4 }, { label: 'Tue', value: 7 }] } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / showValues',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <Chart {...args} />
-      <Chart {...args} disabled={true} />
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
+      <Chart {...args} showValues={false} />
+      <Chart {...args} showValues={true} />
     </div>
   ),
 };

@@ -5,6 +5,9 @@ export default {
   component: Switch,
   tags: ['autodocs'],
   argTypes: {
+  "label": {
+    "control": "text"
+  },
   "disabled": {
     "control": "boolean"
   }
@@ -12,7 +15,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Switch. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -24,9 +27,8 @@ export const States = {
   name: 'Matrix / States',
   render: (args) => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Switch {...args}>Default</Switch>
-      <Switch {...args} disabled>Disabled</Switch>
-      
+      <Switch {...args} />
+      <Switch {...args} disabled />
     </div>
   ),
 };

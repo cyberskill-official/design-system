@@ -8,27 +8,33 @@ export default {
   "title": {
     "control": "text"
   },
+  "onCommand": {
+    "control": "text"
+  },
   "prompt": {
+    "control": "text"
+  },
+  "lang": {
     "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Terminal. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
 };
 
-export const Default = { args: { lines: ['$ npm run storybook', 'Local: http://localhost:6006'] } };
+export const Default = { args: { lines: ['$ npm run storybook'] } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Lines',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <Terminal {...args} />
-      <Terminal {...args} disabled={true} />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <Terminal {...args} lines={['$ one']} />
+      <Terminal {...args} lines={['$ one', '$ two', 'ok']} />
     </div>
   ),
 };

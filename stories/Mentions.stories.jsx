@@ -11,17 +11,26 @@ export default {
   "defaultValue": {
     "control": "text"
   },
+  "onChange": {
+    "control": "text"
+  },
+  "users": {
+    "control": "text"
+  },
   "placeholder": {
     "control": "text"
   },
   "rows": {
     "control": "number"
+  },
+  "lang": {
+    "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Mentions. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -30,11 +39,11 @@ export default {
 export const Default = { args: { options: [{ id: 'lumi', label: 'Lumi' }], label: 'Mention' } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Options',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <Mentions {...args} />
-      <Mentions {...args} disabled={true} />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <Mentions {...args} label="One" options={[{ id: 'lumi', label: 'Lumi' }]} />
+      <Mentions {...args} label="Two" options={[{ id: 'lumi', label: 'Lumi' }, { id: 'stephen', label: 'Stephen' }]} />
     </div>
   ),
 };

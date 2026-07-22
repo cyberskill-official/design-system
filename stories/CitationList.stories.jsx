@@ -4,24 +4,31 @@ export default {
   title: 'Components/AI/CitationList',
   component: CitationList,
   tags: ['autodocs'],
-  argTypes: {},
+  argTypes: {
+  "label": {
+    "control": "text"
+  },
+  "items": {
+    "control": "object"
+  }
+},
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting CitationList. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
 };
 
-export const Default = { args: { items: [{ title: 'SKILL.md', href: '#' }, { title: 'tokens.dtcg.json', href: '#' }] } };
+export const Default = { args: { items: [{ title: 'SKILL.md', href: '#' }] } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Items',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <CitationList {...args} />
-      <CitationList {...args} disabled={true} />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <CitationList {...args} items={[{ title: 'A', href: '#' }]} />
+      <CitationList {...args} items={[{ title: 'A', href: '#' }, { title: 'B', href: '#' }]} />
     </div>
   ),
 };

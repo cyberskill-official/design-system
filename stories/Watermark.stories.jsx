@@ -21,7 +21,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Watermark. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -30,14 +30,11 @@ export default {
 export const Default = { render: () => (<Watermark text="CyberSkill"><div style={{ minHeight: 120, padding: 24 }}>Content under watermark</div></Watermark>) };
 
 export const Matrix = {
-  name: 'Matrix / Composition',
-  render: (args) => (
+  name: 'Matrix / Text',
+  render: () => (
     <div style={{ display: 'grid', gap: 16 }}>
-      <div data-matrix-cell="primary">Primary composition</div>
-      <div data-matrix-cell="secondary" style={{ opacity: 0.92 }}>
-        {/* Second cell forces multi-story depth for control-matrix gate */}
-        Secondary composition context
-      </div>
+      <Watermark text="CyberSkill"><div style={{ minHeight: 80, padding: 16 }}>A</div></Watermark>
+      <Watermark text="DRAFT"><div style={{ minHeight: 80, padding: 16 }}>B</div></Watermark>
     </div>
   ),
 };

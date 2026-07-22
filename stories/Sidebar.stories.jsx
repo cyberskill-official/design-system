@@ -10,12 +10,15 @@ export default {
   },
   "href": {
     "control": "text"
+  },
+  "label": {
+    "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Sidebar. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -24,14 +27,11 @@ export default {
 export const Default = { render: () => (<Sidebar><NavItem active>Overview</NavItem><NavItem>Health</NavItem><NavItem>Tokens</NavItem></Sidebar>) };
 
 export const Matrix = {
-  name: 'Matrix / Composition',
+  name: 'Matrix / active',
   render: (args) => (
-    <div style={{ display: 'grid', gap: 16 }}>
-      <div data-matrix-cell="primary">Primary composition</div>
-      <div data-matrix-cell="secondary" style={{ opacity: 0.92 }}>
-        {/* Second cell forces multi-story depth for control-matrix gate */}
-        Secondary composition context
-      </div>
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
+      <Sidebar {...args} active={false} />
+      <Sidebar {...args} active={true} />
     </div>
   ),
 };

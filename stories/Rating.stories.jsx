@@ -11,6 +11,9 @@ export default {
   "defaultValue": {
     "control": "number"
   },
+  "onChange": {
+    "control": "object"
+  },
   "max": {
     "control": "number"
   },
@@ -19,12 +22,15 @@ export default {
   },
   "label": {
     "control": "text"
+  },
+  "lang": {
+    "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Rating. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -33,11 +39,11 @@ export default {
 export const Default = { args: { value: 4, max: 5, label: 'Satisfaction' } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / readOnly',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <Rating {...args} />
-      <Rating {...args} disabled={true} />
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
+      <Rating {...args} readOnly={false} />
+      <Rating {...args} readOnly={true} />
     </div>
   ),
 };

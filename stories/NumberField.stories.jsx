@@ -8,6 +8,9 @@ export default {
   "value": {
     "control": "number"
   },
+  "onChange": {
+    "control": "object"
+  },
   "min": {
     "control": "number"
   },
@@ -24,7 +27,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting NumberField. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -36,9 +39,8 @@ export const States = {
   name: 'Matrix / States',
   render: (args) => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <NumberField {...args}>Default</NumberField>
-      <NumberField {...args} disabled>Disabled</NumberField>
-      
+      <NumberField {...args} />
+      <NumberField {...args} disabled />
     </div>
   ),
 };

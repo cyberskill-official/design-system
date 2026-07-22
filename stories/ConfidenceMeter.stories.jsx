@@ -18,12 +18,15 @@ export default {
   },
   "segments": {
     "control": "number"
+  },
+  "label": {
+    "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting ConfidenceMeter. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -32,11 +35,11 @@ export default {
 export const Default = { args: { value: 0.82, label: 'Confidence' } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Values',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <ConfidenceMeter {...args} />
-      <ConfidenceMeter {...args} disabled={true} />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <ConfidenceMeter {...args} value={0.3} label="Low" />
+      <ConfidenceMeter {...args} value={0.9} label="High" />
     </div>
   ),
 };

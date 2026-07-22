@@ -19,7 +19,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting FloatingActionButton. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -28,11 +28,11 @@ export default {
 export const Default = { args: { 'aria-label': 'New wish', children: '+' } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Labels',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <FloatingActionButton {...args} />
-      <FloatingActionButton {...args} disabled={true} />
+    <div style={{ display: 'flex', gap: 12 }}>
+      <FloatingActionButton {...args} aria-label="Add">+</FloatingActionButton>
+      <FloatingActionButton {...args} aria-label="Wish">✦</FloatingActionButton>
     </div>
   ),
 };

@@ -10,15 +10,12 @@ export default {
   },
   "label": {
     "control": "text"
-  },
-  "loading": {
-    "control": "boolean"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Spinner. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -26,13 +23,13 @@ export default {
 
 export const Default = { args: { size: 24 } };
 
-export const States = {
-  name: 'Matrix / States',
+export const Matrix = {
+  name: 'Matrix / Sizes',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Spinner {...args}>Default</Spinner>
-      
-      <Spinner {...args} loading>Loading</Spinner>
+    <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+      <Spinner {...args} size={16} />
+      <Spinner {...args} size={24} />
+      <Spinner {...args} size={32} />
     </div>
   ),
 };

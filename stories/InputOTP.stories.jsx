@@ -11,7 +11,16 @@ export default {
   "value": {
     "control": "text"
   },
+  "onChange": {
+    "control": "text"
+  },
+  "onComplete": {
+    "control": "text"
+  },
   "label": {
+    "control": "text"
+  },
+  "lang": {
     "control": "text"
   },
   "disabled": {
@@ -21,7 +30,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting InputOTP. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -33,9 +42,8 @@ export const States = {
   name: 'Matrix / States',
   render: (args) => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <InputOTP {...args}>Default</InputOTP>
-      <InputOTP {...args} disabled>Disabled</InputOTP>
-      
+      <InputOTP {...args} />
+      <InputOTP {...args} disabled />
     </div>
   ),
 };

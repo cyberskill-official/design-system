@@ -8,12 +8,18 @@ export default {
   argTypes: {
   "value": {
     "control": "text"
+  },
+  "onChange": {
+    "control": "text"
+  },
+  "options": {
+    "control": "object"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting SegmentedControl. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -22,14 +28,19 @@ export default {
 export const Default = { render: function S() { const [v, setV] = React.useState('en'); return (<SegmentedControl value={v} onChange={setV} options={[{ value: 'en', label: 'EN' }, { value: 'vi', label: 'VI' }]} />); } };
 
 export const Matrix = {
-  name: 'Matrix / Composition',
-  render: (args) => (
-    <div style={{ display: 'grid', gap: 16 }}>
-      <div data-matrix-cell="primary">Primary composition</div>
-      <div data-matrix-cell="secondary" style={{ opacity: 0.92 }}>
-        {/* Second cell forces multi-story depth for control-matrix gate */}
-        Secondary composition context
-      </div>
-    </div>
-  ),
+  name: 'Matrix / Options',
+  render: function S() {
+    const [v, setV] = React.useState('en');
+    return (
+      <SegmentedControl
+        value={v}
+        onChange={setV}
+        options={[
+          { value: 'en', label: 'EN' },
+          { value: 'vi', label: 'VI' },
+          { value: 'both', label: 'Both' },
+        ]}
+      />
+    );
+  },
 };

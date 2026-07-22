@@ -7,12 +7,15 @@ export default {
   argTypes: {
   "vertical": {
     "control": "boolean"
+  },
+  "label": {
+    "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Divider. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -21,11 +24,11 @@ export default {
 export const Default = { args: {} };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / vertical',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <Divider {...args} />
-      <Divider {...args} disabled={true} />
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
+      <Divider {...args} vertical={false} />
+      <Divider {...args} vertical={true} />
     </div>
   ),
 };

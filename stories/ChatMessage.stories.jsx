@@ -11,12 +11,15 @@ export default {
       "lumi",
       "user"
     ]
+  },
+  "name": {
+    "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting ChatMessage. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -24,12 +27,12 @@ export default {
 
 export const Default = { args: { role: 'lumi', children: 'Turn your will into real.' } };
 
-export const Matrix = {
-  name: 'Matrix / States',
+export const AllVariants = {
+  name: 'Matrix / Roles',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <ChatMessage {...args} />
-      <ChatMessage {...args} disabled={true} />
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+      <ChatMessage {...args} role="lumi">lumi</ChatMessage>
+      <ChatMessage {...args} role="user">user</ChatMessage>
     </div>
   ),
 };

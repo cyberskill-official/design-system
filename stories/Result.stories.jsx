@@ -13,12 +13,18 @@ export default {
       "warning",
       "info"
     ]
+  },
+  "lang": {
+    "control": "text"
+  },
+  "title": {
+    "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Result. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -26,12 +32,14 @@ export default {
 
 export const Default = { args: { status: 'success', title: 'Wish shipped', description: 'All gates green.' } };
 
-export const Matrix = {
-  name: 'Matrix / States',
+export const AllVariants = {
+  name: 'Matrix / All statuses',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <Result {...args} />
-      <Result {...args} disabled={true} />
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
+      <Result {...args} status="success" />
+      <Result {...args} status="error" />
+      <Result {...args} status="warning" />
+      <Result {...args} status="info" />
     </div>
   ),
 };

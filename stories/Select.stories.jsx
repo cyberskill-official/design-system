@@ -5,6 +5,18 @@ export default {
   component: Select,
   tags: ['autodocs'],
   argTypes: {
+  "label": {
+    "control": "text"
+  },
+  "description": {
+    "control": "text"
+  },
+  "error": {
+    "control": "text"
+  },
+  "options": {
+    "control": "object"
+  },
   "disabled": {
     "control": "boolean"
   }
@@ -12,7 +24,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Select. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -24,9 +36,8 @@ export const States = {
   name: 'Matrix / States',
   render: (args) => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Select {...args}>Default</Select>
-      <Select {...args} disabled>Disabled</Select>
-      
+      <Select {...args} />
+      <Select {...args} disabled />
     </div>
   ),
 };

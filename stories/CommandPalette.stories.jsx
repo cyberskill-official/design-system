@@ -17,7 +17,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting CommandPalette. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -26,14 +26,11 @@ export default {
 export const Default = { render: function C() { const [open, setOpen] = React.useState(true); return (<><Button onClick={() => setOpen(true)}>Open palette</Button><CommandPalette open={open} onClose={() => setOpen(false)} items={[{ id: '1', label: 'Go to Live', onSelect: () => setOpen(false) }]} /></>); } };
 
 export const Matrix = {
-  name: 'Matrix / Composition',
+  name: 'Matrix / open',
   render: (args) => (
-    <div style={{ display: 'grid', gap: 16 }}>
-      <div data-matrix-cell="primary">Primary composition</div>
-      <div data-matrix-cell="secondary" style={{ opacity: 0.92 }}>
-        {/* Second cell forces multi-story depth for control-matrix gate */}
-        Secondary composition context
-      </div>
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
+      <CommandPalette {...args} open={false} />
+      <CommandPalette {...args} open={true} />
     </div>
   ),
 };

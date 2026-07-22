@@ -33,12 +33,15 @@ export default {
   },
   "fullWidth": {
     "control": "boolean"
+  },
+  "type": {
+    "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Button. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -58,9 +61,4 @@ export const AllVariants = {
       <Button {...args} variant="danger-ghost">danger-ghost</Button>
     </div>
   ),
-};
-
-export const Disabled = {
-  name: 'Matrix / Disabled',
-  args: { disabled: true },
 };

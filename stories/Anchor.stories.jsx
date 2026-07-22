@@ -4,11 +4,18 @@ export default {
   title: 'Components/Navigation/Anchor',
   component: Anchor,
   tags: ['autodocs'],
-  argTypes: {},
+  argTypes: {
+  "items": {
+    "control": "object"
+  },
+  "title": {
+    "control": "text"
+  }
+},
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Anchor. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -17,11 +24,11 @@ export default {
 export const Default = { args: { items: [{ href: '#a', label: 'Intro' }, { href: '#b', label: 'Tokens' }] } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Items',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <Anchor {...args} />
-      <Anchor {...args} disabled={true} />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <Anchor {...args} items={[{ href: '#a', label: 'A' }]} />
+      <Anchor {...args} items={[{ href: '#a', label: 'A' }, { href: '#b', label: 'B' }, { href: '#c', label: 'C' }]} />
     </div>
   ),
 };

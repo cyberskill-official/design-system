@@ -5,6 +5,12 @@ export default {
   component: DatePicker,
   tags: ['autodocs'],
   argTypes: {
+  "value": {
+    "control": "object"
+  },
+  "onChange": {
+    "control": "object"
+  },
   "placeholder": {
     "control": "text"
   },
@@ -13,12 +19,15 @@ export default {
   },
   "disabled": {
     "control": "boolean"
+  },
+  "lang": {
+    "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting DatePicker. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -30,9 +39,8 @@ export const States = {
   name: 'Matrix / States',
   render: (args) => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <DatePicker {...args}>Default</DatePicker>
-      <DatePicker {...args} disabled>Disabled</DatePicker>
-      
+      <DatePicker {...args} />
+      <DatePicker {...args} disabled />
     </div>
   ),
 };

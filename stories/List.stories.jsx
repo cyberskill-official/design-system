@@ -4,11 +4,16 @@ export default {
   title: 'Components/Data/List',
   component: List,
   tags: ['autodocs'],
-  argTypes: {},
+  argTypes: {
+  "className": {
+    "control": "text",
+    "description": "Optional className on root"
+  }
+},
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting List. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -17,14 +22,11 @@ export default {
 export const Default = { render: () => (<List><ListItem>First wish</ListItem><ListItem>Second wish</ListItem></List>) };
 
 export const Matrix = {
-  name: 'Matrix / Composition',
-  render: (args) => (
-    <div style={{ display: 'grid', gap: 16 }}>
-      <div data-matrix-cell="primary">Primary composition</div>
-      <div data-matrix-cell="secondary" style={{ opacity: 0.92 }}>
-        {/* Second cell forces multi-story depth for control-matrix gate */}
-        Secondary composition context
-      </div>
+  name: 'Matrix / Density',
+  render: () => (
+    <div style={{ display: 'grid', gap: 16, gridTemplateColumns: '1fr 1fr' }}>
+      <List><ListItem>One</ListItem><ListItem>Two</ListItem></List>
+      <List><ListItem>Alpha</ListItem><ListItem>Beta</ListItem><ListItem>Gamma</ListItem></List>
     </div>
   ),
 };

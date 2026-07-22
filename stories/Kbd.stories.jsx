@@ -4,11 +4,16 @@ export default {
   title: 'Components/Data/Kbd',
   component: Kbd,
   tags: ['autodocs'],
-  argTypes: {},
+  argTypes: {
+  "className": {
+    "control": "text",
+    "description": "Optional className on root"
+  }
+},
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Kbd. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -17,11 +22,12 @@ export default {
 export const Default = { args: { children: '⌘K' } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Keys',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <Kbd {...args} />
-      <Kbd {...args} disabled={true} />
+    <div style={{ display: 'flex', gap: 8 }}>
+      <Kbd {...args}>⌘K</Kbd>
+      <Kbd {...args}>Esc</Kbd>
+      <Kbd {...args}>Enter</Kbd>
     </div>
   ),
 };

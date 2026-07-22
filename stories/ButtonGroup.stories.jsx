@@ -13,7 +13,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting ButtonGroup. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -22,14 +22,11 @@ export default {
 export const Default = { render: () => (<ButtonGroup><Button variant="secondary">Cancel</Button><Button>Confirm</Button></ButtonGroup>) };
 
 export const Matrix = {
-  name: 'Matrix / Composition',
-  render: (args) => (
-    <div style={{ display: 'grid', gap: 16 }}>
-      <div data-matrix-cell="primary">Primary composition</div>
-      <div data-matrix-cell="secondary" style={{ opacity: 0.92 }}>
-        {/* Second cell forces multi-story depth for control-matrix gate */}
-        Secondary composition context
-      </div>
+  name: 'Matrix / Sizes',
+  render: () => (
+    <div style={{ display: 'grid', gap: 12 }}>
+      <ButtonGroup><Button size="sm">A</Button><Button size="sm" variant="secondary">B</Button></ButtonGroup>
+      <ButtonGroup><Button>A</Button><Button variant="secondary">B</Button></ButtonGroup>
     </div>
   ),
 };

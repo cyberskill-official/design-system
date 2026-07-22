@@ -4,11 +4,15 @@ export default {
   title: 'Components/Navigation/NavigationMenu',
   component: NavigationMenu,
   tags: ['autodocs'],
-  argTypes: {},
+  argTypes: {
+  "items": {
+    "control": "object"
+  }
+},
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting NavigationMenu. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -17,11 +21,11 @@ export default {
 export const Default = { args: { items: [{ label: 'Product', href: '#' }, { label: 'Docs', href: '#' }] } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Items',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <NavigationMenu {...args} />
-      <NavigationMenu {...args} disabled={true} />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <NavigationMenu {...args} items={[{ label: 'Product', href: '#' }]} />
+      <NavigationMenu {...args} items={[{ label: 'Product', href: '#' }, { label: 'Docs', href: '#' }]} />
     </div>
   ),
 };

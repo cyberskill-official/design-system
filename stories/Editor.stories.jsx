@@ -8,27 +8,33 @@ export default {
   "defaultValue": {
     "control": "text"
   },
+  "onChange": {
+    "control": "text"
+  },
   "minHeight": {
     "control": "number"
+  },
+  "lang": {
+    "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Editor. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
 };
 
-export const Default = { args: { defaultValue: 'Draft the BOD memo…', label: 'Editor' } };
+export const Default = { args: { defaultValue: 'Draft…', label: 'Editor' } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Content',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <Editor {...args} />
-      <Editor {...args} disabled={true} />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <Editor {...args} label="A" defaultValue="Short" />
+      <Editor {...args} label="B" defaultValue="Longer draft body for matrix." />
     </div>
   ),
 };

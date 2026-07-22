@@ -7,6 +7,24 @@ export default {
   component: Form,
   tags: ['autodocs'],
   argTypes: {
+  "onSubmit": {
+    "control": "text"
+  },
+  "errors": {
+    "control": "object"
+  },
+  "rules": {
+    "control": "object"
+  },
+  "asyncRules": {
+    "control": "object"
+  },
+  "initialValues": {
+    "control": "text"
+  },
+  "lang": {
+    "control": "text"
+  },
   "name": {
     "control": "text"
   },
@@ -23,23 +41,41 @@ export default {
   "index": {
     "control": "number"
   },
+  "item": {
+    "control": "text"
+  },
+  "path": {
+    "control": "text"
+  },
   "min": {
     "control": "number"
   },
   "max": {
     "control": "number"
   },
+  "defaultItem": {
+    "control": "object"
+  },
+  "id": {
+    "control": "text"
+  },
+  "values": {
+    "control": "text"
+  },
   "step": {
     "control": "number"
   },
-  "disabled": {
-    "control": "boolean"
+  "setValue": {
+    "control": "text"
+  },
+  "onComplete": {
+    "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Form. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -47,13 +83,12 @@ export default {
 
 export const Default = { render: () => (<Form onSubmit={(e) => e.preventDefault()}><FormField name="email" label="Email"><TextField label="Email" name="email" /></FormField><Button type="submit">Submit</Button></Form>) };
 
-export const States = {
-  name: 'Matrix / States',
+export const Matrix = {
+  name: 'Matrix / required',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Form {...args}>Default</Form>
-      <Form {...args} disabled>Disabled</Form>
-      
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
+      <Form {...args} required={false} />
+      <Form {...args} required={true} />
     </div>
   ),
 };

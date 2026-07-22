@@ -8,14 +8,23 @@ export default {
   "value": {
     "control": "text"
   },
+  "onChange": {
+    "control": "text"
+  },
+  "swatches": {
+    "control": "text"
+  },
   "label": {
+    "control": "text"
+  },
+  "lang": {
     "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting ColorPicker. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -24,11 +33,11 @@ export default {
 export const Default = { args: { label: 'Accent', defaultValue: '#F4BA17' } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Colors',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <ColorPicker {...args} />
-      <ColorPicker {...args} disabled={true} />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <ColorPicker {...args} label="Umber" defaultValue="#45210E" />
+      <ColorPicker {...args} label="Ochre" defaultValue="#F4BA17" />
     </div>
   ),
 };

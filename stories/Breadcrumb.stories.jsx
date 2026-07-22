@@ -4,11 +4,15 @@ export default {
   title: 'Components/Navigation/Breadcrumb',
   component: Breadcrumb,
   tags: ['autodocs'],
-  argTypes: {},
+  argTypes: {
+  "items": {
+    "control": "object"
+  }
+},
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Breadcrumb. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -17,11 +21,11 @@ export default {
 export const Default = { args: { items: [{ href: '#', label: 'Home' }, { label: 'Button' }] } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Depth',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <Breadcrumb {...args} />
-      <Breadcrumb {...args} disabled={true} />
+    <div style={{ display: 'grid', gap: 16 }}>
+      <Breadcrumb {...args} items={[{ href: '#', label: 'Home' }, { label: 'Here' }]} />
+      <Breadcrumb {...args} items={[{ href: '#', label: 'Home' }, { href: '#', label: 'Components' }, { label: 'Breadcrumb' }]} />
     </div>
   ),
 };

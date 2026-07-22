@@ -4,11 +4,27 @@ export default {
   title: 'Components/Data/DataTable',
   component: DataTable,
   tags: ['autodocs'],
-  argTypes: {},
+  argTypes: {
+  "rowKey": {
+    "control": "text"
+  },
+  "caption": {
+    "control": "text"
+  },
+  "columns": {
+    "control": "object"
+  },
+  "rows": {
+    "control": "object"
+  },
+  "emptyState": {
+    "control": "text"
+  }
+},
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting DataTable. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -17,11 +33,11 @@ export default {
 export const Default = { args: { columns: [{ key: 'name', header: 'Name' }, { key: 'role', header: 'Role' }], rows: [{ id: 1, name: 'Stephen', role: 'Founder' }, { id: 2, name: 'Lumi', role: 'Genie' }], caption: 'Team' } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Empty vs filled',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
+    <div style={{ display: 'grid', gap: 24 }}>
       <DataTable {...args} />
-      <DataTable {...args} disabled={true} />
+      <DataTable {...args} rows={[]} emptyState="No rows yet" caption="Empty" />
     </div>
   ),
 };

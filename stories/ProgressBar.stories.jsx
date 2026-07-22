@@ -26,7 +26,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting ProgressBar. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },

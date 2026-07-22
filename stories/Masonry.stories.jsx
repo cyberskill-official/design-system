@@ -15,20 +15,20 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting Masonry. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
 };
 
-export const Default = { args: { items: [{ id: 1, content: 'A' }, { id: 2, content: 'B taller' }, { id: 3, content: 'C' }] } };
+export const Default = { args: { items: [{ id: 1, content: 'A' }, { id: 2, content: 'B' }] } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / Items',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <Masonry {...args} />
-      <Masonry {...args} disabled={true} />
+    <div style={{ display: 'grid', gap: 16 }}>
+      <Masonry {...args} items={[{ id: 1, content: 'A' }]} />
+      <Masonry {...args} items={[{ id: 1, content: 'A' }, { id: 2, content: 'B taller block' }, { id: 3, content: 'C' }]} />
     </div>
   ),
 };

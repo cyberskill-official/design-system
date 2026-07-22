@@ -11,16 +11,28 @@ export default {
   "pinned": {
     "control": "boolean"
   },
+  "sortValue": {
+    "control": "object"
+  },
   "rowKey": {
     "control": "text"
   },
   "selectable": {
     "control": "boolean"
   },
+  "selected": {
+    "control": "object"
+  },
+  "onSelect": {
+    "control": "object"
+  },
   "height": {
     "control": "number"
   },
   "filterText": {
+    "control": "text"
+  },
+  "filterKeys": {
     "control": "text"
   },
   "virtual": {
@@ -34,12 +46,24 @@ export default {
   },
   "persistKey": {
     "control": "text"
+  },
+  "lang": {
+    "control": "text"
+  },
+  "columns": {
+    "control": "object"
+  },
+  "rows": {
+    "control": "number"
+  },
+  "caption": {
+    "control": "text"
   }
 },
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting DataGrid. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -48,11 +72,11 @@ export default {
 export const Default = { args: { columns: [{ key: 'name', header: 'Name' }, { key: 'status', header: 'Status' }], rows: [{ id: 1, name: 'Alpha wish', status: 'Open' }, { id: 2, name: 'Beta wish', status: 'Done' }], caption: 'Wishes' } };
 
 export const Matrix = {
-  name: 'Matrix / States',
+  name: 'Matrix / sortable',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'flex-start' }}>
-      <DataGrid {...args} />
-      <DataGrid {...args} disabled={true} />
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
+      <DataGrid {...args} sortable={false} />
+      <DataGrid {...args} sortable={true} />
     </div>
   ),
 };

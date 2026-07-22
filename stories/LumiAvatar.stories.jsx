@@ -26,7 +26,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus control matrix. Portable consumers use styles.css + bundle, not Storybook.',
+        component: 'Host Live CSF — Default plus honest control matrix mounting LumiAvatar. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -38,9 +38,9 @@ export const AllSizes = {
   name: 'Matrix / All sizes',
   render: (args) => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <LumiAvatar {...args} size="sm">sm</LumiAvatar>
-      <LumiAvatar {...args} size="md">md</LumiAvatar>
-      <LumiAvatar {...args} size="lg">lg</LumiAvatar>
+      <LumiAvatar {...args} size="sm" />
+      <LumiAvatar {...args} size="md" />
+      <LumiAvatar {...args} size="lg" />
     </div>
   ),
 };
