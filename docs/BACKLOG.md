@@ -2,12 +2,15 @@
 
 Work that is approved in direction but not built yet. Version stays pinned at **1.0.0** until LAUNCH — when an item ships, delete it here and describe it in the PR (no changelog).
 
-## Not yet implemented (needs owner decision or secrets)
+## Not yet implemented
 
-- Full Playwright pixel-threshold CI on every PR — scaffold exists; choose fail threshold % and accept GH Actions screenshot time (see `docs/decisions-pending.md`)
-- Whole-set audits on every PR — nightly already runs; enabling on push/PR is a CI time budget decision (see `docs/decisions-pending.md`)
-- Figma / Tokens Studio automated push pipeline — needs API credentials (see `docs/decisions-pending.md`)
+- Figma / Tokens Studio automated push pipeline — **blocked on credentials** (how to create a token: `docs/decisions-pending.md` §3)
 - Deeper native sample host apps (SwiftUI / Compose / Flutter UI shells beyond token constants) — multi-week product shells
+
+## Decided / closed (not active work)
+
+- Whole-set audits on every PR — **B enabled** in `design-system-gates.yml` (push + PR + nightly + manual)
+- Pixel CI auto-fail — **A advisory only**; no PR fail-on-% (scaffold + advisory rows remain)
 
 ## Shipped recently (removed from active list)
 
@@ -23,4 +26,4 @@ Work that is approved in direction but not built yet. Version stays pinned at **
 
 - New items land here when approved but not built.
 - When an item ships, delete it from here in the same change and note it in the PR body.
-- Items blocked on secrets or cost policy stay listed with a pointer to `docs/decisions-pending.md`.
+- Credential blockers point at `docs/decisions-pending.md`.

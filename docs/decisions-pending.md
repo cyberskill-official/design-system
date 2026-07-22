@@ -1,48 +1,49 @@
 # Decisions pending (owner)
 
-These deferred items cannot be completed honestly without a product/ops choice or credentials. Answer in a PR comment or by editing this file; an implementer can then land the automation.
+Recorded owner choices and remaining blockers.
 
 ## 1. Whole-set audits on every PR
 
-**Today:** `whole-set-audits` job runs on schedule (nightly) and `workflow_dispatch` only — not on every push/PR.
+**Owner choice: B — Enable on every PR** (recorded Jul 2026)
 
-**Ask:** Enable on every PR?
-
-| Option | Effect |
-|---|---|
-| A — Keep nightly only (recommended default) | Fast PR board stays ~minutes; deep audits overnight |
-| B — Enable on PR | +~15–20 min CI per PR (responsive + language + theme across all templates) |
-| C — Enable on PR but only when `templates/**` or `base/**` or `tokens/**` change | Compromise path filters |
-
-**Owner choice:** _unset_
+Wired in `.github/workflows/design-system-gates.yml`: `whole-set-audits` runs on push, pull_request, schedule, and `workflow_dispatch` (no event filter). Expect about 15–20 minutes for that job (responsive + language + theme across all templates).
 
 ## 2. Pixel-threshold CI auto-fail
 
-**Today:** `_audit/ci/pixel-diff.mjs` + `pixel-ci` advisory row; baselines ship.
+**Owner choice: A — Advisory only** (recorded Jul 2026)
 
-**Ask:** Fail the PR when pixel diff exceeds a threshold?
-
-| Option | Effect |
-|---|---|
-| A — Advisory only (default) | Human judges drift |
-| B — Fail if any baseline > N% different (suggest N=0.5 or 1.0) | Auto-block; expect flake budget |
-| C — Fail only on allowlisted surfaces (dashboard, atomic, marketing-page) | Smaller surface |
-
-**Owner choice:** _unset_  
-**If B/C, threshold N%:** _unset_
+Pixel / visual-baseline rows stay **advisory** on the fast board (`pixel-ci`, visual-diff). Humans judge drift; PRs are not auto-failed on pixel %. No further wiring required until you change this choice.
 
 ## 3. Figma / Tokens Studio push
 
-**Today:** tokens export as DTCG + docs in `docs/figma.md`. No automated push.
+**Owner choice: not yet — waiting on credentials**
 
-**Needs:** Figma personal/access token (or Tokens Studio pipeline credentials), target file key, write permission.
+### Where to get a Figma token
 
-**Ask:** Provide credentials via GitHub Actions secret names, e.g. `FIGMA_TOKEN`, `FIGMA_FILE_KEY`?
+1. Sign in at [https://www.figma.com](https://www.figma.com) with the account that owns (or can edit) the design-system file.
+2. Open **Settings** → **Security** (or account menu → **Settings** → **Personal access tokens**).
+   - Direct: [https://www.figma.com/developers/api#access-tokens](https://www.figma.com/developers/api#access-tokens) describes token use; create the token under your Figma account settings.
+3. Click **Generate new token**, name it e.g. `cyberskill-design-system-ci`, copy it **once** (Figma will not show it again).
+4. Scopes: need at least **file content read/write** for the target file (for a push pipeline). If you only want read for now, read is enough to prototype; write is required to update variables/styles in Figma.
+5. Find the **file key**: open the Figma file in the browser; the URL looks like  
+   `https://www.figma.com/design/<FILE_KEY>/...`  
+   The middle segment is `FIGMA_FILE_KEY`.
 
-**Owner choice:** _unset_  
-**Secret names / file key:** _unset_
+### What to give the implementer (GitHub secrets)
 
-## How to unblock
+In the GitHub repo: **Settings → Secrets and variables → Actions → New repository secret**
 
-1. Fill **Owner choice** lines above (or comment on the PR).
-2. Implementer wires the chosen option and removes the item from `docs/BACKLOG.md`.
+| Secret name | Value |
+|---|---|
+| `FIGMA_TOKEN` | the personal access token you generated |
+| `FIGMA_FILE_KEY` | the file key from the URL |
+
+Optional later: Tokens Studio plugin settings if we push DTCG through their API instead of raw Figma REST.
+
+**Do not paste the token into chat, the repo, or a PR.** Only into GitHub Actions secrets (or a password manager).
+
+When secrets exist, say “Figma secrets are set” and we can add the push job without you pasting the token here.
+
+## How to change a decision
+
+Edit the **Owner choice** lines above (or comment on a PR). Implementer rewires CI/docs and updates `docs/BACKLOG.md`.

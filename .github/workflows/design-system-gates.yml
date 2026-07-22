@@ -55,9 +55,9 @@ jobs:
         run: node _audit/ci/run-single-gate.mjs http://127.0.0.1:8080/_audit/bilingual-parity.html __bilingual
 
   whole-set-audits:
-    # Scheduled (nightly) or manual only — kept off push/PR so the fast board stays fast.
-    # Each whole-set audit loads all 84 templates in fresh iframes (~4-5 min); 6 min timeout per gate.
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    # Owner decision B (Jul 2026): run on every push/PR as well as nightly + manual.
+    # Each whole-set audit loads all templates in fresh iframes (~4-5 min); 6 min timeout per gate.
+    # Expect ~15–20 min wall time for this job on PR.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
