@@ -4,8 +4,8 @@ Work that is approved in direction but not built yet. Version stays pinned at **
 
 ## Not yet implemented
 
-- Full multi-screen native host apps (SwiftUI / Compose / Flutter product shells) — multi-week; stub notes in `examples/native/`
-- Broad Storybook CSF coverage for every React component (host-only; Atomic View remains the complete portable inventory)
+- App Store / Play Store packaging of native samples (samples only until product need)
+- Pixel-perfect CSF control matrices for every prop on every component (Default story per primary is the bar)
 
 ## Decided / closed (not active work)
 
@@ -17,14 +17,16 @@ Work that is approved in direction but not built yet. Version stays pinned at **
 
 ## Shipped recently (removed from active list)
 
-- Figma colour variables push (`_audit/ci/push-figma-variables.mjs` + `figma-variables-push` CI job) — secrets wired; **Variables REST API is Figma Enterprise-only**; non-Enterprise soft-skips
-- Storybook host playground (`/playground/`, Theme × Element × Language toolbar) — portable contract unchanged
-- Form field-array helpers (`FormFieldArray`) + multi-step wizard controller (`FormWizard`)
-- DataGrid row virtualization + column-order persistence (`virtual`, `persistKey`)
-- Atomic View template iframe virtualization (mount per open category)
-- Additional RTL locale surfaces (Arabic / Hebrew / LTR control on `guidelines/rtl-preview.html`)
-- Live View Motion surface + Foundations motion embed
-- Sidebar IA: group+sort components by `grp`; HR ops + HR Suite merged under one HR template group
+- **Storybook CSF for every public React component** (99 primaries) + `test:storybook-contract` completeness gate
+- **Full multi-screen native samples** under `examples/native/{swiftui,compose,flutter}` (Sign in · Home · Settings) + `test:native-samples` + `sync-tokens.mjs`
+- Figma colour variables push (Enterprise soft-skip)
+- Storybook host playground (`/playground/`)
+- Form field-array helpers + FormWizard
+- DataGrid virtualization + column-order persistence
+- Atomic View template iframe virtualization
+- RTL locale surfaces
+- Live View Motion + Foundations motion
+- Sidebar IA grouping
 
 ## Process
 

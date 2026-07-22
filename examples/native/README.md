@@ -1,28 +1,48 @@
-# Native token samples
+# Native multi-screen sample apps
 
-SwiftUI, Compose, and Flutter constants are generated from `tokens/tokens.dtcg.json` into:
+Pre-release samples (VERSION still **1.0.0**) that demonstrate **Sign in → Home (wish list) → Settings** on three platforms, consuming **generated** design tokens from `tokens/native/` (not hand-copied hex).
 
-- `tokens/native/CSTokens.swift`
-- `tokens/native/CSTokens.kt`
-- `tokens/native/cs_tokens.dart`
+| App | Path | Token source |
+|---|---|---|
+| SwiftUI | `examples/native/swiftui/` | `CSTokens.swift` (synced) |
+| Jetpack Compose | `examples/native/compose/` | `tokens/CSTokens.kt` (synced, package remapped) |
+| Flutter | `examples/native/flutter/` | `lib/tokens/cs_tokens.dart` (synced) |
 
-Regenerate:
+## Sync tokens after DTCG changes
 
 ```bash
 node _audit/ci/generate-native-tokens.mjs
+node examples/native/sync-tokens.mjs
 ```
 
-Provenance is enforced by `_audit/token-pipeline-test.html` and `_audit/ci/check-token-provenance.mjs`.
+## Build / run (when toolchains exist)
+
+### SwiftUI (macOS / Xcode)
+
+```bash
+cd examples/native/swiftui
+swift build
+# or open Package.swift in Xcode and run the CyberSkillSample scheme
+```
+
+### Compose (Android Studio / SDK)
+
+```bash
+cd examples/native/compose
+./gradlew :app:assembleDebug   # requires Android SDK + Gradle wrapper bootstrap
+```
+
+### Flutter
+
+```bash
+cd examples/native/flutter
+flutter pub get
+flutter analyze
+flutter run
+```
 
 ## Scope (honest)
 
-This folder is the **consumer pointer for L5 native tokens**, not a full app. Embed the constants in a host shell.
+These are **sample hosts**, not App Store / Play Store products. No backend. Navigation and brand-token usage are the bar. Full product shells remain product work.
 
-A minimal **SwiftUI colour smoke** sketch lives in `SignInTokenSmoke.swift` (documentation-only — not a Xcode project). Full multi-screen shells are multi-week product work (see `docs/BACKLOG.md`).
-
-## Suggested first shell (when product needs it)
-
-1. New iOS/Android/Flutter app.
-2. Copy or SPM/path-link the matching `tokens/native/*` file.
-3. One screen: surface + primary button using brand umber/ochre tokens.
-4. Do not re-derive colours by hand — change DTCG and regenerate.
+Structural CI: `npm run test:native-samples`.

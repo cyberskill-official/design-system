@@ -70,6 +70,10 @@ python3 -m http.server 8765 --bind 127.0.0.1
 
 Edit `examples/static-hello/index.html`: flip `data-theme="dark"` or `data-cs-element="thuy"` on `<body>`. No install, no Storybook.
 
+## Native sample hosts (optional)
+
+Multi-screen samples (Sign in · Home · Settings) live under `examples/native/swiftui`, `compose`, and `flutter`. They sync generated tokens via `node examples/native/sync-tokens.mjs`. See `examples/native/README.md`. Not required for web consumers.
+
 ## Extending
 
 If you're changing the system itself (not just consuming it), follow `CONTRIBUTING.md` — the Expansion Rule (propagate to every deliverable in one change) and the verification doctrine (deep checks via `_audit/`).

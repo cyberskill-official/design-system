@@ -15,7 +15,7 @@ Storybook is the **hosted live playground** for operators on `design.cyberskill.
 ## What Storybook uses
 
 - The same `styles.css` token + component CSS as production
-- Source components under `components/**` (thin CSF wrappers in `stories/`)
+- Source components under `components/**` (thin CSF wrappers in `stories/` — **one Default story per public primary component**; completeness gated by `npm run test:storybook-contract`)
 - Toolbar globals set `data-theme`, `data-cs-element` / `data-cs-variant`, and `lang` — same axes as Live View / templates
 
 ## What consumers still use (unchanged)
