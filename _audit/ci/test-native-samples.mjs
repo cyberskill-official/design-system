@@ -57,7 +57,10 @@ const composeScreens = [
 ];
 for (const s of composeScreens) {
   assert(existsSync(join(root, composeRoot, s)), 'missing ' + s);
-  assert(read(join(composeRoot, s)).includes('CSTokens'), s + ' uses CSTokens');
+  const body = read(join(composeRoot, s));
+  assert(body.includes('CSTokens'), s + ' uses CSTokens');
+  // Compose API is modifier= (lowercase). Modifier= is a compile error (type name as param).
+  assert(!/\bModifier\s*=/.test(body), s + ' must use modifier= not Modifier=');
 }
 const mainAct = read(join(composeRoot, 'app/src/main/java/world/cyberskill/sample/MainActivity.kt'));
 assert(mainAct.includes('NavHost') && mainAct.includes('sign_in') && mainAct.includes('home') && mainAct.includes('settings'), 'Compose NavHost routes');

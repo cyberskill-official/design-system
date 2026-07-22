@@ -38,9 +38,9 @@ fun HomeScreen(onOpenSettings: () -> Unit, onSignOut: () -> Unit) {
       .padding(24.dp),
     verticalArrangement = Arrangement.spacedBy(12.dp),
   ) {
-    Row(Modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+    Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
       Text("Wishes", color = CSTokens.colorTextPrimary, fontSize = 24.sp)
-      Spacer(Modifier = Modifier.weight(1f))
+      Spacer(modifier = Modifier.weight(1f))
       TextButton(onClick = onOpenSettings) {
         Text("Settings", color = CSTokens.colorLink)
       }

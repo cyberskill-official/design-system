@@ -54,7 +54,7 @@ fun SignInScreen(onSuccess: () -> Unit) {
       label = { Text("Password") },
       modifier = Modifier.fillMaxWidth(),
     )
-    Spacer(Modifier = Modifier.height(8.dp))
+    Spacer(modifier = Modifier.height(8.dp))
     Button(
       onClick = onSuccess,
       modifier = Modifier
