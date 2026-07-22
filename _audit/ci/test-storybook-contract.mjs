@@ -139,8 +139,8 @@ for (const m of modules) {
   // argTypes must be a non-empty object (at least one documented prop key)
   assert(/argTypes:\s*\{/.test(text), 'argTypes block for ' + m.primary);
   assert(!/argTypes:\s*\{\s*\}/.test(text), 'argTypes not empty for ' + m.primary);
-  const atSection = (text.split('argTypes:')[1] || '').split('parameters:')[0] || '';
-  const atKeys = [...atSection.matchAll(/^\s*"([A-Za-z_][A-Za-z0-9_]*)"\s*:/gm)].map((x) => x[1]);
+  const atSection = (text.split('argTypes:')[1] || '').split(/parameters:|args:/)[0] || '';
+  const atKeys = [...atSection.matchAll(/^\s*"?([A-Za-z_][A-Za-z0-9_]*)"?\s*:/gm)].map((x) => x[1]);
   if (atKeys.length < 1) fail.push(m.primary + ' no argTypes keys');
 
   const metaArgs = metaArgsObject(text);
