@@ -28,9 +28,10 @@ export default {
       },
     },
   },
+  args: { children: 'Your wish is in review.', variant: 'info' },
 };
 
-export const Default = { args: { children: 'Your wish is in review.', variant: 'info' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Variants',

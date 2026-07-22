@@ -25,9 +25,10 @@ export default {
       },
     },
   },
+  args: { status: 'success', label: 'Healthy' },
 };
 
-export const Default = { args: { status: 'success', label: 'Healthy' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Status',

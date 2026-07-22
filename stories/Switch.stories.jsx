@@ -19,9 +19,10 @@ export default {
       },
     },
   },
+  args: { label: 'Dark mode', defaultChecked: false },
 };
 
-export const Default = { args: { label: 'Dark mode', defaultChecked: false } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / States',

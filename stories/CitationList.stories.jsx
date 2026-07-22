@@ -19,9 +19,10 @@ export default {
       },
     },
   },
+  args: { items: [{ title: 'SKILL.md', href: '#' }] },
 };
 
-export const Default = { args: { items: [{ title: 'SKILL.md', href: '#' }] } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Items',

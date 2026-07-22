@@ -31,9 +31,10 @@ export default {
       },
     },
   },
+  args: { author: 'Lumi', children: 'Looks on-brand.' },
 };
 
-export const Default = { args: { author: 'Lumi', children: 'Looks on-brand.' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Authors',

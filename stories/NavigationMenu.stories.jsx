@@ -16,9 +16,10 @@ export default {
       },
     },
   },
+  args: { items: [{ label: 'Product', href: '#' }, { label: 'Docs', href: '#' }] },
 };
 
-export const Default = { args: { items: [{ label: 'Product', href: '#' }, { label: 'Docs', href: '#' }] } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Items',

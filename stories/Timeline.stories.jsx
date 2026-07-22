@@ -16,9 +16,10 @@ export default {
       },
     },
   },
+  args: { items: [{ title: 'Wish captured', time: '09:00' }, { title: 'Shipped', time: '16:00' }] },
 };
 
-export const Default = { args: { items: [{ title: 'Wish captured', time: '09:00' }, { title: 'Shipped', time: '16:00' }] } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Length',

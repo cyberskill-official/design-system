@@ -28,9 +28,10 @@ export default {
       },
     },
   },
+  args: { lines: ['$ npm run storybook'] },
 };
 
-export const Default = { args: { lines: ['$ npm run storybook'] } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Lines',

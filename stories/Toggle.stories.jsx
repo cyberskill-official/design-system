@@ -25,9 +25,10 @@ export default {
       },
     },
   },
+  args: { label: 'Notifications', defaultPressed: true },
 };
 
-export const Default = { args: { label: 'Notifications', defaultPressed: true } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Pressed',

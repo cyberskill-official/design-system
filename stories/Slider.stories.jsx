@@ -25,9 +25,10 @@ export default {
       },
     },
   },
+  args: { 'aria-label': 'Opacity', defaultValue: 50, min: 0, max: 100, step: 1 },
 };
 
-export const Default = { args: { 'aria-label': 'Opacity', defaultValue: 50, min: 0, max: 100, step: 1 } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Ranges',

@@ -28,9 +28,10 @@ export default {
       },
     },
   },
+  args: { defaultValue: 'Editable title' },
 };
 
-export const Default = { args: { defaultValue: 'Editable title' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Values',

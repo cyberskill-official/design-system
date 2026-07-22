@@ -19,9 +19,10 @@ export default {
       },
     },
   },
+  args: { items: [{ id: 'a', label: 'Alpha' }, { id: 'b', label: 'Beta' }] },
 };
 
-export const Default = { args: { items: [{ id: 'a', label: 'Alpha' }, { id: 'b', label: 'Beta' }] } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Items',

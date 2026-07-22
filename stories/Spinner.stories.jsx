@@ -19,9 +19,10 @@ export default {
       },
     },
   },
+  args: { size: 24 },
 };
 
-export const Default = { args: { size: 24 } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Sizes',

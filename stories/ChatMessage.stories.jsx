@@ -26,9 +26,10 @@ export default {
       },
     },
   },
+  args: { role: 'lumi', children: 'Turn your will into real.' },
 };
 
-export const Default = { args: { role: 'lumi', children: 'Turn your will into real.' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Roles',

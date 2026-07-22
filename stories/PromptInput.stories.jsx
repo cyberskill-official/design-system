@@ -37,9 +37,10 @@ export default {
       },
     },
   },
+  args: { placeholder: 'Describe your wish…' },
 };
 
-export const Default = { args: { placeholder: 'Describe your wish…' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Placeholders',

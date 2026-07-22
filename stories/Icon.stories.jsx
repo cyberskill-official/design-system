@@ -30,9 +30,10 @@ export default {
       },
     },
   },
+  args: { name: 'sparkle', size: 'md' },
 };
 
-export const Default = { args: { name: 'sparkle', size: 'md' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Sizes',

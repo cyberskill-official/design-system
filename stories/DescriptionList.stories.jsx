@@ -16,9 +16,10 @@ export default {
       },
     },
   },
+  args: { items: [{ term: 'Element', description: 'Thổ · studio' }] },
 };
 
-export const Default = { args: { items: [{ term: 'Element', description: 'Thổ · studio' }] } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Items',

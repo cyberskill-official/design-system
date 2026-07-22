@@ -31,9 +31,10 @@ export default {
       },
     },
   },
+  args: { src: '/assets/logo-mark.svg', alt: 'CyberSkill mark', width: 64, height: 64 },
 };
 
-export const Default = { args: { src: '/assets/logo-mark.svg', alt: 'CyberSkill mark', width: 64, height: 64 } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Sizes',

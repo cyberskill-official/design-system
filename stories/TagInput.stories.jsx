@@ -34,9 +34,10 @@ export default {
       },
     },
   },
+  args: { label: 'Tags', defaultValue: ['design', 'vn'] },
 };
 
-export const Default = { args: { label: 'Tags', defaultValue: ['design', 'vn'] } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Tags',

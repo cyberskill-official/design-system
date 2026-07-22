@@ -28,9 +28,10 @@ export default {
       },
     },
   },
+  args: { label: 'Element', options: [{ value: 'tho', label: 'Thổ' }, { value: 'hoa', label: 'Hỏa' }], defaultValue: 'tho' },
 };
 
-export const Default = { args: { label: 'Element', options: [{ value: 'tho', label: 'Thổ' }, { value: 'hoa', label: 'Hỏa' }], defaultValue: 'tho' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / States',

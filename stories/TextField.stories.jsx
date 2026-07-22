@@ -25,9 +25,10 @@ export default {
       },
     },
   },
+  args: { label: 'Work email', placeholder: 'you@cyberskill.world' },
 };
 
-export const Default = { args: { label: 'Work email', placeholder: 'you@cyberskill.world' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / States',

@@ -17,9 +17,10 @@ export default {
       },
     },
   },
+  args: { children: '⌘K' },
 };
 
-export const Default = { args: { children: '⌘K' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Keys',

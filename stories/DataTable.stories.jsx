@@ -34,9 +34,10 @@ export default {
       },
     },
   },
+  args: { columns: [{ key: 'name', header: 'Name' }, { key: 'role', header: 'Role' }], rows: [{ id: 1, name: 'Stephen', role: 'Founder' }, { id: 2, name: 'Lumi', role: 'Genie' }], caption: 'Team' },
 };
 
-export const Default = { args: { columns: [{ key: 'name', header: 'Name' }, { key: 'role', header: 'Role' }], rows: [{ id: 1, name: 'Stephen', role: 'Founder' }, { id: 2, name: 'Lumi', role: 'Genie' }], caption: 'Team' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Empty vs filled',

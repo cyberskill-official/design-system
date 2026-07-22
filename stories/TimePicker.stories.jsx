@@ -31,9 +31,10 @@ export default {
       },
     },
   },
+  args: { label: 'Start time' },
 };
 
-export const Default = { args: { label: 'Start time' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Labels',

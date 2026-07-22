@@ -19,9 +19,10 @@ export default {
       },
     },
   },
+  args: { items: ['Draft a BOD memo', 'VN labor contract'] },
 };
 
-export const Default = { args: { items: ['Draft a BOD memo', 'VN labor contract'] } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Sets',

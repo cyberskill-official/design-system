@@ -30,9 +30,10 @@ export default {
       },
     },
   },
+  args: { value: 0.45, label: 'Build progress' },
 };
 
-export const Default = { args: { value: 0.45, label: 'Build progress' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Values',

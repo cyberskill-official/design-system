@@ -19,19 +19,20 @@ export default {
       },
     },
   },
+  args: {},
 };
 
-export const Default = { args: {} };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Orientation',
   render: (args) => (
     <div style={{ display: 'grid', gap: 20 }}>
-      <Divider {...args} />
-      <Divider {...args} label="Section" />
+      <Divider />
+      <Divider {} label="Section" />
       <div style={{ display: 'flex', height: 40, alignItems: 'center', gap: 8 }}>
         <span>A</span>
-        <Divider {...args} vertical />
+        <Divider {} vertical />
         <span>B</span>
       </div>
     </div>

@@ -34,9 +34,10 @@ export default {
       },
     },
   },
+  args: { length: 6, label: 'One-time code' },
 };
 
-export const Default = { args: { length: 6, label: 'One-time code' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Length',

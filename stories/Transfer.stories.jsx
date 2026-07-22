@@ -28,9 +28,10 @@ export default {
       },
     },
   },
+  args: { source: [{ id: '1', label: 'Alpha' }], target: [{ id: '2', label: 'Beta' }] },
 };
 
-export const Default = { args: { source: [{ id: '1', label: 'Alpha' }], target: [{ id: '2', label: 'Beta' }] } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Lists',

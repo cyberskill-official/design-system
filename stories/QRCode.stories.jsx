@@ -25,9 +25,10 @@ export default {
       },
     },
   },
+  args: { value: 'https://design.cyberskill.world', size: 128 },
 };
 
-export const Default = { args: { value: 'https://design.cyberskill.world', size: 128 } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Sizes',

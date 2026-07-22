@@ -28,9 +28,10 @@ export default {
       },
     },
   },
+  args: { children: 'Human approval required.' },
 };
 
-export const Default = { args: { children: 'Human approval required.' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Copy',

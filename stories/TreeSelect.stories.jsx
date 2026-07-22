@@ -34,9 +34,10 @@ export default {
       },
     },
   },
+  args: { label: 'Folder', options: [{ value: 'root', label: 'Root', children: [{ value: 'a', label: 'A' }] }] },
 };
 
-export const Default = { args: { label: 'Folder', options: [{ value: 'root', label: 'Root', children: [{ value: 'a', label: 'A' }] }] } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Trees',

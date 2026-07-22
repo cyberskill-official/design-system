@@ -30,9 +30,10 @@ export default {
       },
     },
   },
+  args: { value: 0.82, label: 'Confidence' },
 };
 
-export const Default = { args: { value: 0.82, label: 'Confidence' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Values',

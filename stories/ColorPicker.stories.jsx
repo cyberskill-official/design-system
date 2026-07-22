@@ -28,9 +28,10 @@ export default {
       },
     },
   },
+  args: { label: 'Accent', defaultValue: '#F4BA17' },
 };
 
-export const Default = { args: { label: 'Accent', defaultValue: '#F4BA17' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Colors',

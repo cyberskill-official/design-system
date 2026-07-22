@@ -22,16 +22,17 @@ export default {
       },
     },
   },
+  args: {},
 };
 
-export const Default = { args: {} };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Instances',
   render: (args) => (
     <div style={{ display: 'flex', gap: 12 }}>
-      <AIDisclosureBadge {...args} />
-      <AIDisclosureBadge {...args} />
+      <AIDisclosureBadge />
+      <AIDisclosureBadge />
     </div>
   ),
 };

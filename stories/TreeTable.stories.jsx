@@ -28,9 +28,10 @@ export default {
       },
     },
   },
+  args: { columns: [{ key: 'name', header: 'Name' }, { key: 'kind', header: 'Kind' }], rows: [{ id: '1', name: 'Root', kind: 'folder', children: [{ id: '1a', name: 'Child', kind: 'file' }] }] },
 };
 
-export const Default = { args: { columns: [{ key: 'name', header: 'Name' }, { key: 'kind', header: 'Kind' }], rows: [{ id: '1', name: 'Root', kind: 'folder', children: [{ id: '1a', name: 'Child', kind: 'file' }] }] } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Rows',

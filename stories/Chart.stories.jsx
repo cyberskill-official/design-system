@@ -37,9 +37,10 @@ export default {
       },
     },
   },
+  args: { type: 'bar', data: [{ label: 'Mon', value: 4 }, { label: 'Tue', value: 7 }] },
 };
 
-export const Default = { args: { type: 'bar', data: [{ label: 'Mon', value: 4 }, { label: 'Tue', value: 7 }] } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Series',

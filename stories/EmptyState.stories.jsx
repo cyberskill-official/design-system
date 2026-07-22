@@ -22,9 +22,10 @@ export default {
       },
     },
   },
+  args: { title: 'No wishes yet', description: 'Capture the first one.' },
 };
 
-export const Default = { args: { title: 'No wishes yet', description: 'Capture the first one.' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Copy',

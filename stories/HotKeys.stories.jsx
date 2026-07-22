@@ -22,9 +22,10 @@ export default {
       },
     },
   },
+  args: { keys: [{ combo: '⌘K', label: 'Command palette' }] },
 };
 
-export const Default = { args: { keys: [{ combo: '⌘K', label: 'Command palette' }] } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Keys',

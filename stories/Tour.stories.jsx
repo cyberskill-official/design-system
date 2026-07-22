@@ -22,9 +22,10 @@ export default {
       },
     },
   },
+  args: { steps: [{ title: 'Welcome', content: 'Host Live hub.' }, { title: 'Axes', content: 'Theme × Element × Language.' }], open: true },
 };
 
-export const Default = { args: { steps: [{ title: 'Welcome', content: 'Host Live hub.' }, { title: 'Axes', content: 'Theme × Element × Language.' }], open: true } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Steps',

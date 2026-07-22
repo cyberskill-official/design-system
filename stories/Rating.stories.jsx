@@ -34,9 +34,10 @@ export default {
       },
     },
   },
+  args: { value: 4, max: 5, label: 'Satisfaction' },
 };
 
-export const Default = { args: { value: 4, max: 5, label: 'Satisfaction' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Values',

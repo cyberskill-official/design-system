@@ -17,9 +17,10 @@ export default {
       },
     },
   },
+  args: { items: [{ label: 'File', items: [{ label: 'New' }] }, { label: 'Edit', items: [{ label: 'Undo' }] }] },
 };
 
-export const Default = { args: { items: [{ label: 'File', items: [{ label: 'New' }] }, { label: 'Edit', items: [{ label: 'Undo' }] }] } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Menus',

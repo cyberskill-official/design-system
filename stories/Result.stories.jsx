@@ -31,9 +31,10 @@ export default {
       },
     },
   },
+  args: { status: 'success', title: 'Wish shipped', description: 'All gates green.' },
 };
 
-export const Default = { args: { status: 'success', title: 'Wish shipped', description: 'All gates green.' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Status',

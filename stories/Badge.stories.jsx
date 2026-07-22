@@ -28,9 +28,10 @@ export default {
       },
     },
   },
+  args: { children: 'New' },
 };
 
-export const Default = { args: { children: 'New' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Labels',

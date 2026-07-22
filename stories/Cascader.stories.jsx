@@ -34,9 +34,10 @@ export default {
       },
     },
   },
+  args: { options: [{ value: 'vn', label: 'Vietnam', children: [{ value: 'hcm', label: 'HCMC' }] }], label: 'Region' },
 };
 
-export const Default = { args: { options: [{ value: 'vn', label: 'Vietnam', children: [{ value: 'hcm', label: 'HCMC' }] }], label: 'Region' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Options',

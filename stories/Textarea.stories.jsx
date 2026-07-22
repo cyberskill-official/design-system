@@ -28,9 +28,10 @@ export default {
       },
     },
   },
+  args: { label: 'Notes', placeholder: 'Context…', rows: 4 },
 };
 
-export const Default = { args: { label: 'Notes', placeholder: 'Context…', rows: 4 } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Rows',

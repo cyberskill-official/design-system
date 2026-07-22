@@ -31,9 +31,10 @@ export default {
       },
     },
   },
+  args: { label: 'Quantity', defaultValue: 1, min: 0 },
 };
 
-export const Default = { args: { label: 'Quantity', defaultValue: 1, min: 0 } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Bounds',

@@ -16,9 +16,10 @@ export default {
       },
     },
   },
+  args: { children: 'Thổ' },
 };
 
-export const Default = { args: { children: 'Thổ' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Labels',

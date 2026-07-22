@@ -25,9 +25,10 @@ export default {
       },
     },
   },
+  args: { defaultValue: 'Draft…', label: 'Editor' },
 };
 
-export const Default = { args: { defaultValue: 'Draft…', label: 'Editor' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Content',

@@ -34,9 +34,10 @@ export default {
       },
     },
   },
+  args: { options: [{ id: 'lumi', label: 'Lumi' }], label: 'Mention' },
 };
 
-export const Default = { args: { options: [{ id: 'lumi', label: 'Lumi' }], label: 'Mention' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Options',

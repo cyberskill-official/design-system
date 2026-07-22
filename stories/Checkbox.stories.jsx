@@ -22,9 +22,10 @@ export default {
       },
     },
   },
+  args: { label: 'Remember this wish', defaultChecked: true },
 };
 
-export const Default = { args: { label: 'Remember this wish', defaultChecked: true } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / States',

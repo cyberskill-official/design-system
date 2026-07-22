@@ -22,9 +22,10 @@ export default {
       },
     },
   },
+  args: { items: [{ title: 'What is a wish?', content: 'A clear outcome.' }, { title: 'Languages', content: 'EN · VI.' }], defaultOpen: 0 },
 };
 
-export const Default = { args: { items: [{ title: 'What is a wish?', content: 'A clear outcome.' }, { title: 'Languages', content: 'EN · VI.' }], defaultOpen: 0 } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Multi',

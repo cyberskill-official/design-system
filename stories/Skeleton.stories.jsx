@@ -32,9 +32,10 @@ export default {
       },
     },
   },
+  args: { width: 200, height: 16 },
 };
 
-export const Default = { args: { width: 200, height: 16 } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Sizes',

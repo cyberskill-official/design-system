@@ -30,9 +30,10 @@ export default {
       },
     },
   },
+  args: { label: 'Open wishes', value: '12', delta: '+2' },
 };
 
-export const Default = { args: { label: 'Open wishes', value: '12', delta: '+2' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Values',

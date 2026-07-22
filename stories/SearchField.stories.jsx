@@ -22,9 +22,10 @@ export default {
       },
     },
   },
+  args: { placeholder: 'Search…', label: 'Search' },
 };
 
-export const Default = { args: { placeholder: 'Search…', label: 'Search' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Placeholders',

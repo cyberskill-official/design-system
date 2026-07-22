@@ -25,9 +25,10 @@ export default {
       },
     },
   },
+  args: { code: 'const wish = "ship";', language: 'js' },
 };
 
-export const Default = { args: { code: 'const wish = "ship";', language: 'js' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Snippets',

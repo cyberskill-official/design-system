@@ -48,9 +48,10 @@ export default {
       },
     },
   },
+  args: { children: 'Make a wish', variant: 'primary', size: 'md' },
 };
 
-export const Default = { args: { children: 'Make a wish', variant: 'primary', size: 'md' } };
+export const Default = {};
 
 export const AllVariants = {
   name: 'Matrix / All variants',

@@ -31,9 +31,10 @@ export default {
       },
     },
   },
+  args: { label: 'Attachments', accept: '.pdf,.png' },
 };
 
-export const Default = { args: { label: 'Attachments', accept: '.pdf,.png' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Accept',

@@ -25,9 +25,10 @@ export default {
       },
     },
   },
+  args: { nodes: [{ id: '1', label: 'Design system', children: [{ id: '1a', label: 'Tokens' }] }] },
 };
 
-export const Default = { args: { nodes: [{ id: '1', label: 'Design system', children: [{ id: '1a', label: 'Tokens' }] }] } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Depth',

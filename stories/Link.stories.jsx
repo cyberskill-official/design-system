@@ -27,9 +27,10 @@ export default {
       },
     },
   },
+  args: { href: '#', children: 'Read the doctrine' },
 };
 
-export const Default = { args: { href: '#', children: 'Read the doctrine' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Labels',

@@ -29,9 +29,10 @@ export default {
       },
     },
   },
+  args: { 'aria-label': 'New wish', children: '+' },
 };
 
-export const Default = { args: { 'aria-label': 'New wish', children: '+' } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Labels',

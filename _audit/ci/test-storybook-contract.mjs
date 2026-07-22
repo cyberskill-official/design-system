@@ -80,6 +80,51 @@ if (missing.length) {
 
 const MATRIX_EXPORT = /export\s+const\s+(Matrix|AllVariants|AllSizes|States|Disabled)\b/;
 const THEATER = /data-matrix-cell|Secondary composition context|forces multi-story depth/;
+const SPREAD_ARGS = /\{\s*\.\.\.\s*args\s*\}/;
+
+/** Extract balanced `{...}` starting at open brace index. */
+function balanced(s, start) {
+  let depth = 0;
+  let inStr = null;
+  let esc = false;
+  for (let i = start; i < s.length; i++) {
+    const c = s[i];
+    if (inStr) {
+      if (esc) esc = false;
+      else if (c === '\\') esc = true;
+      else if (c === inStr) inStr = null;
+      continue;
+    }
+    if (c === '"' || c === "'" || c === '`') {
+      inStr = c;
+      continue;
+    }
+    if (c === '{') depth++;
+    else if (c === '}') {
+      depth--;
+      if (depth === 0) return s.slice(start, i + 1);
+    }
+  }
+  return null;
+}
+
+function metaArgsObject(text) {
+  const dm = text.match(/export\s+default\s*(\{)/);
+  if (!dm) return null;
+  const metaStart = dm.index + dm[0].length - 1;
+  const meta = balanced(text, metaStart);
+  if (!meta) return null;
+  const am = meta.match(/\bargs\s*:\s*(\{)/);
+  if (!am) return null;
+  const abs = metaStart + am.index + am[0].length - 1;
+  return balanced(text, abs);
+}
+
+function argsNonEmpty(argsBlock) {
+  if (!argsBlock) return false;
+  const inner = argsBlock.slice(1, -1).trim();
+  return inner.length > 0;
+}
 
 let fail = [];
 for (const m of modules) {
@@ -98,6 +143,9 @@ for (const m of modules) {
   const atKeys = [...atSection.matchAll(/^\s*"([A-Za-z_][A-Za-z0-9_]*)"\s*:/gm)].map((x) => x[1]);
   if (atKeys.length < 1) fail.push(m.primary + ' no argTypes keys');
 
+  const metaArgs = metaArgsObject(text);
+  const metaHasFixtures = argsNonEmpty(metaArgs);
+
   // Extract matrix story body and require primary mount
   const matrixBodies = [...text.matchAll(/export\s+const\s+(Matrix|AllVariants|AllSizes|States|Disabled)\s*=\s*\{([\s\S]*?)\n\};/g)];
   assert(matrixBodies.length >= 1, 'matrix body for ' + m.primary);
@@ -112,6 +160,26 @@ for (const m of modules) {
       if (!/\bdisabled\b/.test(params)) {
         fail.push(m.primary + ' ' + name + ' uses disabled but prop not in signature');
       }
+    }
+    // Universal hollow-class rule (CSF3): {...args} requires non-empty meta.args
+    // (or non-empty matrix-local args). Prevents Default.args inheritance theater.
+    if (SPREAD_ARGS.test(body)) {
+      const matArgsM = body.match(/\bargs\s*:\s*(\{)/);
+      let matFixtures = false;
+      if (matArgsM) {
+        // approximate: not empty object
+        matFixtures = !/\bargs\s*:\s*\{\s*\}/.test(body);
+      }
+      if (!metaHasFixtures && !matFixtures) {
+        fail.push(m.primary + ' ' + name + ' spreads {...args} without non-empty meta/matrix args (CSF3 hollow)');
+      }
+    }
+  }
+
+  // Table primaries: meta fixtures must include columns+rows when Matrix spreads args
+  if ((m.primary === 'DataGrid' || m.primary === 'DataTable') && metaArgs) {
+    if (!/columns\s*:/.test(metaArgs) || !/rows\s*:/.test(metaArgs)) {
+      fail.push(m.primary + ' meta args must include columns and rows fixtures');
     }
   }
 

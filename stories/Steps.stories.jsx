@@ -19,9 +19,10 @@ export default {
       },
     },
   },
+  args: { current: 1, steps: [{ title: 'Capture' }, { title: 'Build' }, { title: 'Ship' }] },
 };
 
-export const Default = { args: { current: 1, steps: [{ title: 'Capture' }, { title: 'Build' }, { title: 'Ship' }] } };
+export const Default = {};
 
 export const Matrix = {
   name: 'Matrix / Current',
