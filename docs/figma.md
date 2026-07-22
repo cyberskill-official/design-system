@@ -18,10 +18,20 @@ CI job **`figma-variables-push`** (in `.github/workflows/design-system-gates.yml
 
 | Name | Value |
 |---|---|
-| `FIGMA_TOKEN` | Figma personal access token |
+| `FIGMA_TOKEN` | Figma personal access token with **Variables** scopes |
 | `FIGMA_FILE_KEY` | File key from `https://www.figma.com/design/<KEY>/...` |
 
 Must be **repository secrets** under the Actions tab (exact names, case-sensitive). Not Environment secrets (those only inject when a job sets `environment:`), not Variables, and not org secrets that exclude this repo. CI log for a missing secret shows `FIGMA_TOKEN:` / `FIGMA_FILE_KEY:` with empty values.
+
+**Required Figma token scopes** (CI failed with 403 when these were missing):
+
+| Scope | Why |
+|---|---|
+| `file_variables:read` | `GET /v1/files/:key/variables/local` |
+| `file_variables:write` | create/update collection + colour variables |
+| `file_content:read` (or file metadata) | confirm file access before push |
+
+A token that only has file content / comments / webhooks is not enough. Generate a new PAT under Figma **Settings → Security → Personal access tokens**, enable the Variables scopes, then replace the `FIGMA_TOKEN` repository secret.
 
 ### Local
 

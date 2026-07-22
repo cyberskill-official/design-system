@@ -110,14 +110,15 @@ function render(list, lang) {
   return out;
 }
 
-const generatedAt = new Date().toISOString();
+// Deterministic output: never embed wall-clock time in headers or provenance.
+// A clock stamp made every CI run "dirty", which race-failed auto-commits on main.
 const sourceSha256 = sha256(dtcgText);
 const shaShort = sourceSha256.slice(0, 16) + '…';
 
 const HEADER = (lang) => [
   '// CyberSkill Design System — native design tokens.',
   '// GENERATED from tokens/tokens.dtcg.json — do not hand-edit; regenerate on token change.',
-  `// release v${VERSION} · generated ${generatedAt} · source sha256 ${shaShort}`,
+  `// release v${VERSION} · source sha256 ${shaShort}`,
   '// conversions: rem→px at 16 · em→…Em relative doubles · rgba alpha→ARGB byte (round(a*255)) · durations in ms',
   '// dark element packs: see $extensions.overrides.elementsDark',
   '// provenance: tokens/provenance.json · parity gate: _audit/token-pipeline-test.html',
@@ -177,7 +178,10 @@ await write('tokens/native/CSTokens.kt', kt);
 await write('tokens/native/cs_tokens.dart', dart);
 
 const provenance = {
-  system: ext.system, release: VERSION, generatedAt, source: 'tokens/tokens.dtcg.json', sourceSha256,
+  system: ext.system,
+  release: VERSION,
+  source: 'tokens/tokens.dtcg.json',
+  sourceSha256,
   dtcgStamp: { version: ext.version, generated: ext.generated },
   conversions: { remBasePx: 16, emSuffix: 'Em (relative)', alphaToArgbByte: 'round(a*255)', durationsUnit: 'ms', densitySuffix: 'Compact (fine-pointer only)', darkPackSuffix: '<Scope>Dark (APCA-derived)' },
   counts: { baseTokens: base.length, byType, darkColorOverrides: darkOverrides.length, densityCompactOverrides: densityCompact.length, darkPackConstants: elementsDark.length, skipped: 0 },

@@ -132,21 +132,22 @@ jobs:
           fi
       - name: Commit regenerated files if they changed
         if: steps.drift.outputs.changed == 'true'
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: 'chore: regenerate tokens/native/* from tokens.dtcg.json [skip ci]'
-          file_pattern: 'tokens/native/*.swift tokens/native/*.kt tokens/native/*.dart tokens/provenance.json'
-      - name: Explain push auth if commit step failed
-        if: failure() && steps.drift.outputs.changed == 'true'
         run: |
-          echo "::error::Could not push regenerated tokens (403/denied is usual when GITHUB_TOKEN is read-only)."
-          echo "Org policy often disables 'Read and write permissions' on the repo."
-          echo "Fix one of:"
-          echo "  1) Org → Settings → Actions → General → Workflow permissions → allow write (or unlock repo choice)"
-          echo "     https://github.com/organizations/cyberskill-official/settings/actions"
-          echo "  2) Add repository secret DS_PUSH_TOKEN = fine-grained PAT with Contents: Read and write on this repo"
-          echo "     https://github.com/${{ github.repository }}/settings/secrets/actions"
-          exit 1
+          set -euo pipefail
+          BRANCH="${{ github.head_ref || github.ref_name }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Always re-apply on the latest tip so concurrent main pushes cannot non-fast-forward.
+          git fetch origin "$BRANCH"
+          git reset --hard "origin/$BRANCH"
+          node _audit/ci/generate-native-tokens.mjs
+          if git diff --quiet -- tokens/native tokens/provenance.json; then
+            echo "After sync, natives already match remote — nothing to push."
+            exit 0
+          fi
+          git add tokens/native/CSTokens.swift tokens/native/CSTokens.kt tokens/native/cs_tokens.dart tokens/provenance.json
+          git commit -m "chore: regenerate tokens/native/* from tokens.dtcg.json [skip ci]"
+          git push origin "HEAD:$BRANCH"
 
   figma-variables-push:
     # Pushes colour tokens from tokens/tokens.dtcg.json into Figma local Variables.
