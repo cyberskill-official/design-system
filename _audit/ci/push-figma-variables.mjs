@@ -281,6 +281,16 @@ export function isEnterpriseVariablesBlock(err) {
     || (/variables\/local/i.test(msg) && /\b403\b/.test(msg));
 }
 
+/** Rate-limit or unavailable endpoint — soft-skip in CI (non-Enterprise plans hit these). */
+export function isSoftSkippableFigmaError(err) {
+  const msg = String(err?.message || err || '');
+  return /\b429\b/.test(msg)
+    || /\b503\b/.test(msg)
+    || /\b404\b/.test(msg)
+    || /Rate limit/i.test(msg)
+    || /Too many requests/i.test(msg);
+}
+
 // Run when executed as CLI (skip when imported for unit tests)
 const invoked = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
 if (invoked) {
@@ -296,6 +306,22 @@ if (invoked) {
       const report = {
         skipped: true,
         reason: 'enterprise_variables_api',
+        message: msg,
+        at: new Date().toISOString(),
+      };
+      try {
+        writeFileSync(join(root, '_audit/ci/figma-push-report.json'), JSON.stringify(report, null, 2) + '\n');
+      } catch (_) { /* ignore */ }
+      process.exit(0);
+    }
+    if (isSoftSkippableFigmaError(e)) {
+      console.error('');
+      console.error(`SOFT SKIP — Figma API returned ${e.message.match(/\b(429|503|404)\b/)?.[0] || 'a non-success'} (rate limit / unavailable / endpoint not found).`);
+      console.error('Non-Enterprise plans do not have access to the Variables REST API (404) and are subject to rate limits.');
+      console.error('Options: retry later, upgrade to Figma Enterprise, or hand-sync / Tokens Studio. See docs/figma.md.');
+      const report = {
+        skipped: true,
+        reason: 'figma_api_unavailable',
         message: msg,
         at: new Date().toISOString(),
       };
