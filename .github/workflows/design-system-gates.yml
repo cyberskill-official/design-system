@@ -88,9 +88,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with: { ref: ${{ github.head_ref || github.ref }} }
+        with:
+          # Expand flow-map form — nested ${{ }} with || breaks YAML parsers on GHA.
+          ref: ${{ github.head_ref || github.ref }}
       - uses: actions/setup-node@v4
-        with: { node-version: '20' }
+        with:
+          node-version: '20'
       - name: Regenerate native token targets from tokens.dtcg.json
         run: node _audit/ci/generate-native-tokens.mjs
       - name: Commit regenerated files if they changed
