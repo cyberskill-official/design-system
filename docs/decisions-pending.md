@@ -16,9 +16,9 @@ Pixel / visual-baseline rows stay **advisory** on the fast board (`pixel-ci`, vi
 
 ## 3. Figma / Tokens Studio push
 
-**Owner choice: secrets configured (FIGMA_TOKEN + FIGMA_FILE_KEY)** — secrets inject correctly (run `80974029569`). Push still needs a Figma PAT with `file_variables:read` + `file_variables:write` (403 without them). Replace `FIGMA_TOKEN` after regenerating the PAT, then re-run **Actions → Design System Gates**.
+**Owner choice: secrets configured (FIGMA_TOKEN + FIGMA_FILE_KEY)** — secrets inject; file opens. Figma Variables REST API is **Enterprise-only** (`file_variables:read` / `file_variables:write`). Non-Enterprise PATs never show those scopes. CI soft-skips the push with a report unless the org is on Enterprise. Alternatives: hand-sync or Tokens Studio (`docs/figma.md`).
 
-**Token auto-commit:** write permission unlocked; remaining thrash was wall-clock timestamps in generated natives (fixed to source-sha only).
+**Token auto-commit:** write permission unlocked; native regen is deterministic (source-sha only).
 
 ### Where to get a Figma token
 

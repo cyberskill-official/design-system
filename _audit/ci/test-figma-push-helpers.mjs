@@ -6,6 +6,7 @@ import {
   flattenDtcg,
   toFigmaName,
   pickColorLeaves,
+  isEnterpriseVariablesBlock,
 } from './push-figma-variables.mjs';
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -39,6 +40,10 @@ assert(colors.every((c) => typeof c.value === 'string' && c.value.startsWith('#'
 // names unique
 const names = colors.map((c) => toFigmaName(c.path));
 assert(new Set(names).size === names.length, 'unique figma names');
+
+assert(isEnterpriseVariablesBlock(new Error('Figma GET /files/x/variables/local → 403: Invalid scope(s): file_content:read. This endpoint requires the file_variables:read scope')), 'enterprise block: scopes');
+assert(isEnterpriseVariablesBlock('Enterprise plan only'), 'enterprise block: plan note');
+assert(!isEnterpriseVariablesBlock(new Error('Figma GET /files/x → 404: Not found')), 'not enterprise: 404');
 
 console.log('PASS test-figma-push-helpers', {
   leaves: leaves.length,

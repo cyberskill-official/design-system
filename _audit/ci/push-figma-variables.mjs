@@ -272,11 +272,38 @@ async function main() {
   return report;
 }
 
+/** Figma Variables REST API is Enterprise-only (file_variables:read/write). Soft-skip for CI. */
+export function isEnterpriseVariablesBlock(err) {
+  const msg = String(err?.message || err || '');
+  return /file_variables:(read|write)/i.test(msg)
+    || /Invalid scope\(s\)/i.test(msg)
+    || /Enterprise plan only/i.test(msg)
+    || (/variables\/local/i.test(msg) && /\b403\b/.test(msg));
+}
+
 // Run when executed as CLI (skip when imported for unit tests)
 const invoked = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
 if (invoked) {
   main().catch((e) => {
-    console.error(e.message || e);
+    const msg = e.message || String(e);
+    console.error(msg);
+    if (isEnterpriseVariablesBlock(e)) {
+      console.error('');
+      console.error('SOFT SKIP — Figma Variables REST API requires an Enterprise plan.');
+      console.error('Scopes file_variables:read and file_variables:write only appear when generating a PAT on Enterprise.');
+      console.error('Your token scopes (file_content, comments, webhooks, …) cannot call /variables/local.');
+      console.error('Options: upgrade to Figma Enterprise, or hand-sync / Tokens Studio. See docs/figma.md.');
+      const report = {
+        skipped: true,
+        reason: 'enterprise_variables_api',
+        message: msg,
+        at: new Date().toISOString(),
+      };
+      try {
+        writeFileSync(join(root, '_audit/ci/figma-push-report.json'), JSON.stringify(report, null, 2) + '\n');
+      } catch (_) { /* ignore */ }
+      process.exit(0);
+    }
     process.exit(1);
   });
 }

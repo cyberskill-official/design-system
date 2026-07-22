@@ -13,7 +13,7 @@ Work that is approved in direction but not built yet. Version stays pinned at **
 
 ## Shipped recently (removed from active list)
 
-- Figma colour variables push (`_audit/ci/push-figma-variables.mjs` + `figma-variables-push` CI job) — needs `FIGMA_TOKEN` + `FIGMA_FILE_KEY`
+- Figma colour variables push (`_audit/ci/push-figma-variables.mjs` + `figma-variables-push` CI job) — secrets wired; **Variables REST API is Figma Enterprise-only**; non-Enterprise soft-skips
 - Storybook host playground (`/playground/`, Theme × Element × Language toolbar) — portable contract unchanged
 - Form field-array helpers (`FormFieldArray`) + multi-step wizard controller (`FormWizard`)
 - DataGrid row virtualization + column-order persistence (`virtual`, `persistKey`)
