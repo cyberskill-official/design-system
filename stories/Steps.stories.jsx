@@ -5,11 +5,11 @@ export default {
   component: Steps,
   tags: ['autodocs'],
   argTypes: {
-  "current": {
-    "control": "number"
-  },
   "steps": {
     "control": "object"
+  },
+  "current": {
+    "control": "number"
   }
 },
   parameters: {
@@ -21,14 +21,14 @@ export default {
   },
 };
 
-export const Default = { args: { current: 1, items: [{ title: 'Capture' }, { title: 'Build' }, { title: 'Ship' }] } };
+export const Default = { args: { current: 1, steps: [{ title: 'Capture' }, { title: 'Build' }, { title: 'Ship' }] } };
 
 export const Matrix = {
   name: 'Matrix / Current',
   render: (args) => (
     <div style={{ display: 'grid', gap: 16 }}>
-      <Steps {...args} current={0} items={[{ title: 'Capture' }, { title: 'Build' }, { title: 'Ship' }]} />
-      <Steps {...args} current={2} items={[{ title: 'Capture' }, { title: 'Build' }, { title: 'Ship' }]} />
+      <Steps {...args} current={0} steps={[{ title: 'Capture' }, { title: 'Build' }, { title: 'Ship' }]} />
+      <Steps {...args} current={2} steps={[{ title: 'Capture' }, { title: 'Build' }, { title: 'Ship' }]} />
     </div>
   ),
 };

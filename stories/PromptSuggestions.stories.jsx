@@ -5,6 +5,9 @@ export default {
   component: PromptSuggestions,
   tags: ['autodocs'],
   argTypes: {
+  "suggestions": {
+    "control": "object"
+  },
   "onSelect": {
     "control": "text"
   }

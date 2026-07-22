@@ -12,6 +12,9 @@ export default {
   },
   "placeholder": {
     "control": "text"
+  },
+  "groups": {
+    "control": "object"
   }
 },
   parameters: {
@@ -23,14 +26,24 @@ export default {
   },
 };
 
-export const Default = { render: function C() { const [open, setOpen] = React.useState(true); return (<><Button onClick={() => setOpen(true)}>Open palette</Button><CommandPalette open={open} onClose={() => setOpen(false)} items={[{ id: '1', label: 'Go to Live', onSelect: () => setOpen(false) }]} /></>); } };
+export const Default = { render: function C() { const [open, setOpen] = React.useState(true); return (<><Button onClick={() => setOpen(true)}>Open palette</Button><CommandPalette open={open} onClose={() => setOpen(false)} groups={[{ label: 'Navigate', items: [{ label: 'Go to Live', onSelect: () => setOpen(false) }, { label: 'Tokens', onSelect: () => setOpen(false) }] }]} /></>); } };
 
 export const Matrix = {
-  name: 'Matrix / open',
-  render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <CommandPalette {...args} open={false} />
-      <CommandPalette {...args} open={true} />
-    </div>
-  ),
+  name: 'Matrix / Groups',
+  render: function C() {
+    const [open, setOpen] = React.useState(true);
+    return (
+      <>
+        <Button onClick={() => setOpen(true)}>Open</Button>
+        <CommandPalette
+          open={open}
+          onClose={() => setOpen(false)}
+          groups={[
+            { label: 'Navigate', items: [{ label: 'Live hub', onSelect: () => setOpen(false) }] },
+            { label: 'Tools', items: [{ label: 'Tokens', onSelect: () => setOpen(false) }, { label: 'Health', onSelect: () => setOpen(false) }] },
+          ]}
+        />
+      </>
+    );
+  },
 };

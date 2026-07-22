@@ -5,6 +5,9 @@ export default {
   component: TreeSelect,
   tags: ['autodocs'],
   argTypes: {
+  "nodes": {
+    "control": "object"
+  },
   "value": {
     "control": "text"
   },
@@ -22,9 +25,6 @@ export default {
   },
   "lang": {
     "control": "text"
-  },
-  "nodes": {
-    "control": "object"
   }
 },
   parameters: {
@@ -38,12 +38,12 @@ export default {
 
 export const Default = { args: { label: 'Folder', options: [{ value: 'root', label: 'Root', children: [{ value: 'a', label: 'A' }] }] } };
 
-export const States = {
-  name: 'Matrix / States',
+export const Matrix = {
+  name: 'Matrix / Trees',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <TreeSelect {...args} />
-      <TreeSelect {...args} disabled />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <TreeSelect {...args} label="A" options={[{ value: 'r', label: 'Root' }]} />
+      <TreeSelect {...args} label="B" options={[{ value: 'r', label: 'Root', children: [{ value: 'c', label: 'Child' }] }]} />
     </div>
   ),
 };

@@ -5,6 +5,21 @@ export default {
   component: Comment,
   tags: ['autodocs'],
   argTypes: {
+  "avatar": {
+    "control": "object"
+  },
+  "author": {
+    "control": "object"
+  },
+  "meta": {
+    "control": "object"
+  },
+  "actions": {
+    "control": "object"
+  },
+  "replies": {
+    "control": "object"
+  },
   "lang": {
     "control": "text"
   }

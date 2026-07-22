@@ -6,6 +6,12 @@ export default {
   component: Popconfirm,
   tags: ['autodocs'],
   argTypes: {
+  "trigger": {
+    "control": "object"
+  },
+  "title": {
+    "control": "object"
+  },
   "okLabel": {
     "control": "text"
   },
@@ -13,9 +19,6 @@ export default {
     "control": "text"
   },
   "lang": {
-    "control": "text"
-  },
-  "title": {
     "control": "text"
   }
 },

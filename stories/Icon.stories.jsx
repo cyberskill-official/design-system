@@ -34,13 +34,13 @@ export default {
 
 export const Default = { args: { name: 'sparkle', size: 'md' } };
 
-export const AllSizes = {
-  name: 'Matrix / All sizes',
+export const Matrix = {
+  name: 'Matrix / Sizes',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Icon {...args} size="sm" />
-      <Icon {...args} size="md" />
-      <Icon {...args} size="lg" />
+    <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+      <Icon {...args} name="sparkle" size="sm" />
+      <Icon {...args} name="sparkle" size="md" />
+      <Icon {...args} name="sparkle" size="lg" />
     </div>
   ),
 };

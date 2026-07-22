@@ -5,14 +5,6 @@ export default {
   component: Timeline,
   tags: ['autodocs'],
   argTypes: {
-  "state": {
-    "control": "select",
-    "options": [
-      "done",
-      "now",
-      "todo"
-    ]
-  },
   "items": {
     "control": "object"
   }

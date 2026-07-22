@@ -6,6 +6,12 @@ export default {
   component: InputGroup,
   tags: ['autodocs'],
   argTypes: {
+  "prefix": {
+    "control": "object"
+  },
+  "suffix": {
+    "control": "object"
+  },
   "clearable": {
     "control": "boolean"
   },
@@ -43,11 +49,11 @@ export default {
 export const Default = { render: () => (<InputGroup><TextField label="Amount" defaultValue="100" /></InputGroup>) };
 
 export const Matrix = {
-  name: 'Matrix / clearable',
-  render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <InputGroup {...args} clearable={false} />
-      <InputGroup {...args} clearable={true} />
+  name: 'Matrix / Fields',
+  render: () => (
+    <div style={{ display: 'grid', gap: 12 }}>
+      <InputGroup><TextField label="Amount" defaultValue="10" /></InputGroup>
+      <InputGroup><TextField label="Amount" defaultValue="100" /><TextField label="Unit" defaultValue="USD" /></InputGroup>
     </div>
   ),
 };

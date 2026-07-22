@@ -11,64 +11,18 @@ export default {
     "control": "text"
   },
   "errors": {
-    "control": "object"
+    "control": "text"
   },
   "rules": {
     "control": "object"
   },
   "asyncRules": {
-    "control": "object"
+    "control": "text"
   },
   "initialValues": {
     "control": "text"
   },
   "lang": {
-    "control": "text"
-  },
-  "name": {
-    "control": "text"
-  },
-  "required": {
-    "control": "boolean"
-  },
-  "valueProp": {
-    "control": "select",
-    "options": [
-      "value",
-      "checked"
-    ]
-  },
-  "index": {
-    "control": "number"
-  },
-  "item": {
-    "control": "text"
-  },
-  "path": {
-    "control": "text"
-  },
-  "min": {
-    "control": "number"
-  },
-  "max": {
-    "control": "number"
-  },
-  "defaultItem": {
-    "control": "object"
-  },
-  "id": {
-    "control": "text"
-  },
-  "values": {
-    "control": "text"
-  },
-  "step": {
-    "control": "number"
-  },
-  "setValue": {
-    "control": "text"
-  },
-  "onComplete": {
     "control": "text"
   }
 },
@@ -84,11 +38,18 @@ export default {
 export const Default = { render: () => (<Form onSubmit={(e) => e.preventDefault()}><FormField name="email" label="Email"><TextField label="Email" name="email" /></FormField><Button type="submit">Submit</Button></Form>) };
 
 export const Matrix = {
-  name: 'Matrix / required',
-  render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <Form {...args} required={false} />
-      <Form {...args} required={true} />
+  name: 'Matrix / Fields',
+  render: () => (
+    <div style={{ display: 'grid', gap: 16 }}>
+      <Form onSubmit={(e) => e.preventDefault()}>
+        <FormField name="a" label="A"><TextField label="A" name="a" /></FormField>
+        <Button type="submit">One field</Button>
+      </Form>
+      <Form onSubmit={(e) => e.preventDefault()}>
+        <FormField name="a" label="A"><TextField label="A" name="a" /></FormField>
+        <FormField name="b" label="B"><TextField label="B" name="b" /></FormField>
+        <Button type="submit">Two fields</Button>
+      </Form>
     </div>
   ),
 };

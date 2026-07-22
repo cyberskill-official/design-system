@@ -8,6 +8,9 @@ export default {
   "label": {
     "control": "text"
   },
+  "details": {
+    "control": "object"
+  },
   "sources": {
     "control": "text"
   }

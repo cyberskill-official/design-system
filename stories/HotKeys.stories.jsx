@@ -5,6 +5,9 @@ export default {
   component: HotKeys,
   tags: ['autodocs'],
   argTypes: {
+  "bindings": {
+    "control": "object"
+  },
   "help": {
     "control": "boolean"
   },
@@ -24,11 +27,11 @@ export default {
 export const Default = { args: { keys: [{ combo: '⌘K', label: 'Command palette' }] } };
 
 export const Matrix = {
-  name: 'Matrix / help',
+  name: 'Matrix / Keys',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <HotKeys {...args} help={false} />
-      <HotKeys {...args} help={true} />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <HotKeys {...args} keys={[{ combo: '⌘K', label: 'Palette' }]} />
+      <HotKeys {...args} keys={[{ combo: '⌘K', label: 'Palette' }, { combo: '⌘/', label: 'Help' }]} />
     </div>
   ),
 };

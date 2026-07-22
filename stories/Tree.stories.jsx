@@ -5,6 +5,9 @@ export default {
   component: Tree,
   tags: ['autodocs'],
   argTypes: {
+  "nodes": {
+    "control": "object"
+  },
   "selected": {
     "control": "text"
   },
@@ -13,9 +16,6 @@ export default {
   },
   "defaultOpen": {
     "control": "boolean"
-  },
-  "nodes": {
-    "control": "object"
   }
 },
   parameters: {
@@ -30,11 +30,11 @@ export default {
 export const Default = { args: { nodes: [{ id: '1', label: 'Design system', children: [{ id: '1a', label: 'Tokens' }] }] } };
 
 export const Matrix = {
-  name: 'Matrix / defaultOpen',
+  name: 'Matrix / Depth',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <Tree {...args} defaultOpen={false} />
-      <Tree {...args} defaultOpen={true} />
+    <div style={{ display: 'grid', gap: 16 }}>
+      <Tree {...args} nodes={[{ id: '1', label: 'Root' }]} />
+      <Tree {...args} nodes={[{ id: '1', label: 'Root', children: [{ id: '1a', label: 'Child' }] }]} />
     </div>
   ),
 };

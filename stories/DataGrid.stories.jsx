@@ -5,13 +5,10 @@ export default {
   component: DataGrid,
   tags: ['autodocs'],
   argTypes: {
-  "sortable": {
-    "control": "boolean"
+  "columns": {
+    "control": "object"
   },
-  "pinned": {
-    "control": "boolean"
-  },
-  "sortValue": {
+  "rows": {
     "control": "object"
   },
   "rowKey": {
@@ -21,13 +18,19 @@ export default {
     "control": "boolean"
   },
   "selected": {
-    "control": "object"
+    "control": "text"
   },
   "onSelect": {
-    "control": "object"
+    "control": "text"
   },
   "height": {
     "control": "number"
+  },
+  "caption": {
+    "control": "object"
+  },
+  "empty": {
+    "control": "object"
   },
   "filterText": {
     "control": "text"
@@ -49,15 +52,6 @@ export default {
   },
   "lang": {
     "control": "text"
-  },
-  "columns": {
-    "control": "object"
-  },
-  "rows": {
-    "control": "number"
-  },
-  "caption": {
-    "control": "text"
   }
 },
   parameters: {
@@ -72,11 +66,11 @@ export default {
 export const Default = { args: { columns: [{ key: 'name', header: 'Name' }, { key: 'status', header: 'Status' }], rows: [{ id: 1, name: 'Alpha wish', status: 'Open' }, { id: 2, name: 'Beta wish', status: 'Done' }], caption: 'Wishes' } };
 
 export const Matrix = {
-  name: 'Matrix / sortable',
+  name: 'Matrix / Selectable',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <DataGrid {...args} sortable={false} />
-      <DataGrid {...args} sortable={true} />
+    <div style={{ display: 'grid', gap: 24 }}>
+      <DataGrid {...args} />
+      <DataGrid {...args} selectable selected={[1]} />
     </div>
   ),
 };

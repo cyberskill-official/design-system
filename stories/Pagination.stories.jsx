@@ -13,7 +13,7 @@ export default {
     "control": "number"
   },
   "onChange": {
-    "control": "object"
+    "control": "text"
   }
 },
   parameters: {

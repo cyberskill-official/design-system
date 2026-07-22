@@ -6,6 +6,9 @@ export default {
   component: HoverCard,
   tags: ['autodocs'],
   argTypes: {
+  "trigger": {
+    "control": "object"
+  },
   "openDelay": {
     "control": "number"
   },
@@ -22,14 +25,14 @@ export default {
   },
 };
 
-export const Default = { render: () => (<HoverCard content="Lumi the golden genie"><Button variant="ghost">Hover</Button></HoverCard>) };
+export const Default = { render: () => (<HoverCard trigger={<Button variant="ghost">Hover</Button>}>Lumi the golden genie</HoverCard>) };
 
 export const Matrix = {
   name: 'Matrix / Content',
   render: () => (
-    <div style={{ display: 'flex', gap: 12 }}>
-      <HoverCard content="Lumi"><Button variant="ghost">A</Button></HoverCard>
-      <HoverCard content="CyberSkill genie"><Button variant="ghost">B</Button></HoverCard>
+    <div style={{ display: 'flex', gap: 16 }}>
+      <HoverCard trigger={<Button variant="ghost">A</Button>}>Short</HoverCard>
+      <HoverCard trigger={<Button variant="ghost">B</Button>}>Longer preview body</HoverCard>
     </div>
   ),
 };

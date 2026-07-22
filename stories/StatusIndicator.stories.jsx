@@ -30,11 +30,12 @@ export default {
 export const Default = { args: { status: 'success', label: 'Healthy' } };
 
 export const Matrix = {
-  name: 'Matrix / pulse',
+  name: 'Matrix / Status',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <StatusIndicator {...args} pulse={false} />
-      <StatusIndicator {...args} pulse={true} />
+    <div style={{ display: 'flex', gap: 12 }}>
+      <StatusIndicator {...args} status="success" label="OK" />
+      <StatusIndicator {...args} status="warning" label="Warn" />
+      <StatusIndicator {...args} status="danger" label="Bad" />
     </div>
   ),
 };

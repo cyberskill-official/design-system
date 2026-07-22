@@ -5,12 +5,6 @@ export default {
   component: Sidebar,
   tags: ['autodocs'],
   argTypes: {
-  "active": {
-    "control": "boolean"
-  },
-  "href": {
-    "control": "text"
-  },
   "label": {
     "control": "text"
   }
@@ -24,14 +18,20 @@ export default {
   },
 };
 
-export const Default = { render: () => (<Sidebar><NavItem active>Overview</NavItem><NavItem>Health</NavItem><NavItem>Tokens</NavItem></Sidebar>) };
+export const Default = { render: () => (<Sidebar label="App"><NavItem active>Overview</NavItem><NavItem>Health</NavItem><NavItem>Tokens</NavItem></Sidebar>) };
 
 export const Matrix = {
-  name: 'Matrix / active',
-  render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <Sidebar {...args} active={false} />
-      <Sidebar {...args} active={true} />
+  name: 'Matrix / Active item',
+  render: () => (
+    <div style={{ display: 'flex', gap: 16 }}>
+      <Sidebar label="App">
+        <NavItem active>Overview</NavItem>
+        <NavItem>Health</NavItem>
+      </Sidebar>
+      <Sidebar label="App">
+        <NavItem>Overview</NavItem>
+        <NavItem active>Tokens</NavItem>
+      </Sidebar>
     </div>
   ),
 };

@@ -1,0 +1,29 @@
+{
+  "Tabs": [
+    "tabs=",
+    "value="
+  ],
+  "Sidebar": [
+    "NavItem",
+    "active"
+  ],
+  "Menu": [
+    "trigger=",
+    "MenuItem"
+  ],
+  "Popover": [
+    "trigger="
+  ],
+  "HoverCard": [
+    "trigger="
+  ],
+  "Steps": [
+    "steps="
+  ],
+  "Carousel": [
+    "</Carousel>"
+  ],
+  "CommandPalette": [
+    "groups="
+  ]
+}

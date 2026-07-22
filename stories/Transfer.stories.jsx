@@ -5,17 +5,20 @@ export default {
   component: Transfer,
   tags: ['autodocs'],
   argTypes: {
+  "items": {
+    "control": "object"
+  },
   "value": {
     "control": "text"
   },
   "onChange": {
     "control": "text"
   },
+  "titles": {
+    "control": "object"
+  },
   "lang": {
     "control": "text"
-  },
-  "items": {
-    "control": "object"
   }
 },
   parameters: {

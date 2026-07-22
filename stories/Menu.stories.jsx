@@ -6,6 +6,9 @@ export default {
   component: Menu,
   tags: ['autodocs'],
   argTypes: {
+  "trigger": {
+    "control": "object"
+  },
   "align": {
     "control": "select",
     "options": [
@@ -14,9 +17,6 @@ export default {
     ]
   },
   "open": {
-    "control": "boolean"
-  },
-  "danger": {
     "control": "boolean"
   }
 },
@@ -29,14 +29,19 @@ export default {
   },
 };
 
-export const Default = { render: () => (<Menu trigger={<Button variant="secondary">Open menu</Button>}><MenuItem onSelect={() => {}}>Edit</MenuItem><MenuItem onSelect={() => {}}>Duplicate</MenuItem></Menu>) };
+export const Default = { render: () => (<Menu trigger={<Button variant="secondary">Open menu</Button>}><MenuItem>Edit</MenuItem><MenuItem>Duplicate</MenuItem></Menu>) };
 
 export const Matrix = {
-  name: 'Matrix / open',
-  render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <Menu {...args} open={false} />
-      <Menu {...args} open={true} />
+  name: 'Matrix / Align',
+  render: () => (
+    <div style={{ display: 'flex', gap: 24 }}>
+      <Menu trigger={<Button variant="secondary">Start</Button>} align="start" open>
+        <MenuItem>One</MenuItem>
+        <MenuItem>Two</MenuItem>
+      </Menu>
+      <Menu trigger={<Button variant="secondary">End</Button>} align="end" open>
+        <MenuItem danger>Delete</MenuItem>
+      </Menu>
     </div>
   ),
 };

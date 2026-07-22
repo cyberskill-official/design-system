@@ -5,14 +5,14 @@ export default {
   component: Accordion,
   tags: ['autodocs'],
   argTypes: {
+  "items": {
+    "control": "object"
+  },
   "defaultOpen": {
     "control": "number"
   },
   "allowMultiple": {
     "control": "boolean"
-  },
-  "items": {
-    "control": "object"
   }
 },
   parameters: {
@@ -27,11 +27,11 @@ export default {
 export const Default = { args: { items: [{ title: 'What is a wish?', content: 'A clear outcome.' }, { title: 'Languages', content: 'EN · VI.' }], defaultOpen: 0 } };
 
 export const Matrix = {
-  name: 'Matrix / allowMultiple',
+  name: 'Matrix / Multi',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <Accordion {...args} allowMultiple={false} />
-      <Accordion {...args} allowMultiple={true} />
+    <div style={{ display: 'grid', gap: 16 }}>
+      <Accordion {...args} items={[{ title: 'One', content: 'A' }]} defaultOpen={0} />
+      <Accordion {...args} allowMultiple items={[{ title: 'One', content: 'A' }, { title: 'Two', content: 'B' }]} defaultOpen={[0]} />
     </div>
   ),
 };

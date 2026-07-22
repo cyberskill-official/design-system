@@ -30,11 +30,11 @@ export default {
 export const Default = { args: { code: 'const wish = "ship";', language: 'js' } };
 
 export const Matrix = {
-  name: 'Matrix / showBar',
+  name: 'Matrix / Snippets',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <CodeBlock {...args} showBar={false} />
-      <CodeBlock {...args} showBar={true} />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <CodeBlock {...args} code={'const a = 1;'} language="js" />
+      <CodeBlock {...args} code={'npm run storybook'} language="bash" />
     </div>
   ),
 };

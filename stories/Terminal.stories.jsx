@@ -8,6 +8,9 @@ export default {
   "title": {
     "control": "text"
   },
+  "welcome": {
+    "control": "object"
+  },
   "onCommand": {
     "control": "text"
   },

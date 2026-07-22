@@ -20,7 +20,7 @@ export default {
     "control": "number"
   },
   "label": {
-    "control": "text"
+    "control": "object"
   }
 },
   parameters: {

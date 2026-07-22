@@ -6,6 +6,9 @@ export default {
   component: Combobox,
   tags: ['autodocs'],
   argTypes: {
+  "options": {
+    "control": "object"
+  },
   "value": {
     "control": "text"
   },
@@ -23,9 +26,6 @@ export default {
   },
   "lang": {
     "control": "text"
-  },
-  "options": {
-    "control": "object"
   }
 },
   parameters: {
@@ -39,12 +39,15 @@ export default {
 
 export const Default = { render: function C() { const [v, setV] = React.useState('tho'); return (<Combobox label="Element" value={v} onChange={setV} options={[{ value: 'tho', label: 'Thổ · studio' }, { value: 'hoa', label: 'Hỏa · ember' }]} />); } };
 
-export const States = {
-  name: 'Matrix / States',
-  render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Combobox {...args} />
-      <Combobox {...args} disabled />
-    </div>
-  ),
+export const Matrix = {
+  name: 'Matrix / Options',
+  render: function C() {
+    const [v, setV] = React.useState('tho');
+    return (
+      <div style={{ display: 'grid', gap: 12 }}>
+        <Combobox label="Element" value={v} onChange={setV} options={[{ value: 'tho', label: 'Thổ' }, { value: 'hoa', label: 'Hỏa' }]} />
+        <Combobox label="Element+" value={v} onChange={setV} options={[{ value: 'tho', label: 'Thổ' }, { value: 'hoa', label: 'Hỏa' }, { value: 'thuy', label: 'Thủy' }]} />
+      </div>
+    );
+  },
 };

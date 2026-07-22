@@ -6,10 +6,10 @@ export default {
   tags: ['autodocs'],
   argTypes: {
   "value": {
-    "control": "object"
+    "control": "text"
   },
   "onChange": {
-    "control": "object"
+    "control": "text"
   },
   "placeholder": {
     "control": "text"
@@ -35,12 +35,12 @@ export default {
 
 export const Default = { args: { label: 'Due date' } };
 
-export const States = {
-  name: 'Matrix / States',
+export const Matrix = {
+  name: 'Matrix / Labels',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <DatePicker {...args} />
-      <DatePicker {...args} disabled />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <DatePicker {...args} label="Start" />
+      <DatePicker {...args} label="Due" />
     </div>
   ),
 };

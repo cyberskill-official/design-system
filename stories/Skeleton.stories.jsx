@@ -36,12 +36,12 @@ export default {
 
 export const Default = { args: { width: 200, height: 16 } };
 
-export const AllVariants = {
-  name: 'Matrix / All variants',
+export const Matrix = {
+  name: 'Matrix / Sizes',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Skeleton {...args} variant="block">block</Skeleton>
-      <Skeleton {...args} variant="circle">circle</Skeleton>
+    <div style={{ display: 'grid', gap: 8 }}>
+      <Skeleton {...args} width={120} height={12} />
+      <Skeleton {...args} width={240} height={16} />
     </div>
   ),
 };

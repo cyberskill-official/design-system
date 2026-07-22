@@ -13,7 +13,10 @@ export default {
     ]
   },
   "name": {
-    "control": "text"
+    "control": "object"
+  },
+  "avatar": {
+    "control": "object"
   }
 },
   parameters: {
@@ -27,12 +30,12 @@ export default {
 
 export const Default = { args: { role: 'lumi', children: 'Turn your will into real.' } };
 
-export const AllVariants = {
+export const Matrix = {
   name: 'Matrix / Roles',
-  render: (args) => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-      <ChatMessage {...args} role="lumi">lumi</ChatMessage>
-      <ChatMessage {...args} role="user">user</ChatMessage>
+  render: () => (
+    <div style={{ display: 'grid', gap: 12 }}>
+      <ChatMessage role="lumi">From Lumi</ChatMessage>
+      <ChatMessage role="user">From you</ChatMessage>
     </div>
   ),
 };

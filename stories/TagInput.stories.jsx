@@ -38,12 +38,12 @@ export default {
 
 export const Default = { args: { label: 'Tags', defaultValue: ['design', 'vn'] } };
 
-export const States = {
-  name: 'Matrix / States',
+export const Matrix = {
+  name: 'Matrix / Tags',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <TagInput {...args} />
-      <TagInput {...args} disabled />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <TagInput {...args} label="Tags" defaultValue={['one']} />
+      <TagInput {...args} label="Tags" defaultValue={['one', 'two', 'three']} />
     </div>
   ),
 };

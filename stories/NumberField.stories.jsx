@@ -9,7 +9,7 @@ export default {
     "control": "number"
   },
   "onChange": {
-    "control": "object"
+    "control": "text"
   },
   "min": {
     "control": "number"
@@ -35,12 +35,12 @@ export default {
 
 export const Default = { args: { label: 'Quantity', defaultValue: 1, min: 0 } };
 
-export const States = {
-  name: 'Matrix / States',
+export const Matrix = {
+  name: 'Matrix / Bounds',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <NumberField {...args} />
-      <NumberField {...args} disabled />
+    <div style={{ display: 'grid', gap: 12, maxWidth: 240 }}>
+      <NumberField {...args} label="Min0" min={0} defaultValue={0} />
+      <NumberField {...args} label="Max10" min={0} max={10} defaultValue={10} />
     </div>
   ),
 };

@@ -5,6 +5,15 @@ export default {
   component: HumanReviewGate,
   tags: ['autodocs'],
   argTypes: {
+  "risk": {
+    "control": "object"
+  },
+  "summary": {
+    "control": "object"
+  },
+  "reviewer": {
+    "control": "object"
+  },
   "approveLabel": {
     "control": "text"
   },

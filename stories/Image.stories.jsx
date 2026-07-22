@@ -17,6 +17,9 @@ export default {
   "preview": {
     "control": "boolean"
   },
+  "fallback": {
+    "control": "object"
+  },
   "lang": {
     "control": "text"
   }
@@ -33,11 +36,11 @@ export default {
 export const Default = { args: { src: '/assets/logo-mark.svg', alt: 'CyberSkill mark', width: 64, height: 64 } };
 
 export const Matrix = {
-  name: 'Matrix / preview',
+  name: 'Matrix / Sizes',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <Image {...args} preview={false} />
-      <Image {...args} preview={true} />
+    <div style={{ display: 'flex', gap: 12 }}>
+      <Image {...args} src="/assets/logo-mark.svg" alt="mark" width={40} height={40} />
+      <Image {...args} src="/assets/logo-mark.svg" alt="mark" width={80} height={80} />
     </div>
   ),
 };

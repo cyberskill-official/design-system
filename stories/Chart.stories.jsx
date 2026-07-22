@@ -14,6 +14,9 @@ export default {
       "pie"
     ]
   },
+  "data": {
+    "control": "object"
+  },
   "height": {
     "control": "number"
   },
@@ -25,9 +28,6 @@ export default {
   },
   "label": {
     "control": "text"
-  },
-  "data": {
-    "control": "object"
   }
 },
   parameters: {
@@ -42,11 +42,11 @@ export default {
 export const Default = { args: { type: 'bar', data: [{ label: 'Mon', value: 4 }, { label: 'Tue', value: 7 }] } };
 
 export const Matrix = {
-  name: 'Matrix / showValues',
+  name: 'Matrix / Series',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <Chart {...args} showValues={false} />
-      <Chart {...args} showValues={true} />
+    <div style={{ display: 'grid', gap: 16 }}>
+      <Chart {...args} type="bar" data={[{ label: 'A', value: 2 }]} />
+      <Chart {...args} type="bar" data={[{ label: 'A', value: 2 }, { label: 'B', value: 5 }, { label: 'C', value: 3 }]} />
     </div>
   ),
 };

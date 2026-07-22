@@ -6,6 +6,9 @@ export default {
   component: Toolbar,
   tags: ['autodocs'],
   argTypes: {
+  "items": {
+    "control": "object"
+  },
   "overflowAfter": {
     "control": "number"
   },
@@ -14,9 +17,6 @@ export default {
   },
   "lang": {
     "control": "text"
-  },
-  "items": {
-    "control": "object"
   }
 },
   parameters: {

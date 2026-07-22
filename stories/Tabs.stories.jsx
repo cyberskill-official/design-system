@@ -6,20 +6,14 @@ export default {
   component: Tabs,
   tags: ['autodocs'],
   argTypes: {
+  "tabs": {
+    "control": "object"
+  },
   "value": {
     "control": "text"
   },
   "onChange": {
     "control": "text"
-  },
-  "selected": {
-    "control": "boolean"
-  },
-  "count": {
-    "control": "number"
-  },
-  "tabs": {
-    "control": "object"
   }
 },
   parameters: {
@@ -34,11 +28,19 @@ export default {
 export const Default = { render: function T() { const [v, setV] = React.useState('a'); return (<Tabs value={v} onChange={setV} tabs={[{ value: 'a', label: 'Overview' }, { value: 'b', label: 'Activity', count: 3 }]} />); } };
 
 export const Matrix = {
-  name: 'Matrix / selected',
-  render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <Tabs {...args} selected={false} />
-      <Tabs {...args} selected={true} />
-    </div>
-  ),
+  name: 'Matrix / Counts',
+  render: function T() {
+    const [v, setV] = React.useState('a');
+    return (
+      <Tabs
+        value={v}
+        onChange={setV}
+        tabs={[
+          { value: 'a', label: 'Overview' },
+          { value: 'b', label: 'Activity', count: 12 },
+          { value: 'c', label: 'Settings' },
+        ]}
+      />
+    );
+  },
 };

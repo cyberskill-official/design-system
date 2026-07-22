@@ -35,12 +35,12 @@ export default {
 
 export const Default = { args: { label: 'Start time' } };
 
-export const States = {
-  name: 'Matrix / States',
+export const Matrix = {
+  name: 'Matrix / Labels',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <TimePicker {...args} />
-      <TimePicker {...args} disabled />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <TimePicker {...args} label="Start" />
+      <TimePicker {...args} label="End" />
     </div>
   ),
 };

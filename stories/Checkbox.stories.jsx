@@ -6,10 +6,10 @@ export default {
   tags: ['autodocs'],
   argTypes: {
   "label": {
-    "control": "text"
+    "control": "object"
   },
   "description": {
-    "control": "text"
+    "control": "object"
   },
   "disabled": {
     "control": "boolean"
@@ -26,12 +26,13 @@ export default {
 
 export const Default = { args: { label: 'Remember this wish', defaultChecked: true } };
 
-export const States = {
+export const Matrix = {
   name: 'Matrix / States',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Checkbox {...args} />
-      <Checkbox {...args} disabled />
+    <div style={{ display: 'grid', gap: 8 }}>
+      <Checkbox {...args} label="Off" />
+      <Checkbox {...args} label="On" defaultChecked />
+      <Checkbox {...args} label="Disabled" disabled />
     </div>
   ),
 };

@@ -5,6 +5,9 @@ export default {
   component: RadioGroup,
   tags: ['autodocs'],
   argTypes: {
+  "legend": {
+    "control": "object"
+  },
   "name": {
     "control": "text"
   },
@@ -13,6 +16,9 @@ export default {
   },
   "onChange": {
     "control": "text"
+  },
+  "options": {
+    "control": "object"
   },
   "label": {
     "control": "text"
@@ -35,12 +41,12 @@ export default {
 
 export const Default = { render: () => (<RadioGroup name="theme" legend="Theme" defaultValue="light"><Radio value="light" label="Light" /><Radio value="dark" label="Dark" /></RadioGroup>) };
 
-export const States = {
-  name: 'Matrix / States',
-  render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <RadioGroup {...args} />
-      <RadioGroup {...args} disabled />
+export const Matrix = {
+  name: 'Matrix / Options',
+  render: () => (
+    <div style={{ display: 'grid', gap: 16 }}>
+      <RadioGroup name="t1" legend="Theme" defaultValue="light"><Radio value="light" label="Light" /><Radio value="dark" label="Dark" /></RadioGroup>
+      <RadioGroup name="t2" legend="Density" defaultValue="comfy"><Radio value="comfy" label="Comfy" /><Radio value="compact" label="Compact" /></RadioGroup>
     </div>
   ),
 };

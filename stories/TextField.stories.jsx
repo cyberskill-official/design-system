@@ -6,13 +6,13 @@ export default {
   tags: ['autodocs'],
   argTypes: {
   "label": {
-    "control": "text"
+    "control": "object"
   },
   "description": {
-    "control": "text"
+    "control": "object"
   },
   "error": {
-    "control": "text"
+    "control": "object"
   },
   "disabled": {
     "control": "boolean"
@@ -29,12 +29,13 @@ export default {
 
 export const Default = { args: { label: 'Work email', placeholder: 'you@cyberskill.world' } };
 
-export const States = {
+export const Matrix = {
   name: 'Matrix / States',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <TextField {...args} />
-      <TextField {...args} disabled />
+    <div style={{ display: 'grid', gap: 12, maxWidth: 360 }}>
+      <TextField {...args} label="Default" />
+      <TextField {...args} label="Error" error="Required" />
+      <TextField {...args} label="Disabled" disabled />
     </div>
   ),
 };

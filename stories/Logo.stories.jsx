@@ -27,11 +27,12 @@ export default {
 export const Default = { args: { size: 40 } };
 
 export const Matrix = {
-  name: 'Matrix / decorative',
+  name: 'Matrix / Sizes',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <Logo {...args} decorative={false} />
-      <Logo {...args} decorative={true} />
+    <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+      <Logo {...args} size={24} />
+      <Logo {...args} size={40} />
+      <Logo {...args} size={56} />
     </div>
   ),
 };

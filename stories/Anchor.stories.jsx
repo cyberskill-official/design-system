@@ -9,7 +9,7 @@ export default {
     "control": "object"
   },
   "title": {
-    "control": "text"
+    "control": "object"
   }
 },
   parameters: {

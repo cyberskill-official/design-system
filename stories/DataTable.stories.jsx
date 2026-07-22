@@ -5,8 +5,11 @@ export default {
   component: DataTable,
   tags: ['autodocs'],
   argTypes: {
-  "rowKey": {
-    "control": "text"
+  "header": {
+    "control": "object"
+  },
+  "render": {
+    "control": "object"
   },
   "caption": {
     "control": "text"
@@ -16,6 +19,9 @@ export default {
   },
   "rows": {
     "control": "object"
+  },
+  "rowKey": {
+    "control": "text"
   },
   "emptyState": {
     "control": "text"

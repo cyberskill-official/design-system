@@ -6,7 +6,7 @@ export default {
   tags: ['autodocs'],
   argTypes: {
   "label": {
-    "control": "text"
+    "control": "object"
   },
   "disabled": {
     "control": "boolean"
@@ -23,12 +23,12 @@ export default {
 
 export const Default = { args: { label: 'Dark mode', defaultChecked: false } };
 
-export const States = {
+export const Matrix = {
   name: 'Matrix / States',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Switch {...args} />
-      <Switch {...args} disabled />
+    <div style={{ display: 'grid', gap: 8 }}>
+      <Switch {...args} label="Off" />
+      <Switch {...args} label="On" defaultChecked />
     </div>
   ),
 };

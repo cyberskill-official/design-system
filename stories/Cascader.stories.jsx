@@ -5,6 +5,9 @@ export default {
   component: Cascader,
   tags: ['autodocs'],
   argTypes: {
+  "nodes": {
+    "control": "object"
+  },
   "value": {
     "control": "text"
   },
@@ -22,9 +25,6 @@ export default {
   },
   "lang": {
     "control": "text"
-  },
-  "nodes": {
-    "control": "object"
   }
 },
   parameters: {
@@ -38,12 +38,12 @@ export default {
 
 export const Default = { args: { options: [{ value: 'vn', label: 'Vietnam', children: [{ value: 'hcm', label: 'HCMC' }] }], label: 'Region' } };
 
-export const States = {
-  name: 'Matrix / States',
+export const Matrix = {
+  name: 'Matrix / Options',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Cascader {...args} />
-      <Cascader {...args} disabled />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <Cascader {...args} label="Region" options={[{ value: 'vn', label: 'Vietnam' }]} />
+      <Cascader {...args} label="Region" options={[{ value: 'vn', label: 'Vietnam', children: [{ value: 'hcm', label: 'HCMC' }] }]} />
     </div>
   ),
 };

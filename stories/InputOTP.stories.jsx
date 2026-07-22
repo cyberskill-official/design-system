@@ -38,12 +38,12 @@ export default {
 
 export const Default = { args: { length: 6, label: 'One-time code' } };
 
-export const States = {
-  name: 'Matrix / States',
+export const Matrix = {
+  name: 'Matrix / Length',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <InputOTP {...args} />
-      <InputOTP {...args} disabled />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <InputOTP {...args} length={4} label="4-digit" />
+      <InputOTP {...args} length={6} label="6-digit" />
     </div>
   ),
 };

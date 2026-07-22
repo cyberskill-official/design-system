@@ -12,7 +12,7 @@ export default {
     "control": "number"
   },
   "onChange": {
-    "control": "object"
+    "control": "text"
   },
   "max": {
     "control": "number"
@@ -39,11 +39,11 @@ export default {
 export const Default = { args: { value: 4, max: 5, label: 'Satisfaction' } };
 
 export const Matrix = {
-  name: 'Matrix / readOnly',
+  name: 'Matrix / Values',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <Rating {...args} readOnly={false} />
-      <Rating {...args} readOnly={true} />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <Rating {...args} value={1} max={5} label="Low" />
+      <Rating {...args} value={5} max={5} label="High" />
     </div>
   ),
 };

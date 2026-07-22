@@ -105,17 +105,53 @@ for (const m of modules) {
     if (!body.includes('<' + m.primary)) {
       fail.push(m.primary + ' ' + name + ' does not mount <' + m.primary);
     }
-    // disabled={true} only if component accepts disabled
     if (/disabled\s*[=:{]/.test(body)) {
       const jsx = readFileSync(join(root, m.relFromRoot), 'utf8');
-      const sig = jsx.match(/export\s+function\s+[A-Z][A-Za-z0-9_]*\s*\(\s*\{([^}]*)\}/);
+      const sig = jsx.match(new RegExp('export\\s+function\\s+' + m.primary + '\\s*\\(\\s*\\{([^}]*)\\}'));
       const params = sig ? sig[1] : '';
-      if (!/\bdisabled\b/.test(params) && !/\bdisabled\b/.test(jsx.slice(0, 800))) {
-        // allow if Default args also use disabled in a known disabled-supporting component
-        if (!/\bdisabled\b/.test(params)) {
-          fail.push(m.primary + ' ' + name + ' uses disabled but prop not in signature');
-        }
+      if (!/\bdisabled\b/.test(params)) {
+        fail.push(m.primary + ' ' + name + ' uses disabled but prop not in signature');
       }
+    }
+  }
+
+  // Full story text composition checks (Default + Matrix)
+  const requiredPath = join(root, '_audit/ci/storybook-required-tokens.json');
+  if (existsSync(requiredPath)) {
+    const required = JSON.parse(readFileSync(requiredPath, 'utf8'));
+    const need = required[m.primary];
+    if (need) {
+      for (const tok of need) {
+        if (!text.includes(tok)) fail.push(m.primary + ' missing required token ' + tok);
+      }
+    }
+  }
+  // Known wrong-prop / hollow patterns
+  if (m.primary === 'Steps' && /items\s*=/.test(text) && !/steps\s*=/.test(text)) {
+    fail.push('Steps uses items= instead of steps=');
+  }
+  if (m.primary === 'Carousel' && /slides\s*=/.test(text)) {
+    fail.push('Carousel uses slides= (API is children)');
+  }
+  if (m.primary === 'CommandPalette' && /groups\s*=/.test(text) === false) {
+    fail.push('CommandPalette missing groups=');
+  }
+  if (m.primary === 'Popover' && /content\s*=/.test(text)) {
+    fail.push('Popover uses content= (API is trigger+children)');
+  }
+  if (m.primary === 'HoverCard' && /content\s*=/.test(text)) {
+    fail.push('HoverCard uses content= (API is trigger+children)');
+  }
+  if (m.primary === 'Tabs' && /selected\s*=/.test(text)) {
+    fail.push('Tabs uses selected= (companion Tab prop only)');
+  }
+  if (m.primary === 'Sidebar' && /<Sidebar[^>]*\bactive\s*=/.test(text)) {
+    fail.push('Sidebar uses active= (NavItem prop only)');
+  }
+  if (m.primary === 'Menu') {
+    const mat = matrixBodies.map((x) => x[2]).join('\n');
+    if (!mat.includes('trigger=') || !mat.includes('MenuItem')) {
+      fail.push('Menu matrix missing trigger/MenuItem composition');
     }
   }
 }

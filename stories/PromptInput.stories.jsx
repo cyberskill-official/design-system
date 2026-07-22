@@ -20,6 +20,9 @@ export default {
   "sendLabel": {
     "control": "text"
   },
+  "hint": {
+    "control": "object"
+  },
   "disabled": {
     "control": "boolean"
   },
@@ -39,11 +42,11 @@ export default {
 export const Default = { args: { placeholder: 'Describe your wish…' } };
 
 export const Matrix = {
-  name: 'Matrix / busy',
+  name: 'Matrix / Placeholders',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <PromptInput {...args} busy={false} />
-      <PromptInput {...args} busy={true} />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <PromptInput {...args} placeholder="Wish A…" />
+      <PromptInput {...args} placeholder="Wish B…" />
     </div>
   ),
 };

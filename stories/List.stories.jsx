@@ -5,9 +5,17 @@ export default {
   component: List,
   tags: ['autodocs'],
   argTypes: {
-  "className": {
-    "control": "text",
-    "description": "Optional className on root"
+  "lead": {
+    "control": "object"
+  },
+  "title": {
+    "control": "object"
+  },
+  "subtitle": {
+    "control": "object"
+  },
+  "trail": {
+    "control": "object"
   }
 },
   parameters: {

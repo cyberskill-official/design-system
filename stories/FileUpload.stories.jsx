@@ -5,14 +5,23 @@ export default {
   component: FileUpload,
   tags: ['autodocs'],
   argTypes: {
+  "title": {
+    "control": "object"
+  },
+  "hint": {
+    "control": "object"
+  },
   "accept": {
     "control": "text"
   },
   "multiple": {
     "control": "boolean"
   },
-  "title": {
-    "control": "text"
+  "onFiles": {
+    "control": "object"
+  },
+  "icon": {
+    "control": "object"
   }
 },
   parameters: {
@@ -27,11 +36,11 @@ export default {
 export const Default = { args: { label: 'Attachments', accept: '.pdf,.png' } };
 
 export const Matrix = {
-  name: 'Matrix / multiple',
+  name: 'Matrix / Accept',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <FileUpload {...args} multiple={false} />
-      <FileUpload {...args} multiple={true} />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <FileUpload {...args} label="PDF" accept=".pdf" />
+      <FileUpload {...args} label="Images" accept=".png,.jpg" />
     </div>
   ),
 };

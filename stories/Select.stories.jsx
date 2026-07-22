@@ -6,13 +6,13 @@ export default {
   tags: ['autodocs'],
   argTypes: {
   "label": {
-    "control": "text"
+    "control": "object"
   },
   "description": {
-    "control": "text"
+    "control": "object"
   },
   "error": {
-    "control": "text"
+    "control": "object"
   },
   "options": {
     "control": "object"
@@ -32,12 +32,12 @@ export default {
 
 export const Default = { args: { label: 'Element', options: [{ value: 'tho', label: 'Thổ' }, { value: 'hoa', label: 'Hỏa' }], defaultValue: 'tho' } };
 
-export const States = {
+export const Matrix = {
   name: 'Matrix / States',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Select {...args} />
-      <Select {...args} disabled />
+    <div style={{ display: 'grid', gap: 12, maxWidth: 360 }}>
+      <Select {...args} label="Default" options={[{ value: 'a', label: 'A' }, { value: 'b', label: 'B' }]} />
+      <Select {...args} label="Disabled" disabled options={[{ value: 'a', label: 'A' }]} />
     </div>
   ),
 };

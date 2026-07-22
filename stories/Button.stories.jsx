@@ -34,6 +34,9 @@ export default {
   "fullWidth": {
     "control": "boolean"
   },
+  "icon": {
+    "control": "object"
+  },
   "type": {
     "control": "text"
   }
@@ -52,13 +55,15 @@ export const Default = { args: { children: 'Make a wish', variant: 'primary', si
 export const AllVariants = {
   name: 'Matrix / All variants',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
       <Button {...args} variant="primary">primary</Button>
       <Button {...args} variant="secondary">secondary</Button>
       <Button {...args} variant="tertiary">tertiary</Button>
       <Button {...args} variant="ghost">ghost</Button>
       <Button {...args} variant="danger">danger</Button>
       <Button {...args} variant="danger-ghost">danger-ghost</Button>
+      <Button {...args} loading>loading</Button>
+      <Button {...args} disabled>disabled</Button>
     </div>
   ),
 };

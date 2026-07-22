@@ -5,12 +5,6 @@ export default {
   component: TreeTable,
   tags: ['autodocs'],
   argTypes: {
-  "defaultExpanded": {
-    "control": "text"
-  },
-  "lang": {
-    "control": "text"
-  },
   "columns": {
     "control": "object"
   },
@@ -18,6 +12,12 @@ export default {
     "control": "object"
   },
   "caption": {
+    "control": "object"
+  },
+  "defaultExpanded": {
+    "control": "text"
+  },
+  "lang": {
     "control": "text"
   }
 },

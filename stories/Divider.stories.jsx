@@ -24,11 +24,16 @@ export default {
 export const Default = { args: {} };
 
 export const Matrix = {
-  name: 'Matrix / vertical',
+  name: 'Matrix / Orientation',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <Divider {...args} vertical={false} />
-      <Divider {...args} vertical={true} />
+    <div style={{ display: 'grid', gap: 20 }}>
+      <Divider {...args} />
+      <Divider {...args} label="Section" />
+      <div style={{ display: 'flex', height: 40, alignItems: 'center', gap: 8 }}>
+        <span>A</span>
+        <Divider {...args} vertical />
+        <span>B</span>
+      </div>
     </div>
   ),
 };

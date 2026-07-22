@@ -14,10 +14,13 @@ export default {
       "info"
     ]
   },
-  "lang": {
-    "control": "text"
-  },
   "title": {
+    "control": "object"
+  },
+  "actions": {
+    "control": "object"
+  },
+  "lang": {
     "control": "text"
   }
 },
@@ -32,14 +35,12 @@ export default {
 
 export const Default = { args: { status: 'success', title: 'Wish shipped', description: 'All gates green.' } };
 
-export const AllVariants = {
-  name: 'Matrix / All statuses',
+export const Matrix = {
+  name: 'Matrix / Status',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Result {...args} status="success" />
-      <Result {...args} status="error" />
-      <Result {...args} status="warning" />
-      <Result {...args} status="info" />
+    <div style={{ display: 'grid', gap: 16 }}>
+      <Result {...args} status="success" title="OK" description="Good" />
+      <Result {...args} status="error" title="Fail" description="Bad" />
     </div>
   ),
 };

@@ -5,14 +5,14 @@ export default {
   component: Tour,
   tags: ['autodocs'],
   argTypes: {
+  "steps": {
+    "control": "object"
+  },
   "open": {
     "control": "boolean"
   },
   "lang": {
     "control": "text"
-  },
-  "steps": {
-    "control": "object"
   }
 },
   parameters: {
@@ -27,11 +27,8 @@ export default {
 export const Default = { args: { steps: [{ title: 'Welcome', content: 'Host Live hub.' }, { title: 'Axes', content: 'Theme × Element × Language.' }], open: true } };
 
 export const Matrix = {
-  name: 'Matrix / open',
+  name: 'Matrix / Steps',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <Tour {...args} open={false} />
-      <Tour {...args} open={true} />
-    </div>
+    <Tour {...args} open steps={[{ title: 'One', content: 'First' }, { title: 'Two', content: 'Second' }]} />
   ),
 };

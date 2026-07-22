@@ -31,13 +31,12 @@ export default {
 
 export const Default = { args: { href: '#', children: 'Read the doctrine' } };
 
-export const AllVariants = {
-  name: 'Matrix / All variants',
+export const Matrix = {
+  name: 'Matrix / Labels',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Link {...args} variant="default">default</Link>
-      <Link {...args} variant="muted">muted</Link>
-      <Link {...args} variant="standalone">standalone</Link>
+    <div style={{ display: 'flex', gap: 12 }}>
+      <Link {...args} href="#">Doctrine</Link>
+      <Link {...args} href="#tokens">Tokens</Link>
     </div>
   ),
 };

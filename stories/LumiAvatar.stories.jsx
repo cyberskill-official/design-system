@@ -34,13 +34,12 @@ export default {
 
 export const Default = { args: { size: 40 } };
 
-export const AllSizes = {
-  name: 'Matrix / All sizes',
+export const Matrix = {
+  name: 'Matrix / Sizes',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <LumiAvatar {...args} size="sm" />
-      <LumiAvatar {...args} size="md" />
-      <LumiAvatar {...args} size="lg" />
+    <div style={{ display: 'flex', gap: 12 }}>
+      <LumiAvatar {...args} size={28} />
+      <LumiAvatar {...args} size={48} />
     </div>
   ),
 };

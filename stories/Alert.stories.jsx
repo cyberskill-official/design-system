@@ -15,7 +15,10 @@ export default {
     ]
   },
   "title": {
-    "control": "text"
+    "control": "object"
+  },
+  "icon": {
+    "control": "object"
   }
 },
   parameters: {
@@ -29,14 +32,14 @@ export default {
 
 export const Default = { args: { children: 'Your wish is in review.', variant: 'info' } };
 
-export const AllVariants = {
-  name: 'Matrix / All variants',
+export const Matrix = {
+  name: 'Matrix / Variants',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Alert {...args} variant="info">info</Alert>
-      <Alert {...args} variant="success">success</Alert>
-      <Alert {...args} variant="warning">warning</Alert>
-      <Alert {...args} variant="danger">danger</Alert>
+    <div style={{ display: 'grid', gap: 8 }}>
+      <Alert {...args} variant="info">Info</Alert>
+      <Alert {...args} variant="success">Success</Alert>
+      <Alert {...args} variant="warning">Warning</Alert>
+      <Alert {...args} variant="danger">Danger</Alert>
     </div>
   ),
 };

@@ -6,7 +6,7 @@ export default {
   tags: ['autodocs'],
   argTypes: {
   "label": {
-    "control": "text"
+    "control": "object"
   },
   "items": {
     "control": "object"

@@ -5,8 +5,14 @@ export default {
   component: EmptyState,
   tags: ['autodocs'],
   argTypes: {
+  "icon": {
+    "control": "object"
+  },
   "title": {
-    "control": "text"
+    "control": "object"
+  },
+  "actions": {
+    "control": "object"
   }
 },
   parameters: {

@@ -6,13 +6,13 @@ export default {
   tags: ['autodocs'],
   argTypes: {
   "label": {
-    "control": "text"
+    "control": "object"
   },
   "description": {
-    "control": "text"
+    "control": "object"
   },
   "error": {
-    "control": "text"
+    "control": "object"
   },
   "disabled": {
     "control": "boolean"
@@ -32,12 +32,12 @@ export default {
 
 export const Default = { args: { label: 'Notes', placeholder: 'Context…', rows: 4 } };
 
-export const States = {
-  name: 'Matrix / States',
+export const Matrix = {
+  name: 'Matrix / Rows',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Textarea {...args} />
-      <Textarea {...args} disabled />
+    <div style={{ display: 'grid', gap: 12 }}>
+      <Textarea {...args} label="Short" rows={2} />
+      <Textarea {...args} label="Tall" rows={6} />
     </div>
   ),
 };

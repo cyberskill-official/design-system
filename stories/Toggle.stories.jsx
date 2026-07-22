@@ -11,6 +11,9 @@ export default {
   "defaultPressed": {
     "control": "boolean"
   },
+  "icon": {
+    "control": "object"
+  },
   "disabled": {
     "control": "boolean"
   }
@@ -27,11 +30,11 @@ export default {
 export const Default = { args: { label: 'Notifications', defaultPressed: true } };
 
 export const Matrix = {
-  name: 'Matrix / pressed',
+  name: 'Matrix / Pressed',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <Toggle {...args} pressed={false} />
-      <Toggle {...args} pressed={true} />
+    <div style={{ display: 'flex', gap: 12 }}>
+      <Toggle {...args} label="Off" defaultPressed={false} />
+      <Toggle {...args} label="On" defaultPressed />
     </div>
   ),
 };

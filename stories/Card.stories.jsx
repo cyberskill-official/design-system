@@ -25,11 +25,12 @@ export default {
 export const Default = { render: () => (<Card><CardHeader>Wish</CardHeader><CardBody>Turn Your Will Into Real</CardBody><CardFooter><Button size="sm">Open</Button></CardFooter></Card>) };
 
 export const Matrix = {
-  name: 'Matrix / interactive',
-  render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <Card {...args} interactive={false} />
-      <Card {...args} interactive={true} />
+  name: 'Matrix / Surfaces',
+  render: () => (
+    <div style={{ display: 'grid', gap: 16, gridTemplateColumns: '1fr 1fr' }}>
+      <Card><CardHeader title="Default" /><CardBody>Body</CardBody></Card>
+      <Card flat><CardHeader title="Flat" /><CardBody>Body</CardBody></Card>
+      <Card interactive><CardHeader title="Interactive" /><CardBody>Body</CardBody></Card>
     </div>
   ),
 };

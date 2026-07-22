@@ -12,6 +12,12 @@ export default {
       "success",
       "danger"
     ]
+  },
+  "title": {
+    "control": "object"
+  },
+  "icon": {
+    "control": "object"
   }
 },
   parameters: {
@@ -25,13 +31,13 @@ export default {
 
 export const Default = { render: () => (<ToastStack><Toast title="Wish accepted">Lumi is on it.</Toast></ToastStack>) };
 
-export const AllVariants = {
-  name: 'Matrix / All variants',
-  render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Toast {...args} variant="default">default</Toast>
-      <Toast {...args} variant="success">success</Toast>
-      <Toast {...args} variant="danger">danger</Toast>
-    </div>
+export const Matrix = {
+  name: 'Matrix / Variants',
+  render: () => (
+    <ToastStack>
+      <Toast title="Default">Body</Toast>
+      <Toast variant="success" title="Success">Saved</Toast>
+      <Toast variant="danger" title="Danger">Failed</Toast>
+    </ToastStack>
   ),
 };

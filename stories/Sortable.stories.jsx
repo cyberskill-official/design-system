@@ -7,6 +7,9 @@ export default {
   argTypes: {
   "items": {
     "control": "object"
+  },
+  "onChange": {
+    "control": "object"
   }
 },
   parameters: {

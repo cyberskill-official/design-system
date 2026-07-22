@@ -6,6 +6,9 @@ export default {
   component: Popover,
   tags: ['autodocs'],
   argTypes: {
+  "trigger": {
+    "control": "object"
+  },
   "align": {
     "control": "select",
     "options": [
@@ -26,14 +29,18 @@ export default {
   },
 };
 
-export const Default = { render: () => (<Popover content="Popover body"><Button variant="secondary">Open</Button></Popover>) };
+export const Default = { render: () => (<Popover trigger={<Button variant="secondary">Open</Button>}><div style={{ padding: 8 }}>Popover body</div></Popover>) };
 
 export const Matrix = {
-  name: 'Matrix / open',
-  render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <Popover {...args} open={false} />
-      <Popover {...args} open={true} />
+  name: 'Matrix / Align open',
+  render: () => (
+    <div style={{ display: 'flex', gap: 24, minHeight: 120 }}>
+      <Popover trigger={<Button variant="secondary">Start</Button>} align="start" open>
+        <div style={{ padding: 8 }}>Start panel</div>
+      </Popover>
+      <Popover trigger={<Button variant="secondary">End</Button>} align="end" open>
+        <div style={{ padding: 8 }}>End panel</div>
+      </Popover>
     </div>
   ),
 };

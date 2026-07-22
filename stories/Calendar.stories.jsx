@@ -7,10 +7,10 @@ export default {
   tags: ['autodocs'],
   argTypes: {
   "value": {
-    "control": "object"
+    "control": "text"
   },
   "onChange": {
-    "control": "object"
+    "control": "text"
   },
   "lang": {
     "control": "select",

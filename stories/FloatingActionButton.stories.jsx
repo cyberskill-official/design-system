@@ -5,8 +5,14 @@ export default {
   component: FloatingActionButton,
   tags: ['autodocs'],
   argTypes: {
+  "icon": {
+    "control": "object"
+  },
   "label": {
     "control": "text"
+  },
+  "actions": {
+    "control": "object"
   },
   "position": {
     "control": "select",

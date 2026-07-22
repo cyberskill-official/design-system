@@ -5,6 +5,15 @@ export default {
   component: Stat,
   tags: ['autodocs'],
   argTypes: {
+  "label": {
+    "control": "object"
+  },
+  "value": {
+    "control": "object"
+  },
+  "delta": {
+    "control": "object"
+  },
   "trend": {
     "control": "select",
     "options": [
@@ -12,12 +21,6 @@ export default {
       "down",
       "flat"
     ]
-  },
-  "label": {
-    "control": "text"
-  },
-  "value": {
-    "control": "number"
   }
 },
   parameters: {

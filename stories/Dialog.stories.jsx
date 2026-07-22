@@ -10,10 +10,13 @@ export default {
   "open": {
     "control": "boolean"
   },
-  "closeLabel": {
-    "control": "text"
-  },
   "title": {
+    "control": "object"
+  },
+  "actions": {
+    "control": "object"
+  },
+  "closeLabel": {
     "control": "text"
   }
 },
@@ -29,11 +32,16 @@ export default {
 export const Default = { render: function OpenDialog() { const [open, setOpen] = React.useState(true); return (<><Button onClick={() => setOpen(true)}>Open</Button><Dialog open={open} title="Confirm" onClose={() => setOpen(false)} actions={<Button onClick={() => setOpen(false)}>OK</Button>}><p style={{ margin: 0 }}>Host Live matrix.</p></Dialog></>); } };
 
 export const Matrix = {
-  name: 'Matrix / open',
-  render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <Dialog {...args} open={false} />
-      <Dialog {...args} open={true} />
-    </div>
-  ),
+  name: 'Matrix / Open states',
+  render: function D() {
+    const [open, setOpen] = React.useState(false);
+    return (
+      <>
+        <Button onClick={() => setOpen(true)}>Open dialog</Button>
+        <Dialog open={open} title="Matrix" onClose={() => setOpen(false)} actions={<Button onClick={() => setOpen(false)}>Close</Button>}>
+          <p>Mounted dialog body</p>
+        </Dialog>
+      </>
+    );
+  },
 };

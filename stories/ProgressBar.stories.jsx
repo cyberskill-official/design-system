@@ -34,13 +34,12 @@ export default {
 
 export const Default = { args: { value: 0.45, label: 'Build progress' } };
 
-export const AllVariants = {
-  name: 'Matrix / All variants',
+export const Matrix = {
+  name: 'Matrix / Values',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <ProgressBar {...args} variant="ochre">ochre</ProgressBar>
-      <ProgressBar {...args} variant="umber">umber</ProgressBar>
-      <ProgressBar {...args} variant="success">success</ProgressBar>
+    <div style={{ display: 'grid', gap: 12 }}>
+      <ProgressBar {...args} value={0.2} label="20%" />
+      <ProgressBar {...args} value={0.8} label="80%" />
     </div>
   ),
 };

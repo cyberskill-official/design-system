@@ -6,14 +6,14 @@ export default {
   component: SegmentedControl,
   tags: ['autodocs'],
   argTypes: {
+  "options": {
+    "control": "object"
+  },
   "value": {
     "control": "text"
   },
   "onChange": {
     "control": "text"
-  },
-  "options": {
-    "control": "object"
   }
 },
   parameters: {

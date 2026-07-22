@@ -5,6 +5,12 @@ export default {
   component: Splitter,
   tags: ['autodocs'],
   argTypes: {
+  "start": {
+    "control": "object"
+  },
+  "end": {
+    "control": "object"
+  },
   "initial": {
     "control": "number"
   },

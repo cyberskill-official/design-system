@@ -34,13 +34,13 @@ export default {
 
 export const Default = { args: { name: 'Stephen Cheng', size: 40 } };
 
-export const AllSizes = {
-  name: 'Matrix / All sizes',
+export const Matrix = {
+  name: 'Matrix / Sizes',
   render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Avatar {...args} size="sm" />
-      <Avatar {...args} size="md" />
-      <Avatar {...args} size="lg" />
+    <div style={{ display: 'flex', gap: 12 }}>
+      <Avatar {...args} name="A" size={28} />
+      <Avatar {...args} name="B" size={40} />
+      <Avatar {...args} name="C" size={56} />
     </div>
   ),
 };

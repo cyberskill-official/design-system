@@ -10,6 +10,9 @@ export default {
   "open": {
     "control": "boolean"
   },
+  "title": {
+    "control": "object"
+  },
   "side": {
     "control": "select",
     "options": [
@@ -17,8 +20,8 @@ export default {
       "left"
     ]
   },
-  "title": {
-    "control": "text"
+  "actions": {
+    "control": "object"
   }
 },
   parameters: {
@@ -33,11 +36,14 @@ export default {
 export const Default = { render: function D() { const [open, setOpen] = React.useState(true); return (<><Button onClick={() => setOpen(true)}>Open drawer</Button><Drawer open={open} onClose={() => setOpen(false)} title="Filters"><p>Drawer body</p></Drawer></>); } };
 
 export const Matrix = {
-  name: 'Matrix / open',
-  render: (args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-      <Drawer {...args} open={false} />
-      <Drawer {...args} open={true} />
-    </div>
-  ),
+  name: 'Matrix / Open',
+  render: function D() {
+    const [open, setOpen] = React.useState(false);
+    return (
+      <>
+        <Button onClick={() => setOpen(true)}>Open drawer</Button>
+        <Drawer open={open} onClose={() => setOpen(false)} title="Matrix"><p>Body</p></Drawer>
+      </>
+    );
+  },
 };

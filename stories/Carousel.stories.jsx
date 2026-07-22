@@ -24,14 +24,18 @@ export default {
   },
 };
 
-export const Default = { args: { slides: [{ id: 1, content: 'Slide one' }, { id: 2, content: 'Slide two' }] } };
+export const Default = { render: () => (<Carousel label="Demo"><div style={{ padding: 24 }}>Slide one</div><div style={{ padding: 24 }}>Slide two</div></Carousel>) };
 
 export const Matrix = {
   name: 'Matrix / Slides',
-  render: (args) => (
+  render: () => (
     <div style={{ display: 'grid', gap: 16 }}>
-      <Carousel {...args} slides={[{ id: 1, content: 'One' }]} />
-      <Carousel {...args} slides={[{ id: 1, content: 'One' }, { id: 2, content: 'Two' }, { id: 3, content: 'Three' }]} />
+      <Carousel label="One slide"><div style={{ padding: 20 }}>Only</div></Carousel>
+      <Carousel label="Three slides">
+        <div style={{ padding: 20 }}>One</div>
+        <div style={{ padding: 20 }}>Two</div>
+        <div style={{ padding: 20 }}>Three</div>
+      </Carousel>
     </div>
   ),
 };
