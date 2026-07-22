@@ -17,7 +17,7 @@
 
 ## Scope
 
-- **UI kits stay Thổ-faithful.** `ui_kits/status-hub` and `ui_kits/website` remain Thổ recreations; per-element demos live in **Identity Lab** / Live View.
+- **UI kits stay Thổ-faithful.** `ui_kits/status-hub` and `ui_kits/website` remain Thổ recreations; per-element demos live in **Identity Lab** / Storybook Live.
 
 - **Consuming a mapping:** scope the product root with the row's Markup and consume `--cs-accent-*`.
 
