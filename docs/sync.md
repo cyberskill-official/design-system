@@ -9,8 +9,10 @@ The GitHub repo (`cyberskill-official/design-system`) is the **source of truth**
 - `components/**` (`.jsx` + `.d.ts` + `.prompt.md` + `*.card.html`)
 - `templates/**/*.dc.html` (+ `ds-base.js`, `support.js`)
 - `guidelines/`, `ui_kits/`, `fonts/` (woff2), `assets/`, `docs/`, `_audit/*.html`
+
 - **`_esm/cs.mjs`** — the ESM entry point. Underscore-prefixed does **not** mean build artifact or gitignored here (only `uploads/`, `scraps/`, `_audit/exports/` are — see Hygiene below); `_esm/` is source, same tier as `templates/` or `docs/`. A prior port of this repo skipped it on exactly this assumption and broke the ESM smoke gate — if you're porting/copying this tree by hand, **explicitly include every top-level folder this list names**, don't infer from the `_` prefix.
-- `README.md`, `CHANGELOG.md`, `CONTRIBUTING.md`, `SKILL.md`, `CLAUDE.md`, `VERSION`
+
+- `README.md`, `CONTRIBUTING.md`, `SKILL.md`, `CLAUDE.md`, `VERSION`
 
 Pull them back into a fresh project (see below) and the compiler re-recognizes it as a design system — it keys off `styles.css`, the `.d.ts`/`.jsx` pairs, `@dsCard` HTML, and `templates/`. The **derived** files (`_ds_bundle.js`, `_ds_manifest.json`, `_adherence.oxlintrc.json`) are regenerated every turn from source, so they need not be trusted from the repo — they rebuild.
 
@@ -19,23 +21,27 @@ Pull them back into a fresh project (see below) and the compiler re-recognizes i
 ## Two-way sync (repo = source of truth)
 
 Claude Design can **read/copy from** GitHub but **cannot push to** it. So sync is *automatic pull, manual push*:
-
 **Session START — pull (reliable, automated):** tell the agent to load the repo. It copies the tree into the fresh project (the `github_copy_files` path), the compiler validates, and you continue from the committed truth — never from stale project state. Always begin here; do not resume from a half-remembered project.
 
 **Session END — push (manual, reviewed):** download the project, then from a clone:
 ```
 git checkout -b session/<date-or-topic>
+
 # copy the downloaded files over the working tree (keep .git/, .github/, LICENSE)
 git add -A && git commit -m "DS <VERSION> — <summary>"
 git push -u origin session/<date-or-topic>   # branch, never --force, never straight to main
+
 # open a PR, review the diff, merge
 ```
 The PR diff is the safety net — it shows exactly what changed since the last committed truth.
 
 ## Hygiene that keeps round-trips clean
 - **`.gitignore`** the transient (`uploads/`, `scraps/`, `_audit/exports/`); commit everything else, **including `_esm/`** (see above — it is source, not a build artifact, despite the `_` prefix). The compiled `_ds_bundle.js`/manifest are committed for consumers that have no build step, but expect churn — or ignore them and let each session regenerate.
-- **`VERSION` + `CHANGELOG.md` are the continuity ledger** — a new session reads them to know the baseline and what shipped. Bump every change (see `CONTRIBUTING.md` → Expansion Rule).
+
+- **`VERSION` is pinned at 1.0.0 until LAUNCH** — do not bump it and do not maintain a changelog. Continuity is the git history + `docs/BACKLOG.md` for deferred work.
+
 - **One source of truth at a time.** Don't edit the repo and a Claude Design project in parallel and push both — pull, work, push, in that order, so the repo is always the merge point.
+
 - **Small, frequent commits** beat one giant end-of-project dump — smaller diffs are safer to review and less likely to silently drop a file.
 
 ## TL;DR

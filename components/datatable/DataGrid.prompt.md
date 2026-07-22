@@ -5,4 +5,8 @@
   columns={[{key:"name",header:"Project",sortable:true},{key:"pct",header:"Progress",sortable:true}]} rows={rows}/>
 ```
 
-**filterText / filterKeys / pinned** (7.0): client filter query, optional key subset, and sticky column pin.
+**filterText / filterKeys / pinned:** client filter query, optional key subset, and sticky column pin.
+
+**virtual / virtualThreshold / rowHeight:** windowed body rows for large datasets (auto when rows ≥ 80). Sets `data-virtual="true"` and `data-row-count`.
+
+**persistKey:** stores column order in `localStorage` under `cs:datagrid:cols:<persistKey>`; pin control reorders a column to first.

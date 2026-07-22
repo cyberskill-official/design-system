@@ -4,12 +4,11 @@ For humans and agents *extending this system*. (Consumers: read `SKILL.md`.) The
 
 ## The expansion rule
 
-**When anything grows, everything updates in the same change.** A new element/variant, icon, component, token role, language, or template pattern must propagate to: tokens/source → specimen cards (guidelines + the component group card) **and related guideline pages** → component contract trio (`.jsx` + `.d.ts` + `.prompt.md`) → **all** templates (tweak enums and maps) → Live View / Identity Lab → docs (README counts, SKILL, **and every related document the change touches** — kit READMEs, registry, contrast report regenerated after token changes) → changelog + `VERSION`. Gate every expansion with the compiler check **and a grep for the old enum/list** — nothing ships half-propagated. Documented scope boundaries (doctrine, not gaps): UI-kit pages stay pixel-faithful Thổ recreations (axes demoed in Live View); every template is bilingual EN·VN and English-default (client/media collateral stays English-primary), and language variants render **fully separated** — see the decision log.
+**When anything grows, everything updates in the same change.** A new element/variant, icon, component, token role, language, or template pattern must propagate to: tokens/source → specimen cards (guidelines + the component group card) **and related guideline pages** → component contract trio (`.jsx` + `.d.ts` + `.prompt.md`) → **all** templates (tweak enums and maps) → Live View / Identity Lab → docs (README counts, SKILL, **and every related document the change touches** — kit READMEs, registry, contrast report regenerated after token changes). **Do not bump `VERSION` and do not maintain a changelog** — version stays at 1.0.0 until LAUNCH. Gate every expansion with the compiler check **and a grep for the old enum/list** — nothing ships half-propagated. Documented scope boundaries (doctrine, not gaps): UI-kit pages stay pixel-faithful Thổ recreations (axes demoed in Live View); every template is bilingual EN·VN and English-default (client/media collateral stays English-primary), and language variants render **fully separated** — see the decision log.
 
 ## The three axes
 
 Every rendered surface resolves three orthogonal scopes — never encode one axis inside another:
-
 | Axis | Attribute | Owns | Packs live in |
 |---|---|---|---|
 | **Theme** | `data-theme="dark\|system"` | light/dark inversion | `tokens/colors.css` |
@@ -21,8 +20,11 @@ Surface treatment is liquid-glass (fixed). Immutable under all axes: Umber/Ochre
 ## Naming grammar
 
 - Tokens: `--cs-<layer>-<role>[-<state>]` (`--cs-color-text-muted`). Element role layer: `--cs-accent-*` (9-token contract — see `tokens/elements.css` header).
+
 - Classes: `.cs-<block>[-<part>][--modifier]`. Data attributes: `data-theme`, `data-cs-element`, `data-cs-variant`.
+
 - Files: `tokens/<concern>.css` · `base/<concern>.css` (concern names, never changelog names — "interaction", not "refinements2") · `components/<group>/<Name>.{jsx,d.ts,prompt.md}` · `templates/<dept>-<artifact>/` · `guidelines/<group>-<topic>.html`.
+
 - Template display names: `<Group> · <Artifact>` ("Finance · Invoice").
 
 ## Checklists
@@ -35,22 +37,27 @@ Surface treatment is liquid-glass (fixed). Immutable under all axes: Umber/Ochre
 
 **New element variant** — stay inside the element's oklch envelope; set the 9 `--cs-accent-*` contract tokens plus `--cs-color-text-accent`/`--cs-color-link` (APCA-check both); the aurora wash inherits from the element via `.cs-aurora-wash` (override the class rule only if the variant truly needs its own image); gradient partner (`grad-b`) must follow Tương sinh.
 
-**Release** — bump `VERSION`, add a line to README's changelog, run the compiler check until clean, then run `_audit/docs-consistency.html` **and** `_audit/namespace-portability.html` (both must be green).
+**Ship check** — run the compiler check until clean, then run `_audit/docs-consistency.html` **and** `_audit/namespace-portability.html` (both must be green). Version stays pinned at 1.0.0 until LAUNCH.
 
 ## Decision log (owner-approved)
 
 - Elements fully replace Ochre inside product scopes; plasma's hot-pink edge approved (Jul 2026).
+
 - Axes are Theme × Element × Language only. Surface treatment is liquid-glass (fixed).
+
 - Product registry is provisional ("decide for me", Jul 2026) until a real product list exists.
+
 - Text never sits on the mid-tone `-accent` — codified after the APCA sweep (see `docs/contrast-report.md`).
+
 - Language variants render **fully separated**: switching the Language tweak yields a complete single-language artifact — no partial translation left in headings, labels, helper text, footers, or body. The only bilingual-by-design elements are the CyberSkill name + slogan lockup (`Hiện Thực Hoá Ý Chí · Turn Your Will Into Real`, the canonical form — never a lone half) and the A4 legal identity block (company legal name + state motto). Everything else swaps with the tweak (Jul 2026).
+
 - **Namespace is resolved, never hardcoded** — the compiler names the bundle global `window.CyberSkillDesignSystem_<projectId>`, and that 6-hex suffix is derived from the project id, so it changes whenever the system is imported into another project. Templates read the stable `window.CyberSkillDS` alias that `ds-base.js` publishes on bundle load; cards, UI-kit pages, the standalone email, and audit harnesses resolve by prefix (`window[Object.keys(window).find(k=>/^CyberSkillDesignSystem_[0-9a-f]{6}$/.test(k))]`). `_ds_bundle.js`/`_ds_manifest.json` and the frozen `_audit/exports/` snapshot legitimately carry the real suffix (they *define* it). Enforced by `_audit/namespace-portability.html`, which scans every manifest-indexed source — keeps re-import **zero-touch** (Jul 2026).
+
 - Verification uses the `_audit/` dev harnesses (see `_audit/README.md`): `responsive-harness.html` (the user-facing Responsive preview — **every** template at 390/768/1280), `responsive-overflow.html` (whole-set horizontal-overflow gate at 390 — **use a fresh iframe per template; reusing one races the `@import` CSS and gives false positives**), and `vn-overflow.html` (forces VN across every template, measures clipping). Force states from a frame's own context: `__dcSetProps(__dcRootName(), {language:"Tiếng Việt"})`, theme via `postMessage({type:"__dc_theme",theme:"dark"})`. `_audit/` is dev-only — not compiled, not a card. Never pass a value to `TextField` as **children** (crashes React #137 on re-render — the input is a void element); use `default-value` (Jul 2026).
 
 ## Export paths (per archetype)
 
 Every template exports; the right path depends on the archetype. All paths preserve Vietnamese Unicode (verified by unzipping PPTX slide XML and probing the standalone bundle — VN diacritics survive as native text, see `_audit/exports/`).
-
 | Archetype | Path | Notes |
 |---|---|---|
 | Deck (`*-deck`, `slide-deck`) | **PPTX (editable)** | `gen_pptx` at 960×540; force VN per-slide with `showJs: __dcSetProps(__dcRootName(),{language:'Tiếng Việt'})`. Text exports as native runs; only the Logo is an image. |
@@ -63,11 +70,17 @@ Every template exports; the right path depends on the archetype. All paths prese
 ## Accessibility (base/a11y.css + component ARIA)
 
 - **Focus rings are systematic** — global `:where(:focus-visible)` ochre ring in `base/reset.css`, plus per-component 3px ochre rings (`components/forms/navigation/controls`). Never set `outline: none` on a `:focus-visible` state without replacing the ring (the menu-item regression, fixed Jul 2026). The soft 5px glow in `interaction.css` layers on the 3px ring, never replaces it.
+
 - **Touch targets** — `base/a11y.css` guarantees 44px on `@media (pointer: coarse)` (tabs, pagination, menu items, stepper, checkbox/radio; segmented 40px in its padded track). Desktop mouse density is preserved. `pointer: coarse` is used deliberately over a width breakpoint — a touch laptop at 1280px still needs 44px. Button carries its own coarse block in `components.css`.
+
 - **Reduced motion** — `base/a11y.css` honours `prefers-reduced-motion: reduce` globally (near-zero animation/transition durations); component-level exceptions (spinner slow-spin, status pulse off) already existed.
+
 - **Screen-reader language** — every bilingual template carries a root `lang`: the 37 Vietnamese instruments (`vn-*`) are static `lang="vi"`; the 44 tweakable bilingual templates bind `lang="{{ langAttr }}"` to the Language tweak (`langAttr = language === "Tiếng Việt" ? "vi" : "en"`, injected into `renderVals`). Dual-block templates additionally wrap each `sc-if isVN` block in `<div lang="vi" style="display:contents">` (layout-neutral) so VN text is marked `vi` even in **Both** mode where the root is the primary `en`. Result: correct pronunciation in every language mode.
+
 - **Component ARIA is complete** — every interactive component ships correct roles/labels (Button `aria-busy`; TextField/Textarea `aria-invalid`+`aria-describedby`+`role=alert`; Switch `role=switch`; SearchField `role=searchbox`; Menu `aria-haspopup`/`aria-expanded`/`role=menu(item)`; Pagination `nav`+`aria-current`+prev/next labels; Dialog/Drawer `aria-modal`; Toast `role=status`/`region`; ConfidenceMeter `role=meter`; Accordion `aria-expanded`; Logo `role=img`/`aria-hidden`). Preserve these when composing.
+
 - **Void-element API rule** — components that render a void element (`<input>`/`<hr>`: TextField, Checkbox, Radio, Switch, SearchField, NumberField, Slider, Divider) destructure `children` out of `...props` so a stray child can never spread onto the void element (that crashes React with #137, the bug that hit `settings`). Content always comes from explicit props (`label` / `value` / `defaultValue`), never `children`. Follow this when adding any input-based component (Jul 2026).
+
 - **Dark-theme contrast** — all text/surface pairings pass WCAG AA body (9–15:1). Semantic colours have dark overrides (`success #4ADE80`, `danger #F87171`, `warning #FBBF24`, `info #7CB2FB`) because the light-theme semantics failed on dark surfaces (~2.5:1); verify any new semantic pairing on `#221710`/`#2b1e14` (`_audit/` contrast math). The dark hairline border is intentionally subtle (separator, not a 3:1 boundary) (Jul 2026). **Interactive components that set `color`/`border-color: var(--cs-color-brand-umber)` on a themeable surface** (nav-item active, secondary/tertiary/ghost buttons, and the like) MUST ship a `[data-theme="dark"]` override — umber is near-invisible on dark; remap to ochre (emphasis) or `--cs-color-text-primary` (body). Screen-template brand wordmarks use `--cs-color-text-primary` (never hardcoded umber) so they flip in dark; print-doc headers stay umber by design. Table ID/code columns (e.g. `R-26-07`) carry `white-space:nowrap` so a hyphenated code never word-breaks in a narrow column (Jul 2026, user-reported). The umber-on-themeable-surface rule is now **enforced deterministically** by `_audit/contrast-guard.html` (static source lint + a token-pair WCAG matrix scored in light *and* dark) — the reliable gate the DOM-walk theme advisory couldn't be (v2.21.0). Note: `accent-strong` (the "accent text on light" role) is APCA-validated but WCAG-borderline (~3.2–4.3) for a few element packs (tho, tho/sand, thuy/mist, moc/bamboo) — reserve it for semibold/large accent text; the guard lists these as advisory and gates only egregious <3.0 (v2.21.1).
 
 ## RTL readiness (confirmed Jul 2026)
@@ -81,15 +94,15 @@ Templates lean on the `.cs-aurora-wash` gradients by default; to accept **real**
 ## Vietnamese typography & locale (verified Jul 2026)
 
 Vietnamese is the primary language; the type system is built for it — verified, no changes needed:
-- **Glyph coverage** — `Be Vietnam Pro` (UI/display) and `JetBrains Mono` (code/data) are self-hosted with a full `vietnamese` woff2 subset (U+1EA0–1EF9 tone-stacked vowels, đ/ơ/ư, ₫) for **every** weight in use. No CDN; standalone exports embed them.
 - **Line-heights are VN-safe** — tokens body 1.5 / heading 1.35 / tight 1.15 leave room for stacked diacritics (dấu on top + nặng below). `:where(h1–h6)` defaults to 1.35 + `text-wrap: balance`; `:where(p)` gets `text-wrap: pretty` (both `base/reset.css`). Templates may hardcode a tighter line-height (≈1.0–1.15) **only** on single-line hero display headings; multi-line VN headings keep ≥1.15.
+
 - **Locale formatting** — each language renders its own conventions: **VN** uses `₫` suffix, `DD/MM/YYYY`, dot-thousands (`1.000.000`); **EN** uses `$` prefix, `DD Mon YYYY`, comma-thousands (`1,000,000`). English-format dates live only in English branches — never leak into a VN branch. Confirmed by scan across all templates.
 
 ## Whole-set state audits — language · theme · responsive (each its own pass, Jul 2026)
 
 Owner doctrine: language, theme, and responsive each get their OWN whole-set pass; one clean state is not evidence for another. All three are now race-free, manifest-driven, **all-84** pass/fail gates built on the same pattern — a **fresh single-navigation iframe per template** (reusing one iframe across `src` swaps races the `@import`ed CSS and yields false results), state forced via `__dcSetProps`, settle, then measure:
-- **Responsive** — `_audit/responsive-overflow.html` — 0 document horizontal overflow @390.
 - **Language** — `_audit/language-overflow.html` — forces `Tiếng Việt`; 0 VN overflow/clip @390; also asserts VN actually applied on every template.
+
 - **Theme** — `_audit/theme-overflow.html` — forces dark; hard gate = dark-applies + 0 dark overflow @390.
 
 ## DOM contrast is unreliable here — theme-contrast is advisory, not a gate (Jul 2026)

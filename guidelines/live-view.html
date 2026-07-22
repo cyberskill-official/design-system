@@ -17,13 +17,16 @@
   .subtabs button:hover{color:var(--cs-color-text-primary)}
   .subtabs button[aria-selected="true"]{color:var(--cs-color-brand-umber);border-block-end-color:var(--cs-color-brand-ochre)}
   [data-theme="dark"] .subtabs button[aria-selected="true"]{color:var(--cs-color-brand-ochre)}
-  .hint{font-size:12px;color:var(--cs-color-text-muted);padding:8px 18px;background:var(--cs-color-surface-raised);border-block-end:1px solid var(--cs-color-border-default)}
-  .hint b{color:var(--cs-color-text-primary)}
+  .hint{font-size:12.5px;color:var(--cs-color-text-primary);padding:8px 18px;background:var(--cs-color-surface-panel);border-block-end:1px solid var(--cs-color-border-default);line-height:1.5}
+  .hint b{color:var(--cs-color-brand-umber)}
+  [data-theme="dark"] .hint b{color:var(--cs-color-brand-ochre)}
+  .axisbar .lb{color:var(--cs-color-text-primary);opacity:.72}
+  .axisbar select{background:var(--cs-color-surface-page);color:var(--cs-color-text-primary)}
   iframe{flex:1;width:100%;border:0;min-height:0;background:var(--cs-color-surface-page)}
 </style>
 </head>
 <body>
-<div class="axisbar" id="axisbar" aria-label="Shared axes">
+<div class="axisbar" id="axisbar" aria-label="Shared axes" data-chrome="live-axisbar">
   <span class="lb">Theme</span>
   <select id="ax-theme"><option value="">Light</option><option value="dark">Dark</option></select>
   <span class="lb">Element</span>
@@ -49,16 +52,19 @@
   <input class="filter" id="tpl-filter" type="search" placeholder="Filter templates…" aria-label="Filter templates" hidden>
 </div>
 <nav class="subtabs" id="sub" role="tablist" aria-label="Live View surfaces"></nav>
-<p class="hint"><b>Live View</b> — shared Theme × Element × Language toolbar drives every surface below. Components, Identity Lab, playground, kitchen-sink, image slots, and AI cluster.</p>
+<p class="hint"><b>Live View</b> — shared Theme × Element × Language toolbar drives every surface. Components (grouped by type), Motion, Identity Lab, template playground, <b>Storybook</b> host playground (<code>/playground/</code>), kitchen-sink, image slots, AI cluster, RTL. Storybook is host-only; portable consumers still use CSS + bundle.</p>
 <iframe id="pane" title="Live surface"></iframe>
 <script>
 const SURFACES=[
   {id:'components',label:'Components',src:'atomic-view.html',filter:false},
+  {id:'motion',label:'Motion',src:'motion.html',filter:false},
   {id:'identity',label:'Identity Lab',src:'../ui_kits/status-hub/identity-lab.html',filter:false},
   {id:'playground',label:'Playground',src:'../templates/playground.html',filter:false},
+  {id:'storybook',label:'Storybook',src:'../playground/index.html',filter:false,externalHint:true},
   {id:'kitchen',label:'Kitchen sink',src:'../templates/kitchen-sink.html',filter:false},
   {id:'images',label:'Image slots',src:'../templates/image-slots-demo.html',filter:false},
   {id:'ai-cluster',label:'AI cluster',src:'../templates/ai-cluster-demo.html',filter:false},
+  {id:'rtl',label:'RTL',src:'rtl-preview.html',filter:false},
 ];
 const sub=document.getElementById('sub'), pane=document.getElementById('pane');
 const themeEl=document.getElementById('ax-theme'), elEl=document.getElementById('ax-el'), langEl=document.getElementById('ax-lang');

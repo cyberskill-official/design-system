@@ -1,23 +1,28 @@
 # CyberSkill Design System
-> HTML-first, Vietnamese-first design system. Immutable anchors: Umber #45210E · Ochre #F4BA17. Independent axes — Theme × Element (Ngũ Hành) × Language. Current: v7.0.0. Manifest startingPoints curated; Health board includes three-axes + CSS path guards. This file is the agent/tool front door: it maps each audience to the format it should consume.
+
+HTML-first, Vietnamese-first design system. Immutable anchors: Umber #45210E · Ochre #F4BA17. Independent axes — Theme × Element (Ngũ Hành) × Language. Pinned **v1.0.0** until launch. This file is the agent/tool front door: it maps each audience to the format it should consume.
 
 ## Consume by audience (the portable contract works everywhere; the DC layer is Claude-Design-only)
 - **Any web / framework / email (Vue, Svelte, plain HTML, React):** link `styles.css` — every `--cs-*` token, the `.cs-*` component classes, Liquid Glass surfaces. Framework-agnostic, no build step.
+
 - **React (production):** `styles.css` + `<script src="_ds_bundle.js">`, then resolve the bundle global by prefix (its `_<projectId>` suffix is compiler-assigned and changes on re-import): `const CS = window[Object.keys(window).find(k => /^CyberSkillDesignSystem_/.test(k))]; const { Button, … } = CS`. Proven green by `_audit/consumer-smoke-test.html`. (Templates load via `ds-base.js`, which publishes a stable `window.CyberSkillDS` alias for the same reason.)
 - **Design tools / native / token pipelines / other agents (Figma, Google Stitch, Style Dictionary):** `tokens/tokens.json` (+ `tokens/tokens.js` ESM, + `tokens/tokens.dtcg.json` in **W3C DTCG** format for Tokens Studio for Figma / Style Dictionary) — every token grouped by category, plus theme/element override maps. This is the canonical cross-tool contract.
+
 - **Claude Design (authoring + live preview):** `templates/**/*.dc.html` Design Components + the compiler (tweaks, `x-import`, `@dsCard` cards). Native to Claude Design — not portable; other tools consume the outputs above, not these.
 
 ## Key files
-- `dashboard.html` — single-page hub (tabs: Overview · Docs · Live View · Health; live version/counts)
+- `dashboard.html` — single-page hub (tabs: Overview · Docs · Live View · Health · Tokens)
 - `styles.css` — single entry point (`@import`s `tokens/` then `base/`) · `_esm/cs.mjs` — ESM entry (imports every component, no build)
-- `tokens/` — 400+ design tokens (colours · type · spacing · motion · elevation · `elements.css` · `elements.css` (Ngũ Hành packs)) as CSS custom properties + `tokens.json` / `tokens.js` / `tokens.dtcg.json` (W3C DTCG)
+- `tokens/` — design tokens as CSS custom properties + `tokens.json` / `tokens.js` / `tokens.dtcg.json` (W3C DTCG) + `viewer.html` (table + raw modes) + `native/` (SwiftUI/Compose/Flutter)
 - `base/` — reset, component classes (`.cs-*`), a11y, responsive, glass
-- `components/` — 99 components / 113 exports, each `.jsx` + `.d.ts` + `.prompt.md` + a `@dsCard` card
+- `components/` — 99 components / 115 exports, each `.jsx` + `.d.ts` + `.prompt.md` + a `@dsCard` card
 - `templates/` — copyable starting points (`.dc.html`); `email-safe/` send-ready emails; `kitchen-sink.html`; `playground.html`
-- `guidelines/` — specimen cards + `atomic-view.html` (Storybook-style component browser: Atomic tiers × Theme × Element × Language) · `ui_kits/` — full product recreations · `fonts/` — self-hosted woff2 (VN subset) · `assets/` — logo/favicon/mascot
-- `tokens/` — CSS custom properties (source) · `tokens.json`/`tokens.js` · `tokens.dtcg.json` (W3C DTCG) · `native/` (generated SwiftUI/Compose/Flutter + `provenance.json`, gate-pinned)
-- `docs/` — `conventions.md` (authoring rules + decision log) · `consuming.md` (adoption + upgrade guide, incl. the AI-agent quick path) · `sync.md` · `contrast-report.md` · `products.md` · `deploy.md` (Vercel/VPS live-site deploy) · `template-schema-v2.md` (typed content-slot spec) · `BACKLOG.md` (planned, not-yet-shipped work) · `viewer.html` (in-page docs reader, embedded in the dashboard)
-- `README.md` · `CHANGELOG.md` · `CONTRIBUTING.md` · `SKILL.md` · `VERSION` · `package.json`
+
+- `guidelines/` — specimen cards + `atomic-view.html` / `live-view.html` (Theme × Element × Language) · `ui_kits/` · `fonts/` · `assets/`
+
+- `docs/` — `conventions.md` · `consuming.md` · `sync.md` · `contrast-report.md` · `products.md` · `deploy.md` · `template-schema-v2.md` · `BACKLOG.md` · `viewer.html`
+
+- `README.md` · `CONTRIBUTING.md` · `SKILL.md` · `VERSION` · `package.json`
 
 ## Non-negotiables (full list in CONTRIBUTING.md + docs/conventions.md)
 Immutable Umber/Ochre anchors · Vietnamese-first bilingual · APCA Lc ≥ 75 body · ≥44px touch targets · 3px ochre focus ring · honour `prefers-reduced-motion`/`prefers-contrast` · one accent per surface.

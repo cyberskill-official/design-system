@@ -1,11 +1,10 @@
 # Contrast report — elemental pairings (APCA)
 
-Generated 2026-07-22 · sweep v7 (lockstep with VERSION 7.0.0).
+Generated 2026-07-22 · sweep at VERSION 1.0.0 pin.
 
 **Doctrine encoded by this sweep:** text sits on `-bright` or `-tint`, never on the mid-tone `-accent` — at any size. The accent is for bars, borders, progress fills, and non-text fills only. (Rule stated in `tokens/elements.css` and conventions.)
 
 Token nudges applied for v2.0: bright lightened for clay, hoa, lava, plasma, thủy, ocean, forest, titanium; `-on` flipped dark for lava, ocean, forest, titanium.
-
 | Scope | Pairing | fg / bg | Lc | Verdict |
 |---|---|---|---|---|
 | root (Thổ default) | text-accent on white (bold labels) | #6E3B0E / #FFFFFF | 90.7 | ✓ |
@@ -94,7 +93,6 @@ Token nudges applied for v2.0: bright lightened for clay, hoa, lava, plasma, th�
 ## Dark-theme semantic colours (WCAG, added v2.8.0)
 
 The light-theme semantic foregrounds failed on dark surfaces (~2.5:1), so the dark theme overrides them. WCAG contrast on the dark panel `#221710` (and as a fill paired with dark ink `#1a1108`):
-
 | Role | Dark value | on panel | as fill w/ ink | Verdict |
 |---|---|---|---|---|
 | success | #4ADE80 | 10.06 | 10.69 | ✓ |
@@ -103,14 +101,11 @@ The light-theme semantic foregrounds failed on dark surfaces (~2.5:1), so the da
 | info | #7CB2FB | 8.03 | 8.53 | ✓ |
 
 Core dark also remaps the primary button to Ochre (`#f4ba17` on `#1a1108`) and warms the field border — so no dark control is low-contrast. Dark shadows are umber-tinted (weak on dark by nature); the dark hairline border provides panel separation instead.
-
 This file is generated — re-run the APCA sweep script after any token change.
-
 
 ## Dark elemental packs — APCA verification (v4.0.0, Jul 2026)
 
 Generated with the owner-approved dark packs applied; measured by the same SAPC-4g implementation as `_audit/apca-dark-preview.html` (also the regression gate). Targets: bright ≥ 75 · accent ≥ 60 · button ink ≥ 75 · ink-on-tint ≥ 75 — **15/15 packs pass**.
-
 | Pack | bright | accent | on/strong | ink/tint |
 |---|---|---|---|---|
 | tho | 75 | 69.2 | 75.1 | 75.3 |

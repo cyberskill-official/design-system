@@ -7,4 +7,5 @@
 ```
 
 - **label** (required), **description** (helper), **error** (inline + `aria-invalid`).
+
 - Passes through all native `<input>` props (`type`, `placeholder`, `value`, `disabled`, `readOnly`, …).

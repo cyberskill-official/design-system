@@ -8,13 +8,17 @@ How any project — human-driven or agent-driven — adopts this HTML-first desi
 
 **Repo checkout** — clone or copy the whole tree; everything is relative-path static. Entry points: `dashboard.html` (hub) · `guidelines/atomic-view.html` (every component live) · `templates/<slug>/` (copyable starting points). Read `SKILL.md` before authoring anything on-brand; deeper maps live in `llms.txt` (inventory) and this file (full adoption + upgrade guide below).
 
-**After import — prove health.** Open `_audit/run.html`, let the gate board finish (every fast gate), click **Copy import report**. All green = the copy is internally consistent (contrast, docs, portability, tokens, consumer path, behavior, a11y, stories, bilingual parity).
+**After import — prove health.** Open `_audit/run.html` (or the dashboard **Health** tab), let the gate board finish (every fast gate). All green = the copy is internally consistent (contrast, docs, portability, tokens, consumer path, behavior, a11y, stories, bilingual parity).
 
 **Rules that keep transfer lossless:**
 - Never hardcode the bundle namespace suffix (see "Resolve by prefix" below — gate-enforced).
+
 - Never recreate/recolour the logo — use `assets/logo-mark.svg` / the `Logo` component.
+
 - Every UI string ships EN + VN via the registry; don't inline one-language strings in components.
+
 - Anchors (Umber/Ochre), `.cs-*` class names, `--cs-*` token names are stable contracts.
+
 - Extending the system? Follow `CONTRIBUTING.md` (Expansion Rule: propagate to every deliverable in one change; verify via `_audit/`).
 
 ## Adopt (two paths, plus a module shortcut)
@@ -31,7 +35,6 @@ How any project — human-driven or agent-driven — adopts this HTML-first desi
 </script>
 ```
 This is exactly what `_audit/consumer-smoke-test.html` exercises (and asserts green) — and the templates' `ds-base.js` does the same, publishing a stable `window.CyberSkillDS` alias.
-
 **2b. ESM (module) path — one import, no build.** `import { Button, TextField } from "<path>/_esm/cs.mjs"` — the module self-ensures React (pinned; skipped when `window.React` exists), side-loads `_ds_bundle.js` once, resolves the namespace by prefix, and re-exports all components (`_audit/esm-smoke-test.html` keeps the export list in lockstep with the manifest). Still link `styles.css` yourself.
 
 **Templates.** Each `templates/<slug>/` is a Design Component seeded from `ds-base.js` (one `base` line to rebind the path to wherever this system lives relative to the consuming page). Copy the folder and edit copy/tweaks.
@@ -46,10 +49,15 @@ State Theme (`data-theme`), Element (`data-cs-element` + `data-cs-variant`), and
 
 ## Upgrading
 
-- **Pin a version.** `VERSION` holds the current release (currently **6.0.0**); `CHANGELOG.md` is the full history (newest first). Track which version you adopted.
-- **Read the changelog before taking updates.** Entries call out real behaviour changes (e.g. dark semantic-token work, the `TextField` void-element rule). Anchors (Umber/Ochre), the `.cs-*` class names, and the `--cs-*` token names are stable contracts — safe to depend on.
-- **Re-run the smoke test after upgrading.** Open `_audit/consumer-smoke-test.html` and the full Health board (`_audit/run.html` / dashboard Health tab) against the new version — the runner proves the packaged path still resolves.
-- **Semver intent:** minor bumps add/verify without breaking public class/token names; a breaking public rename is a major bump with a clear changelog entry.
+- **Version is pinned.** `VERSION` and `package.json` stay at **1.0.0** until the owner says LAUNCH. There is no design-system changelog during this phase — treat the repo tip as the only truth.
+
+- Anchors (Umber/Ochre), the `.cs-*` class names, and the `--cs-*` token names are stable contracts — safe to depend on. Breaking renames of those contracts should be rare and called out in the PR/docs when they happen.
+
+- **Re-run the smoke test after upgrading.** Open `_audit/consumer-smoke-test.html` and the full Health board (`_audit/run.html` / dashboard Health tab) against the new tip — the runner proves the packaged path still resolves.
+
+## Host playground (optional)
+
+The live site may serve Storybook at `/playground/` for operators. That is **host-only tooling** — do not depend on Storybook in product apps. See `docs/storybook.md`.
 
 ## Extending
 

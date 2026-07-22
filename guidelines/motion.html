@@ -26,12 +26,19 @@
   .c2 i{animation:fill 2s var(--cs-ease-standard) infinite;animation-delay:.15s}
   .c3 i{animation:fill 2s var(--cs-ease-standard) infinite;animation-delay:.3s}
   .c4 i{animation:fill 2s var(--cs-ease-standard) infinite;animation-delay:.45s}
-  .note{color:var(--cs-color-text-muted);font-size:11.5px;margin:16px 0 0;line-height:1.5}
+  .note{color:var(--cs-color-text-primary);opacity:.8;font-size:11.5px;margin:16px 0 0;line-height:1.5}
+  .cap{color:var(--cs-color-text-primary);opacity:.75}
+  h3{color:var(--cs-color-brand-umber)}
+  @media (prefers-reduced-motion: reduce){
+    .dot,.chip i{animation:none !important}
+    .dot{left:calc(50% - 6px)}
+    .chip i{transform:scaleX(.35);opacity:.55}
+  }
 </style></head>
-<body>
+<body data-chrome="motion">
 <div class="wrap">
   <h3>Easing — soft decelerate</h3>
-  <p class="cap">Same 1.3s trip; watch how each curve accelerates. Motion is fades &amp; small translate/scale only.</p>
+  <p class="cap">Same 1.3s trip; watch how each curve accelerates. Motion is fades &amp; small translate/scale only. Live in Live View → Motion.</p>
   <div class="track"><div class="lbl"><b>standard</b><span class="v">cubic-bezier(.2,0,0,1)</span></div><div class="rail"><div class="dot d1"></div></div></div>
   <div class="track"><div class="lbl"><b>entrance</b><span class="v">cubic-bezier(0,0,0,1)</span></div><div class="rail"><div class="dot d2"></div></div></div>
   <div class="track"><div class="lbl"><b>exit</b><span class="v">cubic-bezier(.4,0,1,1)</span></div><div class="rail"><div class="dot d3"></div></div></div>

@@ -2299,7 +2299,7 @@ function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
 
-/** CyberSkill DataGrid — advanced table: sortable columns, selectable rows, sticky header, optional pin + filter. */
+/** CyberSkill DataGrid — sortable, selectable, sticky header, pin, filter, virtualization, column persistence. */
 function DataGrid({
   columns = [],
   rows = [],
@@ -2313,36 +2313,83 @@ function DataGrid({
   lang,
   className,
   filterText,
-  filterKeys
+  filterKeys,
+  virtual = false,
+  virtualThreshold = 80,
+  rowHeight = 36,
+  persistKey
 }) {
-  const [sort, setSort] = React.useState(null); // {key, dir}
+  const [sort, setSort] = React.useState(null);
+  const [scrollTop, setScrollTop] = React.useState(0);
+  const [colOrder, setColOrder] = React.useState(() => {
+    if (!persistKey) return null;
+    try {
+      const raw = localStorage.getItem("cs:datagrid:cols:" + persistKey);
+      const arr = raw ? JSON.parse(raw) : null;
+      return Array.isArray(arr) ? arr : null;
+    } catch (e) {
+      return null;
+    }
+  });
   const [ref, L] = __ds_scope.useLang(lang);
   const t = __ds_scope.makeT("DataGrid", L);
+  const orderedColumns = React.useMemo(() => {
+    if (!colOrder || !colOrder.length) return columns;
+    const map = new Map(columns.map(c => [c.key, c]));
+    const out = [];
+    for (const k of colOrder) if (map.has(k)) {
+      out.push(map.get(k));
+      map.delete(k);
+    }
+    for (const c of map.values()) out.push(c);
+    return out;
+  }, [columns, colOrder]);
   const filtered = React.useMemo(() => {
     const q = (filterText == null ? "" : String(filterText)).trim().toLowerCase();
     if (!q) return rows;
-    const keys = filterKeys && filterKeys.length ? filterKeys : columns.map(c => c.key);
+    const keys = filterKeys && filterKeys.length ? filterKeys : orderedColumns.map(c => c.key);
     return rows.filter(r => keys.some(k => String(r[k] == null ? "" : r[k]).toLowerCase().includes(q)));
-  }, [rows, filterText, filterKeys, columns]);
+  }, [rows, filterText, filterKeys, orderedColumns]);
   const sorted = React.useMemo(() => {
     if (!sort) return filtered;
-    const col = columns.find(c => c.key === sort.key);
+    const col = orderedColumns.find(c => c.key === sort.key);
     const val = r => col && col.sortValue ? col.sortValue(r) : r[sort.key];
     return [...filtered].sort((a, b) => {
       const x = val(a),
         y = val(b);
       return (x > y ? 1 : x < y ? -1 : 0) * (sort.dir === "asc" ? 1 : -1);
     });
-  }, [filtered, sort, columns]);
+  }, [filtered, sort, orderedColumns]);
+  const useVirtual = virtual || sorted.length >= virtualThreshold;
+  const bodyH = Math.max(0, height - 40);
+  const start = useVirtual ? Math.max(0, Math.floor(scrollTop / rowHeight) - 4) : 0;
+  const visibleCount = useVirtual ? Math.ceil(bodyH / rowHeight) + 8 : sorted.length;
+  const end = useVirtual ? Math.min(sorted.length, start + visibleCount) : sorted.length;
+  const slice = sorted.slice(start, end);
+  const padTop = useVirtual ? start * rowHeight : 0;
+  const padBottom = useVirtual ? Math.max(0, (sorted.length - end) * rowHeight) : 0;
   const allSel = selectable && filtered.length && filtered.every(r => selected.includes(r[rowKey]));
   const toggleAll = () => onSelect && onSelect(allSel ? [] : filtered.map(r => r[rowKey]));
   const toggle = k => onSelect && onSelect(selected.includes(k) ? selected.filter(x => x !== k) : [...selected, k]);
+  const pinColumn = key => {
+    if (!persistKey) return;
+    const keys = orderedColumns.map(c => c.key);
+    const next = [key, ...keys.filter(k => k !== key)];
+    setColOrder(next);
+    try {
+      localStorage.setItem("cs:datagrid:cols:" + persistKey, JSON.stringify(next));
+    } catch (e) {}
+  };
   return /*#__PURE__*/React.createElement("div", {
     ref: ref,
-    className: cx("cs-datagrid", className),
+    className: cx("cs-datagrid", useVirtual && "cs-datagrid--virtual", className),
     style: {
-      maxBlockSize: height
-    }
+      maxBlockSize: height,
+      overflow: "auto"
+    },
+    onScroll: useVirtual ? e => setScrollTop(e.currentTarget.scrollTop) : undefined,
+    "data-virtual": useVirtual ? "true" : "false",
+    "data-row-count": sorted.length
   }, /*#__PURE__*/React.createElement("table", {
     className: "cs-table"
   }, caption ? /*#__PURE__*/React.createElement("caption", null, caption) : null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, selectable ? /*#__PURE__*/React.createElement("th", {
@@ -2353,7 +2400,7 @@ function DataGrid({
     "aria-label": t("selectAll"),
     checked: !!allSel,
     onChange: toggleAll
-  })) : null, columns.map(c => /*#__PURE__*/React.createElement("th", {
+  })) : null, orderedColumns.map(c => /*#__PURE__*/React.createElement("th", {
     key: c.key,
     scope: "col",
     className: c.pinned ? "cs-datagrid__pinned" : undefined,
@@ -2376,14 +2423,32 @@ function DataGrid({
     } : null)
   }, c.header, /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "true"
-  }, sort && sort.key === c.key ? sort.dir === "asc" ? " ▲" : " ▼" : " ↕")) : c.header)))), /*#__PURE__*/React.createElement("tbody", null, sorted.length === 0 ? /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
-    colSpan: columns.length + (selectable ? 1 : 0),
+  }, sort && sort.key === c.key ? sort.dir === "asc" ? " ▲" : " ▼" : " ↕")) : c.header, persistKey ? /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "cs-datagrid__pin",
+    title: "Pin column first",
+    onClick: () => pinColumn(c.key),
+    "aria-label": "Pin " + c.key
+  }, "⟂") : null)))), /*#__PURE__*/React.createElement("tbody", null, sorted.length === 0 ? /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
+    colSpan: orderedColumns.length + (selectable ? 1 : 0),
     className: "cs-table__empty"
-  }, empty != null ? empty : t("empty"))) : sorted.map((r, i) => {
-    const k = r[rowKey] != null ? r[rowKey] : i;
+  }, empty != null ? empty : t("empty"))) : /*#__PURE__*/React.createElement(React.Fragment, null, padTop > 0 ? /*#__PURE__*/React.createElement("tr", {
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("td", {
+    colSpan: orderedColumns.length + (selectable ? 1 : 0),
+    style: {
+      height: padTop,
+      padding: 0,
+      border: 0
+    }
+  })) : null, slice.map((r, i) => {
+    const k = r[rowKey] != null ? r[rowKey] : start + i;
     return /*#__PURE__*/React.createElement("tr", {
       key: k,
-      className: selected.includes(k) ? "is-selected" : undefined
+      className: selected.includes(k) ? "is-selected" : undefined,
+      style: useVirtual ? {
+        height: rowHeight
+      } : undefined
     }, selectable ? /*#__PURE__*/React.createElement("td", {
       className: "cs-datagrid__selcol"
     }, /*#__PURE__*/React.createElement("input", {
@@ -2391,7 +2456,7 @@ function DataGrid({
       "aria-label": t("selectRow"),
       checked: selected.includes(k),
       onChange: () => toggle(k)
-    })) : null, columns.map(c => /*#__PURE__*/React.createElement("td", {
+    })) : null, orderedColumns.map(c => /*#__PURE__*/React.createElement("td", {
       key: c.key,
       className: c.pinned ? "cs-datagrid__pinned" : undefined,
       style: c.pinned ? {
@@ -2400,10 +2465,19 @@ function DataGrid({
         background: "var(--cs-color-surface-panel)"
       } : undefined
     }, c.render ? c.render(r) : r[c.key])));
-  }))));
+  }), padBottom > 0 ? /*#__PURE__*/React.createElement("tr", {
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("td", {
+    colSpan: orderedColumns.length + (selectable ? 1 : 0),
+    style: {
+      height: padBottom,
+      padding: 0,
+      border: 0
+    }
+  })) : null))));
 }
-Object.assign(__ds_scope, { DataGrid });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/datatable/DataGrid.jsx", error: String((e && e.message) || e) }); }
+__ds_scope.DataGrid = DataGrid;
+})(); } catch (e) { console.error('[ds-bundle] DataGrid failed:', e); }
 
 // components/datatable/DataTable.jsx
 try { (() => {
@@ -3731,56 +3805,61 @@ Object.assign(__ds_scope, { FileUpload });
 
 // components/forms/Form.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-const FormCtx = React.createContext(null);
-
-/**
- * CyberSkill Form — semantic form + optional controller (v3.7).
- * Plain mode (unchanged): named native fields are collected via FormData into onSubmit(values);
- * `errors` renders the bilingual summary. Controller mode: pass `rules` (name → "required" |
- * fn(value, values) => msg|null | array of those); FormField children with `name` register via
- * context — value/onChange auto-wired, per-field errors auto-shown, submit blocked until clean.
- */
-function Form({
-  onSubmit,
-  errors = {},
-  rules,
-  asyncRules,
-  initialValues,
-  children,
-  lang,
-  className,
-  ...props
-}) {
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("Form", L);
+let FormCtx;
+function getFormCtx() {
+  if (!FormCtx) FormCtx = React.createContext(null);
+  return FormCtx;
+}
+function getPath(obj, path) {
+  if (!path) return void 0;
+  const parts = String(path).split(".");
+  let cur = obj;
+  for (const p of parts) {
+    if (cur == null) return void 0;
+    cur = cur[p];
+  }
+  return cur;
+}
+function setPath(obj, path, value) {
+  const parts = String(path).split(".");
+  const root = Array.isArray(obj) ? [...obj] : { ...obj || {} };
+  let cur = root;
+  for (let i = 0; i < parts.length - 1; i++) {
+    const p = parts[i];
+    const nextKey = parts[i + 1];
+    const nextIsIndex = /^\d+$/.test(nextKey);
+    const existing = cur[p];
+    const clone = existing == null ? nextIsIndex ? [] : {} : Array.isArray(existing) ? [...existing] : { ...existing };
+    cur[p] = clone;
+    cur = clone;
+  }
+  cur[parts[parts.length - 1]] = value;
+  return root;
+}
+function Form({ onSubmit, errors = {}, rules, asyncRules, initialValues, children, lang, className, ...props }) {
+  const [ref, L] = useLang(lang);
+  const t = makeT("Form", L);
   const [values, setValues] = React.useState(() => initialValues || {});
   const [ruleErrors, setRuleErrors] = React.useState({});
   const [pending, setPending] = React.useState(false);
   const setValue = React.useCallback((name, v) => {
-    setValues(s => ({
-      ...s,
-      [name]: v
-    }));
-    setRuleErrors(e => e[name] ? {
-      ...e,
-      [name]: undefined
-    } : e);
+    setValues((s) => String(name).includes(".") ? setPath(s, name, v) : { ...s, [name]: v });
+    setRuleErrors((e) => e[name] ? { ...e, [name]: void 0 } : e);
   }, []);
-  const merged = {
-    ...ruleErrors,
-    ...errors
-  };
-  const keys = Object.keys(merged).filter(k => merged[k]);
-  const runRules = v => {
-    if (!rules) return {};
+  const merged = { ...ruleErrors, ...errors };
+  const keys = Object.keys(merged).filter((k) => merged[k]);
+  const runRules = (v, ruleMap) => {
+    const map = ruleMap || rules;
+    if (!map) return {};
     const out = {};
-    for (const [name, r] of Object.entries(rules)) {
+    for (const [name, r] of Object.entries(map)) {
       for (const rule of Array.isArray(r) ? r : [r]) {
-        const msg = rule === "required" ? v[name] == null || String(v[name]).trim() === "" ? t("requiredField") : null : typeof rule === "function" ? rule(v[name], v) : null;
+        const fieldVal = String(name).includes(".") ? getPath(v, name) : v[name];
+        const msg = rule === "required" ? fieldVal == null || String(fieldVal).trim() === "" ? t("requiredField") : null : typeof rule === "function" ? rule(fieldVal, v) : null;
         if (msg) {
           out[name] = msg;
           break;
@@ -3789,13 +3868,14 @@ function Form({
     }
     return out;
   };
-  const runAsyncRules = async v => {
+  const runAsyncRules = async (v) => {
     if (!asyncRules) return {};
     const out = {};
     for (const [name, fn] of Object.entries(asyncRules)) {
       if (typeof fn !== "function") continue;
       try {
-        const msg = await fn(v[name], v);
+        const fieldVal = String(name).includes(".") ? getPath(v, name) : v[name];
+        const msg = await fn(fieldVal, v);
         if (msg) out[name] = msg;
       } catch (e) {
         out[name] = String(e && e.message || e);
@@ -3803,100 +3883,179 @@ function Form({
     }
     return out;
   };
-  const ctx = {
-    values,
-    setValue,
-    errors: merged,
-    pending
-  };
-  return /*#__PURE__*/React.createElement(FormCtx.Provider, {
-    value: ctx
-  }, /*#__PURE__*/React.createElement("form", _extends({}, props, {
-    ref: ref,
-    className: cx("cs-form", pending && "is-pending", className),
-    noValidate: true,
-    onSubmit: async e => {
-      e.preventDefault();
-      const fd = new FormData(e.currentTarget);
-      const v = {};
-      fd.forEach((val, k) => {
-        v[k] = val;
-      });
-      Object.assign(v, values); // controller-registered fields are the source of truth
-      const errs = runRules(v);
-      if (Object.keys(errs).some(k => errs[k])) {
-        setRuleErrors(errs);
-        return;
+  const ctx = { values, setValue, setValues, errors: merged, pending, runRules, setRuleErrors, t, L };
+  const Ctx = getFormCtx();
+  return /* @__PURE__ */ React.createElement(Ctx.Provider, { value: ctx }, /* @__PURE__ */ React.createElement(
+    "form",
+    {
+      ...props,
+      ref,
+      className: cx("cs-form", pending && "is-pending", className),
+      noValidate: true,
+      onSubmit: async (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.currentTarget);
+        const v = {};
+        fd.forEach((val, k) => {
+          v[k] = val;
+        });
+        Object.assign(v, values);
+        const errs = runRules(v);
+        if (Object.keys(errs).some((k) => errs[k])) {
+          setRuleErrors(errs);
+          return;
+        }
+        setPending(true);
+        try {
+          const aerrs = await runAsyncRules(v);
+          setRuleErrors(aerrs);
+          if (Object.keys(aerrs).some((k) => aerrs[k])) return;
+          onSubmit && onSubmit(v);
+        } finally {
+          setPending(false);
+        }
       }
-      setPending(true);
-      try {
-        const aerrs = await runAsyncRules(v);
-        setRuleErrors(aerrs);
-        if (Object.keys(aerrs).some(k => aerrs[k])) return;
-        onSubmit && onSubmit(v);
-      } finally {
-        setPending(false);
-      }
-    }
-  }), keys.length ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-form__summary",
-    role: "alert"
-  }, /*#__PURE__*/React.createElement("b", null, t("summary")), /*#__PURE__*/React.createElement("ul", null, keys.map(k => /*#__PURE__*/React.createElement("li", {
-    key: k
-  }, merged[k])))) : null, children));
+    },
+    keys.length ? /* @__PURE__ */ React.createElement("div", { className: "cs-form__summary", role: "alert" }, /* @__PURE__ */ React.createElement("b", null, t("summary")), /* @__PURE__ */ React.createElement("ul", null, keys.map((k) => /* @__PURE__ */ React.createElement("li", { key: k }, merged[k])))) : null,
+    children
+  ));
 }
-
-/**
- * CyberSkill FormField — label + control + hint/error line. With `name` inside a Form,
- * it registers with the controller: the single element child is cloned with value/onChange
- * (set valueProp="checked" for Checkbox/Switch/Toggle-shaped children) and the field's
- * context error shows automatically (an explicit `error` prop still wins).
- */
-function FormField({
-  label,
-  name,
-  required = false,
-  hint,
-  error,
-  valueProp = "value",
-  children,
-  lang,
-  className
-}) {
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("Form", L);
-  const ctx = React.useContext(FormCtx);
-  const err = error !== undefined && error !== null ? error : name && ctx ? ctx.errors[name] : undefined;
+function FormField({ label, name, required = false, hint, error, valueProp = "value", children, lang, className }) {
+  const [ref, L] = useLang(lang);
+  const t = makeT("Form", L);
+  const ctx = React.useContext(getFormCtx());
+  const err = error !== void 0 && error !== null ? error : name && ctx ? ctx.errors[name] : void 0;
   let child = children;
   if (name && ctx && React.isValidElement(children) && React.Children.count(children) === 1) {
-    const cur = ctx.values[name];
-    const wire = {
-      name
-    };
-    wire[valueProp] = cur !== undefined ? cur : valueProp === "checked" ? false : "";
-    wire.onChange = ev => {
+    const cur = String(name).includes(".") ? getPath(ctx.values, name) : ctx.values[name];
+    const wire = { name };
+    wire[valueProp] = cur !== void 0 ? cur : valueProp === "checked" ? false : "";
+    wire.onChange = (ev) => {
       const val = ev && ev.target ? valueProp === "checked" ? ev.target.checked : ev.target.value : ev;
       ctx.setValue(name, val);
       if (children.props.onChange) children.props.onChange(ev);
     };
     child = React.cloneElement(children, wire);
   }
-  return /*#__PURE__*/React.createElement("label", {
-    ref: ref,
-    className: cx("cs-formfield", err && "has-error", className)
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "cs-formfield__label"
-  }, label, required ? /*#__PURE__*/React.createElement("em", {
-    "aria-label": t("required")
-  }, " *") : null), child, err ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-formfield__error",
-    role: "alert"
-  }, err) : hint ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-formfield__hint"
-  }, hint) : null);
+  return /* @__PURE__ */ React.createElement("label", { ref, className: cx("cs-formfield", err && "has-error", className) }, /* @__PURE__ */ React.createElement("span", { className: "cs-formfield__label" }, label, required ? /* @__PURE__ */ React.createElement("em", { "aria-label": t("required") }, " *") : null), child, err ? /* @__PURE__ */ React.createElement("span", { className: "cs-formfield__error", role: "alert" }, err) : hint ? /* @__PURE__ */ React.createElement("span", { className: "cs-formfield__hint" }, hint) : null);
 }
-Object.assign(__ds_scope, { Form, FormField });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Form.jsx", error: String((e && e.message) || e) }); }
+function FormFieldArray({
+  name,
+  children,
+  label,
+  min = 0,
+  max = 50,
+  addLabel,
+  defaultItem,
+  className,
+  lang
+}) {
+  const [ref, L] = useLang(lang);
+  const t = makeT("Form", L);
+  const ctx = React.useContext(getFormCtx());
+  if (!ctx) {
+    return /* @__PURE__ */ React.createElement("div", { className: "cs-formfield__error", role: "alert" }, "FormFieldArray must be used inside Form");
+  }
+  const list = Array.isArray(getPath(ctx.values, name)) ? getPath(ctx.values, name) : [];
+  const blank = () => defaultItem != null ? typeof defaultItem === "function" ? defaultItem() : { ...defaultItem } : {};
+  const setList = (next) => ctx.setValue(name, next);
+  const add = () => {
+    if (list.length >= max) return;
+    setList([...list, blank()]);
+  };
+  const removeAt = (i) => {
+    if (list.length <= min) return;
+    setList(list.filter((_, idx) => idx !== i));
+  };
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-form-array", className), "data-name": name }, label ? /* @__PURE__ */ React.createElement("div", { className: "cs-formfield__label", style: { marginBottom: 8 } }, label) : null, /* @__PURE__ */ React.createElement("div", { className: "cs-form-array__rows" }, list.map((item, index) => /* @__PURE__ */ React.createElement("div", { className: "cs-form-array__row", key: index, "data-index": index }, typeof children === "function" ? children({
+    index,
+    item,
+    remove: () => removeAt(index),
+    path: (field) => `${name}.${index}.${field}`
+  }) : children))), /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      type: "button",
+      className: "cs-button cs-button--secondary cs-button--sm",
+      onClick: add,
+      disabled: list.length >= max,
+      style: { marginTop: 8 }
+    },
+    addLabel || (L === "vi" ? "Th\xEAm d\xF2ng" : "Add row")
+  ));
+}
+function FormWizard({
+  steps = [],
+  initialValues,
+  onComplete,
+  lang,
+  className,
+  nextLabel,
+  backLabel,
+  finishLabel
+}) {
+  const [ref, L] = useLang(lang);
+  const t = makeT("Form", L);
+  const [step, setStep] = React.useState(0);
+  const [values, setValues] = React.useState(() => initialValues || {});
+  const [ruleErrors, setRuleErrors] = React.useState({});
+  const [pending, setPending] = React.useState(false);
+  const setValue = React.useCallback((name, v) => {
+    setValues((s) => String(name).includes(".") ? setPath(s, name, v) : { ...s, [name]: v });
+    setRuleErrors((e) => e[name] ? { ...e, [name]: void 0 } : e);
+  }, []);
+  const runRules = React.useCallback((v, ruleMap) => {
+    if (!ruleMap) return {};
+    const out = {};
+    for (const [name, r] of Object.entries(ruleMap)) {
+      for (const rule of Array.isArray(r) ? r : [r]) {
+        const fieldVal = String(name).includes(".") ? getPath(v, name) : v[name];
+        const msg = rule === "required" ? fieldVal == null || String(fieldVal).trim() === "" ? t("requiredField") : null : typeof rule === "function" ? rule(fieldVal, v) : null;
+        if (msg) {
+          out[name] = msg;
+          break;
+        }
+      }
+    }
+    return out;
+  }, [t]);
+  const current = steps[step] || {};
+  const ctx = { values, setValue, setValues, errors: ruleErrors, pending, runRules, setRuleErrors, t, L };
+  const keys = Object.keys(ruleErrors).filter((k) => ruleErrors[k]);
+  const goNext = async () => {
+    const errs = runRules(values, current.rules);
+    if (Object.keys(errs).some((k) => errs[k])) {
+      setRuleErrors(errs);
+      return;
+    }
+    setRuleErrors({});
+    if (step >= steps.length - 1) {
+      setPending(true);
+      try {
+        onComplete && onComplete(values);
+      } finally {
+        setPending(false);
+      }
+      return;
+    }
+    setStep((s) => s + 1);
+  };
+  const goBack = () => {
+    setRuleErrors({});
+    setStep((s) => Math.max(0, s - 1));
+  };
+  const Ctx = getFormCtx();
+  return /* @__PURE__ */ React.createElement(Ctx.Provider, { value: ctx }, /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-form-wizard", className), "data-step": step }, /* @__PURE__ */ React.createElement("ol", { className: "cs-form-wizard__steps", style: { display: "flex", gap: 10, listStyle: "none", padding: 0, margin: "0 0 16px", flexWrap: "wrap" } }, steps.map((s, i) => /* @__PURE__ */ React.createElement("li", { key: s.id || i, style: {
+    font: "700 11px/1 var(--cs-font-family-ui)",
+    textTransform: "uppercase",
+    letterSpacing: ".06em",
+    color: i === step ? "var(--cs-color-brand-umber)" : "var(--cs-color-text-primary)",
+    opacity: i === step ? 1 : 0.55
+  } }, i + 1, ". ", s.title || s.id || `Step ${i + 1}`))), keys.length ? /* @__PURE__ */ React.createElement("div", { className: "cs-form__summary", role: "alert" }, /* @__PURE__ */ React.createElement("b", null, t("summary")), /* @__PURE__ */ React.createElement("ul", null, keys.map((k) => /* @__PURE__ */ React.createElement("li", { key: k }, ruleErrors[k])))) : null, /* @__PURE__ */ React.createElement("div", { className: "cs-form-wizard__body" }, typeof current.render === "function" ? current.render({ values, step, setValue }) : null), /* @__PURE__ */ React.createElement("div", { className: "cs-form-wizard__nav", style: { display: "flex", gap: 10, marginTop: 16 } }, /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-button cs-button--secondary cs-button--sm", onClick: goBack, disabled: step === 0 || pending }, backLabel || (L === "vi" ? "Quay l\u1EA1i" : "Back")), /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-button cs-button--sm", onClick: goNext, disabled: pending }, step >= steps.length - 1 ? finishLabel || (L === "vi" ? "Ho\xE0n t\u1EA5t" : "Finish") : nextLabel || (L === "vi" ? "Ti\u1EBFp" : "Next")))));
+}
+
+Object.assign(__ds_scope, { Form, FormField, FormFieldArray, FormWizard, getPath, setPath });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Form.jsx", error: String((e && e.message) || e) }); console.error('[ds-bundle] Form.jsx', e); }
 
 // components/forms/InlineEdit.jsx
 try { (() => {
@@ -9926,6 +10085,10 @@ __ds_ns.FileUpload = __ds_scope.FileUpload;
 __ds_ns.Form = __ds_scope.Form;
 
 __ds_ns.FormField = __ds_scope.FormField;
+
+__ds_ns.FormFieldArray = __ds_scope.FormFieldArray;
+
+__ds_ns.FormWizard = __ds_scope.FormWizard;
 
 __ds_ns.InlineEdit = __ds_scope.InlineEdit;
 

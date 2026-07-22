@@ -7,11 +7,14 @@ Five brand slides — umber title, light agenda, a by-the-numbers stat slide, an
 
 ## Files
 - `index.html` — the deck. `<deck-stage width="1920" height="1080">` with one `<section>` per slide; links `styles.css` for tokens + fonts.
+
 - deck-stage runtime lives at `templates/_vendor/deck-stage.js` (kept out of the compiled bundle; scaling, keyboard nav, thumbnail rail, print-to-PDF).
+
 - Export **PPTX/PDF on demand** from the live deck (the host's export flows); no pre-generated binary is kept in the repo.
 
 ## Export
 - **PDF** — open `index.html` and Print → Save as PDF. `deck-stage` lays out one clean page per slide automatically.
+
 - **PPTX** — regenerate anytime from the showing deck; slides are `deck-stage > [data-deck-active]` navigated with `goTo(n)`, `resetTransformSelector: "deck-stage"`, at 1920×1080. Be Vietnam Pro + JetBrains Mono map to matching Google Fonts so text stays on-brand and Vietnamese diacritics render.
 
 ## Authoring

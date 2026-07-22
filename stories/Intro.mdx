@@ -1,0 +1,29 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Intro/Host playground" />
+
+# CyberSkill Storybook (host playground)
+
+This Storybook is a **hosted live playground** for `design.cyberskill.world` — Theme × Element × Language controls in the toolbar match the rest of the design system.
+
+## Portable contract (unchanged)
+
+Storybook is **optional and host-only**. Consuming projects, Claude Design, Google Stitch, and static HTML do **not** depend on Storybook.
+
+| Audience | Consume |
+|---|---|
+| Any web / email / framework | `styles.css` + `.cs-*` classes |
+| React (production) | `styles.css` + `_ds_bundle.js` (prefix-resolve namespace) |
+| ESM | `_esm/cs.mjs` |
+| Design tools / native | `tokens/tokens.json` · `tokens.dtcg.json` · `tokens/native/*` |
+| Claude Design | `templates/**/*.dc.html` |
+
+See `docs/consuming.md` and `llms.txt`.
+
+## Axes
+
+Use the Storybook toolbar:
+
+- **Theme** → `data-theme="dark"` when dark
+- **Element** → `data-cs-element` + optional `data-cs-variant`
+- **Language** → `lang="en"` / `lang="vi"`

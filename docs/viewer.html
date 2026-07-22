@@ -32,7 +32,9 @@
   article th{background:var(--cs-color-surface-raised)}
   article blockquote{margin:10px 0;padding:6px 14px;border-inline-start:3px solid var(--cs-color-brand-ochre);color:var(--cs-color-text-muted);background:var(--cs-color-surface-raised);border-radius:0 8px 8px 0}
   article ul,article ol{padding-inline-start:22px}
-  article li{margin:3px 0}
+  article li{margin:3px 0;overflow-wrap:anywhere}
+  article p,article blockquote{overflow-wrap:anywhere}
+  article code{white-space:break-spaces;overflow-wrap:anywhere}
   article hr{border:0;border-top:1px dashed var(--cs-color-border-default);margin:20px 0}
   article a{color:var(--cs-color-link)}article a:hover{color:var(--cs-color-link-hover)}
   #err{color:#B42318;font-family:var(--cs-font-family-mono);font-size:13px}
@@ -48,8 +50,8 @@
 <script>
 const DOCS=[
  ['Start',[['README.md','README'],['SKILL.md','SKILL (agent rules)'],['llms.txt','llms.txt'],['CONTRIBUTING.md','Contributing']]],
- ['Guides',[['docs/consuming.md','Consuming & upgrading (incl. AI-agent quick path)'],['docs/deploy.md','Deploy (Vercel/VPS)'],['docs/ci-cd.md','CI/CD automation'],['docs/template-schema-v2.md','Template content-schema v2'],['docs/conventions.md','Conventions'],['docs/sync.md','Git sync & hygiene']]],
- ['Reference',[['CHANGELOG.md','Changelog'],['docs/BACKLOG.md','Backlog (not yet shipped)'],['docs/contrast-report.md','Contrast report'],['docs/products.md','Products'],['docs/design-styles.md','Design styles']]]
+ ['Guides',[['docs/consuming.md','Consuming & upgrading (incl. AI-agent quick path)'],['docs/deploy.md','Deploy (Vercel/VPS)'],['docs/ci-cd.md','CI/CD automation'],['docs/template-schema-v2.md','Template content-schema v2'],['docs/conventions.md','Conventions'],['docs/sync.md','Git sync & hygiene'],['docs/storybook.md','Storybook (host playground)'],['docs/decisions-pending.md','Decisions pending']]],
+ ['Reference',[['docs/BACKLOG.md','Backlog'],['docs/contrast-report.md','Contrast report'],['docs/products.md','Products'],['docs/design-styles.md','Design styles'],['docs/figma.md','Figma']]]
 ];
 const ALL=DOCS.flatMap(g=>g[1].map(d=>d[0]));
 const nav=document.getElementById('navlinks');
@@ -93,12 +95,51 @@ function md(src){
     if(/^\|/.test(L)){ const rows=grab(/^\|/); const cells=r=>r.replace(/^\||\|$/g,'').split('|').map(c=>inline(c.trim()));
       let hd=null,body=rows; if(rows.length>1&&/^[\s|:\-]+$/.test(rows[1])){ hd=cells(rows[0]); body=rows.slice(2); }
       out.push('<table>'+(hd?'<thead><tr>'+hd.map(c=>'<th>'+c+'</th>').join('')+'</tr></thead>':'')+'<tbody>'+body.map(r=>'<tr>'+cells(r).map(c=>'<td>'+c+'</td>').join('')+'</tr>').join('')+'</tbody></table>'); continue; }
-    if(/^\s*[-*+]\s+/.test(L)){ const its=grab(/^\s*[-*+]\s+|^\s{2,}\S/); const li=[]; for(const t of its){ const m=/^\s*[-*+]\s+(.*)$/.exec(t); if(m) li.push(m[1]); else if(li.length) li[li.length-1]+=' '+t.trim(); } out.push('<ul>'+li.map(x=>'<li>'+inline(x)+'</li>').join('')+'</ul>'); continue; }
-    if(/^\s*\d+\.\s+/.test(L)){ const its=grab(/^\s*\d+\.\s+|^\s{2,}\S/); const li=[]; for(const t of its){ const m=/^\s*\d+\.\s+(.*)$/.exec(t); if(m) li.push(m[1]); else if(li.length) li[li.length-1]+=' '+t.trim(); } out.push('<ol>'+li.map(x=>'<li>'+inline(x)+'</li>').join('')+'</ol>'); continue; }
-    if(/^>\s?/.test(L)){ const q=grab(/^>\s?/).map(x=>inline(x.replace(/^>\s?/,''))); out.push('<blockquote>'+q.join('<br>')+'</blockquote>'); continue; }
+    if(/^\s*[-*+]\s+/.test(L)){
+      const li=[];
+      while(i<lines.length){
+        const t=lines[i];
+        const m=/^\s*[-*+]\s+(.*)$/.exec(t);
+        if(m){ li.push(m[1].trim()); i++; continue; }
+        // Soft-wrapped list continuation (no marker, not a new block)
+        if(li.length && t.trim() && !/^(#{1,6}\s|\||>\s?|```|\s*[-*+]\s|\s*\d+\.\s)/.test(t) && !/^\s*$/.test(t) && !/^@@F\d+@@/.test(t)){
+          li[li.length-1]+=' '+t.trim(); i++; continue;
+        }
+        break;
+      }
+      out.push('<ul>'+li.map(x=>'<li>'+inline(x)+'</li>').join('')+'</ul>');
+      continue;
+    }
+    if(/^\s*\d+\.\s+/.test(L)){
+      const li=[];
+      while(i<lines.length){
+        const t=lines[i];
+        const m=/^\s*\d+\.\s+(.*)$/.exec(t);
+        if(m){ li.push(m[1].trim()); i++; continue; }
+        if(li.length && t.trim() && !/^(#{1,6}\s|\||>\s?|```|\s*[-*+]\s|\s*\d+\.\s)/.test(t) && !/^\s*$/.test(t) && !/^@@F\d+@@/.test(t)){
+          li[li.length-1]+=' '+t.trim(); i++; continue;
+        }
+        break;
+      }
+      out.push('<ol>'+li.map(x=>'<li>'+inline(x)+'</li>').join('')+'</ol>');
+      continue;
+    }
+    if(/^>\s?/.test(L)){
+      // Soft-wrapped blockquote lines are one paragraph (join with space). Blank `>` lines split paragraphs.
+      const raw=grab(/^>\s?/).map(x=>x.replace(/^>\s?/,''));
+      const paras=[]; let cur=[];
+      for(const row of raw){
+        if(!row.trim()){ if(cur.length){ paras.push(cur.join(' ')); cur=[]; } continue; }
+        cur.push(row.trim());
+      }
+      if(cur.length) paras.push(cur.join(' '));
+      out.push('<blockquote>'+paras.map(p=>'<p style="margin:0 0 8px">'+inline(p)+'</p>').join('')+'</blockquote>');
+      continue;
+    }
     if(/^\s*$/.test(L)){ i++; continue; }
     const p=grab(/^(?!\s*$)(?!#{1,6}\s)(?!\|)(?!\s*[-*+]\s)(?!\s*\d+\.\s)(?!>)(?!@@F\d+@@\s*$)(?!\s*(-{3,}|\*{3,})\s*$)/);
-    out.push('<p>'+p.map(inline).join(' ')+'</p>');
+    // Soft-wrapped prose: join with a single space so mid-sentence hard wraps never render as breaks.
+    out.push('<p>'+p.map(l=>l.trim()).filter(Boolean).map(inline).join(' ')+'</p>');
   }
   return out.join('\n').replace(/@@F(\d+)@@/g,(m,n)=>fences[+n]);
 }

@@ -7,5 +7,6 @@
 ```
 
 - **variant**: `primary` (Umber) · `secondary` (outlined) · `tertiary` (subtle raised) · `ghost` · `danger` · `danger-ghost`
+
 - **size**: `xs` · `sm` (36px) · `md` (44px, default) · `lg` (52px)
 - **loading** shows a spinner + sets `aria-busy`; **fullWidth** stretches; **icon** adds a leading glyph.

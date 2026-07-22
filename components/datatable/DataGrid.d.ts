@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
 
 /** Advanced table: sortable columns (aria-sort), checkbox row selection,
- *  sticky-header scroll area, bilingual empty/select labels. */
+ *  sticky-header scroll area, bilingual empty/select labels,
+ *  optional virtualization + column-order persistence. */
 export interface DataGridColumn<R = any> {
   key: string;
   header: ReactNode;
@@ -27,6 +28,14 @@ export interface DataGridProps<R = any> {
   filterText?: string;
   /** Column keys to filter when filterText is set. Defaults to all column keys. */
   filterKeys?: string[];
+  /** Force row windowing. Also auto-enables when rows >= virtualThreshold. */
+  virtual?: boolean;
+  /** Auto-virtualize when row count reaches this (default 80). */
+  virtualThreshold?: number;
+  /** Estimated row height for window math (default 36). */
+  rowHeight?: number;
+  /** When set, column order is stored under localStorage key cs:datagrid:cols:<persistKey>. */
+  persistKey?: string;
   lang?: string;
   className?: string;
 }

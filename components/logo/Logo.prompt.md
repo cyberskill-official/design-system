@@ -6,4 +6,5 @@
 ```
 
 - For third-party / white-label tenants, use the tenant's own logo — not this mark.
+
 - Static/print alternative: `assets/logo-mark.svg` (vector) or `assets/logo-mark.png`.

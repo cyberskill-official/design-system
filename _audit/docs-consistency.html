@@ -2,14 +2,8 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- DOCS-CONSISTENCY CHECK — reads the compiler's own _ds_manifest.json + VERSION
-     (the source of truth) and asserts every count / version claim in the LIVE doc
-     prose matches. Catches exactly the drift that recurs by hand: a stale template
-     count ("85"), a "current version" pointer left behind, a recent-changelog that
-     doesn't lead with VERSION.
-       Scope discipline: only LIVE prose is scanned — README above "## Changelog",
-     SKILL.md, llms.txt, plus the two CHANGELOG *version pointers*. Changelog entry
-     BODIES are deliberately excluded: they freeze historical counts ("55 components",
-     "27 icons", "all 84 templates") on purpose and must never be rewritten. -->
+     (the source of truth) and asserts every count claim in the LIVE doc prose matches.
+     Version is pinned at 1.0.0 until LAUNCH — no changelog. Scope: README, SKILL.md, llms.txt. -->
 <link rel="stylesheet" href="../styles.css">
 <style>
   body{margin:0;font-family:var(--cs-font-family-ui);background:var(--cs-color-surface-page);color:var(--cs-color-text-primary);padding:26px 30px;max-width:900px}
@@ -24,7 +18,7 @@
 </style>
 </head><body>
 <h1><b>CyberSkill</b> · Docs-consistency check</h1>
-<p class="sub">Asserts every count &amp; version claim in the live docs matches <code>_ds_manifest.json</code> + <code>VERSION</code> (the compiler's truth). Verdict on <code>window.__docs</code>.</p>
+<p class="sub">Asserts every count claim in the live docs matches <code>_ds_manifest.json</code>, and that <code>VERSION</code> / <code>package.json</code> stay pinned at <b>1.0.0</b> until launch. Verdict on <code>window.__docs</code>.</p>
 <div id="report">running…</div>
 <div id="truth" class="truth"></div>
 <script>
@@ -33,16 +27,12 @@ function step(name, ok, detail){ out.steps.push((ok?"\u2713 ":"\u2717 ")+name+(d
 function ctx(s, i, n){ return s.slice(Math.max(0,i-4), i+n+18).replace(/\s+/g," ").trim(); }
 
 (async () => { window.__gateProgress={current:'fetch',done:0,total:3};
-  // ---- fetch the sources (same project origin) ----
-  const names = ['_ds_manifest.json','VERSION','README.md','SKILL.md','llms.txt','CHANGELOG.md','package.json'];
+  const names = ['_ds_manifest.json','VERSION','README.md','SKILL.md','llms.txt','package.json'];
   const F = {};
   for (const n of names){
     try {
       const r = await fetch('../'+n, {cache:'no-store'});
       const t = await r.text();
-      // Self-diagnosis: a static host that mis-detects a framework (Vercel auto-build, SPA fallback, etc.)
-      // serves its OWN 404/error page for an unmatched path instead of the raw file — same HTTP 200, wrong body.
-      // Catch that here so it reads as "deploy misconfig", never a cryptic parse error the source can't explain.
       if (!r.ok || /^\s*<(!doctype|html)/i.test(t)) {
         step('fetch '+n, false, (r.ok?'got HTML, not the raw file':('HTTP '+r.status))+' — hosting is intercepting this path, not a source bug; see docs/deploy.md ("Common misconfig")');
         continue;
@@ -57,35 +47,28 @@ function ctx(s, i, n){ return s.slice(Math.max(0,i-4), i+n+18).replace(/\s+/g," 
   const VERSION = F['VERSION'].trim();
   const truth = {
     templates: M.templates.length,
-    exports:   M.components.length,                              // .d.ts-paired exports (67)
-    files:     new Set(M.components.map(c => c.sourcePath).filter(p => /\.(jsx|tsx)$/.test(p))).size, // real component modules — excludes data helpers like logo-data.js (54)
+    exports:   M.components.length,
+    files:     new Set(M.components.map(c => c.sourcePath).filter(p => /\.(jsx|tsx)$/.test(p))).size,
     tokens:    M.tokens.length,
     cards:     M.cards.length,
   };
   document.getElementById('truth').textContent =
     "compiler truth \u2014 VERSION "+VERSION+" \u00b7 templates "+truth.templates+" \u00b7 "+truth.files+" component files / "+truth.exports+" exports \u00b7 tokens "+truth.tokens+" \u00b7 cards "+truth.cards;
 
-  // ---- 1) VERSION pointers across the docs must all equal VERSION ----
-  const SEMVER = String.raw`(\d+\.\d+\.\d+)`; // strict — never captures a trailing sentence period
-  const vClaims = [
-    ['CHANGELOG "Current release"',  new RegExp('Current release:\\s*\\*\\*v'+SEMVER, 'i').exec(F['CHANGELOG.md'])],
-    ['CHANGELOG top entry',          new RegExp('^\\s*-\\s*\\*\\*'+SEMVER, 'm').exec(F['CHANGELOG.md'])],
-    ['README entrance version',      new RegExp('entrance document[\\s\\S]{0,120}?\\*\\*v'+SEMVER, 'i').exec(F['README.md'])],
-    ['README recent-changelog lead', new RegExp('##\\s+Changelog[\\s\\S]{0,400}?-\\s*\\*\\*'+SEMVER, 'i').exec(F['README.md'])],
-    ['llms.txt current',             new RegExp('Current:\\s*v'+SEMVER, 'i').exec(F['llms.txt'])],
-  ];
-  for (const [label, m] of vClaims){
-    if (!m){ step('version pointer present: '+label, false, 'NOT FOUND'); continue; }
-    step('version pointer = '+VERSION+' ('+label+')', m[1]===VERSION, m[1]!==VERSION?('reads '+m[1]):'');
-  }
-  try { const P = JSON.parse(F['package.json']); step('package.json version = '+VERSION, P.version===VERSION, P.version!==VERSION?('reads '+P.version):''); }
-  catch(e){ step('package.json parses', false, String(e).slice(0,80)); }
+  // Version is frozen until LAUNCH
+  step('VERSION pinned at 1.0.0', VERSION==='1.0.0', 'reads '+VERSION);
+  try {
+    const P = JSON.parse(F['package.json']);
+    step('package.json version = 1.0.0', P.version==='1.0.0', P.version!=='1.0.0'?('reads '+P.version):'');
+  } catch(e){ step('package.json parses', false, String(e).slice(0,80)); }
 
-  // ---- 2) count claims in LIVE prose must equal the manifest ----
-  // Live prose = README above "## Changelog" + SKILL + llms. Changelog bodies excluded on purpose.
-  const readmeLive = F['README.md'].split(/\n##\s+Changelog/i)[0];
-  const prose = { 'README (pre-changelog)': readmeLive, 'SKILL.md': F['SKILL.md'], 'llms.txt': F['llms.txt'] };
-  // "exports" (67) and "components" (54 source files) are DIFFERENT denominators — assert each separately.
+  // Live docs must not reintroduce a changelog file reference as a maintained surface
+  const liveDocs = F['README.md']+'\n'+F['SKILL.md']+'\n'+F['llms.txt'];
+  const badChangelog = /\bCHANGELOG\.md\b/.test(liveDocs);
+  step('no CHANGELOG.md reference in live entrance docs', !badChangelog, badChangelog?'found CHANGELOG.md mention':'');
+
+  // Count claims in live prose
+  const prose = { 'README.md': F['README.md'], 'SKILL.md': F['SKILL.md'], 'llms.txt': F['llms.txt'] };
   const claims = [
     { key:'templates', label:'template count',       re:/(\d{2,3})\s*\+?\s*(?:copyable\s+)?(?:starting points|templates?)\b/gi },
     { key:'exports',   label:'export count',         re:/(\d{2,3})[\s-]+exports?\b/gi },
@@ -103,7 +86,6 @@ function ctx(s, i, n){ return s.slice(Math.max(0,i-4), i+n+18).replace(/\s+/g," 
       }
     }
   }
-  // one step per (source,key) group, listing the numbers seen
   const groups = {};
   for (const f of found){ (groups[f.src+' \u00b7 '+f.key] = groups[f.src+' \u00b7 '+f.key] || []).push(f); }
   for (const c of claims){
@@ -116,17 +98,16 @@ function ctx(s, i, n){ return s.slice(Math.max(0,i-4), i+n+18).replace(/\s+/g," 
     step(g+' = compiler', bad.length===0, bad.length? ('mismatch: '+bad.map(b=>b.n+' in \u00ab'+b.where+'\u00bb').join(' | ')) : ('['+nums+'] all match'));
   }
 
-  // ---- 3) manifest sanity (guards against a truncated/empty manifest giving false passes) ----
   step('manifest looks sane', truth.templates>50 && truth.exports>50 && truth.files>40 && truth.tokens>100, JSON.stringify(truth));
-
   finish();
-})().catch(e => { step('checker ran', false, String(e).slice(0,140)); finish(); });
+})();
 
-window.__gateProgress={current:'done',done:3,total:3}; function finish(){
-  const r = document.getElementById('report');
-  r.className = out.pass ? 'pass' : 'fail';
-  r.innerHTML = '<span class="b '+(out.pass?'pass':'fail')+'">'+(out.pass?'\u2713 PASS':'\u2717 FAIL')+'</span>\nDOCS-CONSISTENCY CHECK\n\n'+out.steps.join('\n');
+function finish(){
+  window.__gateProgress={current:'done',done:3,total:3};
   window.__docs = out;
+  const el = document.getElementById('report');
+  el.className = out.pass ? 'pass' : 'fail';
+  el.innerHTML = '<span class="b '+(out.pass?'pass':'fail')+'">'+(out.pass?'PASS':'FAIL')+'</span>\n'+out.steps.join('\n');
 }
 </script>
 </body></html>

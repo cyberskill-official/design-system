@@ -1,6 +1,6 @@
 # `_audit/baselines/` — visual-regression reference captures
 
-Reference captures (909×540, `dashboard`/`dashboard-dark`/`slide-deck` at 1280) of representative surfaces, captured at the release noted in the changelog. Diff a fresh capture against these after any token / base-CSS change to catch unintended visual shifts — `_audit/visual-diff.html` renders live-vs-baseline side-by-side or as a difference overlay, and the gate runner carries an **advisory** freshness row (every declared baseline exists + its live source resolves).
+Reference captures (909×540, `dashboard`/`dashboard-dark`/`slide-deck` at 1280) of representative surfaces, captured intentionally when a change is meant to alter appearance. Diff a fresh capture against these after any token / base-CSS change to catch unintended visual shifts — `_audit/visual-diff.html` renders live-vs-baseline side-by-side or as a difference overlay, and the gate runner carries an **advisory** freshness row (every declared baseline exists + its live source resolves).
 
 ## Set (v4.3.0) — per-tier
 **Templates (archetypes)**
@@ -24,6 +24,5 @@ Reference captures (909×540, `dashboard`/`dashboard-dark`/`slide-deck` at 1280)
 They anchor the archetypes, not every template. Declare each in `BASE` inside `visual-diff.html` (slug → `{w, src?}`). `guidelines/atomic-view.html` was tried as a full-catalog sentinel but its nested-iframe composition breaks the capture tool — `kitchen-sink` remains the composite anchor instead.
 
 ## Regenerate
-Open the target file, let it settle, and screenshot to `_audit/baselines/<name>.png` at the same width. Re-shoot a baseline **intentionally** when a change is meant to alter appearance, and note it in the changelog.
-
+Open the target file, let it settle, and screenshot to `_audit/baselines/<name>.png` at the same width. Re-shoot a baseline **intentionally** when a change is meant to alter appearance, and note it in the PR description.
 Not compiled or shipped — dev-only, like the rest of `_audit/`.

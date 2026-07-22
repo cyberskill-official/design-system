@@ -1,6 +1,6 @@
 # Product registry — element mapping
 
-**7.0.0 source of truth.** Maps CyberSkill portfolio products to Ngũ Hành element packs. One element per product; secondary accents only in gradient washes along Tương sinh.
+**Source of truth.** Maps CyberSkill portfolio products to Ngũ Hành element packs. One element per product; secondary accents only in gradient washes along Tương sinh.
 
 | Product | Element | Variant | Secondary (Tương sinh) | Markup |
 |---|---|---|---|---|
@@ -18,5 +18,7 @@
 ## Scope
 
 - **UI kits stay Thổ-faithful.** `ui_kits/status-hub` and `ui_kits/website` remain Thổ recreations; per-element demos live in **Identity Lab** / Live View.
+
 - **Consuming a mapping:** scope the product root with the row's Markup and consume `--cs-accent-*`.
+
 - Tương khắc pairs (Hỏa×Thủy · Kim×Mộc · Thổ×Thủy · Mộc×Thổ · Hỏa×Kim) are never combined as primary + secondary.

@@ -4,20 +4,32 @@ A high-fidelity recreation of the **CyberSkill marketing site** home page — th
 
 ## What it demonstrates
 - **Glass header** (`cs-surface-light`) with the Logo lockup, nav, a **language toggle** (EN ⇄ Tiếng Việt — flips every string, Vietnamese-first), a theme toggle, and a "Talk to Lumi" CTA.
+
 - **Hero** over the warm `aurora-gold` wash with an umber protection gradient: eyebrow, the Ochre slogan + Vietnamese counterpart, lead, a **"make a wish"** input, and Lumi floating alongside.
+
 - **Keyword marquee** band (real "what we build" terms).
+
 - **Services** — three Standard-Glass cards.
+
 - **Process** — the four-step "arc of a wish".
+
 - **Careers** umber band + **Contact** form built from the design system's `cs-field` controls.
+
 - **Lumi chat** — a floating launcher opens a scripted genie panel (real greeting + quick "wish" chips); typing a wish in the hero seeds the conversation.
 
 ## Files
 - `index.html` — entry; loads `styles.css`, `site.css`, React, and the app.
+
 - `work.html` — case-study grid + results band (static, `.cs-*` classes; dark toggle).
+
 - `careers.html` — values, open roles, culture CTA (static; dark toggle).
+
 - `chat.html` — full-page **Lumi assistant**: composes `PromptInput`, `ChatMessage`, `PromptSuggestions`, `TypingIndicator`, `CitationList`, `ConfidenceMeter`, `AIDisclosureBadge`, and `LumiAvatar` from the bundle.
+
 - `site.css` — bespoke marketing section styles, all driven by design tokens.
+
 - `copy.js` — real EN + VN copy lifted from the product i18n dictionaries (`window.SITE_COPY`).
+
 - `Website.jsx` — the interactive app (`window.Website`).
 
 ## Fidelity notes
