@@ -101,8 +101,9 @@ jobs:
     # no-op; the fast-gates job's own token-provenance check still blocks the merge until a
     # maintainer (or a same-repo branch) carries the regenerated files.
     #
-    # Requires contents: write. Repo Settings → Actions → General → Workflow permissions must allow
-    # the GITHUB_TOKEN to be granted write (job-level permissions request it explicitly).
+    # Push auth: org policy may lock GITHUB_TOKEN to read-only (repo radio disabled). Prefer repo
+    # secret DS_PUSH_TOKEN (fine-grained PAT: Contents Read/Write on this repo). Falls back to
+    # GITHUB_TOKEN when the org allows write or job permissions: contents: write is honoured.
     if: github.event_name == 'push' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     permissions:
@@ -112,18 +113,40 @@ jobs:
         with:
           # Expand flow-map form — nested ${{ }} with || breaks YAML parsers on GHA.
           ref: ${{ github.head_ref || github.ref }}
-          # Persist credentials so git-auto-commit can push with the write-scoped GITHUB_TOKEN.
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # DS_PUSH_TOKEN when set; else GITHUB_TOKEN (needs org/repo write for Actions).
+          token: ${{ secrets.DS_PUSH_TOKEN || github.token }}
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
       - name: Regenerate native token targets from tokens.dtcg.json
         run: node _audit/ci/generate-native-tokens.mjs
+      - name: Check for generated drift
+        id: drift
+        run: |
+          if git diff --quiet -- tokens/native tokens/provenance.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Native tokens already match DTCG — nothing to commit."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git --no-pager diff --stat -- tokens/native tokens/provenance.json
+          fi
       - name: Commit regenerated files if they changed
+        if: steps.drift.outputs.changed == 'true'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: 'chore: regenerate tokens/native/* from tokens.dtcg.json [skip ci]'
           file_pattern: 'tokens/native/*.swift tokens/native/*.kt tokens/native/*.dart tokens/provenance.json'
+      - name: Explain push auth if commit step failed
+        if: failure() && steps.drift.outputs.changed == 'true'
+        run: |
+          echo "::error::Could not push regenerated tokens (403/denied is usual when GITHUB_TOKEN is read-only)."
+          echo "Org policy often disables 'Read and write permissions' on the repo."
+          echo "Fix one of:"
+          echo "  1) Org → Settings → Actions → General → Workflow permissions → allow write (or unlock repo choice)"
+          echo "     https://github.com/organizations/cyberskill-official/settings/actions"
+          echo "  2) Add repository secret DS_PUSH_TOKEN = fine-grained PAT with Contents: Read and write on this repo"
+          echo "     https://github.com/${{ github.repository }}/settings/secrets/actions"
+          exit 1
 
   figma-variables-push:
     # Pushes colour tokens from tokens/tokens.dtcg.json into Figma local Variables.

@@ -26,10 +26,12 @@ All jobs run on push and PR to `main` (and `workflow_dispatch` / schedule where 
 
 ## Token auto-commit permissions
 
-If `regenerate-tokens` fails with `Permission to ... denied to github-actions[bot]` / HTTP 403:
+If `regenerate-tokens` fails with `Permission to ... denied to github-actions[bot]` / HTTP 403, the org has locked the default `GITHUB_TOKEN` to **read** (the repo radio for "Read and write permissions" is greyed out). Fix **one** of:
 
-1. Workflow already sets job `permissions: contents: write`.
-2. Confirm repo **Settings → Actions → General → Workflow permissions** allows workflows to request write (not locked to read-only at org policy).
+1. **Org policy (preferred if you control the org)** — as an org owner with Actions policy access: [Organization Actions settings](https://github.com/organizations/cyberskill-official/settings/actions) → **Workflow permissions** → **Read and write permissions**, or keep read default but allow repositories to choose. Then the repo radio is enabled again.
+2. **Repository secret `DS_PUSH_TOKEN`** — create a [fine-grained PAT](https://github.com/settings/personal-access-tokens/new) owned by a user with push access: repository access = this repo only, permission **Contents: Read and write**. Add it as a **repository** secret named exactly `DS_PUSH_TOKEN`. The workflow uses that token for checkout + push when present.
+
+`token-provenance` / fast gates still fail the PR if natives drift and nobody commits them — auto-push is convenience, not the only gate.
 
 
 ## Running locally

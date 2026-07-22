@@ -18,6 +18,8 @@ Pixel / visual-baseline rows stay **advisory** on the fast board (`pixel-ci`, vi
 
 **Owner choice: secrets configured (FIGMA_TOKEN + FIGMA_FILE_KEY)** — colour push job shipped. CI run `80973527709` still saw both secrets empty (not injected). Re-add them as **repository** secrets (exact names), then open the Figma file after the next green `figma-variables-push` or run **Actions → Design System Gates → Run workflow**.
 
+**Token auto-commit:** org workflow permissions may keep the repo "Read and write" radio disabled. Either unlock write at [org Actions settings](https://github.com/organizations/cyberskill-official/settings/actions), or add repository secret `DS_PUSH_TOKEN` (fine-grained PAT, Contents read/write). See `docs/ci-cd.md`.
+
 ### Where to get a Figma token
 
 1. Sign in at [https://www.figma.com](https://www.figma.com) with the account that owns (or can edit) the design-system file.
