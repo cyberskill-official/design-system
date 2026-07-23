@@ -42,4 +42,4 @@ Deep checks, never surface spot-checks. Cover the **whole set and every relevant
 
 ## Documented scope boundaries (not gaps)
 
-UI-kit pages remain Thổ-faithful recreations; bilingual EN·VN covers emails + team/legal/finance docs (client/media collateral is EN-first); text never sits on the mid-tone `-accent`; DatePicker/Combobox are out of scope for the base component set; email-safe send variants are exemplars in `templates/email-safe/` (others convert on request).
+UI-kit pages remain Thổ-faithful recreations; bilingual EN·VN covers emails + team/legal/finance docs (client/media collateral is EN-first); text never sits on the mid-tone `-accent`; email-safe send variants are exemplars in `templates/email-safe/` (others convert on request).

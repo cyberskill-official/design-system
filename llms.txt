@@ -1,31 +1,60 @@
 # CyberSkill Design System
 
-HTML-first, Vietnamese-first design system. Immutable anchors: Umber #45210E · Ochre #F4BA17. Independent axes — Theme × Element (Ngũ Hành) × Language. Pinned **v1.0.0** until launch. This file is the agent/tool front door: it maps each audience to the format it should consume.
+> HTML-first, Vietnamese-first design system, pinned **v1.0.0** until launch. Immutable anchors: Umber #45210E · Ochre #F4BA17. Three independent axes — Theme (light · dark) × Element (Ngũ Hành, 15 variants) × Language (EN · VI); surface treatment is liquid-glass (fixed). It ships 99 components / 115 exports, 84 copyable templates (all bilingual), and tokens in CSS + JSON + ESM + W3C DTCG + native mirrors. This file is the agent/tool front door: it maps each audience to the format it should consume.
 
-## Consume by audience (the portable contract works everywhere; the DC layer is Claude-Design-only)
-- **Any web / framework / email (Vue, Svelte, plain HTML, React):** link `styles.css` — every `--cs-*` token, the `.cs-*` component classes, Liquid Glass surfaces. Framework-agnostic, no build step.
+The portable contract (styles.css · bundle · tokens) works everywhere; the DC layer (`templates/**/*.dc.html`) is Claude-Design-only. The full non-negotiables list lives in `CONTRIBUTING.md` and `docs/conventions.md`.
 
-- **React (production):** `styles.css` + `<script src="_ds_bundle.js">`, then resolve the bundle global by prefix (its `_<projectId>` suffix is compiler-assigned and changes on re-import): `const CS = window[Object.keys(window).find(k => /^CyberSkillDesignSystem_/.test(k))]; const { Button, … } = CS`. Proven green by `_audit/consumer-smoke-test.html`. (Templates load via `ds-base.js`, which publishes a stable `window.CyberSkillDS` alias for the same reason.)
-- **Design tools / native / token pipelines / other agents (Figma, Google Stitch, Style Dictionary):** `tokens/tokens.json` (+ `tokens/tokens.js` ESM, + `tokens/tokens.dtcg.json` in **W3C DTCG** format for Tokens Studio for Figma / Style Dictionary) — every token grouped by category, plus theme/element override maps. This is the canonical cross-tool contract.
+## Consume by audience
 
-- **Claude Design (authoring + live preview):** `templates/**/*.dc.html` Design Components + the compiler (tweaks, `x-import`, `@dsCard` cards). Native to Claude Design — not portable; other tools consume the outputs above, not these.
+- [styles.css](styles.css): any web / framework / email (Vue, Svelte, plain HTML, React) — link this one file for every `--cs-*` token, the `.cs-*` component classes, and the Liquid Glass surfaces. Framework-agnostic, no build step.
+- [_ds_bundle.js](_ds_bundle.js): React (production) — `styles.css` + `<script src="_ds_bundle.js">`, then resolve the bundle global by prefix (its `_<projectId>` suffix is compiler-assigned and changes on re-import): `const CS = window[Object.keys(window).find(k => /^CyberSkillDesignSystem_/.test(k))]; const { Button, … } = CS`. Proven green by `_audit/consumer-smoke-test.html`. (Templates load via `ds-base.js`, which publishes a stable `window.CyberSkillDS` alias for the same reason.)
+- [tokens/tokens.json](tokens/tokens.json): design tools / native / token pipelines / other agents (Figma, Google Stitch, Style Dictionary) — every token grouped by category, plus theme/element override maps; also [tokens/tokens.js](tokens/tokens.js) (ESM) and [tokens/tokens.dtcg.json](tokens/tokens.dtcg.json) (**W3C DTCG** format for Tokens Studio for Figma / Style Dictionary). This is the canonical cross-tool contract.
+- [templates/](templates/): Claude Design (authoring + live preview) — `templates/**/*.dc.html` Design Components + the compiler (tweaks, `x-import`, `@dsCard` cards). Native to Claude Design — not portable; other tools consume the outputs above, not these.
 
 ## Key files
-- `dashboard.html` — single-page hub (tabs: Overview · Docs · Live · Health · Tokens); Live = Storybook `/playground/`
-- `styles.css` — single entry point (`@import`s `tokens/` then `base/`) · `_esm/cs.mjs` — ESM entry (imports every component, no build)
-- `tokens/` — design tokens as CSS custom properties + `tokens.json` / `tokens.js` / `tokens.dtcg.json` (W3C DTCG) + `viewer.html` (table + raw modes) + `native/` (SwiftUI/Compose/Flutter)
-- `base/` — reset, component classes (`.cs-*`), a11y, responsive, glass
-- `components/` — 99 components / 115 exports, each `.jsx` + `.d.ts` + `.prompt.md` + a `@dsCard` card
-- `templates/` — copyable starting points (`.dc.html`); `email-safe/` send-ready emails; `kitchen-sink.html`; `playground.html`
 
-- `guidelines/` — specimen cards + `atomic-view.html` (portable component grid) · host Live hub is Storybook at `/playground/` · `ui_kits/` · `fonts/` · `assets/`
+- [dashboard.html](dashboard.html): single-page hub (tabs: Overview · Docs · Live · Health · Tokens); Live = Storybook `/playground/`
+- [styles.css](styles.css): single entry point (`@import`s `tokens/` then `base/`)
+- [_esm/cs.mjs](_esm/cs.mjs): ESM entry (imports every component, no build)
+- [tokens/](tokens/): design tokens as CSS custom properties + `tokens.json` / `tokens.js` / `tokens.dtcg.json` (W3C DTCG) + `viewer.html` (table + raw modes) + `native/` (SwiftUI/Compose/Flutter)
+- [base/](base/): reset, component classes (`.cs-*`), a11y, responsive, glass
+- [components/](components/): 99 components / 115 exports — every primary ships `.jsx` + `.d.ts` + `.prompt.md` + a `@dsCard` card; co-exports are documented in their parent's files
+- [templates/](templates/): 84 copyable starting points (`.dc.html`); `email-safe/` send-ready emails; `kitchen-sink.html`; `playground.html`
+- [guidelines/](guidelines/): specimen cards + `atomic-view.html` (portable component grid) — host Live hub is Storybook at `/playground/`
+- [ui_kits/](ui_kits/): product recreations — status-hub · website · deck
+- [fonts/](fonts/): self-hosted Be Vietnam Pro + JetBrains Mono woff2
+- [assets/](assets/): official logo mark (never recreate) · favicon · aurora washes · Lumi mascot
+- [README.md](README.md): the entrance document — voice, visual foundations, components, templates, index
+- [SKILL.md](SKILL.md): agent entry — hard rules + fast orientation
+- [CONTRIBUTING.md](CONTRIBUTING.md): one-page onboarding for extending the system
+- [VERSION](VERSION): pinned 1.0.0 (matches [package.json](package.json))
 
-- `docs/` — `conventions.md` · `consuming.md` · `sync.md` · `contrast-report.md` · `products.md` · `deploy.md` · `template-schema-v2.md` · `BACKLOG.md` · `viewer.html`
+## Docs
 
-- `README.md` · `CONTRIBUTING.md` · `SKILL.md` · `VERSION` · `package.json`
+- [docs/conventions.md](docs/conventions.md): authoring rules (naming grammar, the three axes) + decision log
+- [docs/consuming.md](docs/consuming.md): adopting & upgrading, incl. the AI-agent quick path
+- [docs/sync.md](docs/sync.md): repo ↔ Claude Design round-trip fidelity & two-way sync
+- [docs/contrast-report.md](docs/contrast-report.md): generated APCA elemental sweep — 0 failures at its Lc ≥ 60 UI-label floor (body text authors to Lc ≥ 75)
+- [docs/products.md](docs/products.md): product → element registry
+- [docs/deploy.md](docs/deploy.md): deploying the live site (Vercel / VPS / any static host)
+- [docs/ci-cd.md](docs/ci-cd.md): CI/CD automation — workflow, headless gate runner, provenance pre-check
+- [docs/template-schema-v2.md](docs/template-schema-v2.md): typed content-slot spec for templates
+- [docs/live-hub.md](docs/live-hub.md): Storybook is the single Live hub; surface map
+- [docs/figma.md](docs/figma.md): Figma / Tokens Studio notes (non-Enterprise decision A)
+- [docs/storybook.md](docs/storybook.md): host playground at `/playground/`
+- [docs/design-styles.md](docs/design-styles.md): the live styling axes and the fixed liquid-glass treatment
+- [docs/decisions-pending.md](docs/decisions-pending.md): recorded owner decisions
+- [docs/BACKLOG.md](docs/BACKLOG.md): deferred work — approved in direction, not built yet
+- [docs/audit-2026-07.md](docs/audit-2026-07.md): July 2026 deep audit — verdict, findings, fixes vs deferrals
+- [docs/viewer.html](docs/viewer.html): reader UI for all of the above
 
-## Non-negotiables (full list in CONTRIBUTING.md + docs/conventions.md)
-Immutable Umber/Ochre anchors · Vietnamese-first bilingual · APCA Lc ≥ 75 body · ≥44px touch targets · 3px ochre focus ring · honour `prefers-reduced-motion`/`prefers-contrast` · one accent per surface.
+## Non-negotiables
+
+- [CONTRIBUTING.md](CONTRIBUTING.md): the full non-negotiables list (with `docs/conventions.md`)
+- [tokens/colors.css](tokens/colors.css): immutable Umber/Ochre anchors · one accent per surface
+- [base/a11y.css](base/a11y.css): APCA Lc ≥ 75 body text · ≥44px touch targets · 3px ochre focus ring · honour `prefers-reduced-motion`/`prefers-contrast`
+- [docs/conventions.md](docs/conventions.md): Vietnamese-first bilingual — every UI string ships an EN + VN pair, diacritics preserved
 
 ## Sync
-Repo is the source of truth. Claude Design pulls the whole tree at session start and commits back via PR at session end (it can read but not push). See `docs/sync.md`.
+
+- [docs/sync.md](docs/sync.md): repo is the source of truth — Claude Design pulls the whole tree at session start and commits back via PR at session end (it can read but not push)

@@ -6,6 +6,14 @@ Work that is approved in direction but not built yet. Version stays pinned at **
 
 - App Store / Play Store packaging of native samples (samples only until product need)
 - Exhaustive combinatorial CSF cells for every prop combination (matrix bar is argTypes + multi-variant/state stories, not full product of all enums)
+- Storybook 8 → 10 migration
+- Real pixel compare with rasterized captures (stays advisory — owner decision A)
+- Figma Code Connect
+- npm publish path (package stays `private: true` until then)
+- Vietnamese docs track (`docs/*.md` are EN-first today)
+- `cx()` dedupe — one shared helper instead of a copy per component file
+- Button `xs` size tokenization (currently literal values)
+- Vendor axe-core locally and promote the axe gate from advisory to hard
 
 ## Decided / closed (not active work)
 
