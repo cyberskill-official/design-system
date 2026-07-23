@@ -48,3 +48,13 @@ export const Matrix = {
     </div>
   ),
 };
+
+export const States = {
+  name: 'States',
+  render: (args) => (
+    <div style={{ display: 'grid', gap: 12, maxWidth: 420 }}>
+      <TagInput {...args} />
+      <TagInput {...args} disabled />
+    </div>
+  ),
+};

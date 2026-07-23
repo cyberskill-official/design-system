@@ -51,3 +51,17 @@ export const Matrix = {
     );
   },
 };
+
+export const States = {
+  name: 'States',
+  render: function C() {
+    const [v, setV] = React.useState('tho');
+    const options = [{ value: 'tho', label: 'Thổ' }, { value: 'hoa', label: 'Hỏa' }];
+    return (
+      <div style={{ display: 'grid', gap: 12, maxWidth: 420 }}>
+        <Combobox label="Element" value={v} onChange={setV} options={options} />
+        <Combobox label="Element" value={v} onChange={setV} options={options} disabled />
+      </div>
+    );
+  },
+};

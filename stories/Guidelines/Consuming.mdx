@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/blocks';
+import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Guidelines/Consuming" />
 
@@ -62,9 +62,11 @@ starting points.
 ## Upgrading
 
 Version is **pinned at 1.0.0** until launch — no changelog during this phase; treat
-the repo tip as the only truth. Anchors (Umber/Ochre), `.cs-*` class names, and
-`--cs-*` token names are stable contracts. After an upgrade, open
-[the consumer smoke test](/_audit/consumer-smoke-test.html) and
+the repo tip as the only truth. The npm package is publishable (`private: false`)
+but license stays **UNLICENSED** — consumers need an **explicit grant** until
+LAUNCH (see [docs/consuming.md](/docs/consuming.md)). Anchors (Umber/Ochre),
+`.cs-*` class names, and `--cs-*` token names are stable contracts. After an
+upgrade, open [the consumer smoke test](/_audit/consumer-smoke-test.html) and
 [the gate board](/_audit/run.html) against the new tip.
 
 ## Canonical sources
