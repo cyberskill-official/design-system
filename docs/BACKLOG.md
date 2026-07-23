@@ -4,16 +4,7 @@ Work that is approved in direction but not built yet. Version stays pinned at **
 
 ## Not yet implemented
 
-- App Store / Play Store packaging of native samples (samples only until product need)
-- Exhaustive combinatorial CSF cells for every prop combination (matrix bar is argTypes + multi-variant/state stories, not full product of all enums)
-- Storybook 8 → 10 migration
-- Real pixel compare with rasterized captures (stays advisory — owner decision A)
-- Figma Code Connect
-- npm publish path (package stays `private: true` until then)
-- Vietnamese docs track (`docs/*.md` are EN-first today)
-- `cx()` dedupe — one shared helper instead of a copy per component file
-- Button `xs` size tokenization (currently literal values)
-- Vendor axe-core locally and promote the axe gate from advisory to hard
+_(none)_
 
 ## Decided / closed (not active work)
 
@@ -22,20 +13,31 @@ Work that is approved in direction but not built yet. Version stays pinned at **
 - Figma — **A non-Enterprise** for now; Tokens Studio / hand-sync; REST soft-skip
 - **Live hub = Storybook only** (no separate Live View page) — `docs/live-hub.md`
 - Dual token JSON (`tokens.json` + `tokens.dtcg.json`) — intentional
+- Vietnamese docs track (`docs/vi/` mirror + viewer EN|VI toggle + docs-lang-parity gate)
 
 ## Shipped recently (removed from active list)
 
 - Storybook as single Live hub; Live/Surfaces map; `live-view.html` removed from tree
 - Deep CSF control matrices (argTypes + Matrix/AllVariants/States) for all public primaries
+- Storybook 10 + CSF bar (`AllSizes` when `argTypes.size`; States/Matrix for disabled/loading/error/busy) — full N-dim enum product not required
 - Storybook CSF for every public React component (99 primaries) + completeness gate
 - Full multi-screen native samples under `examples/native/{swiftui,compose,flutter}`
+- Native sample store packaging scaffolds (Fastlane + metadata; CI soft-skip without `ASC_*` / `PLAY_SERVICE_ACCOUNT_JSON`; submit disabled) — samples remain samples until product need
 - Figma colour variables push (Enterprise soft-skip)
+- Figma Code Connect path (`figma.config.json` + 99 `.figma.tsx` + soft-skip CI) — real node IDs still operator-filled
+- npm publish path (`private: false`, `prepublishOnly`, `npm-publish` workflow soft-skip without `NPM_TOKEN`; license UNLICENSED)
 - Form field-array helpers + FormWizard
 - DataGrid virtualization + column-order persistence
 - Atomic View template iframe virtualization
 - RTL locale surfaces
 - Motion foundation embed
 - Sidebar IA grouping
+- Shared `cx()` helper (`components/_utils/cx.js`) replacing per-file copies
+- Button `xs` size tokens (`--cs-component-button-xs-*`)
+- Vendored axe-core + axe smoke promoted to a hard fast-board gate
+- Dark-theme contrast promoted to hard on `theme-overflow` (`REVIEWED_OK` allowlist for canvas-deck near-misses; themeable CTAs use accent-strong + accent-on)
+- Vietnamese operator docs at `docs/vi/` + EN|VI toggle on `docs/viewer.html` + docs-lang-parity gate
+- Real Playwright pixel compare vs `_audit/baselines/` (`pixel-diff.mjs` + advisory `drifted[]`/`maxDiff`; decision A — no PR auto-fail on %)
 
 ## Process
 
