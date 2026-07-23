@@ -13,6 +13,28 @@ android {
     versionCode = 1
     versionName = "1.0.0"
   }
+  // Optional release signing — copy ../signing.properties.example → ../signing.properties.
+  // Absent file = debug signing only (sample scaffold; CI soft-skips without keystore secrets).
+  val signingPropsFile = rootProject.file("signing.properties")
+  if (signingPropsFile.exists()) {
+    val props = java.util.Properties().apply {
+      signingPropsFile.inputStream().use { load(it) }
+    }
+    signingConfigs {
+      create("release") {
+        storeFile = file(props.getProperty("storeFile"))
+        storePassword = props.getProperty("storePassword")
+        keyAlias = props.getProperty("keyAlias")
+        keyPassword = props.getProperty("keyPassword")
+      }
+    }
+    buildTypes {
+      getByName("release") {
+        signingConfig = signingConfigs.getByName("release")
+        isMinifyEnabled = false
+      }
+    }
+  }
   buildFeatures { compose = true }
   composeOptions { kotlinCompilerExtensionVersion = "1.5.8" }
   compileOptions {

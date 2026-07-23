@@ -1,0 +1,55 @@
+# Native sample store packaging — Decision 1C soft-skip without signing secrets.
+#
+# Triggers: workflow_dispatch, pull_request, push to main.
+# Dry-run always verifies Fastlane scaffolds + metadata.
+# Soft-skip (exit 0 + report artifact) when ASC_* / PLAY_SERVICE_ACCOUNT_JSON absent.
+# Never submits to App Store / Play Store — samples remain samples until product need.
+
+name: native-store
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches: [main]
+    paths:
+      - 'examples/native/**'
+      - '_audit/ci/native-store-dry-run.mjs'
+      - '_audit/ci/test-native-samples.mjs'
+      - '.github/workflows/native-store.yml'
+      - 'package.json'
+
+permissions:
+  contents: read
+
+jobs:
+  store-dry-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install npm dependencies
+        run: npm ci
+      - name: Store packaging dry-run (scaffolds + metadata, no secrets)
+        run: node _audit/ci/native-store-dry-run.mjs --dry-run
+      - name: Signed-release check (soft-skip without ASC_* / Play JSON)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+          PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: node _audit/ci/native-store-dry-run.mjs
+      - name: Upload native-store report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-store-report
+          path: _audit/ci/native-store-report.json
+          if-no-files-found: ignore

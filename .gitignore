@@ -33,11 +33,25 @@ storybook-static/
 .vercel-static/
 _audit/ci/import-report.txt
 _audit/ci/figma-push-report.json
+_audit/ci/code-connect-report.json
+_audit/ci/npm-publish-report.json
 _audit/ci/pixel-diff-report.json
+_audit/ci/native-store-report.json
+*.tgz
 
 # Native sample build outputs
 examples/native/swiftui/.build/
 examples/native/compose/.gradle/
 examples/native/compose/**/build/
+examples/native/compose/signing.properties
 examples/native/flutter/.dart_tool/
 examples/native/flutter/build/
+examples/native/**/vendor/bundle/
+examples/native/**/.bundle/
+examples/native/**/fastlane/report.xml
+examples/native/**/fastlane/Preview.html
+examples/native/**/fastlane/screenshots/**/*.png
+examples/native/**/*.jks
+examples/native/**/*.keystore
+examples/native/**/*.p8
+examples/native/**/*-play-key.json
