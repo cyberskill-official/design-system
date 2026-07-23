@@ -18,7 +18,7 @@ So sánh `%` pixel Playwright (`_audit/ci/pixel-diff.mjs`) là hard gate. Drift 
 
 **Lựa chọn owner: A — non-Enterprise hiện tại** (Th7 2026)
 
-Giữ plan Figma hiện tại. Variables REST API chỉ Enterprise — job ghi thoát sạch khi plan hoặc secret không hoàn tất được write. Đồng bộ màu = hand-sync và/hoặc Tokens Studio từ `tokens/tokens.dtcg.json`. Xem `docs/figma.md`.
+Giữ plan Figma hiện tại. Variables REST API chỉ Enterprise — job ghi **soft-skip** (exit 0 + report) khi plan hoặc secret không hoàn tất được write. Soft-skip đó **không** phải sync Variables live — đừng coi CI xanh là chứng minh Figma Variables đã cập nhật. Đồng bộ màu = hand-sync và/hoặc Tokens Studio từ `tokens/tokens.dtcg.json`. Xem `docs/figma.md`.
 
 ## 4. Live hub = chỉ Storybook
 
@@ -40,20 +40,20 @@ Giữ plan Figma hiện tại. Variables REST API chỉ Enterprise — job ghi t
 | `tokens/tokens.json` | Export nhóm theo hướng CSS |
 | `tokens/*.css` + `styles.css` | UI runtime |
 
-## 6. Code Connect — đường live; node ID do operator sở hữu
+## 6. Code Connect — đường đã ship; **chưa live** đến khi có node ID + plan
 
-**Trạng thái: đường đã ship; lần publish xanh đầu cần node ID library** (Th7 2026)
+**Trạng thái: provisional / soft-skip — không phải publish library live** (Th7 2026)
 
 - Job CI `code-connect` + `figma.config.json` + 99 mapping `*.figma.tsx` đã trong repo.
-- Publish chạy khi có `FIGMA_TOKEN` / `FIGMA_FILE_KEY` và API chấp nhận file; nếu không, job báo cáo và thoát mà không làm đỏ board.
-- **Vẫn cần cho publish live xanh:** plan Org/Enterprise có Code Connect, component **đã publish** lên team library, và `nodeId` thật trong `code-connect/node-map.json` (thay stub tổng hợp `9999:*`). Xem `docs/figma.md`.
+- Publish chạy khi có `FIGMA_TOKEN` / `FIGMA_FILE_KEY` và API chấp nhận file; nếu không, job **soft-skip** (exit 0 + report) mà không làm đỏ board. Soft-skip ≠ publish Code Connect thành công.
+- **Vẫn cần cho publish live xanh:** plan Org/Enterprise có Code Connect, component **đã publish** lên team library, và `nodeId` thật trong `code-connect/node-map.json` (thay stub tổng hợp `9999:*` — không invent node ID). Xem `docs/figma.md`.
 
-## 7. npm publish — đường đã ship; registry auth + grant license
+## 7. npm publish — đường đã ship; **chưa live** đến khi có grant + `NPM_TOKEN`
 
-**Trạng thái: workflow live; phân phối bị gate bởi secrets + policy** (Th7 2026)
+**Trạng thái: provisional / soft-skip — phân phối registry chưa duyệt mặc định** (Th7 2026)
 
-- `package.json` là `private: false`; `prepublishOnly` chạy `build:bundle` + `build:design-md --check`.
-- Workflow `.github/workflows/npm-publish.yml` trên `workflow_dispatch` / tag `v*`; publish cần `NPM_TOKEN`.
+- `package.json` là `private: false`; tên package **`cyberskill-design-system`**; `prepublishOnly` chạy `build:bundle` + `build:design-md --check`.
+- Workflow `.github/workflows/npm-publish.yml` trên `workflow_dispatch` / tag `v*`; thiếu `NPM_TOKEN` thì job **soft-skip** (exit 0 + báo cáo tarball). Soft-skip ≠ release đã publish.
 - License giữ **UNLICENSED**; phiên bản giữ **1.0.0**. Consumer cần **grant tường minh** từ owner (xem `docs/consuming.md`) — publish lên public registry không tự open-source package.
 
 ## 8. Đóng gói store native — scaffold đã ship; submit tắt

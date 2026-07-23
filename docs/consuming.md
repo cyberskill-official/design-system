@@ -2,13 +2,28 @@
 
 How any project — human-driven or agent-driven — adopts this HTML-first design system, and how to take updates safely.
 
+**Package name:** `cyberskill-design-system` (see `package.json`). Do not treat historical `@cyberskill/react` as the install path for this monolith.
+
+## Claude Code vs Google Stitch
+
+| Consumer | Start here | Works today | Do not |
+|---|---|---|---|
+| **Claude Code** | `SKILL.md` → `README.md` → `styles.css` + `_esm/cs.mjs` / `_ds_bundle.js` (prefix resolve) | Strong — rules, components, prompts; gates via full clone | Hardcode the bundle suffix; treat Storybook host as the portable contract |
+| **Google Stitch** | `DESIGN.md` → `llms.txt` → `tokens/tokens.dtcg.json` | Strong for doctrine + tokens + static `.cs-*` HTML | Treat `templates/**/*.dc.html` as SoT — no tweaks / `__dcSetProps` / DC compiler |
+| **Claude Design** | Full repo + DC compiler | Full fidelity (tweaks, `x-import`, bilingual templates) | Skip the sync loop in `docs/sync.md` |
+| **npm** | `cyberskill-design-system` | Package shape gated; dry-run always | Assume public install is approved — needs owner grant + `NPM_TOKEN` (soft-skip until then) |
+
+**Stitch DC rule:** Stitch (and any non-DC tool) must **not** consume `*.dc.html` as source of truth. Use static export patterns, `templates/kitchen-sink.html`, `examples/static-hello/`, and `.cs-*` classes from `styles.css`.
+
+**Release signal:** VERSION stays pinned at **1.0.0** (no CHANGELOG). Treat the **git tip SHA** as technical truth; read curated product highlights in `docs/release-notes.md`.
+
 ## Quick path for AI agents (Claude Code, or driving one)
 
 **What you get:** `styles.css` (400+ tokens + `.cs-*` classes + Liquid Glass surfaces, `@import`s `tokens/` + `base/`) · `_ds_bundle.js` (compiled React components, no build step) · `_esm/cs.mjs` (ESM entry re-exporting every component) · `_ds_manifest.json` (machine-readable inventory) · per-component `Name.d.ts` (API) + `Name.prompt.md` (usage brief) · `tokens/tokens.dtcg.json` (W3C DTCG) + `tokens.json`/`tokens.js`.
 
-**Repo checkout** — clone or copy the whole tree; everything is relative-path static. Entry points: Storybook on the host site (`/` / `npm run storybook`) · `guidelines/atomic-view.html` (every component live, portable) · `templates/<slug>/` (copyable starting points). Read `SKILL.md` before authoring anything on-brand; deeper maps live in `llms.txt` (inventory) and this file (full adoption + upgrade guide below).
+**Repo checkout** — clone or copy the whole tree; everything is relative-path static. Entry points: Storybook on the host site (`/` / `npm run storybook`) · `guidelines/atomic-view.html` (every component live, portable) · `templates/<slug>/` (copyable starting points — DC for Claude Design; kitchen-sink / `.cs-*` for Stitch). Read `SKILL.md` before authoring anything on-brand; Stitch readers start at `DESIGN.md`. Deeper maps live in `llms.txt` (inventory) and this file (full adoption + upgrade guide below).
 
-**After import — prove health.** Open `_audit/run.html`, let the gate board finish (every fast gate). All green = the copy is internally consistent (contrast, docs, portability, tokens, consumer path, behavior, a11y, stories, bilingual parity).
+**After import — prove health.** Open `_audit/run.html`, let the gate board finish (every fast gate). All green = the copy is internally consistent (contrast, docs, portability, tokens, consumer path, behavior, a11y, stories, bilingual parity). Full-clone only — `_audit/` is not in the npm tarball.
 
 **Rules that keep transfer lossless:**
 - Never hardcode the bundle namespace suffix (see "Resolve by prefix" below — gate-enforced).
@@ -23,7 +38,7 @@ How any project — human-driven or agent-driven — adopts this HTML-first desi
 
 ## Adopt via npm (optional)
 
-The package is publishable (`private: false`, version pinned **1.0.0**). License remains **UNLICENSED** — installing from the registry (or a packed tarball) does **not** grant redistribution rights by itself. Until the owner chooses an open license, **consumers need an explicit grant** from CyberSkill to use the package in a product.
+The package is publishable (`private: false`, version pinned **1.0.0**). License remains **UNLICENSED** — installing from the registry (or a packed tarball) does **not** grant redistribution rights by itself. Until the owner chooses an open license, **consumers need an explicit grant** from CyberSkill to use the package in a product. Publish is **not live by default**: without `NPM_TOKEN` the workflow **soft-skips** (exit 0 + report) — that is honesty, not a successful registry release. See `docs/decisions.md` and `docs/quality-gates.md`.
 
 ```bash
 # after a successful npm-publish workflow run (or from a packed tarball)
@@ -62,7 +77,7 @@ State Theme (`data-theme`), Element (`data-cs-element` + `data-cs-variant`), and
 
 ## Upgrading
 
-- **Version is pinned.** `VERSION` and `package.json` stay at **1.0.0**. There is no design-system changelog file — treat the repo tip as the technical truth, and read curated **Release Notes** (Storybook + `docs/release-notes.md`) for product-facing highlights.
+- **Version is pinned.** `VERSION` and `package.json` stay at **1.0.0**. There is no design-system changelog file — treat the **git tip SHA** as the technical truth, and read curated **Release Notes** (Storybook + `docs/release-notes.md`) for product-facing highlights.
 
 - Anchors (Umber/Ochre), the `.cs-*` class names, and the `--cs-*` token names are stable contracts — safe to depend on. Breaking renames of those contracts should be rare and called out in the PR/docs when they happen.
 

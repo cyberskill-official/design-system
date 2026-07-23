@@ -18,7 +18,7 @@ Playwright `%` pixel compare (`_audit/ci/pixel-diff.mjs`) is a hard gate. Drift 
 
 **Owner choice: A — non-Enterprise for now** (Jul 2026)
 
-Stay on the current Figma plan. Variables REST API is Enterprise-only — write jobs exit cleanly when the plan or secrets cannot complete the write. Colour sync = hand-sync and/or Tokens Studio from `tokens/tokens.dtcg.json`. See `docs/figma.md`.
+Stay on the current Figma plan. Variables REST API is Enterprise-only — write jobs **soft-skip** (exit 0 + report) when the plan or secrets cannot complete the write. That soft-skip is **not** a live Variables sync — do not treat CI green as proof that Figma Variables were updated. Colour sync = hand-sync and/or Tokens Studio from `tokens/tokens.dtcg.json`. See `docs/figma.md`.
 
 ## 4. Live hub = Storybook only
 
@@ -40,20 +40,20 @@ Stay on the current Figma plan. Variables REST API is Enterprise-only — write 
 | `tokens/tokens.json` | CSS-oriented grouped export |
 | `tokens/*.css` + `styles.css` | Runtime UI |
 
-## 6. Code Connect — live path; node IDs operator-owned
+## 6. Code Connect — path shipped; **not live** until node IDs + plan
 
-**Status: path shipped; first successful publish needs library node IDs** (Jul 2026)
+**Status: provisional / soft-skip — not a live library publish** (Jul 2026)
 
 - CI job `code-connect` + `figma.config.json` + 99 `*.figma.tsx` mappings are in-repo.
-- Publish runs when `FIGMA_TOKEN` / `FIGMA_FILE_KEY` are present and the API accepts the file; otherwise the job reports and exits without failing the board.
-- **Still needed for a green live publish:** Org/Enterprise plan with Code Connect, components **published** to the team library, and real `nodeId` values in `code-connect/node-map.json` (replace synthetic `9999:*` stubs). See `docs/figma.md`.
+- Publish runs when `FIGMA_TOKEN` / `FIGMA_FILE_KEY` are present and the API accepts the file; otherwise the job **soft-skips** (exit 0 + report) without failing the board. Soft-skip ≠ successful Code Connect publish.
+- **Still needed for a green live publish:** Org/Enterprise plan with Code Connect, components **published** to the team library, and real `nodeId` values in `code-connect/node-map.json` (replace synthetic `9999:*` stubs — do not invent node IDs). See `docs/figma.md`.
 
-## 7. npm publish — path shipped; registry auth + license grant
+## 7. npm publish — path shipped; **not live** until grant + `NPM_TOKEN`
 
-**Status: workflow live; distribution gated by secrets + policy** (Jul 2026)
+**Status: provisional / soft-skip — registry distribution not approved by default** (Jul 2026)
 
-- `package.json` is `private: false`; `prepublishOnly` runs `build:bundle` + `build:design-md --check`.
-- Workflow `.github/workflows/npm-publish.yml` on `workflow_dispatch` / `v*` tags; publish requires `NPM_TOKEN`.
+- `package.json` is `private: false`; package name **`cyberskill-design-system`**; `prepublishOnly` runs `build:bundle` + `build:design-md --check`.
+- Workflow `.github/workflows/npm-publish.yml` on `workflow_dispatch` / `v*` tags; without `NPM_TOKEN` the job **soft-skips** (exit 0 + tarball report). Soft-skip ≠ a published release.
 - License stays **UNLICENSED**; version stays **1.0.0**. Consumers need an **explicit grant** from the owner (see `docs/consuming.md`) — publishing to the public registry does not open-source the package by itself.
 
 ## 8. Native store packaging — scaffolds shipped; submit disabled
