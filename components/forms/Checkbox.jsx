@@ -2,6 +2,7 @@ import React from "react";
 function cx(...c) { return c.filter(Boolean).join(" "); }
 
 /** CyberSkill Checkbox — native checkbox (brand accent-color) + label/description. */
+// `children` is destructured but never rendered on purpose: keeps stray children out of {...props} → void <input>.
 export function Checkbox({ label, description, disabled = false, className, children, ...props }) {
   return (
     <label className={cx("cs-check", disabled && "is-disabled", className)}>

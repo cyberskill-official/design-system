@@ -2,12 +2,6 @@ import React from "react";
 
 function cx(...c) { return c.filter(Boolean).join(" "); }
 
-let uid = 0;
-function useId(prefix) {
-  const [id] = React.useState(() => `${prefix}-${++uid}`);
-  return id;
-}
-
 /**
  * CyberSkill TextField — label + input with optional description and error.
  * Programmatic label association and aria-describedby wiring; IME-safe.
@@ -20,10 +14,10 @@ export function TextField({
   disabled = false,
   readOnly = false,
   className,
-  children,
+  children, // never rendered on purpose: keeps stray children out of {...props} → void <input>
   ...props
 }) {
-  const generatedId = useId("cs-textfield");
+  const generatedId = React.useId();
   const inputId = id ?? generatedId;
   const descriptionId = description ? `${inputId}-description` : undefined;
   const errorId = error ? `${inputId}-error` : undefined;

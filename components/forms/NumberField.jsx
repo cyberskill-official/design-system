@@ -3,6 +3,7 @@ import { makeT, useLang } from "../_i18n/i18n.js";
 function cx(...c) { return c.filter(Boolean).join(" "); }
 
 /** CyberSkill NumberField — numeric stepper with −/+ buttons and clamping. */
+// `children` is destructured but never rendered on purpose: keeps stray children out of {...props} → void <input>.
 export function NumberField({ value, onChange, min, max, step = 1, disabled = false, lang, className, children, ...props }) {
   const [inner, setInner] = React.useState(0);
   const val = value != null ? value : inner;

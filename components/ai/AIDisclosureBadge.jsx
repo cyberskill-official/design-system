@@ -2,12 +2,6 @@ import React from "react";
 
 function cx(...c) { return c.filter(Boolean).join(" "); }
 
-let uid = 0;
-function useId(prefix) {
-  const [id] = React.useState(() => `${prefix}-${++uid}`);
-  return id;
-}
-
 /**
  * CyberSkill AIDisclosureBadge — a pill that discloses AI involvement and, when
  * expanded, explains what was generated and lists sources. Never decorative:
@@ -20,7 +14,7 @@ export function AIDisclosureBadge({
   className,
 }) {
   const [open, setOpen] = React.useState(false);
-  const panelId = useId("cs-ai-disclosure");
+  const panelId = React.useId();
   const sourceList = (sources || []).filter(Boolean);
   return (
     <span className={cx("cs-ai-disclosure", className)}>

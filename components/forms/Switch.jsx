@@ -2,6 +2,7 @@ import React from "react";
 function cx(...c) { return c.filter(Boolean).join(" "); }
 
 /** CyberSkill Switch — accessible toggle (role="switch"); Umber on, Ochre knob-track in dark. */
+// `children` is destructured but never rendered on purpose: keeps stray children out of {...props} → void <input>.
 export function Switch({ label, disabled = false, className, children, ...props }) {
   return (
     <label className={cx("cs-switch", disabled && "is-disabled", className)}>

@@ -2,5 +2,5 @@
 
 ```jsx
 <Alert variant="warning" title="Blocked">Provenance ledger needs the signing service.</Alert>
-<Alert variant="success">All 50 style packs verified — zero warnings.</Alert>
+<Alert variant="success">All 15 element packs verified — zero warnings.</Alert>
 ```

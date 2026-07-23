@@ -1,5 +1,6 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
+import { Icon } from "../icon/Icon.jsx";
 function cx(...c) { return c.filter(Boolean).join(" "); }
 
 /** CyberSkill Image — img with loading skeleton, warm fallback on error, optional click-to-preview lightbox. */
@@ -26,7 +27,9 @@ export function Image({ src, alt = "", ratio, preview = false, fallback, lang, c
       {zoom ? (
         <span className="cs-image__zoom" role="dialog" aria-label={alt || t("preview")} onClick={() => setZoom(false)}>
           <img src={src} alt={alt} />
-          <button type="button" aria-label={t("close")} onClick={() => setZoom(false)}>✕</button>
+          <button type="button" aria-label={t("close")} onClick={() => setZoom(false)}>
+            <Icon name="close" size="sm" style={{ verticalAlign: "middle" }} />
+          </button>
         </span>
       ) : null}
     </>
