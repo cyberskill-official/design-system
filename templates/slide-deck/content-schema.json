@@ -7,6 +7,7 @@
     { "id": "s1sub", "type": "text", "label": "Slide 1 subtitle", "maxLength": 90 },
     { "id": "s2kicker", "type": "text", "label": "Slide 2 eyebrow", "maxLength": 40 },
     { "id": "s2h", "type": "text", "label": "Slide 2 title", "maxLength": 60, "required": true },
+    { "id": "f1h", "type": "text", "label": "Feature 1 title", "maxLength": 40 },
     { "id": "f1", "type": "text", "label": "Feature 1 body", "maxLength": 140 },
     { "id": "f2h", "type": "text", "label": "Feature 2 title", "maxLength": 40 },
     { "id": "f2", "type": "text", "label": "Feature 2 body", "maxLength": 140 },

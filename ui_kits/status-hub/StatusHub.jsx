@@ -188,8 +188,8 @@ function StatusHub() {
         <div className="now">
           <h2>{t.nowTitle}</h2>
           {lang === "vi"
-            ? <p><b>v1.6.0 — Liên kết Glass + gói phong cách v2.</b> Liên kết component <span className="mono">.cs-surface-*</span> (tùy chọn), trình kiểm 0 cảnh báo trên cả 50 gói, và kiểm tra lại APCA cho chế độ tối. Ra mắt tuần này.</p>
-            : <p><b>v1.6.0 — Glass bindings + style-pack v2.</b> Opt-in <span className="mono">.cs-surface-*</span> component bindings, a zero-warning verifier across all 50 packs, and a dark-mode APCA re-check. Ships this week.</p>}
+            ? <p><b>v1.6.0 — Liên kết Glass + gói Ngũ Hành v2.</b> Liên kết component <span className="mono">.cs-surface-*</span> (tùy chọn), trình kiểm 0 cảnh báo trên cả 15 gói, và kiểm tra lại APCA cho chế độ tối. Ra mắt tuần này.</p>
+            : <p><b>v1.6.0 — Glass bindings + element-pack v2.</b> Opt-in <span className="mono">.cs-surface-*</span> component bindings, a zero-warning verifier across all 15 packs, and a dark-mode APCA re-check. Ships this week.</p>}
         </div>
 
         <div className="bar">
