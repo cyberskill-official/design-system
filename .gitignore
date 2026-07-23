@@ -33,6 +33,7 @@ storybook-static/
 .vercel-static/
 _audit/ci/import-report.txt
 _audit/ci/figma-push-report.json
+_audit/ci/pixel-diff-report.json
 
 # Native sample build outputs
 examples/native/swiftui/.build/
