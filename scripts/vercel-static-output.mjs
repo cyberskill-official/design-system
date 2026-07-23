@@ -69,6 +69,8 @@ if (existsSync(sb)) {
 
 // Legacy product paths → Storybook root (also covered by vercel.json redirects).
 writeFileSync(join(outDir, 'dashboard.html'), redirectStub('CyberSkill Design System'));
+mkdirSync(join(outDir, 'dashboard'), { recursive: true });
+writeFileSync(join(outDir, 'dashboard', 'index.html'), redirectStub('CyberSkill Design System'));
 mkdirSync(join(outDir, 'playground'), { recursive: true });
 writeFileSync(join(outDir, 'playground', 'index.html'), redirectStub('CyberSkill Design System'));
 

@@ -12,7 +12,17 @@
       "permanent": true
     },
     {
+      "source": "/dashboard/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/dashboard.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/dashboard/:path*",
       "destination": "/",
       "permanent": true
     },

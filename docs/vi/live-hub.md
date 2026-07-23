@@ -23,7 +23,7 @@
 | **Storybook** (`/`) | Bề mặt sản phẩm host: toolbar Theme × Element × Language, Docs/Foundations/Components/Release Notes/Status, và Maintainer/* iframe vào HTML portable |
 | **Atomic View** (`guidelines/atomic-view.html`) | Lưới component zero-build portable cho gates và duyệt clone-and-open — không phải entry sản phẩm công khai |
 | **Guidelines / templates khác** | Specimen portable; mở từ Storybook Maintainer/* khi khám phá Motion, Identity Lab, kitchen-sink, v.v. |
-| **Legacy `/dashboard*`, `/playground*`** | Redirect về `/` (stub + redirect Vercel) |
+| **Legacy `/dashboard`, `/dashboard/`, `/dashboard.html`, `/dashboard/:path*`, `/playground`, `/playground/`, `/playground/:path*`** | Redirect về `/` (stub + redirect Vercel) |
 
 ## Bản đồ bề mặt (story Maintainer/*)
 

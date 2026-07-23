@@ -9,7 +9,7 @@ Storybook **10** là **site sản phẩm** cho operator trên `design.cyberskill
 | Production | `https://design.cyberskill.world/` |
 | Site đóng gói local | `/` sau `npm run build:site` (serve `.vercel-static/`) |
 | Dev local | `npm run storybook` → http://localhost:6006 |
-| Legacy | `/dashboard*`, `/playground*` → `/` |
+| Legacy | `/dashboard`, `/dashboard/`, `/dashboard.html`, `/dashboard/:path*`, `/playground`, `/playground/`, `/playground/:path*` → `/` |
 
 ## Nội dung
 

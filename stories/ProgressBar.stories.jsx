@@ -29,7 +29,7 @@ export default {
       },
     },
   },
-  args: { value: 0.45, label: 'Build progress' },
+  args: { value: 45, label: 'Build progress' },
 };
 
 export const Default = {};
@@ -39,10 +39,10 @@ export const Matrix = {
   render: (args) => (
     <div style={{ display: 'grid', gap: 12 }}>
       {VARIANTS.map((variant) => (
-        <ProgressBar key={variant} {...args} variant={variant} value={0.45} label={variant} />
+        <ProgressBar key={variant} {...args} variant={variant} value={45} label={variant} />
       ))}
-      <ProgressBar {...args} value={0.2} label="20%" />
-      <ProgressBar {...args} value={0.8} label="80%" />
+      <ProgressBar {...args} value={20} label="20%" />
+      <ProgressBar {...args} value={80} label="80%" />
     </div>
   ),
 };

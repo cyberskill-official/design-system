@@ -26,7 +26,7 @@ Giữ plan Figma hiện tại. Variables REST API chỉ Enterprise — job ghi t
 
 - Operator dùng Storybook tại `/` cho Theme × Element × Language và ma trận điều khiển component.
 - Không có trang Live View riêng trong tree.
-- Legacy `/dashboard*` và `/playground*` redirect về `/`.
+- Legacy `/dashboard`, `/dashboard/`, `/dashboard.html`, `/dashboard/:path*`, `/playground`, `/playground/`, `/playground/:path*` redirect về `/`.
 - Atomic View portable và HTML tĩnh khác vẫn phục vụ gate zero-build và consumer; chúng không phải entry sản phẩm của site.
 - Bản đồ bề mặt: `docs/live-hub.md`.
 

@@ -26,7 +26,7 @@ Stay on the current Figma plan. Variables REST API is Enterprise-only — write 
 
 - Operators use Storybook at `/` for Theme × Element × Language and component control matrices.
 - No separate Live View page exists in the tree.
-- Legacy `/dashboard*` and `/playground*` redirect to `/`.
+- Legacy `/dashboard`, `/dashboard/`, `/dashboard.html`, `/dashboard/:path*`, `/playground`, `/playground/`, `/playground/:path*` redirect to `/`.
 - Portable Atomic View and other static HTML remain for zero-build gates and consumers; they are not the site product entry.
 - Surface map: `docs/live-hub.md`.
 

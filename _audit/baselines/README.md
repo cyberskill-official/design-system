@@ -29,20 +29,23 @@ They anchor the archetypes, not every template. Declare each in `BASE` inside `v
 
 ## Regenerate (Playwright — preferred for pixel CI)
 
-Serve the repo, then rewrite every curated PNG from a live Chromium capture:
+Baselines must match **Linux Chromium** (CI runs `ubuntu-latest`). Regenerating on macOS alone will look green locally and fail in CI.
+
+Serve the repo, then rewrite every curated PNG from a live Chromium capture **inside the Playwright Linux image**:
 
 ```bash
-npx --yes serve@14 -l 8080 .
-node _audit/ci/pixel-diff.mjs --update http://127.0.0.1:8080
+docker run --rm -v "$PWD":/work -w /work mcr.microsoft.com/playwright:v1.47.0-jammy \
+  bash -lc 'npx --yes serve@14 -l 8080 . >/tmp/serve.log 2>&1 & npx --yes wait-on@7 http://127.0.0.1:8080/dashboard.html && node _audit/ci/pixel-diff.mjs --update http://127.0.0.1:8080'
 ```
 
-Compare without rewriting (hard — non-zero exit on drift):
+Compare without rewriting (hard — non-zero exit on drift), also on Linux:
 
 ```bash
-node _audit/ci/pixel-diff.mjs http://127.0.0.1:8080
+docker run --rm -v "$PWD":/work -w /work mcr.microsoft.com/playwright:v1.47.0-jammy \
+  bash -lc 'npx --yes serve@14 -l 8080 . >/tmp/serve.log 2>&1 & npx --yes wait-on@7 http://127.0.0.1:8080/dashboard.html && node _audit/ci/pixel-diff.mjs http://127.0.0.1:8080'
 ```
 
-Baselines **must** be real PNGs (not JPEG-named-as-PNG). After an intentional redesign, re-run `--update`, commit the PNGs, and note it in the PR description.
+Baselines **must** be real PNGs (not JPEG-named-as-PNG). After an intentional redesign, re-run `--update` on Linux, commit the PNGs, and note it in the PR description.
 
 ## Manual / review-assist capture
 

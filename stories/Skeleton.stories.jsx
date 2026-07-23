@@ -44,6 +44,7 @@ export const Matrix = {
       <Skeleton {...args} variant="block" width={120} height={12} />
       <Skeleton {...args} variant="block" width={240} height={16} />
       <Skeleton {...args} variant="circle" width={40} height={40} />
+      <Skeleton {...args} lines={3} />
     </div>
   ),
 };

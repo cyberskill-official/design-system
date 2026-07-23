@@ -6,7 +6,7 @@
 
 ## Start here
 
-This is the **entrance document** for the CyberSkill Design System — pinned **v1.0.0** (see `VERSION`). The **product site** is Storybook at **`/`** on `design.cyberskill.world` (host-only; local: `npm run storybook`). Legacy `/dashboard*` and `/playground*` redirect to `/`. One sentence: a warm, Vietnamese-first, enterprise-grade system where every surface resolves three independent axes — **Theme** (light · dark) × **Element** (Ngũ Hành product identity: Kim · Mộc · Thủy · Hỏa · Thổ, 15 variants) × **Language** (EN · VI). Surface treatment is liquid-glass (fixed).
+This is the **entrance document** for the CyberSkill Design System — pinned **v1.0.0** (see `VERSION`). The **product site** is Storybook at **`/`** on `design.cyberskill.world` (host-only; local: `npm run storybook`). Legacy `/dashboard`, `/dashboard.html`, and `/playground/*` redirect to `/`. One sentence: a warm, Vietnamese-first, enterprise-grade system where every surface resolves three independent axes — **Theme** (light · dark) × **Element** (Ngũ Hành product identity: Kim · Mộc · Thủy · Hỏa · Thổ, 15 variants) × **Language** (EN · VI). Surface treatment is liquid-glass (fixed).
 
 **Quick start by audience**
 - **Designers** — open the Design System tab and the Templates picker (84 starting points, including the 37-document lawyer-validated Employment Suite); the Identity Lab (`ui_kits/status-hub/identity-lab.html`) lets you flip axes live.
@@ -59,6 +59,7 @@ Related CyberSkill repos (not in this tree — explore for product/marketing fid
 - **Audit framework** (referenced tooling): https://github.com/cyberskill-official/design-system-audit-framework
 
 **[`DESIGN.md`](DESIGN.md) in this repo** is the generated open-spec surface (Google-Stitch-style: brand doctrine, every token value light + dark, component/template inventory). It is built from `tokens/tokens.dtcg.json` + `_ds_manifest.json` by `npm run build:design-md`. Never edit it by hand; the `design-md-parity` gate pins it byte-for-byte to the token source. It is not a separate upstream doctrine file.
+
 ---
 
 ## Anchor immutables (never change these)

@@ -9,7 +9,7 @@ Storybook **10** is the **product site** for operators on `design.cyberskill.wor
 | Production | `https://design.cyberskill.world/` |
 | Local packaged site | `/` after `npm run build:site` (serve `.vercel-static/`) |
 | Local dev | `npm run storybook` → http://localhost:6006 |
-| Legacy | `/dashboard*`, `/playground*` → `/` |
+| Legacy | `/dashboard`, `/dashboard/`, `/dashboard.html`, `/dashboard/:path*`, `/playground`, `/playground/`, `/playground/:path*` → `/` |
 
 ## What it includes
 

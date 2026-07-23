@@ -5,7 +5,7 @@ Hai track:
 1. **Design system portable (consumers)** — vẫn là cây file tĩnh: không cần bundler. Link `styles.css` + tùy chọn `_ds_bundle.js` / ESM. Claude Design, Google Stitch, và product app không cần Node hay Storybook.
 2. **Host site (`design.cyberskill.world`)** — output tĩnh đóng gói cho Vercel. Packaging **có** chạy Node một lần lúc deploy để Storybook ship làm bề mặt sản phẩm tại `/`. Vẫn không có app server chạy dài.
 
-Production **`/`** là build tĩnh Storybook. Legacy `/dashboard`, `/dashboard.html`, và `/playground/*` redirect về `/`.
+Production **`/`** là build tĩnh Storybook. Legacy `/dashboard`, `/dashboard/`, `/dashboard.html`, `/dashboard/:path*`, `/playground`, `/playground/`, và `/playground/:path*` redirect về `/`.
 
 ## Vercel (khuyến nghị)
 
@@ -23,7 +23,7 @@ Production **`/`** là build tĩnh Storybook. Legacy `/dashboard`, `/dashboard.h
 | `installCommand` | `npm install` | Chỉ-host: cài Storybook/dev tooling cho build sản phẩm tĩnh |
 | `buildCommand` | `npm run build:site` | `build:storybook` rồi `scripts/vercel-static-output.mjs` |
 | `outputDirectory` | `.vercel-static` | Webroot đóng gói (cây portable + Storybook overlay ở root) |
-| `redirects` | `/dashboard*`, `/playground*` → `/` | Nghỉ hub HTML cũ và path Storybook subdirectory |
+| `redirects` | `/dashboard`, `/dashboard/`, `/dashboard.html`, `/dashboard/:path*`, `/playground`, `/playground/`, `/playground/:path*` → `/` | Nghỉ hub HTML cũ và path Storybook subdirectory |
 
 Tương đương local: `npm install && npm run build:site`, rồi serve `.vercel-static/`.
 
@@ -46,14 +46,18 @@ Nếu host dưới **domain khác**, đổi absolute URL trong các meta tag cho
 
 **Không Storybook:** serve root repo làm webroot (chỉ cây portable).
 
-**Có Storybook tại `/`:** chạy `npm run build:site` trên host hoặc CI, rồi serve `.vercel-static/` làm webroot. Cấu hình cùng redirect như `vercel.json` (`/dashboard*`, `/playground*` → `/`) nếu host hỗ trợ.
+**Có Storybook tại `/`:** chạy `npm run build:site` trên host hoặc CI, rồi serve `.vercel-static/` làm webroot. Cấu hình cùng redirect như `vercel.json` (`/dashboard`, `/dashboard/`, `/dashboard.html`, `/dashboard/:path*`, `/playground`, `/playground/`, `/playground/:path*` → `/`) nếu host hỗ trợ.
 
 Ví dụ Nginx (`.vercel-static` làm `root`):
 server {
   server_name design.cyberskill.world;
   root /var/www/design-system/.vercel-static;
   index index.html;
+  location = /dashboard { return 301 /; }
+  location = /dashboard/ { return 301 /; }
   location = /dashboard.html { return 301 /; }
+  location ^~ /dashboard/ { return 301 /; }
+  location = /playground { return 301 /; }
   location /playground/ { return 301 /; }
 }
 Path portable vẫn là file thật (`guidelines/atomic-view.html`, `_audit/run.html`, `styles.css`, v.v.). Storybook sở hữu `/` và `/index.html`.

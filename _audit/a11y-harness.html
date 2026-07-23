@@ -84,7 +84,11 @@ window.addEventListener('load',()=>setTimeout(async()=>{
     const FLOOR={'.cs-button':44,'.cs-button--sm':40,'.cs-search__clear':32,
       '.cs-check, .cs-radio':44,'.cs-switch':44,'.cs-tab':44,'.cs-pagination button':44,'.cs-menu__item':44,
       '.cs-stepper button':44,'.cs-segmented button':40,'.cs-slider':32};
-    let css=''; for(const f of ['../base/a11y.css','../base/components.css']){ const r=await fetch(f); css+=await r.text(); }
+    let css=''; for(const f of ['../base/a11y.css','../base/components.css']){
+      const r=await fetch(f);
+      if(!r.ok) throw new Error('failed to load '+f+' (HTTP '+r.status+')');
+      css+=await r.text();
+    }
     const blocks=[...css.matchAll(/@media\s*\(pointer:\s*coarse\)\s*\{/g)];
     assert(blocks.length>0,'no pointer:coarse block found in a11y.css/components.css');
     let combined=''; for(const b of blocks){ let depth=1,i=b.index+b[0].length; const start=i; for(;i<css.length&&depth>0;i++){ if(css[i]==='{')depth++; else if(css[i]==='}')depth--; } combined+=css.slice(start,i-1)+'\n'; }
@@ -92,7 +96,9 @@ window.addEventListener('load',()=>setTimeout(async()=>{
     // nested var(--a, var(--b, NNpx)). Resolve the innermost px fallback as the
     // guaranteed floor; if the rule only names a custom property, look it up in
     // component-tokens.css.
-    const ctok=await (await fetch('../tokens/component-tokens.css')).text();
+    const ctokRes=await fetch('../tokens/component-tokens.css');
+    if(!ctokRes.ok) throw new Error('failed to load ../tokens/component-tokens.css (HTTP '+ctokRes.status+')');
+    const ctok=await ctokRes.text();
     const tokenPx=(name)=>{
       const re=new RegExp(name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\s*:\\s*(\\d+(?:\\.\\d+)?)px');
       const tm=re.exec(ctok);

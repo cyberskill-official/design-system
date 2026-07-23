@@ -5,7 +5,7 @@ Two tracks:
 1. **Portable design system (consumers)** — still a static file tree: no bundler required. Link `styles.css` + optionally `_ds_bundle.js` / ESM. Claude Design, Google Stitch, and product apps never need Node or Storybook.
 2. **Host site (`design.cyberskill.world`)** — static output packaged for Vercel. Packaging **does** run Node once at deploy time so Storybook ships as the product surface at `/`. There is still no long-running app server.
 
-Production **`/`** is the Storybook static build. Legacy `/dashboard`, `/dashboard.html`, and `/playground/*` redirect to `/`.
+Production **`/`** is the Storybook static build. Legacy `/dashboard`, `/dashboard/`, `/dashboard.html`, `/dashboard/:path*`, `/playground`, `/playground/`, and `/playground/:path*` redirect to `/`.
 
 ## Vercel (recommended)
 
@@ -23,7 +23,7 @@ Production **`/`** is the Storybook static build. Legacy `/dashboard`, `/dashboa
 | `installCommand` | `npm install` | Host-only: install Storybook/dev tooling for the static product build |
 | `buildCommand` | `npm run build:site` | `build:storybook` then `scripts/vercel-static-output.mjs` |
 | `outputDirectory` | `.vercel-static` | Packaged webroot (portable tree + Storybook overlaid at root) |
-| `redirects` | `/dashboard*`, `/playground*` → `/` | Retire the old HTML hub and subdirectory Storybook path |
+| `redirects` | `/dashboard`, `/dashboard/`, `/dashboard.html`, `/dashboard/:path*`, `/playground`, `/playground/`, `/playground/:path*` → `/` | Retire the old HTML hub and subdirectory Storybook path |
 
 Local equivalent: `npm install && npm run build:site`, then serve `.vercel-static/`.
 
@@ -46,14 +46,18 @@ If you host under a **different** domain, change the absolute URLs in those meta
 
 **Without Storybook:** serve the repo root as the webroot (portable tree only).
 
-**With Storybook at `/`:** run `npm run build:site` on the host or CI, then serve `.vercel-static/` as the webroot. Configure the same redirects as `vercel.json` (`/dashboard*`, `/playground*` → `/`) if your host supports them.
+**With Storybook at `/`:** run `npm run build:site` on the host or CI, then serve `.vercel-static/` as the webroot. Configure the same redirects as `vercel.json` (`/dashboard`, `/dashboard/`, `/dashboard.html`, `/dashboard/:path*`, `/playground`, `/playground/`, `/playground/:path*` → `/`) if your host supports them.
 
 Nginx example (`.vercel-static` as `root`):
 server {
   server_name design.cyberskill.world;
   root /var/www/design-system/.vercel-static;
   index index.html;
+  location = /dashboard { return 301 /; }
+  location = /dashboard/ { return 301 /; }
   location = /dashboard.html { return 301 /; }
+  location ^~ /dashboard/ { return 301 /; }
+  location = /playground { return 301 /; }
   location /playground/ { return 301 /; }
 }
 Portable paths remain real files (`guidelines/atomic-view.html`, `_audit/run.html`, `styles.css`, etc.). Storybook owns `/` and `/index.html`.

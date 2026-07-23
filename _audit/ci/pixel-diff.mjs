@@ -4,7 +4,8 @@
  *
  * Hard gate: visual drift above DRIFT_PCT (or size mismatch / capture failure)
  * exits non-zero. Missing baselines / Playwright also fail. Use `--update` after
- * intentional redesigns, then commit the refreshed PNGs.
+ * intentional redesigns **on Linux Chromium** (CI is ubuntu-latest), then commit
+ * the refreshed PNGs. macOS captures will drift in CI — see `_audit/baselines/README.md`.
  *
  * Usage:
  *   node _audit/ci/pixel-diff.mjs [baseUrl]
