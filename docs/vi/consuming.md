@@ -38,11 +38,12 @@ Cách mọi project — do người hoặc agent điều khiển — áp dụng 
 
 ## Adopt qua npm (tùy chọn)
 
-Package có thể publish (`private: false`, phiên bản cố định **1.0.0**). License vẫn **UNLICENSED** — cài từ registry (hoặc tarball đã pack) **không** tự cấp quyền redistribution. Đến khi owner chọn license mở, **consumer cần grant tường minh** từ CyberSkill để dùng package trong sản phẩm. Publish **không live mặc định**: thiếu `NPM_TOKEN` thì workflow **soft-skip** (exit 0 + report) — đó là trung thực, không phải release registry thành công. Xem `docs/decisions.md` và `docs/quality-gates.md`.
+Package có thể publish (`private: false`, phiên bản cố định **1.0.0**). License vẫn **UNLICENSED** — cài từ registry (hoặc tarball đã pack) **không** tự cấp quyền redistribution. Đến khi owner chọn license mở, **consumer cần grant tường minh** từ CyberSkill để dùng package trong sản phẩm. Org `@cyberskill` và `NPM_TOKEN` trên repo đã sẵn sàng vận hành; chạy **Actions → npm-publish** một lần để `@cyberskill/design` lên registry. Thiếu `NPM_TOKEN` thì workflow **soft-skip** (exit 0 + report) — đó là trung thực, không phải release registry thành công. Xem `docs/decisions.md` và `docs/quality-gates.md`.
+
+**Grant consumer (chính sách owner — không phải secret).** Với mỗi team được duyệt, ghi lại kiểu: *CyberSkill cấp cho [Team/Org] quyền không độc quyền dùng `@cyberskill/design` trong [sản phẩm đã nêu]. Package vẫn UNLICENSED; redistribution ngoài các sản phẩm đó cần grant viết thêm.* Giữ văn bản grant nội bộ trừ khi muốn công khai.
 
 ```bash
 # sau khi workflow npm-publish chạy thành công (hoặc từ tarball đã pack)
-# cần org @cyberskill trên registry + grant owner + NPM_TOKEN khi publish
 npm install @cyberskill/design@1.0.0
 ```
 

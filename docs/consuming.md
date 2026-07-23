@@ -11,7 +11,7 @@ How any project — human-driven or agent-driven — adopts this HTML-first desi
 | **Claude Code** | `SKILL.md` → `README.md` → `styles.css` + `_esm/cs.mjs` / `_ds_bundle.js` (prefix resolve) | Strong — rules, components, prompts; gates via full clone | Hardcode the bundle suffix; treat Storybook host as the portable contract |
 | **Google Stitch** | `DESIGN.md` → `llms.txt` → `tokens/tokens.dtcg.json` | Strong for doctrine + tokens + static `.cs-*` HTML | Treat `templates/**/*.dc.html` as SoT — no tweaks / `__dcSetProps` / DC compiler |
 | **Claude Design** | Full repo + DC compiler | Full fidelity (tweaks, `x-import`, bilingual templates) | Skip the sync loop in `docs/sync.md` |
-| **npm** | `@cyberskill/design` | Package shape gated; dry-run always | Assume public install is approved — needs owner grant + `NPM_TOKEN` (soft-skip until then) |
+| **npm** | `@cyberskill/design` | Org + `NPM_TOKEN` ready; dry-run always | Assume registry install is live before first **npm-publish** run + written consumer grant |
 
 **Stitch DC rule:** Stitch (and any non-DC tool) must **not** consume `*.dc.html` as source of truth. Use static export patterns, `templates/kitchen-sink.html`, `examples/static-hello/`, and `.cs-*` classes from `styles.css`.
 
@@ -38,11 +38,12 @@ How any project — human-driven or agent-driven — adopts this HTML-first desi
 
 ## Adopt via npm (optional)
 
-The package is publishable (`private: false`, version pinned **1.0.0**). License remains **UNLICENSED** — installing from the registry (or a packed tarball) does **not** grant redistribution rights by itself. Until the owner chooses an open license, **consumers need an explicit grant** from CyberSkill to use the package in a product. Publish is **not live by default**: without `NPM_TOKEN` the workflow **soft-skips** (exit 0 + report) — that is honesty, not a successful registry release. See `docs/decisions.md` and `docs/quality-gates.md`.
+The package is publishable (`private: false`, version pinned **1.0.0**). License remains **UNLICENSED** — installing from the registry (or a packed tarball) does **not** grant redistribution rights by itself. Until the owner chooses an open license, **consumers need an explicit grant** from CyberSkill to use the package in a product. The `@cyberskill` org and repo `NPM_TOKEN` are operator-ready; run **Actions → npm-publish** once so `@cyberskill/design` is on the registry. Without `NPM_TOKEN` the workflow **soft-skips** (exit 0 + report) — that is honesty, not a successful registry release. See `docs/decisions.md` and `docs/quality-gates.md`.
+
+**Consumer grant (owner policy — not a secret).** For each approved team, record something like: *CyberSkill grants [Team/Org] a non-exclusive right to use `@cyberskill/design` in [named products]. The package remains UNLICENSED; redistribution outside those products needs a further written grant.* Keep grant text internal unless you want it public.
 
 ```bash
 # after a successful npm-publish workflow run (or from a packed tarball)
-# requires the @cyberskill org on the registry + owner grant + NPM_TOKEN on publish
 npm install @cyberskill/design@1.0.0
 ```
 
