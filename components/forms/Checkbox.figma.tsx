@@ -8,5 +8,5 @@ import { Checkbox } from './Checkbox.jsx'
  */
 figma.connect(Checkbox, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-17', {
   example: () => <Checkbox />,
-  imports: ["import { Checkbox } from 'cyberskill-design-system'"],
+  imports: ["import { Checkbox } from '@cyberskill/design'"],
 })

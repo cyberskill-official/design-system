@@ -8,5 +8,5 @@ import { Mentions } from './Mentions.jsx'
  */
 figma.connect(Mentions, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-53', {
   example: () => <Mentions />,
-  imports: ["import { Mentions } from 'cyberskill-design-system'"],
+  imports: ["import { Mentions } from '@cyberskill/design'"],
 })

@@ -8,5 +8,5 @@ import { RadioGroup } from './RadioGroup.jsx'
  */
 figma.connect(RadioGroup, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-65', {
   example: () => <RadioGroup />,
-  imports: ["import { RadioGroup } from 'cyberskill-design-system'"],
+  imports: ["import { RadioGroup } from '@cyberskill/design'"],
 })

@@ -8,5 +8,5 @@ import { Popover } from './Popover.jsx'
  */
 figma.connect(Popover, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-60', {
   example: () => <Popover />,
-  imports: ["import { Popover } from 'cyberskill-design-system'"],
+  imports: ["import { Popover } from '@cyberskill/design'"],
 })

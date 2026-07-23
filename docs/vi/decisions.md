@@ -40,21 +40,21 @@ Giữ plan Figma hiện tại. Variables REST API chỉ Enterprise — job ghi *
 | `tokens/tokens.json` | Export nhóm theo hướng CSS |
 | `tokens/*.css` + `styles.css` | UI runtime |
 
-## 6. Code Connect — đường đã ship; **chưa live** đến khi có node ID + plan
+## 6. Code Connect — đường đã ship; **hoãn** trên Figma free
 
-**Trạng thái: provisional / soft-skip — không phải publish library live** (Th7 2026)
+**Trạng thái: provisional / soft-skip — không phải publish library live** (Th7 2026; hoãn Th7 2026)
 
-- Job CI `code-connect` + `figma.config.json` + 99 mapping `*.figma.tsx` đã trong repo.
-- Publish chạy khi có `FIGMA_TOKEN` / `FIGMA_FILE_KEY` và API chấp nhận file; nếu không, job **soft-skip** (exit 0 + report) mà không làm đỏ board. Soft-skip ≠ publish Code Connect thành công.
-- **Vẫn cần cho publish live xanh:** plan Org/Enterprise có Code Connect, component **đã publish** lên team library, và `nodeId` thật trong `code-connect/node-map.json` (thay stub tổng hợp `9999:*` — không invent node ID). Xem `docs/figma.md`.
+- Job CI `code-connect` + `figma.config.json` + 99 mapping `*.figma.tsx` đã trong repo (snippet import dùng `@cyberskill/design`).
+- Publish soft-skip khi thiếu secret hoặc API trả 403/404/429. Soft-skip ≠ publish Code Connect thành công.
+- **Owner hoãn:** giữ **Figma free / non-Org** — không theo đuổi Code Connect live đến khi có ghế Org/Enterprise và team library đã publish. Khi đó thay stub `9999:*` trong `code-connect/node-map.json` bằng `nodeId` thật. Xem `docs/figma.md`.
 
 ## 7. npm publish — đường đã ship; **chưa live** đến khi có grant + `NPM_TOKEN`
 
 **Trạng thái: provisional / soft-skip — phân phối registry chưa duyệt mặc định** (Th7 2026)
 
-- `package.json` là `private: false`; tên package **`cyberskill-design-system`**; `prepublishOnly` chạy `build:bundle` + `build:design-md --check`.
+- `package.json` là `private: false`; tên package **`@cyberskill/design`** (convention scoped `@cyberskill/*`; `publishConfig.access: public`); `prepublishOnly` chạy `build:bundle` + `build:design-md --check`.
 - Workflow `.github/workflows/npm-publish.yml` trên `workflow_dispatch` / tag `v*`; thiếu `NPM_TOKEN` thì job **soft-skip** (exit 0 + báo cáo tarball). Soft-skip ≠ release đã publish.
-- License giữ **UNLICENSED**; phiên bản giữ **1.0.0**. Consumer cần **grant tường minh** từ owner (xem `docs/consuming.md`) — publish lên public registry không tự open-source package.
+- License giữ **UNLICENSED**; phiên bản giữ **1.0.0**. Consumer cần **grant tường minh** từ owner (xem `docs/consuming.md`) — publish lên public registry không tự open-source package. Org npm **`@cyberskill`** phải tồn tại (hoặc được tạo) trước lần publish đầu.
 
 ## 8. Đóng gói store native — scaffold đã ship; submit tắt
 
@@ -75,15 +75,15 @@ Giữ plan Figma hiện tại. Variables REST API chỉ Enterprise — job ghi *
 Ghi nhận Th7 2026 — chỉ mặc định tài liệu; **không cái nào đang live**:
 
 - **Figma Variables** — giữ Tokens Studio / non-Enterprise (quyết định §3). Soft-skip Variables REST vẫn trung thực.
-- **Code Connect** — hoãn publish live đến khi có Org + library đã publish + `nodeId` thật (quyết định §6). Soft-skip ≠ publish.
-- **npm** — giữ soft-skip đến khi có grant owner + `NPM_TOKEN` (quyết định §7). Soft-skip ≠ release đã publish.
+- **Code Connect** — **bỏ qua khi còn Figma free**; chỉ xem lại sau Org + library đã publish + `nodeId` thật (quyết định §6). Soft-skip ≠ publish.
+- **npm** — giữ soft-skip đến khi có grant owner + `NPM_TOKEN` + org `@cyberskill` trên registry (quyết định §7). Soft-skip ≠ release đã publish.
 
 ## Việc maintainer (đang mở)
 
 Theo dõi vận hành — không phải marketing sản phẩm, không phải backlog công khai:
 
-1. **Code Connect node ID** — thay stub tổng hợp `9999:*` trong `code-connect/node-map.json` bằng node ID library đã publish khi Figma Org/Enterprise sẵn sàng.
-2. **Grant npm / `NPM_TOKEN`** — đặt GitHub secret và cấp grant consumer tường minh trước khi coi cài từ registry là đường phân phối đã duyệt.
+1. **Code Connect** — hoãn (Figma free). Khi lên Org: thay stub `9999:*` trong `code-connect/node-map.json` bằng node ID library đã publish.
+2. **Grant npm / `NPM_TOKEN`** — tạo/claim org npm **`@cyberskill`**, đặt GitHub secret, và cấp grant consumer tường minh trước khi coi `npm install @cyberskill/design` là đường đã duyệt.
 
 ~~3. Chốt registry products~~ — **xong** (Th7 2026): xem quyết định §9; `docs/products.md` đã khóa.
 

@@ -8,5 +8,5 @@ import { HumanReviewGate } from './HumanReviewGate.jsx'
  */
 figma.connect(HumanReviewGate, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-41', {
   example: () => <HumanReviewGate />,
-  imports: ["import { HumanReviewGate } from 'cyberskill-design-system'"],
+  imports: ["import { HumanReviewGate } from '@cyberskill/design'"],
 })

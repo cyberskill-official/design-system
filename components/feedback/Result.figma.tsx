@@ -8,5 +8,5 @@ import { Result } from './Result.jsx'
  */
 figma.connect(Result, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-67', {
   example: () => <Result />,
-  imports: ["import { Result } from 'cyberskill-design-system'"],
+  imports: ["import { Result } from '@cyberskill/design'"],
 })

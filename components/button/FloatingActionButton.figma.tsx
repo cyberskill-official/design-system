@@ -8,5 +8,5 @@ import { FloatingActionButton } from './FloatingActionButton.jsx'
  */
 figma.connect(FloatingActionButton, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-37', {
   example: () => <FloatingActionButton />,
-  imports: ["import { FloatingActionButton } from 'cyberskill-design-system'"],
+  imports: ["import { FloatingActionButton } from '@cyberskill/design'"],
 })

@@ -8,5 +8,5 @@ import { QRCode } from './QRCode.jsx'
  */
 figma.connect(QRCode, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-64', {
   example: () => <QRCode />,
-  imports: ["import { QRCode } from 'cyberskill-design-system'"],
+  imports: ["import { QRCode } from '@cyberskill/design'"],
 })

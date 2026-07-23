@@ -8,5 +8,5 @@ import { Cascader } from './Cascader.jsx'
  */
 figma.connect(Cascader, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-14', {
   example: () => <Cascader />,
-  imports: ["import { Cascader } from 'cyberskill-design-system'"],
+  imports: ["import { Cascader } from '@cyberskill/design'"],
 })

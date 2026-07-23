@@ -27,5 +27,5 @@ figma.connect(Button, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill
     children: figma.string('Label'),
   },
   example: (props) => <Button {...props} />,
-  imports: ["import { Button } from 'cyberskill-design-system'"],
+  imports: ["import { Button } from '@cyberskill/design'"],
 })

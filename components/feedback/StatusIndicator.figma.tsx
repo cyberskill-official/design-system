@@ -8,5 +8,5 @@ import { StatusIndicator } from './StatusIndicator.jsx'
  */
 figma.connect(StatusIndicator, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-78', {
   example: () => <StatusIndicator />,
-  imports: ["import { StatusIndicator } from 'cyberskill-design-system'"],
+  imports: ["import { StatusIndicator } from '@cyberskill/design'"],
 })

@@ -8,5 +8,5 @@ import { Carousel } from './Carousel.jsx'
  */
 figma.connect(Carousel, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-13', {
   example: () => <Carousel />,
-  imports: ["import { Carousel } from 'cyberskill-design-system'"],
+  imports: ["import { Carousel } from '@cyberskill/design'"],
 })

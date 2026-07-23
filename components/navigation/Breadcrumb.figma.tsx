@@ -8,5 +8,5 @@ import { Breadcrumb } from './Breadcrumb.jsx'
  */
 figma.connect(Breadcrumb, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-8', {
   example: () => <Breadcrumb />,
-  imports: ["import { Breadcrumb } from 'cyberskill-design-system'"],
+  imports: ["import { Breadcrumb } from '@cyberskill/design'"],
 })

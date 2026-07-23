@@ -8,5 +8,5 @@ import { Spinner } from './Spinner.jsx'
  */
 figma.connect(Spinner, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-75', {
   example: () => <Spinner />,
-  imports: ["import { Spinner } from 'cyberskill-design-system'"],
+  imports: ["import { Spinner } from '@cyberskill/design'"],
 })

@@ -8,5 +8,5 @@ import { Watermark } from './Watermark.jsx'
  */
 figma.connect(Watermark, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-99', {
   example: () => <Watermark />,
-  imports: ["import { Watermark } from 'cyberskill-design-system'"],
+  imports: ["import { Watermark } from '@cyberskill/design'"],
 })

@@ -8,5 +8,5 @@ import { InputGroup } from './InputGroup.jsx'
  */
 figma.connect(InputGroup, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-45', {
   example: () => <InputGroup />,
-  imports: ["import { InputGroup } from 'cyberskill-design-system'"],
+  imports: ["import { InputGroup } from '@cyberskill/design'"],
 })

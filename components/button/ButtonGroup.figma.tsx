@@ -8,5 +8,5 @@ import { ButtonGroup } from './ButtonGroup.jsx'
  */
 figma.connect(ButtonGroup, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-10', {
   example: () => <ButtonGroup />,
-  imports: ["import { ButtonGroup } from 'cyberskill-design-system'"],
+  imports: ["import { ButtonGroup } from '@cyberskill/design'"],
 })

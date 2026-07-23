@@ -8,5 +8,5 @@ import { Steps } from './Steps.jsx'
  */
 figma.connect(Steps, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-79', {
   example: () => <Steps />,
-  imports: ["import { Steps } from 'cyberskill-design-system'"],
+  imports: ["import { Steps } from '@cyberskill/design'"],
 })

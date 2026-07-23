@@ -8,5 +8,5 @@ import { Timeline } from './Timeline.jsx'
  */
 figma.connect(Timeline, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-87', {
   example: () => <Timeline />,
-  imports: ["import { Timeline } from 'cyberskill-design-system'"],
+  imports: ["import { Timeline } from '@cyberskill/design'"],
 })

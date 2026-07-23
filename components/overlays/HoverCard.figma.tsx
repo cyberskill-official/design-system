@@ -8,5 +8,5 @@ import { HoverCard } from './HoverCard.jsx'
  */
 figma.connect(HoverCard, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-40', {
   example: () => <HoverCard />,
-  imports: ["import { HoverCard } from 'cyberskill-design-system'"],
+  imports: ["import { HoverCard } from '@cyberskill/design'"],
 })

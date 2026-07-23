@@ -8,5 +8,5 @@ import { Toggle } from './Toggle.jsx'
  */
 figma.connect(Toggle, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-90', {
   example: () => <Toggle />,
-  imports: ["import { Toggle } from 'cyberskill-design-system'"],
+  imports: ["import { Toggle } from '@cyberskill/design'"],
 })

@@ -8,5 +8,5 @@ import { Toast } from './Toast.jsx'
  */
 figma.connect(Toast, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-89', {
   example: () => <Toast />,
-  imports: ["import { Toast } from 'cyberskill-design-system'"],
+  imports: ["import { Toast } from '@cyberskill/design'"],
 })

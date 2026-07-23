@@ -8,5 +8,5 @@ import { HotKeys } from './HotKeys.jsx'
  */
 figma.connect(HotKeys, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-39', {
   example: () => <HotKeys />,
-  imports: ["import { HotKeys } from 'cyberskill-design-system'"],
+  imports: ["import { HotKeys } from '@cyberskill/design'"],
 })

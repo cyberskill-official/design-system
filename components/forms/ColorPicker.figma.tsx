@@ -8,5 +8,5 @@ import { ColorPicker } from './ColorPicker.jsx'
  */
 figma.connect(ColorPicker, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-20', {
   example: () => <ColorPicker />,
-  imports: ["import { ColorPicker } from 'cyberskill-design-system'"],
+  imports: ["import { ColorPicker } from '@cyberskill/design'"],
 })

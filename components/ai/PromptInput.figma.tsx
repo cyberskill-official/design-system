@@ -8,5 +8,5 @@ import { PromptInput } from './PromptInput.jsx'
  */
 figma.connect(PromptInput, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-62', {
   example: () => <PromptInput />,
-  imports: ["import { PromptInput } from 'cyberskill-design-system'"],
+  imports: ["import { PromptInput } from '@cyberskill/design'"],
 })

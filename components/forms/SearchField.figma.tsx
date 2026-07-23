@@ -8,5 +8,5 @@ import { SearchField } from './SearchField.jsx'
  */
 figma.connect(SearchField, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-68', {
   example: () => <SearchField />,
-  imports: ["import { SearchField } from 'cyberskill-design-system'"],
+  imports: ["import { SearchField } from '@cyberskill/design'"],
 })

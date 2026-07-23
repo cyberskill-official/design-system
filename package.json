@@ -1,7 +1,10 @@
 {
-  "name": "cyberskill-design-system",
+  "name": "@cyberskill/design",
   "version": "1.0.0",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "module": "_esm/cs.mjs",
   "exports": {
     ".": {

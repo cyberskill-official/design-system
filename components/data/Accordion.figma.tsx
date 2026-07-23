@@ -8,5 +8,5 @@ import { Accordion } from './Accordion.jsx'
  */
 figma.connect(Accordion, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-1', {
   example: () => <Accordion />,
-  imports: ["import { Accordion } from 'cyberskill-design-system'"],
+  imports: ["import { Accordion } from '@cyberskill/design'"],
 })

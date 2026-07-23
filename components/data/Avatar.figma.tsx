@@ -8,5 +8,5 @@ import { Avatar } from './Avatar.jsx'
  */
 figma.connect(Avatar, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-5', {
   example: () => <Avatar />,
-  imports: ["import { Avatar } from 'cyberskill-design-system'"],
+  imports: ["import { Avatar } from '@cyberskill/design'"],
 })

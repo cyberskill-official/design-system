@@ -8,5 +8,5 @@ import { Dock } from './Dock.jsx'
  */
 figma.connect(Dock, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-32', {
   example: () => <Dock />,
-  imports: ["import { Dock } from 'cyberskill-design-system'"],
+  imports: ["import { Dock } from '@cyberskill/design'"],
 })

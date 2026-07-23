@@ -8,5 +8,5 @@ import { DataTable } from './DataTable.jsx'
  */
 figma.connect(DataTable, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-27', {
   example: () => <DataTable />,
-  imports: ["import { DataTable } from 'cyberskill-design-system'"],
+  imports: ["import { DataTable } from '@cyberskill/design'"],
 })

@@ -8,5 +8,5 @@ import { TreeTable } from './TreeTable.jsx'
  */
 figma.connect(TreeTable, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-97', {
   example: () => <TreeTable />,
-  imports: ["import { TreeTable } from 'cyberskill-design-system'"],
+  imports: ["import { TreeTable } from '@cyberskill/design'"],
 })

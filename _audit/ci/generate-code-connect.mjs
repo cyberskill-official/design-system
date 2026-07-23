@@ -49,7 +49,7 @@ figma.connect(${name}, 'https://www.figma.com/design/${PLACEHOLDER_KEY}/CyberSki
     children: figma.string('Label'),
   },
   example: (props) => <${name} {...props} />,
-  imports: ["import { ${name} } from 'cyberskill-design-system'"],
+  imports: ["import { ${name} } from '@cyberskill/design'"],
 })
 `,
   TextField: (name) => `import figma from '@figma/code-connect'
@@ -64,7 +64,7 @@ figma.connect(${name}, 'https://www.figma.com/design/${PLACEHOLDER_KEY}/CyberSki
     placeholder: figma.string('Placeholder'),
   },
   example: (props) => <${name} {...props} />,
-  imports: ["import { ${name} } from 'cyberskill-design-system'"],
+  imports: ["import { ${name} } from '@cyberskill/design'"],
 })
 `,
   Dialog: (name) => `import figma from '@figma/code-connect'
@@ -77,7 +77,7 @@ figma.connect(${name}, 'https://www.figma.com/design/${PLACEHOLDER_KEY}/CyberSki
     children: figma.string('Body'),
   },
   example: (props) => <${name} {...props} />,
-  imports: ["import { ${name} } from 'cyberskill-design-system'"],
+  imports: ["import { ${name} } from '@cyberskill/design'"],
 })
 `,
   Card: (name) => `import figma from '@figma/code-connect'
@@ -90,7 +90,7 @@ figma.connect(${name}, 'https://www.figma.com/design/${PLACEHOLDER_KEY}/CyberSki
     children: figma.string('Content'),
   },
   example: (props) => <${name} {...props} />,
-  imports: ["import { ${name} } from 'cyberskill-design-system'"],
+  imports: ["import { ${name} } from '@cyberskill/design'"],
 })
 `,
   Alert: (name) => `import figma from '@figma/code-connect'
@@ -108,7 +108,7 @@ figma.connect(${name}, 'https://www.figma.com/design/${PLACEHOLDER_KEY}/CyberSki
     children: figma.string('Body'),
   },
   example: (props) => <${name} {...props} />,
-  imports: ["import { ${name} } from 'cyberskill-design-system'"],
+  imports: ["import { ${name} } from '@cyberskill/design'"],
 })
 `,
 };
@@ -124,7 +124,7 @@ import { ${name} } from './${name}.jsx'
  */
 figma.connect(${name}, 'https://www.figma.com/design/${PLACEHOLDER_KEY}/CyberSkill?node-id=__NODE__', {
   example: () => <${name} />,
-  imports: ["import { ${name} } from 'cyberskill-design-system'"],
+  imports: ["import { ${name} } from '@cyberskill/design'"],
 })
 `;
 }

@@ -8,5 +8,5 @@ import { AIDisclosureBadge } from './AIDisclosureBadge.jsx'
  */
 figma.connect(AIDisclosureBadge, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-2', {
   example: () => <AIDisclosureBadge />,
-  imports: ["import { AIDisclosureBadge } from 'cyberskill-design-system'"],
+  imports: ["import { AIDisclosureBadge } from '@cyberskill/design'"],
 })

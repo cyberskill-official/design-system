@@ -8,5 +8,5 @@ import { Drawer } from './Drawer.jsx'
  */
 figma.connect(Drawer, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-33', {
   example: () => <Drawer />,
-  imports: ["import { Drawer } from 'cyberskill-design-system'"],
+  imports: ["import { Drawer } from '@cyberskill/design'"],
 })

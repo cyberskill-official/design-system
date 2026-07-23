@@ -8,5 +8,5 @@ import { Combobox } from './Combobox.jsx'
  */
 figma.connect(Combobox, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-21', {
   example: () => <Combobox />,
-  imports: ["import { Combobox } from 'cyberskill-design-system'"],
+  imports: ["import { Combobox } from '@cyberskill/design'"],
 })

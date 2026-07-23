@@ -8,5 +8,5 @@ import { Slider } from './Slider.jsx'
  */
 figma.connect(Slider, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-73', {
   example: () => <Slider />,
-  imports: ["import { Slider } from 'cyberskill-design-system'"],
+  imports: ["import { Slider } from '@cyberskill/design'"],
 })

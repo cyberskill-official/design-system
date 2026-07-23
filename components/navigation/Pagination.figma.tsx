@@ -8,5 +8,5 @@ import { Pagination } from './Pagination.jsx'
  */
 figma.connect(Pagination, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-58', {
   example: () => <Pagination />,
-  imports: ["import { Pagination } from 'cyberskill-design-system'"],
+  imports: ["import { Pagination } from '@cyberskill/design'"],
 })

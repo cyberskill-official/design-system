@@ -8,5 +8,5 @@ import { ChatMessage } from './ChatMessage.jsx'
  */
 figma.connect(ChatMessage, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-16', {
   example: () => <ChatMessage />,
-  imports: ["import { ChatMessage } from 'cyberskill-design-system'"],
+  imports: ["import { ChatMessage } from '@cyberskill/design'"],
 })

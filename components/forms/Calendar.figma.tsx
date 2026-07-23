@@ -8,5 +8,5 @@ import { Calendar } from './Calendar.jsx'
  */
 figma.connect(Calendar, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-11', {
   example: () => <Calendar />,
-  imports: ["import { Calendar } from 'cyberskill-design-system'"],
+  imports: ["import { Calendar } from '@cyberskill/design'"],
 })

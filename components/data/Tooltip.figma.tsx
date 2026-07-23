@@ -8,5 +8,5 @@ import { Tooltip } from './Tooltip.jsx'
  */
 figma.connect(Tooltip, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-92', {
   example: () => <Tooltip />,
-  imports: ["import { Tooltip } from 'cyberskill-design-system'"],
+  imports: ["import { Tooltip } from '@cyberskill/design'"],
 })

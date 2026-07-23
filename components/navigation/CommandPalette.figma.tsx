@@ -8,5 +8,5 @@ import { CommandPalette } from './CommandPalette.jsx'
  */
 figma.connect(CommandPalette, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-22', {
   example: () => <CommandPalette />,
-  imports: ["import { CommandPalette } from 'cyberskill-design-system'"],
+  imports: ["import { CommandPalette } from '@cyberskill/design'"],
 })

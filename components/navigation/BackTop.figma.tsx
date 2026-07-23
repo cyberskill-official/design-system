@@ -8,5 +8,5 @@ import { BackTop } from './BackTop.jsx'
  */
 figma.connect(BackTop, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-6', {
   example: () => <BackTop />,
-  imports: ["import { BackTop } from 'cyberskill-design-system'"],
+  imports: ["import { BackTop } from '@cyberskill/design'"],
 })

@@ -8,5 +8,5 @@ import { LumiAvatar } from './LumiAvatar.jsx'
  */
 figma.connect(LumiAvatar, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-51', {
   example: () => <LumiAvatar />,
-  imports: ["import { LumiAvatar } from 'cyberskill-design-system'"],
+  imports: ["import { LumiAvatar } from '@cyberskill/design'"],
 })

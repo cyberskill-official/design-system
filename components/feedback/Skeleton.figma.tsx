@@ -8,5 +8,5 @@ import { Skeleton } from './Skeleton.jsx'
  */
 figma.connect(Skeleton, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-72', {
   example: () => <Skeleton />,
-  imports: ["import { Skeleton } from 'cyberskill-design-system'"],
+  imports: ["import { Skeleton } from '@cyberskill/design'"],
 })

@@ -8,5 +8,5 @@ import { Popconfirm } from './Popconfirm.jsx'
  */
 figma.connect(Popconfirm, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-59', {
   example: () => <Popconfirm />,
-  imports: ["import { Popconfirm } from 'cyberskill-design-system'"],
+  imports: ["import { Popconfirm } from '@cyberskill/design'"],
 })

@@ -8,5 +8,5 @@ import { Rating } from './Rating.jsx'
  */
 figma.connect(Rating, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-66', {
   example: () => <Rating />,
-  imports: ["import { Rating } from 'cyberskill-design-system'"],
+  imports: ["import { Rating } from '@cyberskill/design'"],
 })
