@@ -12,11 +12,11 @@ The GitHub repo (`cyberskill-official/design-system`) is the **source of truth**
 
 - **`_esm/cs.mjs`** — the ESM entry point. Underscore-prefixed does **not** mean build artifact or gitignored here (only `uploads/`, `scraps/`, `_audit/exports/` are — see Hygiene below); `_esm/` is source, same tier as `templates/` or `docs/`. A prior port of this repo skipped it on exactly this assumption and broke the ESM smoke gate — if you're porting/copying this tree by hand, **explicitly include every top-level folder this list names**, don't infer from the `_` prefix.
 
-- `README.md`, `CONTRIBUTING.md`, `SKILL.md`, `CLAUDE.md`, `VERSION`
+- `README.md`, `CONTRIBUTING.md`, `SKILL.md`, `CLAUDE.md`, `VERSION`, `DESIGN.md` (generated open-spec surface — committed, regenerated only via `npm run build:design-md`, pinned by the `design-md-parity` gate)
 
 Pull them back into a fresh project (see below) and the compiler re-recognizes it as a design system — it keys off `styles.css`, the `.d.ts`/`.jsx` pairs, `@dsCard` HTML, and `templates/`. The **derived** files (`_ds_bundle.js`, `_ds_manifest.json`, `_adherence.oxlintrc.json`) are regenerated every turn from source, so they need not be trusted from the repo — they rebuild.
 
-**In other agents (Google Stitch, generic LLM tools) — partially.** They can consume the **portable** layer — `tokens/tokens.json` + `tokens.js`, the raw CSS, the component `.jsx`, fonts, and the Markdown docs — but they do **not** understand the `.dc.html` Design-Component format or the compiler that drives it. So a non-Claude-Design agent gets the tokens, styles, and component source as files, not the live DC/tweak/compile behavior. Point those tools at `tokens.json` and the CSS; treat `.dc.html` + the compiler as Claude-Design-native.
+**In other agents (Google Stitch, generic LLM tools) — partially.** They can consume the **portable** layer — `tokens/tokens.json` + `tokens.js`, the raw CSS, the component `.jsx`, fonts, and the Markdown docs — but they do **not** understand the `.dc.html` Design-Component format or the compiler that drives it. So a non-Claude-Design agent gets the tokens, styles, and component source as files, not the live DC/tweak/compile behavior. Point those tools at the root **`DESIGN.md`** first (the generated Stitch-style open-spec surface: doctrine + every token value + inventory, regenerated from DTCG via `npm run build:design-md` and pinned by the `design-md-parity` gate), then `tokens.json` / `tokens.dtcg.json` and the CSS for the machine contract; treat `.dc.html` + the compiler as Claude-Design-native.
 
 ## Two-way sync (repo = source of truth)
 

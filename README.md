@@ -20,6 +20,7 @@ This is the **entrance document** for the CyberSkill Design System — pinned **
 | Doc | What it answers |
 |---|---|
 | `README.md` (this file, below) | The full guide: anchors, voice, visual foundations, components, templates, index |
+| `DESIGN.md` | Generated open-spec surface (Stitch-style) — doctrine + every token value + inventory, from DTCG; regenerate via `npm run build:design-md` |
 | `SKILL.md` | Agent entry — hard rules + fast orientation |
 | `docs/conventions.md` | How to extend the system (naming grammar, checklists, the three axes, decision log) |
 | `docs/products.md` | Product → element registry (provisional) |
@@ -36,6 +37,7 @@ This is the **entrance document** for the CyberSkill Design System — pinned **
 | `docs/decisions-pending.md` | Recorded owner decisions (whole-set CI, pixel advisory, Figma non-Enterprise) |
 | `docs/BACKLOG.md` | Deferred work — approved in direction, not built yet |
 | `docs/audit-2026-07.md` | July 2026 deep audit — verdict, findings by severity, what was fixed vs deferred |
+| `docs/quality-gates.md` | Benchmark reference — every quality gate, what it asserts, pass criterion, where it runs |
 
 ---
 
@@ -51,6 +53,7 @@ This system was **lifted from CyberSkill's own upstream repositories** — none 
 
 The written doctrine is a single-file `DESIGN.md` (22 Parts, ~1.3 MB) maintained **upstream** in that design-system repo, not here; likewise `@cyberskill/tokens`, `@cyberskill/react`, and `@cyberskill/brand-assets` are external upstream packages. Their contents were lifted into this tree as `tokens/`, `components/`, and `assets/`. Where a value here differs from a guess, **the upstream source wins** — every token and component in this project was lifted from that code.
 
+Separate from that upstream doctrine file, **this repo now ships its own root [`DESIGN.md`](DESIGN.md)** — a compact, **generated** open-spec surface (Google-Stitch-style: brand doctrine, every token value light + dark, component/template inventory) built from `tokens/tokens.dtcg.json` + `_ds_manifest.json` by `npm run build:design-md`. Never edit it by hand; the `design-md-parity` gate pins it byte-for-byte to the token source.
 ---
 
 ## Anchor immutables (never change these)

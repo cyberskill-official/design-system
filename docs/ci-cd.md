@@ -10,12 +10,14 @@
 
 ## What's wired up (`.github/workflows/design-system-gates.yml`)
 
-1. **`fast-gates`** — `npm ci` + cached Playwright Chromium, serves the repo, opens `_audit/run.html` headlessly (`_audit/ci/run-gates.mjs`), fails on any hard-gate failure. Uploads import-report on failure.
+1. **`fast-gates`** — `npm ci` + cached Playwright Chromium, serves the repo, opens `_audit/run.html` headlessly (`_audit/ci/run-gates.mjs`), fails on any hard-gate failure. Uploads import-report on failure. New rows added to the board (the Jul 2026 hardening added 8: token-format-parity, version-stamp, support-runtime-identity, package-exports-integrity, template-lang-parity, dtcg-typing, design-md-parity, bundle-freshness) are picked up automatically — the runner reads `window.__run`, not a job-side gate list.
 2. **`token-provenance`** — browser-free Node check that natives + `provenance.json` match DTCG source sha-256.
-3. **`docs-consistency-blocker`** — `docs-consistency` + `bilingual-parity` merge blockers.
-4. **`whole-set-audits`** — owner decision B: every push/PR, plus nightly `0 3 * * *` and `workflow_dispatch` (responsive + language + theme overflow, ~15–20 min).
-5. **`figma-variables-push`** — on `main` push + manual. Owner decision A (non-Enterprise): Variables REST soft-skips; secrets still prove file open. See `docs/figma.md`.
-6. **`regenerate-tokens`** — path-filtered on push/PR (`tokens.dtcg.json`, natives, generator, `VERSION`); always available on schedule/manual. Deterministic native output; pushes with `contents: write` (or `DS_PUSH_TOKEN`).
+3. **`unit-tests`** — `npm run test:unit` (6 plain-Node contract tests; wired into CI by the Jul 2026 hardening — previously local-only).
+4. **`node-prechecks`** — browser-free Node authorities: `_audit/ci/check-bundle-freshness.mjs` (the bundle-freshness source of truth — full source discovery incl. new/deleted files; the board row only re-hashes header-recorded files) and `scripts/generate-design-md.mjs --check` (root `DESIGN.md` byte-equals regeneration).
+5. **`docs-consistency-blocker`** — `docs-consistency` + `bilingual-parity` merge blockers.
+6. **`whole-set-audits`** — owner decision B: every push/PR, plus nightly `0 3 * * *` and `workflow_dispatch` (responsive + language + theme overflow, ~15–20 min).
+7. **`figma-variables-push`** — on `main` push + manual. Owner decision A (non-Enterprise): Variables REST soft-skips; secrets still prove file open. See `docs/figma.md`.
+8. **`regenerate-tokens`** — path-filtered on push/PR (`tokens.dtcg.json`, natives, generator, `VERSION`); always available on schedule/manual. Deterministic native output; pushes with `contents: write` (or `DS_PUSH_TOKEN`).
 
 Node **22** on runners (avoids Node 20 action deprecation). Playwright browser cache key: `package-lock.json`.
 
@@ -50,6 +52,9 @@ npx serve -l 8080 .
 npx playwright install --with-deps chromium
 node _audit/ci/run-gates.mjs http://127.0.0.1:8080/_audit/run.html
 node _audit/ci/check-token-provenance.mjs
+node _audit/ci/check-bundle-freshness.mjs
+node scripts/generate-design-md.mjs --check
+npm run test:unit
 node _audit/ci/run-single-gate.mjs http://127.0.0.1:8080/_audit/docs-consistency.html __docs
 node _audit/ci/generate-native-tokens.mjs
 ```

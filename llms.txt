@@ -9,6 +9,7 @@ The portable contract (styles.css · bundle · tokens) works everywhere; the DC 
 - [styles.css](styles.css): any web / framework / email (Vue, Svelte, plain HTML, React) — link this one file for every `--cs-*` token, the `.cs-*` component classes, and the Liquid Glass surfaces. Framework-agnostic, no build step.
 - [_ds_bundle.js](_ds_bundle.js): React (production) — `styles.css` + `<script src="_ds_bundle.js">`, then resolve the bundle global by prefix (its `_<projectId>` suffix is compiler-assigned and changes on re-import): `const CS = window[Object.keys(window).find(k => /^CyberSkillDesignSystem_/.test(k))]; const { Button, … } = CS`. Proven green by `_audit/consumer-smoke-test.html`. (Templates load via `ds-base.js`, which publishes a stable `window.CyberSkillDS` alias for the same reason.)
 - [tokens/tokens.json](tokens/tokens.json): design tools / native / token pipelines / other agents (Figma, Google Stitch, Style Dictionary) — every token grouped by category, plus theme/element override maps; also [tokens/tokens.js](tokens/tokens.js) (ESM) and [tokens/tokens.dtcg.json](tokens/tokens.dtcg.json) (**W3C DTCG** format for Tokens Studio for Figma / Style Dictionary). This is the canonical cross-tool contract.
+- [DESIGN.md](DESIGN.md): agents/tools that read a root DESIGN.md (Google Stitch open-spec style) — one generated file with the brand doctrine, every token value (light + dark), and the component/template inventory. Generated from the DTCG source by `npm run build:design-md`; the `design-md-parity` gate pins it — do not hand-edit.
 - [templates/](templates/): Claude Design (authoring + live preview) — `templates/**/*.dc.html` Design Components + the compiler (tweaks, `x-import`, `@dsCard` cards). Native to Claude Design — not portable; other tools consume the outputs above, not these.
 
 ## Key files
@@ -25,6 +26,7 @@ The portable contract (styles.css · bundle · tokens) works everywhere; the DC 
 - [fonts/](fonts/): self-hosted Be Vietnam Pro + JetBrains Mono woff2
 - [assets/](assets/): official logo mark (never recreate) · favicon · aurora washes · Lumi mascot
 - [README.md](README.md): the entrance document — voice, visual foundations, components, templates, index
+- [DESIGN.md](DESIGN.md): generated open-spec surface (doctrine + tokens + inventory) for Stitch-style consumers — pinned to DTCG by the design-md-parity gate
 - [SKILL.md](SKILL.md): agent entry — hard rules + fast orientation
 - [CONTRIBUTING.md](CONTRIBUTING.md): one-page onboarding for extending the system
 - [VERSION](VERSION): pinned 1.0.0 (matches [package.json](package.json))
@@ -46,6 +48,7 @@ The portable contract (styles.css · bundle · tokens) works everywhere; the DC 
 - [docs/decisions-pending.md](docs/decisions-pending.md): recorded owner decisions
 - [docs/BACKLOG.md](docs/BACKLOG.md): deferred work — approved in direction, not built yet
 - [docs/audit-2026-07.md](docs/audit-2026-07.md): July 2026 deep audit — verdict, findings, fixes vs deferrals
+- [docs/quality-gates.md](docs/quality-gates.md): benchmark reference — every quality gate, its assertion, pass criterion, where it runs
 - [docs/viewer.html](docs/viewer.html): reader UI for all of the above
 
 ## Non-negotiables

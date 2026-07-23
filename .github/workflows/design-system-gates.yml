@@ -54,6 +54,42 @@ jobs:
       - name: Verify tokens/native/ is in lockstep with tokens.dtcg.json (fast, no browser)
         run: node _audit/ci/check-token-provenance.mjs
 
+  unit-tests:
+    # npm run test:unit — 6 plain-Node contract tests (nav model, health/tokens UI,
+    # form paths, Storybook contract, Figma helpers, native samples). No browser.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install npm dependencies
+        run: npm ci
+      - name: Run unit tests
+        run: npm run test:unit
+
+  node-prechecks:
+    # Browser-free Node gates that the run.html board does not own:
+    #   • bundle freshness — the Node script is the source of truth (it also
+    #     discovers NEW source files; the board's bundle-freshness row only
+    #     re-hashes files already recorded in the bundle header)
+    #   • DESIGN.md freshness — byte-identical regeneration from DTCG + manifest
+    #     (the board's design-md-parity row proves the same in-browser)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install npm dependencies (esbuild needed by the bundle checker)
+        run: npm ci
+      - name: _ds_bundle.js built from current sources
+        run: node _audit/ci/check-bundle-freshness.mjs
+      - name: DESIGN.md is a fresh regeneration
+        run: node scripts/generate-design-md.mjs --check
+
   docs-consistency-blocker:
     runs-on: ubuntu-latest
     needs: fast-gates
