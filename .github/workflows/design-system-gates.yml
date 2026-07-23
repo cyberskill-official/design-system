@@ -173,12 +173,22 @@ jobs:
         run: npx --yes wait-on@7 http://127.0.0.1:8080/dashboard.html
       - name: Playwright pixel compare (hard)
         run: node _audit/ci/pixel-diff.mjs http://127.0.0.1:8080
+      - name: Refresh baselines from this runner (on drift)
+        if: failure()
+        run: node _audit/ci/pixel-diff.mjs --update http://127.0.0.1:8080
       - name: Upload pixel-diff report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: pixel-diff-report
           path: _audit/ci/pixel-diff-report.json
+          if-no-files-found: ignore
+      - name: Upload Linux baselines (on drift)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pixel-baselines-linux
+          path: _audit/baselines/*.png
           if-no-files-found: ignore
 
   regenerate-tokens:
