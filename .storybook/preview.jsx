@@ -7,7 +7,21 @@ const preview = {
     controls: { matchers: { color: /(background|color)$/i, date: /Date$/i } },
     options: {
       storySort: {
-        order: ['Intro', 'Foundations', 'Components', '*'],
+        order: [
+          'Intro',
+          'Foundations',
+          ['Colors', 'Typography', 'Spacing', 'Elevation', 'Motion', 'Elements'],
+          'Guidelines',
+          ['Voice & Language', 'The Three Axes', 'Consuming'],
+          'Components',
+          'A11y',
+          ['Focus ring', 'Touch targets', 'Reduced motion', 'Contrast (APCA)'],
+          'I18n',
+          'Live',
+          ['Intro', 'Surfaces'],
+          'Status',
+          '*',
+        ],
       },
     },
     docs: {

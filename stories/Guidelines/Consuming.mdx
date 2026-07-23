@@ -1,0 +1,76 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Guidelines/Consuming" />
+
+# Consuming the system
+
+Summary of [docs/consuming.md](/docs/consuming.md) — the full adoption + upgrade
+guide. One sentence: consumers link **one file** (`styles.css`) and, if they want
+React, load the compiled bundle or the ESM entry. **This Storybook is host-only
+tooling — product apps never depend on it.**
+
+## 1 · Static / prototypes — link the stylesheet
+
+Copy `styles.css` plus the `tokens/`, `base/`, `fonts/` folders it imports (or serve
+the whole tree) and link it. You get every `--cs-*` token, the `.cs-*` component
+classes, and the Liquid Glass surfaces:
+
+```html
+<link rel="stylesheet" href="<path>/styles.css">
+```
+
+Compose with classes — the full catalog is demonstrated in
+`templates/kitchen-sink.html`.
+
+## 2 · Production React — the compiled bundle
+
+Link `styles.css` and `_ds_bundle.js`, then **resolve the namespace by prefix, never
+hardcode it** (the 6-hex suffix changes on import into another project — gate-enforced):
+
+```html
+<link rel="stylesheet" href="<path>/styles.css">
+<script src="<path>/_ds_bundle.js"></script>
+<script>
+  const CS = window[Object.keys(window).find(k => /^CyberSkillDesignSystem_/.test(k))];
+  const { Button, TextField, DataGrid } = CS;
+</script>
+```
+
+## 2b · ESM — one import, no build
+
+```js
+import { Button, TextField } from '<path>/_esm/cs.mjs';
+```
+
+The module self-ensures React, side-loads `_ds_bundle.js` once, resolves the
+namespace by prefix, and re-exports every component. Still link `styles.css` yourself.
+
+## 3 · Machine-readable tokens
+
+- `tokens/tokens.json` + `tokens/tokens.js` (ESM) — grouped by category with
+  theme/element maps
+- `tokens/tokens.dtcg.json` — W3C DTCG, for Tokens Studio / Style Dictionary
+- `tokens/native/` — pre-generated SwiftUI · Compose · Flutter, kept in lockstep by
+  the token-pipeline gate
+
+## Templates
+
+Copy a `templates/<slug>/` folder and edit one line in its `ds-base.js` (path
+rebind); each template is a Design Component that loads this system. 84 bilingual
+starting points.
+
+## Upgrading
+
+Version is **pinned at 1.0.0** until launch — no changelog during this phase; treat
+the repo tip as the only truth. Anchors (Umber/Ochre), `.cs-*` class names, and
+`--cs-*` token names are stable contracts. After an upgrade, open
+[the consumer smoke test](/_audit/consumer-smoke-test.html) and
+[the gate board](/_audit/run.html) against the new tip.
+
+## Canonical sources
+
+- [docs/consuming.md](/docs/consuming.md) — the full guide this page summarizes
+- [docs/live-hub.md](/docs/live-hub.md) — Storybook as the single Live hub (host-only)
+- [docs/storybook.md](/docs/storybook.md) — the `/playground/` deployment
+
+Links resolve on the deployed site (repo files served from the site root).

@@ -1,0 +1,57 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Guidelines/The Three Axes" />
+
+# The Three Axes
+
+Every surface resolves three **independent** axes — the same three switches you see in
+this Storybook's toolbar, mirrored from production templates:
+
+1. **Theme** — `data-theme` — light (default) · dark
+2. **Element** — `data-cs-element` (+ optional `data-cs-variant`) — Ngũ Hành product
+   identity: Kim · Mộc · Thủy · Hỏa · Thổ, 15 packs (see **Foundations/Elements**)
+3. **Language** — `lang` — `en` · `vi` (see the **I18n** section)
+
+State them on a container; everything inside re-skins with no code change:
+
+```html
+<body data-theme="dark" data-cs-element="thuy" data-cs-variant="ocean" lang="vi">
+  <!-- every component and template inside resolves all three axes -->
+</body>
+```
+
+Defaults: `light · tho · en` (components themselves fall back Vietnamese-first when no
+`lang` is found). Surface treatment is liquid-glass — fixed, not an axis.
+
+## Do
+
+- Scope axes on a **container** (`body`, a template root, a preview wrapper) and let
+  the cascade do the work.
+- Consume `--cs-accent-*` roles for anything element-aware, so a product's element
+  pack re-tints it automatically.
+- Ship every UI string through the EN·VN registry so the Language axis actually works.
+- Test all combinations that matter to you — the axes are independent, so light/dark ×
+  element × language multiply (this Storybook's toolbar exists for exactly that).
+- Keep dark-theme overrides in token space (`[data-theme="dark"]` remaps token
+  values); components should not branch on theme in code.
+
+## Don't
+
+- Don't hardcode element hex values — that breaks the Element axis (token names are
+  the API).
+- Don't put brand-umber text/borders on themeable surfaces without a dark override —
+  umber is near-invisible on dark (gate-enforced by contrast-guard).
+- Don't remap semantic status colours or the 3px Ochre focus ring per element — they
+  are never elemental.
+- Don't mix two element accents on one surface; a secondary element may appear only as
+  a gradient endpoint along Tương sinh.
+- Don't inline one-language strings in components — the Language axis must never
+  strand a user.
+
+## Canonical sources
+
+- [docs/conventions.md](/docs/conventions.md) — the three axes + extension checklists
+- [docs/consuming.md](/docs/consuming.md) — axes from a consumer's point of view
+- [docs/products.md](/docs/products.md) — product → element registry
+
+Links resolve on the deployed site (repo files served from the site root).
