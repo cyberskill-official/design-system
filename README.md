@@ -38,6 +38,7 @@ This is the **entrance document** for the CyberSkill Design System — pinned **
 | `docs/BACKLOG.md` | Deferred work — approved in direction, not built yet |
 | `docs/audit-2026-07.md` | July 2026 deep audit — verdict, findings by severity, what was fixed vs deferred |
 | `docs/quality-gates.md` | Benchmark reference — every quality gate, what it asserts, pass criterion, where it runs |
+| `docs/vi/*.md` | Vietnamese mirror of every operator-facing `docs/*.md` (toggle EN\|VI in `docs/viewer.html`; entrance docs stay EN) |
 
 ---
 
@@ -281,7 +282,8 @@ ui_kits/status-hub/        Status Hub recreation (index · login · settings · 
 ui_kits/website/           cyberskill.world recreation (index · work · careers · chat + site.css · copy.js · Website.jsx)
 ui_kits/deck/              brand deck on deck-stage (index.html; deck-stage runtime lives in templates/_vendor/, outside the compiled bundle; export PPTX/PDF on demand)
 assets/                    logo-mark.svg/png · favicon.svg · aurora-gold.jpg + aurora-{hoa,thuy,moc,kim}.png · lumi-poster.webp
-docs/                      the full doc set (see Document map above) + viewer.html reader
+docs/                      the full doc set (see Document map above) + viewer.html reader (EN|VI)
+docs/vi/                   Vietnamese translations of every operator-facing docs/*.md
 fonts/                     self-hosted Be Vietnam Pro + JetBrains Mono woff2 (latin · latin-ext · vietnamese)
 thumbnail.html             project tile
 SKILL.md                   Agent-Skills-compatible entry
