@@ -59,17 +59,27 @@ const preview = {
     },
     element: {
       name: 'Element',
-      description: 'Ngũ Hành product identity (data-cs-element + optional variant)',
+      description:
+        'Ngũ Hành product identity — all 15 element×variant packs (data-cs-element + optional data-cs-variant)',
       defaultValue: 'tho|',
       toolbar: {
         icon: 'paintbrush',
         items: [
           { value: 'tho|', title: 'Thổ · studio' },
           { value: 'tho|clay', title: 'Thổ · clay' },
+          { value: 'tho|sand', title: 'Thổ · sand' },
           { value: 'hoa|', title: 'Hỏa · ember' },
+          { value: 'hoa|lava', title: 'Hỏa · lava' },
+          { value: 'hoa|plasma', title: 'Hỏa · plasma' },
           { value: 'thuy|', title: 'Thủy · river' },
+          { value: 'thuy|ocean', title: 'Thủy · ocean' },
+          { value: 'thuy|mist', title: 'Thủy · mist' },
           { value: 'moc|', title: 'Mộc · leaf' },
+          { value: 'moc|bamboo', title: 'Mộc · bamboo' },
+          { value: 'moc|forest', title: 'Mộc · forest' },
           { value: 'kim|', title: 'Kim · champagne' },
+          { value: 'kim|steel', title: 'Kim · steel' },
+          { value: 'kim|titanium', title: 'Kim · titanium' },
         ],
         dynamicTitle: true,
       },
