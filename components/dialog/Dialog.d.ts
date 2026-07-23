@@ -14,6 +14,8 @@ export interface DialogProps {
   actions?: ReactNode;
   onClose?: () => void;
   closeLabel?: string;
+  /** "en" | "vi" — else resolved from the nearest [lang] ancestor (vi default). */
+  lang?: string;
   className?: string;
 }
 

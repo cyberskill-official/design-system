@@ -2,6 +2,7 @@ import React from "react";
 function cx(...c) { return c.filter(Boolean).join(" "); }
 
 /** A single labelled radio (brand accent-color). Usually composed via RadioGroup. */
+// `children` is destructured but never rendered on purpose: keeps stray children out of {...props} → void <input>.
 export function Radio({ label, description, disabled = false, className, children, ...props }) {
   return (
     <label className={cx("cs-radio", disabled && "is-disabled", className)}>

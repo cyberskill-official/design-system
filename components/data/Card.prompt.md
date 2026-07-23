@@ -3,7 +3,7 @@
 ```jsx
 <Card interactive onClick={open}>
   <CardHeader title="Design System v1.6" subtitle="Platform squad" />
-  <CardBody>Liquid Glass bindings + 50 style packs.</CardBody>
+  <CardBody>Liquid Glass bindings + 15 element packs.</CardBody>
   <CardFooter><Badge variant="ochre">Now</Badge></CardFooter>
 </Card>
 ```
