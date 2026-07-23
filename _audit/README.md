@@ -20,7 +20,7 @@ Dev-only harnesses for **deep** verification (owner doctrine: whole-set checks, 
 
 - **`component-behavior-test.html`** — behavior smoke test beyond mount: drives real interactions on the compiled components and asserts state changes — Switch/Checkbox toggle, Accordion single-open switching, Tabs controlled selection, CommandPalette live filtering. `window.__behavior.pass` must be `true`. Also loads `_ds_bundle.js`, so re-run on a **fresh** turn after editing component sources.
 
-- **`token-contract.html`** — runtime contract test: applies each of the 15 element×variant scopes to a probe and asserts all 9 `--cs-accent-*` role tokens resolve non-empty (plus core text/semantic tokens). `window.__contract.elementFails` and `.coreMissing` must be `0`/empty. Complements the static tokens+base scan (element role-token completeness + no undefined no-fallback `var()`).
+- **`token-contract.html`** — runtime contract test: applies each of the 15 element×variant scopes to a probe and asserts all 9 `--cs-accent-*` role tokens resolve non-empty (plus core text/semantic tokens). `window.__contract.pass` must be `true` (`elementFails === 0` and `coreMissing` empty). Complements the static tokens+base scan (element role-token completeness + no undefined no-fallback `var()`).
 
 - **`docs-consistency.html`** — reads `_ds_manifest.json` + `VERSION` and asserts every count claim in live prose (README / SKILL / llms) matches the compiler. Also asserts `VERSION` and `package.json` stay pinned at **1.0.0**, that live entrance docs do not reintroduce `CHANGELOG.md`, that the **stale-phrase blacklist** (retired suite/pack counts) stays out of README / SKILL / llms + `docs/*.md`, and that the generated root `DESIGN.md` exists with front-matter version = `VERSION`. Historical audit notes under `_audit/archive/` are not scanned. `window.__docs.pass` must be `true`. Run after any count-touching change.
 
@@ -40,7 +40,7 @@ Dev-only harnesses for **deep** verification (owner doctrine: whole-set checks, 
 
 - **`run.html`** — one-click **gate runner**: loads every fast deterministic gate in sequence in fresh iframes, reads each verdict global, and shows a pass/fail board + aggregate `window.__run.pass`. **Row lifecycle:** each gate starts **pending**, only the active gate shows **running**, then **pass/fail/timeout** (advisory rows stay labeled). The three whole-set state audits (`responsive-overflow`, `language-overflow`, `theme-overflow` — ~5 min each) stay on the index, run them separately.
 
-- **`apca-dark-preview.html`** — dark-pack APCA page: since v4.0.0 a **fast-runner gate** (all 15 dark elemental packs must hold bright ≥ 75 · accent ≥ 60 · button ink ≥ 75 · ink ≥ 75; `__apcaPreview.currentFail === 0`); still previews derived proposals for future packs.
+- **`apca-dark-preview.html`** — dark-pack APCA page: since v4.0.0 a **fast-runner gate** (all 15 dark elemental packs must hold bright ≥ 75 · accent ≥ 60 · button ink ≥ 75 · ink ≥ 75; `__apcaPreview.pass` / `currentFail === 0`); still previews derived proposals for future packs.
 
 - **`template-schema-test.html`** \u2014 template content-schema v2 gate (in the fast runner): validates every opt-in `templates/<slug>/content-schema.json` sidecar against the JSON Schema (`templates/schema/content-schema.schema.json`) and bidirectionally against the template's real `{{ hole }}`s. `window.__schemav2.pass` must be true; coverage across all templates reported informationally (21/84 — every hole-driven template now ships one; the rest hardcode bilingual copy directly and have no slots to declare).
 
@@ -57,6 +57,8 @@ Dev-only harnesses for **deep** verification (owner doctrine: whole-set checks, 
 - **`support-runtime-identity.html`** — fetches all 84 `templates/*/support.js`, sha-256s each (SubtleCrypto), asserts exactly **one** unique hash + copy count == manifest template count (the DC runtime is byte-identical per compiler contract — a second hash means a hand edit or stale copy). `window.__supportid.pass` must be true.
 
 - **`package-exports-integrity.html`** — packaging gate: every `package.json` `files`/`module`/`style`/`exports` target exists, every entry-point target is pack-covered by `files`, `_esm/cs.mjs` is ESM-shaped, and its `CS.*` re-exports ⊆ the bundle header's exposed exports. `window.__pkgexports.pass` must be true.
+
+- **`test-subtree-consume.mjs`** (Node unit, `npm run test:subtree-consume`) — copies the portable subset (`styles.css` + `base/` + `tokens/` + `fonts/` + `_esm/` + `_ds_bundle.js`) to a temp tree and Playwright-proves tokens/fonts + ESM Button mount without the full clone — the Stitch/Claude subtree-copy path the in-repo consumer-smoke does not cover.
 
 - **`template-lang-parity.html`** — bilingual-source gate over all 84 `.dc.html`: en/vi hole-map key parity (21 map templates), `sc-if` `isEN`/`isVN` branch pairing (24), every `language`-tweak template has a mechanism, and an EN-leak lexicon (Unsubscribe · View in browser · Preferences · All rights reserved · Manage subscription · Sent with) must not appear outside `isEN` guards / the `en` map. The 40 VN-first stacked instruments are leak-exempt **by design** (both languages always render — no hidden-language mode). `window.__langparity.pass` must be true.
 

@@ -56,7 +56,7 @@ Mọi quality gate deterministic trong hệ thống, nó assert gì, tiêu chí 
 | Bundle freshness (authority) | `_audit/ci/check-bundle-freshness.mjs` | `_ds_bundle.js` đã commit được build từ component source hiện tại — khám phá source đầy đủ (đi `components/`, `ui_kits/`, root sources), nên file mới/xóa cũng bị bắt, hàng trình duyệt không làm được | Exit 0, 0 source drift/mới/xóa | Hard | CI job `node-prechecks` |
 | DESIGN.md freshness | `scripts/generate-design-md.mjs --check` | Root `DESIGN.md` byte-equals regeneration mới từ DTCG + manifest + `VERSION` | Exit 0 khi byte khớp | Hard | CI job `node-prechecks` |
 
-## Unit tests — `npm run test:unit` (7)
+## Unit tests — `npm run test:unit` (8)
 
 | Test | File | Assert gì | Tiêu chí pass | Loại | Chạy ở đâu |
 |---|---|---|---|---|---|
@@ -67,6 +67,7 @@ Mọi quality gate deterministic trong hệ thống, nó assert gì, tiêu chí 
 | Figma push helpers | `_audit/ci/test-figma-push-helpers.mjs` | Helper thuần trong `push-figma-variables.mjs` hành xử đúng (không mạng, không secret) | Mọi assert pass (exit 0) | Hard | Unit test |
 | Code Connect helpers | `_audit/ci/test-code-connect.mjs` | 99 primaries, helper node-map/render, classifier soft-skip, `figma.config.json` đã commit + `.figma.tsx` traffic cao | Mọi assert pass (exit 0) | Hard | Unit test |
 | Native samples | `_audit/ci/test-native-samples.mjs` | App sample SwiftUI / Compose / Flutter mỗi cái ≥ 3 màn hình, tham chiếu hằng token đã generate, và ship scaffold Fastlane store (submit tắt) | Mọi assert pass (exit 0) | Hard | Unit test |
+| Subtree consume | `_audit/ci/test-subtree-consume.mjs` | Bản copy portable `styles.css` + `base/` + `tokens/` + `fonts/` + `_esm/` + `_ds_bundle.js` (không clone full) vẫn resolve token/font và mount Button qua ESM — đường subtree-copy Stitch/Claude | Mọi assert pass (exit 0) | Hard | Unit test |
 
 Suite `test:unit` được nối vào CI workflow như một phần của hardening Th7 2026 (trước đó chỉ chạy local).
 
