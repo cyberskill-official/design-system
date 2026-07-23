@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>CyberSkill — token format parity gate</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;font-family:var(--cs-font-family-ui,system-ui);background:#efe6d8;color:#231a12;padding:16px 20px}
+  h1{font-size:16px;margin:0 0 2px}
+  .lede{color:#6b5d4f;max-width:900px;line-height:1.5;margin:0 0 14px;font-size:13px}
+  .row{display:flex;justify-content:space-between;gap:10px;padding:6px 10px;border-radius:6px;font:12.5px ui-monospace,monospace;max-width:860px;margin-bottom:2px}
+  .row.ok{background:#dcfce7;color:#166534}.row.bad{background:#FEE2E2;color:#B42318;font-weight:700}
+  .row .d{color:#6b5d4f;font-weight:400}
+  #sum{font-size:15px;font-weight:800;margin:12px 0}
+</style></head><body>
+<h1>Token format parity gate</h1>
+<p class="lede">Whole-set proof that <b>every</b> <code>--cs-*</code> declaration in <code>tokens/*.css</code> (the source of truth) equals its mirror in <code>tokens/tokens.json</code>, <code>tokens/tokens.js</code> (live ESM import + deep-equal vs the JSON), and <code>tokens/tokens.dtcg.json</code> — base <code>:root</code> set, <code>[data-theme="dark"|"system"]</code> theme overrides, all 15 element×variant packs, and the 15 dark elemental packs. DTCG values compare via <code>$extensions["com.cyberskill"].css</code> where present, else the typed transform (cubic-bezier join · fontFamily quote/join · numbers). Also asserts the 4 <code>_ds_manifest.json</code> duration values equal <code>motion.css</code> (guards the reduced-motion 0ms compiler bug found in the Jul 2026 audit). The <code>@media (prefers-reduced-motion)</code> re-declarations and the <code>color-mix</code> element-interplay blocks are runtime rules, not token exports — classified and skipped, never compared. Verdict on <code>window.__tokenformat</code>.</p>
+<div id="list"></div>
+<div id="sum">running…</div>
+<script>
+const P=window.__gateProgress={done:0,total:9,current:'boot'};
+const results=[]; const list=document.getElementById('list');
+function record(name,ok,detail){ results.push({name,ok,detail}); const r=document.createElement('div'); r.className='row '+(ok?'ok':'bad'); r.innerHTML='<span>'+(ok?'\u2713 ':'\u2717 ')+name+'</span><span class="d">'+String(detail).slice(0,220)+'</span>'; list.appendChild(r); }
+function publish(v){ if(window.__tokenformat) return; window.__tokenformat=v; const s=document.getElementById('sum'); s.textContent=v.pass?('\u2713 all '+v.total+' parity checks pass'):('\u2717 '+(v.error?v.error:(v.failed.length+'/'+v.total+' failed: '+v.failed.join(', ')))); s.style.color=v.pass?'#166534':'#B42318'; console.log('TOKENFORMAT VERDICT '+JSON.stringify({pass:v.pass,failed:v.failed||[],error:v.error||null})); }
+async function test(name,fn){ P.current=name; try{ const d=await fn(); record(name,true,d); }catch(e){ record(name,false,String(e.message||e).slice(0,220)); } P.done=results.length; }
+function assert(c,m){ if(!c) throw new Error(m); }
+
+// ---- CSS parsing: comment-stripped, block-aware, @media-tracked ----
+function parseCss(css){
+  const text=css.replace(/\/\*[\s\S]*?\*\//g,' ');
+  const out=[]; const stack=[]; let buf=''; let cur=null;
+  function flushDecl(){ const d=buf.trim(); buf=''; if(!cur||!d) return; const ci=d.indexOf(':'); if(ci<0) return;
+    const name=d.slice(0,ci).trim(); const value=d.slice(ci+1).trim();
+    if(name.indexOf('--cs-')===0) cur.decls[name]=value; }
+  for(let i=0;i<text.length;i++){ const c=text[i];
+    if(c==='{'){ stack.push(buf.trim()); buf='';
+      const sel=stack[stack.length-1];
+      if(sel.charAt(0)!=='@'){ cur={selector:sel, media:stack.slice(0,-1).filter(s=>s.charAt(0)==='@').join(' && '), decls:{}}; out.push(cur); }
+      continue; }
+    if(c==='}'){ flushDecl(); stack.pop(); cur=null; buf=''; continue; }
+    if(c===';'){ flushDecl(); continue; }
+    buf+=c; }
+  return out;
+}
+// DTCG display: raw CSS extension wins; else typed transform (same rules the token workstream proved).
+function dtcgDisplay(def){
+  const ext=def.$extensions&&def.$extensions['com.cyberskill']&&def.$extensions['com.cyberskill'].css;
+  if(ext!==undefined) return String(ext);
+  const v=def.$value;
+  if(def.$type==='cubicBezier'&&Array.isArray(v)) return 'cubic-bezier('+v.join(', ')+')';
+  if(def.$type==='fontFamily'&&Array.isArray(v)) return v.map(f=>/[ ]/.test(f)?"'"+f+"'":f).join(', ');
+  return String(v); // colors/dimensions/durations identity; numbers stringify ("400", 1.5 → "1.5")
+}
+function canonical(x){ if(Array.isArray(x)) return '['+x.map(canonical).join(',')+']';
+  if(x&&typeof x==='object') return '{'+Object.keys(x).sort().map(k=>JSON.stringify(k)+':'+canonical(x[k])).join(',')+'}';
+  return JSON.stringify(x); }
+function diffFlat(label,cssSet,mirrorSet){
+  const d=[]; const ks=new Set(Object.keys(cssSet).concat(Object.keys(mirrorSet)));
+  for(const k of ks){
+    if(!(k in cssSet)) d.push(label+' '+k+' mirror-only');
+    else if(!(k in mirrorSet)) d.push(label+' '+k+' css-only');
+    else if(cssSet[k]!==mirrorSet[k]) d.push(label+' '+k+': css='+cssSet[k]+' vs '+mirrorSet[k]);
+  }
+  return d;
+}
+
+(async()=>{
+  const CSS_FILES=['colors.css','component-tokens.css','elements.css','elevation.css','fonts.css','motion.css','spacing.css','typography.css'];
+  let J,D,M,jsTokens,motionCssText;
+  const base={},dark={},system={},elements={},elementsDark={}; const contextual=[];
+  await test('sources fetch + parse',async()=>{
+    for(const f of CSS_FILES){
+      const r=await fetch('../tokens/'+f,{cache:'no-store'}); assert(r.ok,'HTTP '+r.status+' on tokens/'+f);
+      const t=await r.text(); if(f==='motion.css') motionCssText=t;
+      for(const b of parseCss(t)){
+        if(!Object.keys(b.decls).length) continue;
+        const sel=b.selector.replace(/\s+/g,' ');
+        if(sel===':root'&&!b.media) Object.assign(base,b.decls);
+        else if(sel===':root'&&/prefers-reduced-motion/.test(b.media)) {/* runtime collapse — never exported */}
+        else if(sel==='[data-theme="dark"]'&&!b.media) Object.assign(dark,b.decls);
+        else if(sel==='[data-theme="system"]'&&/prefers-color-scheme: dark/.test(b.media)) Object.assign(system,b.decls);
+        else{
+          let m=sel.match(/^\[data-cs-element="(\w+)"\](?:\[data-cs-variant="(\w+)"\])?$/);
+          if(m&&!b.media){ const k=m[2]?m[1]+'.'+m[2]:m[1]; elements[k]=Object.assign(elements[k]||{},b.decls); continue; }
+          m=sel.match(/^\[data-theme="dark"\]\[data-cs-element="(\w+)"\](?:\[data-cs-variant="(\w+)"\])?$/);
+          if(m&&!b.media){ const k=m[2]?m[1]+'-'+m[2]:m[1]; elementsDark[k]=Object.assign(elementsDark[k]||{},b.decls); continue; }
+          contextual.push(sel);
+        }
+      }
+    }
+    J=JSON.parse(await (await fetch('../tokens/tokens.json',{cache:'no-store'})).text());
+    D=JSON.parse(await (await fetch('../tokens/tokens.dtcg.json',{cache:'no-store'})).text());
+    M=JSON.parse(await (await fetch('../_ds_manifest.json',{cache:'no-store'})).text());
+    jsTokens=(await import('../tokens/tokens.js?t='+Date.now())).tokens;
+    return CSS_FILES.length+' css files \u00b7 '+Object.keys(base).length+' base \u00b7 '+contextual.length+' contextual blocks skipped (color-mix interplay)';
+  });
+  if(!J){ publish({pass:false,total:results.length,failed:results.filter(r=>!r.ok).map(r=>r.name),error:'fetch failed'}); return; }
+
+  await test('css :root \u2194 tokens.json root (key+value)',async()=>{
+    const jsonRoot={}; for(const g of Object.values(J.root)) Object.assign(jsonRoot,g);
+    const d=diffFlat('base',base,jsonRoot);
+    assert(d.length===0,d.length+' diffs: '+d.slice(0,4).join(' | '));
+    return Object.keys(base).length+' tokens identical';
+  });
+  await test('tokens.js ESM deep-equals tokens.json',async()=>{
+    assert(canonical(jsTokens)===canonical(J),'tokens.js object drifted from tokens.json');
+    return 'meta + root + themes + elements all equal ('+Object.keys(jsTokens.root).length+' groups)';
+  });
+  await test('css theme overrides \u2194 tokens.json themes',async()=>{
+    const d=diffFlat('dark',dark,J.themes.dark).concat(diffFlat('system',system,J.themes.system));
+    assert(d.length===0,d.length+' diffs: '+d.slice(0,4).join(' | '));
+    return Object.keys(dark).length+' dark + '+Object.keys(system).length+' system overrides identical';
+  });
+  await test('css element packs \u2194 tokens.json elements',async()=>{
+    const d=[]; const ks=new Set(Object.keys(elements).concat(Object.keys(J.elements)));
+    for(const s of ks) d.push.apply(d,diffFlat('el:'+s,elements[s]||{},J.elements[s]||{}));
+    assert(d.length===0,d.length+' diffs: '+d.slice(0,4).join(' | '));
+    return Object.keys(elements).length+' element\u00d7variant packs identical';
+  });
+  await test('css :root \u2194 DTCG leaves (ext-css else typed transform)',async()=>{
+    const leaves={};
+    for(const g of Object.keys(D)){ if(g.charAt(0)==='$') continue;
+      for(const k of Object.keys(D[g])){ if(k.charAt(0)==='$') continue; const def=D[g][k]; if(!def||def.$value===undefined) continue; leaves[k]=dtcgDisplay(def); } }
+    const d=diffFlat('dtcg',base,leaves);
+    assert(d.length===0,d.length+' diffs: '+d.slice(0,4).join(' | '));
+    return Object.keys(leaves).length+' DTCG leaves identical';
+  });
+  await test('css overrides \u2194 DTCG $extensions overrides',async()=>{
+    const OV=D.$extensions['com.cyberskill'].overrides;
+    let d=diffFlat('dark',dark,OV.themes.dark).concat(diffFlat('system',system,OV.themes.system));
+    const eks=new Set(Object.keys(elements).concat(Object.keys(OV.elements)));
+    for(const s of eks) d=d.concat(diffFlat('el:'+s,elements[s]||{},OV.elements[s]||{}));
+    const dks=new Set(Object.keys(elementsDark).concat(Object.keys(OV.elementsDark)));
+    for(const s of dks) d=d.concat(diffFlat('elDark:'+s,elementsDark[s]||{},OV.elementsDark[s]||{}));
+    assert(d.length===0,d.length+' diffs: '+d.slice(0,4).join(' | '));
+    return 'dark + system + '+Object.keys(elements).length+' packs + '+Object.keys(elementsDark).length+' dark packs identical';
+  });
+  await test('base count sane (138 expected from provenance)',async()=>{
+    const prov=JSON.parse(await (await fetch('../tokens/provenance.json',{cache:'no-store'})).text());
+    assert(Object.keys(base).length===prov.counts.baseTokens,'css base '+Object.keys(base).length+' vs provenance '+prov.counts.baseTokens);
+    return Object.keys(base).length+' base tokens';
+  });
+  await test('manifest durations match motion.css (reduced-motion bug guard)',async()=>{
+    const mDur=M.tokens.filter(t=>/^--cs-duration-/.test(t.name));
+    assert(mDur.length===4,'expected 4 manifest duration tokens, got '+mDur.length);
+    const bad=mDur.filter(t=>base[t.name]!==t.value);
+    assert(bad.length===0,bad.map(t=>t.name+' manifest='+t.value+' css='+base[t.name]).join(' | '));
+    assert(!/^0ms$/.test(mDur[0].value),'durations collapsed to 0ms — compiler ran under prefers-reduced-motion');
+    return mDur.map(t=>t.value).join('/')+' \u2014 real values, not the 0ms collapse';
+  });
+  await test('reduced-motion @media block still collapses at runtime only',async()=>{
+    assert(/@media \(prefers-reduced-motion: reduce\)/.test(motionCssText),'reduced-motion block missing from motion.css');
+    return 'runtime block present, excluded from exports';
+  });
+  const bad=results.filter(r=>!r.ok);
+  publish({pass:bad.length===0,total:results.length,failed:bad.map(r=>r.name),results:results.map(r=>(r.ok?'+':'-')+r.name)});
+})().catch(e=>publish({pass:false,total:results.length,failed:results.filter(r=>!r.ok).map(r=>r.name),error:String(e&&e.message||e).slice(0,160)}));
+setTimeout(()=>{ if(!window.__tokenformat) publish({pass:false,total:results.length,failed:results.filter(r=>!r.ok).map(r=>r.name),error:'watchdog (30s) \u2014 stalled at "'+P.current+'"'}); },30000);
+</script></body></html>

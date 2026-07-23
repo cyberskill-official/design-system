@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"CyberSkillDesignSystem_847b3c","components":[{"name":"AIDisclosureBadge","sourcePath":"components/ai/AIDisclosureBadge.jsx"},{"name":"ChatMessage","sourcePath":"components/ai/ChatMessage.jsx"},{"name":"CitationList","sourcePath":"components/ai/CitationList.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/ai/ConfidenceMeter.jsx"},{"name":"HumanReviewGate","sourcePath":"components/ai/HumanReviewGate.jsx"},{"name":"PromptInput","sourcePath":"components/ai/PromptInput.jsx"},{"name":"PromptSuggestions","sourcePath":"components/ai/PromptSuggestions.jsx"},{"name":"TypingIndicator","sourcePath":"components/ai/TypingIndicator.jsx"},{"name":"LumiAvatar","sourcePath":"components/brand/LumiAvatar.jsx"},{"name":"Button","sourcePath":"components/button/Button.jsx"},{"name":"ButtonGroup","sourcePath":"components/button/ButtonGroup.jsx"},{"name":"FloatingActionButton","sourcePath":"components/button/FloatingActionButton.jsx"},{"name":"Accordion","sourcePath":"components/data/Accordion.jsx"},{"name":"Avatar","sourcePath":"components/data/Avatar.jsx"},{"name":"AvatarGroup","sourcePath":"components/data/Avatar.jsx"},{"name":"Card","sourcePath":"components/data/Card.jsx"},{"name":"CardHeader","sourcePath":"components/data/Card.jsx"},{"name":"CardBody","sourcePath":"components/data/Card.jsx"},{"name":"CardFooter","sourcePath":"components/data/Card.jsx"},{"name":"Carousel","sourcePath":"components/data/Carousel.jsx"},{"name":"Chart","sourcePath":"components/data/Chart.jsx"},{"name":"CodeBlock","sourcePath":"components/data/CodeBlock.jsx"},{"name":"Comment","sourcePath":"components/data/Comment.jsx"},{"name":"DescriptionList","sourcePath":"components/data/DescriptionList.jsx"},{"name":"Divider","sourcePath":"components/data/Divider.jsx"},{"name":"Image","sourcePath":"components/data/Image.jsx"},{"name":"Kbd","sourcePath":"components/data/Kbd.jsx"},{"name":"List","sourcePath":"components/data/List.jsx"},{"name":"ListItem","sourcePath":"components/data/List.jsx"},{"name":"Masonry","sourcePath":"components/data/Masonry.jsx"},{"name":"QRCode","sourcePath":"components/data/QRCode.jsx"},{"name":"Sortable","sourcePath":"components/data/Sortable.jsx"},{"name":"Splitter","sourcePath":"components/data/Splitter.jsx"},{"name":"Stat","sourcePath":"components/data/Stat.jsx"},{"name":"Terminal","sourcePath":"components/data/Terminal.jsx"},{"name":"Timeline","sourcePath":"components/data/Timeline.jsx"},{"name":"Tooltip","sourcePath":"components/data/Tooltip.jsx"},{"name":"Tree","sourcePath":"components/data/Tree.jsx"},{"name":"Watermark","sourcePath":"components/data/Watermark.jsx"},{"name":"DataGrid","sourcePath":"components/datatable/DataGrid.jsx"},{"name":"DataTable","sourcePath":"components/datatable/DataTable.jsx"},{"name":"TreeTable","sourcePath":"components/datatable/TreeTable.jsx"},{"name":"Dialog","sourcePath":"components/dialog/Dialog.jsx"},{"name":"Alert","sourcePath":"components/feedback/Alert.jsx"},{"name":"Badge","sourcePath":"components/feedback/Badge.jsx"},{"name":"EmptyState","sourcePath":"components/feedback/EmptyState.jsx"},{"name":"ProgressBar","sourcePath":"components/feedback/ProgressBar.jsx"},{"name":"Result","sourcePath":"components/feedback/Result.jsx"},{"name":"Skeleton","sourcePath":"components/feedback/Skeleton.jsx"},{"name":"Spinner","sourcePath":"components/feedback/Spinner.jsx"},{"name":"StatusIndicator","sourcePath":"components/feedback/StatusIndicator.jsx"},{"name":"Tag","sourcePath":"components/feedback/Tag.jsx"},{"name":"ToastStack","sourcePath":"components/feedback/Toast.jsx"},{"name":"Toast","sourcePath":"components/feedback/Toast.jsx"},{"name":"Calendar","sourcePath":"components/forms/Calendar.jsx"},{"name":"Cascader","sourcePath":"components/forms/Cascader.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"ColorPicker","sourcePath":"components/forms/ColorPicker.jsx"},{"name":"Combobox","sourcePath":"components/forms/Combobox.jsx"},{"name":"DatePicker","sourcePath":"components/forms/DatePicker.jsx"},{"name":"Editor","sourcePath":"components/forms/Editor.jsx"},{"name":"FileUpload","sourcePath":"components/forms/FileUpload.jsx"},{"name":"Form","sourcePath":"components/forms/Form.jsx"},{"name":"FormField","sourcePath":"components/forms/Form.jsx"},{"name":"InlineEdit","sourcePath":"components/forms/InlineEdit.jsx"},{"name":"InputGroup","sourcePath":"components/forms/InputGroup.jsx"},{"name":"InputOTP","sourcePath":"components/forms/InputOTP.jsx"},{"name":"Mentions","sourcePath":"components/forms/Mentions.jsx"},{"name":"NumberField","sourcePath":"components/forms/NumberField.jsx"},{"name":"Radio","sourcePath":"components/forms/RadioGroup.jsx"},{"name":"RadioGroup","sourcePath":"components/forms/RadioGroup.jsx"},{"name":"Rating","sourcePath":"components/forms/Rating.jsx"},{"name":"SearchField","sourcePath":"components/forms/SearchField.jsx"},{"name":"SegmentedControl","sourcePath":"components/forms/SegmentedControl.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Slider","sourcePath":"components/forms/Slider.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"TagInput","sourcePath":"components/forms/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/forms/Textarea.jsx"},{"name":"TimePicker","sourcePath":"components/forms/TimePicker.jsx"},{"name":"Toggle","sourcePath":"components/forms/Toggle.jsx"},{"name":"Transfer","sourcePath":"components/forms/Transfer.jsx"},{"name":"TreeSelect","sourcePath":"components/forms/TreeSelect.jsx"},{"name":"CS_ICONS","sourcePath":"components/icon/Icon.jsx"},{"name":"Icon","sourcePath":"components/icon/Icon.jsx"},{"name":"Logo","sourcePath":"components/logo/Logo.jsx"},{"name":"CS_LOGO_VIEWBOX","sourcePath":"components/logo/logo-data.js"},{"name":"CS_LOGO_MARK_INNER","sourcePath":"components/logo/logo-data.js"},{"name":"Anchor","sourcePath":"components/navigation/Anchor.jsx"},{"name":"BackTop","sourcePath":"components/navigation/BackTop.jsx"},{"name":"Breadcrumb","sourcePath":"components/navigation/Breadcrumb.jsx"},{"name":"CommandPalette","sourcePath":"components/navigation/CommandPalette.jsx"},{"name":"Dock","sourcePath":"components/navigation/Dock.jsx"},{"name":"HotKeys","sourcePath":"components/navigation/HotKeys.jsx"},{"name":"Link","sourcePath":"components/navigation/Link.jsx"},{"name":"Menu","sourcePath":"components/navigation/Menu.jsx"},{"name":"MenuItem","sourcePath":"components/navigation/Menu.jsx"},{"name":"Menubar","sourcePath":"components/navigation/Menubar.jsx"},{"name":"NavigationMenu","sourcePath":"components/navigation/NavigationMenu.jsx"},{"name":"Pagination","sourcePath":"components/navigation/Pagination.jsx"},{"name":"Sidebar","sourcePath":"components/navigation/Sidebar.jsx"},{"name":"NavItem","sourcePath":"components/navigation/Sidebar.jsx"},{"name":"Steps","sourcePath":"components/navigation/Steps.jsx"},{"name":"Tabs","sourcePath":"components/navigation/Tabs.jsx"},{"name":"Tab","sourcePath":"components/navigation/Tabs.jsx"},{"name":"Toolbar","sourcePath":"components/navigation/Toolbar.jsx"},{"name":"ContextMenu","sourcePath":"components/overlays/ContextMenu.jsx"},{"name":"Drawer","sourcePath":"components/overlays/Drawer.jsx"},{"name":"HoverCard","sourcePath":"components/overlays/HoverCard.jsx"},{"name":"Popconfirm","sourcePath":"components/overlays/Popconfirm.jsx"},{"name":"Popover","sourcePath":"components/overlays/Popover.jsx"},{"name":"Tour","sourcePath":"components/overlays/Tour.jsx"},{"name":"TextField","sourcePath":"components/textfield/TextField.jsx"}],"sourceHashes":{"components/_i18n/i18n.js":"c6c51a65bd79","components/_i18n/strings.js":"e1eb94933e11","components/ai/AIDisclosureBadge.jsx":"f255b23e0b9b","components/ai/ChatMessage.jsx":"40fcf9e4a353","components/ai/CitationList.jsx":"3770c109bf22","components/ai/ConfidenceMeter.jsx":"0dd88f9f7a56","components/ai/HumanReviewGate.jsx":"2999298c619b","components/ai/PromptInput.jsx":"1e30dbc85ea1","components/ai/PromptSuggestions.jsx":"218fe0db5faa","components/ai/TypingIndicator.jsx":"97d66983f38a","components/brand/LumiAvatar.jsx":"0cd2fea9e02f","components/button/Button.jsx":"ae2a7067b59e","components/button/ButtonGroup.jsx":"0e979759cc66","components/button/FloatingActionButton.jsx":"4791beeda86b","components/data/Accordion.jsx":"298e53237503","components/data/Avatar.jsx":"e1eeed2edcda","components/data/Card.jsx":"9f981091743e","components/data/Carousel.jsx":"7543ddd98578","components/data/Chart.jsx":"eaf5da05e395","components/data/CodeBlock.jsx":"7b4cd6eda5aa","components/data/Comment.jsx":"e250fa2c7c3f","components/data/DescriptionList.jsx":"089db27a3655","components/data/Divider.jsx":"e3bdcda9b02f","components/data/Image.jsx":"bd1d918d0f8c","components/data/Kbd.jsx":"5dd1ce54836c","components/data/List.jsx":"830cbdeef110","components/data/Masonry.jsx":"c0095728514a","components/data/QRCode.jsx":"09f6dd52dbe4","components/data/Sortable.jsx":"d6e2e3fb6bdf","components/data/Splitter.jsx":"f0fb347d7433","components/data/Stat.jsx":"09be1d9a8070","components/data/Terminal.jsx":"f88dae10aed5","components/data/Timeline.jsx":"4b9b8bd1d18d","components/data/Tooltip.jsx":"91e0df1e66ff","components/data/Tree.jsx":"79f31799118d","components/data/Watermark.jsx":"469d2ac6906f","components/data/qr-encode.js":"14e8de77df5f","components/datatable/DataGrid.jsx":"b5c958a13fd9","components/datatable/DataTable.jsx":"f9ea4de62fb2","components/datatable/TreeTable.jsx":"67677c373e5f","components/dialog/Dialog.jsx":"72d6dda6b433","components/feedback/Alert.jsx":"c396e4a9fa0c","components/feedback/Badge.jsx":"e8a638cb173a","components/feedback/EmptyState.jsx":"44140bba6fc8","components/feedback/ProgressBar.jsx":"fd7f03c2756e","components/feedback/Result.jsx":"dd11a7f1c2b6","components/feedback/Skeleton.jsx":"3d53cc25cedc","components/feedback/Spinner.jsx":"b0b57893a6a4","components/feedback/StatusIndicator.jsx":"3ff007c5d403","components/feedback/Tag.jsx":"af8d75248386","components/feedback/Toast.jsx":"5fa8dd8f36ae","components/forms/Calendar.jsx":"441694d60997","components/forms/Cascader.jsx":"407cfd9e2637","components/forms/Checkbox.jsx":"4cc1c87fbc08","components/forms/ColorPicker.jsx":"24e828011f93","components/forms/Combobox.jsx":"a0c4532137b7","components/forms/DatePicker.jsx":"1c715f88e4e9","components/forms/Editor.jsx":"8fac9a21ac41","components/forms/FileUpload.jsx":"20515f258276","components/forms/Form.jsx":"7361f5b90bbb","components/forms/InlineEdit.jsx":"5247296a5169","components/forms/InputGroup.jsx":"49c250470e1f","components/forms/InputOTP.jsx":"d1c74accb731","components/forms/Mentions.jsx":"20b30c75782c","components/forms/NumberField.jsx":"a2b865d0b23b","components/forms/RadioGroup.jsx":"fa035fd63b35","components/forms/Rating.jsx":"efbaab3a6a48","components/forms/SearchField.jsx":"c577d5ca5ba8","components/forms/SegmentedControl.jsx":"3d9ce5ba3c4c","components/forms/Select.jsx":"4b1882bc8272","components/forms/Slider.jsx":"942bc9faeeff","components/forms/Switch.jsx":"7c98eef77841","components/forms/TagInput.jsx":"06732f55a59e","components/forms/Textarea.jsx":"778e30632175","components/forms/TimePicker.jsx":"f79da1dbc0b1","components/forms/Toggle.jsx":"a230a79079d9","components/forms/Transfer.jsx":"c5f80f409fac","components/forms/TreeSelect.jsx":"e800b14f3b19","components/icon/Icon.jsx":"379dc6de903e","components/logo/Logo.jsx":"8f3ceaf67af1","components/logo/logo-data.js":"f1a251a50c8f","components/navigation/Anchor.jsx":"5c818f35f13f","components/navigation/BackTop.jsx":"318c3d08f280","components/navigation/Breadcrumb.jsx":"221413937b8d","components/navigation/CommandPalette.jsx":"eb901f213a7b","components/navigation/Dock.jsx":"836f986ea28b","components/navigation/HotKeys.jsx":"87bb54cd3371","components/navigation/Link.jsx":"021011e630a4","components/navigation/Menu.jsx":"53a25edef7eb","components/navigation/Menubar.jsx":"a9ce84ff8e14","components/navigation/NavigationMenu.jsx":"4c6c4a179890","components/navigation/Pagination.jsx":"7bb86a585ca7","components/navigation/Sidebar.jsx":"6a86252d122d","components/navigation/Steps.jsx":"2c4071f02934","components/navigation/Tabs.jsx":"7a27aee0bd2e","components/navigation/Toolbar.jsx":"fc8f3d81b704","components/overlays/ContextMenu.jsx":"eb6652b973d0","components/overlays/Drawer.jsx":"fe6e468a0bbb","components/overlays/HoverCard.jsx":"3e14b1e7e540","components/overlays/Popconfirm.jsx":"426cb9911626","components/overlays/Popover.jsx":"827b7c764c3a","components/overlays/Tour.jsx":"46085143f734","components/textfield/TextField.jsx":"7e26d2493195","image-slot.js":"0394ad34f685","tokens/tokens.js":"85649eff2ac2","ui_kits/status-hub/StatusHub.jsx":"4054b695854a","ui_kits/status-hub/data.js":"a3a3afdb73d8","ui_kits/website/Website.jsx":"c3a0938d9279","ui_kits/website/copy.js":"9d42c52c17cb"},"inlinedExternals":[],"unexposedExports":[{"name":"formatCurrency","sourcePath":"components/_i18n/i18n.js"},{"name":"formatDate","sourcePath":"components/_i18n/i18n.js"},{"name":"formatNumber","sourcePath":"components/_i18n/i18n.js"},{"name":"makeT","sourcePath":"components/_i18n/i18n.js"},{"name":"monthName","sourcePath":"components/_i18n/i18n.js"},{"name":"qrMatrix","sourcePath":"components/data/qr-encode.js"},{"name":"resolveLang","sourcePath":"components/_i18n/i18n.js"},{"name":"strings","sourcePath":"components/_i18n/strings.js"},{"name":"tokens","sourcePath":"tokens/tokens.js"},{"name":"tr","sourcePath":"components/_i18n/i18n.js"},{"name":"useLang","sourcePath":"components/_i18n/i18n.js"}]} */
+/* @ds-bundle: {"format":4,"namespace":"CyberSkillDesignSystem_847b3c","components":[{"name":"AIDisclosureBadge","sourcePath":"components/ai/AIDisclosureBadge.jsx"},{"name":"ChatMessage","sourcePath":"components/ai/ChatMessage.jsx"},{"name":"CitationList","sourcePath":"components/ai/CitationList.jsx"},{"name":"ConfidenceMeter","sourcePath":"components/ai/ConfidenceMeter.jsx"},{"name":"HumanReviewGate","sourcePath":"components/ai/HumanReviewGate.jsx"},{"name":"PromptInput","sourcePath":"components/ai/PromptInput.jsx"},{"name":"PromptSuggestions","sourcePath":"components/ai/PromptSuggestions.jsx"},{"name":"TypingIndicator","sourcePath":"components/ai/TypingIndicator.jsx"},{"name":"LumiAvatar","sourcePath":"components/brand/LumiAvatar.jsx"},{"name":"Button","sourcePath":"components/button/Button.jsx"},{"name":"ButtonGroup","sourcePath":"components/button/ButtonGroup.jsx"},{"name":"FloatingActionButton","sourcePath":"components/button/FloatingActionButton.jsx"},{"name":"Accordion","sourcePath":"components/data/Accordion.jsx"},{"name":"Avatar","sourcePath":"components/data/Avatar.jsx"},{"name":"AvatarGroup","sourcePath":"components/data/Avatar.jsx"},{"name":"Card","sourcePath":"components/data/Card.jsx"},{"name":"CardHeader","sourcePath":"components/data/Card.jsx"},{"name":"CardBody","sourcePath":"components/data/Card.jsx"},{"name":"CardFooter","sourcePath":"components/data/Card.jsx"},{"name":"Carousel","sourcePath":"components/data/Carousel.jsx"},{"name":"Chart","sourcePath":"components/data/Chart.jsx"},{"name":"CodeBlock","sourcePath":"components/data/CodeBlock.jsx"},{"name":"Comment","sourcePath":"components/data/Comment.jsx"},{"name":"DescriptionList","sourcePath":"components/data/DescriptionList.jsx"},{"name":"Divider","sourcePath":"components/data/Divider.jsx"},{"name":"Image","sourcePath":"components/data/Image.jsx"},{"name":"Kbd","sourcePath":"components/data/Kbd.jsx"},{"name":"List","sourcePath":"components/data/List.jsx"},{"name":"ListItem","sourcePath":"components/data/List.jsx"},{"name":"Masonry","sourcePath":"components/data/Masonry.jsx"},{"name":"QRCode","sourcePath":"components/data/QRCode.jsx"},{"name":"Sortable","sourcePath":"components/data/Sortable.jsx"},{"name":"Splitter","sourcePath":"components/data/Splitter.jsx"},{"name":"Stat","sourcePath":"components/data/Stat.jsx"},{"name":"Terminal","sourcePath":"components/data/Terminal.jsx"},{"name":"Timeline","sourcePath":"components/data/Timeline.jsx"},{"name":"Tooltip","sourcePath":"components/data/Tooltip.jsx"},{"name":"Tree","sourcePath":"components/data/Tree.jsx"},{"name":"Watermark","sourcePath":"components/data/Watermark.jsx"},{"name":"DataGrid","sourcePath":"components/datatable/DataGrid.jsx"},{"name":"DataTable","sourcePath":"components/datatable/DataTable.jsx"},{"name":"TreeTable","sourcePath":"components/datatable/TreeTable.jsx"},{"name":"Dialog","sourcePath":"components/dialog/Dialog.jsx"},{"name":"Alert","sourcePath":"components/feedback/Alert.jsx"},{"name":"Badge","sourcePath":"components/feedback/Badge.jsx"},{"name":"EmptyState","sourcePath":"components/feedback/EmptyState.jsx"},{"name":"ProgressBar","sourcePath":"components/feedback/ProgressBar.jsx"},{"name":"Result","sourcePath":"components/feedback/Result.jsx"},{"name":"Skeleton","sourcePath":"components/feedback/Skeleton.jsx"},{"name":"Spinner","sourcePath":"components/feedback/Spinner.jsx"},{"name":"StatusIndicator","sourcePath":"components/feedback/StatusIndicator.jsx"},{"name":"Tag","sourcePath":"components/feedback/Tag.jsx"},{"name":"ToastStack","sourcePath":"components/feedback/Toast.jsx"},{"name":"Toast","sourcePath":"components/feedback/Toast.jsx"},{"name":"Calendar","sourcePath":"components/forms/Calendar.jsx"},{"name":"Cascader","sourcePath":"components/forms/Cascader.jsx"},{"name":"Checkbox","sourcePath":"components/forms/Checkbox.jsx"},{"name":"ColorPicker","sourcePath":"components/forms/ColorPicker.jsx"},{"name":"Combobox","sourcePath":"components/forms/Combobox.jsx"},{"name":"DatePicker","sourcePath":"components/forms/DatePicker.jsx"},{"name":"Editor","sourcePath":"components/forms/Editor.jsx"},{"name":"FileUpload","sourcePath":"components/forms/FileUpload.jsx"},{"name":"Form","sourcePath":"components/forms/Form.jsx"},{"name":"FormField","sourcePath":"components/forms/Form.jsx"},{"name":"FormFieldArray","sourcePath":"components/forms/Form.jsx"},{"name":"FormWizard","sourcePath":"components/forms/Form.jsx"},{"name":"InlineEdit","sourcePath":"components/forms/InlineEdit.jsx"},{"name":"InputGroup","sourcePath":"components/forms/InputGroup.jsx"},{"name":"InputOTP","sourcePath":"components/forms/InputOTP.jsx"},{"name":"Mentions","sourcePath":"components/forms/Mentions.jsx"},{"name":"NumberField","sourcePath":"components/forms/NumberField.jsx"},{"name":"Radio","sourcePath":"components/forms/RadioGroup.jsx"},{"name":"RadioGroup","sourcePath":"components/forms/RadioGroup.jsx"},{"name":"Rating","sourcePath":"components/forms/Rating.jsx"},{"name":"SearchField","sourcePath":"components/forms/SearchField.jsx"},{"name":"SegmentedControl","sourcePath":"components/forms/SegmentedControl.jsx"},{"name":"Select","sourcePath":"components/forms/Select.jsx"},{"name":"Slider","sourcePath":"components/forms/Slider.jsx"},{"name":"Switch","sourcePath":"components/forms/Switch.jsx"},{"name":"TagInput","sourcePath":"components/forms/TagInput.jsx"},{"name":"Textarea","sourcePath":"components/forms/Textarea.jsx"},{"name":"TimePicker","sourcePath":"components/forms/TimePicker.jsx"},{"name":"Toggle","sourcePath":"components/forms/Toggle.jsx"},{"name":"Transfer","sourcePath":"components/forms/Transfer.jsx"},{"name":"TreeSelect","sourcePath":"components/forms/TreeSelect.jsx"},{"name":"CS_ICONS","sourcePath":"components/icon/Icon.jsx"},{"name":"Icon","sourcePath":"components/icon/Icon.jsx"},{"name":"Logo","sourcePath":"components/logo/Logo.jsx"},{"name":"CS_LOGO_VIEWBOX","sourcePath":"components/logo/logo-data.js"},{"name":"CS_LOGO_MARK_INNER","sourcePath":"components/logo/logo-data.js"},{"name":"Anchor","sourcePath":"components/navigation/Anchor.jsx"},{"name":"BackTop","sourcePath":"components/navigation/BackTop.jsx"},{"name":"Breadcrumb","sourcePath":"components/navigation/Breadcrumb.jsx"},{"name":"CommandPalette","sourcePath":"components/navigation/CommandPalette.jsx"},{"name":"Dock","sourcePath":"components/navigation/Dock.jsx"},{"name":"HotKeys","sourcePath":"components/navigation/HotKeys.jsx"},{"name":"Link","sourcePath":"components/navigation/Link.jsx"},{"name":"Menu","sourcePath":"components/navigation/Menu.jsx"},{"name":"MenuItem","sourcePath":"components/navigation/Menu.jsx"},{"name":"Menubar","sourcePath":"components/navigation/Menubar.jsx"},{"name":"NavigationMenu","sourcePath":"components/navigation/NavigationMenu.jsx"},{"name":"Pagination","sourcePath":"components/navigation/Pagination.jsx"},{"name":"Sidebar","sourcePath":"components/navigation/Sidebar.jsx"},{"name":"NavItem","sourcePath":"components/navigation/Sidebar.jsx"},{"name":"Steps","sourcePath":"components/navigation/Steps.jsx"},{"name":"Tabs","sourcePath":"components/navigation/Tabs.jsx"},{"name":"Tab","sourcePath":"components/navigation/Tabs.jsx"},{"name":"Toolbar","sourcePath":"components/navigation/Toolbar.jsx"},{"name":"ContextMenu","sourcePath":"components/overlays/ContextMenu.jsx"},{"name":"Drawer","sourcePath":"components/overlays/Drawer.jsx"},{"name":"HoverCard","sourcePath":"components/overlays/HoverCard.jsx"},{"name":"Popconfirm","sourcePath":"components/overlays/Popconfirm.jsx"},{"name":"Popover","sourcePath":"components/overlays/Popover.jsx"},{"name":"Tour","sourcePath":"components/overlays/Tour.jsx"},{"name":"TextField","sourcePath":"components/textfield/TextField.jsx"}],"sourceHashes":{"components/_i18n/i18n.js":"c6c51a65bd79","components/_i18n/strings.js":"e1eb94933e11","components/ai/AIDisclosureBadge.jsx":"fb387be635c6","components/ai/ChatMessage.jsx":"40fcf9e4a353","components/ai/CitationList.jsx":"3770c109bf22","components/ai/ConfidenceMeter.jsx":"0dd88f9f7a56","components/ai/HumanReviewGate.jsx":"2999298c619b","components/ai/PromptInput.jsx":"1e30dbc85ea1","components/ai/PromptSuggestions.jsx":"218fe0db5faa","components/ai/TypingIndicator.jsx":"97d66983f38a","components/brand/LumiAvatar.jsx":"0cd2fea9e02f","components/button/Button.jsx":"ae2a7067b59e","components/button/ButtonGroup.jsx":"0e979759cc66","components/button/FloatingActionButton.jsx":"4791beeda86b","components/data/Accordion.jsx":"298e53237503","components/data/Avatar.jsx":"e1eeed2edcda","components/data/Card.jsx":"9f981091743e","components/data/Carousel.jsx":"7543ddd98578","components/data/Chart.jsx":"eaf5da05e395","components/data/CodeBlock.jsx":"7b4cd6eda5aa","components/data/Comment.jsx":"e250fa2c7c3f","components/data/DescriptionList.jsx":"089db27a3655","components/data/Divider.jsx":"35d5b9230cc0","components/data/Image.jsx":"a359ebe02ebc","components/data/Kbd.jsx":"5dd1ce54836c","components/data/List.jsx":"830cbdeef110","components/data/Masonry.jsx":"c0095728514a","components/data/QRCode.jsx":"09f6dd52dbe4","components/data/Sortable.jsx":"d6e2e3fb6bdf","components/data/Splitter.jsx":"f0fb347d7433","components/data/Stat.jsx":"09be1d9a8070","components/data/Terminal.jsx":"f88dae10aed5","components/data/Timeline.jsx":"4b9b8bd1d18d","components/data/Tooltip.jsx":"91e0df1e66ff","components/data/Tree.jsx":"79f31799118d","components/data/Watermark.jsx":"469d2ac6906f","components/data/qr-encode.js":"14e8de77df5f","components/datatable/DataGrid.jsx":"609fc603c4b6","components/datatable/DataTable.jsx":"f9ea4de62fb2","components/datatable/TreeTable.jsx":"67677c373e5f","components/dialog/Dialog.jsx":"427a67ad2ad8","components/feedback/Alert.jsx":"c396e4a9fa0c","components/feedback/Badge.jsx":"e8a638cb173a","components/feedback/EmptyState.jsx":"44140bba6fc8","components/feedback/ProgressBar.jsx":"fd7f03c2756e","components/feedback/Result.jsx":"dd11a7f1c2b6","components/feedback/Skeleton.jsx":"3d53cc25cedc","components/feedback/Spinner.jsx":"b0b57893a6a4","components/feedback/StatusIndicator.jsx":"3ff007c5d403","components/feedback/Tag.jsx":"af8d75248386","components/feedback/Toast.jsx":"5fa8dd8f36ae","components/forms/Calendar.jsx":"441694d60997","components/forms/Cascader.jsx":"407cfd9e2637","components/forms/Checkbox.jsx":"21e84a8c8500","components/forms/ColorPicker.jsx":"24e828011f93","components/forms/Combobox.jsx":"a0c4532137b7","components/forms/DatePicker.jsx":"1c715f88e4e9","components/forms/Editor.jsx":"8fac9a21ac41","components/forms/FileUpload.jsx":"20515f258276","components/forms/Form.jsx":"bd446e7279bd","components/forms/InlineEdit.jsx":"5247296a5169","components/forms/InputGroup.jsx":"49c250470e1f","components/forms/InputOTP.jsx":"d1c74accb731","components/forms/Mentions.jsx":"20b30c75782c","components/forms/NumberField.jsx":"41bda8009c1c","components/forms/RadioGroup.jsx":"8e4d8596786b","components/forms/Rating.jsx":"efbaab3a6a48","components/forms/SearchField.jsx":"a84a82a6a5ba","components/forms/SegmentedControl.jsx":"3d9ce5ba3c4c","components/forms/Select.jsx":"4b1882bc8272","components/forms/Slider.jsx":"bdcdb995f689","components/forms/Switch.jsx":"cce5fcff66b9","components/forms/TagInput.jsx":"06732f55a59e","components/forms/Textarea.jsx":"778e30632175","components/forms/TimePicker.jsx":"f79da1dbc0b1","components/forms/Toggle.jsx":"a230a79079d9","components/forms/Transfer.jsx":"c5f80f409fac","components/forms/TreeSelect.jsx":"e800b14f3b19","components/icon/Icon.jsx":"379dc6de903e","components/logo/Logo.jsx":"8f3ceaf67af1","components/logo/logo-data.js":"f1a251a50c8f","components/navigation/Anchor.jsx":"5c818f35f13f","components/navigation/BackTop.jsx":"318c3d08f280","components/navigation/Breadcrumb.jsx":"221413937b8d","components/navigation/CommandPalette.jsx":"eb901f213a7b","components/navigation/Dock.jsx":"836f986ea28b","components/navigation/HotKeys.jsx":"87bb54cd3371","components/navigation/Link.jsx":"021011e630a4","components/navigation/Menu.jsx":"53a25edef7eb","components/navigation/Menubar.jsx":"a9ce84ff8e14","components/navigation/NavigationMenu.jsx":"4c6c4a179890","components/navigation/Pagination.jsx":"7bb86a585ca7","components/navigation/Sidebar.jsx":"6a86252d122d","components/navigation/Steps.jsx":"2c4071f02934","components/navigation/Tabs.jsx":"7a27aee0bd2e","components/navigation/Toolbar.jsx":"fc8f3d81b704","components/overlays/ContextMenu.jsx":"eb6652b973d0","components/overlays/Drawer.jsx":"fe6e468a0bbb","components/overlays/HoverCard.jsx":"3e14b1e7e540","components/overlays/Popconfirm.jsx":"426cb9911626","components/overlays/Popover.jsx":"827b7c764c3a","components/overlays/Tour.jsx":"46085143f734","components/textfield/TextField.jsx":"4e4c650fbcc6","image-slot.js":"0394ad34f685","tokens/tokens.js":"f420c32b1aee","ui_kits/status-hub/StatusHub.jsx":"88dfd93e1664","ui_kits/status-hub/data.js":"664bbbb30cb3","ui_kits/website/Website.jsx":"c3a0938d9279","ui_kits/website/copy.js":"9d42c52c17cb"},"inlinedExternals":[],"unexposedExports":[{"name":"formatCurrency","sourcePath":"components/_i18n/i18n.js"},{"name":"formatDate","sourcePath":"components/_i18n/i18n.js"},{"name":"formatNumber","sourcePath":"components/_i18n/i18n.js"},{"name":"getPath","sourcePath":"components/forms/Form.jsx"},{"name":"makeT","sourcePath":"components/_i18n/i18n.js"},{"name":"monthName","sourcePath":"components/_i18n/i18n.js"},{"name":"qrMatrix","sourcePath":"components/data/qr-encode.js"},{"name":"resolveLang","sourcePath":"components/_i18n/i18n.js"},{"name":"setPath","sourcePath":"components/forms/Form.jsx"},{"name":"strings","sourcePath":"components/_i18n/strings.js"},{"name":"tokens","sourcePath":"tokens/tokens.js"},{"name":"tr","sourcePath":"components/_i18n/i18n.js"},{"name":"useLang","sourcePath":"components/_i18n/i18n.js"}]} */
 
 (() => {
 
@@ -10,467 +10,182 @@ const __ds_scope = {};
 
 // components/_i18n/strings.js
 try { (() => {
-/* CyberSkill — central bilingual string registry (v3 Batch 0/1).
- * Every component with BUILT-IN UI text (text the consumer does NOT pass as a prop)
- * registers its strings here, EN + VI. _audit/bilingual-parity.html enforces:
- *   • each component has both `en` and `vi`
- *   • identical key sets across en/vi (no missing/extra keys)
- *   • no empty values
- * Batch 1 wires each component to read these via i18n.js `makeT()` + `useLang()`,
- * replacing hardcoded English. Export is lowercase so the DS compiler does NOT expose
- * it on the component namespace. */
 const strings = {
   Pagination: {
-    en: {
-      label: "Pagination",
-      prev: "Previous page",
-      next: "Next page"
-    },
-    vi: {
-      label: "Phân trang",
-      prev: "Trang trước",
-      next: "Trang sau"
-    }
+    en: { label: "Pagination", prev: "Previous page", next: "Next page" },
+    vi: { label: "Phân trang", prev: "Trang trước", next: "Trang sau" }
   },
   Breadcrumb: {
-    en: {
-      label: "Breadcrumb"
-    },
-    vi: {
-      label: "Đường dẫn"
-    }
+    en: { label: "Breadcrumb" },
+    vi: { label: "Đường dẫn" }
   },
   CommandPalette: {
-    en: {
-      placeholder: "Type a command or search…",
-      empty: "No results found",
-      aria: "Command palette",
-      esc: "Esc"
-    },
-    vi: {
-      placeholder: "Nhập lệnh hoặc tìm kiếm…",
-      empty: "Không tìm thấy kết quả",
-      aria: "Bảng lệnh",
-      esc: "Esc"
-    }
+    en: { placeholder: "Type a command or search…", empty: "No results found", aria: "Command palette", esc: "Esc" },
+    vi: { placeholder: "Nhập lệnh hoặc tìm kiếm…", empty: "Không tìm thấy kết quả", aria: "Bảng lệnh", esc: "Esc" }
   },
   SearchField: {
-    en: {
-      placeholder: "Search…",
-      clear: "Clear search"
-    },
-    vi: {
-      placeholder: "Tìm kiếm…",
-      clear: "Xóa tìm kiếm"
-    }
+    en: { placeholder: "Search…", clear: "Clear search" },
+    vi: { placeholder: "Tìm kiếm…", clear: "Xóa tìm kiếm" }
   },
   NumberField: {
-    en: {
-      decrease: "Decrease",
-      increase: "Increase"
-    },
-    vi: {
-      decrease: "Giảm",
-      increase: "Tăng"
-    }
+    en: { decrease: "Decrease", increase: "Increase" },
+    vi: { decrease: "Giảm", increase: "Tăng" }
   },
   FileUpload: {
-    en: {
-      title: "Drop files here or browse",
-      hint: "PNG, JPG, or PDF up to 10MB"
-    },
-    vi: {
-      title: "Kéo tệp vào đây hoặc chọn",
-      hint: "PNG, JPG hoặc PDF, tối đa 10MB"
-    }
+    en: { title: "Drop files here or browse", hint: "PNG, JPG, or PDF up to 10MB" },
+    vi: { title: "Kéo tệp vào đây hoặc chọn", hint: "PNG, JPG hoặc PDF, tối đa 10MB" }
   },
   Dialog: {
-    en: {
-      close: "Close",
-      confirm: "Confirm",
-      cancel: "Cancel"
-    },
-    vi: {
-      close: "Đóng",
-      confirm: "Xác nhận",
-      cancel: "Hủy"
-    }
+    en: { close: "Close", confirm: "Confirm", cancel: "Cancel" },
+    vi: { close: "Đóng", confirm: "Xác nhận", cancel: "Hủy" }
   },
   Drawer: {
-    en: {
-      close: "Close",
-      panel: "Panel"
-    },
-    vi: {
-      close: "Đóng",
-      panel: "Bảng"
-    }
+    en: { close: "Close", panel: "Panel" },
+    vi: { close: "Đóng", panel: "Bảng" }
   },
   DataTable: {
-    en: {
-      empty: "No records"
-    },
-    vi: {
-      empty: "Không có bản ghi"
-    }
+    en: { empty: "No records" },
+    vi: { empty: "Không có bản ghi" }
   },
   ConfidenceMeter: {
-    en: {
-      label: "Confidence",
-      low: "Low",
-      medium: "Medium",
-      high: "High"
-    },
-    vi: {
-      label: "Độ tin cậy",
-      low: "Thấp",
-      medium: "Trung bình",
-      high: "Cao"
-    }
+    en: { label: "Confidence", low: "Low", medium: "Medium", high: "High" },
+    vi: { label: "Độ tin cậy", low: "Thấp", medium: "Trung bình", high: "Cao" }
   },
   Spinner: {
-    en: {
-      label: "Loading"
-    },
-    vi: {
-      label: "Đang tải"
-    }
+    en: { label: "Loading" },
+    vi: { label: "Đang tải" }
   },
   Tag: {
-    en: {
-      remove: "Remove"
-    },
-    vi: {
-      remove: "Gỡ bỏ"
-    }
+    en: { remove: "Remove" },
+    vi: { remove: "Gỡ bỏ" }
   },
   Toast: {
-    en: {
-      notifications: "Notifications",
-      dismiss: "Dismiss"
-    },
-    vi: {
-      notifications: "Thông báo",
-      dismiss: "Đóng"
-    }
+    en: { notifications: "Notifications", dismiss: "Dismiss" },
+    vi: { notifications: "Thông báo", dismiss: "Đóng" }
   },
   TypingIndicator: {
-    en: {
-      label: "Lumi is typing"
-    },
-    vi: {
-      label: "Lumi đang nhập"
-    }
+    en: { label: "Lumi is typing" },
+    vi: { label: "Lumi đang nhập" }
   },
   Editor: {
-    en: {
-      toolbar: "Formatting",
-      bold: "Bold",
-      italic: "Italic",
-      list: "Bullet list",
-      area: "Rich text"
-    },
-    vi: {
-      toolbar: "Định dạng",
-      bold: "Đậm",
-      italic: "Nghiêng",
-      list: "Danh sách",
-      area: "Văn bản"
-    }
+    en: { toolbar: "Formatting", bold: "Bold", italic: "Italic", list: "Bullet list", area: "Rich text" },
+    vi: { toolbar: "Định dạng", bold: "Đậm", italic: "Nghiêng", list: "Danh sách", area: "Văn bản" }
   },
   Terminal: {
-    en: {
-      input: "Terminal input"
-    },
-    vi: {
-      input: "Ô nhập lệnh"
-    }
+    en: { input: "Terminal input" },
+    vi: { input: "Ô nhập lệnh" }
   },
   DataGrid: {
-    en: {
-      empty: "No records",
-      selectAll: "Select all rows",
-      selectRow: "Select row"
-    },
-    vi: {
-      empty: "Không có bản ghi",
-      selectAll: "Chọn tất cả",
-      selectRow: "Chọn dòng"
-    }
+    en: { empty: "No records", selectAll: "Select all rows", selectRow: "Select row" },
+    vi: { empty: "Không có bản ghi", selectAll: "Chọn tất cả", selectRow: "Chọn dòng" }
   },
   Splitter: {
-    en: {
-      label: "Resize panes"
-    },
-    vi: {
-      label: "Đổi kích thước khung"
-    }
+    en: { label: "Resize panes" },
+    vi: { label: "Đổi kích thước khung" }
   },
   HotKeys: {
-    en: {
-      title: "Keyboard shortcuts",
-      toggle: "Toggle this sheet"
-    },
-    vi: {
-      title: "Phím tắt",
-      toggle: "Bật/tắt bảng này"
-    }
+    en: { title: "Keyboard shortcuts", toggle: "Toggle this sheet" },
+    vi: { title: "Phím tắt", toggle: "Bật/tắt bảng này" }
   },
   ColorPicker: {
-    en: {
-      label: "Color",
-      hex: "Hex value"
-    },
-    vi: {
-      label: "Màu",
-      hex: "Giá trị hex"
-    }
+    en: { label: "Color", hex: "Hex value" },
+    vi: { label: "Màu", hex: "Giá trị hex" }
   },
   Tour: {
-    en: {
-      skip: "Skip",
-      back: "Back",
-      next: "Next",
-      done: "Done"
-    },
-    vi: {
-      skip: "Bỏ qua",
-      back: "Quay lại",
-      next: "Tiếp",
-      done: "Xong"
-    }
+    en: { skip: "Skip", back: "Back", next: "Next", done: "Done" },
+    vi: { skip: "Bỏ qua", back: "Quay lại", next: "Tiếp", done: "Xong" }
   },
   TreeSelect: {
-    en: {
-      placeholder: "Select…"
-    },
-    vi: {
-      placeholder: "Chọn…"
-    }
+    en: { placeholder: "Select…" },
+    vi: { placeholder: "Chọn…" }
   },
   Cascader: {
-    en: {
-      placeholder: "Select…"
-    },
-    vi: {
-      placeholder: "Chọn…"
-    }
+    en: { placeholder: "Select…" },
+    vi: { placeholder: "Chọn…" }
   },
   Transfer: {
-    en: {
-      source: "Available",
-      target: "Selected",
-      toTarget: "Move to selected",
-      toSource: "Move to available"
-    },
-    vi: {
-      source: "Có sẵn",
-      target: "Đã chọn",
-      toTarget: "Chuyển sang đã chọn",
-      toSource: "Chuyển về có sẵn"
-    }
+    en: { source: "Available", target: "Selected", toTarget: "Move to selected", toSource: "Move to available" },
+    vi: { source: "Có sẵn", target: "Đã chọn", toTarget: "Chuyển sang đã chọn", toSource: "Chuyển về có sẵn" }
   },
   Mentions: {
-    en: {
-      placeholder: "Add a note — @ to mention"
-    },
-    vi: {
-      placeholder: "Thêm ghi chú — gõ @ để nhắc tên"
-    }
+    en: { placeholder: "Add a note — @ to mention" },
+    vi: { placeholder: "Thêm ghi chú — gõ @ để nhắc tên" }
   },
   Form: {
-    en: {
-      summary: "Please fix the following:",
-      required: "required",
-      requiredField: "This field is required"
-    },
-    vi: {
-      summary: "Vui lòng sửa các mục sau:",
-      required: "bắt buộc",
-      requiredField: "Trường này là bắt buộc"
-    }
+    en: { summary: "Please fix the following:", required: "required", requiredField: "This field is required" },
+    vi: { summary: "Vui lòng sửa các mục sau:", required: "bắt buộc", requiredField: "Trường này là bắt buộc" }
   },
   BackTop: {
-    en: {
-      label: "Back to top"
-    },
-    vi: {
-      label: "Về đầu trang"
-    }
+    en: { label: "Back to top" },
+    vi: { label: "Về đầu trang" }
   },
   Carousel: {
-    en: {
-      prev: "Previous slide",
-      next: "Next slide",
-      slide: "Slide"
-    },
-    vi: {
-      prev: "Trang trước",
-      next: "Trang sau",
-      slide: "Trang"
-    }
+    en: { prev: "Previous slide", next: "Next slide", slide: "Slide" },
+    vi: { prev: "Trang trước", next: "Trang sau", slide: "Trang" }
   },
   Comment: {
-    en: {
-      reply: "Reply"
-    },
-    vi: {
-      reply: "Trả lời"
-    }
+    en: { reply: "Reply" },
+    vi: { reply: "Trả lời" }
   },
   Image: {
-    en: {
-      preview: "Preview image",
-      close: "Close"
-    },
-    vi: {
-      preview: "Xem ảnh",
-      close: "Đóng"
-    }
+    en: { preview: "Preview image", close: "Close" },
+    vi: { preview: "Xem ảnh", close: "Đóng" }
   },
   Toolbar: {
-    en: {
-      more: "More actions"
-    },
-    vi: {
-      more: "Thao tác khác"
-    }
+    en: { more: "More actions" },
+    vi: { more: "Thao tác khác" }
   },
   Popconfirm: {
-    en: {
-      ok: "OK",
-      cancel: "Cancel"
-    },
-    vi: {
-      ok: "Đồng ý",
-      cancel: "Hủy"
-    }
+    en: { ok: "OK", cancel: "Cancel" },
+    vi: { ok: "Đồng ý", cancel: "Hủy" }
   },
   Result: {
-    en: {
-      success: "Done",
-      error: "Something went wrong",
-      warning: "Please check",
-      info: "For your information"
-    },
-    vi: {
-      success: "Hoàn tất",
-      error: "Đã có lỗi xảy ra",
-      warning: "Vui lòng kiểm tra",
-      info: "Thông tin"
-    }
+    en: { success: "Done", error: "Something went wrong", warning: "Please check", info: "For your information" },
+    vi: { success: "Hoàn tất", error: "Đã có lỗi xảy ra", warning: "Vui lòng kiểm tra", info: "Thông tin" }
   },
   InlineEdit: {
-    en: {
-      edit: "Edit",
-      empty: "Add text"
-    },
-    vi: {
-      edit: "Sửa",
-      empty: "Thêm nội dung"
-    }
+    en: { edit: "Edit", empty: "Add text" },
+    vi: { edit: "Sửa", empty: "Thêm nội dung" }
   },
   Calendar: {
-    en: {
-      prev: "Previous month",
-      next: "Next month"
-    },
-    vi: {
-      prev: "Tháng trước",
-      next: "Tháng sau"
-    }
+    en: { prev: "Previous month", next: "Next month" },
+    vi: { prev: "Tháng trước", next: "Tháng sau" }
   },
   DatePicker: {
-    en: {
-      placeholder: "Select a date"
-    },
-    vi: {
-      placeholder: "Chọn ngày"
-    }
+    en: { placeholder: "Select a date" },
+    vi: { placeholder: "Chọn ngày" }
   },
   TimePicker: {
-    en: {
-      label: "Time"
-    },
-    vi: {
-      label: "Giờ"
-    }
+    en: { label: "Time" },
+    vi: { label: "Giờ" }
   },
   Combobox: {
-    en: {
-      placeholder: "Select or type…",
-      empty: "No matches"
-    },
-    vi: {
-      placeholder: "Chọn hoặc nhập…",
-      empty: "Không có kết quả phù hợp"
-    }
+    en: { placeholder: "Select or type…", empty: "No matches" },
+    vi: { placeholder: "Chọn hoặc nhập…", empty: "Không có kết quả phù hợp" }
   },
   InputGroup: {
-    en: {
-      clear: "Clear",
-      show: "Show password",
-      hide: "Hide password"
-    },
-    vi: {
-      clear: "Xóa",
-      show: "Hiện mật khẩu",
-      hide: "Ẩn mật khẩu"
-    }
+    en: { clear: "Clear", show: "Show password", hide: "Hide password" },
+    vi: { clear: "Xóa", show: "Hiện mật khẩu", hide: "Ẩn mật khẩu" }
   },
   TagInput: {
-    en: {
-      placeholder: "Add a tag…",
-      remove: "Remove"
-    },
-    vi: {
-      placeholder: "Thêm thẻ…",
-      remove: "Gỡ"
-    }
+    en: { placeholder: "Add a tag…", remove: "Remove" },
+    vi: { placeholder: "Thêm thẻ…", remove: "Gỡ" }
   },
   Rating: {
-    en: {
-      label: "Rating"
-    },
-    vi: {
-      label: "Đánh giá"
-    }
+    en: { label: "Rating" },
+    vi: { label: "Đánh giá" }
   },
   InputOTP: {
-    en: {
-      label: "One-time code"
-    },
-    vi: {
-      label: "Mã dùng một lần"
-    }
+    en: { label: "One-time code" },
+    vi: { label: "Mã dùng một lần" }
   },
   PromptInput: {
-    en: {
-      placeholder: "Type your wish…",
-      send: "Send",
-      hint: "Lumi replies, then hands clear wishes to a human."
-    },
-    vi: {
-      placeholder: "Nhập điều ước của bạn…",
-      send: "Gửi",
-      hint: "Lumi trả lời, rồi chuyển điều ước rõ ràng cho con người."
-    }
+    en: { placeholder: "Type your wish…", send: "Send", hint: "Lumi replies, then hands clear wishes to a human." },
+    vi: { placeholder: "Nhập điều ước của bạn…", send: "Gửi", hint: "Lumi trả lời, rồi chuyển điều ước rõ ràng cho con người." }
   },
   HumanReviewGate: {
-    en: {
-      aria: "Human review gate",
-      risk: "review required",
-      approve: "Approve",
-      reject: "Reject",
-      reviewer: "Reviewer"
-    },
-    vi: {
-      aria: "Cổng kiểm duyệt của con người",
-      risk: "cần xem xét",
-      approve: "Phê duyệt",
-      reject: "Từ chối",
-      reviewer: "Người duyệt"
-    }
+    en: { aria: "Human review gate", risk: "review required", approve: "Approve", reject: "Reject", reviewer: "Reviewer" },
+    vi: { aria: "Cổng kiểm duyệt của con người", risk: "cần xem xét", approve: "Phê duyệt", reject: "Từ chối", reviewer: "Người duyệt" }
   }
 };
 Object.assign(__ds_scope, { strings });
@@ -478,14 +193,9 @@ Object.assign(__ds_scope, { strings });
 
 // components/_i18n/i18n.js
 try { (() => {
-/* CyberSkill i18n — shared bilingual helper (v3 Batch 0).
- * Vietnamese-first: default 'vi'. A component resolves its language from an explicit
- * `lang` prop → nearest [lang] ancestor → document <html lang> → 'vi'. Built-in UI
- * strings live in strings.js (EN + VI parity, enforced by _audit/bilingual-parity.html).
- * Import from a component:  import { makeT, resolveLang, formatDate } from "../_i18n/i18n.js"; */
-
+const { strings: STRINGS } = __ds_scope;
 function resolveLang(propLang, el) {
-  const norm = l => !l ? null : String(l).toLowerCase().startsWith("vi") ? "vi" : "en";
+  const norm = (l2) => !l2 ? null : String(l2).toLowerCase().startsWith("vi") ? "vi" : "en";
   let l = norm(propLang);
   if (!l && el && el.closest) {
     const a = el.closest("[lang]");
@@ -495,21 +205,15 @@ function resolveLang(propLang, el) {
   return l || "vi";
 }
 function tr(component, key, lang) {
-  const c = __ds_scope.strings[component] || {};
+  const c = STRINGS[component] || {};
   const table = c[lang] || c.vi || c.en || {};
   if (table[key] != null) return table[key];
   const en = c.en || {};
   return en[key] != null ? en[key] : key;
 }
-
-/** Bind a component + language once: const t = makeT("Pagination", lang); t("next"). */
 function makeT(component, lang) {
-  return key => tr(component, key, lang);
+  return (key) => tr(component, key, lang);
 }
-
-/** React hook: attach the returned ref to the component root; resolves language from an
- * explicit prop → nearest [lang] ancestor (e.g. a template's VN wrapper) → <html lang> → 'vi'.
- * Corrects to the ancestor value in a layout effect (before paint). */
 function useLang(propLang) {
   const ref = React.useRef(null);
   const [lang, setLang] = React.useState(() => resolveLang(propLang, null));
@@ -519,34 +223,25 @@ function useLang(propLang) {
   return [ref, lang];
 }
 const VI_MONTHS = ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"];
-
-/** VN date = DD/MM/YYYY; EN = 02 Jul 2026. */
 function formatDate(d, lang) {
   const dt = d instanceof Date ? d : new Date(d);
   if (isNaN(dt.getTime())) return "";
   if (lang === "vi") {
-    const p = n => String(n).padStart(2, "0");
+    const p = (n) => String(n).padStart(2, "0");
     return p(dt.getDate()) + "/" + p(dt.getMonth() + 1) + "/" + dt.getFullYear();
   }
-  return dt.toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric"
-  });
+  return dt.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
 }
 function monthName(i, lang) {
-  return lang === "vi" ? VI_MONTHS[i] : new Date(2000, i, 1).toLocaleDateString("en-US", {
-    month: "long"
-  });
+  return lang === "vi" ? VI_MONTHS[i] : new Date(2e3, i, 1).toLocaleDateString("en-US", { month: "long" });
 }
 function formatNumber(n, lang) {
   if (n == null || isNaN(n)) return "";
   return new Intl.NumberFormat(lang === "vi" ? "vi-VN" : "en-US").format(n);
 }
-/** VN currency = "1.234.567 ₫"; EN = "$1,234,567". */
 function formatCurrency(n, lang) {
   if (n == null || isNaN(n)) return "";
-  return lang === "vi" ? new Intl.NumberFormat("vi-VN").format(n) + "\u00a0₫" : "$" + new Intl.NumberFormat("en-US").format(n);
+  return lang === "vi" ? new Intl.NumberFormat("vi-VN").format(n) + " ₫" : "$" + new Intl.NumberFormat("en-US").format(n);
 }
 Object.assign(__ds_scope, { resolveLang, tr, makeT, useLang, formatDate, monthName, formatNumber, formatCurrency });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/_i18n/i18n.js", error: String((e && e.message) || e) }); }
@@ -556,17 +251,6 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-let uid = 0;
-function useId(prefix) {
-  const [id] = React.useState(() => `${prefix}-${++uid}`);
-  return id;
-}
-
-/**
- * CyberSkill AIDisclosureBadge — a pill that discloses AI involvement and, when
- * expanded, explains what was generated and lists sources. Never decorative:
- * this is an explainability affordance (info-blue), not a style flourish.
- */
 function AIDisclosureBadge({
   label = "AI assisted",
   details = "This content was generated or transformed with AI assistance.",
@@ -574,25 +258,19 @@ function AIDisclosureBadge({
   className
 }) {
   const [open, setOpen] = React.useState(false);
-  const panelId = useId("cs-ai-disclosure");
+  const panelId = React.useId();
   const sourceList = (sources || []).filter(Boolean);
-  return /*#__PURE__*/React.createElement("span", {
-    className: cx("cs-ai-disclosure", className)
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-ai-disclosure__badge",
-    "aria-expanded": open,
-    "aria-controls": panelId,
-    onClick: () => setOpen(v => !v)
-  }, label), open ? /*#__PURE__*/React.createElement("span", {
-    id: panelId,
-    role: "status",
-    className: "cs-ai-disclosure__panel"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "cs-ai-disclosure__details"
-  }, details), sourceList.length ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-ai-disclosure__sources"
-  }, "Sources: ", sourceList.join(", ")) : null) : null);
+  return /* @__PURE__ */ React.createElement("span", { className: cx("cs-ai-disclosure", className) }, /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      type: "button",
+      className: "cs-ai-disclosure__badge",
+      "aria-expanded": open,
+      "aria-controls": panelId,
+      onClick: () => setOpen((v) => !v)
+    },
+    label
+  ), open ? /* @__PURE__ */ React.createElement("span", { id: panelId, role: "status", className: "cs-ai-disclosure__panel" }, /* @__PURE__ */ React.createElement("span", { className: "cs-ai-disclosure__details" }, details), sourceList.length ? /* @__PURE__ */ React.createElement("span", { className: "cs-ai-disclosure__sources" }, "Sources: ", sourceList.join(", ")) : null) : null);
 }
 Object.assign(__ds_scope, { AIDisclosureBadge });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/ai/AIDisclosureBadge.jsx", error: String((e && e.message) || e) }); }
@@ -602,45 +280,10 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/**
- * CyberSkill ChatMessage — one turn in a Lumi conversation. role "lumi" (genie,
- * Ochre avatar) or "user" (Umber, right-aligned). Pass `avatar` to override.
- */
-function ChatMessage({
-  role = "lumi",
-  name,
-  avatar,
-  children,
-  className
-}) {
+function ChatMessage({ role = "lumi", name, avatar, children, className }) {
   const isUser = role === "user";
-  const defaultAvatar = isUser ? /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true"
-  }, "You") : /*#__PURE__*/React.createElement("svg", {
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "1.9",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6z"
-  }));
-  return /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-chat-msg", isUser ? "cs-chat-msg--user" : "cs-chat-msg--lumi", className)
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-chat-msg__avatar"
-  }, avatar ?? defaultAvatar), /*#__PURE__*/React.createElement("div", {
-    className: "cs-chat-msg__col"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-chat-msg__name"
-  }, name ?? (isUser ? "You" : "Lumi")), /*#__PURE__*/React.createElement("div", {
-    className: "cs-chat-msg__bubble"
-  }, children)));
+  const defaultAvatar = isUser ? /* @__PURE__ */ React.createElement("span", { "aria-hidden": "true" }, "You") : /* @__PURE__ */ React.createElement("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.9", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: "M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6z" }));
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-chat-msg", isUser ? "cs-chat-msg--user" : "cs-chat-msg--lumi", className) }, /* @__PURE__ */ React.createElement("div", { className: "cs-chat-msg__avatar" }, avatar ?? defaultAvatar), /* @__PURE__ */ React.createElement("div", { className: "cs-chat-msg__col" }, /* @__PURE__ */ React.createElement("div", { className: "cs-chat-msg__name" }, name ?? (isUser ? "You" : "Lumi")), /* @__PURE__ */ React.createElement("div", { className: "cs-chat-msg__bubble" }, children)));
 }
 Object.assign(__ds_scope, { ChatMessage });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/ai/ChatMessage.jsx", error: String((e && e.message) || e) }); }
@@ -650,35 +293,10 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill CitationList — numbered provenance sources for AI output. Rows link out when href is set. */
-function CitationList({
-  label = "Sources",
-  items = [],
-  className
-}) {
-  return /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-citations", className)
-  }, label ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-citations__label"
-  }, label) : null, items.map((it, i) => {
-    const inner = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
-      className: "cs-citation__num"
-    }, i + 1), /*#__PURE__*/React.createElement("span", {
-      className: "cs-citation__text"
-    }, it.title, it.source ? /*#__PURE__*/React.createElement("span", {
-      className: "cs-citation__src"
-    }, " \xB7 ", it.source) : null));
-    return it.href ? /*#__PURE__*/React.createElement("a", {
-      key: i,
-      className: "cs-citation",
-      href: it.href,
-      target: "_blank",
-      rel: "noreferrer"
-    }, inner) : /*#__PURE__*/React.createElement("div", {
-      key: i,
-      className: "cs-citation"
-    }, inner);
+function CitationList({ label = "Sources", items = [], className }) {
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-citations", className) }, label ? /* @__PURE__ */ React.createElement("div", { className: "cs-citations__label" }, label) : null, items.map((it, i) => {
+    const inner = /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("span", { className: "cs-citation__num" }, i + 1), /* @__PURE__ */ React.createElement("span", { className: "cs-citation__text" }, it.title, it.source ? /* @__PURE__ */ React.createElement("span", { className: "cs-citation__src" }, " · ", it.source) : null));
+    return it.href ? /* @__PURE__ */ React.createElement("a", { key: i, className: "cs-citation", href: it.href, target: "_blank", rel: "noreferrer" }, inner) : /* @__PURE__ */ React.createElement("div", { key: i, className: "cs-citation" }, inner);
   }));
 }
 Object.assign(__ds_scope, { CitationList });
@@ -686,40 +304,16 @@ Object.assign(__ds_scope, { CitationList });
 
 // components/ai/ConfidenceMeter.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
 const TONE = {
-  low: {
-    color: "var(--cs-color-semantic-danger)",
-    label: "Low",
-    fill: 2
-  },
-  medium: {
-    color: "var(--cs-color-semantic-warning)",
-    label: "Medium",
-    fill: 3
-  },
-  high: {
-    color: "var(--cs-color-semantic-success)",
-    label: "High",
-    fill: 5
-  }
+  low: { color: "var(--cs-color-semantic-danger)", label: "Low", fill: 2 },
+  medium: { color: "var(--cs-color-semantic-warning)", label: "Medium", fill: 3 },
+  high: { color: "var(--cs-color-semantic-success)", label: "High", fill: 5 }
 };
-
-/**
- * CyberSkill ConfidenceMeter — segmented AI-confidence indicator. Pass a numeric
- * `value` 0–1, or a `level` ("low"|"medium"|"high"). Confidence is stated in
- * words too, never colour alone — pair with AIDisclosureBadge / HumanReviewGate.
- */
-function ConfidenceMeter({
-  value,
-  level,
-  segments = 5,
-  label,
-  lang,
-  className
-}) {
+function ConfidenceMeter({ value, level, segments = 5, label, lang, className }) {
   let tone, filled;
   if (value != null) {
     tone = value < 0.4 ? "low" : value < 0.75 ? "medium" : "high";
@@ -729,51 +323,21 @@ function ConfidenceMeter({
     filled = Math.round(TONE[tone].fill / 5 * segments);
   }
   const meta = TONE[tone];
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("ConfidenceMeter", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("ConfidenceMeter", L);
   const lbl = label != null ? label : t("label");
   const levelText = t(tone);
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-confidence", className)
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-confidence__head"
-  }, /*#__PURE__*/React.createElement("span", null, lbl), /*#__PURE__*/React.createElement("span", {
-    className: "cs-confidence__level",
-    style: {
-      color: meta.color
-    }
-  }, levelText)), /*#__PURE__*/React.createElement("div", {
-    className: "cs-confidence__track",
-    role: "meter",
-    "aria-valuemin": 0,
-    "aria-valuemax": segments,
-    "aria-valuenow": filled,
-    "aria-label": lbl + ": " + levelText
-  }, Array.from({
-    length: segments
-  }).map((_, i) => /*#__PURE__*/React.createElement("span", {
-    key: i,
-    className: "cs-confidence__seg",
-    style: i < filled ? {
-      background: meta.color
-    } : undefined
-  }))));
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-confidence", className) }, /* @__PURE__ */ React.createElement("div", { className: "cs-confidence__head" }, /* @__PURE__ */ React.createElement("span", null, lbl), /* @__PURE__ */ React.createElement("span", { className: "cs-confidence__level", style: { color: meta.color } }, levelText)), /* @__PURE__ */ React.createElement("div", { className: "cs-confidence__track", role: "meter", "aria-valuemin": 0, "aria-valuemax": segments, "aria-valuenow": filled, "aria-label": lbl + ": " + levelText }, Array.from({ length: segments }).map((_, i) => /* @__PURE__ */ React.createElement("span", { key: i, className: "cs-confidence__seg", style: i < filled ? { background: meta.color } : void 0 }))));
 }
 Object.assign(__ds_scope, { ConfidenceMeter });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/ai/ConfidenceMeter.jsx", error: String((e && e.message) || e) }); }
 
 // components/ai/HumanReviewGate.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/**
- * CyberSkill HumanReviewGate — an AI-native checkpoint: a risk label, a
- * plain-language summary, an optional reviewer, and Approve / Reject actions.
- * Keeps a human in the loop before a high-stakes AI action proceeds.
- */
 function HumanReviewGate({
   risk,
   summary,
@@ -785,47 +349,22 @@ function HumanReviewGate({
   lang,
   className
 }) {
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("HumanReviewGate", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("HumanReviewGate", L);
   const rk = risk != null ? risk : t("risk");
   const al = approveLabel != null ? approveLabel : t("approve");
   const rl = rejectLabel != null ? rejectLabel : t("reject");
-  return /*#__PURE__*/React.createElement("section", {
-    ref: ref,
-    className: cx("cs-review-gate", className),
-    "aria-label": t("aria")
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-review-gate__risk"
-  }, rk), /*#__PURE__*/React.createElement("p", {
-    className: "cs-review-gate__summary"
-  }, summary), reviewer ? /*#__PURE__*/React.createElement("p", {
-    className: "cs-review-gate__reviewer"
-  }, t("reviewer"), ": ", reviewer) : null, /*#__PURE__*/React.createElement("div", {
-    className: "cs-review-gate__actions"
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-button cs-button--secondary",
-    onClick: onReject
-  }, rl), /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-button cs-button--primary",
-    onClick: onApprove
-  }, al)));
+  return /* @__PURE__ */ React.createElement("section", { ref, className: cx("cs-review-gate", className), "aria-label": t("aria") }, /* @__PURE__ */ React.createElement("div", { className: "cs-review-gate__risk" }, rk), /* @__PURE__ */ React.createElement("p", { className: "cs-review-gate__summary" }, summary), reviewer ? /* @__PURE__ */ React.createElement("p", { className: "cs-review-gate__reviewer" }, t("reviewer"), ": ", reviewer) : null, /* @__PURE__ */ React.createElement("div", { className: "cs-review-gate__actions" }, /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-button cs-button--secondary", onClick: onReject }, rl), /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-button cs-button--primary", onClick: onApprove }, al)));
 }
 Object.assign(__ds_scope, { HumanReviewGate });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/ai/HumanReviewGate.jsx", error: String((e && e.message) || e) }); }
 
 // components/ai/PromptInput.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/**
- * CyberSkill PromptInput — the AI-native ask box. Enter submits (Shift+Enter =
- * newline). Works controlled (value/onChange) or uncontrolled. The hint states
- * that Lumi replies, then hands clear wishes to a human — keep that disclosure.
- */
 function PromptInput({
   value,
   onChange,
@@ -840,56 +379,32 @@ function PromptInput({
 }) {
   const [inner, setInner] = React.useState("");
   const val = value != null ? value : inner;
-  const setVal = v => onChange ? onChange(v) : setInner(v);
+  const setVal = (v) => onChange ? onChange(v) : setInner(v);
   const submit = () => {
     if (!disabled && !busy && String(val).trim()) onSubmit && onSubmit(val);
   };
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("PromptInput", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("PromptInput", L);
   const ph = placeholder != null ? placeholder : t("placeholder");
   const sl = sendLabel != null ? sendLabel : t("send");
-  const ht = hint !== undefined ? hint : t("hint");
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-prompt", className)
-  }, /*#__PURE__*/React.createElement("textarea", {
-    className: "cs-prompt__field",
-    rows: 1,
-    value: val,
-    placeholder: ph,
-    disabled: disabled,
-    onChange: e => setVal(e.target.value),
-    onKeyDown: e => {
-      if (e.key === "Enter" && !e.shiftKey) {
-        e.preventDefault();
-        submit();
+  const ht = hint !== void 0 ? hint : t("hint");
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-prompt", className) }, /* @__PURE__ */ React.createElement(
+    "textarea",
+    {
+      className: "cs-prompt__field",
+      rows: 1,
+      value: val,
+      placeholder: ph,
+      disabled,
+      onChange: (e) => setVal(e.target.value),
+      onKeyDown: (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          submit();
+        }
       }
     }
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "cs-prompt__bar"
-  }, ht ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-prompt__hint"
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "14",
-    height: "14",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "1.8",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6z"
-  })), ht) : null, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-button cs-button--primary cs-button--sm",
-    onClick: submit,
-    disabled: disabled || busy
-  }, busy ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-button__spinner",
-    "aria-hidden": "true"
-  }) : null, sl)));
+  ), /* @__PURE__ */ React.createElement("div", { className: "cs-prompt__bar" }, ht ? /* @__PURE__ */ React.createElement("span", { className: "cs-prompt__hint" }, /* @__PURE__ */ React.createElement("svg", { width: "14", height: "14", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.8", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: "M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6z" })), ht) : null, /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-button cs-button--primary cs-button--sm", onClick: submit, disabled: disabled || busy }, busy ? /* @__PURE__ */ React.createElement("span", { className: "cs-button__spinner", "aria-hidden": "true" }) : null, sl)));
 }
 Object.assign(__ds_scope, { PromptInput });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/ai/PromptInput.jsx", error: String((e && e.message) || e) }); }
@@ -899,35 +414,11 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill PromptSuggestions — tappable "wish" starter chips for a chat/prompt. */
-function PromptSuggestions({
-  suggestions = [],
-  onSelect,
-  className
-}) {
-  return /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-suggest", className)
-  }, suggestions.map((s, i) => {
+function PromptSuggestions({ suggestions = [], onSelect, className }) {
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-suggest", className) }, suggestions.map((s, i) => {
     const label = typeof s === "string" ? s : s.label;
     const icon = typeof s === "string" ? null : s.icon;
-    return /*#__PURE__*/React.createElement("button", {
-      key: i,
-      type: "button",
-      onClick: () => onSelect && onSelect(label)
-    }, icon ?? /*#__PURE__*/React.createElement("svg", {
-      width: "14",
-      height: "14",
-      viewBox: "0 0 24 24",
-      fill: "none",
-      stroke: "currentColor",
-      strokeWidth: "1.8",
-      strokeLinecap: "round",
-      strokeLinejoin: "round",
-      "aria-hidden": "true"
-    }, /*#__PURE__*/React.createElement("path", {
-      d: "M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6z"
-    })), label);
+    return /* @__PURE__ */ React.createElement("button", { key: i, type: "button", onClick: () => onSelect && onSelect(label) }, icon ?? /* @__PURE__ */ React.createElement("svg", { width: "14", height: "14", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.8", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: "M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6z" })), label);
   }));
 }
 Object.assign(__ds_scope, { PromptSuggestions });
@@ -935,67 +426,34 @@ Object.assign(__ds_scope, { PromptSuggestions });
 
 // components/ai/TypingIndicator.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill TypingIndicator — animated dots for when Lumi is composing a reply. */
-function TypingIndicator({
-  label,
-  lang,
-  className
-}) {
-  const [ref, L] = __ds_scope.useLang(lang);
-  const lbl = label != null ? label : __ds_scope.makeT("TypingIndicator", L)("label");
-  return /*#__PURE__*/React.createElement("span", {
-    ref: ref,
-    className: cx("cs-typing", className),
-    role: "status",
-    "aria-label": lbl
-  }, /*#__PURE__*/React.createElement("span", null), /*#__PURE__*/React.createElement("span", null), /*#__PURE__*/React.createElement("span", null));
+function TypingIndicator({ label, lang, className }) {
+  const [ref, L] = useLang(lang);
+  const lbl = label != null ? label : makeT("TypingIndicator", L)("label");
+  return /* @__PURE__ */ React.createElement("span", { ref, className: cx("cs-typing", className), role: "status", "aria-label": lbl }, /* @__PURE__ */ React.createElement("span", null), /* @__PURE__ */ React.createElement("span", null), /* @__PURE__ */ React.createElement("span", null));
 }
 Object.assign(__ds_scope, { TypingIndicator });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/ai/TypingIndicator.jsx", error: String((e && e.message) || e) }); }
 
 // components/brand/LumiAvatar.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill LumiAvatar — the golden-genie mascot avatar. Pass `src` (e.g. lumi-poster.webp) or fall back to the ✦ glyph. */
-function LumiAvatar({
-  src,
-  size = "md",
-  ring = false,
-  alt = "Lumi",
-  className,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("span", _extends({
-    className: cx("cs-lumi", `cs-lumi--${size}`, ring && "cs-lumi--ring", className)
-  }, props), src ? /*#__PURE__*/React.createElement("img", {
-    src: src,
-    alt: alt
-  }) : /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true"
-  }, "\u2726"));
+function LumiAvatar({ src, size = "md", ring = false, alt = "Lumi", className, ...props }) {
+  return /* @__PURE__ */ React.createElement("span", { className: cx("cs-lumi", `cs-lumi--${size}`, ring && "cs-lumi--ring", className), ...props }, src ? /* @__PURE__ */ React.createElement("img", { src, alt }) : /* @__PURE__ */ React.createElement("span", { "aria-hidden": "true" }, "✦"));
 }
 Object.assign(__ds_scope, { LumiAvatar });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/brand/LumiAvatar.jsx", error: String((e && e.message) || e) }); }
 
 // components/button/Button.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/**
- * CyberSkill Button. Umber primary by default; warm hover; Ochre focus ring;
- * 44px comfortable touch target. Renders a real <button>.
- */
 function Button({
   variant = "primary",
   size = "md",
@@ -1009,43 +467,38 @@ function Button({
   ...props
 }) {
   const isDisabled = disabled || loading;
-  return /*#__PURE__*/React.createElement("button", _extends({}, props, {
-    type: type,
-    disabled: isDisabled,
-    "aria-busy": loading || undefined,
-    className: cx("cs-button", `cs-button--${variant}`, `cs-button--${size}`, fullWidth && "cs-button--full", isDisabled && "is-disabled", loading && "is-loading", className)
-  }), icon ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-button__icon",
-    "aria-hidden": "true"
-  }, icon) : null, /*#__PURE__*/React.createElement("span", {
-    className: "cs-button__label"
-  }, children), loading ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-button__spinner",
-    "aria-hidden": "true"
-  }) : null);
+  return /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      ...props,
+      type,
+      disabled: isDisabled,
+      "aria-busy": loading || void 0,
+      className: cx(
+        "cs-button",
+        `cs-button--${variant}`,
+        `cs-button--${size}`,
+        fullWidth && "cs-button--full",
+        isDisabled && "is-disabled",
+        loading && "is-loading",
+        className
+      )
+    },
+    icon ? /* @__PURE__ */ React.createElement("span", { className: "cs-button__icon", "aria-hidden": "true" }, icon) : null,
+    /* @__PURE__ */ React.createElement("span", { className: "cs-button__label" }, children),
+    loading ? /* @__PURE__ */ React.createElement("span", { className: "cs-button__spinner", "aria-hidden": "true" }) : null
+  );
 }
 Object.assign(__ds_scope, { Button });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/button/Button.jsx", error: String((e && e.message) || e) }); }
 
 // components/button/ButtonGroup.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill ButtonGroup — joins adjacent Buttons into one segmented cluster (role=group). */
-function ButtonGroup({
-  children,
-  label,
-  className,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("div", _extends({
-    className: cx("cs-btngroup", className),
-    role: "group",
-    "aria-label": label
-  }, props), children);
+function ButtonGroup({ children, label, className, ...props }) {
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-btngroup", className), role: "group", "aria-label": label, ...props }, children);
 }
 Object.assign(__ds_scope, { ButtonGroup });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/button/ButtonGroup.jsx", error: String((e && e.message) || e) }); }
@@ -1055,41 +508,16 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill FloatingActionButton — round primary action; optional speed-dial actions. */
-function FloatingActionButton({
-  icon,
-  label,
-  actions = [],
-  onClick,
-  position = "fixed",
-  className
-}) {
+function FloatingActionButton({ icon, label, actions = [], onClick, position = "fixed", className }) {
   const [open, setOpen] = React.useState(false);
   const main = () => {
-    if (actions.length) setOpen(o => !o);else onClick && onClick();
+    if (actions.length) setOpen((o) => !o);
+    else onClick && onClick();
   };
-  return /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-fab", position === "static" && "cs-fab--static", className)
-  }, open && actions.length ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-fab__dial"
-  }, actions.map((a, i) => /*#__PURE__*/React.createElement("button", {
-    key: i,
-    type: "button",
-    className: "cs-fab__mini",
-    "aria-label": a.label,
-    title: a.label,
-    onClick: () => {
-      setOpen(false);
-      a.onSelect && a.onSelect();
-    }
-  }, a.icon))) : null, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-fab__main",
-    "aria-label": label,
-    "aria-expanded": actions.length ? open : undefined,
-    onClick: main
-  }, icon));
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-fab", position === "static" && "cs-fab--static", className) }, open && actions.length ? /* @__PURE__ */ React.createElement("div", { className: "cs-fab__dial" }, actions.map((a, i) => /* @__PURE__ */ React.createElement("button", { key: i, type: "button", className: "cs-fab__mini", "aria-label": a.label, title: a.label, onClick: () => {
+    setOpen(false);
+    a.onSelect && a.onSelect();
+  } }, a.icon))) : null, /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-fab__main", "aria-label": label, "aria-expanded": actions.length ? open : void 0, onClick: main }, icon));
 }
 Object.assign(__ds_scope, { FloatingActionButton });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/button/FloatingActionButton.jsx", error: String((e && e.message) || e) }); }
@@ -1099,202 +527,67 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Accordion — collapsible sections. Single-open by default; allowMultiple for many. */
-function Accordion({
-  items = [],
-  defaultOpen = 0,
-  allowMultiple = false,
-  className
-}) {
+function Accordion({ items = [], defaultOpen = 0, allowMultiple = false, className }) {
   const [open, setOpen] = React.useState(() => allowMultiple ? defaultOpen != null ? [defaultOpen] : [] : defaultOpen);
-  const isOpen = i => allowMultiple ? open.includes(i) : open === i;
-  const toggle = i => {
-    if (allowMultiple) setOpen(o => o.includes(i) ? o.filter(x => x !== i) : [...o, i]);else setOpen(o => o === i ? -1 : i);
+  const isOpen = (i) => allowMultiple ? open.includes(i) : open === i;
+  const toggle = (i) => {
+    if (allowMultiple) setOpen((o) => o.includes(i) ? o.filter((x) => x !== i) : [...o, i]);
+    else setOpen((o) => o === i ? -1 : i);
   };
-  return /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-accordion", className)
-  }, items.map((it, i) => /*#__PURE__*/React.createElement("div", {
-    className: "cs-accordion__item",
-    key: i
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-accordion__trigger",
-    "aria-expanded": isOpen(i),
-    onClick: () => toggle(i)
-  }, it.title, /*#__PURE__*/React.createElement("span", {
-    className: "cs-accordion__chevron",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2",
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 9l6 6 6-6"
-  })))), isOpen(i) ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-accordion__panel"
-  }, it.content) : null)));
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-accordion", className) }, items.map((it, i) => /* @__PURE__ */ React.createElement("div", { className: "cs-accordion__item", key: i }, /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-accordion__trigger", "aria-expanded": isOpen(i), onClick: () => toggle(i) }, it.title, /* @__PURE__ */ React.createElement("span", { className: "cs-accordion__chevron", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }, /* @__PURE__ */ React.createElement("path", { d: "M6 9l6 6 6-6" })))), isOpen(i) ? /* @__PURE__ */ React.createElement("div", { className: "cs-accordion__panel" }, it.content) : null)));
 }
 Object.assign(__ds_scope, { Accordion });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Accordion.jsx", error: String((e && e.message) || e) }); }
 
 // components/data/Avatar.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Avatar — image or initials on Umber. sizes sm|md|lg; square variant. */
-function Avatar({
-  src,
-  name = "",
-  size = "md",
-  square = false,
-  className,
-  ...props
-}) {
-  const initials = name ? name.trim().split(/\s+/).map(w => w[0]).slice(0, 2).join("").toUpperCase() : "";
-  return /*#__PURE__*/React.createElement("span", _extends({
-    className: cx("cs-avatar", `cs-avatar--${size}`, square && "cs-avatar--square", className),
-    title: name || undefined
-  }, props), src ? /*#__PURE__*/React.createElement("img", {
-    src: src,
-    alt: name
-  }) : /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true"
-  }, initials));
+function Avatar({ src, name = "", size = "md", square = false, className, ...props }) {
+  const initials = name ? name.trim().split(/\s+/).map((w) => w[0]).slice(0, 2).join("").toUpperCase() : "";
+  return /* @__PURE__ */ React.createElement("span", { className: cx("cs-avatar", `cs-avatar--${size}`, square && "cs-avatar--square", className), title: name || void 0, ...props }, src ? /* @__PURE__ */ React.createElement("img", { src, alt: name }) : /* @__PURE__ */ React.createElement("span", { "aria-hidden": "true" }, initials));
 }
-
-/** Overlapping row of Avatars. */
-function AvatarGroup({
-  className,
-  children
-}) {
-  return /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-avatar-group", className)
-  }, children);
+function AvatarGroup({ className, children }) {
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-avatar-group", className) }, children);
 }
 Object.assign(__ds_scope, { Avatar, AvatarGroup });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Avatar.jsx", error: String((e && e.message) || e) }); }
 
 // components/data/Card.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Card — warm panel (14px radius, soft shadow). Compose with CardHeader/Body/Footer. */
-function Card({
-  interactive = false,
-  flat = false,
-  as,
-  className,
-  children,
-  ...props
-}) {
+function Card({ interactive = false, flat = false, as, className, children, ...props }) {
   const Tag = as || (interactive ? "button" : "div");
-  return /*#__PURE__*/React.createElement(Tag, _extends({
-    className: cx("cs-card", flat && "cs-card--flat", interactive && "cs-card--interactive", className)
-  }, props), children);
+  return /* @__PURE__ */ React.createElement(Tag, { className: cx("cs-card", flat && "cs-card--flat", interactive && "cs-card--interactive", className), ...props }, children);
 }
-function CardHeader({
-  title,
-  subtitle,
-  children,
-  className,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("div", _extends({
-    className: cx("cs-card__header", className)
-  }, props), title ? /*#__PURE__*/React.createElement("h3", {
-    className: "cs-card__title"
-  }, title) : null, subtitle ? /*#__PURE__*/React.createElement("p", {
-    className: "cs-card__subtitle"
-  }, subtitle) : null, children);
+function CardHeader({ title, subtitle, children, className, ...props }) {
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-card__header", className), ...props }, title ? /* @__PURE__ */ React.createElement("h3", { className: "cs-card__title" }, title) : null, subtitle ? /* @__PURE__ */ React.createElement("p", { className: "cs-card__subtitle" }, subtitle) : null, children);
 }
-function CardBody({
-  className,
-  children,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("div", _extends({
-    className: cx("cs-card__body", className)
-  }, props), children);
+function CardBody({ className, children, ...props }) {
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-card__body", className), ...props }, children);
 }
-function CardFooter({
-  className,
-  children,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("div", _extends({
-    className: cx("cs-card__footer", className)
-  }, props), children);
+function CardFooter({ className, children, ...props }) {
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-card__footer", className), ...props }, children);
 }
 Object.assign(__ds_scope, { Card, CardHeader, CardBody, CardFooter });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Card.jsx", error: String((e && e.message) || e) }); }
 
 // components/data/Carousel.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Carousel — slides with prev/next + dots. children = slides. Bilingual aria. */
-function Carousel({
-  children,
-  startIndex = 0,
-  label,
-  lang,
-  className
-}) {
+function Carousel({ children, startIndex = 0, label, lang, className }) {
   const slides = React.Children.toArray(children);
   const [i, setI] = React.useState(Math.min(startIndex, Math.max(0, slides.length - 1)));
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("Carousel", L);
-  const go = n => setI((n + slides.length) % slides.length);
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-carousel", className),
-    role: "group",
-    "aria-roledescription": "carousel",
-    "aria-label": label
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-carousel__view"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-carousel__track",
-    style: {
-      transform: "translateX(-" + i * 100 + "%)"
-    }
-  }, slides.map((s, j) => /*#__PURE__*/React.createElement("div", {
-    key: j,
-    className: "cs-carousel__slide",
-    "aria-hidden": j !== i
-  }, s))), /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-carousel__nav prev",
-    "aria-label": t("prev"),
-    onClick: () => go(i - 1)
-  }, "\u2039"), /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-carousel__nav next",
-    "aria-label": t("next"),
-    onClick: () => go(i + 1)
-  }, "\u203A")), /*#__PURE__*/React.createElement("div", {
-    className: "cs-carousel__dots"
-  }, slides.map((_, j) => /*#__PURE__*/React.createElement("button", {
-    key: j,
-    type: "button",
-    "aria-label": t("slide") + " " + (j + 1) + "/" + slides.length,
-    "aria-current": j === i,
-    onClick: () => setI(j)
-  }))));
+  const [ref, L] = useLang(lang);
+  const t = makeT("Carousel", L);
+  const go = (n) => setI((n + slides.length) % slides.length);
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-carousel", className), role: "group", "aria-roledescription": "carousel", "aria-label": label }, /* @__PURE__ */ React.createElement("div", { className: "cs-carousel__view" }, /* @__PURE__ */ React.createElement("div", { className: "cs-carousel__track", style: { transform: "translateX(-" + i * 100 + "%)" } }, slides.map((s, j) => /* @__PURE__ */ React.createElement("div", { key: j, className: "cs-carousel__slide", "aria-hidden": j !== i }, s))), /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-carousel__nav prev", "aria-label": t("prev"), onClick: () => go(i - 1) }, "‹"), /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-carousel__nav next", "aria-label": t("next"), onClick: () => go(i + 1) }, "›")), /* @__PURE__ */ React.createElement("div", { className: "cs-carousel__dots" }, slides.map((_, j) => /* @__PURE__ */ React.createElement("button", { key: j, type: "button", "aria-label": t("slide") + " " + (j + 1) + "/" + slides.length, "aria-current": j === i, onClick: () => setI(j) }))));
 }
 Object.assign(__ds_scope, { Carousel });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Carousel.jsx", error: String((e && e.message) || e) }); }
@@ -1304,95 +597,31 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Chart — token-colored SVG charts: bar | line | spark | pie. data: [{label,value}]. */
-function Chart({
-  type = "bar",
-  data = [],
-  height = 160,
-  color = "var(--cs-accent)",
-  showValues = false,
-  label,
-  className
-}) {
-  const W = 320,
-    H = height,
-    max = Math.max(1, ...data.map(d => d.value));
+function Chart({ type = "bar", data = [], height = 160, color = "var(--cs-accent)", showValues = false, label, className }) {
+  const W = 320, H = height, max = Math.max(1, ...data.map((d) => d.value));
   let body = null;
   if (type === "pie") {
     const total = data.reduce((a, d) => a + d.value, 0) || 1;
     const cols = [color, "var(--cs-accent-strong)", "var(--cs-accent-grad-b)", "var(--cs-color-text-muted)", "var(--cs-color-border-default)"];
     let a0 = -Math.PI / 2;
-    body = /*#__PURE__*/React.createElement("svg", {
-      viewBox: "0 0 120 120",
-      width: H,
-      height: H,
-      "aria-hidden": "true"
-    }, data.map((d, i) => {
+    body = /* @__PURE__ */ React.createElement("svg", { viewBox: "0 0 120 120", width: H, height: H, "aria-hidden": "true" }, data.map((d, i) => {
       const a1 = a0 + d.value / total * Math.PI * 2;
       const large = a1 - a0 > Math.PI ? 1 : 0;
       const p = `M60 60 L${60 + 50 * Math.cos(a0)} ${60 + 50 * Math.sin(a0)} A50 50 0 ${large} 1 ${60 + 50 * Math.cos(a1)} ${60 + 50 * Math.sin(a1)} Z`;
       a0 = a1;
-      return /*#__PURE__*/React.createElement("path", {
-        key: i,
-        d: p,
-        fill: cols[i % cols.length],
-        stroke: "var(--cs-color-surface-panel)",
-        strokeWidth: "1.5"
-      });
+      return /* @__PURE__ */ React.createElement("path", { key: i, d: p, fill: cols[i % cols.length], stroke: "var(--cs-color-surface-panel)", strokeWidth: "1.5" });
     }));
   } else if (type === "line" || type === "spark") {
     const pts = data.map((d, i) => `${i / Math.max(1, data.length - 1) * (W - 8) + 4},${H - 6 - d.value / max * (H - 24)}`).join(" ");
-    body = /*#__PURE__*/React.createElement("svg", {
-      viewBox: `0 0 ${W} ${H}`,
-      width: "100%",
-      height: H,
-      preserveAspectRatio: "none",
-      "aria-hidden": "true"
-    }, /*#__PURE__*/React.createElement("polyline", {
-      points: pts,
-      fill: "none",
-      stroke: color,
-      strokeWidth: "2.4",
-      strokeLinejoin: "round",
-      strokeLinecap: "round"
-    }), type === "line" ? data.map((d, i) => /*#__PURE__*/React.createElement("circle", {
-      key: i,
-      cx: i / Math.max(1, data.length - 1) * (W - 8) + 4,
-      cy: H - 6 - d.value / max * (H - 24),
-      r: "3.4",
-      fill: color
-    })) : null);
+    body = /* @__PURE__ */ React.createElement("svg", { viewBox: `0 0 ${W} ${H}`, width: "100%", height: H, preserveAspectRatio: "none", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("polyline", { points: pts, fill: "none", stroke: color, strokeWidth: "2.4", strokeLinejoin: "round", strokeLinecap: "round" }), type === "line" ? data.map((d, i) => /* @__PURE__ */ React.createElement("circle", { key: i, cx: i / Math.max(1, data.length - 1) * (W - 8) + 4, cy: H - 6 - d.value / max * (H - 24), r: "3.4", fill: color })) : null);
   } else {
     const bw = (W - 8) / data.length;
-    body = /*#__PURE__*/React.createElement("svg", {
-      viewBox: `0 0 ${W} ${H}`,
-      width: "100%",
-      height: H,
-      preserveAspectRatio: "none",
-      "aria-hidden": "true"
-    }, data.map((d, i) => {
+    body = /* @__PURE__ */ React.createElement("svg", { viewBox: `0 0 ${W} ${H}`, width: "100%", height: H, preserveAspectRatio: "none", "aria-hidden": "true" }, data.map((d, i) => {
       const h = d.value / max * (H - 26);
-      return /*#__PURE__*/React.createElement("rect", {
-        key: i,
-        x: 4 + i * bw + bw * 0.14,
-        y: H - 20 - h,
-        width: bw * 0.72,
-        height: h,
-        rx: "3",
-        fill: color
-      });
+      return /* @__PURE__ */ React.createElement("rect", { key: i, x: 4 + i * bw + bw * 0.14, y: H - 20 - h, width: bw * 0.72, height: h, rx: "3", fill: color });
     }));
   }
-  return /*#__PURE__*/React.createElement("figure", {
-    className: cx("cs-chart", className),
-    role: "img",
-    "aria-label": label || data.map(d => d.label + ": " + d.value).join(", ")
-  }, body, type !== "spark" ? /*#__PURE__*/React.createElement("figcaption", {
-    className: "cs-chart__legend"
-  }, data.map((d, i) => /*#__PURE__*/React.createElement("span", {
-    key: i
-  }, d.label, showValues ? /*#__PURE__*/React.createElement("b", null, " ", d.value) : null))) : null);
+  return /* @__PURE__ */ React.createElement("figure", { className: cx("cs-chart", className), role: "img", "aria-label": label || data.map((d) => d.label + ": " + d.value).join(", ") }, body, type !== "spark" ? /* @__PURE__ */ React.createElement("figcaption", { className: "cs-chart__legend" }, data.map((d, i) => /* @__PURE__ */ React.createElement("span", { key: i }, d.label, showValues ? /* @__PURE__ */ React.createElement("b", null, " ", d.value) : null))) : null);
 }
 Object.assign(__ds_scope, { Chart });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Chart.jsx", error: String((e && e.message) || e) }); }
@@ -1402,287 +631,83 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill CodeBlock — dark mono code panel with a filename bar + copy button. */
-function CodeBlock({
-  code = "",
-  filename,
-  language = "code",
-  showBar = true,
-  className
-}) {
+function CodeBlock({ code = "", filename, language = "code", showBar = true, className }) {
   const [copied, setCopied] = React.useState(false);
   const copy = () => {
     try {
       navigator.clipboard.writeText(code);
       setCopied(true);
       setTimeout(() => setCopied(false), 1400);
-    } catch (e) {/* no-op */}
+    } catch (e) {
+    }
   };
-  return /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-code", className)
-  }, showBar ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-code__bar"
-  }, /*#__PURE__*/React.createElement("span", null, filename || language), /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-code__copy",
-    onClick: copy
-  }, copied ? "Copied ✓" : "Copy")) : null, /*#__PURE__*/React.createElement("pre", null, /*#__PURE__*/React.createElement("code", null, code)));
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-code", className) }, showBar ? /* @__PURE__ */ React.createElement("div", { className: "cs-code__bar" }, /* @__PURE__ */ React.createElement("span", null, filename || language), /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-code__copy", onClick: copy }, copied ? "Copied ✓" : "Copy")) : null, /* @__PURE__ */ React.createElement("pre", null, /* @__PURE__ */ React.createElement("code", null, code)));
 }
 Object.assign(__ds_scope, { CodeBlock });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/CodeBlock.jsx", error: String((e && e.message) || e) }); }
 
 // components/data/Comment.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Comment — discussion entry: avatar, author, meta, body, actions, nested replies. */
-function Comment({
-  avatar,
-  author,
-  meta,
-  children,
-  actions = [],
-  replies,
-  lang,
-  className
-}) {
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("Comment", L);
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-comment", className)
-  }, avatar ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-comment__avatar"
-  }, avatar) : null, /*#__PURE__*/React.createElement("div", {
-    className: "cs-comment__main"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-comment__head"
-  }, /*#__PURE__*/React.createElement("b", null, author), meta ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-comment__meta"
-  }, meta) : null), /*#__PURE__*/React.createElement("div", {
-    className: "cs-comment__body"
-  }, children), /*#__PURE__*/React.createElement("div", {
-    className: "cs-comment__actions"
-  }, (actions.length ? actions : [{
-    label: t("reply")
-  }]).map((a, i) => /*#__PURE__*/React.createElement("button", {
-    key: i,
-    type: "button",
-    onClick: () => a.onSelect && a.onSelect()
-  }, a.label))), replies ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-comment__replies"
-  }, replies) : null));
+function Comment({ avatar, author, meta, children, actions = [], replies, lang, className }) {
+  const [ref, L] = useLang(lang);
+  const t = makeT("Comment", L);
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-comment", className) }, avatar ? /* @__PURE__ */ React.createElement("span", { className: "cs-comment__avatar" }, avatar) : null, /* @__PURE__ */ React.createElement("div", { className: "cs-comment__main" }, /* @__PURE__ */ React.createElement("div", { className: "cs-comment__head" }, /* @__PURE__ */ React.createElement("b", null, author), meta ? /* @__PURE__ */ React.createElement("span", { className: "cs-comment__meta" }, meta) : null), /* @__PURE__ */ React.createElement("div", { className: "cs-comment__body" }, children), /* @__PURE__ */ React.createElement("div", { className: "cs-comment__actions" }, (actions.length ? actions : [{ label: t("reply") }]).map((a, i) => /* @__PURE__ */ React.createElement("button", { key: i, type: "button", onClick: () => a.onSelect && a.onSelect() }, a.label))), replies ? /* @__PURE__ */ React.createElement("div", { className: "cs-comment__replies" }, replies) : null));
 }
 Object.assign(__ds_scope, { Comment });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Comment.jsx", error: String((e && e.message) || e) }); }
 
 // components/data/DescriptionList.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill DescriptionList — term/value metadata grid. */
-function DescriptionList({
-  items = [],
-  className,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("dl", _extends({
-    className: cx("cs-dl", className)
-  }, props), items.map((it, i) => /*#__PURE__*/React.createElement("div", {
-    key: i
-  }, /*#__PURE__*/React.createElement("dt", null, it.term), /*#__PURE__*/React.createElement("dd", null, it.value))));
+function DescriptionList({ items = [], className, ...props }) {
+  return /* @__PURE__ */ React.createElement("dl", { className: cx("cs-dl", className), ...props }, items.map((it, i) => /* @__PURE__ */ React.createElement("div", { key: i }, /* @__PURE__ */ React.createElement("dt", null, it.term), /* @__PURE__ */ React.createElement("dd", null, it.value))));
 }
 Object.assign(__ds_scope, { DescriptionList });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/DescriptionList.jsx", error: String((e && e.message) || e) }); }
 
 // components/data/Divider.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Divider — hairline rule. `label` centres text; `vertical` for inline splits. */
-function Divider({
-  vertical = false,
-  label,
-  className,
-  children,
-  ...props
-}) {
+function Divider({ vertical = false, label, className, children, ...props }) {
   if (label) {
-    return /*#__PURE__*/React.createElement("div", _extends({
-      className: cx("cs-divider", "cs-divider--label", className),
-      role: "separator"
-    }, props), label);
+    return /* @__PURE__ */ React.createElement("div", { className: cx("cs-divider", "cs-divider--label", className), role: "separator", ...props }, label);
   }
-  return /*#__PURE__*/React.createElement("hr", _extends({
-    className: cx("cs-divider", vertical && "cs-divider--vertical", className),
-    "aria-orientation": vertical ? "vertical" : "horizontal"
-  }, props));
+  return /* @__PURE__ */ React.createElement("hr", { className: cx("cs-divider", vertical && "cs-divider--vertical", className), "aria-orientation": vertical ? "vertical" : "horizontal", ...props });
 }
 Object.assign(__ds_scope, { Divider });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Divider.jsx", error: String((e && e.message) || e) }); }
 
-// components/data/Image.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-function cx(...c) {
-  return c.filter(Boolean).join(" ");
-}
-
-/** CyberSkill Image — img with loading skeleton, warm fallback on error, optional click-to-preview lightbox. */
-function Image({
-  src,
-  alt = "",
-  ratio,
-  preview = false,
-  fallback,
-  lang,
-  className,
-  ...props
-}) {
-  const [state, setState] = React.useState("loading");
-  const [zoom, setZoom] = React.useState(false);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("Image", L);
-  React.useEffect(() => {
-    if (!zoom) return;
-    const k = e => {
-      if (e.key === "Escape") setZoom(false);
-    };
-    document.addEventListener("keydown", k);
-    return () => document.removeEventListener("keydown", k);
-  }, [zoom]);
-  const body = state === "error" ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-image__fallback"
-  }, fallback || /*#__PURE__*/React.createElement("svg", {
-    width: "28",
-    height: "28",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "1.6",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("rect", {
-    x: "3",
-    y: "3",
-    width: "18",
-    height: "18",
-    rx: "2"
-  }), /*#__PURE__*/React.createElement("circle", {
-    cx: "9",
-    cy: "9",
-    r: "2"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M21 15l-5-5-9 9"
-  }))) : /*#__PURE__*/React.createElement("img", _extends({}, props, {
-    src: src,
-    alt: alt,
-    onLoad: () => setState("ok"),
-    onError: () => setState("error")
-  }));
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
-    ref: ref,
-    className: cx("cs-image", state === "loading" && "is-loading", preview && state === "ok" && "is-zoomable", className),
-    style: ratio ? {
-      aspectRatio: ratio
-    } : undefined,
-    onClick: preview && state === "ok" ? () => setZoom(true) : undefined,
-    role: preview && state === "ok" ? "button" : undefined,
-    "aria-label": preview && state === "ok" ? t("preview") + (alt ? ": " + alt : "") : undefined
-  }, body), zoom ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-image__zoom",
-    role: "dialog",
-    "aria-label": alt || t("preview"),
-    onClick: () => setZoom(false)
-  }, /*#__PURE__*/React.createElement("img", {
-    src: src,
-    alt: alt
-  }), /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    "aria-label": t("close"),
-    onClick: () => setZoom(false)
-  }, "\u2715")) : null);
-}
-Object.assign(__ds_scope, { Image });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Image.jsx", error: String((e && e.message) || e) }); }
-
 // components/data/Kbd.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Kbd — keyboard key hint. */
-function Kbd({
-  children,
-  className,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("kbd", _extends({
-    className: cx("cs-kbd", className)
-  }, props), children);
+function Kbd({ children, className, ...props }) {
+  return /* @__PURE__ */ React.createElement("kbd", { className: cx("cs-kbd", className), ...props }, children);
 }
 Object.assign(__ds_scope, { Kbd });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Kbd.jsx", error: String((e && e.message) || e) }); }
 
 // components/data/List.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill List container. Compose ListItem children. */
-function List({
-  className,
-  children,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("div", _extends({
-    role: "list",
-    className: cx("cs-list", className)
-  }, props), children);
+function List({ className, children, ...props }) {
+  return /* @__PURE__ */ React.createElement("div", { role: "list", className: cx("cs-list", className), ...props }, children);
 }
-
-/** A row in a List: optional lead (icon/avatar), title, subtitle, trailing node. */
-function ListItem({
-  lead,
-  title,
-  subtitle,
-  trail,
-  onClick,
-  children,
-  className,
-  ...props
-}) {
+function ListItem({ lead, title, subtitle, trail, onClick, children, className, ...props }) {
   const interactive = !!onClick;
   const Tag = interactive ? "button" : "div";
-  return /*#__PURE__*/React.createElement(Tag, _extends({
-    role: "listitem",
-    className: cx("cs-list__item", interactive && "cs-list__item--button", className),
-    onClick: onClick
-  }, props), lead != null ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-list__lead"
-  }, lead) : null, /*#__PURE__*/React.createElement("span", {
-    className: "cs-list__main"
-  }, title != null ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-list__title"
-  }, title) : null, subtitle != null ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-list__sub"
-  }, subtitle) : null, children), trail != null ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-list__trail"
-  }, trail) : null);
+  return /* @__PURE__ */ React.createElement(Tag, { role: "listitem", className: cx("cs-list__item", interactive && "cs-list__item--button", className), onClick, ...props }, lead != null ? /* @__PURE__ */ React.createElement("span", { className: "cs-list__lead" }, lead) : null, /* @__PURE__ */ React.createElement("span", { className: "cs-list__main" }, title != null ? /* @__PURE__ */ React.createElement("span", { className: "cs-list__title" }, title) : null, subtitle != null ? /* @__PURE__ */ React.createElement("span", { className: "cs-list__sub" }, subtitle) : null, children), trail != null ? /* @__PURE__ */ React.createElement("span", { className: "cs-list__trail" }, trail) : null);
 }
 Object.assign(__ds_scope, { List, ListItem });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/List.jsx", error: String((e && e.message) || e) }); }
@@ -1692,28 +717,8 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Masonry — column-packed gallery (CSS columns). */
-function Masonry({
-  columns = 3,
-  gap = 16,
-  children,
-  className,
-  style
-}) {
-  return /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-masonry", className),
-    style: {
-      columnCount: columns,
-      columnGap: gap,
-      ...style
-    }
-  }, React.Children.map(children, c => /*#__PURE__*/React.createElement("div", {
-    className: "cs-masonry__item",
-    style: {
-      marginBottom: gap
-    }
-  }, c)));
+function Masonry({ columns = 3, gap = 16, children, className, style }) {
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-masonry", className), style: { columnCount: columns, columnGap: gap, ...style } }, React.Children.map(children, (c) => /* @__PURE__ */ React.createElement("div", { className: "cs-masonry__item", style: { marginBottom: gap } }, c)));
 }
 Object.assign(__ds_scope, { Masonry });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Masonry.jsx", error: String((e && e.message) || e) }); }
@@ -1723,13 +728,7 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Sortable — drag-to-reorder list (HTML5 DnD). items: [{key,label}]; onChange(newItems). */
-function Sortable({
-  items = [],
-  onChange,
-  className
-}) {
+function Sortable({ items = [], onChange, className }) {
   const [dragKey, setDragKey] = React.useState(null);
   const [over, setOver] = React.useState(null);
   const drop = () => {
@@ -1738,59 +737,49 @@ function Sortable({
       setOver(null);
       return;
     }
-    const from = items.findIndex(i => i.key === dragKey);
-    const to = items.findIndex(i => i.key === over);
+    const from = items.findIndex((i) => i.key === dragKey);
+    const to = items.findIndex((i) => i.key === over);
     const next = [...items];
     next.splice(to, 0, next.splice(from, 1)[0]);
     onChange && onChange(next);
     setDragKey(null);
     setOver(null);
   };
-  return /*#__PURE__*/React.createElement("ul", {
-    className: cx("cs-sortable", className)
-  }, items.map(it => /*#__PURE__*/React.createElement("li", {
-    key: it.key,
-    draggable: true,
-    className: cx("cs-sortable__item", dragKey === it.key && "is-dragging", over === it.key && "is-over"),
-    onDragStart: () => setDragKey(it.key),
-    onDragOver: e => {
-      e.preventDefault();
-      setOver(it.key);
+  return /* @__PURE__ */ React.createElement("ul", { className: cx("cs-sortable", className) }, items.map((it) => /* @__PURE__ */ React.createElement(
+    "li",
+    {
+      key: it.key,
+      draggable: true,
+      className: cx("cs-sortable__item", dragKey === it.key && "is-dragging", over === it.key && "is-over"),
+      onDragStart: () => setDragKey(it.key),
+      onDragOver: (e) => {
+        e.preventDefault();
+        setOver(it.key);
+      },
+      onDrop: drop,
+      onDragEnd: drop
     },
-    onDrop: drop,
-    onDragEnd: drop
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "cs-sortable__grip",
-    "aria-hidden": "true"
-  }, "\u283F"), it.label)));
+    /* @__PURE__ */ React.createElement("span", { className: "cs-sortable__grip", "aria-hidden": "true" }, "⠿"),
+    it.label
+  )));
 }
 Object.assign(__ds_scope, { Sortable });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Sortable.jsx", error: String((e && e.message) || e) }); }
 
 // components/data/Splitter.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Splitter — two resizable panes with a draggable (and arrow-key) divider. */
-function Splitter({
-  start,
-  end,
-  initial = 50,
-  min = 20,
-  max = 80,
-  height = 240,
-  lang,
-  className
-}) {
+function Splitter({ start, end, initial = 50, min = 20, max = 80, height = 240, lang, className }) {
   const [pct, setPct] = React.useState(initial);
   const wrap = React.useRef(null);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("Splitter", L);
-  const drag = e => {
+  const [ref, L] = useLang(lang);
+  const t = makeT("Splitter", L);
+  const drag = (e) => {
     e.preventDefault();
-    const move = ev => {
+    const move = (ev) => {
       const r = wrap.current.getBoundingClientRect();
       const x = (ev.touches ? ev.touches[0].clientX : ev.clientX) - r.left;
       setPct(Math.min(max, Math.max(min, x / r.width * 100)));
@@ -1802,143 +791,71 @@ function Splitter({
     document.addEventListener("pointermove", move);
     document.addEventListener("pointerup", up);
   };
-  return /*#__PURE__*/React.createElement("div", {
-    ref: el => {
-      wrap.current = el;
-      ref.current = el;
-    },
-    className: cx("cs-splitter", className),
-    style: {
-      height
+  return /* @__PURE__ */ React.createElement("div", { ref: (el) => {
+    wrap.current = el;
+    ref.current = el;
+  }, className: cx("cs-splitter", className), style: { height } }, /* @__PURE__ */ React.createElement("div", { className: "cs-splitter__pane", style: { inlineSize: pct + "%" } }, start), /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      className: "cs-splitter__bar",
+      role: "separator",
+      "aria-label": t("label"),
+      "aria-valuenow": Math.round(pct),
+      "aria-valuemin": min,
+      "aria-valuemax": max,
+      tabIndex: 0,
+      onPointerDown: drag,
+      onKeyDown: (e) => {
+        if (e.key === "ArrowLeft") setPct((p) => Math.max(min, p - 2));
+        else if (e.key === "ArrowRight") setPct((p) => Math.min(max, p + 2));
+      }
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-splitter__pane",
-    style: {
-      inlineSize: pct + "%"
-    }
-  }, start), /*#__PURE__*/React.createElement("div", {
-    className: "cs-splitter__bar",
-    role: "separator",
-    "aria-label": t("label"),
-    "aria-valuenow": Math.round(pct),
-    "aria-valuemin": min,
-    "aria-valuemax": max,
-    tabIndex: 0,
-    onPointerDown: drag,
-    onKeyDown: e => {
-      if (e.key === "ArrowLeft") setPct(p => Math.max(min, p - 2));else if (e.key === "ArrowRight") setPct(p => Math.min(max, p + 2));
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "cs-splitter__pane",
-    style: {
-      inlineSize: 100 - pct + "%"
-    }
-  }, end));
+  ), /* @__PURE__ */ React.createElement("div", { className: "cs-splitter__pane", style: { inlineSize: 100 - pct + "%" } }, end));
 }
 Object.assign(__ds_scope, { Splitter });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Splitter.jsx", error: String((e && e.message) || e) }); }
 
 // components/data/Stat.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Stat — labelled metric with optional delta. trend: up | down | flat. */
-function Stat({
-  label,
-  value,
-  delta,
-  trend = "flat",
-  className,
-  ...props
-}) {
+function Stat({ label, value, delta, trend = "flat", className, ...props }) {
   const arrow = trend === "up" ? "M12 5v14M6 11l6-6 6 6" : trend === "down" ? "M12 5v14M6 13l6 6 6-6" : "M5 12h14";
-  return /*#__PURE__*/React.createElement("div", _extends({
-    className: cx("cs-stat", className)
-  }, props), /*#__PURE__*/React.createElement("div", {
-    className: "cs-stat__label"
-  }, label), /*#__PURE__*/React.createElement("div", {
-    className: "cs-stat__value"
-  }, value), delta != null ? /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-stat__delta", `cs-stat__delta--${trend}`)
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "14",
-    height: "14",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2.4",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: arrow
-  })), delta) : null);
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-stat", className), ...props }, /* @__PURE__ */ React.createElement("div", { className: "cs-stat__label" }, label), /* @__PURE__ */ React.createElement("div", { className: "cs-stat__value" }, value), delta != null ? /* @__PURE__ */ React.createElement("div", { className: cx("cs-stat__delta", `cs-stat__delta--${trend}`) }, /* @__PURE__ */ React.createElement("svg", { width: "14", height: "14", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.4", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: arrow })), delta) : null);
 }
 Object.assign(__ds_scope, { Stat });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Stat.jsx", error: String((e && e.message) || e) }); }
 
 // components/data/Terminal.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Terminal — command console: history + prompt input; onCommand returns output (string or lines). */
-function Terminal({
-  title = "cyberskill — zsh",
-  welcome,
-  onCommand,
-  prompt = "➜",
-  lang,
-  className
-}) {
-  const [hist, setHist] = React.useState(() => welcome ? [{
-    out: welcome
-  }] : []);
+function Terminal({ title = "cyberskill — zsh", welcome, onCommand, prompt = "➜", lang, className }) {
+  const [hist, setHist] = React.useState(() => welcome ? [{ out: welcome }] : []);
   const [q, setQ] = React.useState("");
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("Terminal", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("Terminal", L);
   const run = () => {
     if (!q.trim()) return;
     const res = onCommand ? onCommand(q.trim()) : "";
-    setHist(h => [...h, {
-      cmd: q
-    }, ...(res ? [{
-      out: res
-    }] : [])]);
+    setHist((h) => [...h, { cmd: q }, ...res ? [{ out: res }] : []]);
     setQ("");
   };
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-terminal", className)
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-terminal__bar"
-  }, /*#__PURE__*/React.createElement("i", null), /*#__PURE__*/React.createElement("i", null), /*#__PURE__*/React.createElement("i", null), /*#__PURE__*/React.createElement("span", null, title)), /*#__PURE__*/React.createElement("div", {
-    className: "cs-terminal__body"
-  }, hist.map((l, i) => l.cmd != null ? /*#__PURE__*/React.createElement("div", {
-    key: i,
-    className: "cs-terminal__line"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "p"
-  }, prompt), " ", l.cmd) : /*#__PURE__*/React.createElement("div", {
-    key: i,
-    className: "cs-terminal__out"
-  }, l.out)), /*#__PURE__*/React.createElement("div", {
-    className: "cs-terminal__line"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "p"
-  }, prompt), /*#__PURE__*/React.createElement("input", {
-    value: q,
-    "aria-label": t("input"),
-    spellCheck: false,
-    onChange: e => setQ(e.target.value),
-    onKeyDown: e => {
-      if (e.key === "Enter") run();
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-terminal", className) }, /* @__PURE__ */ React.createElement("div", { className: "cs-terminal__bar" }, /* @__PURE__ */ React.createElement("i", null), /* @__PURE__ */ React.createElement("i", null), /* @__PURE__ */ React.createElement("i", null), /* @__PURE__ */ React.createElement("span", null, title)), /* @__PURE__ */ React.createElement("div", { className: "cs-terminal__body" }, hist.map((l, i) => l.cmd != null ? /* @__PURE__ */ React.createElement("div", { key: i, className: "cs-terminal__line" }, /* @__PURE__ */ React.createElement("span", { className: "p" }, prompt), " ", l.cmd) : /* @__PURE__ */ React.createElement("div", { key: i, className: "cs-terminal__out" }, l.out)), /* @__PURE__ */ React.createElement("div", { className: "cs-terminal__line" }, /* @__PURE__ */ React.createElement("span", { className: "p" }, prompt), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      value: q,
+      "aria-label": t("input"),
+      spellCheck: false,
+      onChange: (e) => setQ(e.target.value),
+      onKeyDown: (e) => {
+        if (e.key === "Enter") run();
+      }
     }
-  }))));
+  ))));
 }
 Object.assign(__ds_scope, { Terminal });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Terminal.jsx", error: String((e && e.message) || e) }); }
@@ -1948,27 +865,8 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Timeline — vertical event trail. item.state: "done" (default) | "now" | "todo". */
-function Timeline({
-  items = [],
-  className
-}) {
-  return /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-timeline", className)
-  }, items.map((it, i) => /*#__PURE__*/React.createElement("div", {
-    key: i,
-    className: cx("cs-timeline__item", it.state === "now" && "cs-timeline__item--now", it.state === "todo" && "cs-timeline__item--todo")
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "cs-timeline__marker",
-    "aria-hidden": "true"
-  }, it.state === "todo" ? "" : it.state === "now" ? "→" : "✓"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "cs-timeline__title"
-  }, it.title), it.meta ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-timeline__meta"
-  }, it.meta) : null, it.body ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-timeline__body"
-  }, it.body) : null))));
+function Timeline({ items = [], className }) {
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-timeline", className) }, items.map((it, i) => /* @__PURE__ */ React.createElement("div", { key: i, className: cx("cs-timeline__item", it.state === "now" && "cs-timeline__item--now", it.state === "todo" && "cs-timeline__item--todo") }, /* @__PURE__ */ React.createElement("span", { className: "cs-timeline__marker", "aria-hidden": "true" }, it.state === "todo" ? "" : it.state === "now" ? "→" : "✓"), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "cs-timeline__title" }, it.title), it.meta ? /* @__PURE__ */ React.createElement("div", { className: "cs-timeline__meta" }, it.meta) : null, it.body ? /* @__PURE__ */ React.createElement("div", { className: "cs-timeline__body" }, it.body) : null))));
 }
 Object.assign(__ds_scope, { Timeline });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Timeline.jsx", error: String((e && e.message) || e) }); }
@@ -1978,19 +876,8 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Tooltip — hover/focus bubble above the trigger. Keep label short. */
-function Tooltip({
-  label,
-  children,
-  className
-}) {
-  return /*#__PURE__*/React.createElement("span", {
-    className: cx("cs-tooltip", className)
-  }, children, /*#__PURE__*/React.createElement("span", {
-    className: "cs-tooltip__bubble",
-    role: "tooltip"
-  }, label));
+function Tooltip({ label, children, className }) {
+  return /* @__PURE__ */ React.createElement("span", { className: cx("cs-tooltip", className) }, children, /* @__PURE__ */ React.createElement("span", { className: "cs-tooltip__bubble", role: "tooltip" }, label));
 }
 Object.assign(__ds_scope, { Tooltip });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Tooltip.jsx", error: String((e && e.message) || e) }); }
@@ -2000,71 +887,16 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-function Node({
-  n,
-  depth,
-  selected,
-  onSelect,
-  defaultOpen
-}) {
+function Node({ n, depth, selected, onSelect, defaultOpen }) {
   const [open, setOpen] = React.useState(!!defaultOpen);
   const kids = n.children || [];
-  return /*#__PURE__*/React.createElement("li", {
-    role: "treeitem",
-    "aria-expanded": kids.length ? open : undefined,
-    "aria-selected": selected === n.key
-  }, /*#__PURE__*/React.createElement("span", {
-    className: cx("cs-tree__row", selected === n.key && "is-selected"),
-    style: {
-      paddingInlineStart: depth * 18 + 6
-    }
-  }, kids.length ? /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-tree__twist",
-    "aria-hidden": "true",
-    tabIndex: -1,
-    onClick: () => setOpen(o => !o)
-  }, open ? "▾" : "▸") : /*#__PURE__*/React.createElement("span", {
-    className: "cs-tree__twist",
-    "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-tree__label",
-    onClick: () => {
-      onSelect && onSelect(n.key, n);
-      if (kids.length) setOpen(o => !o);
-    }
-  }, n.label)), kids.length && open ? /*#__PURE__*/React.createElement("ul", {
-    role: "group"
-  }, kids.map(c => /*#__PURE__*/React.createElement(Node, {
-    key: c.key,
-    n: c,
-    depth: depth + 1,
-    selected: selected,
-    onSelect: onSelect,
-    defaultOpen: defaultOpen
-  }))) : null);
+  return /* @__PURE__ */ React.createElement("li", { role: "treeitem", "aria-expanded": kids.length ? open : void 0, "aria-selected": selected === n.key }, /* @__PURE__ */ React.createElement("span", { className: cx("cs-tree__row", selected === n.key && "is-selected"), style: { paddingInlineStart: depth * 18 + 6 } }, kids.length ? /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-tree__twist", "aria-hidden": "true", tabIndex: -1, onClick: () => setOpen((o) => !o) }, open ? "▾" : "▸") : /* @__PURE__ */ React.createElement("span", { className: "cs-tree__twist", "aria-hidden": "true" }), /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-tree__label", onClick: () => {
+    onSelect && onSelect(n.key, n);
+    if (kids.length) setOpen((o) => !o);
+  } }, n.label)), kids.length && open ? /* @__PURE__ */ React.createElement("ul", { role: "group" }, kids.map((c) => /* @__PURE__ */ React.createElement(Node, { key: c.key, n: c, depth: depth + 1, selected, onSelect, defaultOpen }))) : null);
 }
-
-/** CyberSkill Tree — expandable hierarchy. nodes: {key,label,children[]}. Single select via onSelect. */
-function Tree({
-  nodes = [],
-  selected,
-  onSelect,
-  defaultOpen = false,
-  className
-}) {
-  return /*#__PURE__*/React.createElement("ul", {
-    role: "tree",
-    className: cx("cs-tree", className)
-  }, nodes.map(n => /*#__PURE__*/React.createElement(Node, {
-    key: n.key,
-    n: n,
-    depth: 0,
-    selected: selected,
-    onSelect: onSelect,
-    defaultOpen: defaultOpen
-  })));
+function Tree({ nodes = [], selected, onSelect, defaultOpen = false, className }) {
+  return /* @__PURE__ */ React.createElement("ul", { role: "tree", className: cx("cs-tree", className) }, nodes.map((n) => /* @__PURE__ */ React.createElement(Node, { key: n.key, n, depth: 0, selected, onSelect, defaultOpen })));
 }
 Object.assign(__ds_scope, { Tree });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Tree.jsx", error: String((e && e.message) || e) }); }
@@ -2074,75 +906,30 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Watermark — repeats rotated text behind children (draft/confidential marking). */
-function Watermark({
-  text = "CyberSkill",
-  opacity = 0.09,
-  gap = 140,
-  rotate = -22,
-  children,
-  className
-}) {
-  const svg = encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${gap}" height="${gap}"><text x="50%" y="50%" font-family="Be Vietnam Pro, sans-serif" font-size="14" font-weight="700" fill="#45210E" fill-opacity="${opacity}" text-anchor="middle" transform="rotate(${rotate} ${gap / 2} ${gap / 2})">${String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;")}</text></svg>`);
-  return /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-watermark", className),
-    style: {
-      position: "relative"
-    }
-  }, children, /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: "absolute",
-      inset: 0,
-      pointerEvents: "none",
-      backgroundImage: `url("data:image/svg+xml,${svg}")`
-    }
-  }));
+function Watermark({ text = "CyberSkill", opacity = 0.09, gap = 140, rotate = -22, children, className }) {
+  const svg = encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${gap}" height="${gap}"><text x="50%" y="50%" font-family="Be Vietnam Pro, sans-serif" font-size="14" font-weight="700" fill="#45210E" fill-opacity="${opacity}" text-anchor="middle" transform="rotate(${rotate} ${gap / 2} ${gap / 2})">${String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;")}</text></svg>`
+  );
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-watermark", className), style: { position: "relative" } }, children, /* @__PURE__ */ React.createElement("div", { "aria-hidden": "true", style: { position: "absolute", inset: 0, pointerEvents: "none", backgroundImage: `url("data:image/svg+xml,${svg}")` } }));
 }
 Object.assign(__ds_scope, { Watermark });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Watermark.jsx", error: String((e && e.message) || e) }); }
 
 // components/data/qr-encode.js
 try { (() => {
-/* Minimal QR encoder — byte mode, EC level L, versions 1–4, mask 0.
- * Single RS block per version (per the QR spec for 1L–4L). Not a component
- * (lowercase export). Used by QRCode.jsx. */
-const EC = {
-  1: 7,
-  2: 10,
-  3: 15,
-  4: 20
-}; // EC codewords (L)
-const TOTAL = {
-  1: 26,
-  2: 44,
-  3: 70,
-  4: 100
-}; // total codewords
-const CAP = {
-  1: 17,
-  2: 32,
-  3: 53,
-  4: 78
-}; // data bytes (byte mode, L)
-const ALIGN = {
-  1: [],
-  2: [6, 18],
-  3: [6, 22],
-  4: [6, 26]
-};
-// format info for EC L + mask 0 (15 bits, MSB first)
+const EC = { 1: 7, 2: 10, 3: 15, 4: 20 };
+const TOTAL = { 1: 26, 2: 44, 3: 70, 4: 100 };
+const CAP = { 1: 17, 2: 32, 3: 53, 4: 78 };
+const ALIGN = { 1: [], 2: [6, 18], 3: [6, 22], 4: [6, 26] };
 const FORMAT = [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0];
-const EXP = new Array(512),
-  LOG = new Array(256);
-(function () {
+const EXP = new Array(512), LOG = new Array(256);
+(function() {
   let x = 1;
   for (let i = 0; i < 255; i++) {
     EXP[i] = x;
     LOG[x] = i;
     x <<= 1;
-    if (x & 0x100) x ^= 0x11d;
+    if (x & 256) x ^= 285;
   }
   for (let i = 255; i < 512; i++) EXP[i] = EXP[i - 255];
 })();
@@ -2173,26 +960,23 @@ function qrMatrix(text) {
   }
   if (!v) throw new Error("too long");
   const dataLen = TOTAL[v] - EC[v];
-  // bitstream: mode 0100 + 8-bit count + bytes + terminator
   const bits = [];
-  const push = (val, n) => {
-    for (let i = n - 1; i >= 0; i--) bits.push(val >> i & 1);
+  const push = (val, n2) => {
+    for (let i = n2 - 1; i >= 0; i--) bits.push(val >> i & 1);
   };
   push(4, 4);
   push(bytes.length, 8);
-  bytes.forEach(b => push(b, 8));
+  bytes.forEach((b) => push(b, 8));
   push(0, Math.min(4, dataLen * 8 - bits.length));
   while (bits.length % 8) bits.push(0);
   const cw = [];
   for (let i = 0; i < bits.length; i += 8) cw.push(parseInt(bits.slice(i, i + 8).join(""), 2));
-  const pads = [0xec, 0x11];
+  const pads = [236, 17];
   let p = 0;
   while (cw.length < dataLen) cw.push(pads[p++ % 2]);
   const all = cw.concat(rs(cw, EC[v]));
   const n = 17 + v * 4;
-  const M = Array.from({
-    length: n
-  }, () => new Array(n).fill(null));
+  const M = Array.from({ length: n }, () => new Array(n).fill(null));
   const setF = (x, y, val) => {
     if (y >= 0 && y < n && x >= 0 && x < n) M[y][x] = val;
   };
@@ -2216,7 +1000,7 @@ function qrMatrix(text) {
     if (M[ay][ax] != null) continue;
     for (let y = -2; y <= 2; y++) for (let x = -2; x <= 2; x++) setF(ax + x, ay + y, Math.max(Math.abs(x), Math.abs(y)) !== 1 ? 1 : 0);
   }
-  M[n - 8][8] = 1; // dark module
+  M[n - 8][8] = 1;
   const fpos1 = [[8, 0], [8, 1], [8, 2], [8, 3], [8, 4], [8, 5], [8, 7], [8, 8], [7, 8], [5, 8], [4, 8], [3, 8], [2, 8], [1, 8], [0, 8]];
   const fpos2 = [[n - 1, 8], [n - 2, 8], [n - 3, 8], [n - 4, 8], [n - 5, 8], [n - 6, 8], [n - 7, 8], [8, n - 8], [8, n - 7], [8, n - 6], [8, n - 5], [8, n - 4], [8, n - 3], [8, n - 2], [8, n - 1]];
   FORMAT.forEach((b, i) => {
@@ -2225,9 +1009,8 @@ function qrMatrix(text) {
     const [x2, y2] = fpos2[i];
     M[y2][x2] = b;
   });
-  // place data, mask 0 ((r+c)%2===0 flips)
   let bi = 0;
-  const bit = i => i < all.length * 8 ? all[i >> 3] >> 7 - (i & 7) & 1 : 0;
+  const bit = (i) => i < all.length * 8 ? all[i >> 3] >> 7 - (i & 7) & 1 : 0;
   for (let col = n - 1; col > 0; col -= 2) {
     if (col === 6) col--;
     for (let i = 0; i < n; i++) {
@@ -2248,58 +1031,33 @@ Object.assign(__ds_scope, { qrMatrix });
 
 // components/data/QRCode.jsx
 try { (() => {
+const { qrMatrix } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill QRCode — SVG QR (byte mode, EC-L, versions 1–4 ≈ up to 78 bytes). Umber on transparent. */
-function QRCode({
-  value = "",
-  size = 128,
-  color = "var(--cs-color-text-primary)",
-  label,
-  className
-}) {
+function QRCode({ value = "", size = 128, color = "var(--cs-color-text-primary)", label, className }) {
   const m = React.useMemo(() => {
     try {
-      return __ds_scope.qrMatrix(String(value));
+      return qrMatrix(String(value));
     } catch (e) {
       return null;
     }
   }, [value]);
-  if (!m) return /*#__PURE__*/React.createElement("span", {
-    className: cx("cs-qrcode", className),
-    role: "img",
-    "aria-label": label || value
-  }, "\u2014");
-  const n = m.length,
-    cell = size / n;
+  if (!m) return /* @__PURE__ */ React.createElement("span", { className: cx("cs-qrcode", className), role: "img", "aria-label": label || value }, "—");
+  const n = m.length, cell = size / n;
   let d = "";
   for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) if (m[y][x]) d += `M${x * cell} ${y * cell}h${cell}v${cell}h${-cell}z`;
-  return /*#__PURE__*/React.createElement("span", {
-    className: cx("cs-qrcode", className),
-    role: "img",
-    "aria-label": label || value
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: size,
-    height: size,
-    viewBox: `0 0 ${size} ${size}`,
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: d,
-    fill: color
-  })));
+  return /* @__PURE__ */ React.createElement("span", { className: cx("cs-qrcode", className), role: "img", "aria-label": label || value }, /* @__PURE__ */ React.createElement("svg", { width: size, height: size, viewBox: `0 0 ${size} ${size}`, "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d, fill: color })));
 }
 Object.assign(__ds_scope, { QRCode });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/QRCode.jsx", error: String((e && e.message) || e) }); }
 
 // components/datatable/DataGrid.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill DataGrid — sortable, selectable, sticky header, pin, filter, virtualization, column persistence. */
 function DataGrid({
   columns = [],
   rows = [],
@@ -2314,9 +1072,13 @@ function DataGrid({
   className,
   filterText,
   filterKeys,
+  /** When true (or rows exceed virtualThreshold), only paint a window of rows. */
   virtual = false,
+  /** Row threshold that auto-enables virtualization. Default 80. */
   virtualThreshold = 80,
+  /** Approximate row height for windowing. Default 36. */
   rowHeight = 36,
+  /** localStorage key — when set, column key order is persisted across reloads. */
   persistKey
 }) {
   const [sort, setSort] = React.useState(null);
@@ -2331,11 +1093,11 @@ function DataGrid({
       return null;
     }
   });
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("DataGrid", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("DataGrid", L);
   const orderedColumns = React.useMemo(() => {
     if (!colOrder || !colOrder.length) return columns;
-    const map = new Map(columns.map(c => [c.key, c]));
+    const map = new Map(columns.map((c) => [c.key, c]));
     const out = [];
     for (const k of colOrder) if (map.has(k)) {
       out.push(map.get(k));
@@ -2347,16 +1109,15 @@ function DataGrid({
   const filtered = React.useMemo(() => {
     const q = (filterText == null ? "" : String(filterText)).trim().toLowerCase();
     if (!q) return rows;
-    const keys = filterKeys && filterKeys.length ? filterKeys : orderedColumns.map(c => c.key);
-    return rows.filter(r => keys.some(k => String(r[k] == null ? "" : r[k]).toLowerCase().includes(q)));
+    const keys = filterKeys && filterKeys.length ? filterKeys : orderedColumns.map((c) => c.key);
+    return rows.filter((r) => keys.some((k) => String(r[k] == null ? "" : r[k]).toLowerCase().includes(q)));
   }, [rows, filterText, filterKeys, orderedColumns]);
   const sorted = React.useMemo(() => {
     if (!sort) return filtered;
-    const col = orderedColumns.find(c => c.key === sort.key);
-    const val = r => col && col.sortValue ? col.sortValue(r) : r[sort.key];
+    const col = orderedColumns.find((c) => c.key === sort.key);
+    const val = (r) => col && col.sortValue ? col.sortValue(r) : r[sort.key];
     return [...filtered].sort((a, b) => {
-      const x = val(a),
-        y = val(b);
+      const x = val(a), y = val(b);
       return (x > y ? 1 : x < y ? -1 : 0) * (sort.dir === "asc" ? 1 : -1);
     });
   }, [filtered, sort, orderedColumns]);
@@ -2368,127 +1129,55 @@ function DataGrid({
   const slice = sorted.slice(start, end);
   const padTop = useVirtual ? start * rowHeight : 0;
   const padBottom = useVirtual ? Math.max(0, (sorted.length - end) * rowHeight) : 0;
-  const allSel = selectable && filtered.length && filtered.every(r => selected.includes(r[rowKey]));
-  const toggleAll = () => onSelect && onSelect(allSel ? [] : filtered.map(r => r[rowKey]));
-  const toggle = k => onSelect && onSelect(selected.includes(k) ? selected.filter(x => x !== k) : [...selected, k]);
-  const pinColumn = key => {
+  const allSel = selectable && filtered.length && filtered.every((r) => selected.includes(r[rowKey]));
+  const toggleAll = () => onSelect && onSelect(allSel ? [] : filtered.map((r) => r[rowKey]));
+  const toggle = (k) => onSelect && onSelect(selected.includes(k) ? selected.filter((x) => x !== k) : [...selected, k]);
+  const pinColumn = (key) => {
     if (!persistKey) return;
-    const keys = orderedColumns.map(c => c.key);
-    const next = [key, ...keys.filter(k => k !== key)];
+    const keys = orderedColumns.map((c) => c.key);
+    const next = [key, ...keys.filter((k) => k !== key)];
     setColOrder(next);
     try {
       localStorage.setItem("cs:datagrid:cols:" + persistKey, JSON.stringify(next));
-    } catch (e) {}
+    } catch (e) {
+    }
   };
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-datagrid", useVirtual && "cs-datagrid--virtual", className),
-    style: {
-      maxBlockSize: height,
-      overflow: "auto"
+  return /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      ref,
+      className: cx("cs-datagrid", useVirtual && "cs-datagrid--virtual", className),
+      style: { maxBlockSize: height, overflow: "auto" },
+      onScroll: useVirtual ? (e) => setScrollTop(e.currentTarget.scrollTop) : void 0,
+      "data-virtual": useVirtual ? "true" : "false",
+      "data-row-count": sorted.length
     },
-    onScroll: useVirtual ? e => setScrollTop(e.currentTarget.scrollTop) : undefined,
-    "data-virtual": useVirtual ? "true" : "false",
-    "data-row-count": sorted.length
-  }, /*#__PURE__*/React.createElement("table", {
-    className: "cs-table"
-  }, caption ? /*#__PURE__*/React.createElement("caption", null, caption) : null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, selectable ? /*#__PURE__*/React.createElement("th", {
-    scope: "col",
-    className: "cs-datagrid__selcol"
-  }, /*#__PURE__*/React.createElement("input", {
-    type: "checkbox",
-    "aria-label": t("selectAll"),
-    checked: !!allSel,
-    onChange: toggleAll
-  })) : null, orderedColumns.map(c => /*#__PURE__*/React.createElement("th", {
-    key: c.key,
-    scope: "col",
-    className: c.pinned ? "cs-datagrid__pinned" : undefined,
-    style: c.pinned ? {
-      position: "sticky",
-      insetInlineStart: 0,
-      zIndex: 1,
-      background: "var(--cs-color-surface-panel)"
-    } : undefined,
-    "aria-sort": sort && sort.key === c.key ? sort.dir === "asc" ? "ascending" : "descending" : undefined
-  }, c.sortable ? /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-datagrid__sort",
-    onClick: () => setSort(s => !s || s.key !== c.key ? {
-      key: c.key,
-      dir: "asc"
-    } : s.dir === "asc" ? {
-      key: c.key,
-      dir: "desc"
-    } : null)
-  }, c.header, /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true"
-  }, sort && sort.key === c.key ? sort.dir === "asc" ? " ▲" : " ▼" : " ↕")) : c.header, persistKey ? /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-datagrid__pin",
-    title: "Pin column first",
-    onClick: () => pinColumn(c.key),
-    "aria-label": "Pin " + c.key
-  }, "⟂") : null)))), /*#__PURE__*/React.createElement("tbody", null, sorted.length === 0 ? /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
-    colSpan: orderedColumns.length + (selectable ? 1 : 0),
-    className: "cs-table__empty"
-  }, empty != null ? empty : t("empty"))) : /*#__PURE__*/React.createElement(React.Fragment, null, padTop > 0 ? /*#__PURE__*/React.createElement("tr", {
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("td", {
-    colSpan: orderedColumns.length + (selectable ? 1 : 0),
-    style: {
-      height: padTop,
-      padding: 0,
-      border: 0
-    }
-  })) : null, slice.map((r, i) => {
-    const k = r[rowKey] != null ? r[rowKey] : start + i;
-    return /*#__PURE__*/React.createElement("tr", {
-      key: k,
-      className: selected.includes(k) ? "is-selected" : undefined,
-      style: useVirtual ? {
-        height: rowHeight
-      } : undefined
-    }, selectable ? /*#__PURE__*/React.createElement("td", {
-      className: "cs-datagrid__selcol"
-    }, /*#__PURE__*/React.createElement("input", {
-      type: "checkbox",
-      "aria-label": t("selectRow"),
-      checked: selected.includes(k),
-      onChange: () => toggle(k)
-    })) : null, orderedColumns.map(c => /*#__PURE__*/React.createElement("td", {
-      key: c.key,
-      className: c.pinned ? "cs-datagrid__pinned" : undefined,
-      style: c.pinned ? {
-        position: "sticky",
-        insetInlineStart: 0,
-        background: "var(--cs-color-surface-panel)"
-      } : undefined
-    }, c.render ? c.render(r) : r[c.key])));
-  }), padBottom > 0 ? /*#__PURE__*/React.createElement("tr", {
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("td", {
-    colSpan: orderedColumns.length + (selectable ? 1 : 0),
-    style: {
-      height: padBottom,
-      padding: 0,
-      border: 0
-    }
-  })) : null))));
+    /* @__PURE__ */ React.createElement("table", { className: "cs-table" }, caption ? /* @__PURE__ */ React.createElement("caption", null, caption) : null, /* @__PURE__ */ React.createElement("thead", null, /* @__PURE__ */ React.createElement("tr", null, selectable ? /* @__PURE__ */ React.createElement("th", { scope: "col", className: "cs-datagrid__selcol" }, /* @__PURE__ */ React.createElement("input", { type: "checkbox", "aria-label": t("selectAll"), checked: !!allSel, onChange: toggleAll })) : null, orderedColumns.map((c) => /* @__PURE__ */ React.createElement(
+      "th",
+      {
+        key: c.key,
+        scope: "col",
+        className: c.pinned ? "cs-datagrid__pinned" : void 0,
+        style: c.pinned ? { position: "sticky", insetInlineStart: 0, zIndex: 1, background: "var(--cs-color-surface-panel)" } : void 0,
+        "aria-sort": sort && sort.key === c.key ? sort.dir === "asc" ? "ascending" : "descending" : void 0
+      },
+      c.sortable ? /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-datagrid__sort", onClick: () => setSort((s) => !s || s.key !== c.key ? { key: c.key, dir: "asc" } : s.dir === "asc" ? { key: c.key, dir: "desc" } : null) }, c.header, /* @__PURE__ */ React.createElement("span", { "aria-hidden": "true" }, sort && sort.key === c.key ? sort.dir === "asc" ? " ▲" : " ▼" : " ↕")) : c.header,
+      persistKey ? /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-datagrid__pin", title: "Pin column first", onClick: () => pinColumn(c.key), "aria-label": "Pin " + c.key }, "⟂") : null
+    )))), /* @__PURE__ */ React.createElement("tbody", null, sorted.length === 0 ? /* @__PURE__ */ React.createElement("tr", null, /* @__PURE__ */ React.createElement("td", { colSpan: orderedColumns.length + (selectable ? 1 : 0), className: "cs-table__empty" }, empty != null ? empty : t("empty"))) : /* @__PURE__ */ React.createElement(React.Fragment, null, padTop > 0 ? /* @__PURE__ */ React.createElement("tr", { "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("td", { colSpan: orderedColumns.length + (selectable ? 1 : 0), style: { height: padTop, padding: 0, border: 0 } })) : null, slice.map((r, i) => {
+      const k = r[rowKey] != null ? r[rowKey] : start + i;
+      return /* @__PURE__ */ React.createElement("tr", { key: k, className: selected.includes(k) ? "is-selected" : void 0, style: useVirtual ? { height: rowHeight } : void 0 }, selectable ? /* @__PURE__ */ React.createElement("td", { className: "cs-datagrid__selcol" }, /* @__PURE__ */ React.createElement("input", { type: "checkbox", "aria-label": t("selectRow"), checked: selected.includes(k), onChange: () => toggle(k) })) : null, orderedColumns.map((c) => /* @__PURE__ */ React.createElement("td", { key: c.key, className: c.pinned ? "cs-datagrid__pinned" : void 0, style: c.pinned ? { position: "sticky", insetInlineStart: 0, background: "var(--cs-color-surface-panel)" } : void 0 }, c.render ? c.render(r) : r[c.key])));
+    }), padBottom > 0 ? /* @__PURE__ */ React.createElement("tr", { "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("td", { colSpan: orderedColumns.length + (selectable ? 1 : 0), style: { height: padBottom, padding: 0, border: 0 } })) : null)))
+  );
 }
-__ds_scope.DataGrid = DataGrid;
-})(); } catch (e) { console.error('[ds-bundle] DataGrid failed:', e); }
+Object.assign(__ds_scope, { DataGrid });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/datatable/DataGrid.jsx", error: String((e && e.message) || e) }); }
 
 // components/datatable/DataTable.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/**
- * CyberSkill DataTable — semantic table with caption, column scope headers,
- * per-column render, and an empty state. Solid surface (dense content).
- */
 function DataTable({
   caption,
   columns,
@@ -2499,203 +1188,35 @@ function DataTable({
   className
 }) {
   const normalized = Array.isArray(rows) ? rows : [];
-  const [ref, L] = __ds_scope.useLang(lang);
-  const es = emptyState != null ? emptyState : __ds_scope.makeT("DataTable", L)("empty");
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-table-wrap", className)
-  }, /*#__PURE__*/React.createElement("table", {
-    className: "cs-table"
-  }, caption ? /*#__PURE__*/React.createElement("caption", null, caption) : null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, columns.map(c => /*#__PURE__*/React.createElement("th", {
-    key: c.key,
-    scope: "col"
-  }, c.header)))), /*#__PURE__*/React.createElement("tbody", null, normalized.length === 0 ? /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
-    colSpan: columns.length,
-    className: "cs-table__empty"
-  }, es)) : normalized.map((row, i) => /*#__PURE__*/React.createElement("tr", {
-    key: row[rowKey] ?? i
-  }, columns.map(c => /*#__PURE__*/React.createElement("td", {
-    key: c.key
-  }, c.render ? c.render(row) : row[c.key])))))));
+  const [ref, L] = useLang(lang);
+  const es = emptyState != null ? emptyState : makeT("DataTable", L)("empty");
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-table-wrap", className) }, /* @__PURE__ */ React.createElement("table", { className: "cs-table" }, caption ? /* @__PURE__ */ React.createElement("caption", null, caption) : null, /* @__PURE__ */ React.createElement("thead", null, /* @__PURE__ */ React.createElement("tr", null, columns.map((c) => /* @__PURE__ */ React.createElement("th", { key: c.key, scope: "col" }, c.header)))), /* @__PURE__ */ React.createElement("tbody", null, normalized.length === 0 ? /* @__PURE__ */ React.createElement("tr", null, /* @__PURE__ */ React.createElement("td", { colSpan: columns.length, className: "cs-table__empty" }, es)) : normalized.map((row, i) => /* @__PURE__ */ React.createElement("tr", { key: row[rowKey] ?? i }, columns.map((c) => /* @__PURE__ */ React.createElement("td", { key: c.key }, c.render ? c.render(row) : row[c.key])))))));
 }
 Object.assign(__ds_scope, { DataTable });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/datatable/DataTable.jsx", error: String((e && e.message) || e) }); }
 
 // components/datatable/TreeTable.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-function Row({
-  n,
-  depth,
-  columns,
-  expanded,
-  setExpanded
-}) {
+function Row({ n, depth, columns, expanded, setExpanded }) {
   const kids = n.children || [];
   const open = expanded.includes(n.key);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("tr", null, columns.map((c, i) => /*#__PURE__*/React.createElement("td", {
-    key: c.key
-  }, i === 0 ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-treetable__cell",
-    style: {
-      paddingInlineStart: depth * 18
-    }
-  }, kids.length ? /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-tree__twist",
-    "aria-expanded": open,
-    onClick: () => setExpanded(open ? expanded.filter(k => k !== n.key) : [...expanded, n.key])
-  }, open ? "▾" : "▸") : /*#__PURE__*/React.createElement("span", {
-    className: "cs-tree__twist",
-    "aria-hidden": "true"
-  }), c.render ? c.render(n) : n[c.key]) : c.render ? c.render(n) : n[c.key]))), open ? kids.map(k => /*#__PURE__*/React.createElement(Row, {
-    key: k.key,
-    n: k,
-    depth: depth + 1,
-    columns: columns,
-    expanded: expanded,
-    setExpanded: setExpanded
-  })) : null);
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("tr", null, columns.map((c, i) => /* @__PURE__ */ React.createElement("td", { key: c.key }, i === 0 ? /* @__PURE__ */ React.createElement("span", { className: "cs-treetable__cell", style: { paddingInlineStart: depth * 18 } }, kids.length ? /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-tree__twist", "aria-expanded": open, onClick: () => setExpanded(open ? expanded.filter((k) => k !== n.key) : [...expanded, n.key]) }, open ? "▾" : "▸") : /* @__PURE__ */ React.createElement("span", { className: "cs-tree__twist", "aria-hidden": "true" }), c.render ? c.render(n) : n[c.key]) : c.render ? c.render(n) : n[c.key]))), open ? kids.map((k) => /* @__PURE__ */ React.createElement(Row, { key: k.key, n: k, depth: depth + 1, columns, expanded, setExpanded })) : null);
 }
-
-/** CyberSkill TreeTable — table whose first column expands nested rows. nodes: rows with children[]. */
-function TreeTable({
-  columns = [],
-  nodes = [],
-  caption,
-  defaultExpanded = [],
-  lang,
-  className
-}) {
+function TreeTable({ columns = [], nodes = [], caption, defaultExpanded = [], lang, className }) {
   const [expanded, setExpanded] = React.useState(defaultExpanded);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("DataGrid", L);
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-table-wrap", className)
-  }, /*#__PURE__*/React.createElement("table", {
-    className: "cs-table cs-treetable"
-  }, caption ? /*#__PURE__*/React.createElement("caption", null, caption) : null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, columns.map(c => /*#__PURE__*/React.createElement("th", {
-    key: c.key,
-    scope: "col"
-  }, c.header)))), /*#__PURE__*/React.createElement("tbody", null, nodes.length === 0 ? /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
-    colSpan: columns.length,
-    className: "cs-table__empty"
-  }, t("empty"))) : nodes.map(n => /*#__PURE__*/React.createElement(Row, {
-    key: n.key,
-    n: n,
-    depth: 0,
-    columns: columns,
-    expanded: expanded,
-    setExpanded: setExpanded
-  })))));
+  const [ref, L] = useLang(lang);
+  const t = makeT("DataGrid", L);
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-table-wrap", className) }, /* @__PURE__ */ React.createElement("table", { className: "cs-table cs-treetable" }, caption ? /* @__PURE__ */ React.createElement("caption", null, caption) : null, /* @__PURE__ */ React.createElement("thead", null, /* @__PURE__ */ React.createElement("tr", null, columns.map((c) => /* @__PURE__ */ React.createElement("th", { key: c.key, scope: "col" }, c.header)))), /* @__PURE__ */ React.createElement("tbody", null, nodes.length === 0 ? /* @__PURE__ */ React.createElement("tr", null, /* @__PURE__ */ React.createElement("td", { colSpan: columns.length, className: "cs-table__empty" }, t("empty"))) : nodes.map((n) => /* @__PURE__ */ React.createElement(Row, { key: n.key, n, depth: 0, columns, expanded, setExpanded })))));
 }
 Object.assign(__ds_scope, { TreeTable });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/datatable/TreeTable.jsx", error: String((e && e.message) || e) }); }
 
-// components/dialog/Dialog.jsx
-try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-function cx(...c) {
-  return c.filter(Boolean).join(" ");
-}
-let uid = 0;
-function useId(prefix) {
-  const [id] = React.useState(() => `${prefix}-${++uid}`);
-  return id;
-}
-
-/**
- * CyberSkill Dialog — modal overlay + panel. aria-modal, labelled by title,
- * scrim click closes. Compose actions in the footer with Buttons.
- */
-function Dialog({
-  open,
-  title,
-  children,
-  actions,
-  onClose,
-  className,
-  closeLabel,
-  lang,
-  ...props
-}) {
-  const titleId = useId("cs-dialog") + "-title";
-  const [ref, L] = __ds_scope.useLang(lang);
-  const panel = React.useRef(null);
-  const closeRef = React.useRef(onClose);
-  closeRef.current = onClose;
-  React.useEffect(() => {
-    if (!open) return;
-    const prev = document.activeElement;
-    const SEL = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
-    const p = panel.current;
-    const first = p ? p.querySelector(SEL) : null;
-    (first || p) && (first || p).focus();
-    const k = e => {
-      if (e.key === "Escape") {
-        closeRef.current && closeRef.current();
-        return;
-      }
-      if (e.key !== "Tab" || !panel.current) return;
-      const f = [...panel.current.querySelectorAll(SEL)];
-      if (!f.length) return;
-      const a = f[0],
-        z = f[f.length - 1];
-      if (e.shiftKey && document.activeElement === a) {
-        e.preventDefault();
-        z.focus();
-      } else if (!e.shiftKey && document.activeElement === z) {
-        e.preventDefault();
-        a.focus();
-      }
-    };
-    document.addEventListener("keydown", k);
-    return () => {
-      document.removeEventListener("keydown", k);
-      if (prev && prev.focus) prev.focus();
-    };
-  }, [open]);
-  const cl = closeLabel != null ? closeLabel : __ds_scope.makeT("Dialog", L)("close");
-  if (!open) return null;
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: "cs-dialog-layer"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-dialog__overlay",
-    onClick: onClose,
-    "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement("section", _extends({}, props, {
-    ref: panel,
-    tabIndex: -1,
-    role: "dialog",
-    "aria-modal": "true",
-    "aria-labelledby": titleId,
-    className: cx("cs-dialog", className)
-  }), /*#__PURE__*/React.createElement("header", {
-    className: "cs-dialog__header"
-  }, /*#__PURE__*/React.createElement("h2", {
-    id: titleId,
-    className: "cs-dialog__title"
-  }, title), onClose ? /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-button cs-button--ghost cs-button--sm",
-    onClick: onClose,
-    "aria-label": cl
-  }, "\u2715") : null), /*#__PURE__*/React.createElement("div", {
-    className: "cs-dialog__body"
-  }, children), actions ? /*#__PURE__*/React.createElement("footer", {
-    className: "cs-dialog__actions"
-  }, actions) : null));
-}
-Object.assign(__ds_scope, { Dialog });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/dialog/Dialog.jsx", error: String((e && e.message) || e) }); }
-
 // components/feedback/Alert.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
@@ -2705,70 +1226,22 @@ const PATHS = {
   warning: "M12 3l9 16H3z M12 10v4 M12 17h.01",
   danger: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M9 9l6 6 M15 9l-6 6"
 };
-function DefaultIcon({
-  variant
-}) {
-  return /*#__PURE__*/React.createElement("svg", {
-    width: "20",
-    height: "20",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "1.9",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: PATHS[variant] || PATHS.info
-  }));
+function DefaultIcon({ variant }) {
+  return /* @__PURE__ */ React.createElement("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.9", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: PATHS[variant] || PATHS.info }));
 }
-
-/** CyberSkill Alert — inline banner. variant: info | success | warning | danger. */
-function Alert({
-  variant = "info",
-  title,
-  icon,
-  children,
-  className,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("div", _extends({
-    role: "status",
-    className: cx("cs-alert", `cs-alert--${variant}`, className)
-  }, props), /*#__PURE__*/React.createElement("span", {
-    className: "cs-alert__icon"
-  }, icon ?? /*#__PURE__*/React.createElement(DefaultIcon, {
-    variant: variant
-  })), /*#__PURE__*/React.createElement("div", null, title ? /*#__PURE__*/React.createElement("p", {
-    className: "cs-alert__title"
-  }, title) : null, children ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-alert__body"
-  }, children) : null));
+function Alert({ variant = "info", title, icon, children, className, ...props }) {
+  return /* @__PURE__ */ React.createElement("div", { role: "status", className: cx("cs-alert", `cs-alert--${variant}`, className), ...props }, /* @__PURE__ */ React.createElement("span", { className: "cs-alert__icon" }, icon ?? /* @__PURE__ */ React.createElement(DefaultIcon, { variant })), /* @__PURE__ */ React.createElement("div", null, title ? /* @__PURE__ */ React.createElement("p", { className: "cs-alert__title" }, title) : null, children ? /* @__PURE__ */ React.createElement("div", { className: "cs-alert__body" }, children) : null));
 }
 Object.assign(__ds_scope, { Alert });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/Alert.jsx", error: String((e && e.message) || e) }); }
 
 // components/feedback/Badge.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Badge — compact status label. variant: neutral | solid | ochre | success | danger | warning | info. */
-function Badge({
-  variant = "neutral",
-  dot = false,
-  children,
-  className,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("span", _extends({
-    className: cx("cs-badge", variant !== "neutral" && `cs-badge--${variant}`, className)
-  }, props), dot ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-badge__dot",
-    "aria-hidden": "true"
-  }) : null, children);
+function Badge({ variant = "neutral", dot = false, children, className, ...props }) {
+  return /* @__PURE__ */ React.createElement("span", { className: cx("cs-badge", variant !== "neutral" && `cs-badge--${variant}`, className), ...props }, dot ? /* @__PURE__ */ React.createElement("span", { className: "cs-badge__dot", "aria-hidden": "true" }) : null, children);
 }
 Object.assign(__ds_scope, { Badge });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/Badge.jsx", error: String((e && e.message) || e) }); }
@@ -2778,38 +1251,8 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill EmptyState — friendly placeholder for empty views. */
-function EmptyState({
-  icon,
-  title,
-  children,
-  actions,
-  className
-}) {
-  return /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-empty", className)
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "cs-empty__icon"
-  }, icon ?? /*#__PURE__*/React.createElement("svg", {
-    width: "26",
-    height: "26",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "1.8",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M3 8l2-4h14l2 4M3 8v10a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V8M3 8h6l1 3h4l1-3h6"
-  }))), title ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-empty__title"
-  }, title) : null, children ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-empty__body"
-  }, children) : null, actions ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-empty__actions"
-  }, actions) : null);
+function EmptyState({ icon, title, children, actions, className }) {
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-empty", className) }, /* @__PURE__ */ React.createElement("span", { className: "cs-empty__icon" }, icon ?? /* @__PURE__ */ React.createElement("svg", { width: "26", height: "26", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.8", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: "M3 8l2-4h14l2 4M3 8v10a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V8M3 8h6l1 3h4l1-3h6" }))), title ? /* @__PURE__ */ React.createElement("div", { className: "cs-empty__title" }, title) : null, children ? /* @__PURE__ */ React.createElement("div", { className: "cs-empty__body" }, children) : null, actions ? /* @__PURE__ */ React.createElement("div", { className: "cs-empty__actions" }, actions) : null);
 }
 Object.assign(__ds_scope, { EmptyState });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/EmptyState.jsx", error: String((e && e.message) || e) }); }
@@ -2819,124 +1262,41 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill ProgressBar — determinate progress. variant: ochre (default) | umber | success. */
-function ProgressBar({
-  value = 0,
-  max = 100,
-  variant,
-  label,
-  className
-}) {
+function ProgressBar({ value = 0, max = 100, variant, label, className }) {
   const pct = Math.max(0, Math.min(100, value / max * 100));
-  return /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-progress", variant && `cs-progress--${variant}`, className),
-    role: "progressbar",
-    "aria-valuenow": Math.round(value),
-    "aria-valuemin": 0,
-    "aria-valuemax": max,
-    "aria-label": label
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "cs-progress__fill",
-    style: {
-      inlineSize: pct + "%",
-      width: pct + "%"
-    }
-  }));
+  return /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      className: cx("cs-progress", variant && `cs-progress--${variant}`, className),
+      role: "progressbar",
+      "aria-valuenow": Math.round(value),
+      "aria-valuemin": 0,
+      "aria-valuemax": max,
+      "aria-label": label
+    },
+    /* @__PURE__ */ React.createElement("span", { className: "cs-progress__fill", style: { inlineSize: pct + "%", width: pct + "%" } })
+  );
 }
 Object.assign(__ds_scope, { ProgressBar });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/ProgressBar.jsx", error: String((e && e.message) || e) }); }
 
 // components/feedback/Result.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
 const ART = {
-  success: /*#__PURE__*/React.createElement("svg", {
-    width: "30",
-    height: "30",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2.4",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M4 12.5l5 5 11-11"
-  })),
-  error: /*#__PURE__*/React.createElement("svg", {
-    width: "28",
-    height: "28",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2.4",
-    strokeLinecap: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 6l12 12M18 6L6 18"
-  })),
-  warning: /*#__PURE__*/React.createElement("svg", {
-    width: "28",
-    height: "28",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2.2",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M12 3l10 18H2z"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M12 10v5M12 18.2v.1"
-  })),
-  info: /*#__PURE__*/React.createElement("svg", {
-    width: "28",
-    height: "28",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2.2",
-    strokeLinecap: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("circle", {
-    cx: "12",
-    cy: "12",
-    r: "9"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M12 11v6M12 7.2v.1"
-  }))
+  success: /* @__PURE__ */ React.createElement("svg", { width: "30", height: "30", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.4", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: "M4 12.5l5 5 11-11" })),
+  error: /* @__PURE__ */ React.createElement("svg", { width: "28", height: "28", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.4", strokeLinecap: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: "M6 6l12 12M18 6L6 18" })),
+  warning: /* @__PURE__ */ React.createElement("svg", { width: "28", height: "28", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.2", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: "M12 3l10 18H2z" }), /* @__PURE__ */ React.createElement("path", { d: "M12 10v5M12 18.2v.1" })),
+  info: /* @__PURE__ */ React.createElement("svg", { width: "28", height: "28", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.2", strokeLinecap: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("circle", { cx: "12", cy: "12", r: "9" }), /* @__PURE__ */ React.createElement("path", { d: "M12 11v6M12 7.2v.1" }))
 };
-
-/** CyberSkill Result — full status view (success/error/warning/info): icon, title, body, actions. */
-function Result({
-  status = "info",
-  title,
-  children,
-  actions,
-  lang,
-  className
-}) {
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("Result", L);
+function Result({ status = "info", title, children, actions, lang, className }) {
+  const [ref, L] = useLang(lang);
+  const t = makeT("Result", L);
   const tt = title != null ? title : t(status);
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-result", "cs-result--" + status, className),
-    role: "status"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "cs-result__icon",
-    "aria-hidden": "true"
-  }, ART[status] || ART.info), /*#__PURE__*/React.createElement("h2", {
-    className: "cs-result__title"
-  }, tt), children ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-result__body"
-  }, children) : null, actions ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-result__actions"
-  }, actions) : null);
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-result", "cs-result--" + status, className), role: "status" }, /* @__PURE__ */ React.createElement("span", { className: "cs-result__icon", "aria-hidden": "true" }, ART[status] || ART.info), /* @__PURE__ */ React.createElement("h2", { className: "cs-result__title" }, tt), children ? /* @__PURE__ */ React.createElement("div", { className: "cs-result__body" }, children) : null, actions ? /* @__PURE__ */ React.createElement("div", { className: "cs-result__actions" }, actions) : null);
 }
 Object.assign(__ds_scope, { Result });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/Result.jsx", error: String((e && e.message) || e) }); }
@@ -2946,235 +1306,86 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Skeleton — shimmer placeholder. Use `lines` for text blocks, or variant="circle"/"block". */
-function Skeleton({
-  variant = "block",
-  width,
-  height,
-  lines,
-  radius,
-  className,
-  style
-}) {
+function Skeleton({ variant = "block", width, height, lines, radius, className, style }) {
   if (lines) {
-    return /*#__PURE__*/React.createElement("div", {
-      className: className,
-      "aria-hidden": "true",
-      role: "presentation"
-    }, Array.from({
-      length: lines
-    }).map((_, i) => /*#__PURE__*/React.createElement("span", {
-      key: i,
-      className: "cs-skeleton cs-skeleton--text",
-      style: {
-        width: i === lines - 1 ? "70%" : "100%"
-      }
-    })));
+    return /* @__PURE__ */ React.createElement("div", { className, "aria-hidden": "true", role: "presentation" }, Array.from({ length: lines }).map((_, i) => /* @__PURE__ */ React.createElement("span", { key: i, className: "cs-skeleton cs-skeleton--text", style: { width: i === lines - 1 ? "70%" : "100%" } })));
   }
-  return /*#__PURE__*/React.createElement("span", {
-    className: cx("cs-skeleton", variant === "circle" && "cs-skeleton--circle", className),
-    "aria-hidden": "true",
-    style: {
-      display: "block",
-      width,
-      height,
-      borderRadius: radius,
-      ...style
+  return /* @__PURE__ */ React.createElement(
+    "span",
+    {
+      className: cx("cs-skeleton", variant === "circle" && "cs-skeleton--circle", className),
+      "aria-hidden": "true",
+      style: { display: "block", width, height, borderRadius: radius, ...style }
     }
-  });
+  );
 }
 Object.assign(__ds_scope, { Skeleton });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/Skeleton.jsx", error: String((e && e.message) || e) }); }
 
 // components/feedback/Spinner.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Spinner — indeterminate loading indicator. */
-function Spinner({
-  size = 20,
-  label,
-  lang,
-  className,
-  style,
-  ...props
-}) {
-  const [ref, L] = __ds_scope.useLang(lang);
-  const lbl = label != null ? label : __ds_scope.makeT("Spinner", L)("label");
-  return /*#__PURE__*/React.createElement("span", _extends({
-    ref: ref,
-    role: "status",
-    "aria-label": lbl,
-    className: cx("cs-spinner", className),
-    style: {
-      inlineSize: size,
-      blockSize: size,
-      width: size,
-      height: size,
-      ...style
-    }
-  }, props));
+function Spinner({ size = 20, label, lang, className, style, ...props }) {
+  const [ref, L] = useLang(lang);
+  const lbl = label != null ? label : makeT("Spinner", L)("label");
+  return /* @__PURE__ */ React.createElement("span", { ref, role: "status", "aria-label": lbl, className: cx("cs-spinner", className), style: { inlineSize: size, blockSize: size, width: size, height: size, ...style }, ...props });
 }
 Object.assign(__ds_scope, { Spinner });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/Spinner.jsx", error: String((e && e.message) || e) }); }
 
 // components/feedback/StatusIndicator.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill StatusIndicator — coloured dot + label. status: online | busy | offline | error. */
-function StatusIndicator({
-  status = "offline",
-  pulse = false,
-  children,
-  className,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("span", _extends({
-    className: cx("cs-status", `cs-status--${status}`, pulse && "cs-status--pulse", className)
-  }, props), /*#__PURE__*/React.createElement("span", {
-    className: "cs-status__dot",
-    "aria-hidden": "true"
-  }), children);
+function StatusIndicator({ status = "offline", pulse = false, children, className, ...props }) {
+  return /* @__PURE__ */ React.createElement("span", { className: cx("cs-status", `cs-status--${status}`, pulse && "cs-status--pulse", className), ...props }, /* @__PURE__ */ React.createElement("span", { className: "cs-status__dot", "aria-hidden": "true" }), children);
 }
 Object.assign(__ds_scope, { StatusIndicator });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/StatusIndicator.jsx", error: String((e && e.message) || e) }); }
 
 // components/feedback/Tag.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Tag — chip with optional remove button. */
-function Tag({
-  children,
-  onRemove,
-  removeLabel,
-  lang,
-  className,
-  ...props
-}) {
-  const [ref, L] = __ds_scope.useLang(lang);
-  const rl = removeLabel != null ? removeLabel : __ds_scope.makeT("Tag", L)("remove");
-  return /*#__PURE__*/React.createElement("span", _extends({
-    ref: ref,
-    className: cx("cs-tag", className)
-  }, props), children, onRemove ? /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-tag__close",
-    "aria-label": rl,
-    onClick: onRemove
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "12",
-    height: "12",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2.4",
-    strokeLinecap: "round"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 6l12 12M18 6L6 18"
-  }))) : null);
+function Tag({ children, onRemove, removeLabel, lang, className, ...props }) {
+  const [ref, L] = useLang(lang);
+  const rl = removeLabel != null ? removeLabel : makeT("Tag", L)("remove");
+  return /* @__PURE__ */ React.createElement("span", { ref, className: cx("cs-tag", className), ...props }, children, onRemove ? /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-tag__close", "aria-label": rl, onClick: onRemove }, /* @__PURE__ */ React.createElement("svg", { width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.4", strokeLinecap: "round" }, /* @__PURE__ */ React.createElement("path", { d: "M6 6l12 12M18 6L6 18" }))) : null);
 }
 Object.assign(__ds_scope, { Tag });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/Tag.jsx", error: String((e && e.message) || e) }); }
 
 // components/feedback/Toast.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** Fixed-position stack for Toasts (bottom-right). */
-function ToastStack({
-  children,
-  lang,
-  className
-}) {
-  const [ref, L] = __ds_scope.useLang(lang);
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-toast-stack", className),
-    role: "region",
-    "aria-label": __ds_scope.makeT("Toast", L)("notifications")
-  }, children);
+function ToastStack({ children, lang, className }) {
+  const [ref, L] = useLang(lang);
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-toast-stack", className), role: "region", "aria-label": makeT("Toast", L)("notifications") }, children);
 }
-
-/** CyberSkill Toast — transient notification. variant: default | success | danger. */
-function Toast({
-  variant = "default",
-  title,
-  icon,
-  onClose,
-  lang,
-  children,
-  className,
-  ...props
-}) {
-  const [ref, L] = __ds_scope.useLang(lang);
-  return /*#__PURE__*/React.createElement("div", _extends({
-    ref: ref,
-    className: cx("cs-toast", `cs-toast--${variant}`, className),
-    role: "status"
-  }, props), /*#__PURE__*/React.createElement("span", {
-    className: "cs-toast__icon",
-    "aria-hidden": "true"
-  }, icon ?? /*#__PURE__*/React.createElement("svg", {
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2",
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M4 12.5l5 5 11-11"
-  }))), /*#__PURE__*/React.createElement("div", null, title ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-toast__title"
-  }, title) : null, children ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-toast__body"
-  }, children) : null), onClose ? /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-toast__close",
-    "aria-label": __ds_scope.makeT("Toast", L)("dismiss"),
-    onClick: onClose
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "16",
-    height: "16",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2",
-    strokeLinecap: "round"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 6l12 12M18 6L6 18"
-  }))) : null);
+function Toast({ variant = "default", title, icon, onClose, lang, children, className, ...props }) {
+  const [ref, L] = useLang(lang);
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-toast", `cs-toast--${variant}`, className), role: "status", ...props }, /* @__PURE__ */ React.createElement("span", { className: "cs-toast__icon", "aria-hidden": "true" }, icon ?? /* @__PURE__ */ React.createElement("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }, /* @__PURE__ */ React.createElement("path", { d: "M4 12.5l5 5 11-11" }))), /* @__PURE__ */ React.createElement("div", null, title ? /* @__PURE__ */ React.createElement("div", { className: "cs-toast__title" }, title) : null, children ? /* @__PURE__ */ React.createElement("div", { className: "cs-toast__body" }, children) : null), onClose ? /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-toast__close", "aria-label": makeT("Toast", L)("dismiss"), onClick: onClose }, /* @__PURE__ */ React.createElement("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }, /* @__PURE__ */ React.createElement("path", { d: "M6 6l12 12M18 6L6 18" }))) : null);
 }
 Object.assign(__ds_scope, { ToastStack, Toast });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/feedback/Toast.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/Calendar.jsx
 try { (() => {
+const { makeT, useLang, monthName } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-const WD = {
-  en: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
-  vi: ["T2", "T3", "T4", "T5", "T6", "T7", "CN"]
-};
+const WD = { en: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"], vi: ["T2", "T3", "T4", "T5", "T6", "T7", "CN"] };
 function grid(year, month) {
-  // Monday week-start (VN convention)
   const first = new Date(year, month, 1);
   const lead = (first.getDay() + 6) % 7;
   const days = new Date(year, month + 1, 0).getDate();
@@ -3184,87 +1395,53 @@ function grid(year, month) {
   while (cells.length % 7) cells.push(null);
   return cells;
 }
-
-/** CyberSkill Calendar — month grid, Monday week-start, bilingual month/weekday names. Controlled value/onChange (Date). */
-function Calendar({
-  value,
-  onChange,
-  lang,
-  className
-}) {
+function Calendar({ value, onChange, lang, className }) {
   const sel = value ? new Date(value) : null;
-  const today = new Date();
+  const today = /* @__PURE__ */ new Date();
   const [view, setView] = React.useState(() => sel ? [sel.getFullYear(), sel.getMonth()] : [today.getFullYear(), today.getMonth()]);
   const [y, m] = view;
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("Calendar", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("Calendar", L);
   const cells = grid(y, m);
-  const isSel = d => sel && d === sel.getDate() && m === sel.getMonth() && y === sel.getFullYear();
-  const isToday = d => d === today.getDate() && m === today.getMonth() && y === today.getFullYear();
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-cal", className)
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-cal__head"
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    "aria-label": t("prev"),
-    onClick: () => setView(([yy, mm]) => mm ? [yy, mm - 1] : [yy - 1, 11])
-  }, "\u2039"), /*#__PURE__*/React.createElement("b", null, __ds_scope.monthName(m, L), " ", y), /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    "aria-label": t("next"),
-    onClick: () => setView(([yy, mm]) => mm === 11 ? [yy + 1, 0] : [yy, mm + 1])
-  }, "\u203A")), /*#__PURE__*/React.createElement("div", {
-    className: "cs-cal__wd"
-  }, WD[L === "vi" ? "vi" : "en"].map(w => /*#__PURE__*/React.createElement("span", {
-    key: w
-  }, w))), /*#__PURE__*/React.createElement("div", {
-    className: "cs-cal__grid"
-  }, cells.map((d, i) => d == null ? /*#__PURE__*/React.createElement("span", {
-    key: i
-  }) : /*#__PURE__*/React.createElement("button", {
-    key: i,
-    type: "button",
-    className: cx(isSel(d) && "sel", isToday(d) && "today"),
-    "aria-pressed": isSel(d) || undefined,
-    onClick: () => onChange && onChange(new Date(y, m, d))
-  }, d))));
+  const isSel = (d) => sel && d === sel.getDate() && m === sel.getMonth() && y === sel.getFullYear();
+  const isToday = (d) => d === today.getDate() && m === today.getMonth() && y === today.getFullYear();
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-cal", className) }, /* @__PURE__ */ React.createElement("div", { className: "cs-cal__head" }, /* @__PURE__ */ React.createElement("button", { type: "button", "aria-label": t("prev"), onClick: () => setView(([yy, mm]) => mm ? [yy, mm - 1] : [yy - 1, 11]) }, "‹"), /* @__PURE__ */ React.createElement("b", null, monthName(m, L), " ", y), /* @__PURE__ */ React.createElement("button", { type: "button", "aria-label": t("next"), onClick: () => setView(([yy, mm]) => mm === 11 ? [yy + 1, 0] : [yy, mm + 1]) }, "›")), /* @__PURE__ */ React.createElement("div", { className: "cs-cal__wd" }, WD[L === "vi" ? "vi" : "en"].map((w) => /* @__PURE__ */ React.createElement("span", { key: w }, w))), /* @__PURE__ */ React.createElement("div", { className: "cs-cal__grid" }, cells.map((d, i) => d == null ? /* @__PURE__ */ React.createElement("span", { key: i }) : /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      key: i,
+      type: "button",
+      className: cx(isSel(d) && "sel", isToday(d) && "today"),
+      "aria-pressed": isSel(d) || void 0,
+      onClick: () => onChange && onChange(new Date(y, m, d))
+    },
+    d
+  ))));
 }
 Object.assign(__ds_scope, { Calendar });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Calendar.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/Cascader.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Cascader — column-per-level picker for hierarchies (province → district style). */
-function Cascader({
-  nodes = [],
-  value = [],
-  onChange,
-  placeholder,
-  label,
-  disabled = false,
-  lang,
-  className
-}) {
+function Cascader({ nodes = [], value = [], onChange, placeholder, label, disabled = false, lang, className }) {
   const [open, setOpen] = React.useState(false);
   const [path, setPath] = React.useState(value);
   const wrap = React.useRef(null);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("Cascader", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("Cascader", L);
   const ph = placeholder != null ? placeholder : t("placeholder");
   React.useEffect(() => {
     setPath(value);
   }, [open]);
   React.useEffect(() => {
     if (!open) return;
-    const d = e => {
+    const d = (e) => {
       if (wrap.current && !wrap.current.contains(e.target)) setOpen(false);
     };
-    const k = e => {
+    const k = (e) => {
       if (e.key === "Escape") setOpen(false);
     };
     document.addEventListener("mousedown", d);
@@ -3278,123 +1455,76 @@ function Cascader({
   let level = nodes;
   for (let i = 0; level && level.length; i++) {
     cols.push(level);
-    const pick = level.find(n => n.key === path[i]);
+    const pick = level.find((n) => n.key === path[i]);
     level = pick && pick.children;
   }
   const labels = [];
   {
     let lv = nodes;
     for (const k of value) {
-      const n = (lv || []).find(x => x.key === k);
+      const n = (lv || []).find((x) => x.key === k);
       if (!n) break;
       labels.push(n.label);
       lv = n.children;
     }
   }
-  return /*#__PURE__*/React.createElement("div", {
-    ref: el => {
-      wrap.current = el;
-      ref.current = el;
-    },
-    className: cx("cs-cascader", className)
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-treeselect__field",
-    disabled: disabled,
-    "aria-haspopup": "listbox",
-    "aria-expanded": open,
-    "aria-label": label,
-    onClick: () => setOpen(o => !o)
-  }, /*#__PURE__*/React.createElement("span", {
-    className: labels.length ? undefined : "ph"
-  }, labels.length ? labels.join(" / ") : ph), /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true"
-  }, "\u25BE")), open ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-cascader__pop"
-  }, cols.map((col, i) => /*#__PURE__*/React.createElement("ul", {
-    key: i,
-    role: "listbox",
-    className: "cs-cascader__col"
-  }, col.map(n => /*#__PURE__*/React.createElement("li", {
-    key: n.key
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    role: "option",
-    "aria-selected": path[i] === n.key,
-    className: cx("cs-cascader__opt", path[i] === n.key && "on"),
-    onClick: () => {
-      const next = [...path.slice(0, i), n.key];
-      setPath(next);
-      if (!(n.children && n.children.length)) {
-        onChange && onChange(next);
-        setOpen(false);
+  return /* @__PURE__ */ React.createElement("div", { ref: (el) => {
+    wrap.current = el;
+    ref.current = el;
+  }, className: cx("cs-cascader", className) }, /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-treeselect__field", disabled, "aria-haspopup": "listbox", "aria-expanded": open, "aria-label": label, onClick: () => setOpen((o) => !o) }, /* @__PURE__ */ React.createElement("span", { className: labels.length ? void 0 : "ph" }, labels.length ? labels.join(" / ") : ph), /* @__PURE__ */ React.createElement("span", { "aria-hidden": "true" }, "▾")), open ? /* @__PURE__ */ React.createElement("div", { className: "cs-cascader__pop" }, cols.map((col, i) => /* @__PURE__ */ React.createElement("ul", { key: i, role: "listbox", className: "cs-cascader__col" }, col.map((n) => /* @__PURE__ */ React.createElement("li", { key: n.key }, /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      type: "button",
+      role: "option",
+      "aria-selected": path[i] === n.key,
+      className: cx("cs-cascader__opt", path[i] === n.key && "on"),
+      onClick: () => {
+        const next = [...path.slice(0, i), n.key];
+        setPath(next);
+        if (!(n.children && n.children.length)) {
+          onChange && onChange(next);
+          setOpen(false);
+        }
       }
-    }
-  }, n.label, n.children && n.children.length ? /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true"
-  }, " \u203A") : null)))))) : null);
+    },
+    n.label,
+    n.children && n.children.length ? /* @__PURE__ */ React.createElement("span", { "aria-hidden": "true" }, " ›") : null
+  )))))) : null);
 }
 Object.assign(__ds_scope, { Cascader });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Cascader.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/Checkbox.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Checkbox — native checkbox (brand accent-color) + label/description. */
-function Checkbox({
-  label,
-  description,
-  disabled = false,
-  className,
-  children,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("label", {
-    className: cx("cs-check", disabled && "is-disabled", className)
-  }, /*#__PURE__*/React.createElement("input", _extends({
-    type: "checkbox",
-    disabled: disabled
-  }, props)), /*#__PURE__*/React.createElement("span", {
-    className: "cs-check__text"
-  }, /*#__PURE__*/React.createElement("span", null, label), description ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-check__desc"
-  }, description) : null));
+function Checkbox({ label, description, disabled = false, className, children, ...props }) {
+  return /* @__PURE__ */ React.createElement("label", { className: cx("cs-check", disabled && "is-disabled", className) }, /* @__PURE__ */ React.createElement("input", { type: "checkbox", disabled, ...props }), /* @__PURE__ */ React.createElement("span", { className: "cs-check__text" }, /* @__PURE__ */ React.createElement("span", null, label), description ? /* @__PURE__ */ React.createElement("span", { className: "cs-check__desc" }, description) : null));
 }
 Object.assign(__ds_scope, { Checkbox });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Checkbox.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/ColorPicker.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
 const SWATCHES = ["#F4BA17", "#C77B4A", "#E0632B", "#C43D1F", "#7A9B57", "#3E5A2E", "#4E8E9B", "#2E5E7E", "#BFB29B", "#45210E"];
-
-/** CyberSkill ColorPicker — curated brand swatches + custom hex input. */
-function ColorPicker({
-  value = "#F4BA17",
-  onChange,
-  swatches = SWATCHES,
-  label,
-  lang,
-  className
-}) {
+function ColorPicker({ value = "#F4BA17", onChange, swatches = SWATCHES, label, lang, className }) {
   const [open, setOpen] = React.useState(false);
   const [hex, setHex] = React.useState(value);
   const wrap = React.useRef(null);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("ColorPicker", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("ColorPicker", L);
   React.useEffect(() => setHex(value), [value]);
   React.useEffect(() => {
     if (!open) return;
-    const d = e => {
+    const d = (e) => {
       if (wrap.current && !wrap.current.contains(e.target)) setOpen(false);
     };
-    const k = e => {
+    const k = (e) => {
       if (e.key === "Escape") setOpen(false);
     };
     document.addEventListener("mousedown", d);
@@ -3404,114 +1534,87 @@ function ColorPicker({
       document.removeEventListener("keydown", k);
     };
   }, [open]);
-  const commit = v => {
+  const commit = (v) => {
     if (/^#[0-9a-fA-F]{6}$/.test(v)) {
       onChange && onChange(v);
     }
   };
-  return /*#__PURE__*/React.createElement("span", {
-    ref: el => {
-      wrap.current = el;
-      ref.current = el;
-    },
-    className: cx("cs-colorpicker", className)
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-colorpicker__field",
-    "aria-label": (label || t("label")) + ": " + value,
-    "aria-expanded": open,
-    onClick: () => setOpen(o => !o)
-  }, /*#__PURE__*/React.createElement("i", {
-    style: {
-      background: value
-    }
-  }), /*#__PURE__*/React.createElement("code", null, value)), open ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-colorpicker__pop",
-    role: "dialog",
-    "aria-label": label || t("label")
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "cs-colorpicker__grid"
-  }, swatches.map(s => /*#__PURE__*/React.createElement("button", {
-    key: s,
-    type: "button",
-    "aria-label": s,
-    "aria-pressed": s.toLowerCase() === String(value).toLowerCase(),
-    style: {
-      background: s
-    },
-    className: s.toLowerCase() === String(value).toLowerCase() ? "on" : undefined,
-    onClick: () => {
-      onChange && onChange(s);
-      setOpen(false);
-    }
-  }))), /*#__PURE__*/React.createElement("span", {
-    className: "cs-colorpicker__hex"
-  }, /*#__PURE__*/React.createElement("input", {
-    value: hex,
-    "aria-label": t("hex"),
-    onChange: e => setHex(e.target.value),
-    onKeyDown: e => {
-      if (e.key === "Enter") {
-        commit(hex);
+  return /* @__PURE__ */ React.createElement("span", { ref: (el) => {
+    wrap.current = el;
+    ref.current = el;
+  }, className: cx("cs-colorpicker", className) }, /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-colorpicker__field", "aria-label": (label || t("label")) + ": " + value, "aria-expanded": open, onClick: () => setOpen((o) => !o) }, /* @__PURE__ */ React.createElement("i", { style: { background: value } }), /* @__PURE__ */ React.createElement("code", null, value)), open ? /* @__PURE__ */ React.createElement("span", { className: "cs-colorpicker__pop", role: "dialog", "aria-label": label || t("label") }, /* @__PURE__ */ React.createElement("span", { className: "cs-colorpicker__grid" }, swatches.map((s) => /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      key: s,
+      type: "button",
+      "aria-label": s,
+      "aria-pressed": s.toLowerCase() === String(value).toLowerCase(),
+      style: { background: s },
+      className: s.toLowerCase() === String(value).toLowerCase() ? "on" : void 0,
+      onClick: () => {
+        onChange && onChange(s);
         setOpen(false);
       }
-    },
-    onBlur: () => commit(hex)
-  }))) : null);
+    }
+  ))), /* @__PURE__ */ React.createElement("span", { className: "cs-colorpicker__hex" }, /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      value: hex,
+      "aria-label": t("hex"),
+      onChange: (e) => setHex(e.target.value),
+      onKeyDown: (e) => {
+        if (e.key === "Enter") {
+          commit(hex);
+          setOpen(false);
+        }
+      },
+      onBlur: () => commit(hex)
+    }
+  ))) : null);
 }
 Object.assign(__ds_scope, { ColorPicker });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/ColorPicker.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/Combobox.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
 let cbUid = 0;
-
-/** CyberSkill Combobox — filterable single-select (input + listbox, ARIA combobox pattern). Controlled value/onChange. */
-function Combobox({
-  options = [],
-  value,
-  onChange,
-  placeholder,
-  label,
-  disabled = false,
-  lang,
-  className
-}) {
+function Combobox({ options = [], value, onChange, placeholder, label, disabled = false, lang, className }) {
   const [open, setOpen] = React.useState(false);
   const [q, setQ] = React.useState("");
   const [hl, setHl] = React.useState(0);
   const [id] = React.useState(() => "cs-cb-" + ++cbUid);
   const wrapRef = React.useRef(null);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("Combobox", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("Combobox", L);
   const ph = placeholder != null ? placeholder : t("placeholder");
-  const sel = options.find(o => o.value === value) || null;
+  const sel = options.find((o) => o.value === value) || null;
   const needle = q.trim().toLowerCase();
-  const shown = needle ? options.filter(o => String(o.label).toLowerCase().includes(needle)) : options;
+  const shown = needle ? options.filter((o) => String(o.label).toLowerCase().includes(needle)) : options;
   React.useEffect(() => {
     if (!open) return;
-    const d = e => {
+    const d = (e) => {
       if (wrapRef.current && !wrapRef.current.contains(e.target)) setOpen(false);
     };
     document.addEventListener("mousedown", d);
     return () => document.removeEventListener("mousedown", d);
   }, [open]);
-  const pick = o => {
+  const pick = (o) => {
     onChange && onChange(o.value);
     setQ("");
     setOpen(false);
   };
-  const key = e => {
+  const key = (e) => {
     if (e.key === "ArrowDown") {
       e.preventDefault();
       setOpen(true);
-      setHl(h => Math.min(shown.length - 1, h + 1));
+      setHl((h) => Math.min(shown.length - 1, h + 1));
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
-      setHl(h => Math.max(0, h - 1));
+      setHl((h) => Math.max(0, h - 1));
     } else if (e.key === "Enter") {
       if (open && shown[hl]) {
         e.preventDefault();
@@ -3521,103 +1624,72 @@ function Combobox({
       setOpen(false);
     }
   };
-  return /*#__PURE__*/React.createElement("div", {
-    ref: el => {
-      wrapRef.current = el;
-      ref.current = el;
-    },
-    className: cx("cs-combobox", className)
-  }, /*#__PURE__*/React.createElement("input", {
-    role: "combobox",
-    "aria-expanded": open,
-    "aria-controls": id,
-    "aria-autocomplete": "list",
-    "aria-label": label,
-    "aria-activedescendant": open && shown[hl] ? id + "-" + hl : undefined,
-    disabled: disabled,
-    placeholder: ph,
-    value: open ? q : sel ? sel.label : q,
-    onFocus: () => {
-      setOpen(true);
-      setHl(0);
-    },
-    onChange: e => {
-      setQ(e.target.value);
-      setOpen(true);
-      setHl(0);
-    },
-    onKeyDown: key
-  }), /*#__PURE__*/React.createElement("span", {
-    className: "cs-combobox__caret",
-    "aria-hidden": "true"
-  }, "\u25BE"), open ? /*#__PURE__*/React.createElement("ul", {
-    className: "cs-combobox__list",
-    role: "listbox",
-    id: id
-  }, shown.length ? shown.map((o, i) => /*#__PURE__*/React.createElement("li", {
-    key: o.value,
-    id: id + "-" + i,
-    role: "option",
-    "aria-selected": o.value === value,
-    className: cx("cs-combobox__opt", i === hl && "hl"),
-    onMouseEnter: () => setHl(i),
-    onMouseDown: e => {
-      e.preventDefault();
-      pick(o);
+  return /* @__PURE__ */ React.createElement("div", { ref: (el) => {
+    wrapRef.current = el;
+    ref.current = el;
+  }, className: cx("cs-combobox", className) }, /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      role: "combobox",
+      "aria-expanded": open,
+      "aria-controls": id,
+      "aria-autocomplete": "list",
+      "aria-label": label,
+      "aria-activedescendant": open && shown[hl] ? id + "-" + hl : void 0,
+      disabled,
+      placeholder: ph,
+      value: open ? q : sel ? sel.label : q,
+      onFocus: () => {
+        setOpen(true);
+        setHl(0);
+      },
+      onChange: (e) => {
+        setQ(e.target.value);
+        setOpen(true);
+        setHl(0);
+      },
+      onKeyDown: key
     }
-  }, o.label)) : /*#__PURE__*/React.createElement("li", {
-    className: "cs-combobox__empty"
-  }, t("empty"))) : null);
+  ), /* @__PURE__ */ React.createElement("span", { className: "cs-combobox__caret", "aria-hidden": "true" }, "▾"), open ? /* @__PURE__ */ React.createElement("ul", { className: "cs-combobox__list", role: "listbox", id }, shown.length ? shown.map((o, i) => /* @__PURE__ */ React.createElement(
+    "li",
+    {
+      key: o.value,
+      id: id + "-" + i,
+      role: "option",
+      "aria-selected": o.value === value,
+      className: cx("cs-combobox__opt", i === hl && "hl"),
+      onMouseEnter: () => setHl(i),
+      onMouseDown: (e) => {
+        e.preventDefault();
+        pick(o);
+      }
+    },
+    o.label
+  )) : /* @__PURE__ */ React.createElement("li", { className: "cs-combobox__empty" }, t("empty"))) : null);
 }
 Object.assign(__ds_scope, { Combobox });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Combobox.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/DatePicker.jsx
 try { (() => {
+const { makeT, useLang, formatDate } = __ds_scope;
+const { Calendar } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-const CAL_ICON = /*#__PURE__*/React.createElement("svg", {
-  width: "16",
-  height: "16",
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: "1.8",
-  strokeLinecap: "round",
-  strokeLinejoin: "round",
-  "aria-hidden": "true"
-}, /*#__PURE__*/React.createElement("rect", {
-  x: "3",
-  y: "5",
-  width: "18",
-  height: "16",
-  rx: "2"
-}), /*#__PURE__*/React.createElement("path", {
-  d: "M8 3v4M16 3v4M3 10h18"
-}));
-
-/** CyberSkill DatePicker — field + popover Calendar. VN shows DD/MM/YYYY. Controlled value (Date)/onChange. */
-function DatePicker({
-  value,
-  onChange,
-  placeholder,
-  label,
-  disabled = false,
-  lang,
-  className
-}) {
+const CAL_ICON = /* @__PURE__ */ React.createElement("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.8", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("rect", { x: "3", y: "5", width: "18", height: "16", rx: "2" }), /* @__PURE__ */ React.createElement("path", { d: "M8 3v4M16 3v4M3 10h18" }));
+function DatePicker({ value, onChange, placeholder, label, disabled = false, lang, className }) {
   const [open, setOpen] = React.useState(false);
   const wrap = React.useRef(null);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("DatePicker", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("DatePicker", L);
   const ph = placeholder != null ? placeholder : t("placeholder");
   React.useEffect(() => {
     if (!open) return;
-    const d = e => {
+    const d = (e) => {
       if (wrap.current && !wrap.current.contains(e.target)) setOpen(false);
     };
-    const k = e => {
+    const k = (e) => {
       if (e.key === "Escape") setOpen(false);
     };
     document.addEventListener("mousedown", d);
@@ -3627,55 +1699,28 @@ function DatePicker({
       document.removeEventListener("keydown", k);
     };
   }, [open]);
-  return /*#__PURE__*/React.createElement("div", {
-    ref: el => {
-      wrap.current = el;
-      ref.current = el;
-    },
-    className: cx("cs-datepicker", className)
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-datepicker__field",
-    disabled: disabled,
-    "aria-haspopup": "dialog",
-    "aria-expanded": open,
-    "aria-label": label,
-    onClick: () => setOpen(o => !o)
-  }, CAL_ICON, /*#__PURE__*/React.createElement("span", {
-    className: value ? undefined : "ph"
-  }, value ? __ds_scope.formatDate(value, L) : ph)), open ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-datepicker__pop",
-    role: "dialog"
-  }, /*#__PURE__*/React.createElement(__ds_scope.Calendar, {
-    value: value,
-    lang: L,
-    onChange: d => {
-      onChange && onChange(d);
-      setOpen(false);
-    }
-  })) : null);
+  return /* @__PURE__ */ React.createElement("div", { ref: (el) => {
+    wrap.current = el;
+    ref.current = el;
+  }, className: cx("cs-datepicker", className) }, /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-datepicker__field", disabled, "aria-haspopup": "dialog", "aria-expanded": open, "aria-label": label, onClick: () => setOpen((o) => !o) }, CAL_ICON, /* @__PURE__ */ React.createElement("span", { className: value ? void 0 : "ph" }, value ? formatDate(value, L) : ph)), open ? /* @__PURE__ */ React.createElement("div", { className: "cs-datepicker__pop", role: "dialog" }, /* @__PURE__ */ React.createElement(Calendar, { value, lang: L, onChange: (d) => {
+    onChange && onChange(d);
+    setOpen(false);
+  } })) : null);
 }
 Object.assign(__ds_scope, { DatePicker });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/DatePicker.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/Editor.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Editor — light rich-text (contentEditable): bold · italic · bullet list. onChange(html). */
-function Editor({
-  defaultValue = "",
-  onChange,
-  minHeight = 120,
-  lang,
-  className
-}) {
+function Editor({ defaultValue = "", onChange, minHeight = 120, lang, className }) {
   const box = React.useRef(null);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("Editor", L);
-  const cmd = c => {
+  const [ref, L] = useLang(lang);
+  const t = makeT("Editor", L);
+  const cmd = (c) => {
     document.execCommand(c);
     box.current && box.current.focus();
     emit();
@@ -3683,122 +1728,65 @@ function Editor({
   const emit = () => {
     onChange && box.current && onChange(box.current.innerHTML);
   };
-  const B = ({
-    c,
-    label,
-    children
-  }) => /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-toolbar__btn",
-    "aria-label": label,
-    onMouseDown: e => {
-      e.preventDefault();
-      cmd(c);
+  const B = ({ c, label, children }) => /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-toolbar__btn", "aria-label": label, onMouseDown: (e) => {
+    e.preventDefault();
+    cmd(c);
+  } }, children);
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-editor", className) }, /* @__PURE__ */ React.createElement("div", { className: "cs-editor__bar", role: "toolbar", "aria-label": t("toolbar") }, /* @__PURE__ */ React.createElement(B, { c: "bold", label: t("bold") }, /* @__PURE__ */ React.createElement("b", null, "B")), /* @__PURE__ */ React.createElement(B, { c: "italic", label: t("italic") }, /* @__PURE__ */ React.createElement("i", null, "I")), /* @__PURE__ */ React.createElement(B, { c: "insertUnorderedList", label: t("list") }, "≔")), /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      ref: box,
+      className: "cs-editor__area",
+      contentEditable: true,
+      suppressContentEditableWarning: true,
+      role: "textbox",
+      "aria-multiline": "true",
+      "aria-label": t("area"),
+      style: { minHeight },
+      onInput: emit,
+      dangerouslySetInnerHTML: { __html: defaultValue }
     }
-  }, children);
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-editor", className)
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-editor__bar",
-    role: "toolbar",
-    "aria-label": t("toolbar")
-  }, /*#__PURE__*/React.createElement(B, {
-    c: "bold",
-    label: t("bold")
-  }, /*#__PURE__*/React.createElement("b", null, "B")), /*#__PURE__*/React.createElement(B, {
-    c: "italic",
-    label: t("italic")
-  }, /*#__PURE__*/React.createElement("i", null, "I")), /*#__PURE__*/React.createElement(B, {
-    c: "insertUnorderedList",
-    label: t("list")
-  }, "\u2254")), /*#__PURE__*/React.createElement("div", {
-    ref: box,
-    className: "cs-editor__area",
-    contentEditable: true,
-    suppressContentEditableWarning: true,
-    role: "textbox",
-    "aria-multiline": "true",
-    "aria-label": t("area"),
-    style: {
-      minHeight
-    },
-    onInput: emit,
-    dangerouslySetInnerHTML: {
-      __html: defaultValue
-    }
-  }));
+  ));
 }
 Object.assign(__ds_scope, { Editor });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Editor.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/FileUpload.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill FileUpload — click-or-drag dropzone. Calls onFiles(File[]) on select/drop. */
-function FileUpload({
-  title,
-  hint,
-  accept,
-  multiple = false,
-  onFiles,
-  icon,
-  lang,
-  className
-}) {
+function FileUpload({ title, hint, accept, multiple = false, onFiles, icon, lang, className }) {
   const [drag, setDrag] = React.useState(false);
-  const pick = files => {
+  const pick = (files) => {
     if (files && files.length && onFiles) onFiles(Array.from(files));
   };
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("FileUpload", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("FileUpload", L);
   const tt = title != null ? title : t("title");
   const hh = hint != null ? hint : t("hint");
-  return /*#__PURE__*/React.createElement("label", {
-    ref: ref,
-    className: cx("cs-dropzone", drag && "is-dragging", className),
-    onDragOver: e => {
-      e.preventDefault();
-      setDrag(true);
+  return /* @__PURE__ */ React.createElement(
+    "label",
+    {
+      ref,
+      className: cx("cs-dropzone", drag && "is-dragging", className),
+      onDragOver: (e) => {
+        e.preventDefault();
+        setDrag(true);
+      },
+      onDragLeave: () => setDrag(false),
+      onDrop: (e) => {
+        e.preventDefault();
+        setDrag(false);
+        pick(e.dataTransfer.files);
+      }
     },
-    onDragLeave: () => setDrag(false),
-    onDrop: e => {
-      e.preventDefault();
-      setDrag(false);
-      pick(e.dataTransfer.files);
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "cs-dropzone__icon"
-  }, icon ?? /*#__PURE__*/React.createElement("svg", {
-    width: "28",
-    height: "28",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "1.8",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M12 16V4M7 9l5-5 5 5"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M5 16v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3"
-  }))), /*#__PURE__*/React.createElement("span", {
-    className: "cs-dropzone__title"
-  }, tt), /*#__PURE__*/React.createElement("span", {
-    className: "cs-dropzone__hint"
-  }, hh), /*#__PURE__*/React.createElement("input", {
-    type: "file",
-    accept: accept,
-    multiple: multiple,
-    style: {
-      display: "none"
-    },
-    onChange: e => pick(e.target.files)
-  }));
+    /* @__PURE__ */ React.createElement("span", { className: "cs-dropzone__icon" }, icon ?? /* @__PURE__ */ React.createElement("svg", { width: "28", height: "28", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.8", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: "M12 16V4M7 9l5-5 5 5" }), /* @__PURE__ */ React.createElement("path", { d: "M5 16v3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3" }))),
+    /* @__PURE__ */ React.createElement("span", { className: "cs-dropzone__title" }, tt),
+    /* @__PURE__ */ React.createElement("span", { className: "cs-dropzone__hint" }, hh),
+    /* @__PURE__ */ React.createElement("input", { type: "file", accept, multiple, style: { display: "none" }, onChange: (e) => pick(e.target.files) })
+  );
 }
 Object.assign(__ds_scope, { FileUpload });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/FileUpload.jsx", error: String((e && e.message) || e) }); }
@@ -3981,7 +1969,7 @@ function FormFieldArray({
       disabled: list.length >= max,
       style: { marginTop: 8 }
     },
-    addLabel || (L === "vi" ? "Th\xEAm d\xF2ng" : "Add row")
+    addLabel || (L === "vi" ? "Thêm dòng" : "Add row")
   ));
 }
 function FormWizard({
@@ -4051,40 +2039,19 @@ function FormWizard({
     letterSpacing: ".06em",
     color: i === step ? "var(--cs-color-brand-umber)" : "var(--cs-color-text-primary)",
     opacity: i === step ? 1 : 0.55
-  } }, i + 1, ". ", s.title || s.id || `Step ${i + 1}`))), keys.length ? /* @__PURE__ */ React.createElement("div", { className: "cs-form__summary", role: "alert" }, /* @__PURE__ */ React.createElement("b", null, t("summary")), /* @__PURE__ */ React.createElement("ul", null, keys.map((k) => /* @__PURE__ */ React.createElement("li", { key: k }, ruleErrors[k])))) : null, /* @__PURE__ */ React.createElement("div", { className: "cs-form-wizard__body" }, typeof current.render === "function" ? current.render({ values, step, setValue }) : null), /* @__PURE__ */ React.createElement("div", { className: "cs-form-wizard__nav", style: { display: "flex", gap: 10, marginTop: 16 } }, /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-button cs-button--secondary cs-button--sm", onClick: goBack, disabled: step === 0 || pending }, backLabel || (L === "vi" ? "Quay l\u1EA1i" : "Back")), /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-button cs-button--sm", onClick: goNext, disabled: pending }, step >= steps.length - 1 ? finishLabel || (L === "vi" ? "Ho\xE0n t\u1EA5t" : "Finish") : nextLabel || (L === "vi" ? "Ti\u1EBFp" : "Next")))));
+  } }, i + 1, ". ", s.title || s.id || `Step ${i + 1}`))), keys.length ? /* @__PURE__ */ React.createElement("div", { className: "cs-form__summary", role: "alert" }, /* @__PURE__ */ React.createElement("b", null, t("summary")), /* @__PURE__ */ React.createElement("ul", null, keys.map((k) => /* @__PURE__ */ React.createElement("li", { key: k }, ruleErrors[k])))) : null, /* @__PURE__ */ React.createElement("div", { className: "cs-form-wizard__body" }, typeof current.render === "function" ? current.render({ values, step, setValue }) : null), /* @__PURE__ */ React.createElement("div", { className: "cs-form-wizard__nav", style: { display: "flex", gap: 10, marginTop: 16 } }, /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-button cs-button--secondary cs-button--sm", onClick: goBack, disabled: step === 0 || pending }, backLabel || (L === "vi" ? "Quay lại" : "Back")), /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-button cs-button--sm", onClick: goNext, disabled: pending }, step >= steps.length - 1 ? finishLabel || (L === "vi" ? "Hoàn tất" : "Finish") : nextLabel || (L === "vi" ? "Tiếp" : "Next")))));
 }
-
-Object.assign(__ds_scope, { Form, FormField, FormFieldArray, FormWizard, getPath, setPath });
-})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Form.jsx", error: String((e && e.message) || e) }); console.error('[ds-bundle] Form.jsx', e); }
+Object.assign(__ds_scope, { getPath, setPath, Form, FormField, FormFieldArray, FormWizard });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Form.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/InlineEdit.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-const PEN = /*#__PURE__*/React.createElement("svg", {
-  width: "13",
-  height: "13",
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: "1.9",
-  strokeLinecap: "round",
-  strokeLinejoin: "round",
-  "aria-hidden": "true"
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M4 20l4.5-.9L20 7.6a2 2 0 0 0-2.8-2.8L5.7 16.3 4 20z"
-}));
-
-/** CyberSkill InlineEdit — click-to-edit text. Enter/blur commits, Escape cancels. */
-function InlineEdit({
-  value,
-  defaultValue = "",
-  onChange,
-  label,
-  lang,
-  className
-}) {
+const PEN = /* @__PURE__ */ React.createElement("svg", { width: "13", height: "13", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.9", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: "M4 20l4.5-.9L20 7.6a2 2 0 0 0-2.8-2.8L5.7 16.3 4 20z" }));
+function InlineEdit({ value, defaultValue = "", onChange, label, lang, className }) {
   const [inner, setInner] = React.useState(defaultValue);
   const val = value != null ? value : inner;
   const [edit, setEdit] = React.useState(false);
@@ -4096,717 +2063,340 @@ function InlineEdit({
       onChange && onChange(draft);
     }
   };
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("InlineEdit", L);
-  return /*#__PURE__*/React.createElement("span", {
-    ref: ref,
-    className: cx("cs-inline-edit", className)
-  }, edit ? /*#__PURE__*/React.createElement("input", {
-    autoFocus: true,
-    value: draft,
-    "aria-label": label,
-    onChange: e => setDraft(e.target.value),
-    onBlur: commit,
-    onKeyDown: e => {
-      if (e.key === "Enter") commit();else if (e.key === "Escape") {
-        setDraft(val);
-        setEdit(false);
+  const [ref, L] = useLang(lang);
+  const t = makeT("InlineEdit", L);
+  return /* @__PURE__ */ React.createElement("span", { ref, className: cx("cs-inline-edit", className) }, edit ? /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      autoFocus: true,
+      value: draft,
+      "aria-label": label,
+      onChange: (e) => setDraft(e.target.value),
+      onBlur: commit,
+      onKeyDown: (e) => {
+        if (e.key === "Enter") commit();
+        else if (e.key === "Escape") {
+          setDraft(val);
+          setEdit(false);
+        }
       }
     }
-  }) : /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-inline-edit__view",
-    "aria-label": t("edit") + (label ? ": " + label : ""),
-    onClick: () => {
-      setDraft(val);
-      setEdit(true);
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: val ? undefined : "ph"
-  }, val || t("empty")), PEN));
+  ) : /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-inline-edit__view", "aria-label": t("edit") + (label ? ": " + label : ""), onClick: () => {
+    setDraft(val);
+    setEdit(true);
+  } }, /* @__PURE__ */ React.createElement("span", { className: val ? void 0 : "ph" }, val || t("empty")), PEN));
 }
 Object.assign(__ds_scope, { InlineEdit });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/InlineEdit.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/InputGroup.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-const EYE = /*#__PURE__*/React.createElement("svg", {
-  width: "16",
-  height: "16",
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: "1.8",
-  strokeLinecap: "round",
-  strokeLinejoin: "round",
-  "aria-hidden": "true"
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"
-}), /*#__PURE__*/React.createElement("circle", {
-  cx: "12",
-  cy: "12",
-  r: "3"
-}));
-const EYE_OFF = /*#__PURE__*/React.createElement("svg", {
-  width: "16",
-  height: "16",
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: "1.8",
-  strokeLinecap: "round",
-  strokeLinejoin: "round",
-  "aria-hidden": "true"
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"
-}), /*#__PURE__*/React.createElement("circle", {
-  cx: "12",
-  cy: "12",
-  r: "3"
-}), /*#__PURE__*/React.createElement("path", {
-  d: "M4 4l16 16"
-}));
-const X = /*#__PURE__*/React.createElement("svg", {
-  width: "14",
-  height: "14",
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: "2.2",
-  strokeLinecap: "round",
-  "aria-hidden": "true"
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M6 6l12 12M18 6L6 18"
-}));
-
-/** CyberSkill InputGroup — input with prefix/suffix addons, clearable ×, and password reveal. */
-function InputGroup({
-  prefix,
-  suffix,
-  clearable = false,
-  password = false,
-  value,
-  onChange,
-  defaultValue = "",
-  placeholder,
-  disabled = false,
-  lang,
-  className,
-  ...props
-}) {
+const EYE = /* @__PURE__ */ React.createElement("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.8", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: "M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" }), /* @__PURE__ */ React.createElement("circle", { cx: "12", cy: "12", r: "3" }));
+const EYE_OFF = /* @__PURE__ */ React.createElement("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.8", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: "M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" }), /* @__PURE__ */ React.createElement("circle", { cx: "12", cy: "12", r: "3" }), /* @__PURE__ */ React.createElement("path", { d: "M4 4l16 16" }));
+const X = /* @__PURE__ */ React.createElement("svg", { width: "14", height: "14", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.2", strokeLinecap: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: "M6 6l12 12M18 6L6 18" }));
+function InputGroup({ prefix, suffix, clearable = false, password = false, value, onChange, defaultValue = "", placeholder, disabled = false, lang, className, ...props }) {
   const [inner, setInner] = React.useState(defaultValue);
   const val = value != null ? value : inner;
-  const set = v => {
+  const set = (v) => {
     if (value == null) setInner(v);
     onChange && onChange(v);
   };
   const [show, setShow] = React.useState(false);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("InputGroup", L);
-  return /*#__PURE__*/React.createElement("span", {
-    ref: ref,
-    className: cx("cs-igroup", className)
-  }, prefix != null ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-igroup__fix"
-  }, prefix) : null, /*#__PURE__*/React.createElement("input", _extends({}, props, {
-    type: password && !show ? "password" : "text",
-    value: val,
-    placeholder: placeholder,
-    disabled: disabled,
-    onChange: e => set(e.target.value)
-  })), clearable && String(val).length ? /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-igroup__btn",
-    "aria-label": t("clear"),
-    onClick: () => set("")
-  }, X) : null, password ? /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-igroup__btn",
-    "aria-label": show ? t("hide") : t("show"),
-    "aria-pressed": show,
-    onClick: () => setShow(s => !s)
-  }, show ? EYE_OFF : EYE) : null, suffix != null ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-igroup__fix cs-igroup__fix--suffix"
-  }, suffix) : null);
+  const [ref, L] = useLang(lang);
+  const t = makeT("InputGroup", L);
+  return /* @__PURE__ */ React.createElement("span", { ref, className: cx("cs-igroup", className) }, prefix != null ? /* @__PURE__ */ React.createElement("span", { className: "cs-igroup__fix" }, prefix) : null, /* @__PURE__ */ React.createElement("input", { ...props, type: password && !show ? "password" : "text", value: val, placeholder, disabled, onChange: (e) => set(e.target.value) }), clearable && String(val).length ? /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-igroup__btn", "aria-label": t("clear"), onClick: () => set("") }, X) : null, password ? /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-igroup__btn", "aria-label": show ? t("hide") : t("show"), "aria-pressed": show, onClick: () => setShow((s) => !s) }, show ? EYE_OFF : EYE) : null, suffix != null ? /* @__PURE__ */ React.createElement("span", { className: "cs-igroup__fix cs-igroup__fix--suffix" }, suffix) : null);
 }
 Object.assign(__ds_scope, { InputGroup });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/InputGroup.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/InputOTP.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill InputOTP — one-time-code boxes: auto-advance, backspace, paste. Digits only. */
-function InputOTP({
-  length = 6,
-  value,
-  onChange,
-  onComplete,
-  label,
-  lang,
-  disabled = false,
-  className
-}) {
+function InputOTP({ length = 6, value, onChange, onComplete, label, lang, disabled = false, className }) {
   const [inner, setInner] = React.useState("");
   const val = (value != null ? value : inner).slice(0, length);
   const boxes = React.useRef([]);
-  const set = v => {
+  const set = (v) => {
     v = v.replace(/\D/g, "").slice(0, length);
     if (value == null) setInner(v);
     onChange && onChange(v);
     if (v.length === length && onComplete) onComplete(v);
   };
-  const [ref, L] = __ds_scope.useLang(lang);
-  const lbl = label != null ? label : __ds_scope.makeT("InputOTP", L)("label");
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-otp", className),
-    role: "group",
-    "aria-label": lbl
-  }, Array.from({
-    length
-  }).map((_, i) => /*#__PURE__*/React.createElement("input", {
-    key: i,
-    ref: el => boxes.current[i] = el,
-    inputMode: "numeric",
-    pattern: "[0-9]*",
-    maxLength: 1,
-    disabled: disabled,
-    value: val[i] || "",
-    "aria-label": lbl + " " + (i + 1) + "/" + length,
-    onChange: e => {
-      const c = e.target.value.replace(/\D/g, "");
-      if (!c) return;
-      set(val.slice(0, i) + c + val.slice(i + 1));
-      const nb = boxes.current[i + 1];
-      if (nb) nb.focus();
-    },
-    onKeyDown: e => {
-      if (e.key !== "Backspace") return;
-      e.preventDefault();
-      const arr = val.split("");
-      if (arr[i]) arr.splice(i, 1);else if (i > 0) arr.splice(i - 1, 1);
-      set(arr.join(""));
-      const pb = boxes.current[Math.max(0, i - 1)];
-      if (pb) pb.focus();
-    },
-    onPaste: e => {
-      e.preventDefault();
-      const p = (e.clipboardData.getData("text") || "").replace(/\D/g, "").slice(0, length);
-      set(p);
-      const nb = boxes.current[Math.min(length - 1, p.length)];
-      if (nb) nb.focus();
+  const [ref, L] = useLang(lang);
+  const lbl = label != null ? label : makeT("InputOTP", L)("label");
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-otp", className), role: "group", "aria-label": lbl }, Array.from({ length }).map((_, i) => /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      key: i,
+      ref: (el) => boxes.current[i] = el,
+      inputMode: "numeric",
+      pattern: "[0-9]*",
+      maxLength: 1,
+      disabled,
+      value: val[i] || "",
+      "aria-label": lbl + " " + (i + 1) + "/" + length,
+      onChange: (e) => {
+        const c = e.target.value.replace(/\D/g, "");
+        if (!c) return;
+        set(val.slice(0, i) + c + val.slice(i + 1));
+        const nb = boxes.current[i + 1];
+        if (nb) nb.focus();
+      },
+      onKeyDown: (e) => {
+        if (e.key !== "Backspace") return;
+        e.preventDefault();
+        const arr = val.split("");
+        if (arr[i]) arr.splice(i, 1);
+        else if (i > 0) arr.splice(i - 1, 1);
+        set(arr.join(""));
+        const pb = boxes.current[Math.max(0, i - 1)];
+        if (pb) pb.focus();
+      },
+      onPaste: (e) => {
+        e.preventDefault();
+        const p = (e.clipboardData.getData("text") || "").replace(/\D/g, "").slice(0, length);
+        set(p);
+        const nb = boxes.current[Math.min(length - 1, p.length)];
+        if (nb) nb.focus();
+      }
     }
-  })));
+  )));
 }
 Object.assign(__ds_scope, { InputOTP });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/InputOTP.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/Mentions.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Mentions — textarea that suggests @users while typing. */
-function Mentions({
-  value,
-  defaultValue = "",
-  onChange,
-  users = [],
-  placeholder,
-  rows = 3,
-  lang,
-  className
-}) {
+function Mentions({ value, defaultValue = "", onChange, users = [], placeholder, rows = 3, lang, className }) {
   const [inner, setInner] = React.useState(defaultValue);
   const val = value != null ? value : inner;
-  const set = v => {
+  const set = (v) => {
     if (value == null) setInner(v);
     onChange && onChange(v);
   };
   const [q, setQ] = React.useState(null);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("Mentions", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("Mentions", L);
   const ph = placeholder != null ? placeholder : t("placeholder");
-  const onInput = v => {
+  const onInput = (v) => {
     set(v);
     const m = /(^|\s)@(\w*)$/.exec(v);
     setQ(m ? m[2].toLowerCase() : null);
   };
-  const hits = q == null ? [] : users.filter(u => u.toLowerCase().includes(q)).slice(0, 6);
-  const pick = u => {
+  const hits = q == null ? [] : users.filter((u) => u.toLowerCase().includes(q)).slice(0, 6);
+  const pick = (u) => {
     set(val.replace(/(^|\s)@\w*$/, "$1@" + u + " "));
     setQ(null);
   };
-  return /*#__PURE__*/React.createElement("span", {
-    ref: ref,
-    className: cx("cs-mentions", className)
-  }, /*#__PURE__*/React.createElement("textarea", {
-    className: "cs-field__control",
-    rows: rows,
-    value: val,
-    placeholder: ph,
-    onChange: e => onInput(e.target.value)
-  }), hits.length ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-mentions__pop",
-    role: "listbox"
-  }, hits.map(u => /*#__PURE__*/React.createElement("button", {
-    key: u,
-    type: "button",
-    role: "option",
-    onMouseDown: e => {
-      e.preventDefault();
-      pick(u);
-    }
-  }, "@", u))) : null);
+  return /* @__PURE__ */ React.createElement("span", { ref, className: cx("cs-mentions", className) }, /* @__PURE__ */ React.createElement("textarea", { className: "cs-field__control", rows, value: val, placeholder: ph, onChange: (e) => onInput(e.target.value) }), hits.length ? /* @__PURE__ */ React.createElement("span", { className: "cs-mentions__pop", role: "listbox" }, hits.map((u) => /* @__PURE__ */ React.createElement("button", { key: u, type: "button", role: "option", onMouseDown: (e) => {
+    e.preventDefault();
+    pick(u);
+  } }, "@", u))) : null);
 }
 Object.assign(__ds_scope, { Mentions });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Mentions.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/NumberField.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill NumberField — numeric stepper with −/+ buttons and clamping. */
-function NumberField({
-  value,
-  onChange,
-  min,
-  max,
-  step = 1,
-  disabled = false,
-  lang,
-  className,
-  children,
-  ...props
-}) {
+function NumberField({ value, onChange, min, max, step = 1, disabled = false, lang, className, children, ...props }) {
   const [inner, setInner] = React.useState(0);
   const val = value != null ? value : inner;
-  const clamp = n => {
+  const clamp = (n) => {
     if (min != null) n = Math.max(min, n);
     if (max != null) n = Math.min(max, n);
     return n;
   };
-  const set = n => {
+  const set = (n) => {
     const c = clamp(n);
     onChange ? onChange(c) : setInner(c);
   };
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("NumberField", L);
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-stepper", className)
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    "aria-label": t("decrease"),
-    disabled: disabled || min != null && val <= min,
-    onClick: () => set(val - step)
-  }, "\u2212"), /*#__PURE__*/React.createElement("input", _extends({
-    type: "number",
-    value: val,
-    min: min,
-    max: max,
-    step: step,
-    disabled: disabled,
-    onChange: e => set(Number(e.target.value))
-  }, props)), /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    "aria-label": t("increase"),
-    disabled: disabled || max != null && val >= max,
-    onClick: () => set(val + step)
-  }, "+"));
+  const [ref, L] = useLang(lang);
+  const t = makeT("NumberField", L);
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-stepper", className) }, /* @__PURE__ */ React.createElement("button", { type: "button", "aria-label": t("decrease"), disabled: disabled || min != null && val <= min, onClick: () => set(val - step) }, "−"), /* @__PURE__ */ React.createElement("input", { type: "number", value: val, min, max, step, disabled, onChange: (e) => set(Number(e.target.value)), ...props }), /* @__PURE__ */ React.createElement("button", { type: "button", "aria-label": t("increase"), disabled: disabled || max != null && val >= max, onClick: () => set(val + step) }, "+"));
 }
 Object.assign(__ds_scope, { NumberField });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/NumberField.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/RadioGroup.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** A single labelled radio (brand accent-color). Usually composed via RadioGroup. */
-function Radio({
-  label,
-  description,
-  disabled = false,
-  className,
-  children,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("label", {
-    className: cx("cs-radio", disabled && "is-disabled", className)
-  }, /*#__PURE__*/React.createElement("input", _extends({
-    type: "radio",
-    disabled: disabled
-  }, props)), /*#__PURE__*/React.createElement("span", {
-    className: "cs-radio__text"
-  }, /*#__PURE__*/React.createElement("span", null, label), description ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-radio__desc"
-  }, description) : null));
+function Radio({ label, description, disabled = false, className, children, ...props }) {
+  return /* @__PURE__ */ React.createElement("label", { className: cx("cs-radio", disabled && "is-disabled", className) }, /* @__PURE__ */ React.createElement("input", { type: "radio", disabled, ...props }), /* @__PURE__ */ React.createElement("span", { className: "cs-radio__text" }, /* @__PURE__ */ React.createElement("span", null, label), description ? /* @__PURE__ */ React.createElement("span", { className: "cs-radio__desc" }, description) : null));
 }
-
-/** CyberSkill RadioGroup — a fieldset of radios from `options`, controlled by value/onChange. */
-function RadioGroup({
-  legend,
-  name,
-  value,
-  onChange,
-  options = [],
-  className
-}) {
+function RadioGroup({ legend, name, value, onChange, options = [], className }) {
   const gid = React.useId();
   const nm = name ?? gid;
-  return /*#__PURE__*/React.createElement("fieldset", {
-    className: cx("cs-radio-group", className)
-  }, legend ? /*#__PURE__*/React.createElement("legend", null, legend) : null, options.map(o => /*#__PURE__*/React.createElement(Radio, {
-    key: o.value,
-    name: nm,
-    value: o.value,
-    label: o.label,
-    description: o.description,
-    disabled: o.disabled,
-    checked: value === o.value,
-    onChange: () => onChange && onChange(o.value)
-  })));
+  return /* @__PURE__ */ React.createElement("fieldset", { className: cx("cs-radio-group", className) }, legend ? /* @__PURE__ */ React.createElement("legend", null, legend) : null, options.map((o) => /* @__PURE__ */ React.createElement(
+    Radio,
+    {
+      key: o.value,
+      name: nm,
+      value: o.value,
+      label: o.label,
+      description: o.description,
+      disabled: o.disabled,
+      checked: value === o.value,
+      onChange: () => onChange && onChange(o.value)
+    }
+  )));
 }
 Object.assign(__ds_scope, { Radio, RadioGroup });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/RadioGroup.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/Rating.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
 const STAR = "M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.5L12 16.9 6.1 20l1.3-6.5L2.5 9l6.6-.8z";
-
-/** CyberSkill Rating — whole-star rating. Controlled or uncontrolled; readOnly for display. Click the current value to clear. */
-function Rating({
-  value,
-  defaultValue = 0,
-  onChange,
-  max = 5,
-  readOnly = false,
-  label,
-  lang,
-  className
-}) {
+function Rating({ value, defaultValue = 0, onChange, max = 5, readOnly = false, label, lang, className }) {
   const [inner, setInner] = React.useState(defaultValue);
   const val = value != null ? value : inner;
-  const set = n => {
+  const set = (n) => {
     if (readOnly) return;
     const v = n === val ? 0 : n;
     if (value == null) setInner(v);
     onChange && onChange(v);
   };
-  const [ref, L] = __ds_scope.useLang(lang);
-  const lbl = label != null ? label : __ds_scope.makeT("Rating", L)("label");
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-rating", className),
-    role: "radiogroup",
-    "aria-label": lbl + ": " + val + " / " + max,
-    "data-readonly": readOnly ? "true" : undefined
-  }, Array.from({
-    length: max
-  }).map((_, i) => /*#__PURE__*/React.createElement("button", {
-    key: i,
-    type: "button",
-    role: "radio",
-    "aria-checked": i < val,
-    "aria-label": i + 1 + " / " + max,
-    className: i < val ? "on" : undefined,
-    onClick: () => set(i + 1),
-    tabIndex: readOnly ? -1 : 0
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "22",
-    height: "22",
-    viewBox: "0 0 24 24",
-    fill: i < val ? "currentColor" : "none",
-    stroke: "currentColor",
-    strokeWidth: "1.6",
-    strokeLinejoin: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: STAR
-  })))));
+  const [ref, L] = useLang(lang);
+  const lbl = label != null ? label : makeT("Rating", L)("label");
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-rating", className), role: "radiogroup", "aria-label": lbl + ": " + val + " / " + max, "data-readonly": readOnly ? "true" : void 0 }, Array.from({ length: max }).map((_, i) => /* @__PURE__ */ React.createElement("button", { key: i, type: "button", role: "radio", "aria-checked": i < val, "aria-label": i + 1 + " / " + max, className: i < val ? "on" : void 0, onClick: () => set(i + 1), tabIndex: readOnly ? -1 : 0 }, /* @__PURE__ */ React.createElement("svg", { width: "22", height: "22", viewBox: "0 0 24 24", fill: i < val ? "currentColor" : "none", stroke: "currentColor", strokeWidth: "1.6", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: STAR })))));
 }
 Object.assign(__ds_scope, { Rating });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Rating.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/SearchField.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill SearchField — pill search input with icon + clear. Controlled or uncontrolled. */
-function SearchField({
-  value,
-  onChange,
-  onClear,
-  placeholder,
-  lang,
-  className,
-  children,
-  ...props
-}) {
+function SearchField({ value, onChange, onClear, placeholder, lang, className, children, ...props }) {
   const [inner, setInner] = React.useState("");
   const val = value != null ? value : inner;
-  const set = v => onChange ? onChange(v) : setInner(v);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("SearchField", L);
+  const set = (v) => onChange ? onChange(v) : setInner(v);
+  const [ref, L] = useLang(lang);
+  const t = makeT("SearchField", L);
   const ph = placeholder != null ? placeholder : t("placeholder");
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-search", className)
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("circle", {
-    cx: "11",
-    cy: "11",
-    r: "7"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M21 21l-4.3-4.3"
-  })), /*#__PURE__*/React.createElement("input", _extends({}, props, {
-    type: "text",
-    role: "searchbox",
-    value: val,
-    placeholder: ph,
-    onChange: e => set(e.target.value)
-  })), String(val).length ? /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-search__clear",
-    "aria-label": t("clear"),
-    onClick: () => {
-      set("");
-      onClear && onClear();
-    }
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "16",
-    height: "16",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2",
-    strokeLinecap: "round"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 6l12 12M18 6L6 18"
-  }))) : null);
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-search", className) }, /* @__PURE__ */ React.createElement("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("circle", { cx: "11", cy: "11", r: "7" }), /* @__PURE__ */ React.createElement("path", { d: "M21 21l-4.3-4.3" })), /* @__PURE__ */ React.createElement("input", { ...props, type: "text", role: "searchbox", value: val, placeholder: ph, onChange: (e) => set(e.target.value) }), String(val).length ? /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-search__clear", "aria-label": t("clear"), onClick: () => {
+    set("");
+    onClear && onClear();
+  } }, /* @__PURE__ */ React.createElement("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }, /* @__PURE__ */ React.createElement("path", { d: "M6 6l12 12M18 6L6 18" }))) : null);
 }
 Object.assign(__ds_scope, { SearchField });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/SearchField.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/SegmentedControl.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill SegmentedControl — pill toggle group (single select). Matches the Status Hub lens switcher. */
-function SegmentedControl({
-  options = [],
-  value,
-  onChange,
-  className,
-  ...props
-}) {
+function SegmentedControl({ options = [], value, onChange, className, ...props }) {
   const refs = React.useRef([]);
-  const idx = Math.max(0, options.findIndex(o => o.value === value));
+  const idx = Math.max(0, options.findIndex((o) => o.value === value));
   const key = (e, i) => {
     let n = null;
-    if (e.key === "ArrowRight") n = (i + 1) % options.length;else if (e.key === "ArrowLeft") n = (i - 1 + options.length) % options.length;else if (e.key === "Home") n = 0;else if (e.key === "End") n = options.length - 1;
+    if (e.key === "ArrowRight") n = (i + 1) % options.length;
+    else if (e.key === "ArrowLeft") n = (i - 1 + options.length) % options.length;
+    else if (e.key === "Home") n = 0;
+    else if (e.key === "End") n = options.length - 1;
     if (n == null) return;
     e.preventDefault();
     if (onChange) onChange(options[n].value);
     const b = refs.current[n];
     if (b) b.focus();
   };
-  return /*#__PURE__*/React.createElement("div", _extends({
-    role: "tablist",
-    className: cx("cs-segmented", className)
-  }, props), options.map((o, i) => /*#__PURE__*/React.createElement("button", {
-    key: o.value,
-    type: "button",
-    role: "tab",
-    "aria-selected": value === o.value,
-    "aria-pressed": value === o.value,
-    tabIndex: i === idx ? 0 : -1,
-    ref: el => refs.current[i] = el,
-    onKeyDown: e => key(e, i),
-    onClick: () => onChange && onChange(o.value)
-  }, o.icon ? /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true"
-  }, o.icon) : null, o.label)));
+  return /* @__PURE__ */ React.createElement("div", { role: "tablist", className: cx("cs-segmented", className), ...props }, options.map((o, i) => /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      key: o.value,
+      type: "button",
+      role: "tab",
+      "aria-selected": value === o.value,
+      "aria-pressed": value === o.value,
+      tabIndex: i === idx ? 0 : -1,
+      ref: (el) => refs.current[i] = el,
+      onKeyDown: (e) => key(e, i),
+      onClick: () => onChange && onChange(o.value)
+    },
+    o.icon ? /* @__PURE__ */ React.createElement("span", { "aria-hidden": "true" }, o.icon) : null,
+    o.label
+  )));
 }
 Object.assign(__ds_scope, { SegmentedControl });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/SegmentedControl.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/Select.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Select — native <select> in the .cs-field frame with a chevron.
- *  Pass `options` [{value,label}] or <option> children. */
-function Select({
-  id,
-  label,
-  description,
-  error,
-  options,
-  children,
-  disabled = false,
-  className,
-  ...props
-}) {
+function Select({ id, label, description, error, options, children, disabled = false, className, ...props }) {
   const gid = React.useId();
   const sid = id ?? gid;
-  const descId = description ? sid + "-desc" : undefined;
-  const errId = error ? sid + "-err" : undefined;
-  const describedBy = [descId, errId].filter(Boolean).join(" ") || undefined;
-  return /*#__PURE__*/React.createElement("label", {
-    className: cx("cs-field", disabled && "is-disabled", error && "is-invalid", className),
-    htmlFor: sid
-  }, label ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-field__label"
-  }, label) : null, description ? /*#__PURE__*/React.createElement("span", {
-    id: descId,
-    className: "cs-field__description"
-  }, description) : null, /*#__PURE__*/React.createElement("span", {
-    className: "cs-select"
-  }, /*#__PURE__*/React.createElement("select", _extends({}, props, {
-    id: sid,
-    disabled: disabled,
-    "aria-invalid": error ? true : undefined,
-    "aria-describedby": describedBy,
-    className: "cs-field__control"
-  }), options ? options.map(o => /*#__PURE__*/React.createElement("option", {
-    key: o.value,
-    value: o.value
-  }, o.label)) : children), /*#__PURE__*/React.createElement("span", {
-    className: "cs-select__chevron",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "16",
-    height: "16",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2",
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 9l6 6 6-6"
-  })))), error ? /*#__PURE__*/React.createElement("span", {
-    id: errId,
-    className: "cs-field__error",
-    role: "alert"
-  }, error) : null);
+  const descId = description ? sid + "-desc" : void 0;
+  const errId = error ? sid + "-err" : void 0;
+  const describedBy = [descId, errId].filter(Boolean).join(" ") || void 0;
+  return /* @__PURE__ */ React.createElement("label", { className: cx("cs-field", disabled && "is-disabled", error && "is-invalid", className), htmlFor: sid }, label ? /* @__PURE__ */ React.createElement("span", { className: "cs-field__label" }, label) : null, description ? /* @__PURE__ */ React.createElement("span", { id: descId, className: "cs-field__description" }, description) : null, /* @__PURE__ */ React.createElement("span", { className: "cs-select" }, /* @__PURE__ */ React.createElement("select", { ...props, id: sid, disabled, "aria-invalid": error ? true : void 0, "aria-describedby": describedBy, className: "cs-field__control" }, options ? options.map((o) => /* @__PURE__ */ React.createElement("option", { key: o.value, value: o.value }, o.label)) : children), /* @__PURE__ */ React.createElement("span", { className: "cs-select__chevron", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }, /* @__PURE__ */ React.createElement("path", { d: "M6 9l6 6 6-6" })))), error ? /* @__PURE__ */ React.createElement("span", { id: errId, className: "cs-field__error", role: "alert" }, error) : null);
 }
 Object.assign(__ds_scope, { Select });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Select.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/Slider.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Slider — brand-tinted native range input. Pass native props (min/max/step/value/onChange). */
-function Slider({
-  className,
-  children,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("input", _extends({
-    type: "range",
-    className: cx("cs-slider", className)
-  }, props));
+function Slider({ className, children, ...props }) {
+  return /* @__PURE__ */ React.createElement("input", { type: "range", className: cx("cs-slider", className), ...props });
 }
 Object.assign(__ds_scope, { Slider });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Slider.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/Switch.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Switch — accessible toggle (role="switch"); Umber on, Ochre knob-track in dark. */
-function Switch({
-  label,
-  disabled = false,
-  className,
-  children,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("label", {
-    className: cx("cs-switch", disabled && "is-disabled", className)
-  }, /*#__PURE__*/React.createElement("input", _extends({
-    type: "checkbox",
-    role: "switch",
-    disabled: disabled
-  }, props)), /*#__PURE__*/React.createElement("span", {
-    className: "cs-switch__track",
-    "aria-hidden": "true"
-  }), label ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-switch__label"
-  }, label) : null);
+function Switch({ label, disabled = false, className, children, ...props }) {
+  return /* @__PURE__ */ React.createElement("label", { className: cx("cs-switch", disabled && "is-disabled", className) }, /* @__PURE__ */ React.createElement("input", { type: "checkbox", role: "switch", disabled, ...props }), /* @__PURE__ */ React.createElement("span", { className: "cs-switch__track", "aria-hidden": "true" }), label ? /* @__PURE__ */ React.createElement("span", { className: "cs-switch__label" }, label) : null);
 }
 Object.assign(__ds_scope, { Switch });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Switch.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/TagInput.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill TagInput — multi-value token input. Enter/comma adds, Backspace removes last, blur commits. */
-function TagInput({
-  value,
-  defaultValue = [],
-  onChange,
-  placeholder,
-  max,
-  disabled = false,
-  lang,
-  className
-}) {
+function TagInput({ value, defaultValue = [], onChange, placeholder, max, disabled = false, lang, className }) {
   const [inner, setInner] = React.useState(defaultValue);
   const tags = value != null ? value : inner;
   const [q, setQ] = React.useState("");
-  const set = arr => {
+  const set = (arr) => {
     if (value == null) setInner(arr);
     onChange && onChange(arr);
   };
-  const add = s => {
+  const add = (s) => {
     s = s.trim();
     if (!s) return;
     if (tags.includes(s)) {
@@ -4817,171 +2407,72 @@ function TagInput({
     set([...tags, s]);
     setQ("");
   };
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("TagInput", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("TagInput", L);
   const ph = placeholder != null ? placeholder : t("placeholder");
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-taginput", className)
-  }, tags.map(tag => /*#__PURE__*/React.createElement("span", {
-    key: tag,
-    className: "cs-tag"
-  }, tag, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-tag__close",
-    "aria-label": t("remove") + " " + tag,
-    onClick: () => set(tags.filter(x => x !== tag)),
-    disabled: disabled
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "12",
-    height: "12",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2.4",
-    strokeLinecap: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 6l12 12M18 6L6 18"
-  }))))), /*#__PURE__*/React.createElement("input", {
-    value: q,
-    placeholder: tags.length ? "" : ph,
-    disabled: disabled,
-    onChange: e => setQ(e.target.value),
-    onKeyDown: e => {
-      if (e.key === "Enter" || e.key === ",") {
-        e.preventDefault();
-        add(q);
-      } else if (e.key === "Backspace" && !q && tags.length) {
-        set(tags.slice(0, -1));
-      }
-    },
-    onBlur: () => add(q)
-  }));
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-taginput", className) }, tags.map((tag) => /* @__PURE__ */ React.createElement("span", { key: tag, className: "cs-tag" }, tag, /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-tag__close", "aria-label": t("remove") + " " + tag, onClick: () => set(tags.filter((x) => x !== tag)), disabled }, /* @__PURE__ */ React.createElement("svg", { width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.4", strokeLinecap: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: "M6 6l12 12M18 6L6 18" }))))), /* @__PURE__ */ React.createElement(
+    "input",
+    {
+      value: q,
+      placeholder: tags.length ? "" : ph,
+      disabled,
+      onChange: (e) => setQ(e.target.value),
+      onKeyDown: (e) => {
+        if (e.key === "Enter" || e.key === ",") {
+          e.preventDefault();
+          add(q);
+        } else if (e.key === "Backspace" && !q && tags.length) {
+          set(tags.slice(0, -1));
+        }
+      },
+      onBlur: () => add(q)
+    }
+  ));
 }
 Object.assign(__ds_scope, { TagInput });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/TagInput.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/Textarea.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Textarea — multi-line input in the .cs-field frame; label/description/error. */
-function Textarea({
-  id,
-  label,
-  description,
-  error,
-  disabled = false,
-  rows = 4,
-  className,
-  ...props
-}) {
+function Textarea({ id, label, description, error, disabled = false, rows = 4, className, ...props }) {
   const gid = React.useId();
   const tid = id ?? gid;
-  const descId = description ? tid + "-desc" : undefined;
-  const errId = error ? tid + "-err" : undefined;
-  const describedBy = [descId, errId].filter(Boolean).join(" ") || undefined;
-  return /*#__PURE__*/React.createElement("label", {
-    className: cx("cs-field", disabled && "is-disabled", error && "is-invalid", className),
-    htmlFor: tid
-  }, label ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-field__label"
-  }, label) : null, description ? /*#__PURE__*/React.createElement("span", {
-    id: descId,
-    className: "cs-field__description"
-  }, description) : null, /*#__PURE__*/React.createElement("textarea", _extends({}, props, {
-    id: tid,
-    rows: rows,
-    disabled: disabled,
-    "aria-invalid": error ? true : undefined,
-    "aria-describedby": describedBy,
-    className: "cs-field__control"
-  })), error ? /*#__PURE__*/React.createElement("span", {
-    id: errId,
-    className: "cs-field__error",
-    role: "alert"
-  }, error) : null);
+  const descId = description ? tid + "-desc" : void 0;
+  const errId = error ? tid + "-err" : void 0;
+  const describedBy = [descId, errId].filter(Boolean).join(" ") || void 0;
+  return /* @__PURE__ */ React.createElement("label", { className: cx("cs-field", disabled && "is-disabled", error && "is-invalid", className), htmlFor: tid }, label ? /* @__PURE__ */ React.createElement("span", { className: "cs-field__label" }, label) : null, description ? /* @__PURE__ */ React.createElement("span", { id: descId, className: "cs-field__description" }, description) : null, /* @__PURE__ */ React.createElement("textarea", { ...props, id: tid, rows, disabled, "aria-invalid": error ? true : void 0, "aria-describedby": describedBy, className: "cs-field__control" }), error ? /* @__PURE__ */ React.createElement("span", { id: errId, className: "cs-field__error", role: "alert" }, error) : null);
 }
 Object.assign(__ds_scope, { Textarea });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Textarea.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/TimePicker.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-const CLOCK = /*#__PURE__*/React.createElement("svg", {
-  width: "16",
-  height: "16",
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: "1.8",
-  strokeLinecap: "round",
-  strokeLinejoin: "round",
-  "aria-hidden": "true"
-}, /*#__PURE__*/React.createElement("circle", {
-  cx: "12",
-  cy: "12",
-  r: "9"
-}), /*#__PURE__*/React.createElement("path", {
-  d: "M12 7v5l3 3"
-}));
-
-/** CyberSkill TimePicker — 24h time select in fixed steps. Controlled value ("HH:MM")/onChange. */
-function TimePicker({
-  value = "09:00",
-  onChange,
-  step = 30,
-  label,
-  disabled = false,
-  lang,
-  className
-}) {
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("TimePicker", L);
+const CLOCK = /* @__PURE__ */ React.createElement("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.8", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("circle", { cx: "12", cy: "12", r: "9" }), /* @__PURE__ */ React.createElement("path", { d: "M12 7v5l3 3" }));
+function TimePicker({ value = "09:00", onChange, step = 30, label, disabled = false, lang, className }) {
+  const [ref, L] = useLang(lang);
+  const t = makeT("TimePicker", L);
   const opts = [];
   for (let m = 0; m < 24 * 60; m += step) {
     opts.push(String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0"));
   }
-  return /*#__PURE__*/React.createElement("span", {
-    ref: ref,
-    className: cx("cs-timepicker", className)
-  }, CLOCK, /*#__PURE__*/React.createElement("select", {
-    "aria-label": label != null ? label : t("label"),
-    disabled: disabled,
-    value: value,
-    onChange: e => onChange && onChange(e.target.value)
-  }, opts.map(o => /*#__PURE__*/React.createElement("option", {
-    key: o,
-    value: o
-  }, o))));
+  return /* @__PURE__ */ React.createElement("span", { ref, className: cx("cs-timepicker", className) }, CLOCK, /* @__PURE__ */ React.createElement("select", { "aria-label": label != null ? label : t("label"), disabled, value, onChange: (e) => onChange && onChange(e.target.value) }, opts.map((o) => /* @__PURE__ */ React.createElement("option", { key: o, value: o }, o))));
 }
 Object.assign(__ds_scope, { TimePicker });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/TimePicker.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/Toggle.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Toggle — a single pressable on/off button (≠ Switch: no form semantics; ≠ SegmentedControl: standalone). */
-function Toggle({
-  pressed,
-  defaultPressed = false,
-  onChange,
-  icon,
-  children,
-  disabled = false,
-  className,
-  ...props
-}) {
+function Toggle({ pressed, defaultPressed = false, onChange, icon, children, disabled = false, className, ...props }) {
   const [inner, setInner] = React.useState(defaultPressed);
   const on = pressed != null ? pressed : inner;
   const flip = () => {
@@ -4989,109 +2480,50 @@ function Toggle({
     if (pressed == null) setInner(v);
     onChange && onChange(v);
   };
-  return /*#__PURE__*/React.createElement("button", _extends({
-    type: "button",
-    className: cx("cs-toggle", className),
-    "aria-pressed": on,
-    disabled: disabled,
-    onClick: flip
-  }, props), icon ? /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true",
-    style: {
-      display: "inline-flex"
-    }
-  }, icon) : null, children);
+  return /* @__PURE__ */ React.createElement("button", { type: "button", className: cx("cs-toggle", className), "aria-pressed": on, disabled, onClick: flip, ...props }, icon ? /* @__PURE__ */ React.createElement("span", { "aria-hidden": "true", style: { display: "inline-flex" } }, icon) : null, children);
 }
 Object.assign(__ds_scope, { Toggle });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Toggle.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/Transfer.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Transfer — move items between two lists (checkbox select + ⇄ buttons). */
-function Transfer({
-  items = [],
-  value = [],
-  onChange,
-  titles,
-  lang,
-  className
-}) {
+function Transfer({ items = [], value = [], onChange, titles, lang, className }) {
   const [checked, setChecked] = React.useState([]);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("Transfer", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("Transfer", L);
   const tt = titles || [t("source"), t("target")];
-  const inTarget = k => value.includes(k);
-  const toggle = k => setChecked(c => c.includes(k) ? c.filter(x => x !== k) : [...c, k]);
-  const move = toTarget => {
-    const mv = checked.filter(k => inTarget(k) !== toTarget);
+  const inTarget = (k) => value.includes(k);
+  const toggle = (k) => setChecked((c) => c.includes(k) ? c.filter((x) => x !== k) : [...c, k]);
+  const move = (toTarget) => {
+    const mv = checked.filter((k) => inTarget(k) !== toTarget);
     if (!mv.length) return;
-    onChange && onChange(toTarget ? [...value, ...mv] : value.filter(k => !mv.includes(k)));
+    onChange && onChange(toTarget ? [...value, ...mv] : value.filter((k) => !mv.includes(k)));
     setChecked([]);
   };
-  const List = ({
-    target
-  }) => /*#__PURE__*/React.createElement("div", {
-    className: "cs-transfer__list"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-transfer__title"
-  }, target ? tt[1] : tt[0]), /*#__PURE__*/React.createElement("ul", null, items.filter(it => inTarget(it.key) === target).map(it => /*#__PURE__*/React.createElement("li", {
-    key: it.key
-  }, /*#__PURE__*/React.createElement("label", null, /*#__PURE__*/React.createElement("input", {
-    type: "checkbox",
-    checked: checked.includes(it.key),
-    onChange: () => toggle(it.key)
-  }), " ", it.label)))));
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-transfer", className)
-  }, /*#__PURE__*/React.createElement(List, {
-    target: false
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "cs-transfer__ops"
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-button cs-button--secondary cs-button--xs",
-    "aria-label": t("toTarget"),
-    onClick: () => move(true)
-  }, "\u203A"), /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-button cs-button--secondary cs-button--xs",
-    "aria-label": t("toSource"),
-    onClick: () => move(false)
-  }, "\u2039")), /*#__PURE__*/React.createElement(List, {
-    target: true
-  }));
+  const List = ({ target }) => /* @__PURE__ */ React.createElement("div", { className: "cs-transfer__list" }, /* @__PURE__ */ React.createElement("div", { className: "cs-transfer__title" }, target ? tt[1] : tt[0]), /* @__PURE__ */ React.createElement("ul", null, items.filter((it) => inTarget(it.key) === target).map((it) => /* @__PURE__ */ React.createElement("li", { key: it.key }, /* @__PURE__ */ React.createElement("label", null, /* @__PURE__ */ React.createElement("input", { type: "checkbox", checked: checked.includes(it.key), onChange: () => toggle(it.key) }), " ", it.label)))));
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-transfer", className) }, /* @__PURE__ */ React.createElement(List, { target: false }), /* @__PURE__ */ React.createElement("div", { className: "cs-transfer__ops" }, /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-button cs-button--secondary cs-button--xs", "aria-label": t("toTarget"), onClick: () => move(true) }, "›"), /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-button cs-button--secondary cs-button--xs", "aria-label": t("toSource"), onClick: () => move(false) }, "‹")), /* @__PURE__ */ React.createElement(List, { target: true }));
 }
 Object.assign(__ds_scope, { Transfer });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/Transfer.jsx", error: String((e && e.message) || e) }); }
 
 // components/forms/TreeSelect.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
+const { Tree } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill TreeSelect — field opening a Tree; picking a node sets the value. */
-function TreeSelect({
-  nodes = [],
-  value,
-  onChange,
-  placeholder,
-  label,
-  disabled = false,
-  lang,
-  className
-}) {
+function TreeSelect({ nodes = [], value, onChange, placeholder, label, disabled = false, lang, className }) {
   const [open, setOpen] = React.useState(false);
   const wrap = React.useRef(null);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("TreeSelect", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("TreeSelect", L);
   const ph = placeholder != null ? placeholder : t("placeholder");
-  const find = ns => {
+  const find = (ns) => {
     for (const n of ns) {
       if (n.key === value) return n;
       const c = n.children && find(n.children);
@@ -5102,10 +2534,10 @@ function TreeSelect({
   const sel = find(nodes);
   React.useEffect(() => {
     if (!open) return;
-    const d = e => {
+    const d = (e) => {
       if (wrap.current && !wrap.current.contains(e.target)) setOpen(false);
     };
-    const k = e => {
+    const k = (e) => {
       if (e.key === "Escape") setOpen(false);
     };
     document.addEventListener("mousedown", d);
@@ -5115,318 +2547,228 @@ function TreeSelect({
       document.removeEventListener("keydown", k);
     };
   }, [open]);
-  return /*#__PURE__*/React.createElement("div", {
-    ref: el => {
-      wrap.current = el;
-      ref.current = el;
-    },
-    className: cx("cs-treeselect", className)
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-treeselect__field",
-    disabled: disabled,
-    "aria-haspopup": "tree",
-    "aria-expanded": open,
-    "aria-label": label,
-    onClick: () => setOpen(o => !o)
-  }, /*#__PURE__*/React.createElement("span", {
-    className: sel ? undefined : "ph"
-  }, sel ? sel.label : ph), /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true"
-  }, "\u25BE")), open ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-treeselect__pop"
-  }, /*#__PURE__*/React.createElement(__ds_scope.Tree, {
-    nodes: nodes,
-    selected: value,
-    defaultOpen: true,
-    lang: L,
-    onSelect: (k, n) => {
-      if (!(n.children && n.children.length)) {
-        onChange && onChange(k, n);
-        setOpen(false);
-      }
+  return /* @__PURE__ */ React.createElement("div", { ref: (el) => {
+    wrap.current = el;
+    ref.current = el;
+  }, className: cx("cs-treeselect", className) }, /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-treeselect__field", disabled, "aria-haspopup": "tree", "aria-expanded": open, "aria-label": label, onClick: () => setOpen((o) => !o) }, /* @__PURE__ */ React.createElement("span", { className: sel ? void 0 : "ph" }, sel ? sel.label : ph), /* @__PURE__ */ React.createElement("span", { "aria-hidden": "true" }, "▾")), open ? /* @__PURE__ */ React.createElement("div", { className: "cs-treeselect__pop" }, /* @__PURE__ */ React.createElement(Tree, { nodes, selected: value, defaultOpen: true, lang: L, onSelect: (k, n) => {
+    if (!(n.children && n.children.length)) {
+      onChange && onChange(k, n);
+      setOpen(false);
     }
-  })) : null);
+  } })) : null);
 }
 Object.assign(__ds_scope, { TreeSelect });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/forms/TreeSelect.jsx", error: String((e && e.message) || e) }); }
 
 // components/icon/Icon.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-/**
- * CyberSkill line-icon set (in-repo, no external icon library). Each icon is
- * data — a viewBox plus primitive elements — rendered through this one <Icon>.
- * Line icons use currentColor stroke so they follow the surrounding text token.
- * Sizes come from --cs-icon-* tokens (sm/md/lg). Decorative by default; pass
- * `label` to expose a meaningful icon to assistive tech.
- */
 const CS_ICONS = {
-  close: {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M6 6l12 12M18 6L6 18"
-    }]]
-  },
-  sun: {
-    viewBox: "0 0 24 24",
-    els: [["circle", {
-      cx: 12,
-      cy: 12,
-      r: 4
-    }], ["path", {
-      d: "M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"
-    }]]
-  },
-  moon: {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M20 13.5A8 8 0 1 1 10.5 4a6.5 6.5 0 0 0 9.5 9.5z"
-    }]]
-  },
-  "arrow-right": {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M5 12h14M13 6l6 6-6 6"
-    }]]
-  },
-  check: {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M4 12.5l5 5 11-11"
-    }]]
-  },
-  sparkle: {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6z"
-    }]]
-  },
-  chat: {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M4 5h16v11H8l-4 4z"
-    }]]
-  },
-  "sound-on": {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M5 9v6h3l4 4V5L8 9z"
-    }], ["path", {
-      d: "M15 9.5a4 4 0 0 1 0 5M17.6 7a8 8 0 0 1 0 10"
-    }]]
-  },
-  "sound-off": {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M5 9v6h3l4 4V5L8 9z"
-    }], ["path", {
-      d: "M16 9.5l4.5 5M20.5 9.5l-4.5 5"
-    }]]
-  },
+  close: { viewBox: "0 0 24 24", els: [["path", { d: "M6 6l12 12M18 6L6 18" }]] },
+  sun: { viewBox: "0 0 24 24", els: [
+    ["circle", { cx: 12, cy: 12, r: 4 }],
+    ["path", { d: "M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" }]
+  ] },
+  moon: { viewBox: "0 0 24 24", els: [["path", { d: "M20 13.5A8 8 0 1 1 10.5 4a6.5 6.5 0 0 0 9.5 9.5z" }]] },
+  "arrow-right": { viewBox: "0 0 24 24", els: [["path", { d: "M5 12h14M13 6l6 6-6 6" }]] },
+  check: { viewBox: "0 0 24 24", els: [["path", { d: "M4 12.5l5 5 11-11" }]] },
+  sparkle: { viewBox: "0 0 24 24", els: [["path", { d: "M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6z" }]] },
+  chat: { viewBox: "0 0 24 24", els: [["path", { d: "M4 5h16v11H8l-4 4z" }]] },
+  "sound-on": { viewBox: "0 0 24 24", els: [
+    ["path", { d: "M5 9v6h3l4 4V5L8 9z" }],
+    ["path", { d: "M15 9.5a4 4 0 0 1 0 5M17.6 7a8 8 0 0 1 0 10" }]
+  ] },
+  "sound-off": { viewBox: "0 0 24 24", els: [
+    ["path", { d: "M5 9v6h3l4 4V5L8 9z" }],
+    ["path", { d: "M16 9.5l4.5 5M20.5 9.5l-4.5 5" }]
+  ] },
   // v2.0 extension — same grammar: line, currentColor, 1.75, round, 24×24
-  search: {
-    viewBox: "0 0 24 24",
-    els: [["circle", {
-      cx: 11,
-      cy: 11,
-      r: 6
-    }], ["path", {
-      d: "M20 20l-4.2-4.2"
-    }]]
-  },
-  sliders: {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M4 6h16M4 12h16M4 18h16"
-    }], ["circle", {
-      cx: 9,
-      cy: 6,
-      r: 2
-    }], ["circle", {
-      cx: 15,
-      cy: 12,
-      r: 2
-    }], ["circle", {
-      cx: 7,
-      cy: 18,
-      r: 2
-    }]]
-  },
-  upload: {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M12 15V4M7 8.5L12 4l5 4.5"
-    }], ["path", {
-      d: "M4 19h16"
-    }]]
-  },
-  download: {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M12 4v11M7 10.5L12 15l5-4.5"
-    }], ["path", {
-      d: "M4 19h16"
-    }]]
-  },
-  calendar: {
-    viewBox: "0 0 24 24",
-    els: [["rect", {
-      x: 4,
-      y: 6,
-      width: 16,
-      height: 14,
-      rx: 2
-    }], ["path", {
-      d: "M4 10.5h16M8 3.5v4M16 3.5v4"
-    }]]
-  },
-  user: {
-    viewBox: "0 0 24 24",
-    els: [["circle", {
-      cx: 12,
-      cy: 8.5,
-      r: 3.5
-    }], ["path", {
-      d: "M5 19.5c1.6-3.4 4-5 7-5s5.4 1.6 7 5"
-    }]]
-  },
-  plus: {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M12 5v14M5 12h14"
-    }]]
-  },
-  trash: {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M5 7h14M9.5 7V4.5h5V7"
-    }], ["path", {
-      d: "M7 7l.8 12.5h8.4L17 7M10 11v5M14 11v5"
-    }]]
-  },
-  external: {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M14 4h6v6M20 4l-8 8"
-    }], ["path", {
-      d: "M18 13v6H5V6h6"
-    }]]
-  },
-  menu: {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M4 7h16M4 12h16M4 17h16"
-    }]]
-  },
+  search: { viewBox: "0 0 24 24", els: [["circle", { cx: 11, cy: 11, r: 6 }], ["path", { d: "M20 20l-4.2-4.2" }]] },
+  sliders: { viewBox: "0 0 24 24", els: [
+    ["path", { d: "M4 6h16M4 12h16M4 18h16" }],
+    ["circle", { cx: 9, cy: 6, r: 2 }],
+    ["circle", { cx: 15, cy: 12, r: 2 }],
+    ["circle", { cx: 7, cy: 18, r: 2 }]
+  ] },
+  upload: { viewBox: "0 0 24 24", els: [["path", { d: "M12 15V4M7 8.5L12 4l5 4.5" }], ["path", { d: "M4 19h16" }]] },
+  download: { viewBox: "0 0 24 24", els: [["path", { d: "M12 4v11M7 10.5L12 15l5-4.5" }], ["path", { d: "M4 19h16" }]] },
+  calendar: { viewBox: "0 0 24 24", els: [["rect", { x: 4, y: 6, width: 16, height: 14, rx: 2 }], ["path", { d: "M4 10.5h16M8 3.5v4M16 3.5v4" }]] },
+  user: { viewBox: "0 0 24 24", els: [["circle", { cx: 12, cy: 8.5, r: 3.5 }], ["path", { d: "M5 19.5c1.6-3.4 4-5 7-5s5.4 1.6 7 5" }]] },
+  plus: { viewBox: "0 0 24 24", els: [["path", { d: "M12 5v14M5 12h14" }]] },
+  trash: { viewBox: "0 0 24 24", els: [["path", { d: "M5 7h14M9.5 7V4.5h5V7" }], ["path", { d: "M7 7l.8 12.5h8.4L17 7M10 11v5M14 11v5" }]] },
+  external: { viewBox: "0 0 24 24", els: [["path", { d: "M14 4h6v6M20 4l-8 8" }], ["path", { d: "M18 13v6H5V6h6" }]] },
+  menu: { viewBox: "0 0 24 24", els: [["path", { d: "M4 7h16M4 12h16M4 17h16" }]] },
   // v2.13 extension — common chevrons + edit/copy/info/warning (same grammar)
-  "chevron-down": {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M6 9l6 6 6-6"
-    }]]
-  },
-  "chevron-up": {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M6 15l6-6 6 6"
-    }]]
-  },
-  "chevron-left": {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M15 6l-6 6 6 6"
-    }]]
-  },
-  "chevron-right": {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M9 6l6 6-6 6"
-    }]]
-  },
-  edit: {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M4 20h4L18.5 9.5a2.12 2.12 0 0 0-3-3L5 17z"
-    }], ["path", {
-      d: "M13.5 6.5l3 3"
-    }]]
-  },
-  copy: {
-    viewBox: "0 0 24 24",
-    els: [["rect", {
-      x: 8,
-      y: 8,
-      width: 12,
-      height: 12,
-      rx: 2
-    }], ["path", {
-      d: "M4 16V6a2 2 0 0 1 2-2h10"
-    }]]
-  },
-  info: {
-    viewBox: "0 0 24 24",
-    els: [["circle", {
-      cx: 12,
-      cy: 12,
-      r: 9
-    }], ["path", {
-      d: "M12 11v5M12 7.75v.01"
-    }]]
-  },
-  "alert-triangle": {
-    viewBox: "0 0 24 24",
-    els: [["path", {
-      d: "M12 3.5l9 16H3z"
-    }], ["path", {
-      d: "M12 10v4M12 17.5v.01"
-    }]]
-  }
+  "chevron-down": { viewBox: "0 0 24 24", els: [["path", { d: "M6 9l6 6 6-6" }]] },
+  "chevron-up": { viewBox: "0 0 24 24", els: [["path", { d: "M6 15l6-6 6 6" }]] },
+  "chevron-left": { viewBox: "0 0 24 24", els: [["path", { d: "M15 6l-6 6 6 6" }]] },
+  "chevron-right": { viewBox: "0 0 24 24", els: [["path", { d: "M9 6l6 6-6 6" }]] },
+  edit: { viewBox: "0 0 24 24", els: [["path", { d: "M4 20h4L18.5 9.5a2.12 2.12 0 0 0-3-3L5 17z" }], ["path", { d: "M13.5 6.5l3 3" }]] },
+  copy: { viewBox: "0 0 24 24", els: [["rect", { x: 8, y: 8, width: 12, height: 12, rx: 2 }], ["path", { d: "M4 16V6a2 2 0 0 1 2-2h10" }]] },
+  info: { viewBox: "0 0 24 24", els: [["circle", { cx: 12, cy: 12, r: 9 }], ["path", { d: "M12 11v5M12 7.75v.01" }]] },
+  "alert-triangle": { viewBox: "0 0 24 24", els: [["path", { d: "M12 3.5l9 16H3z" }], ["path", { d: "M12 10v4M12 17.5v.01" }]] }
 };
-function Icon({
-  name,
-  size = "md",
-  label,
-  className,
-  strokeWidth = 1.75,
-  ...props
-}) {
+function Icon({ name, size = "md", label, className, strokeWidth = 1.75, ...props }) {
   const def = CS_ICONS[name] || CS_ICONS.sparkle;
   const dim = `var(--cs-icon-${size}, 20px)`;
-  const a11y = label ? {
-    role: "img",
-    "aria-label": label
-  } : {
-    "aria-hidden": true,
-    focusable: false
-  };
-  return /*#__PURE__*/React.createElement("svg", _extends({}, props, {
-    className: className,
-    viewBox: def.viewBox,
-    style: {
-      width: dim,
-      height: dim,
-      display: "inline-block",
-      flex: "none",
-      ...(props.style || {})
+  const a11y = label ? { role: "img", "aria-label": label } : { "aria-hidden": true, focusable: false };
+  return /* @__PURE__ */ React.createElement(
+    "svg",
+    {
+      ...props,
+      className,
+      viewBox: def.viewBox,
+      style: { width: dim, height: dim, display: "inline-block", flex: "none", ...props.style || {} },
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth,
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      ...a11y
     },
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: strokeWidth,
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }, a11y), def.els.map(([tag, attrs], i) => React.createElement(tag, {
-    key: i,
-    ...attrs
-  })));
+    def.els.map(([tag, attrs], i) => React.createElement(tag, { key: i, ...attrs }))
+  );
 }
 Object.assign(__ds_scope, { CS_ICONS, Icon });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/icon/Icon.jsx", error: String((e && e.message) || e) }); }
 
+// components/data/Image.jsx
+try { (() => {
+const { makeT, useLang } = __ds_scope;
+const { Icon } = __ds_scope;
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+function Image({ src, alt = "", ratio, preview = false, fallback, lang, className, ...props }) {
+  const [state, setState] = React.useState("loading");
+  const [zoom, setZoom] = React.useState(false);
+  const [ref, L] = useLang(lang);
+  const t = makeT("Image", L);
+  React.useEffect(() => {
+    if (!zoom) return;
+    const k = (e) => {
+      if (e.key === "Escape") setZoom(false);
+    };
+    document.addEventListener("keydown", k);
+    return () => document.removeEventListener("keydown", k);
+  }, [zoom]);
+  const body = state === "error" ? /* @__PURE__ */ React.createElement("span", { className: "cs-image__fallback" }, fallback || /* @__PURE__ */ React.createElement("svg", { width: "28", height: "28", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("rect", { x: "3", y: "3", width: "18", height: "18", rx: "2" }), /* @__PURE__ */ React.createElement("circle", { cx: "9", cy: "9", r: "2" }), /* @__PURE__ */ React.createElement("path", { d: "M21 15l-5-5-9 9" }))) : /* @__PURE__ */ React.createElement("img", { ...props, src, alt, onLoad: () => setState("ok"), onError: () => setState("error") });
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(
+    "span",
+    {
+      ref,
+      className: cx("cs-image", state === "loading" && "is-loading", preview && state === "ok" && "is-zoomable", className),
+      style: ratio ? { aspectRatio: ratio } : void 0,
+      onClick: preview && state === "ok" ? () => setZoom(true) : void 0,
+      role: preview && state === "ok" ? "button" : void 0,
+      "aria-label": preview && state === "ok" ? t("preview") + (alt ? ": " + alt : "") : void 0
+    },
+    body
+  ), zoom ? /* @__PURE__ */ React.createElement("span", { className: "cs-image__zoom", role: "dialog", "aria-label": alt || t("preview"), onClick: () => setZoom(false) }, /* @__PURE__ */ React.createElement("img", { src, alt }), /* @__PURE__ */ React.createElement("button", { type: "button", "aria-label": t("close"), onClick: () => setZoom(false) }, /* @__PURE__ */ React.createElement(Icon, { name: "close", size: "sm", style: { verticalAlign: "middle" } }))) : null);
+}
+Object.assign(__ds_scope, { Image });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/data/Image.jsx", error: String((e && e.message) || e) }); }
+
+// components/dialog/Dialog.jsx
+try { (() => {
+const { makeT, useLang } = __ds_scope;
+const { Icon } = __ds_scope;
+function cx(...c) {
+  return c.filter(Boolean).join(" ");
+}
+const FOCUSABLE = [
+  "a[href]",
+  "area[href]",
+  "button:not([disabled])",
+  'input:not([disabled]):not([type="hidden"])',
+  "select:not([disabled])",
+  "textarea:not([disabled])",
+  "audio[controls]",
+  "video[controls]",
+  "summary",
+  "iframe",
+  '[contenteditable]:not([contenteditable="false"])',
+  '[tabindex]:not([tabindex="-1"])'
+].join(",");
+function Dialog({
+  open,
+  title,
+  children,
+  actions,
+  onClose,
+  className,
+  closeLabel,
+  lang,
+  ...props
+}) {
+  const baseId = React.useId();
+  const titleId = baseId + "-title";
+  const bodyId = children == null ? void 0 : baseId + "-body";
+  const [ref, L] = useLang(lang);
+  const panel = React.useRef(null);
+  const closeRef = React.useRef(onClose);
+  closeRef.current = onClose;
+  React.useEffect(() => {
+    if (!open) return;
+    const prev = document.activeElement;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const focusables = () => panel.current ? [...panel.current.querySelectorAll(FOCUSABLE)] : [];
+    const first = focusables()[0];
+    (first || panel.current) && (first || panel.current).focus();
+    const k = (e) => {
+      if (e.key === "Escape") {
+        closeRef.current && closeRef.current();
+        return;
+      }
+      if (e.key !== "Tab" || !panel.current) return;
+      const f = focusables();
+      if (!f.length) {
+        e.preventDefault();
+        panel.current.focus();
+        return;
+      }
+      const a = f[0], z = f[f.length - 1];
+      const active = document.activeElement;
+      const inside = panel.current.contains(active);
+      if (e.shiftKey && (!inside || active === a)) {
+        e.preventDefault();
+        z.focus();
+      } else if (!e.shiftKey && (!inside || active === z)) {
+        e.preventDefault();
+        a.focus();
+      }
+    };
+    document.addEventListener("keydown", k);
+    return () => {
+      document.removeEventListener("keydown", k);
+      document.body.style.overflow = prevOverflow;
+      if (prev && prev.focus) prev.focus();
+    };
+  }, [open]);
+  const cl = closeLabel != null ? closeLabel : makeT("Dialog", L)("close");
+  if (!open) return null;
+  return /* @__PURE__ */ React.createElement("div", { ref, className: "cs-dialog-layer" }, /* @__PURE__ */ React.createElement("div", { className: "cs-dialog__overlay", onClick: onClose, "aria-hidden": "true" }), /* @__PURE__ */ React.createElement(
+    "section",
+    {
+      ...props,
+      ref: panel,
+      tabIndex: -1,
+      role: "dialog",
+      "aria-modal": "true",
+      "aria-labelledby": titleId,
+      "aria-describedby": bodyId != null ? bodyId : props["aria-describedby"],
+      className: cx("cs-dialog", className)
+    },
+    /* @__PURE__ */ React.createElement("header", { className: "cs-dialog__header" }, /* @__PURE__ */ React.createElement("h2", { id: titleId, className: "cs-dialog__title" }, title), onClose ? /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-button cs-button--ghost cs-button--sm", onClick: onClose, "aria-label": cl }, /* @__PURE__ */ React.createElement(Icon, { name: "close", size: "sm" })) : null),
+    /* @__PURE__ */ React.createElement("div", { id: bodyId, className: "cs-dialog__body" }, children),
+    actions ? /* @__PURE__ */ React.createElement("footer", { className: "cs-dialog__actions" }, actions) : null
+  ));
+}
+Object.assign(__ds_scope, { Dialog });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/dialog/Dialog.jsx", error: String((e && e.message) || e) }); }
+
 // components/logo/logo-data.js
 try { (() => {
-/* Generated from @cyberskill/brand-assets/logo-mark.svg — the official CyberSkill mark.
- * Exact master artwork (1007x1007). Do not hand-edit; replace the source SVG and regenerate. */
 const CS_LOGO_VIEWBOX = "0 0 1007 1007";
 const CS_LOGO_MARK_INNER = `<path fill="#45210E" opacity="1.000000" stroke="none" 
 	d="
@@ -5638,41 +2980,31 @@ M524.216736,200.974854
 	C505.739960,190.440384 511.964752,198.150375 521.347168,200.484161 
 	C522.153381,200.684708 522.979370,200.806061 524.216736,200.974854 
 z"/>`;
-Object.assign(__ds_scope, { CS_LOGO_VIEWBOX, CS_LOGO_MARK_INNER, __ds_default_components_logo_logo_data_19wwt6a: CS_LOGO_MARK_INNER });
+Object.assign(__ds_scope, { CS_LOGO_VIEWBOX, CS_LOGO_MARK_INNER, __ds_default_components_logo_logo_data_4vwi3g: CS_LOGO_MARK_INNER });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/logo/logo-data.js", error: String((e && e.message) || e) }); }
 
 // components/logo/Logo.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+const { CS_LOGO_VIEWBOX, CS_LOGO_MARK_INNER } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/**
- * CyberSkill brand mark. Renders the EXACT official master artwork (Umber ground,
- * Ochre genie figure). Use whenever a product is for or owned by CyberSkill.
- * Do not recreate or recolour the mark.
- */
-function Logo({
-  size = 32,
-  title = "CyberSkill",
-  decorative = false,
-  className,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("svg", _extends({}, props, {
-    className: cx("cs-logo", className),
-    width: size,
-    height: size,
-    viewBox: __ds_scope.CS_LOGO_VIEWBOX,
-    xmlns: "http://www.w3.org/2000/svg",
-    role: decorative ? undefined : "img",
-    "aria-hidden": decorative ? true : undefined,
-    "aria-label": decorative ? undefined : title,
-    dangerouslySetInnerHTML: {
-      __html: (decorative ? "" : `<title>${title}</title>`) + __ds_scope.CS_LOGO_MARK_INNER
+function Logo({ size = 32, title = "CyberSkill", decorative = false, className, ...props }) {
+  return /* @__PURE__ */ React.createElement(
+    "svg",
+    {
+      ...props,
+      className: cx("cs-logo", className),
+      width: size,
+      height: size,
+      viewBox: CS_LOGO_VIEWBOX,
+      xmlns: "http://www.w3.org/2000/svg",
+      role: decorative ? void 0 : "img",
+      "aria-hidden": decorative ? true : void 0,
+      "aria-label": decorative ? void 0 : title,
+      dangerouslySetInnerHTML: { __html: (decorative ? "" : `<title>${title}</title>`) + CS_LOGO_MARK_INNER }
     }
-  }));
+  );
 }
 Object.assign(__ds_scope, { Logo });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/logo/Logo.jsx", error: String((e && e.message) || e) }); }
@@ -5682,130 +3014,66 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Anchor — in-page table of contents with scrollspy (IntersectionObserver). items: {id,label}. */
-function Anchor({
-  items = [],
-  title,
-  className
-}) {
+function Anchor({ items = [], title, className }) {
   const [act, setAct] = React.useState(items.length ? items[0].id : null);
   React.useEffect(() => {
-    const els = items.map(it => document.getElementById(it.id)).filter(Boolean);
+    const els = items.map((it) => document.getElementById(it.id)).filter(Boolean);
     if (!els.length) return;
-    const io = new IntersectionObserver(es => {
-      const vis = es.filter(e => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+    const io = new IntersectionObserver((es) => {
+      const vis = es.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
       if (vis[0]) setAct(vis[0].target.id);
-    }, {
-      rootMargin: "-20% 0px -70% 0px"
-    });
-    els.forEach(el => io.observe(el));
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    els.forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, [items]);
-  return /*#__PURE__*/React.createElement("nav", {
-    className: cx("cs-anchor", className),
-    "aria-label": typeof title === "string" ? title : undefined
-  }, title ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-anchor__title"
-  }, title) : null, items.map(it => /*#__PURE__*/React.createElement("a", {
-    key: it.id,
-    href: "#" + it.id,
-    className: cx("cs-anchor__item", act === it.id && "is-active"),
-    "aria-current": act === it.id ? "location" : undefined
-  }, it.label)));
+  return /* @__PURE__ */ React.createElement("nav", { className: cx("cs-anchor", className), "aria-label": typeof title === "string" ? title : void 0 }, title ? /* @__PURE__ */ React.createElement("div", { className: "cs-anchor__title" }, title) : null, items.map((it) => /* @__PURE__ */ React.createElement("a", { key: it.id, href: "#" + it.id, className: cx("cs-anchor__item", act === it.id && "is-active"), "aria-current": act === it.id ? "location" : void 0 }, it.label)));
 }
 Object.assign(__ds_scope, { Anchor });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Anchor.jsx", error: String((e && e.message) || e) }); }
 
 // components/navigation/BackTop.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill BackTop — scroll-to-top button; appears after a scroll threshold. */
-function BackTop({
-  threshold = 320,
-  label,
-  lang,
-  className
-}) {
+function BackTop({ threshold = 320, label, lang, className }) {
   const [show, setShow] = React.useState(false);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const lbl = label != null ? label : __ds_scope.makeT("BackTop", L)("label");
+  const [ref, L] = useLang(lang);
+  const lbl = label != null ? label : makeT("BackTop", L)("label");
   React.useEffect(() => {
     const on = () => setShow(window.scrollY > threshold);
     on();
-    window.addEventListener("scroll", on, {
-      passive: true
-    });
+    window.addEventListener("scroll", on, { passive: true });
     return () => window.removeEventListener("scroll", on);
   }, [threshold]);
-  if (!show) return /*#__PURE__*/React.createElement("span", {
-    ref: ref,
-    style: {
-      display: "none"
-    }
-  });
-  return /*#__PURE__*/React.createElement("button", {
-    ref: ref,
-    type: "button",
-    className: cx("cs-backtop", className),
-    "aria-label": lbl,
-    onClick: () => window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    })
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M12 19V5M5 12l7-7 7 7"
-  })));
+  if (!show) return /* @__PURE__ */ React.createElement("span", { ref, style: { display: "none" } });
+  return /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      ref,
+      type: "button",
+      className: cx("cs-backtop", className),
+      "aria-label": lbl,
+      onClick: () => window.scrollTo({ top: 0, behavior: "smooth" })
+    },
+    /* @__PURE__ */ React.createElement("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: "M12 19V5M5 12l7-7 7 7" }))
+  );
 }
 Object.assign(__ds_scope, { BackTop });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/BackTop.jsx", error: String((e && e.message) || e) }); }
 
 // components/navigation/Breadcrumb.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Breadcrumb — hierarchical trail; last item is current. */
-function Breadcrumb({
-  items = [],
-  lang,
-  className,
-  ...props
-}) {
-  const [ref, L] = __ds_scope.useLang(lang);
-  return /*#__PURE__*/React.createElement("nav", _extends({
-    ref: ref,
-    "aria-label": __ds_scope.makeT("Breadcrumb", L)("label")
-  }, props), /*#__PURE__*/React.createElement("ol", {
-    className: cx("cs-breadcrumb", className)
-  }, items.map((it, i) => {
+function Breadcrumb({ items = [], lang, className, ...props }) {
+  const [ref, L] = useLang(lang);
+  return /* @__PURE__ */ React.createElement("nav", { ref, "aria-label": makeT("Breadcrumb", L)("label"), ...props }, /* @__PURE__ */ React.createElement("ol", { className: cx("cs-breadcrumb", className) }, items.map((it, i) => {
     const last = i === items.length - 1;
-    return /*#__PURE__*/React.createElement("li", {
-      key: i
-    }, last ? /*#__PURE__*/React.createElement("span", {
-      className: "cs-breadcrumb__current",
-      "aria-current": "page"
-    }, it.label) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("a", {
-      href: it.href || "#"
-    }, it.label), /*#__PURE__*/React.createElement("span", {
-      className: "cs-breadcrumb__sep",
-      "aria-hidden": "true"
-    }, "/")));
+    return /* @__PURE__ */ React.createElement("li", { key: i }, last ? /* @__PURE__ */ React.createElement("span", { className: "cs-breadcrumb__current", "aria-current": "page" }, it.label) : /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("a", { href: it.href || "#" }, it.label), /* @__PURE__ */ React.createElement("span", { className: "cs-breadcrumb__sep", "aria-hidden": "true" }, "/")));
   })));
 }
 Object.assign(__ds_scope, { Breadcrumb });
@@ -5813,90 +3081,32 @@ Object.assign(__ds_scope, { Breadcrumb });
 
 // components/navigation/CommandPalette.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill CommandPalette — ⌘K overlay with search + grouped actions. Controlled via open/onClose. */
-function CommandPalette({
-  open,
-  onClose,
-  placeholder,
-  groups = [],
-  lang,
-  className
-}) {
+function CommandPalette({ open, onClose, placeholder, groups = [], lang, className }) {
   const [q, setQ] = React.useState("");
   React.useEffect(() => {
     if (!open) return;
-    const onKey = e => {
+    const onKey = (e) => {
       if (e.key === "Escape") onClose && onClose();
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("CommandPalette", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("CommandPalette", L);
   const ph = placeholder != null ? placeholder : t("placeholder");
   if (!open) return null;
   const needle = q.trim().toLowerCase();
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: "cs-cmdk-scrim",
-    onClick: onClose
-  }, /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-cmdk", className),
-    role: "dialog",
-    "aria-modal": "true",
-    "aria-label": t("aria"),
-    onClick: e => e.stopPropagation()
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-cmdk__search"
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("circle", {
-    cx: "11",
-    cy: "11",
-    r: "7"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M21 21l-4.3-4.3"
-  })), /*#__PURE__*/React.createElement("input", {
-    autoFocus: true,
-    value: q,
-    onChange: e => setQ(e.target.value),
-    placeholder: ph
-  }), /*#__PURE__*/React.createElement("span", {
-    className: "cs-kbd"
-  }, t("esc"))), /*#__PURE__*/React.createElement("div", {
-    className: "cs-cmdk__list"
-  }, groups.map((g, gi) => {
-    const items = (g.items || []).filter(it => !needle || String(it.label).toLowerCase().includes(needle));
+  return /* @__PURE__ */ React.createElement("div", { ref, className: "cs-cmdk-scrim", onClick: onClose }, /* @__PURE__ */ React.createElement("div", { className: cx("cs-cmdk", className), role: "dialog", "aria-modal": "true", "aria-label": t("aria"), onClick: (e) => e.stopPropagation() }, /* @__PURE__ */ React.createElement("div", { className: "cs-cmdk__search" }, /* @__PURE__ */ React.createElement("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("circle", { cx: "11", cy: "11", r: "7" }), /* @__PURE__ */ React.createElement("path", { d: "M21 21l-4.3-4.3" })), /* @__PURE__ */ React.createElement("input", { autoFocus: true, value: q, onChange: (e) => setQ(e.target.value), placeholder: ph }), /* @__PURE__ */ React.createElement("span", { className: "cs-kbd" }, t("esc"))), /* @__PURE__ */ React.createElement("div", { className: "cs-cmdk__list" }, groups.map((g, gi) => {
+    const items = (g.items || []).filter((it) => !needle || String(it.label).toLowerCase().includes(needle));
     if (!items.length) return null;
-    return /*#__PURE__*/React.createElement(React.Fragment, {
-      key: gi
-    }, g.label ? /*#__PURE__*/React.createElement("div", {
-      className: "cs-cmdk__label"
-    }, g.label) : null, items.map((it, ii) => /*#__PURE__*/React.createElement("button", {
-      key: ii,
-      type: "button",
-      className: "cs-cmdk__item",
-      onClick: () => {
-        it.onSelect && it.onSelect();
-        onClose && onClose();
-      }
-    }, it.icon ? /*#__PURE__*/React.createElement("span", {
-      "aria-hidden": "true"
-    }, it.icon) : null, /*#__PURE__*/React.createElement("span", null, it.label), it.shortcut ? /*#__PURE__*/React.createElement("span", {
-      className: "cs-kbd"
-    }, it.shortcut) : null)));
+    return /* @__PURE__ */ React.createElement(React.Fragment, { key: gi }, g.label ? /* @__PURE__ */ React.createElement("div", { className: "cs-cmdk__label" }, g.label) : null, items.map((it, ii) => /* @__PURE__ */ React.createElement("button", { key: ii, type: "button", className: "cs-cmdk__item", onClick: () => {
+      it.onSelect && it.onSelect();
+      onClose && onClose();
+    } }, it.icon ? /* @__PURE__ */ React.createElement("span", { "aria-hidden": "true" }, it.icon) : null, /* @__PURE__ */ React.createElement("span", null, it.label), it.shortcut ? /* @__PURE__ */ React.createElement("span", { className: "cs-kbd" }, it.shortcut) : null)));
   }))));
 }
 Object.assign(__ds_scope, { CommandPalette });
@@ -5907,36 +3117,27 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Dock — icon dock with hover magnification. items: {icon,label,onSelect,active}. */
-function Dock({
-  items = [],
-  label,
-  className
-}) {
+function Dock({ items = [], label, className }) {
   const [hov, setHov] = React.useState(null);
-  return /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-dock", className),
-    role: "toolbar",
-    "aria-label": label,
-    onMouseLeave: () => setHov(null)
-  }, items.map((it, i) => {
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-dock", className), role: "toolbar", "aria-label": label, onMouseLeave: () => setHov(null) }, items.map((it, i) => {
     const d = hov == null ? 3 : Math.abs(i - hov);
     const scale = d === 0 ? 1.35 : d === 1 ? 1.15 : 1;
-    return /*#__PURE__*/React.createElement("button", {
-      key: i,
-      type: "button",
-      className: cx("cs-dock__item", it.active && "is-active"),
-      "aria-label": it.label,
-      title: it.label,
-      style: {
-        transform: `scale(${scale}) translateY(${d === 0 ? -6 : d === 1 ? -2 : 0}px)`
+    return /* @__PURE__ */ React.createElement(
+      "button",
+      {
+        key: i,
+        type: "button",
+        className: cx("cs-dock__item", it.active && "is-active"),
+        "aria-label": it.label,
+        title: it.label,
+        style: { transform: `scale(${scale}) translateY(${d === 0 ? -6 : d === 1 ? -2 : 0}px)` },
+        onMouseEnter: () => setHov(i),
+        onFocus: () => setHov(i),
+        onBlur: () => setHov(null),
+        onClick: () => it.onSelect && it.onSelect()
       },
-      onMouseEnter: () => setHov(i),
-      onFocus: () => setHov(i),
-      onBlur: () => setHov(null),
-      onClick: () => it.onSelect && it.onSelect()
-    }, it.icon);
+      it.icon
+    );
   }));
 }
 Object.assign(__ds_scope, { Dock });
@@ -5944,6 +3145,7 @@ Object.assign(__ds_scope, { Dock });
 
 // components/navigation/HotKeys.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
@@ -5955,23 +3157,15 @@ function match(combo, e) {
   const alt = parts.includes("alt") ? e.altKey : !e.altKey;
   return mod && shift && alt && e.key.toLowerCase() === key;
 }
-
-/** CyberSkill HotKeys — global keymap: bindings [{keys:"mod+k",description,onTrigger}]. "?" opens a bilingual cheat-sheet. */
-function HotKeys({
-  bindings = [],
-  help = true,
-  children,
-  lang,
-  className
-}) {
+function HotKeys({ bindings = [], help = true, children, lang, className }) {
   const [show, setShow] = React.useState(false);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("HotKeys", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("HotKeys", L);
   React.useEffect(() => {
-    const on = e => {
+    const on = (e) => {
       if (e.target && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
       if (help && e.key === "?") {
-        setShow(s => !s);
+        setShow((s) => !s);
         return;
       }
       if (e.key === "Escape") setShow(false);
@@ -5984,86 +3178,51 @@ function HotKeys({
     document.addEventListener("keydown", on);
     return () => document.removeEventListener("keydown", on);
   }, [bindings, help]);
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-hotkeys", className)
-  }, children, show ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-hotkeys__sheet",
-    role: "dialog",
-    "aria-label": t("title"),
-    onClick: () => setShow(false)
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-hotkeys__card",
-    onClick: e => e.stopPropagation()
-  }, /*#__PURE__*/React.createElement("b", null, t("title")), /*#__PURE__*/React.createElement("ul", null, bindings.map((b, i) => /*#__PURE__*/React.createElement("li", {
-    key: i
-  }, /*#__PURE__*/React.createElement("span", null, b.description), /*#__PURE__*/React.createElement("kbd", {
-    className: "cs-kbd"
-  }, b.keys))), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("span", null, t("toggle")), /*#__PURE__*/React.createElement("kbd", {
-    className: "cs-kbd"
-  }, "?"))))) : null);
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-hotkeys", className) }, children, show ? /* @__PURE__ */ React.createElement("div", { className: "cs-hotkeys__sheet", role: "dialog", "aria-label": t("title"), onClick: () => setShow(false) }, /* @__PURE__ */ React.createElement("div", { className: "cs-hotkeys__card", onClick: (e) => e.stopPropagation() }, /* @__PURE__ */ React.createElement("b", null, t("title")), /* @__PURE__ */ React.createElement("ul", null, bindings.map((b, i) => /* @__PURE__ */ React.createElement("li", { key: i }, /* @__PURE__ */ React.createElement("span", null, b.description), /* @__PURE__ */ React.createElement("kbd", { className: "cs-kbd" }, b.keys))), /* @__PURE__ */ React.createElement("li", null, /* @__PURE__ */ React.createElement("span", null, t("toggle")), /* @__PURE__ */ React.createElement("kbd", { className: "cs-kbd" }, "?"))))) : null);
 }
 Object.assign(__ds_scope, { HotKeys });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/HotKeys.jsx", error: String((e && e.message) || e) }); }
 
 // components/navigation/Link.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Link — brand-styled anchor. variant: default | muted | standalone (arrow). external adds ↗ + rel. */
-function Link({
-  href = "#",
-  variant = "default",
-  external = false,
-  children,
-  className,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("a", _extends({
-    href: href,
-    className: cx("cs-link", variant !== "default" && "cs-link--" + variant, className),
-    target: external ? "_blank" : undefined,
-    rel: external ? "noopener noreferrer" : undefined
-  }, props), children, external ? /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true"
-  }, " \u2197") : variant === "standalone" ? /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true"
-  }, " \u2192") : null);
+function Link({ href = "#", variant = "default", external = false, children, className, ...props }) {
+  return /* @__PURE__ */ React.createElement(
+    "a",
+    {
+      href,
+      className: cx("cs-link", variant !== "default" && "cs-link--" + variant, className),
+      target: external ? "_blank" : void 0,
+      rel: external ? "noopener noreferrer" : void 0,
+      ...props
+    },
+    children,
+    external ? /* @__PURE__ */ React.createElement("span", { "aria-hidden": "true" }, " ↗") : variant === "standalone" ? /* @__PURE__ */ React.createElement("span", { "aria-hidden": "true" }, " →") : null
+  );
 }
 Object.assign(__ds_scope, { Link });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Link.jsx", error: String((e && e.message) || e) }); }
 
 // components/navigation/Menu.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Menu — dropdown. Provide a `trigger` element; compose MenuItem children. */
-function Menu({
-  trigger,
-  children,
-  align = "start",
-  open: controlledOpen,
-  onOpenChange,
-  className
-}) {
+function Menu({ trigger, children, align = "start", open: controlledOpen, onOpenChange, className }) {
   const [uOpen, setUOpen] = React.useState(false);
   const open = controlledOpen != null ? controlledOpen : uOpen;
-  const set = v => {
+  const set = (v) => {
     onOpenChange ? onOpenChange(v) : setUOpen(v);
   };
   const ref = React.useRef(null);
   React.useEffect(() => {
     if (!open) return;
-    const onDoc = e => {
+    const onDoc = (e) => {
       if (ref.current && !ref.current.contains(e.target)) set(false);
     };
-    const onKey = e => {
+    const onKey = (e) => {
       if (e.key === "Escape") set(false);
     };
     document.addEventListener("mousedown", onDoc);
@@ -6073,34 +3232,10 @@ function Menu({
       document.removeEventListener("keydown", onKey);
     };
   }, [open]);
-  return /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-menu", className),
-    ref: ref
-  }, /*#__PURE__*/React.createElement("span", {
-    onClick: () => set(!open),
-    "aria-haspopup": "menu",
-    "aria-expanded": open
-  }, trigger), open ? /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-menu__list", align === "end" && "cs-menu__list--end"),
-    role: "menu"
-  }, children) : null);
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-menu", className), ref }, /* @__PURE__ */ React.createElement("span", { onClick: () => set(!open), "aria-haspopup": "menu", "aria-expanded": open }, trigger), open ? /* @__PURE__ */ React.createElement("div", { className: cx("cs-menu__list", align === "end" && "cs-menu__list--end"), role: "menu" }, children) : null);
 }
-
-/** An item inside a Menu. */
-function MenuItem({
-  danger = false,
-  icon,
-  children,
-  className,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("button", _extends({
-    type: "button",
-    role: "menuitem",
-    className: cx("cs-menu__item", danger && "cs-menu__item--danger", className)
-  }, props), icon ? /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true"
-  }, icon) : null, children);
+function MenuItem({ danger = false, icon, children, className, ...props }) {
+  return /* @__PURE__ */ React.createElement("button", { type: "button", role: "menuitem", className: cx("cs-menu__item", danger && "cs-menu__item--danger", className), ...props }, icon ? /* @__PURE__ */ React.createElement("span", { "aria-hidden": "true" }, icon) : null, children);
 }
 Object.assign(__ds_scope, { Menu, MenuItem });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Menu.jsx", error: String((e && e.message) || e) }); }
@@ -6110,22 +3245,17 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Menubar — app-style horizontal menu bar. menus: [{label, items:[{label,onSelect,danger}|"-"]}]. */
-function Menubar({
-  menus = [],
-  className
-}) {
+function Menubar({ menus = [], className }) {
   const [open, setOpen] = React.useState(null);
   const [focusI, setFocusI] = React.useState(0);
   const wrap = React.useRef(null);
   const btns = React.useRef([]);
   React.useEffect(() => {
     if (open == null) return;
-    const d = e => {
+    const d = (e) => {
       if (wrap.current && !wrap.current.contains(e.target)) setOpen(null);
     };
-    const k = e => {
+    const k = (e) => {
       if (e.key === "Escape") {
         const i = open;
         setOpen(null);
@@ -6142,7 +3272,11 @@ function Menubar({
   }, [open]);
   const nav = (e, i) => {
     let n = null;
-    if (e.key === "ArrowRight") n = (i + 1) % menus.length;else if (e.key === "ArrowLeft") n = (i - 1 + menus.length) % menus.length;else if (e.key === "Home") n = 0;else if (e.key === "End") n = menus.length - 1;else if (e.key === "ArrowDown") {
+    if (e.key === "ArrowRight") n = (i + 1) % menus.length;
+    else if (e.key === "ArrowLeft") n = (i - 1 + menus.length) % menus.length;
+    else if (e.key === "Home") n = 0;
+    else if (e.key === "End") n = menus.length - 1;
+    else if (e.key === "ArrowDown") {
       e.preventDefault();
       setOpen(i);
       return;
@@ -6154,43 +3288,28 @@ function Menubar({
     const b = btns.current[n];
     if (b) b.focus();
   };
-  return /*#__PURE__*/React.createElement("div", {
-    ref: wrap,
-    className: cx("cs-menubar", className),
-    role: "menubar"
-  }, menus.map((m, i) => /*#__PURE__*/React.createElement("span", {
-    key: i,
-    className: "cs-menubar__wrap"
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    role: "menuitem",
-    "aria-haspopup": "menu",
-    "aria-expanded": open === i,
-    tabIndex: i === focusI ? 0 : -1,
-    ref: el => btns.current[i] = el,
-    onKeyDown: e => nav(e, i),
-    onFocus: () => setFocusI(i),
-    className: cx("cs-menubar__top", open === i && "is-open"),
-    onClick: () => setOpen(open === i ? null : i),
-    onMouseEnter: () => {
-      if (open != null && open !== i) setOpen(i);
-    }
-  }, m.label), open === i ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-menu__list",
-    role: "menu"
-  }, m.items.map((it, j) => it === "-" ? /*#__PURE__*/React.createElement("span", {
-    key: j,
-    className: "cs-menu__sep"
-  }) : /*#__PURE__*/React.createElement("button", {
-    key: j,
-    type: "button",
-    role: "menuitem",
-    className: cx("cs-menu__item", it.danger && "cs-menu__item--danger"),
-    onClick: () => {
-      setOpen(null);
-      it.onSelect && it.onSelect();
-    }
-  }, it.label))) : null)));
+  return /* @__PURE__ */ React.createElement("div", { ref: wrap, className: cx("cs-menubar", className), role: "menubar" }, menus.map((m, i) => /* @__PURE__ */ React.createElement("span", { key: i, className: "cs-menubar__wrap" }, /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      type: "button",
+      role: "menuitem",
+      "aria-haspopup": "menu",
+      "aria-expanded": open === i,
+      tabIndex: i === focusI ? 0 : -1,
+      ref: (el) => btns.current[i] = el,
+      onKeyDown: (e) => nav(e, i),
+      onFocus: () => setFocusI(i),
+      className: cx("cs-menubar__top", open === i && "is-open"),
+      onClick: () => setOpen(open === i ? null : i),
+      onMouseEnter: () => {
+        if (open != null && open !== i) setOpen(i);
+      }
+    },
+    m.label
+  ), open === i ? /* @__PURE__ */ React.createElement("span", { className: "cs-menu__list", role: "menu" }, m.items.map((it, j) => it === "-" ? /* @__PURE__ */ React.createElement("span", { key: j, className: "cs-menu__sep" }) : /* @__PURE__ */ React.createElement("button", { key: j, type: "button", role: "menuitem", className: cx("cs-menu__item", it.danger && "cs-menu__item--danger"), onClick: () => {
+    setOpen(null);
+    it.onSelect && it.onSelect();
+  } }, it.label))) : null)));
 }
 Object.assign(__ds_scope, { Menubar });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Menubar.jsx", error: String((e && e.message) || e) }); }
@@ -6200,20 +3319,15 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill NavigationMenu — site nav; entries are links or open a rich panel of links. */
-function NavigationMenu({
-  items = [],
-  className
-}) {
+function NavigationMenu({ items = [], className }) {
   const [open, setOpen] = React.useState(null);
   const wrap = React.useRef(null);
   React.useEffect(() => {
     if (open == null) return;
-    const d = e => {
+    const d = (e) => {
       if (wrap.current && !wrap.current.contains(e.target)) setOpen(null);
     };
-    const k = e => {
+    const k = (e) => {
       if (e.key === "Escape") setOpen(null);
     };
     document.addEventListener("mousedown", d);
@@ -6223,142 +3337,64 @@ function NavigationMenu({
       document.removeEventListener("keydown", k);
     };
   }, [open]);
-  return /*#__PURE__*/React.createElement("nav", {
-    ref: wrap,
-    className: cx("cs-navmenu", className)
-  }, items.map((it, i) => it.panel ? /*#__PURE__*/React.createElement("span", {
-    key: i,
-    className: "cs-navmenu__wrap"
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: cx("cs-navmenu__top", open === i && "is-open"),
-    "aria-expanded": open === i,
-    "aria-haspopup": "true",
-    onClick: () => setOpen(open === i ? null : i),
-    onMouseEnter: () => {
-      if (open != null && open !== i) setOpen(i);
-    }
-  }, it.label, " ", /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true"
-  }, "\u25BE")), open === i ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-navmenu__panel"
-  }, it.panel.map((p, j) => /*#__PURE__*/React.createElement("a", {
-    key: j,
-    href: p.href || "#",
-    className: "cs-navmenu__card",
-    onClick: () => setOpen(null)
-  }, /*#__PURE__*/React.createElement("b", null, p.label), p.desc ? /*#__PURE__*/React.createElement("small", null, p.desc) : null))) : null) : /*#__PURE__*/React.createElement("a", {
-    key: i,
-    href: it.href || "#",
-    className: "cs-navmenu__top"
-  }, it.label)));
+  return /* @__PURE__ */ React.createElement("nav", { ref: wrap, className: cx("cs-navmenu", className) }, items.map((it, i) => it.panel ? /* @__PURE__ */ React.createElement("span", { key: i, className: "cs-navmenu__wrap" }, /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      type: "button",
+      className: cx("cs-navmenu__top", open === i && "is-open"),
+      "aria-expanded": open === i,
+      "aria-haspopup": "true",
+      onClick: () => setOpen(open === i ? null : i),
+      onMouseEnter: () => {
+        if (open != null && open !== i) setOpen(i);
+      }
+    },
+    it.label,
+    " ",
+    /* @__PURE__ */ React.createElement("span", { "aria-hidden": "true" }, "▾")
+  ), open === i ? /* @__PURE__ */ React.createElement("span", { className: "cs-navmenu__panel" }, it.panel.map((p, j) => /* @__PURE__ */ React.createElement("a", { key: j, href: p.href || "#", className: "cs-navmenu__card", onClick: () => setOpen(null) }, /* @__PURE__ */ React.createElement("b", null, p.label), p.desc ? /* @__PURE__ */ React.createElement("small", null, p.desc) : null))) : null) : /* @__PURE__ */ React.createElement("a", { key: i, href: it.href || "#", className: "cs-navmenu__top" }, it.label)));
 }
 Object.assign(__ds_scope, { NavigationMenu });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/NavigationMenu.jsx", error: String((e && e.message) || e) }); }
 
 // components/navigation/Pagination.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
 function pages(page, count) {
-  if (count <= 7) return Array.from({
-    length: count
-  }, (_, i) => i + 1);
+  if (count <= 7) return Array.from({ length: count }, (_, i) => i + 1);
   const out = [1];
-  const lo = Math.max(2, page - 1),
-    hi = Math.min(count - 1, page + 1);
+  const lo = Math.max(2, page - 1), hi = Math.min(count - 1, page + 1);
   if (lo > 2) out.push("…");
   for (let p = lo; p <= hi; p++) out.push(p);
   if (hi < count - 1) out.push("…");
   out.push(count);
   return out;
 }
-
-/** CyberSkill Pagination — page controls with prev/next and ellipsis. */
-function Pagination({
-  page = 1,
-  pageCount = 1,
-  onChange,
-  lang,
-  className,
-  ...props
-}) {
-  const go = p => onChange && p >= 1 && p <= pageCount && p !== page && onChange(p);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("Pagination", L);
-  return /*#__PURE__*/React.createElement("nav", _extends({
-    ref: ref,
-    "aria-label": t("label"),
-    className: cx("cs-pagination", className)
-  }, props), /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    onClick: () => go(page - 1),
-    disabled: page <= 1,
-    "aria-label": t("prev")
-  }, "\u2039"), pages(page, pageCount).map((p, i) => p === "…" ? /*#__PURE__*/React.createElement("span", {
-    key: "e" + i,
-    className: "cs-pagination__ellipsis",
-    "aria-hidden": "true"
-  }, "\u2026") : /*#__PURE__*/React.createElement("button", {
-    key: p,
-    type: "button",
-    "aria-current": p === page ? "page" : undefined,
-    onClick: () => go(p)
-  }, p)), /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    onClick: () => go(page + 1),
-    disabled: page >= pageCount,
-    "aria-label": t("next")
-  }, "\u203A"));
+function Pagination({ page = 1, pageCount = 1, onChange, lang, className, ...props }) {
+  const go = (p) => onChange && p >= 1 && p <= pageCount && p !== page && onChange(p);
+  const [ref, L] = useLang(lang);
+  const t = makeT("Pagination", L);
+  return /* @__PURE__ */ React.createElement("nav", { ref, "aria-label": t("label"), className: cx("cs-pagination", className), ...props }, /* @__PURE__ */ React.createElement("button", { type: "button", onClick: () => go(page - 1), disabled: page <= 1, "aria-label": t("prev") }, "‹"), pages(page, pageCount).map(
+    (p, i) => p === "…" ? /* @__PURE__ */ React.createElement("span", { key: "e" + i, className: "cs-pagination__ellipsis", "aria-hidden": "true" }, "…") : /* @__PURE__ */ React.createElement("button", { key: p, type: "button", "aria-current": p === page ? "page" : void 0, onClick: () => go(p) }, p)
+  ), /* @__PURE__ */ React.createElement("button", { type: "button", onClick: () => go(page + 1), disabled: page >= pageCount, "aria-label": t("next") }, "›"));
 }
 Object.assign(__ds_scope, { Pagination });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Pagination.jsx", error: String((e && e.message) || e) }); }
 
 // components/navigation/Sidebar.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Sidebar — vertical app-shell navigation. Compose NavItem children; optional label groups. */
-function Sidebar({
-  label,
-  children,
-  className,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("nav", _extends({
-    className: cx("cs-sidebar", className)
-  }, props), label ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-sidebar__label"
-  }, label) : null, children);
+function Sidebar({ label, children, className, ...props }) {
+  return /* @__PURE__ */ React.createElement("nav", { className: cx("cs-sidebar", className), ...props }, label ? /* @__PURE__ */ React.createElement("div", { className: "cs-sidebar__label" }, label) : null, children);
 }
-
-/** A row in a Sidebar. Renders an <a> when href is set, else a <button>. */
-function NavItem({
-  icon,
-  active = false,
-  trail,
-  href,
-  onClick,
-  children,
-  className,
-  ...props
-}) {
+function NavItem({ icon, active = false, trail, href, onClick, children, className, ...props }) {
   const Tag = href ? "a" : "button";
-  return /*#__PURE__*/React.createElement(Tag, _extends({
-    className: cx("cs-nav-item", active && "is-active", className),
-    href: href,
-    "aria-current": active ? "page" : undefined,
-    onClick: onClick
-  }, props), icon ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-nav-item__icon"
-  }, icon) : null, /*#__PURE__*/React.createElement("span", null, children), trail != null ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-nav-item__trail"
-  }, trail) : null);
+  return /* @__PURE__ */ React.createElement(Tag, { className: cx("cs-nav-item", active && "is-active", className), href, "aria-current": active ? "page" : void 0, onClick, ...props }, icon ? /* @__PURE__ */ React.createElement("span", { className: "cs-nav-item__icon" }, icon) : null, /* @__PURE__ */ React.createElement("span", null, children), trail != null ? /* @__PURE__ */ React.createElement("span", { className: "cs-nav-item__trail" }, trail) : null);
 }
 Object.assign(__ds_scope, { Sidebar, NavItem });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Sidebar.jsx", error: String((e && e.message) || e) }); }
@@ -6368,27 +3404,10 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Steps — horizontal progress stepper. Steps before `current` are done, `current` is active. */
-function Steps({
-  steps = [],
-  current = 0,
-  className
-}) {
-  return /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-steps", className)
-  }, steps.map((s, i) => {
+function Steps({ steps = [], current = 0, className }) {
+  return /* @__PURE__ */ React.createElement("div", { className: cx("cs-steps", className) }, steps.map((s, i) => {
     const state = i < current ? "done" : i === current ? "active" : "todo";
-    return /*#__PURE__*/React.createElement("div", {
-      key: i,
-      className: cx("cs-step", `cs-step--${state}`)
-    }, /*#__PURE__*/React.createElement("span", {
-      className: "cs-step__marker"
-    }, state === "done" ? "✓" : s.n || i + 1), /*#__PURE__*/React.createElement("span", {
-      className: "cs-step__title"
-    }, s.title), s.body ? /*#__PURE__*/React.createElement("span", {
-      className: "cs-step__body"
-    }, s.body) : null);
+    return /* @__PURE__ */ React.createElement("div", { key: i, className: cx("cs-step", `cs-step--${state}`) }, /* @__PURE__ */ React.createElement("span", { className: "cs-step__marker" }, state === "done" ? "✓" : s.n || i + 1), /* @__PURE__ */ React.createElement("span", { className: "cs-step__title" }, s.title), s.body ? /* @__PURE__ */ React.createElement("span", { className: "cs-step__body" }, s.body) : null);
   }));
 }
 Object.assign(__ds_scope, { Steps });
@@ -6396,136 +3415,75 @@ Object.assign(__ds_scope, { Steps });
 
 // components/navigation/Tabs.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Tabs — data-driven tablist, controlled by value/onChange. Ochre underline on active. */
-function Tabs({
-  tabs = [],
-  value,
-  onChange,
-  className,
-  ...props
-}) {
+function Tabs({ tabs = [], value, onChange, className, ...props }) {
   const refs = React.useRef([]);
-  const idx = Math.max(0, tabs.findIndex(t => t.value === value));
+  const idx = Math.max(0, tabs.findIndex((t) => t.value === value));
   const key = (e, i) => {
     let n = null;
-    if (e.key === "ArrowRight") n = (i + 1) % tabs.length;else if (e.key === "ArrowLeft") n = (i - 1 + tabs.length) % tabs.length;else if (e.key === "Home") n = 0;else if (e.key === "End") n = tabs.length - 1;
+    if (e.key === "ArrowRight") n = (i + 1) % tabs.length;
+    else if (e.key === "ArrowLeft") n = (i - 1 + tabs.length) % tabs.length;
+    else if (e.key === "Home") n = 0;
+    else if (e.key === "End") n = tabs.length - 1;
     if (n == null) return;
     e.preventDefault();
     if (onChange) onChange(tabs[n].value);
     const b = refs.current[n];
     if (b) b.focus();
   };
-  return /*#__PURE__*/React.createElement("div", _extends({
-    role: "tablist",
-    className: cx("cs-tabs", className)
-  }, props), tabs.map((t, i) => /*#__PURE__*/React.createElement("button", {
-    key: t.value,
-    type: "button",
-    role: "tab",
-    "aria-selected": value === t.value,
-    tabIndex: i === idx ? 0 : -1,
-    ref: el => refs.current[i] = el,
-    onKeyDown: e => key(e, i),
-    className: "cs-tab",
-    onClick: () => onChange && onChange(t.value)
-  }, t.label, t.count != null ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-tab__count"
-  }, t.count) : null)));
+  return /* @__PURE__ */ React.createElement("div", { role: "tablist", className: cx("cs-tabs", className), ...props }, tabs.map((t, i) => /* @__PURE__ */ React.createElement(
+    "button",
+    {
+      key: t.value,
+      type: "button",
+      role: "tab",
+      "aria-selected": value === t.value,
+      tabIndex: i === idx ? 0 : -1,
+      ref: (el) => refs.current[i] = el,
+      onKeyDown: (e) => key(e, i),
+      className: "cs-tab",
+      onClick: () => onChange && onChange(t.value)
+    },
+    t.label,
+    t.count != null ? /* @__PURE__ */ React.createElement("span", { className: "cs-tab__count" }, t.count) : null
+  )));
 }
-
-/** A single tab button, for hand-composed tablists. */
-function Tab({
-  selected = false,
-  count,
-  children,
-  className,
-  ...props
-}) {
-  return /*#__PURE__*/React.createElement("button", _extends({
-    type: "button",
-    role: "tab",
-    "aria-selected": selected,
-    className: cx("cs-tab", className)
-  }, props), children, count != null ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-tab__count"
-  }, count) : null);
+function Tab({ selected = false, count, children, className, ...props }) {
+  return /* @__PURE__ */ React.createElement("button", { type: "button", role: "tab", "aria-selected": selected, className: cx("cs-tab", className), ...props }, children, count != null ? /* @__PURE__ */ React.createElement("span", { className: "cs-tab__count" }, count) : null);
 }
 Object.assign(__ds_scope, { Tabs, Tab });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Tabs.jsx", error: String((e && e.message) || e) }); }
 
 // components/navigation/Toolbar.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Toolbar — horizontal action bar; overflow items collapse into a "⋯" menu. items: {label,icon,onSelect} or "-". */
-function Toolbar({
-  items = [],
-  overflowAfter,
-  label,
-  lang,
-  className
-}) {
+function Toolbar({ items = [], overflowAfter, label, lang, className }) {
   const [open, setOpen] = React.useState(false);
   const wrap = React.useRef(null);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("Toolbar", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("Toolbar", L);
   const cut = overflowAfter != null ? overflowAfter : items.length;
-  const head = items.slice(0, cut),
-    tail = items.filter(x => x !== "-").slice(cut);
+  const head = items.slice(0, cut), tail = items.filter((x) => x !== "-").slice(cut);
   React.useEffect(() => {
     if (!open) return;
-    const d = e => {
+    const d = (e) => {
       if (wrap.current && !wrap.current.contains(e.target)) setOpen(false);
     };
     document.addEventListener("mousedown", d);
     return () => document.removeEventListener("mousedown", d);
   }, [open]);
-  return /*#__PURE__*/React.createElement("div", {
-    ref: el => {
-      wrap.current = el;
-      ref.current = el;
-    },
-    className: cx("cs-toolbar", className),
-    role: "toolbar",
-    "aria-label": label
-  }, head.map((it, i) => it === "-" ? /*#__PURE__*/React.createElement("span", {
-    key: i,
-    className: "cs-toolbar__sep",
-    "aria-hidden": "true"
-  }) : /*#__PURE__*/React.createElement("button", {
-    key: i,
-    type: "button",
-    className: "cs-toolbar__btn",
-    onClick: () => it.onSelect && it.onSelect()
-  }, it.icon, it.label ? /*#__PURE__*/React.createElement("span", null, it.label) : null)), tail.length ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-toolbar__more"
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-toolbar__btn",
-    "aria-haspopup": "menu",
-    "aria-expanded": open,
-    "aria-label": t("more"),
-    onClick: () => setOpen(o => !o)
-  }, "\u22EF"), open ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-menu__list",
-    role: "menu"
-  }, tail.map((it, i) => /*#__PURE__*/React.createElement("button", {
-    key: i,
-    type: "button",
-    role: "menuitem",
-    className: "cs-menu__item",
-    onClick: () => {
-      setOpen(false);
-      it.onSelect && it.onSelect();
-    }
-  }, it.label))) : null) : null);
+  return /* @__PURE__ */ React.createElement("div", { ref: (el) => {
+    wrap.current = el;
+    ref.current = el;
+  }, className: cx("cs-toolbar", className), role: "toolbar", "aria-label": label }, head.map((it, i) => it === "-" ? /* @__PURE__ */ React.createElement("span", { key: i, className: "cs-toolbar__sep", "aria-hidden": "true" }) : /* @__PURE__ */ React.createElement("button", { key: i, type: "button", className: "cs-toolbar__btn", onClick: () => it.onSelect && it.onSelect() }, it.icon, it.label ? /* @__PURE__ */ React.createElement("span", null, it.label) : null)), tail.length ? /* @__PURE__ */ React.createElement("span", { className: "cs-toolbar__more" }, /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-toolbar__btn", "aria-haspopup": "menu", "aria-expanded": open, "aria-label": t("more"), onClick: () => setOpen((o) => !o) }, "⋯"), open ? /* @__PURE__ */ React.createElement("span", { className: "cs-menu__list", role: "menu" }, tail.map((it, i) => /* @__PURE__ */ React.createElement("button", { key: i, type: "button", role: "menuitem", className: "cs-menu__item", onClick: () => {
+    setOpen(false);
+    it.onSelect && it.onSelect();
+  } }, it.label))) : null) : null);
 }
 Object.assign(__ds_scope, { Toolbar });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Toolbar.jsx", error: String((e && e.message) || e) }); }
@@ -6535,18 +3493,12 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill ContextMenu — right-click menu scoped to its children. items: {label,onSelect,danger} or "-" separator. */
-function ContextMenu({
-  items = [],
-  children,
-  className
-}) {
+function ContextMenu({ items = [], children, className }) {
   const [pos, setPos] = React.useState(null);
   React.useEffect(() => {
     if (!pos) return;
     const close = () => setPos(null);
-    const k = e => {
+    const k = (e) => {
       if (e.key === "Escape") setPos(null);
     };
     document.addEventListener("click", close);
@@ -6556,59 +3508,34 @@ function ContextMenu({
       document.removeEventListener("keydown", k);
     };
   }, [pos]);
-  return /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-ctxmenu-zone", className),
-    onContextMenu: e => {
-      e.preventDefault();
-      const r = e.currentTarget.getBoundingClientRect();
-      setPos({
-        x: e.clientX - r.left,
-        y: e.clientY - r.top
-      });
-    }
-  }, children, pos ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-menu__list",
-    role: "menu",
-    style: {
-      position: "absolute",
-      insetInlineStart: pos.x,
-      insetBlockStart: pos.y
-    }
-  }, items.map((it, i) => it === "-" ? /*#__PURE__*/React.createElement("div", {
-    key: i,
-    className: "cs-menu__sep"
-  }) : /*#__PURE__*/React.createElement("button", {
-    key: i,
-    type: "button",
-    role: "menuitem",
-    className: cx("cs-menu__item", it.danger && "cs-menu__item--danger"),
-    onClick: () => {
+  return /* @__PURE__ */ React.createElement(
+    "div",
+    {
+      className: cx("cs-ctxmenu-zone", className),
+      onContextMenu: (e) => {
+        e.preventDefault();
+        const r = e.currentTarget.getBoundingClientRect();
+        setPos({ x: e.clientX - r.left, y: e.clientY - r.top });
+      }
+    },
+    children,
+    pos ? /* @__PURE__ */ React.createElement("div", { className: "cs-menu__list", role: "menu", style: { position: "absolute", insetInlineStart: pos.x, insetBlockStart: pos.y } }, items.map((it, i) => it === "-" ? /* @__PURE__ */ React.createElement("div", { key: i, className: "cs-menu__sep" }) : /* @__PURE__ */ React.createElement("button", { key: i, type: "button", role: "menuitem", className: cx("cs-menu__item", it.danger && "cs-menu__item--danger"), onClick: () => {
       setPos(null);
       it.onSelect && it.onSelect();
-    }
-  }, it.label))) : null);
+    } }, it.label))) : null
+  );
 }
 Object.assign(__ds_scope, { ContextMenu });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/overlays/ContextMenu.jsx", error: String((e && e.message) || e) }); }
 
 // components/overlays/Drawer.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Drawer — slide-in side panel with scrim. side: right (default) | left. */
-function Drawer({
-  open,
-  onClose,
-  title,
-  side = "right",
-  children,
-  actions,
-  lang,
-  className
-}) {
-  const [ref, L] = __ds_scope.useLang(lang);
+function Drawer({ open, onClose, title, side = "right", children, actions, lang, className }) {
+  const [ref, L] = useLang(lang);
   React.useEffect(() => {
     if (!open) return;
     const prev = document.activeElement;
@@ -6616,7 +3543,7 @@ function Drawer({
     const p = ref.current;
     const first = p ? p.querySelector(SEL) : null;
     (first || p) && (first || p).focus();
-    const k = e => {
+    const k = (e) => {
       if (e.key === "Escape") {
         onClose && onClose();
         return;
@@ -6624,8 +3551,7 @@ function Drawer({
       if (e.key !== "Tab" || !ref.current) return;
       const f = [...ref.current.querySelectorAll(SEL)];
       if (!f.length) return;
-      const a = f[0],
-        z = f[f.length - 1];
+      const a = f[0], z = f[f.length - 1];
       if (e.shiftKey && document.activeElement === a) {
         e.preventDefault();
         z.focus();
@@ -6640,43 +3566,9 @@ function Drawer({
       if (prev && prev.focus) prev.focus();
     };
   }, [open]);
-  const t = __ds_scope.makeT("Drawer", L);
+  const t = makeT("Drawer", L);
   if (!open) return null;
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
-    className: "cs-drawer-scrim",
-    onClick: onClose,
-    "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement("aside", {
-    ref: ref,
-    tabIndex: -1,
-    className: cx("cs-drawer", side === "left" && "cs-drawer--left", className),
-    role: "dialog",
-    "aria-modal": "true",
-    "aria-label": typeof title === "string" ? title : t("panel")
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-drawer__header"
-  }, title ? /*#__PURE__*/React.createElement("h2", {
-    className: "cs-drawer__title"
-  }, title) : null, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-drawer__close",
-    "aria-label": t("close"),
-    onClick: onClose
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "20",
-    height: "20",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2",
-    strokeLinecap: "round"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 6l12 12M18 6L6 18"
-  })))), /*#__PURE__*/React.createElement("div", {
-    className: "cs-drawer__body"
-  }, children), actions ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-drawer__footer"
-  }, actions) : null));
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "cs-drawer-scrim", onClick: onClose, "aria-hidden": "true" }), /* @__PURE__ */ React.createElement("aside", { ref, tabIndex: -1, className: cx("cs-drawer", side === "left" && "cs-drawer--left", className), role: "dialog", "aria-modal": "true", "aria-label": typeof title === "string" ? title : t("panel") }, /* @__PURE__ */ React.createElement("div", { className: "cs-drawer__header" }, title ? /* @__PURE__ */ React.createElement("h2", { className: "cs-drawer__title" }, title) : null, /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-drawer__close", "aria-label": t("close"), onClick: onClose }, /* @__PURE__ */ React.createElement("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }, /* @__PURE__ */ React.createElement("path", { d: "M6 6l12 12M18 6L6 18" })))), /* @__PURE__ */ React.createElement("div", { className: "cs-drawer__body" }, children), actions ? /* @__PURE__ */ React.createElement("div", { className: "cs-drawer__footer" }, actions) : null));
 }
 Object.assign(__ds_scope, { Drawer });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/overlays/Drawer.jsx", error: String((e && e.message) || e) }); }
@@ -6686,15 +3578,7 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill HoverCard — hover/focus-triggered rich preview panel (delayed open/close). */
-function HoverCard({
-  trigger,
-  children,
-  openDelay = 150,
-  closeDelay = 200,
-  className
-}) {
+function HoverCard({ trigger, children, openDelay = 150, closeDelay = 200, className }) {
   const [open, setOpen] = React.useState(false);
   const t1 = React.useRef();
   const t2 = React.useRef();
@@ -6710,47 +3594,28 @@ function HoverCard({
     clearTimeout(t1.current);
     clearTimeout(t2.current);
   }, []);
-  return /*#__PURE__*/React.createElement("span", {
-    className: cx("cs-hovercard", className),
-    onMouseEnter: show,
-    onMouseLeave: hide,
-    onFocus: show,
-    onBlur: hide
-  }, trigger, open ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-hovercard__panel",
-    role: "dialog"
-  }, children) : null);
+  return /* @__PURE__ */ React.createElement("span", { className: cx("cs-hovercard", className), onMouseEnter: show, onMouseLeave: hide, onFocus: show, onBlur: hide }, trigger, open ? /* @__PURE__ */ React.createElement("span", { className: "cs-hovercard__panel", role: "dialog" }, children) : null);
 }
 Object.assign(__ds_scope, { HoverCard });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/overlays/HoverCard.jsx", error: String((e && e.message) || e) }); }
 
 // components/overlays/Popconfirm.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Popconfirm — inline confirm bubble on a destructive/consequential action. */
-function Popconfirm({
-  trigger,
-  title,
-  onConfirm,
-  onCancel,
-  okLabel,
-  cancelLabel,
-  lang,
-  className
-}) {
+function Popconfirm({ trigger, title, onConfirm, onCancel, okLabel, cancelLabel, lang, className }) {
   const [open, setOpen] = React.useState(false);
   const wrap = React.useRef(null);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("Popconfirm", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("Popconfirm", L);
   React.useEffect(() => {
     if (!open) return;
-    const d = e => {
+    const d = (e) => {
       if (wrap.current && !wrap.current.contains(e.target)) setOpen(false);
     };
-    const k = e => {
+    const k = (e) => {
       if (e.key === "Escape") setOpen(false);
     };
     document.addEventListener("mousedown", d);
@@ -6760,39 +3625,16 @@ function Popconfirm({
       document.removeEventListener("keydown", k);
     };
   }, [open]);
-  return /*#__PURE__*/React.createElement("span", {
-    ref: el => {
-      wrap.current = el;
-      ref.current = el;
-    },
-    className: cx("cs-popconfirm", className)
-  }, /*#__PURE__*/React.createElement("span", {
-    onClick: () => setOpen(o => !o),
-    "aria-haspopup": "dialog",
-    "aria-expanded": open
-  }, trigger), open ? /*#__PURE__*/React.createElement("span", {
-    className: "cs-popconfirm__panel",
-    role: "alertdialog",
-    "aria-label": typeof title === "string" ? title : undefined
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "cs-popconfirm__title"
-  }, title), /*#__PURE__*/React.createElement("span", {
-    className: "cs-popconfirm__actions"
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-button cs-button--ghost cs-button--xs",
-    onClick: () => {
-      setOpen(false);
-      onCancel && onCancel();
-    }
-  }, cancelLabel != null ? cancelLabel : t("cancel")), /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-button cs-button--primary cs-button--xs",
-    onClick: () => {
-      setOpen(false);
-      onConfirm && onConfirm();
-    }
-  }, okLabel != null ? okLabel : t("ok")))) : null);
+  return /* @__PURE__ */ React.createElement("span", { ref: (el) => {
+    wrap.current = el;
+    ref.current = el;
+  }, className: cx("cs-popconfirm", className) }, /* @__PURE__ */ React.createElement("span", { onClick: () => setOpen((o) => !o), "aria-haspopup": "dialog", "aria-expanded": open }, trigger), open ? /* @__PURE__ */ React.createElement("span", { className: "cs-popconfirm__panel", role: "alertdialog", "aria-label": typeof title === "string" ? title : void 0 }, /* @__PURE__ */ React.createElement("span", { className: "cs-popconfirm__title" }, title), /* @__PURE__ */ React.createElement("span", { className: "cs-popconfirm__actions" }, /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-button cs-button--ghost cs-button--xs", onClick: () => {
+    setOpen(false);
+    onCancel && onCancel();
+  } }, cancelLabel != null ? cancelLabel : t("cancel")), /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-button cs-button--primary cs-button--xs", onClick: () => {
+    setOpen(false);
+    onConfirm && onConfirm();
+  } }, okLabel != null ? okLabel : t("ok")))) : null);
 }
 Object.assign(__ds_scope, { Popconfirm });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/overlays/Popconfirm.jsx", error: String((e && e.message) || e) }); }
@@ -6802,26 +3644,17 @@ try { (() => {
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Popover — anchored floating panel. Uncontrolled (click toggles) or controlled. */
-function Popover({
-  trigger,
-  children,
-  align = "start",
-  open: controlled,
-  onOpenChange,
-  className
-}) {
+function Popover({ trigger, children, align = "start", open: controlled, onOpenChange, className }) {
   const [u, setU] = React.useState(false);
   const open = controlled != null ? controlled : u;
-  const set = v => onOpenChange ? onOpenChange(v) : setU(v);
+  const set = (v) => onOpenChange ? onOpenChange(v) : setU(v);
   const ref = React.useRef(null);
   React.useEffect(() => {
     if (!open) return;
-    const d = e => {
+    const d = (e) => {
       if (ref.current && !ref.current.contains(e.target)) set(false);
     };
-    const k = e => {
+    const k = (e) => {
       if (e.key === "Escape") set(false);
     };
     document.addEventListener("mousedown", d);
@@ -6831,39 +3664,22 @@ function Popover({
       document.removeEventListener("keydown", k);
     };
   }, [open]);
-  return /*#__PURE__*/React.createElement("span", {
-    className: cx("cs-popover", className),
-    ref: ref
-  }, /*#__PURE__*/React.createElement("span", {
-    onClick: () => set(!open),
-    "aria-haspopup": "dialog",
-    "aria-expanded": open
-  }, trigger), open ? /*#__PURE__*/React.createElement("div", {
-    className: cx("cs-popover__panel", align === "end" && "cs-popover__panel--end"),
-    role: "dialog"
-  }, children) : null);
+  return /* @__PURE__ */ React.createElement("span", { className: cx("cs-popover", className), ref }, /* @__PURE__ */ React.createElement("span", { onClick: () => set(!open), "aria-haspopup": "dialog", "aria-expanded": open }, trigger), open ? /* @__PURE__ */ React.createElement("div", { className: cx("cs-popover__panel", align === "end" && "cs-popover__panel--end"), role: "dialog" }, children) : null);
 }
 Object.assign(__ds_scope, { Popover });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/overlays/Popover.jsx", error: String((e && e.message) || e) }); }
 
 // components/overlays/Tour.jsx
 try { (() => {
+const { makeT, useLang } = __ds_scope;
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-
-/** CyberSkill Tour — spotlight walkthrough over target elements (by CSS selector). Controlled via open/onClose. */
-function Tour({
-  steps = [],
-  open,
-  onClose,
-  lang,
-  className
-}) {
+function Tour({ steps = [], open, onClose, lang, className }) {
   const [i, setI] = React.useState(0);
   const [rect, setRect] = React.useState(null);
-  const [ref, L] = __ds_scope.useLang(lang);
-  const t = __ds_scope.makeT("Tour", L);
+  const [ref, L] = useLang(lang);
+  const t = makeT("Tour", L);
   React.useEffect(() => {
     if (open) setI(0);
   }, [open]);
@@ -6872,90 +3688,29 @@ function Tour({
     const el = document.querySelector(steps[i].target);
     if (el) {
       const r = el.getBoundingClientRect();
-      setRect({
-        x: r.left - 6,
-        y: r.top - 6,
-        w: r.width + 12,
-        h: r.height + 12
-      });
+      setRect({ x: r.left - 6, y: r.top - 6, w: r.width + 12, h: r.height + 12 });
     } else setRect(null);
-    const k = e => {
+    const k = (e) => {
       if (e.key === "Escape") onClose && onClose();
     };
     document.addEventListener("keydown", k);
     return () => document.removeEventListener("keydown", k);
   }, [open, i, steps]);
-  if (!open || !steps.length) return /*#__PURE__*/React.createElement("span", {
-    ref: ref,
-    style: {
-      display: "none"
-    }
-  });
+  if (!open || !steps.length) return /* @__PURE__ */ React.createElement("span", { ref, style: { display: "none" } });
   const s = steps[i];
   const last = i === steps.length - 1;
   const popTop = rect ? Math.min(window.innerHeight - 170, rect.y + rect.h + 12) : 80;
   const popLeft = rect ? Math.max(12, Math.min(window.innerWidth - 292, rect.x)) : 40;
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: cx("cs-tour", className)
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-tour__scrim",
-    onClick: onClose
-  }), rect ? /*#__PURE__*/React.createElement("div", {
-    className: "cs-tour__hole",
-    style: {
-      left: rect.x,
-      top: rect.y,
-      width: rect.w,
-      height: rect.h
-    }
-  }) : null, /*#__PURE__*/React.createElement("div", {
-    className: "cs-tour__pop",
-    role: "dialog",
-    "aria-label": typeof s.title === "string" ? s.title : undefined,
-    style: {
-      left: popLeft,
-      top: popTop
-    }
-  }, /*#__PURE__*/React.createElement("b", null, s.title), s.body ? /*#__PURE__*/React.createElement("p", null, s.body) : null, /*#__PURE__*/React.createElement("div", {
-    className: "cs-tour__bar"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "cs-tour__count"
-  }, i + 1 + " / " + steps.length), /*#__PURE__*/React.createElement("span", {
-    className: "cs-tour__btns"
-  }, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-button cs-button--ghost cs-button--xs",
-    onClick: onClose
-  }, t("skip")), i > 0 ? /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-button cs-button--secondary cs-button--xs",
-    onClick: () => setI(i - 1)
-  }, t("back")) : null, /*#__PURE__*/React.createElement("button", {
-    type: "button",
-    className: "cs-button cs-button--primary cs-button--xs",
-    onClick: () => last ? onClose && onClose() : setI(i + 1)
-  }, last ? t("done") : t("next"))))));
+  return /* @__PURE__ */ React.createElement("div", { ref, className: cx("cs-tour", className) }, /* @__PURE__ */ React.createElement("div", { className: "cs-tour__scrim", onClick: onClose }), rect ? /* @__PURE__ */ React.createElement("div", { className: "cs-tour__hole", style: { left: rect.x, top: rect.y, width: rect.w, height: rect.h } }) : null, /* @__PURE__ */ React.createElement("div", { className: "cs-tour__pop", role: "dialog", "aria-label": typeof s.title === "string" ? s.title : void 0, style: { left: popLeft, top: popTop } }, /* @__PURE__ */ React.createElement("b", null, s.title), s.body ? /* @__PURE__ */ React.createElement("p", null, s.body) : null, /* @__PURE__ */ React.createElement("div", { className: "cs-tour__bar" }, /* @__PURE__ */ React.createElement("span", { className: "cs-tour__count" }, i + 1 + " / " + steps.length), /* @__PURE__ */ React.createElement("span", { className: "cs-tour__btns" }, /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-button cs-button--ghost cs-button--xs", onClick: onClose }, t("skip")), i > 0 ? /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-button cs-button--secondary cs-button--xs", onClick: () => setI(i - 1) }, t("back")) : null, /* @__PURE__ */ React.createElement("button", { type: "button", className: "cs-button cs-button--primary cs-button--xs", onClick: () => last ? onClose && onClose() : setI(i + 1) }, last ? t("done") : t("next"))))));
 }
 Object.assign(__ds_scope, { Tour });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/overlays/Tour.jsx", error: String((e && e.message) || e) }); }
 
 // components/textfield/TextField.jsx
 try { (() => {
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function cx(...c) {
   return c.filter(Boolean).join(" ");
 }
-let uid = 0;
-function useId(prefix) {
-  const [id] = React.useState(() => `${prefix}-${++uid}`);
-  return id;
-}
-
-/**
- * CyberSkill TextField — label + input with optional description and error.
- * Programmatic label association and aria-describedby wiring; IME-safe.
- */
 function TextField({
   id,
   label,
@@ -6965,256 +3720,110 @@ function TextField({
   readOnly = false,
   className,
   children,
+  // never rendered on purpose: keeps stray children out of {...props} → void <input>
   ...props
 }) {
-  const generatedId = useId("cs-textfield");
+  const generatedId = React.useId();
   const inputId = id ?? generatedId;
-  const descriptionId = description ? `${inputId}-description` : undefined;
-  const errorId = error ? `${inputId}-error` : undefined;
-  const describedBy = [descriptionId, errorId].filter(Boolean).join(" ") || undefined;
-  return /*#__PURE__*/React.createElement("label", {
-    className: cx("cs-field", disabled && "is-disabled", error && "is-invalid", className),
-    htmlFor: inputId
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "cs-field__label"
-  }, label), description ? /*#__PURE__*/React.createElement("span", {
-    id: descriptionId,
-    className: "cs-field__description"
-  }, description) : null, /*#__PURE__*/React.createElement("input", _extends({}, props, {
-    id: inputId,
-    disabled: disabled,
-    readOnly: readOnly,
-    "aria-invalid": error ? true : undefined,
-    "aria-describedby": describedBy,
-    className: "cs-field__control"
-  })), error ? /*#__PURE__*/React.createElement("span", {
-    id: errorId,
-    className: "cs-field__error",
-    role: "alert"
-  }, error) : null);
+  const descriptionId = description ? `${inputId}-description` : void 0;
+  const errorId = error ? `${inputId}-error` : void 0;
+  const describedBy = [descriptionId, errorId].filter(Boolean).join(" ") || void 0;
+  return /* @__PURE__ */ React.createElement(
+    "label",
+    {
+      className: cx("cs-field", disabled && "is-disabled", error && "is-invalid", className),
+      htmlFor: inputId
+    },
+    /* @__PURE__ */ React.createElement("span", { className: "cs-field__label" }, label),
+    description ? /* @__PURE__ */ React.createElement("span", { id: descriptionId, className: "cs-field__description" }, description) : null,
+    /* @__PURE__ */ React.createElement(
+      "input",
+      {
+        ...props,
+        id: inputId,
+        disabled,
+        readOnly,
+        "aria-invalid": error ? true : void 0,
+        "aria-describedby": describedBy,
+        className: "cs-field__control"
+      }
+    ),
+    error ? /* @__PURE__ */ React.createElement("span", { id: errorId, className: "cs-field__error", role: "alert" }, error) : null
+  );
 }
 Object.assign(__ds_scope, { TextField });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/textfield/TextField.jsx", error: String((e && e.message) || e) }); }
 
 // image-slot.js
 try { (() => {
-// @ds-adherence-ignore -- omelette starter scaffold (raw elements/hex/px by design)
-// Copied omelette starter. Re-running copy_starter_component with this kind overwrites this file with the latest version (page content is unaffected).
-/* BEGIN USAGE */
-/**
- * <image-slot> — user-fillable image placeholder.
- *
- * Drop this into a deck, mockup, or page wherever a design needs an image.
- * You control the slot's shape; it sizes to its container by default. When the search_stock_photos tool
- * is available, prefill the slot by default — write the photo's URL into
- * src (with credit/credit-href); the user can still fill or replace it
- * by dragging an image file onto it (or clicking to browse). The dropped
- * image persists across reloads via a .image-slots.state.json sidecar —
- * same read-via-fetch / write-via-window.omelette pattern as
- * design_canvas.jsx, so the filled slot shows on share links, downloaded
- * zips, and PPTX export. Outside the omelette runtime the slot is read-only.
- *
- * The sidecar is a SIBLING of the HTML file that uses this component: the
- * read is a document-relative fetch, and the host resolves the bridge's
- * sidecar writes into the previewed file's directory to match (same
- * contract as design_canvas.jsx). Pages in the same directory share one
- * sidecar; keep slot ids distinct across them.
- *
- * Attributes:
- *   id           Persistence key. REQUIRED for the drop to survive reload —
- *                every slot on the page needs a distinct id.
- *   shape        'rect' | 'rounded' | 'circle' | 'pill'   (default 'rounded')
- *                'circle' applies 50% border-radius; on a non-square slot
- *                that's an ellipse — set equal width and height for a true
- *                circle.
- *   radius       Corner radius in px for 'rounded'.       (default 12)
- *   mask         Any CSS clip-path value. Overrides `shape` — use this for
- *                hexagons, blobs, arbitrary polygons.
- *   fit          Initial framing baseline: cover | contain.   (default 'cover')
- *                cover starts the image filling the frame (overflow cropped);
- *                contain starts it fully visible (letterboxed). Either way the
- *                user can always pan/scale from there — double-click, or the
- *                Edit control, enters reframe mode (drag to move, scroll or
- *                corner-handles to scale; Escape / click-out commits). The
- *                crop persists alongside the image in the sidecar.
- *   placeholder  Empty-state caption.                      (default 'Drop an image')
- *   src          Optional initial/fallback image URL. Prefill it with a real
- *                photo via search_stock_photos when that tool is available
- *                (set credit/credit-href from the result). A user drop
- *                overrides it; clearing the drop reveals src again.
- *   credit       Attribution text shown as a small overlay at the
- *                bottom-left of the filled slot. REQUIRED whenever src
- *                points at any Unsplash host (images.unsplash.com,
- *                plus.unsplash.com, …): an Unsplash src with no credit
- *                renders an error tile INSTEAD of the photo (Unsplash
- *                terms forbid showing their photos unattributed). Use the
- *                exact form 'Photo by {photographer name} on Unsplash' —
- *                the overlay then links the name to credit-href and
- *                'Unsplash' to the Unsplash homepage, and links back to
- *                unsplash.com automatically get the required utm referral
- *                params appended at render time. The credit belongs to
- *                the src image, so it only shows while src is what's
- *                displayed — a user-dropped image hides it.
- *   credit-href  Link for the photographer's name in the credit overlay
- *                (their Unsplash profile URL from the stock-photo search
- *                results). http(s) URLs only — anything else renders the
- *                name as plain text.
- *
- * Sizing: the slot fills its container by default (width/height 100%).
- * Put it in a sized wrapper — absolutely positioned, a grid cell, a fixed
- * frame — and it takes exactly that box. When the parent's height is
- * indefinite (ordinary flow), it falls back to full width at a 3:2 aspect
- * ratio instead of collapsing. In a shrink-to-fit parent (a float,
- * width:max-content, an unsized absolute wrapper), percentages have
- * nothing to resolve against — size the slot or its wrapper explicitly
- * there. For a fixed-size slot, set
- * width/height on the element itself (inline style), which overrides the
- * default. When
- * layering content above a slot (full-bleed layouts), make the overlay
- * click-through — pointer-events: none on scrims/text plates, re-enabled
- * on interactive children — so the slot's hover controls stay reachable.
- * Keep the slot's bottom-left corner visually clear as well: the credit
- * overlay renders there, and a dark fade or text plate covering it hides
- * the attribution Unsplash's terms require — end the fade above that
- * corner, or keep it nearly transparent where the credit sits.
- *
- * Usage:
- *   <div style="position:relative;width:100%;height:100%">      <!-- full-bleed: -->
- *     <image-slot id="bg" shape="rect"></image-slot>            <!-- fills the wrapper -->
- *   </div>
- *   <image-slot id="hero"   style="width:800px;height:450px" shape="rounded" radius="20"
- *               placeholder="Drop a hero image"></image-slot>
- *   <image-slot id="avatar" style="width:120px;height:120px" shape="circle"></image-slot>
- *   <image-slot id="kite"   style="width:300px;height:300px"
- *               mask="polygon(50% 0, 100% 50%, 50% 100%, 0 50%)"></image-slot>
- */
-/* END USAGE */
-
 (() => {
-  const STATE_FILE = '.image-slots.state.json';
-
-  // Unsplash terms require visible attribution wherever their photos
-  // display, and every link back to unsplash.com must carry utm referral
-  // params. Two render-time rules enforce that here:
-  //  - an Unsplash-src slot with NO credit attribute renders an error
-  //    tile INSTEAD of the photo (an uncredited Unsplash photo on screen
-  //    is itself the terms violation, so it never renders bare);
-  //  - rendered credit links pointing at unsplash.com get the referral
-  //    params appended when absent (credit-href values live in page
-  //    content that can't be edited after the fact).
-  // Keep the utm_source value in sync with UTM_SOURCE in
-  // platform/web-agent/unsplash.ts — this file is a project-local
-  // artifact and cannot import it (equality is pinned by tests).
-  const UNSPLASH_HOMEPAGE_HREF = 'https://unsplash.com/?utm_source=claude_design&utm_medium=referral';
-  // Host rule mirrors the hotlink validator that admits Unsplash srcs into
-  // pages in the first place (cdn$ in unsplash.ts: apex or any subdomain)
-  // — Unsplash+ results serve from plus.unsplash.com, not just images.*,
-  // and an admitted-but-uncredited photo must error whatever unsplash
-  // host it rides on.
-  // Trailing-dot FQDNs (images.unsplash.com.) are the same host to the
-  // browser but would miss the regex — strip one dot so the check fails
-  // CLOSED (unrecognized-but-real Unsplash srcs must error, not render).
-  const isUnsplashHost = u => {
+  const STATE_FILE = ".image-slots.state.json";
+  const UNSPLASH_HOMEPAGE_HREF = "https://unsplash.com/?utm_source=claude_design&utm_medium=referral";
+  const isUnsplashHost = (u) => {
     try {
-      return /(^|\.)unsplash\.com$/.test(new URL(u, document.baseURI).hostname.replace(/\.$/, ''));
+      return /(^|\.)unsplash\.com$/.test(
+        new URL(u, document.baseURI).hostname.replace(/\.$/, "")
+      );
     } catch {
       return false;
     }
   };
-  // Render-time referral normalization for links back to Unsplash:
-  // appends utm_source/utm_medium when absent, preserves every existing
-  // query param, never overwrites an existing utm_source, and passes
-  // non-Unsplash URLs through untouched. Input is an ABSOLUTE validated
-  // http(s) URL (the credit render funnel resolves + validates first).
-  const withReferral = href => {
+  const withReferral = (href) => {
     try {
       const u = new URL(href);
-      if (!/(^|\.)unsplash\.com$/.test(u.hostname.replace(/\.$/, ''))) {
+      if (!/(^|\.)unsplash\.com$/.test(u.hostname.replace(/\.$/, ""))) {
         return href;
       }
-      if (!u.searchParams.has('utm_source')) {
-        u.searchParams.set('utm_source', 'claude_design');
+      if (!u.searchParams.has("utm_source")) {
+        u.searchParams.set("utm_source", "claude_design");
       }
-      if (!u.searchParams.has('utm_medium')) {
-        u.searchParams.set('utm_medium', 'referral');
+      if (!u.searchParams.has("utm_medium")) {
+        u.searchParams.set("utm_medium", "referral");
       }
       return u.toString();
     } catch (e) {
       return href;
     }
   };
-  // 2× a ~600px slot in a 1920-wide deck — retina-sharp without making the
-  // sidecar enormous. A 1200px WebP at q=0.85 is ~150-300KB.
   const MAX_DIM = 1200;
-  // Raster formats only. SVG is excluded (can carry script; createImageBitmap
-  // on SVG blobs is inconsistent). GIF is excluded because the canvas
-  // re-encode keeps only the first frame, so an animated GIF would silently
-  // go still — better to reject than surprise.
-  const ACCEPT = ['image/png', 'image/jpeg', 'image/webp', 'image/avif'];
-
-  // ── Shared sidecar store ────────────────────────────────────────────────
-  // One fetch + immediate write-on-change for every <image-slot> on the
-  // page. Reads via fetch() so viewing works anywhere the HTML and sidecar
-  // are served together; writes go through window.omelette.writeFile, which
-  // the host allowlists to *.state.json basenames only.
-  const subs = new Set();
+  const ACCEPT = ["image/png", "image/jpeg", "image/webp", "image/avif"];
+  const subs = /* @__PURE__ */ new Set();
   let slots = {};
-  // ids explicitly cleared before the sidecar fetch resolved — otherwise
-  // the merge below can't tell "never set" from "just deleted" and would
-  // resurrect the sidecar's stale value.
-  const tombstones = new Set();
+  const tombstones = /* @__PURE__ */ new Set();
   let loaded = false;
   let loadP = null;
   function load() {
     if (loadP) return loadP;
-    loadP = fetch(STATE_FILE).then(r => r.ok ? r.json() : null).then(j => {
-      // Merge: sidecar loses to any in-memory change that raced ahead of
-      // the fetch (drop or clear) so neither is clobbered by hydration.
-      if (j && typeof j === 'object') {
+    loadP = fetch(STATE_FILE).then((r) => r.ok ? r.json() : null).then((j) => {
+      if (j && typeof j === "object") {
         const merged = Object.assign({}, j, slots);
-        // A framing-only write that raced ahead of hydration must not
-        // drop a user image that's only on disk — inherit u from the
-        // sidecar for any in-memory entry that lacks one.
         for (const k in slots) {
           if (merged[k] && !merged[k].u && j[k]) {
-            merged[k].u = typeof j[k] === 'string' ? j[k] : j[k].u;
+            merged[k].u = typeof j[k] === "string" ? j[k] : j[k].u;
           }
         }
         for (const id of tombstones) delete merged[id];
         slots = merged;
       }
       tombstones.clear();
-    }).catch(() => {}).then(() => {
+    }).catch(() => {
+    }).then(() => {
       loaded = true;
-      subs.forEach(fn => fn());
+      subs.forEach((fn) => fn());
     });
     return loadP;
   }
-
-  // Serialize writes so two near-simultaneous drops on different slots
-  // can't reorder at the backend and leave the sidecar with only the
-  // first. A save requested mid-flight just marks dirty and re-fires on
-  // completion with the then-current slots.
   let saving = false;
   let saveDirty = false;
-  // Unload-time flush: save()'s serialization defers a mid-RTT re-fire to a
-  // .then that never runs in an unloading document, silently dropping a
-  // pagehide commit. Post the current slots immediately instead — content
-  // is a superset snapshot of any in-flight save's, the write is a
-  // whole-file last-writer-wins replace, and postMessage FIFO delivers it
-  // to the host after the in-flight one, so a backend-side reorder at
-  // worst reproduces the dropped-commit outcome this flush improves on.
-  // Guarded on the initial sidecar read: pre-hydration slots can miss
-  // other slots' persisted entries, and flushing it would clobber them —
-  // that narrow case stays best-effort (the in-memory merge in load()
-  // cannot happen in an unloading document anyway).
   function flushNow() {
     if (!loaded) return;
     const w = window.omelette && window.omelette.writeFile;
     if (!w) return;
     try {
-      Promise.resolve(w(STATE_FILE, JSON.stringify(slots))).catch(() => {});
-    } catch (e) {}
+      Promise.resolve(w(STATE_FILE, JSON.stringify(slots))).catch(() => {
+      });
+    } catch (e) {
+    }
   }
   function save() {
     if (saving) {
@@ -7224,7 +3833,8 @@ try { (() => {
     const w = window.omelette && window.omelette.writeFile;
     if (!w) return;
     saving = true;
-    Promise.resolve(w(STATE_FILE, JSON.stringify(slots))).catch(() => {}).then(() => {
+    Promise.resolve(w(STATE_FILE, JSON.stringify(slots))).catch(() => {
+    }).then(() => {
       saving = false;
       if (saveDirty) {
         saveDirty = false;
@@ -7233,19 +3843,11 @@ try { (() => {
     });
   }
   const S_MAX = 5;
-  const clampS = s => Math.max(1, Math.min(S_MAX, s));
-
-  // Normalize a stored slot value. Pre-reframe sidecars stored a bare
-  // data-URL string; newer ones store {u, s, x, y}. Either shape is valid.
+  const clampS = (s) => Math.max(1, Math.min(S_MAX, s));
   function getSlot(id) {
     const v = slots[id];
     if (!v) return null;
-    return typeof v === 'string' ? {
-      u: v,
-      s: 1,
-      x: 0,
-      y: 0
-    } : v;
+    return typeof v === "string" ? { u: v, s: 1, x: 0, y: 0 } : v;
   }
   function setSlot(id, val) {
     if (!id) return;
@@ -7256,18 +3858,10 @@ try { (() => {
       delete slots[id];
       if (!loaded) tombstones.add(id);
     }
-    subs.forEach(fn => fn());
-    // A drop is rare + high-value — write immediately so nav-away can't lose
-    // it. Gate on the initial read so we don't overwrite a sidecar we haven't
-    // merged yet; the merge in load() keeps this change once the read lands.
-    if (loaded) save();else load().then(save);
+    subs.forEach((fn) => fn());
+    if (loaded) save();
+    else load().then(save);
   }
-
-  // ── Image downscale ─────────────────────────────────────────────────────
-  // Encode through a canvas so the sidecar carries resized bytes, not the
-  // raw upload. Longest side is capped at 2× the slot's rendered width
-  // (retina) and at MAX_DIM. WebP keeps alpha and is ~10× smaller than PNG
-  // for photos, so there's no need for per-image format picking.
   async function toDataUrl(file, targetW) {
     const bitmap = await createImageBitmap(file);
     try {
@@ -7275,99 +3869,33 @@ try { (() => {
       const scale = Math.min(1, cap / Math.max(bitmap.width, bitmap.height));
       const w = Math.max(1, Math.round(bitmap.width * scale));
       const h = Math.max(1, Math.round(bitmap.height * scale));
-      const canvas = document.createElement('canvas');
+      const canvas = document.createElement("canvas");
       canvas.width = w;
       canvas.height = h;
-      canvas.getContext('2d').drawImage(bitmap, 0, 0, w, h);
-      return canvas.toDataURL('image/webp', 0.85);
+      canvas.getContext("2d").drawImage(bitmap, 0, 0, w, h);
+      return canvas.toDataURL("image/webp", 0.85);
     } finally {
       bitmap.close && bitmap.close();
     }
   }
-
-  // ── Custom element ──────────────────────────────────────────────────────
-  const stylesheet =
-  // Fill the container by default: slots are usually placed inside a
-  // sized wrapper (a hero frame, a grid cell, an inset:0 layer) and are
-  // expected to take that box — a fixed intrinsic size would render as
-  // a small tile in the corner of a full-bleed wrapper instead.
-  // aspect-ratio is the companion fallback that keeps a bare slot
-  // visible when the parent's height is indefinite: height:100%
-  // resolves to auto there, and the ratio then derives height from
-  // width instead of letting the slot collapse to zero height.
-  // Explicit width/height on the element override all of this.
-  ':host{display:block;position:relative;' + '  font:13px/1.3 system-ui,-apple-system,sans-serif;color:rgba(0,0,0,.55);' + '  width:100%;height:100%;aspect-ratio:3/2}' + '.frame{position:absolute;inset:0;overflow:hidden;background:rgba(0,0,0,.04)}' +
-  // .frame img (clipped) and .spill (unclipped ghost + handles) share the
-  // same left/top/width/height in frame-%, computed by _applyView(), so the
-  // inside-mask crop and the outside-mask spill stay pixel-aligned.
-  '.frame img{position:absolute;max-width:none;transform:translate(-50%,-50%);' + '  -webkit-user-drag:none;user-select:none;touch-action:none}' +
-  // Reframe mode (double-click): the full image spills past the mask. The
-  // spill layer is sized to the IMAGE bounds so its corners are where the
-  // resize handles belong. The ghost <img> inside is translucent; the real
-  // clipped <img> underneath shows the opaque in-mask crop.
-  // popover=manual promotes the spill to the top layer on reframe, so it is
-  // not clipped by any overflow:hidden / clip-path / scroll-container
-  // ancestor (a plain z-index can't escape overflow clipping). UA popover
-  // defaults (inset:0;margin:auto) are reset; _applyView sets viewport px.
-  '.spill{position:fixed;margin:0;inset:auto;border:0;padding:0;background:transparent;' + '  overflow:visible;transform:translate(-50%,-50%);z-index:1;cursor:grab;touch-action:none}' + ':host([data-panning]) .spill{cursor:grabbing}' + '.spill .ghost{position:absolute;inset:0;width:100%;height:100%;opacity:.35;' + '  pointer-events:none;-webkit-user-drag:none;user-select:none;' + '  box-shadow:0 0 0 1px rgba(0,0,0,.2),0 12px 32px rgba(0,0,0,.2)}' + '.spill .handle{position:absolute;width:12px;height:12px;border-radius:50%;' + '  background:#fff;box-shadow:0 0 0 1.5px #c96442,0 1px 3px rgba(0,0,0,.3);' + '  transform:translate(-50%,-50%)}' + '.spill .handle[data-c=nw]{left:0;top:0;cursor:nwse-resize}' + '.spill .handle[data-c=ne]{left:100%;top:0;cursor:nesw-resize}' + '.spill .handle[data-c=sw]{left:0;top:100%;cursor:nesw-resize}' + '.spill .handle[data-c=se]{left:100%;top:100%;cursor:nwse-resize}' + ':host([data-reframe]){z-index:10}' + ':host([data-reframe]) .frame{box-shadow:0 0 0 2px #c96442}' + '.empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;' + '  justify-content:center;gap:6px;text-align:center;padding:12px;box-sizing:border-box;' + '  cursor:pointer;user-select:none}' + '.empty svg{opacity:.45}' + '.empty .cap{max-width:90%;font-weight:500;letter-spacing:.01em}' + '.empty .sub{font-size:11px}' + '.empty .sub u{text-underline-offset:2px;text-decoration-color:rgba(0,0,0,.25)}' + '.empty:hover .sub u{color:rgba(0,0,0,.75);text-decoration-color:currentColor}' + ':host([data-over]) .frame{outline:2px solid #c96442;outline-offset:-2px;' + '  background:rgba(201,100,66,.10)}' + '.ring{position:absolute;inset:0;pointer-events:none;border:1.5px dashed rgba(0,0,0,.25);' + '  transition:border-color .12s}' + ':host([data-over]) .ring{border-color:#c96442}' + ':host([data-filled]) .ring{display:none}' +
-  // Controls overlay INSIDE the frame, pinned to the top-right corner, so
-  // a full-bleed slot in an overflow:hidden container still shows them
-  // (the old below-mask placement got clipped). Credit sits bottom-left,
-  // so top-right avoids collision. The blurred pill background keeps them
-  // legible over the image.
-  // The UA [popover] base rule styles the element in EVERY state (only
-  // display:none is gated on :not(:popover-open), and the display:flex
-  // below overrides that) — so the UA resets live HERE, like .spill's,
-  // or the ordinary hover-state strip renders as a bordered Canvas box
-  // centered by margin:auto. inset:auto precedes top/right (shorthand).
-  '.ctl{position:absolute;inset:auto;top:8px;right:8px;margin:0;border:0;padding:0;' + '  background:transparent;overflow:visible;' + '  display:flex;gap:6px;opacity:0;pointer-events:none;transition:opacity .12s;z-index:2;' + '  white-space:nowrap}' +
-  // While reframing, the spill owns the top layer and would swallow every
-  // click on the in-frame controls. Promoting .ctl into the top layer
-  // ABOVE the spill (shown after it — later popovers stack higher) keeps
-  // Edit-as-toggle and Replace clickable mid-reframe. _applyView pins it
-  // to the frame's top-right in viewport px (translateX(-100%)
-  // right-aligns against the computed left edge); inset:auto clears the
-  // base rule's top/right so the inline left/top position it alone.
-  '.ctl:popover-open{position:fixed;inset:auto;transform:translateX(-100%)}' + ':host([data-filled][data-editable]:hover) .ctl,:host([data-reframe]) .ctl' + '  {opacity:1;pointer-events:auto}' + '.ctl button{appearance:none;border:0;border-radius:6px;padding:5px 10px;cursor:pointer;' + '  background:rgba(0,0,0,.65);color:#fff;font:11px/1 system-ui,-apple-system,sans-serif;' + '  backdrop-filter:blur(6px)}' + '.ctl button:hover{background:rgba(0,0,0,.8)}' + '.err{position:absolute;left:8px;bottom:8px;right:8px;color:#b3261e;font-size:11px;' + '  background:rgba(255,255,255,.85);padding:4px 6px;border-radius:5px;pointer-events:none}' +
-  // Replacement in flight: after a src swap the browser keeps painting
-  // the PREVIOUS image until the new one decodes, so a Replace would
-  // flash the old photo and then pop. Hide the stale frame (visibility,
-  // not display — _applyView geometry still applies) and spin until the
-  // new image reports in (load/error clears data-swapping).
-  ':host([data-swapping]) .frame img{visibility:hidden}' + '.loading{position:absolute;inset:0;display:none;align-items:center;' + '  justify-content:center;pointer-events:none}' + ':host([data-swapping]) .loading{display:flex}' + '.loading::after{content:"";width:22px;height:22px;border-radius:50%;' + '  border:2px solid rgba(0,0,0,.12);border-top-color:rgba(0,0,0,.45);' + '  animation:om-slot-spin .7s linear infinite}' + '@keyframes om-slot-spin{to{transform:rotate(360deg)}}' +
-  // Reduced motion: the static two-tone ring still reads as "working".
-  '@media (prefers-reduced-motion:reduce){.loading::after{animation:none}}' + '.credit{position:absolute;left:6px;bottom:6px;max-width:calc(100% - 12px);display:none;' + '  padding:3px 7px;border-radius:5px;background:rgba(0,0,0,.55);color:#fff;' + '  font:10px/1.2 system-ui,-apple-system,sans-serif;text-decoration:none;' + '  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;backdrop-filter:blur(6px)}' +
-  // The credit is a SPAN holding one or two <a>s (Unsplash's prescribed
-  // form links the photographer AND Unsplash) — anchors style inline so
-  // the overlay reads as one line of text.
-  '.credit a{color:inherit;text-decoration:none}' + '.credit a:hover,.credit a:focus-visible{text-decoration:underline}' + ':host([data-filled][data-credit]) .credit{display:block}' +
-  // Exports must ship JUST the image — no hover controls, no credit chip
-  // (the host marks <html data-om-exporting> for the capture window; the
-  // page-level hide script can't reach shadow DOM, this rule can).
-  ':host-context([data-om-exporting]) .ctl,' + ':host-context([data-om-exporting]) .credit{display:none !important}' +
-  // No export-window mask rules here on purpose: the export capture
-  // releases the replacement mask by REMOVING data-swapping (the
-  // shadow-root pass in pages/export/shared.ts HIDE_EXPORT_CHROME_SCRIPT)
-  // — attribute removal works in every engine (:host-context is
-  // Chromium-only), is scoped by construction to slots actually
-  // mid-swap, and hides the spinner through the same gate. A masked img
-  // would otherwise be silently dropped from PPTX decks (the capture
-  // walk skips visibility:hidden imgs).
-  // Attribution error tile: REPLACES the photo when an Unsplash src has
-  // no credit attribute — rendering the photo uncredited is the terms
-  // violation, so the photo must not appear at all.
-  // Calm and neutral on purpose (review feedback): the tile informs the
-  // user; the fix instructions are machine-facing (usage docblock, tool
-  // description, and the turn-end scan's bounce copy name the attributes
-  // for the agent).
-  '.attr-error{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;' + '  justify-content:center;gap:6px;text-align:center;padding:12px;box-sizing:border-box;' + '  background:#f2f1ef;color:#6e6c66;user-select:none;' + '  font:13px/1.45 system-ui,-apple-system,sans-serif}' + '.attr-error svg{opacity:.55}' + '.attr-error .cap{max-width:92%;font-weight:500;letter-spacing:.01em}' + ':host([data-attribution-error]) .attr-error{display:flex}' + ':host([data-attribution-error]) .ring{display:none}';
-  const icon = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' + 'stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' + '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>' + '<path d="m21 15-5-5L5 21"/></svg>';
-  const warnIcon = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' + 'stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' + '<path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/>' + '<path d="M12 9v4"/><path d="M12 17h.01"/></svg>';
+  const stylesheet = (
+    // Fill the container by default: slots are usually placed inside a
+    // sized wrapper (a hero frame, a grid cell, an inset:0 layer) and are
+    // expected to take that box — a fixed intrinsic size would render as
+    // a small tile in the corner of a full-bleed wrapper instead.
+    // aspect-ratio is the companion fallback that keeps a bare slot
+    // visible when the parent's height is indefinite: height:100%
+    // resolves to auto there, and the ratio then derives height from
+    // width instead of letting the slot collapse to zero height.
+    // Explicit width/height on the element override all of this.
+    ':host{display:block;position:relative;  font:13px/1.3 system-ui,-apple-system,sans-serif;color:rgba(0,0,0,.55);  width:100%;height:100%;aspect-ratio:3/2}.frame{position:absolute;inset:0;overflow:hidden;background:rgba(0,0,0,.04)}.frame img{position:absolute;max-width:none;transform:translate(-50%,-50%);  -webkit-user-drag:none;user-select:none;touch-action:none}.spill{position:fixed;margin:0;inset:auto;border:0;padding:0;background:transparent;  overflow:visible;transform:translate(-50%,-50%);z-index:1;cursor:grab;touch-action:none}:host([data-panning]) .spill{cursor:grabbing}.spill .ghost{position:absolute;inset:0;width:100%;height:100%;opacity:.35;  pointer-events:none;-webkit-user-drag:none;user-select:none;  box-shadow:0 0 0 1px rgba(0,0,0,.2),0 12px 32px rgba(0,0,0,.2)}.spill .handle{position:absolute;width:12px;height:12px;border-radius:50%;  background:#fff;box-shadow:0 0 0 1.5px #c96442,0 1px 3px rgba(0,0,0,.3);  transform:translate(-50%,-50%)}.spill .handle[data-c=nw]{left:0;top:0;cursor:nwse-resize}.spill .handle[data-c=ne]{left:100%;top:0;cursor:nesw-resize}.spill .handle[data-c=sw]{left:0;top:100%;cursor:nesw-resize}.spill .handle[data-c=se]{left:100%;top:100%;cursor:nwse-resize}:host([data-reframe]){z-index:10}:host([data-reframe]) .frame{box-shadow:0 0 0 2px #c96442}.empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;  justify-content:center;gap:6px;text-align:center;padding:12px;box-sizing:border-box;  cursor:pointer;user-select:none}.empty svg{opacity:.45}.empty .cap{max-width:90%;font-weight:500;letter-spacing:.01em}.empty .sub{font-size:11px}.empty .sub u{text-underline-offset:2px;text-decoration-color:rgba(0,0,0,.25)}.empty:hover .sub u{color:rgba(0,0,0,.75);text-decoration-color:currentColor}:host([data-over]) .frame{outline:2px solid #c96442;outline-offset:-2px;  background:rgba(201,100,66,.10)}.ring{position:absolute;inset:0;pointer-events:none;border:1.5px dashed rgba(0,0,0,.25);  transition:border-color .12s}:host([data-over]) .ring{border-color:#c96442}:host([data-filled]) .ring{display:none}.ctl{position:absolute;inset:auto;top:8px;right:8px;margin:0;border:0;padding:0;  background:transparent;overflow:visible;  display:flex;gap:6px;opacity:0;pointer-events:none;transition:opacity .12s;z-index:2;  white-space:nowrap}.ctl:popover-open{position:fixed;inset:auto;transform:translateX(-100%)}:host([data-filled][data-editable]:hover) .ctl,:host([data-reframe]) .ctl  {opacity:1;pointer-events:auto}.ctl button{appearance:none;border:0;border-radius:6px;padding:5px 10px;cursor:pointer;  background:rgba(0,0,0,.65);color:#fff;font:11px/1 system-ui,-apple-system,sans-serif;  backdrop-filter:blur(6px)}.ctl button:hover{background:rgba(0,0,0,.8)}.err{position:absolute;left:8px;bottom:8px;right:8px;color:#b3261e;font-size:11px;  background:rgba(255,255,255,.85);padding:4px 6px;border-radius:5px;pointer-events:none}:host([data-swapping]) .frame img{visibility:hidden}.loading{position:absolute;inset:0;display:none;align-items:center;  justify-content:center;pointer-events:none}:host([data-swapping]) .loading{display:flex}.loading::after{content:"";width:22px;height:22px;border-radius:50%;  border:2px solid rgba(0,0,0,.12);border-top-color:rgba(0,0,0,.45);  animation:om-slot-spin .7s linear infinite}@keyframes om-slot-spin{to{transform:rotate(360deg)}}@media (prefers-reduced-motion:reduce){.loading::after{animation:none}}.credit{position:absolute;left:6px;bottom:6px;max-width:calc(100% - 12px);display:none;  padding:3px 7px;border-radius:5px;background:rgba(0,0,0,.55);color:#fff;  font:10px/1.2 system-ui,-apple-system,sans-serif;text-decoration:none;  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;backdrop-filter:blur(6px)}.credit a{color:inherit;text-decoration:none}.credit a:hover,.credit a:focus-visible{text-decoration:underline}:host([data-filled][data-credit]) .credit{display:block}:host-context([data-om-exporting]) .ctl,:host-context([data-om-exporting]) .credit{display:none !important}.attr-error{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;  justify-content:center;gap:6px;text-align:center;padding:12px;box-sizing:border-box;  background:#f2f1ef;color:#6e6c66;user-select:none;  font:13px/1.45 system-ui,-apple-system,sans-serif}.attr-error svg{opacity:.55}.attr-error .cap{max-width:92%;font-weight:500;letter-spacing:.01em}:host([data-attribution-error]) .attr-error{display:flex}:host([data-attribution-error]) .ring{display:none}'
+  );
+  const icon = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>';
+  const warnIcon = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>';
   class ImageSlot extends HTMLElement {
     static get observedAttributes() {
-      return ['shape', 'radius', 'mask', 'fit', 'placeholder', 'src', 'id', 'credit', 'credit-href'];
+      return ["shape", "radius", "mask", "fit", "placeholder", "src", "id", "credit", "credit-href"];
     }
-
     /** Duplicate-slide hook (called by deck-stage, see its
      *  _remintDuplicateIds): copy this id's stored image, if any, under a
      *  freshly minted key and return that key — so a duplicated slide's
@@ -7382,30 +3910,19 @@ try { (() => {
      *  when no id could be minted (caller strips the id, today's
      *  behavior). */
     static cloneSlot(fromId, isFree) {
-      if (typeof fromId !== 'string' || !fromId) return null;
-      // Pre-hydration the store can't veto candidates or source the copy
-      // — degrade to the strip (today's behavior) rather than mint
-      // against keys we can't see yet. Any rendered (= droppable) slot
-      // means load() has already settled.
+      if (typeof fromId !== "string" || !fromId) return null;
       if (!loaded) return null;
-      const stem = fromId.replace(/-\d+$/, '') || fromId;
+      const stem = fromId.replace(/-\d+$/, "") || fromId;
       for (let n = 2; n < 100; n++) {
-        const toId = stem + '-' + n;
+        const toId = stem + "-" + n;
         if (toId === fromId) continue;
-        if (slots[toId] !== undefined) {
-          // Reuse a key holding this exact value (bytes AND crop) if no
-          // live element here owns it — a duplicate op the host refused
-          // after minting leaves such a key behind, and reusing keeps
-          // refused retries from accumulating one orphaned copy per
-          // attempt. Full equality (not just bytes) so a byte-identical
-          // key another PAGE owns with its own crop is stepped past, not
-          // adopted or rewritten. (Entries without .u never match.)
+        if (slots[toId] !== void 0) {
           const prev = getSlot(toId);
           const cur = getSlot(fromId);
-          if (!(prev && cur && prev.u && prev.u === cur.u && prev.s === cur.s && prev.x === cur.x && prev.y === cur.y && (typeof isFree !== 'function' || isFree(toId)))) continue;
+          if (!(prev && cur && prev.u && prev.u === cur.u && prev.s === cur.s && prev.x === cur.x && prev.y === cur.y && (typeof isFree !== "function" || isFree(toId)))) continue;
           return toId;
         }
-        if (typeof isFree === 'function' && !isFree(toId)) continue;
+        if (typeof isFree === "function" && !isFree(toId)) continue;
         const v = getSlot(fromId);
         if (v) setSlot(toId, Object.assign({}, v));
         return toId;
@@ -7414,158 +3931,92 @@ try { (() => {
     }
     constructor() {
       super();
-      // clonable: rail thumbnails deep-clone slides and carry this shadow
-      // along; reuse an already-cloned root so upgrade-after-clone works.
-      // (Deliberately NOT serializable — a getHTML consumer would embed
-      // multi-MB sidecar data-URLs into serialized page HTML.)
-      const root = this.shadowRoot || this.attachShadow({
-        mode: 'open',
-        clonable: true
-      });
-      // .spill and .ctl sit OUTSIDE .frame so overflow:hidden + border-radius
-      // on the frame (circle, pill, rounded) can't clip them.
-      root.innerHTML = '<style>' + stylesheet + '</style>' + '<div class="frame" part="frame">' + '  <img part="image" alt="" draggable="false" style="display:none">' + '  <div class="empty" part="empty">' + icon + '    <div class="cap"></div>' + '    <div class="sub">or <u>browse files</u></div></div>' + '  <div class="attr-error" part="attribution-error">' + warnIcon + '    <div class="cap">This photo needs attribution</div></div>' + '  <div class="loading" part="loading"></div>' + '  <div class="ring" part="ring"></div>' + '</div>' +
-      // Outside .frame, like .spill/.ctl — the frame's overflow:hidden +
-      // border-radius/clip-path would cut the credit off on circle/pill/mask.
-      // A SPAN, not an <a>: the prescribed Unsplash credit holds two links
-      // (photographer + Unsplash), built per-render in _render().
-      '<span class="credit" part="credit"></span>' + '<div class="spill" popover="manual" data-dc-edit-transparent>' + '  <img class="ghost" alt="" draggable="false">' + '  <div class="handle" data-c="nw"></div><div class="handle" data-c="ne"></div>' + '  <div class="handle" data-c="sw"></div><div class="handle" data-c="se"></div>' + '</div>' +
-      // data-dc-edit-transparent: the DC editor's edit-mode picker lets
-      // clicks through for chrome marked with it (EDIT_TRANSPARENT_SEL)
-      // — without it, Replace/Edit clicks in Edit mode are swallowed by
-      // element selection and the controls look dead.
-      '<div class="ctl" popover="manual" data-dc-edit-transparent><button data-act="replace" title="Replace image">Replace</button>' + '  <button data-act="edit" title="Reframe image">Edit</button></div>' + '<input type="file" accept="' + ACCEPT.join(',') + '" hidden>';
-      this._frame = root.querySelector('.frame');
-      this._ring = root.querySelector('.ring');
-      this._img = root.querySelector('.frame img');
-      this._empty = root.querySelector('.empty');
-      this._cap = root.querySelector('.cap');
-      this._sub = root.querySelector('.sub');
-      this._spill = root.querySelector('.spill');
-      this._ctl = root.querySelector('.ctl');
-      this._credit = root.querySelector('.credit');
-      this._attrError = root.querySelector('.attr-error');
-      // Credit clicks open the link, not browse/reframe.
-      this._credit.addEventListener('click', e => e.stopPropagation());
-      this._credit.addEventListener('dblclick', e => e.stopPropagation());
-      this._ghost = root.querySelector('.ghost');
+      const root = this.shadowRoot || this.attachShadow({ mode: "open", clonable: true });
+      root.innerHTML = "<style>" + stylesheet + '</style><div class="frame" part="frame">  <img part="image" alt="" draggable="false" style="display:none">  <div class="empty" part="empty">' + icon + '    <div class="cap"></div>    <div class="sub">or <u>browse files</u></div></div>  <div class="attr-error" part="attribution-error">' + warnIcon + '    <div class="cap">This photo needs attribution</div></div>  <div class="loading" part="loading"></div>  <div class="ring" part="ring"></div></div><span class="credit" part="credit"></span><div class="spill" popover="manual" data-dc-edit-transparent>  <img class="ghost" alt="" draggable="false">  <div class="handle" data-c="nw"></div><div class="handle" data-c="ne"></div>  <div class="handle" data-c="sw"></div><div class="handle" data-c="se"></div></div><div class="ctl" popover="manual" data-dc-edit-transparent><button data-act="replace" title="Replace image">Replace</button>  <button data-act="edit" title="Reframe image">Edit</button></div><input type="file" accept="' + ACCEPT.join(",") + '" hidden>';
+      this._frame = root.querySelector(".frame");
+      this._ring = root.querySelector(".ring");
+      this._img = root.querySelector(".frame img");
+      this._empty = root.querySelector(".empty");
+      this._cap = root.querySelector(".cap");
+      this._sub = root.querySelector(".sub");
+      this._spill = root.querySelector(".spill");
+      this._ctl = root.querySelector(".ctl");
+      this._credit = root.querySelector(".credit");
+      this._attrError = root.querySelector(".attr-error");
+      this._credit.addEventListener("click", (e) => e.stopPropagation());
+      this._credit.addEventListener("dblclick", (e) => e.stopPropagation());
+      this._ghost = root.querySelector(".ghost");
       this._err = null;
-      this._input = root.querySelector('input');
+      this._input = root.querySelector("input");
       this._depth = 0;
       this._gen = 0;
-      // Encode-in-flight marker (the owning _ingest generation): while set,
-      // the same-src "nothing in flight" clear in _render must not fire —
-      // the stored value still points at the OLD image until the encode
-      // lands, so that clear would unmask the stale image mid-replace.
       this._swapGen = 0;
-      // Render-owned swap in flight: set when _render assigns a new src,
-      // cleared only by the img's own load/error (or the empty branch).
-      // img.complete CANNOT stand in for this — setting src only QUEUES
-      // the current-request swap (a microtask), so synchronously after an
-      // assignment, complete still reports the OLD settled request. The
-      // pick path does exactly that: the host sets src, credit, and
-      // credit-href back-to-back in one task, and renders #2/#3 would
-      // read the stale complete === true and drop the mask one render
-      // after it was set.
       this._loadPending = false;
-      // See _render's empty branch: a transient attribution-error wipe of a
-      // showing image must make the follow-up render a replacement (spinner),
-      // not a first fill (blank frame).
       this._hidShowing = false;
-      this._view = {
-        s: 1,
-        x: 0,
-        y: 0
-      };
+      this._view = { s: 1, x: 0, y: 0 };
       this._subFn = () => this._render();
-      // Shadow-DOM listeners live with the shadow DOM — bound once here so
-      // disconnect/reconnect (e.g. React remount) doesn't stack handlers.
-      this._empty.addEventListener('click', () => this._input.click());
-      root.addEventListener('click', e => {
-        const act = e.target && e.target.getAttribute && e.target.getAttribute('data-act');
+      this._empty.addEventListener("click", () => this._input.click());
+      root.addEventListener("click", (e) => {
+        const act = e.target && e.target.getAttribute && e.target.getAttribute("data-act");
         if (!act) return;
-        // The hidden controls are opacity-0 but still tabbable — without
-        // this gate a keyboard user could drive them on a read-only share
-        // link (mirrors the dblclick handler's editable gate).
-        if (!this.hasAttribute('data-editable')) return;
-        if (act === 'replace') {
+        if (!this.hasAttribute("data-editable")) return;
+        if (act === "replace") {
           this._exitReframe(true);
-          // Host-owned picker (Unsplash modal; it also offers local import).
-          this.dispatchEvent(new CustomEvent('image-slot:pick', {
+          this.dispatchEvent(new CustomEvent("image-slot:pick", {
             bubbles: true,
             composed: true,
-            detail: {
-              id: this.id || null
-            }
+            detail: { id: this.id || null }
           }));
         }
-        if (act === 'edit') {
+        if (act === "edit") {
           if (!this._reframes()) return;
-          if (this.hasAttribute('data-reframe')) this._exitReframe(true);else this._enterReframe();
+          if (this.hasAttribute("data-reframe")) this._exitReframe(true);
+          else this._enterReframe();
         }
       });
-      this._input.addEventListener('change', () => {
+      this._input.addEventListener("change", () => {
         const f = this._input.files && this._input.files[0];
         if (f) this._ingest(f);
-        this._input.value = '';
+        this._input.value = "";
       });
-      // naturalWidth/Height aren't known until load — re-apply so the cover
-      // baseline is computed from real dimensions, not the 100%×100% fallback.
-      // load/error also release the replacement-in-flight mask (via the
-      // single discipline in _releaseMask): the swap is only revealed once
-      // the new image can actually paint (on error the frame shows its
-      // background, same as a fresh slot with a broken src).
-      this._img.addEventListener('load', () => {
+      this._img.addEventListener("load", () => {
         this._loadPending = false;
         this._releaseMask(true);
         this._applyView();
       });
-      this._img.addEventListener('error', () => {
+      this._img.addEventListener("error", () => {
         this._loadPending = false;
         this._releaseMask(true);
       });
-      // Gated only on editable — any filled slot can be repositioned/scaled,
-      // regardless of fit. Share links (no writeFile) stay static.
-      this.addEventListener('dblclick', e => {
-        if (!this.hasAttribute('data-editable') || !this._reframes()) return;
+      this.addEventListener("dblclick", (e) => {
+        if (!this.hasAttribute("data-editable") || !this._reframes()) return;
         e.preventDefault();
-        if (this.hasAttribute('data-reframe')) this._exitReframe(true);else this._enterReframe();
+        if (this.hasAttribute("data-reframe")) this._exitReframe(true);
+        else this._enterReframe();
       });
-      // Pan + resize both originate on the spill layer. A handle pointerdown
-      // drives an aspect-locked resize anchored at the opposite corner; any
-      // other pointerdown on the spill pans. Offsets are frame-% so a
-      // reframed slot survives responsive resize / PPTX export.
-      this._spill.addEventListener('pointerdown', e => {
-        if (e.button !== 0 || !this.hasAttribute('data-reframe')) return;
+      this._spill.addEventListener("pointerdown", (e) => {
+        if (e.button !== 0 || !this.hasAttribute("data-reframe")) return;
         e.preventDefault();
         e.stopPropagation();
         this._spill.setPointerCapture(e.pointerId);
         const rect = this.getBoundingClientRect();
-        const fw = rect.width || 1,
-          fh = rect.height || 1;
-        const corner = e.target.getAttribute && e.target.getAttribute('data-c');
+        const fw = rect.width || 1, fh = rect.height || 1;
+        const corner = e.target.getAttribute && e.target.getAttribute("data-c");
         let move;
         if (corner) {
-          // Resize about the OPPOSITE corner. Viewport-px throughout (rect
-          // fw/fh, not clientWidth) so the math survives a transform:scale()
-          // ancestor — deck_stage renders slides scaled-to-fit.
-          const iw = this._img.naturalWidth || 1,
-            ih = this._img.naturalHeight || 1;
-          const contain = (this.getAttribute('fit') || 'cover').toLowerCase() === 'contain';
+          const iw = this._img.naturalWidth || 1, ih = this._img.naturalHeight || 1;
+          const contain = (this.getAttribute("fit") || "cover").toLowerCase() === "contain";
           const base = contain ? Math.min(fw / iw, fh / ih) : Math.max(fw / iw, fh / ih);
-          const sx = corner.includes('e') ? 1 : -1;
-          const sy = corner.includes('s') ? 1 : -1;
+          const sx = corner.includes("e") ? 1 : -1;
+          const sy = corner.includes("s") ? 1 : -1;
           const s0 = this._view.s;
-          const w0 = iw * base * s0,
-            h0 = ih * base * s0;
+          const w0 = iw * base * s0, h0 = ih * base * s0;
           const cx0 = (50 + this._view.x) / 100 * fw;
           const cy0 = (50 + this._view.y) / 100 * fh;
-          const ox = cx0 - sx * w0 / 2,
-            oy = cy0 - sy * h0 / 2;
+          const ox = cx0 - sx * w0 / 2, oy = cy0 - sy * h0 / 2;
           const diag0 = Math.hypot(w0, h0);
-          const ux = sx * w0 / diag0,
-            uy = sy * h0 / diag0;
-          move = ev => {
+          const ux = sx * w0 / diag0, uy = sy * h0 / diag0;
+          move = (ev) => {
             const proj = (ev.clientX - rect.left - ox) * ux + (ev.clientY - rect.top - oy) * uy;
             const s = clampS(s0 * proj / diag0);
             const d = diag0 * s / s0;
@@ -7576,14 +4027,9 @@ try { (() => {
             this._applyView();
           };
         } else {
-          this.setAttribute('data-panning', '');
-          const start = {
-            px: e.clientX,
-            py: e.clientY,
-            x: this._view.x,
-            y: this._view.y
-          };
-          move = ev => {
+          this.setAttribute("data-panning", "");
+          const start = { px: e.clientX, py: e.clientY, x: this._view.x, y: this._view.y };
+          move = (ev) => {
             this._view.x = start.x + (ev.clientX - start.px) / fw * 100;
             this._view.y = start.y + (ev.clientY - start.py) / fh * 100;
             this._clampView();
@@ -7593,24 +4039,21 @@ try { (() => {
         const up = () => {
           try {
             this._spill.releasePointerCapture(e.pointerId);
-          } catch {}
-          this._spill.removeEventListener('pointermove', move);
-          this._spill.removeEventListener('pointerup', up);
-          this._spill.removeEventListener('pointercancel', up);
-          this.removeAttribute('data-panning');
+          } catch {
+          }
+          this._spill.removeEventListener("pointermove", move);
+          this._spill.removeEventListener("pointerup", up);
+          this._spill.removeEventListener("pointercancel", up);
+          this.removeAttribute("data-panning");
           this._dragUp = null;
         };
-        // Stashed so _exitReframe (Escape / outside-click mid-drag) can
-        // tear the capture + listeners down synchronously.
         this._dragUp = up;
-        this._spill.addEventListener('pointermove', move);
-        this._spill.addEventListener('pointerup', up);
-        this._spill.addEventListener('pointercancel', up);
+        this._spill.addEventListener("pointermove", move);
+        this._spill.addEventListener("pointerup", up);
+        this._spill.addEventListener("pointercancel", up);
       });
-      // Wheel zoom stays available inside reframe mode as a trackpad nicety —
-      // zooms toward the cursor (offset' = cursor·(1-k) + offset·k).
-      this.addEventListener('wheel', e => {
-        if (!this.hasAttribute('data-reframe')) return;
+      this.addEventListener("wheel", (e) => {
+        if (!this.hasAttribute("data-reframe")) return;
         e.preventDefault();
         const r = this.getBoundingClientRect();
         const cx = (e.clientX - r.left) / r.width * 100 - 50;
@@ -7624,31 +4067,19 @@ try { (() => {
         this._view.y = cy * (1 - k) + this._view.y * k;
         this._clampView();
         this._applyView();
-      }, {
-        passive: false
-      });
+      }, { passive: false });
     }
     connectedCallback() {
-      // Warn once per page — an id-less slot works for the session but
-      // cannot persist, and two id-less slots would share nothing.
       if (!this.id && !ImageSlot._warned) {
         ImageSlot._warned = true;
-        console.warn('<image-slot> without an id will not persist its dropped image.');
+        console.warn("<image-slot> without an id will not persist its dropped image.");
       }
-      this.addEventListener('dragenter', this);
-      this.addEventListener('dragover', this);
-      this.addEventListener('dragleave', this);
-      this.addEventListener('drop', this);
+      this.addEventListener("dragenter", this);
+      this.addEventListener("dragover", this);
+      this.addEventListener("dragleave", this);
+      this.addEventListener("drop", this);
       subs.add(this._subFn);
-      // The host may inject window.omelette.writeFile AFTER the first render;
-      // re-render on hover so the editable-gated controls reliably appear.
-      this.addEventListener('pointerenter', this._subFn);
-      // width%/height% in _applyView encode the frame aspect at call time —
-      // a host resize (responsive grid, pane divider) would stretch the
-      // image until the next _render. Re-render on size change: _render()
-      // re-seeds _view from stored before clamp/apply, so a shrink→grow
-      // cycle round-trips instead of ratcheting x/y toward the narrower
-      // frame's clamp range.
+      this.addEventListener("pointerenter", this._subFn);
       this._ro = new ResizeObserver(() => this._render());
       this._ro.observe(this);
       load();
@@ -7656,58 +4087,44 @@ try { (() => {
     }
     disconnectedCallback() {
       subs.delete(this._subFn);
-      this.removeEventListener('pointerenter', this._subFn);
-      this.removeEventListener('dragenter', this);
-      this.removeEventListener('dragover', this);
-      this.removeEventListener('dragleave', this);
-      this.removeEventListener('drop', this);
+      this.removeEventListener("pointerenter", this._subFn);
+      this.removeEventListener("dragenter", this);
+      this.removeEventListener("dragover", this);
+      this.removeEventListener("dragleave", this);
+      this.removeEventListener("drop", this);
       if (this._ro) {
         this._ro.disconnect();
         this._ro = null;
       }
-      // commit=false: a disconnect is not a user intent — committing here
-      // would persist whatever half-finished drag a React remount or DOM
-      // splice happened to interrupt. Deliberate exits commit on their own
-      // paths (Escape/click-out/toggle), and unloads commit via pagehide.
       this._exitReframe(false);
     }
     _enterReframe() {
-      if (this.hasAttribute('data-reframe')) return;
-      this.setAttribute('data-reframe', '');
+      if (this.hasAttribute("data-reframe")) return;
+      this.setAttribute("data-reframe", "");
       this._signalReframe(true);
-      // Best-effort commit when the document unloads mid-reframe (a host
-      // navigation racing the enter signal, a manual reload, tab close):
-      // the sidecar write rides the host bridge, which outlives this
-      // document, so the crop survives even though the mode dies with the
-      // DOM. Held on the instance so _exitReframe detaches exactly what
-      // was attached.
       this._pagehide = () => {
         this._exitReframe(true);
         flushNow();
       };
-      window.addEventListener('pagehide', this._pagehide);
-      // Promote spill to the top layer, then keep it pinned over the frame:
-      // scroll/resize cover the common cases, and a per-frame rect check
-      // catches layout shifts that fire neither (an image above finishing
-      // load, streamed DOM pushing the slot down, an ancestor transform
-      // change) so the overlay can't detach from the frame.
+      window.addEventListener("pagehide", this._pagehide);
       try {
         this._spill.showPopover();
-      } catch {}
-      // After the spill, so the controls stack above it in the top layer.
+      } catch {
+      }
       try {
         this._ctl.showPopover();
-      } catch {}
+      } catch {
+      }
       this._reposition = () => {
-        if (this.hasAttribute('data-reframe')) this._applyView();
+        if (this.hasAttribute("data-reframe")) this._applyView();
       };
-      window.addEventListener('scroll', this._reposition, true);
-      window.addEventListener('resize', this._reposition);
-      this._lastRect = '';
+      window.addEventListener("scroll", this._reposition, true);
+      window.addEventListener("resize", this._reposition);
+      this._lastRect = "";
       this._watch = () => {
-        if (!this.hasAttribute('data-reframe')) return;
+        if (!this.hasAttribute("data-reframe")) return;
         const r = this.getBoundingClientRect();
-        const key = r.left + ',' + r.top + ',' + r.width + ',' + r.height;
+        const key = r.left + "," + r.top + "," + r.width + "," + r.height;
         if (key !== this._lastRect) {
           this._lastRect = key;
           this._applyView();
@@ -7716,31 +4133,27 @@ try { (() => {
       };
       this._watchId = requestAnimationFrame(this._watch);
       this._applyView();
-      // Close on click outside (the spill handler stopPropagation()s so
-      // in-image drags don't reach this) and on Escape. Listeners are held
-      // on the instance so _exitReframe / disconnectedCallback can detach
-      // exactly what was attached.
-      this._outside = e => {
+      this._outside = (e) => {
         if (e.composedPath && e.composedPath().includes(this)) return;
         this._exitReframe(true);
       };
-      this._esc = e => {
-        if (e.key === 'Escape') this._exitReframe(true);
+      this._esc = (e) => {
+        if (e.key === "Escape") this._exitReframe(true);
       };
-      document.addEventListener('pointerdown', this._outside, true);
-      document.addEventListener('keydown', this._esc, true);
+      document.addEventListener("pointerdown", this._outside, true);
+      document.addEventListener("keydown", this._esc, true);
     }
     _exitReframe(commit) {
-      if (!this.hasAttribute('data-reframe')) return;
+      if (!this.hasAttribute("data-reframe")) return;
       if (this._dragUp) this._dragUp();
-      this.removeAttribute('data-reframe');
-      this.removeAttribute('data-panning');
-      if (this._outside) document.removeEventListener('pointerdown', this._outside, true);
-      if (this._esc) document.removeEventListener('keydown', this._esc, true);
+      this.removeAttribute("data-reframe");
+      this.removeAttribute("data-panning");
+      if (this._outside) document.removeEventListener("pointerdown", this._outside, true);
+      if (this._esc) document.removeEventListener("keydown", this._esc, true);
       this._outside = this._esc = null;
       if (this._reposition) {
-        window.removeEventListener('scroll', this._reposition, true);
-        window.removeEventListener('resize', this._reposition);
+        window.removeEventListener("scroll", this._reposition, true);
+        window.removeEventListener("resize", this._reposition);
         this._reposition = null;
       }
       if (this._watchId) {
@@ -7748,21 +4161,22 @@ try { (() => {
         this._watchId = 0;
       }
       if (this._pagehide) {
-        window.removeEventListener('pagehide', this._pagehide);
+        window.removeEventListener("pagehide", this._pagehide);
         this._pagehide = null;
       }
       try {
         this._spill.hidePopover();
-      } catch {}
+      } catch {
+      }
       try {
         this._ctl.hidePopover();
-      } catch {}
-      this._ctl.style.left = '';
-      this._ctl.style.top = '';
+      } catch {
+      }
+      this._ctl.style.left = "";
+      this._ctl.style.top = "";
       if (commit) this._commitView();
       this._signalReframe(false);
     }
-
     // Reframe state lives only in this DOM until commit, invisible to the
     // host's dirty signals — announce enter/exit so the host can hold
     // auto-reloads for exactly the gesture (the guest bundle forwards
@@ -7772,16 +4186,12 @@ try { (() => {
     // the host still hears it.
     _signalReframe(active) {
       const target = this.isConnected ? this : document;
-      target.dispatchEvent(new CustomEvent('image-slot:reframe', {
+      target.dispatchEvent(new CustomEvent("image-slot:reframe", {
         bubbles: true,
         composed: true,
-        detail: {
-          active: active,
-          id: this.id || null
-        }
+        detail: { active, id: this.id || null }
       }));
     }
-
     // Public: host's "Import from computer" calls this to run local browse.
     openFilePicker() {
       this._exitReframe(true);
@@ -7790,29 +4200,25 @@ try { (() => {
     attributeChangedCallback() {
       if (this.shadowRoot) this._render();
     }
-
     // handleEvent — one listener object for all four drag events keeps the
     // add/remove symmetric and the depth counter correct.
     handleEvent(e) {
-      if (e.type === 'dragenter' || e.type === 'dragover') {
-        // Without preventDefault the browser never fires 'drop'.
+      if (e.type === "dragenter" || e.type === "dragover") {
         e.preventDefault();
         e.stopPropagation();
-        if (e.dataTransfer) e.dataTransfer.dropEffect = 'copy';
-        if (e.type === 'dragenter') this._depth++;
-        this.setAttribute('data-over', '');
-      } else if (e.type === 'dragleave') {
-        // dragenter/leave fire for every descendant crossing — count depth
-        // so hovering the icon inside the empty state doesn't flicker.
+        if (e.dataTransfer) e.dataTransfer.dropEffect = "copy";
+        if (e.type === "dragenter") this._depth++;
+        this.setAttribute("data-over", "");
+      } else if (e.type === "dragleave") {
         if (--this._depth <= 0) {
           this._depth = 0;
-          this.removeAttribute('data-over');
+          this.removeAttribute("data-over");
         }
-      } else if (e.type === 'drop') {
+      } else if (e.type === "drop") {
         e.preventDefault();
         e.stopPropagation();
         this._depth = 0;
-        this.removeAttribute('data-over');
+        this.removeAttribute("data-over");
         const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
         if (f) this._ingest(f);
       }
@@ -7820,45 +4226,22 @@ try { (() => {
     async _ingest(file) {
       this._setError(null);
       if (!file || ACCEPT.indexOf(file.type) < 0) {
-        this._setError('Drop a PNG, JPEG, WebP, or AVIF image.');
+        this._setError("Drop a PNG, JPEG, WebP, or AVIF image.");
         return;
       }
-      // toDataUrl can take hundreds of ms on a large photo. A Clear or a
-      // newer drop during that window would be clobbered when this await
-      // resumes — bump + capture a generation so stale encodes bail.
       const gen = ++this._gen;
-      // Replacing a shown image: surface the swap through the encode too,
-      // not just the decode — otherwise the old photo sits there with no
-      // feedback while the canvas re-encode runs. An empty slot keeps its
-      // placeholder (no spinner) until the encode lands, as before.
-      // _swapGen guards the mask against re-renders DURING the encode
-      // (pointerenter, ResizeObserver, another slot's store write): the
-      // stored value still resolves to the old image there, so _render's
-      // same-src clear would otherwise unmask it mid-replace.
-      if (this.hasAttribute('data-filled')) {
-        this.setAttribute('data-swapping', '');
+      if (this.hasAttribute("data-filled")) {
+        this.setAttribute("data-swapping", "");
         this._swapGen = gen;
       }
       try {
         const w = this.clientWidth || this.offsetWidth || MAX_DIM;
         const url = await toDataUrl(file, w);
         if (gen !== this._gen) return;
-        // Only exit reframe once the new image is in hand — a rejected type
-        // or decode failure leaves the in-progress crop untouched.
         this._exitReframe(false);
-        // Clear BEFORE setSlot: its synchronous re-render must see no
-        // pending encode, so a byte-identical re-upload (same data URL, no
-        // load event coming) still clears the mask via the complete branch.
         this._swapGen = 0;
-        const val = {
-          u: url,
-          s: 1,
-          x: 0,
-          y: 0
-        };
-        setSlot(this.id || '', val);
-        // Keep a session-local copy for id-less slots so the drop still
-        // shows, even though it cannot persist.
+        const val = { u: url, s: 1, x: 0, y: 0 };
+        setSlot(this.id || "", val);
         if (!this.id) {
           this._local = val;
           this._render();
@@ -7866,12 +4249,9 @@ try { (() => {
       } catch (err) {
         if (gen !== this._gen) return;
         this._swapGen = 0;
-        // Reveal the kept old image — unless another replacement (a
-        // remote pick's src swap) is still in flight, in which case the
-        // mask stays until THAT image settles (its load/error releases).
         this._releaseMask();
-        this._setError('Could not read that image.');
-        console.warn('<image-slot> ingest failed:', err);
+        this._setError("Could not read that image.");
+        console.warn("<image-slot> ingest failed:", err);
       }
     }
     _setError(msg) {
@@ -7880,8 +4260,8 @@ try { (() => {
         this._err = null;
       }
       if (!msg) return;
-      const d = document.createElement('div');
-      d.className = 'err';
+      const d = document.createElement("div");
+      d.className = "err";
       d.textContent = msg;
       this.shadowRoot.appendChild(d);
       this._err = d;
@@ -7890,16 +4270,14 @@ try { (() => {
           d.remove();
           this._err = null;
         }
-      }, 3000);
+      }, 3e3);
     }
-
     // Reframing (pan/resize) is available on any filled slot — the user can
     // always reposition/scale. `fit` only sets the initial baseline (see
     // _geom): contain starts fully-visible, cover starts frame-filling.
     _reframes() {
-      return this.hasAttribute('data-filled');
+      return this.hasAttribute("data-filled");
     }
-
     // The single release discipline for the replacement-in-flight mask
     // (data-swapping). The mask comes off only when BOTH hold:
     //  - no encode is pending (_swapGen) — mid-encode the stored value
@@ -7915,10 +4293,9 @@ try { (() => {
     // branch (the img is being cleared — nothing will ever settle).
     _releaseMask(settled) {
       if (!this._swapGen && !this._loadPending && (settled || this._img.complete)) {
-        this.removeAttribute('data-swapping');
+        this.removeAttribute("data-swapping");
       }
     }
-
     // Baseline geometry, shared by clamp/apply/resize. `base` is the scale at
     // view-scale s=1: cover = fill the frame (overflow on the looser axis),
     // contain = fit fully inside (letterboxed). Zooming a contain image past
@@ -7928,23 +4305,14 @@ try { (() => {
     // clamping against a degenerate 1×1 frame would silently pull the stored
     // pan toward zero.
     _geom() {
-      const iw = this._img.naturalWidth,
-        ih = this._img.naturalHeight;
-      const fw = this.clientWidth,
-        fh = this.clientHeight;
+      const iw = this._img.naturalWidth, ih = this._img.naturalHeight;
+      const fw = this.clientWidth, fh = this.clientHeight;
       if (!iw || !ih || !fw || !fh) return null;
-      const contain = (this.getAttribute('fit') || 'cover').toLowerCase() === 'contain';
+      const contain = (this.getAttribute("fit") || "cover").toLowerCase() === "contain";
       const base = contain ? Math.min(fw / iw, fh / ih) : Math.max(fw / iw, fh / ih);
-      return {
-        iw,
-        ih,
-        fw,
-        fh,
-        base
-      };
+      return { iw, ih, fw, fh, base };
     }
     _clampView() {
-      // Pan range on each axis is half the overflow past the frame edge.
       const g = this._geom();
       if (!g) return;
       const mx = Math.max(0, (g.iw * g.base * this._view.s / g.fw - 1) * 50);
@@ -7954,243 +4322,167 @@ try { (() => {
     }
     _applyView() {
       const g = this._geom();
-      // Top-layer controls: pin to the frame's top-right in viewport px
-      // (the same 8px inset as the in-frame layout; unscaled — top-layer UI
-      // reads as chrome, not page content). BEFORE the geometry branch:
-      // placement needs only the frame rect, and a not-yet-loaded or broken
-      // src must not leave the promoted strip floating unpositioned. Gated
-      // on the popover actually being open: without the Popover API,
-      // showPopover() threw (swallowed in _enterReframe), .ctl stays in
-      // its in-frame absolute layout, and viewport-px coordinates would
-      // shove it off-frame — and matches(':popover-open') itself throws
-      // there (unknown pseudo-class), hence the try/catch.
-      if (this.hasAttribute('data-reframe')) {
+      if (this.hasAttribute("data-reframe")) {
         let onTop = false;
         try {
-          onTop = this._ctl.matches(':popover-open');
-        } catch {}
+          onTop = this._ctl.matches(":popover-open");
+        } catch {
+        }
         if (onTop) {
           const r = this.getBoundingClientRect();
-          this._ctl.style.left = r.right - 8 + 'px';
-          this._ctl.style.top = r.top + 8 + 'px';
+          this._ctl.style.left = r.right - 8 + "px";
+          this._ctl.style.top = r.top + 8 + "px";
         }
       }
       if (!g) {
-        // Dimensions not known yet (before img load) — centered fit so there
-        // is no flash of an unpositioned image before the geometry lands.
-        const contain = (this.getAttribute('fit') || 'cover').toLowerCase() === 'contain';
-        this._img.style.width = '100%';
-        this._img.style.height = '100%';
-        this._img.style.left = '50%';
-        this._img.style.top = '50%';
-        this._img.style.objectFit = contain ? 'contain' : 'cover';
+        const contain = (this.getAttribute("fit") || "cover").toLowerCase() === "contain";
+        this._img.style.width = "100%";
+        this._img.style.height = "100%";
+        this._img.style.left = "50%";
+        this._img.style.top = "50%";
+        this._img.style.objectFit = contain ? "contain" : "cover";
         return;
       }
-      // Baseline (cover-fill or contain-fit) × view scale. Width/height and
-      // left/top are all frame-% — depends only on the frame aspect ratio, so
-      // a responsive resize keeps the same crop. The spill layer mirrors the
-      // same box so its corners = image corners.
       const k = g.base * this._view.s;
-      const w = g.iw * k / g.fw * 100 + '%';
-      const h = g.ih * k / g.fh * 100 + '%';
-      const l = 50 + this._view.x + '%';
-      const t = 50 + this._view.y + '%';
+      const w = g.iw * k / g.fw * 100 + "%";
+      const h = g.ih * k / g.fh * 100 + "%";
+      const l = 50 + this._view.x + "%";
+      const t = 50 + this._view.y + "%";
       this._img.style.width = w;
       this._img.style.height = h;
       this._img.style.left = l;
       this._img.style.top = t;
-      this._img.style.objectFit = '';
-      if (this.hasAttribute('data-reframe')) {
-        // Top-layer spill: position in viewport px over the frame. The top
-        // layer escapes ancestor transforms entirely, so EVERY term must be
-        // in viewport units: getBoundingClientRect gives the frame's scaled
-        // origin AND size, and the rect/layout ratio rescales the ghost —
-        // sizing from layout px alone renders it 1/scale too large under a
-        // scaled deck slide. Inner ghost + handles stay box-relative.
+      this._img.style.objectFit = "";
+      if (this.hasAttribute("data-reframe")) {
         const r = this.getBoundingClientRect();
         const sx = g.fw ? r.width / g.fw : 1;
         const sy = g.fh ? r.height / g.fh : 1;
-        this._spill.style.width = g.iw * k * sx + 'px';
-        this._spill.style.height = g.ih * k * sy + 'px';
-        this._spill.style.left = r.left + (50 + this._view.x) / 100 * r.width + 'px';
-        this._spill.style.top = r.top + (50 + this._view.y) / 100 * r.height + 'px';
+        this._spill.style.width = g.iw * k * sx + "px";
+        this._spill.style.height = g.ih * k * sy + "px";
+        this._spill.style.left = r.left + (50 + this._view.x) / 100 * r.width + "px";
+        this._spill.style.top = r.top + (50 + this._view.y) / 100 * r.height + "px";
       }
     }
     _commitView() {
-      const v = {
-        s: this._view.s,
-        x: this._view.x,
-        y: this._view.y
-      };
+      const v = { s: this._view.s, x: this._view.x, y: this._view.y };
       if (this._userUrl) v.u = this._userUrl;
-      // Framing-only (no u) persists too so an author-src slot remembers its
-      // crop; clearing the sidecar still falls through to src=.
-      if (this.id) setSlot(this.id, v);else {
+      if (this.id) setSlot(this.id, v);
+      else {
         this._local = v;
       }
     }
     _render() {
-      // Shape / mask. Presets use border-radius so the dashed ring can
-      // follow the rounded outline; clip-path is only applied for an
-      // explicit `mask` (the ring is hidden there since a rectangle
-      // dashed border chopped by an arbitrary polygon looks broken).
-      const mask = this.getAttribute('mask');
-      const shape = (this.getAttribute('shape') || 'rounded').toLowerCase();
-      let radius = '';
-      if (shape === 'circle') radius = '50%';else if (shape === 'pill') radius = '9999px';else if (shape === 'rounded') {
-        const n = parseFloat(this.getAttribute('radius'));
-        radius = (Number.isFinite(n) ? n : 12) + 'px';
+      const mask = this.getAttribute("mask");
+      const shape = (this.getAttribute("shape") || "rounded").toLowerCase();
+      let radius = "";
+      if (shape === "circle") radius = "50%";
+      else if (shape === "pill") radius = "9999px";
+      else if (shape === "rounded") {
+        const n = parseFloat(this.getAttribute("radius"));
+        radius = (Number.isFinite(n) ? n : 12) + "px";
       }
-      this._frame.style.borderRadius = mask ? '' : radius;
-      this._frame.style.clipPath = mask || '';
-      this._ring.style.borderRadius = mask ? '' : radius;
-      this._ring.style.display = mask ? 'none' : '';
-
-      // Controls and reframe entry gate on this so share links stay read-only.
+      this._frame.style.borderRadius = mask ? "" : radius;
+      this._frame.style.clipPath = mask || "";
+      this._ring.style.borderRadius = mask ? "" : radius;
+      this._ring.style.display = mask ? "none" : "";
       const editable = !!(window.omelette && window.omelette.writeFile);
-      this.toggleAttribute('data-editable', editable);
-      this._sub.style.display = editable ? '' : 'none';
-
-      // Content. The sidecar is also writable by the agent's write_file
-      // tool, so its value isn't guaranteed canvas-originated — only accept
-      // data:image/ URLs from it. The `src` attribute is author-controlled
-      // (Claude wrote it into the HTML) so it passes through unchanged.
+      this.toggleAttribute("data-editable", editable);
+      this._sub.style.display = editable ? "" : "none";
       let stored = this.id ? getSlot(this.id) : this._local;
       if (stored && stored.u && !/^data:image\//i.test(stored.u)) stored = null;
-      const srcAttr = this.getAttribute('src') || '';
+      const srcAttr = this.getAttribute("src") || "";
       this._userUrl = stored && stored.u || null;
       const url = this._userUrl || srcAttr;
-      // Don't clobber an in-flight reframe with a store-triggered re-render.
-      if (!this.hasAttribute('data-reframe')) {
+      if (!this.hasAttribute("data-reframe")) {
         this._view = {
           s: stored && Number.isFinite(stored.s) ? clampS(stored.s) : 1,
           x: stored && Number.isFinite(stored.x) ? stored.x : 0,
           y: stored && Number.isFinite(stored.y) ? stored.y : 0
         };
       }
-      this._cap.textContent = this.getAttribute('placeholder') || 'Drop an image';
-      // Toggle via style.display — the [hidden] attribute alone loses to
-      // the display:flex / display:block rules in the stylesheet above.
-      // An Unsplash src with no credit attribute must NOT render — showing
-      // the photo uncredited is the Unsplash-terms violation itself. The
-      // error tile replaces the photo until the credit is written. A
-      // user-dropped image is the user's own content and always renders.
-      // Trimmed: credit is agent/user-editable content, and a whitespace-
-      // only value must count as missing — otherwise it would suppress the
-      // error tile AND render an empty credit box (no text, no links),
-      // exactly the unattributed state this gate exists to prevent.
-      const credit = (this.getAttribute('credit') || '').trim();
+      this._cap.textContent = this.getAttribute("placeholder") || "Drop an image";
+      const credit = (this.getAttribute("credit") || "").trim();
       const attrError = !!(!credit && !this._userUrl && srcAttr && isUnsplashHost(srcAttr));
-      this.toggleAttribute('data-attribution-error', attrError);
+      this.toggleAttribute("data-attribution-error", attrError);
       if (url && !attrError) {
-        const prev = this._img.getAttribute('src');
+        const prev = this._img.getAttribute("src");
         if (prev !== url) {
-          // Replacing an already-shown image: mark the swap BEFORE setting
-          // src so the stale frame is never revealed (see the data-swapping
-          // stylesheet rules). First fill (prev empty) keeps the existing
-          // placeholder-until-load behavior — no spinner. _hidShowing
-          // covers the pick path's transient attribution-error wipe: prev
-          // is gone, but an image WAS showing, so this is a replacement.
-          if (prev || this._hidShowing) this.setAttribute('data-swapping', '');
-          // Mark the swap BEFORE assigning src: complete keeps reporting
-          // the old settled request until the browser's
-          // update-the-image-data microtask runs, so same-task re-renders
-          // (the pick path's credit/credit-href setAttributes) need this
-          // flag, not complete, to know a load is in flight.
+          if (prev || this._hidShowing) this.setAttribute("data-swapping", "");
           this._loadPending = true;
           this._img.src = url;
           this._ghost.src = url;
         } else {
-          // Same-src re-render — release if settled, so an ingest-set
-          // spinner can't stick after a byte-identical re-upload (same
-          // data URL, no further load event ever fires).
           this._releaseMask();
         }
         this._hidShowing = false;
-        this._img.style.display = 'block';
-        this._empty.style.display = 'none';
-        this.setAttribute('data-filled', '');
+        this._img.style.display = "block";
+        this._empty.style.display = "none";
+        this.setAttribute("data-filled", "");
         this._clampView();
         this._applyView();
       } else {
-        this.removeAttribute('data-swapping');
-        // The src is being removed — no load/error will ever fire for it.
+        this.removeAttribute("data-swapping");
         this._loadPending = false;
-        // A transient attribution-error wipe of a showing image happens on
-        // the pick path: the host sets src one setAttribute before credit,
-        // so render N hides the old image (attrError) and render N+1
-        // restores a URL. Remember the wipe so that restore renders as a
-        // replacement (spinner), not a first fill (blank frame).
-        this._hidShowing = attrError && !!this._img.getAttribute('src');
-        this._img.style.display = 'none';
-        this._img.removeAttribute('src');
-        this._ghost.removeAttribute('src');
-        // The error tile owns the blocked-photo state; .empty stays for
-        // the genuinely-empty slot.
-        this._empty.style.display = attrError ? 'none' : 'flex';
-        this.removeAttribute('data-filled');
+        this._hidShowing = attrError && !!this._img.getAttribute("src");
+        this._img.style.display = "none";
+        this._img.removeAttribute("src");
+        this._ghost.removeAttribute("src");
+        this._empty.style.display = attrError ? "none" : "flex";
+        this.removeAttribute("data-filled");
       }
-
-      // Credit belongs to the author src, so a user drop hides it.
-      // textContent + the http(s)-only funnel keep external strings inert.
       const showCredit = !!(url && credit && !this._userUrl && !attrError);
-      this._credit.textContent = '';
+      this._credit.textContent = "";
       if (showCredit) {
-        // Validate once (resolved against the document, http(s) only),
-        // then append the terms-required utm referral params to links
-        // that point back at unsplash.com.
-        let href = '';
-        const rawHref = this.getAttribute('credit-href') || '';
+        let href = "";
+        const rawHref = this.getAttribute("credit-href") || "";
         if (rawHref) {
           try {
             const u = new URL(rawHref, document.baseURI);
-            if (u.protocol === 'http:' || u.protocol === 'https:') {
+            if (u.protocol === "http:" || u.protocol === "https:") {
               href = withReferral(u.href);
             }
-          } catch {}
+          } catch {
+          }
         }
         const mkLink = (text, linkHref) => {
-          const a = document.createElement('a');
-          a.setAttribute('target', '_blank');
-          a.setAttribute('rel', 'noopener noreferrer');
-          a.setAttribute('href', linkHref);
+          const a = document.createElement("a");
+          a.setAttribute("target", "_blank");
+          a.setAttribute("rel", "noopener noreferrer");
+          a.setAttribute("href", linkHref);
           a.textContent = text;
           return a;
         };
-        // Unsplash's prescribed credit is TWO links — the photographer's
-        // name to their profile (credit-href) and 'Unsplash' to the
-        // homepage. Render that split whenever the text has the canonical
-        // shape; other text keeps the legacy single-link rendering.
         const m = /^Photo by (.+) on Unsplash$/.exec(credit);
         if (m) {
-          this._credit.appendChild(document.createTextNode('Photo by '));
-          this._credit.appendChild(href ? mkLink(m[1], href) : document.createTextNode(m[1]));
-          this._credit.appendChild(document.createTextNode(' on '));
-          this._credit.appendChild(mkLink('Unsplash', UNSPLASH_HOMEPAGE_HREF));
+          this._credit.appendChild(document.createTextNode("Photo by "));
+          this._credit.appendChild(
+            href ? mkLink(m[1], href) : document.createTextNode(m[1])
+          );
+          this._credit.appendChild(document.createTextNode(" on "));
+          this._credit.appendChild(mkLink("Unsplash", UNSPLASH_HOMEPAGE_HREF));
         } else if (href) {
           this._credit.appendChild(mkLink(credit, href));
         } else {
           this._credit.textContent = credit;
         }
       }
-      this.toggleAttribute('data-credit', showCredit);
+      this.toggleAttribute("data-credit", showCredit);
     }
   }
-  if (!customElements.get('image-slot')) {
-    customElements.define('image-slot', ImageSlot);
+  if (!customElements.get("image-slot")) {
+    customElements.define("image-slot", ImageSlot);
   }
 })();
 })(); } catch (e) { __ds_ns.__errors.push({ path: "image-slot.js", error: String((e && e.message) || e) }); }
 
 // tokens/tokens.js
 try { (() => {
-// CyberSkill design tokens — generated from tokens/*.css (v2.11.0). Do not edit by hand.
 const tokens = {
   "$meta": {
     "system": "CyberSkill Design System",
-    "version": "2.11.0",
-    "generated": "2026-07-19",
-    "note": "Generated from tokens/*.css. Root grouped by category; theme/element/expression scopes carry overrides only. Regenerate after any token change (see docs/conventions.md)."
+    "version": "1.0.0",
+    "generated": "2026-07-23",
+    "note": "Generated from tokens/*.css. Root grouped by category; theme/element scopes carry overrides only. Regenerate after any token change (see docs/conventions.md)."
   },
   "root": {
     "color": {
@@ -8272,10 +4564,10 @@ const tokens = {
       "--cs-shadow-xl": "0 24px 80px rgba(31, 19, 11, 0.26)"
     },
     "duration": {
-      "--cs-duration-instant": "0ms",
-      "--cs-duration-fast": "0ms",
-      "--cs-duration-base": "0ms",
-      "--cs-duration-slow": "0ms"
+      "--cs-duration-instant": "80ms",
+      "--cs-duration-fast": "120ms",
+      "--cs-duration-base": "200ms",
+      "--cs-duration-slow": "320ms"
     },
     "ease": {
       "--cs-ease-standard": "cubic-bezier(0.2, 0, 0, 1)",
@@ -8353,6 +4645,12 @@ const tokens = {
       "--cs-letter-spacing-tight": "-0.01em",
       "--cs-letter-spacing-normal": "0",
       "--cs-letter-spacing-caps": "0.08em"
+    },
+    "heading": {
+      "--cs-heading-family": "var(--cs-font-family-ui)",
+      "--cs-heading-weight-strong": "var(--cs-font-weight-extrabold)",
+      "--cs-heading-weight": "var(--cs-font-weight-bold)",
+      "--cs-heading-tracking": "var(--cs-letter-spacing-tight)"
     },
     "icon": {
       "--cs-icon-sm": "16px",
@@ -8604,215 +4902,29 @@ const tokens = {
       "--cs-color-text-accent": "#56504A",
       "--cs-color-link": "#56504A"
     }
-  },
-  "expressions": {
-    "solid": {
-      "--cs-radius-md": "6px",
-      "--cs-radius-lg": "10px",
-      "--cs-component-button-radius": "6px",
-      "--cs-shadow-xs": "0 0 0 rgba(0,0,0,0)",
-      "--cs-shadow-sm": "0 1px 2px rgba(69,33,14,0.05)",
-      "--cs-shadow-md": "0 2px 6px rgba(69,33,14,0.08)",
-      "--cs-shadow-lg": "0 4px 12px rgba(69,33,14,0.10)",
-      "--cs-shadow-xl": "0 8px 24px rgba(69,33,14,0.12)",
-      "--cs-glass-whisper-blur": "0px",
-      "--cs-glass-light-blur": "0px",
-      "--cs-glass-standard-blur": "0px",
-      "--cs-glass-heavy-blur": "0px",
-      "--cs-glass-whisper-opacity": "100%",
-      "--cs-glass-light-opacity": "100%",
-      "--cs-glass-standard-opacity": "100%",
-      "--cs-glass-heavy-opacity": "100%"
-    },
-    "paper": {
-      "--cs-radius-sm": "3px",
-      "--cs-radius-md": "4px",
-      "--cs-radius-lg": "6px",
-      "--cs-component-button-radius": "4px",
-      "--cs-shadow-xs": "0 0 0 rgba(0,0,0,0)",
-      "--cs-shadow-sm": "0 0 0 rgba(0,0,0,0)",
-      "--cs-shadow-md": "0 0 0 rgba(0,0,0,0)",
-      "--cs-shadow-lg": "0 0 0 rgba(0,0,0,0)",
-      "--cs-shadow-xl": "0 0 0 rgba(0,0,0,0)",
-      "--cs-glass-whisper-blur": "0px",
-      "--cs-glass-light-blur": "0px",
-      "--cs-glass-standard-blur": "0px",
-      "--cs-glass-heavy-blur": "0px",
-      "--cs-glass-whisper-opacity": "100%",
-      "--cs-glass-light-opacity": "100%",
-      "--cs-glass-standard-opacity": "100%",
-      "--cs-glass-heavy-opacity": "100%",
-      "--cs-duration-base": "160ms",
-      "--cs-duration-slow": "240ms"
-    },
-    "soft": {
-      "--cs-radius-sm": "6px",
-      "--cs-radius-md": "12px",
-      "--cs-radius-lg": "22px",
-      "--cs-component-button-radius": "12px",
-      "--cs-shadow-xs": "0 2px 6px rgba(69,33,14,0.05)",
-      "--cs-shadow-sm": "0 6px 18px rgba(69,33,14,0.06), 0 16px 40px rgba(69,33,14,0.07)",
-      "--cs-shadow-md": "0 18px 44px rgba(31,19,11,0.14)",
-      "--cs-shadow-lg": "0 26px 70px rgba(69,33,14,0.14)",
-      "--cs-shadow-xl": "0 30px 90px rgba(31,19,11,0.20)",
-      "--cs-duration-base": "240ms",
-      "--cs-duration-slow": "380ms"
-    },
-    "dense": {
-      "--cs-radius-sm": "3px",
-      "--cs-radius-md": "6px",
-      "--cs-radius-lg": "10px",
-      "--cs-component-button-radius": "6px",
-      "--cs-component-button-sm-paddingY": "5px",
-      "--cs-component-button-sm-paddingX": "10px",
-      "--cs-component-button-sm-minHeight": "44px",
-      "--cs-component-button-md-paddingY": "12px",
-      "--cs-component-button-md-paddingX": "14px",
-      "--cs-component-button-md-minHeight": "44px",
-      "--cs-component-button-lg-paddingY": "10px",
-      "--cs-component-button-lg-paddingX": "18px",
-      "--cs-component-button-lg-minHeight": "48px",
-      "--cs-component-textfield-paddingY": "10px",
-      "--cs-component-textfield-paddingX": "10px",
-      "--cs-component-textfield-minHeight": "44px",
-      "--cs-shadow-sm": "0 1px 2px rgba(69,33,14,0.05)",
-      "--cs-shadow-md": "0 2px 8px rgba(69,33,14,0.10)",
-      "--cs-glass-whisper-blur": "0px",
-      "--cs-glass-light-blur": "0px",
-      "--cs-glass-standard-blur": "0px",
-      "--cs-glass-heavy-blur": "0px",
-      "--cs-glass-whisper-opacity": "100%",
-      "--cs-glass-light-opacity": "100%",
-      "--cs-glass-standard-opacity": "100%",
-      "--cs-glass-heavy-opacity": "100%",
-      "--cs-duration-fast": "100ms",
-      "--cs-duration-base": "150ms"
-    },
-    "luxe": {
-      "--cs-radius-sm": "6px",
-      "--cs-radius-md": "10px",
-      "--cs-radius-lg": "18px",
-      "--cs-component-button-radius": "999px",
-      "--cs-color-border-default": "#EEE3D0",
-      "--cs-shadow-xs": "0 2px 10px rgba(69,33,14,0.06)",
-      "--cs-shadow-sm": "0 10px 34px rgba(69,33,14,0.10)",
-      "--cs-shadow-md": "0 22px 60px rgba(31,19,11,0.16)",
-      "--cs-shadow-lg": "0 32px 90px rgba(69,33,14,0.18)",
-      "--cs-shadow-xl": "0 40px 120px rgba(31,19,11,0.24)",
-      "--cs-glass-whisper-blur": "12px",
-      "--cs-glass-light-blur": "18px",
-      "--cs-glass-standard-blur": "24px",
-      "--cs-glass-heavy-blur": "32px",
-      "--cs-glass-whisper-saturate": "120%",
-      "--cs-glass-light-saturate": "140%",
-      "--cs-glass-standard-saturate": "160%",
-      "--cs-glass-heavy-saturate": "190%",
-      "--cs-duration-base": "280ms",
-      "--cs-duration-slow": "460ms"
-    },
-    "bold": {
-      "--cs-radius-sm": "2px",
-      "--cs-radius-md": "4px",
-      "--cs-radius-lg": "6px",
-      "--cs-component-button-radius": "4px",
-      "--cs-color-border-default": "#45210E",
-      "--cs-component-textfield-border-default": "#45210E",
-      "--cs-shadow-xs": "2px 2px 0 #45210E",
-      "--cs-shadow-sm": "3px 3px 0 #45210E",
-      "--cs-shadow-md": "4px 4px 0 #45210E",
-      "--cs-shadow-lg": "6px 6px 0 #45210E",
-      "--cs-shadow-xl": "8px 8px 0 #45210E",
-      "--cs-glass-whisper-blur": "0px",
-      "--cs-glass-light-blur": "0px",
-      "--cs-glass-standard-blur": "0px",
-      "--cs-glass-heavy-blur": "0px",
-      "--cs-glass-whisper-opacity": "100%",
-      "--cs-glass-light-opacity": "100%",
-      "--cs-glass-standard-opacity": "100%",
-      "--cs-glass-heavy-opacity": "100%",
-      "--cs-duration-fast": "100ms",
-      "--cs-duration-base": "140ms"
-    }
   }
 };
-Object.assign(__ds_scope, { tokens, __ds_default_tokens_tokens_padim4: tokens });
+Object.assign(__ds_scope, { tokens, __ds_default_tokens_tokens_9gob35: tokens });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "tokens/tokens.js", error: String((e && e.message) || e) }); }
 
 // ui_kits/status-hub/StatusHub.jsx
 try { (() => {
-const {
-  useState,
-  useMemo
-} = React;
+const { useState, useMemo } = React;
 const ICON = {
   search: "M11 4a7 7 0 1 0 4.2 12.6L20 21l1.4-1.4-4.4-4.4A7 7 0 0 0 11 4zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10z",
   close: "M6 6l12 12M18 6L6 18",
   sun: null,
   moon: null
 };
-function Glyph({
-  d,
-  size = 18
-}) {
-  return /*#__PURE__*/React.createElement("svg", {
-    width: size,
-    height: size,
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "1.9",
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: d
-  }));
+function Glyph({ d, size = 18 }) {
+  return /* @__PURE__ */ React.createElement("svg", { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.9", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d }));
 }
 function SearchGlyph() {
-  return /*#__PURE__*/React.createElement("svg", {
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24",
-    fill: "currentColor",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: ICON.search
-  }));
+  return /* @__PURE__ */ React.createElement("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "currentColor", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: ICON.search }));
 }
-function ThemeGlyph({
-  dark
-}) {
-  return dark ? /*#__PURE__*/React.createElement("svg", {
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "1.8",
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }, /*#__PURE__*/React.createElement("circle", {
-    cx: "12",
-    cy: "12",
-    r: "4"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"
-  })) : /*#__PURE__*/React.createElement("svg", {
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "1.8",
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M20 13.5A8 8 0 1 1 10.5 4a6.5 6.5 0 0 0 9.5 9.5z"
-  }));
+function ThemeGlyph({ dark }) {
+  return dark ? /* @__PURE__ */ React.createElement("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.8", strokeLinecap: "round", strokeLinejoin: "round" }, /* @__PURE__ */ React.createElement("circle", { cx: "12", cy: "12", r: "4" }), /* @__PURE__ */ React.createElement("path", { d: "M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" })) : /* @__PURE__ */ React.createElement("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.8", strokeLinecap: "round", strokeLinejoin: "round" }, /* @__PURE__ */ React.createElement("path", { d: "M20 13.5A8 8 0 1 1 10.5 4a6.5 6.5 0 0 0 9.5 9.5z" }));
 }
-
-/* Bilingual UI copy — kit fully EN⇄VN (owner decision, Jul 2026).
- * Mock-data VN variants live in data.js (window.SH_VI). */
 const T = {
   en: {
     sub: "CyberSkill · one page, three lenses · Hiện Thực Hoá Ý Chí",
@@ -8829,11 +4941,7 @@ const T = {
     nowTitle: "Now shipping",
     search: "Search projects…",
     view: "View",
-    lenses: {
-      board: "Board",
-      table: "Table",
-      releases: "Releases"
-    },
+    lenses: { board: "Board", table: "Table", releases: "Releases" },
     status: "Status",
     all: "All",
     of: "of",
@@ -8864,11 +4972,7 @@ const T = {
     nowTitle: "Đang ra mắt",
     search: "Tìm dự án…",
     view: "Chế độ xem",
-    lenses: {
-      board: "Bảng công việc",
-      table: "Bảng dữ liệu",
-      releases: "Phát hành"
-    },
+    lenses: { board: "Bảng công việc", table: "Bảng dữ liệu", releases: "Phát hành" },
     status: "Trạng thái",
     all: "Tất cả",
     of: "trên",
@@ -8885,104 +4989,14 @@ const T = {
     theme: "Đổi giao diện"
   }
 };
-const statusLabels = t => ({
-  done: t.shipped,
-  active: t.inprog,
-  hold: t.blocked,
-  todo: t.planned
-});
-function Segments({
-  seg,
-  className
-}) {
-  return /*#__PURE__*/React.createElement("div", {
-    className: className
-  }, seg.done > 0 && /*#__PURE__*/React.createElement("i", {
-    className: "seg-done",
-    style: {
-      width: seg.done + "%"
-    }
-  }), seg.active > 0 && /*#__PURE__*/React.createElement("i", {
-    className: "seg-active",
-    style: {
-      width: seg.active + "%"
-    }
-  }), seg.hold > 0 && /*#__PURE__*/React.createElement("i", {
-    className: "seg-hold",
-    style: {
-      width: seg.hold + "%"
-    }
-  }), seg.todo > 0 && /*#__PURE__*/React.createElement("i", {
-    className: "seg-todo",
-    style: {
-      width: seg.todo + "%"
-    }
-  }));
+const statusLabels = (t) => ({ done: t.shipped, active: t.inprog, hold: t.blocked, todo: t.planned });
+function Segments({ seg, className }) {
+  return /* @__PURE__ */ React.createElement("div", { className }, seg.done > 0 && /* @__PURE__ */ React.createElement("i", { className: "seg-done", style: { width: seg.done + "%" } }), seg.active > 0 && /* @__PURE__ */ React.createElement("i", { className: "seg-active", style: { width: seg.active + "%" } }), seg.hold > 0 && /* @__PURE__ */ React.createElement("i", { className: "seg-hold", style: { width: seg.hold + "%" } }), seg.todo > 0 && /* @__PURE__ */ React.createElement("i", { className: "seg-todo", style: { width: seg.todo + "%" } }));
 }
-function Drawer({
-  p,
-  onClose,
-  t
-}) {
+function Drawer({ p, onClose, t }) {
   if (!p) return null;
   const SL = statusLabels(t);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
-    className: "scrim",
-    onClick: onClose
-  }), /*#__PURE__*/React.createElement("aside", {
-    className: "drawer",
-    role: "dialog",
-    "aria-modal": "true",
-    "aria-label": p.name
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "dw-h"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "row"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "mono muted",
-    style: {
-      fontWeight: 700
-    }
-  }, p.key), /*#__PURE__*/React.createElement("span", {
-    className: "pill " + p.status
-  }, SL[p.status]), /*#__PURE__*/React.createElement("button", {
-    className: "dw-x",
-    onClick: onClose,
-    "aria-label": t.close
-  }, /*#__PURE__*/React.createElement(Glyph, {
-    d: ICON.close,
-    size: 20
-  }))), /*#__PURE__*/React.createElement("h2", null, p.name)), /*#__PURE__*/React.createElement("div", {
-    className: "dw-b"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "muted",
-    style: {
-      marginTop: 0
-    }
-  }, p.blurb), /*#__PURE__*/React.createElement("dl", {
-    className: "meta"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, t.owner), /*#__PURE__*/React.createElement("dd", null, p.owner)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, t.squad), /*#__PURE__*/React.createElement("dd", null, p.squad)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, t.progress), /*#__PURE__*/React.createElement("dd", null, p.pct, "%")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("dt", null, t.updated), /*#__PURE__*/React.createElement("dd", null, p.updated))), /*#__PURE__*/React.createElement(Segments, {
-    seg: p.seg,
-    className: "minibar"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "sect"
-  }, /*#__PURE__*/React.createElement("h3", null, t.tasks), /*#__PURE__*/React.createElement("div", {
-    className: "task-chips"
-  }, p.tasks.map(tk => /*#__PURE__*/React.createElement("span", {
-    key: tk[0],
-    className: "chip " + tk[2],
-    title: tk[1]
-  }, tk[0]))), /*#__PURE__*/React.createElement("ul", {
-    className: "tasks"
-  }, p.tasks.map(tk => /*#__PURE__*/React.createElement("li", {
-    key: tk[0]
-  }, tk[1], " \u2014 ", /*#__PURE__*/React.createElement("span", {
-    className: "muted"
-  }, SL[tk[2]]))))), p.risk ? /*#__PURE__*/React.createElement("div", {
-    className: "sect"
-  }, /*#__PURE__*/React.createElement("h3", null, t.risk), /*#__PURE__*/React.createElement("div", {
-    className: "risk"
-  }, p.risk)) : null)));
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "scrim", onClick: onClose }), /* @__PURE__ */ React.createElement("aside", { className: "drawer", role: "dialog", "aria-modal": "true", "aria-label": p.name }, /* @__PURE__ */ React.createElement("div", { className: "dw-h" }, /* @__PURE__ */ React.createElement("div", { className: "row" }, /* @__PURE__ */ React.createElement("span", { className: "mono muted", style: { fontWeight: 700 } }, p.key), /* @__PURE__ */ React.createElement("span", { className: "pill " + p.status }, SL[p.status]), /* @__PURE__ */ React.createElement("button", { className: "dw-x", onClick: onClose, "aria-label": t.close }, /* @__PURE__ */ React.createElement(Glyph, { d: ICON.close, size: 20 }))), /* @__PURE__ */ React.createElement("h2", null, p.name)), /* @__PURE__ */ React.createElement("div", { className: "dw-b" }, /* @__PURE__ */ React.createElement("p", { className: "muted", style: { marginTop: 0 } }, p.blurb), /* @__PURE__ */ React.createElement("dl", { className: "meta" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("dt", null, t.owner), /* @__PURE__ */ React.createElement("dd", null, p.owner)), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("dt", null, t.squad), /* @__PURE__ */ React.createElement("dd", null, p.squad)), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("dt", null, t.progress), /* @__PURE__ */ React.createElement("dd", null, p.pct, "%")), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("dt", null, t.updated), /* @__PURE__ */ React.createElement("dd", null, p.updated))), /* @__PURE__ */ React.createElement(Segments, { seg: p.seg, className: "minibar" }), /* @__PURE__ */ React.createElement("div", { className: "sect" }, /* @__PURE__ */ React.createElement("h3", null, t.tasks), /* @__PURE__ */ React.createElement("div", { className: "task-chips" }, p.tasks.map((tk) => /* @__PURE__ */ React.createElement("span", { key: tk[0], className: "chip " + tk[2], title: tk[1] }, tk[0]))), /* @__PURE__ */ React.createElement("ul", { className: "tasks" }, p.tasks.map((tk) => /* @__PURE__ */ React.createElement("li", { key: tk[0] }, tk[1], " — ", /* @__PURE__ */ React.createElement("span", { className: "muted" }, SL[tk[2]]))))), p.risk ? /* @__PURE__ */ React.createElement("div", { className: "sect" }, /* @__PURE__ */ React.createElement("h3", null, t.risk), /* @__PURE__ */ React.createElement("div", { className: "risk" }, p.risk)) : null)));
 }
 function StatusHub() {
   const D = window.SH_DATA;
@@ -8996,7 +5010,7 @@ function StatusHub() {
   const t = T[lang];
   const SL = statusLabels(t);
   const VI = lang === "vi" ? window.SH_VI || null : null;
-  const loc = p => VI ? {
+  const loc = (p) => VI ? {
     ...p,
     blurb: VI.blurbs[p.key] || p.blurb,
     risk: VI.risks[p.key] != null ? VI.risks[p.key] : p.risk,
@@ -9005,482 +5019,183 @@ function StatusHub() {
     updated: VI.updatedRel[p.updated] || p.updated
   } : p;
   const counts = useMemo(() => {
-    const c = {
-      active: 0,
-      done: 0,
-      hold: 0
-    };
-    D.projects.forEach(p => {
+    const c = { active: 0, done: 0, hold: 0 };
+    D.projects.forEach((p) => {
       if (c[p.status] != null) c[p.status]++;
     });
     const avg = Math.round(D.projects.reduce((a, p) => a + p.pct, 0) / D.projects.length);
-    return {
-      total: D.projects.length,
-      ...c,
-      avg
-    };
+    return { total: D.projects.length, ...c, avg };
   }, [D]);
   const shown = useMemo(() => {
     const needle = q.trim().toLowerCase();
     const eff = kpi || (facet === "all" ? null : facet);
-    return D.projects.filter(p => {
+    return D.projects.filter((p) => {
       if (eff && p.status !== eff) return false;
       if (!needle) return true;
       return (p.name + " " + p.key + " " + p.blurb).toLowerCase().includes(needle);
     });
   }, [D, q, facet, kpi]);
-  const maxV = Math.max(...D.velocity.map(v => v.n));
-  const toggleKpi = k => setKpi(cur => cur === k ? null : k);
-  return /*#__PURE__*/React.createElement("div", {
-    className: "sh",
-    lang: lang,
-    "data-theme": dark ? "dark" : undefined
-  }, /*#__PURE__*/React.createElement("header", {
-    className: "hd"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "hd-in"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "hd-id"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "hd-mark"
-  }, /*#__PURE__*/React.createElement("img", {
-    src: "../../assets/logo-mark.svg",
-    alt: ""
-  })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Status Hub"), /*#__PURE__*/React.createElement("p", {
-    className: "hd-sub"
-  }, t.sub))), /*#__PURE__*/React.createElement("div", {
-    className: "hd-side"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "hd-meta"
-  }, t.updated, /*#__PURE__*/React.createElement("br", null), VI ? VI.updated : D.updated), /*#__PURE__*/React.createElement("button", {
-    className: "btn ghost",
-    onClick: () => setLang(l => l === "en" ? "vi" : "en"),
-    "aria-label": "Toggle language",
-    style: {
-      fontWeight: 700,
-      fontSize: 13
-    }
-  }, t.langBtn), /*#__PURE__*/React.createElement("button", {
-    className: "btn ghost",
-    onClick: () => setDark(v => !v),
-    "aria-label": t.theme
-  }, /*#__PURE__*/React.createElement(ThemeGlyph, {
-    dark: dark
-  }))))), /*#__PURE__*/React.createElement("div", {
-    className: "wrap"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "deck"
-  }, /*#__PURE__*/React.createElement("section", {
-    className: "panel"
-  }, /*#__PURE__*/React.createElement("h2", null, t.portfolio), /*#__PURE__*/React.createElement("div", {
-    className: "kpis"
-  }, /*#__PURE__*/React.createElement("button", {
-    className: "kpi",
-    "data-on": kpi === null ? "1" : "0",
-    onClick: () => setKpi(null)
-  }, /*#__PURE__*/React.createElement("b", null, counts.total), /*#__PURE__*/React.createElement("span", null, t.projects)), /*#__PURE__*/React.createElement("button", {
-    className: "kpi",
-    "data-on": kpi === "active" ? "1" : "0",
-    onClick: () => toggleKpi("active")
-  }, /*#__PURE__*/React.createElement("b", null, counts.active), /*#__PURE__*/React.createElement("span", null, t.inprog)), /*#__PURE__*/React.createElement("button", {
-    className: "kpi",
-    "data-on": kpi === "done" ? "1" : "0",
-    onClick: () => toggleKpi("done")
-  }, /*#__PURE__*/React.createElement("b", null, counts.done), /*#__PURE__*/React.createElement("span", null, t.shipped)), /*#__PURE__*/React.createElement("button", {
-    className: "kpi",
-    "data-on": kpi === "hold" ? "1" : "0",
-    onClick: () => toggleKpi("hold")
-  }, /*#__PURE__*/React.createElement("b", null, counts.hold), /*#__PURE__*/React.createElement("span", null, t.blocked)), /*#__PURE__*/React.createElement("button", {
-    className: "kpi",
-    onClick: () => setKpi(null)
-  }, /*#__PURE__*/React.createElement("b", null, counts.avg, "%"), /*#__PURE__*/React.createElement("span", null, t.avg))), /*#__PURE__*/React.createElement(Segments, {
-    seg: {
-      done: 60,
-      active: 22,
-      hold: 6,
-      todo: 12
-    },
-    className: "bar-seg"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "legend"
-  }, /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("i", {
-    className: "dot",
-    style: {
-      background: "var(--cs-color-semantic-success)"
-    }
-  }), t.shipped), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("i", {
-    className: "dot",
-    style: {
-      background: "var(--cs-color-brand-ochre)"
-    }
-  }), t.inprog), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("i", {
-    className: "dot",
-    style: {
-      background: "var(--cs-color-semantic-danger)"
-    }
-  }), t.blocked), /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("i", {
-    className: "dot",
-    style: {
-      background: "var(--cs-status-todo)"
-    }
-  }), t.planned))), /*#__PURE__*/React.createElement("section", {
-    className: "panel"
-  }, /*#__PURE__*/React.createElement("h2", null, t.velocity), /*#__PURE__*/React.createElement("div", {
-    className: "spark"
-  }, D.velocity.map(v => /*#__PURE__*/React.createElement("a", {
-    key: v.wk,
-    title: v.n + t.perShipped
-  }, /*#__PURE__*/React.createElement("b", null, v.n), /*#__PURE__*/React.createElement("i", {
-    style: {
-      height: v.n / maxV * 72 + "px"
-    }
-  }), /*#__PURE__*/React.createElement("span", null, v.wk)))))), /*#__PURE__*/React.createElement("div", {
-    className: "now"
-  }, /*#__PURE__*/React.createElement("h2", null, t.nowTitle), lang === "vi" ? /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("b", null, "v1.6.0 \u2014 Li\xEAn k\u1EBFt Glass + g\xF3i phong c\xE1ch v2."), " Li\xEAn k\u1EBFt component ", /*#__PURE__*/React.createElement("span", {
-    className: "mono"
-  }, ".cs-surface-*"), " (t\xF9y ch\u1ECDn), tr\xECnh ki\u1EC3m 0 c\u1EA3nh b\xE1o tr\xEAn c\u1EA3 50 g\xF3i, v\xE0 ki\u1EC3m tra l\u1EA1i APCA cho ch\u1EBF \u0111\u1ED9 t\u1ED1i. Ra m\u1EAFt tu\u1EA7n n\xE0y.") : /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("b", null, "v1.6.0 \u2014 Glass bindings + style-pack v2."), " Opt-in ", /*#__PURE__*/React.createElement("span", {
-    className: "mono"
-  }, ".cs-surface-*"), " component bindings, a zero-warning verifier across all 50 packs, and a dark-mode APCA re-check. Ships this week.")), /*#__PURE__*/React.createElement("div", {
-    className: "bar"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "bar-top"
-  }, /*#__PURE__*/React.createElement("label", {
-    className: "srch"
-  }, /*#__PURE__*/React.createElement(SearchGlyph, null), /*#__PURE__*/React.createElement("input", {
-    placeholder: t.search,
-    value: q,
-    onChange: e => setQ(e.target.value)
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "lenses",
-    role: "tablist",
-    "aria-label": t.view
-  }, ["board", "table", "releases"].map(l => /*#__PURE__*/React.createElement("button", {
-    key: l,
-    className: "ln",
-    role: "tab",
-    "aria-selected": lens === l,
-    onClick: () => setLens(l)
-  }, t.lenses[l]))), /*#__PURE__*/React.createElement("label", {
-    className: "facet"
-  }, t.status, /*#__PURE__*/React.createElement("select", {
-    value: kpi || facet,
-    onChange: e => {
-      setFacet(e.target.value);
-      setKpi(null);
-    }
-  }, /*#__PURE__*/React.createElement("option", {
-    value: "all"
-  }, t.all), /*#__PURE__*/React.createElement("option", {
-    value: "active"
-  }, t.inprog), /*#__PURE__*/React.createElement("option", {
-    value: "done"
-  }, t.shipped), /*#__PURE__*/React.createElement("option", {
-    value: "hold"
-  }, t.blocked))), /*#__PURE__*/React.createElement("span", {
-    className: "cnt"
-  }, shown.length, " ", t.of, " ", D.projects.length))), lens === "board" && /*#__PURE__*/React.createElement("div", {
-    className: "grid"
-  }, shown.map(p0 => {
+  const maxV = Math.max(...D.velocity.map((v) => v.n));
+  const toggleKpi = (k) => setKpi((cur) => cur === k ? null : k);
+  return /* @__PURE__ */ React.createElement("div", { className: "sh", lang, "data-theme": dark ? "dark" : void 0 }, /* @__PURE__ */ React.createElement("header", { className: "hd" }, /* @__PURE__ */ React.createElement("div", { className: "hd-in" }, /* @__PURE__ */ React.createElement("div", { className: "hd-id" }, /* @__PURE__ */ React.createElement("span", { className: "hd-mark" }, /* @__PURE__ */ React.createElement("img", { src: "../../assets/logo-mark.svg", alt: "" })), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", null, "Status Hub"), /* @__PURE__ */ React.createElement("p", { className: "hd-sub" }, t.sub))), /* @__PURE__ */ React.createElement("div", { className: "hd-side" }, /* @__PURE__ */ React.createElement("p", { className: "hd-meta" }, t.updated, /* @__PURE__ */ React.createElement("br", null), VI ? VI.updated : D.updated), /* @__PURE__ */ React.createElement("button", { className: "btn ghost", onClick: () => setLang((l) => l === "en" ? "vi" : "en"), "aria-label": "Toggle language", style: { fontWeight: 700, fontSize: 13 } }, t.langBtn), /* @__PURE__ */ React.createElement("button", { className: "btn ghost", onClick: () => setDark((v) => !v), "aria-label": t.theme }, /* @__PURE__ */ React.createElement(ThemeGlyph, { dark }))))), /* @__PURE__ */ React.createElement("div", { className: "wrap" }, /* @__PURE__ */ React.createElement("div", { className: "deck" }, /* @__PURE__ */ React.createElement("section", { className: "panel" }, /* @__PURE__ */ React.createElement("h2", null, t.portfolio), /* @__PURE__ */ React.createElement("div", { className: "kpis" }, /* @__PURE__ */ React.createElement("button", { className: "kpi", "data-on": kpi === null ? "1" : "0", onClick: () => setKpi(null) }, /* @__PURE__ */ React.createElement("b", null, counts.total), /* @__PURE__ */ React.createElement("span", null, t.projects)), /* @__PURE__ */ React.createElement("button", { className: "kpi", "data-on": kpi === "active" ? "1" : "0", onClick: () => toggleKpi("active") }, /* @__PURE__ */ React.createElement("b", null, counts.active), /* @__PURE__ */ React.createElement("span", null, t.inprog)), /* @__PURE__ */ React.createElement("button", { className: "kpi", "data-on": kpi === "done" ? "1" : "0", onClick: () => toggleKpi("done") }, /* @__PURE__ */ React.createElement("b", null, counts.done), /* @__PURE__ */ React.createElement("span", null, t.shipped)), /* @__PURE__ */ React.createElement("button", { className: "kpi", "data-on": kpi === "hold" ? "1" : "0", onClick: () => toggleKpi("hold") }, /* @__PURE__ */ React.createElement("b", null, counts.hold), /* @__PURE__ */ React.createElement("span", null, t.blocked)), /* @__PURE__ */ React.createElement("button", { className: "kpi", onClick: () => setKpi(null) }, /* @__PURE__ */ React.createElement("b", null, counts.avg, "%"), /* @__PURE__ */ React.createElement("span", null, t.avg))), /* @__PURE__ */ React.createElement(Segments, { seg: { done: 60, active: 22, hold: 6, todo: 12 }, className: "bar-seg" }), /* @__PURE__ */ React.createElement("div", { className: "legend" }, /* @__PURE__ */ React.createElement("span", null, /* @__PURE__ */ React.createElement("i", { className: "dot", style: { background: "var(--cs-color-semantic-success)" } }), t.shipped), /* @__PURE__ */ React.createElement("span", null, /* @__PURE__ */ React.createElement("i", { className: "dot", style: { background: "var(--cs-color-brand-ochre)" } }), t.inprog), /* @__PURE__ */ React.createElement("span", null, /* @__PURE__ */ React.createElement("i", { className: "dot", style: { background: "var(--cs-color-semantic-danger)" } }), t.blocked), /* @__PURE__ */ React.createElement("span", null, /* @__PURE__ */ React.createElement("i", { className: "dot", style: { background: "var(--cs-status-todo)" } }), t.planned))), /* @__PURE__ */ React.createElement("section", { className: "panel" }, /* @__PURE__ */ React.createElement("h2", null, t.velocity), /* @__PURE__ */ React.createElement("div", { className: "spark" }, D.velocity.map((v) => /* @__PURE__ */ React.createElement("a", { key: v.wk, title: v.n + t.perShipped }, /* @__PURE__ */ React.createElement("b", null, v.n), /* @__PURE__ */ React.createElement("i", { style: { height: v.n / maxV * 72 + "px" } }), /* @__PURE__ */ React.createElement("span", null, v.wk)))))), /* @__PURE__ */ React.createElement("div", { className: "now" }, /* @__PURE__ */ React.createElement("h2", null, t.nowTitle), lang === "vi" ? /* @__PURE__ */ React.createElement("p", null, /* @__PURE__ */ React.createElement("b", null, "v1.6.0 — Liên kết Glass + gói Ngũ Hành v2."), " Liên kết component ", /* @__PURE__ */ React.createElement("span", { className: "mono" }, ".cs-surface-*"), " (tùy chọn), trình kiểm 0 cảnh báo trên cả 15 gói, và kiểm tra lại APCA cho chế độ tối. Ra mắt tuần này.") : /* @__PURE__ */ React.createElement("p", null, /* @__PURE__ */ React.createElement("b", null, "v1.6.0 — Glass bindings + element-pack v2."), " Opt-in ", /* @__PURE__ */ React.createElement("span", { className: "mono" }, ".cs-surface-*"), " component bindings, a zero-warning verifier across all 15 packs, and a dark-mode APCA re-check. Ships this week.")), /* @__PURE__ */ React.createElement("div", { className: "bar" }, /* @__PURE__ */ React.createElement("div", { className: "bar-top" }, /* @__PURE__ */ React.createElement("label", { className: "srch" }, /* @__PURE__ */ React.createElement(SearchGlyph, null), /* @__PURE__ */ React.createElement("input", { placeholder: t.search, value: q, onChange: (e) => setQ(e.target.value) })), /* @__PURE__ */ React.createElement("div", { className: "lenses", role: "tablist", "aria-label": t.view }, ["board", "table", "releases"].map((l) => /* @__PURE__ */ React.createElement("button", { key: l, className: "ln", role: "tab", "aria-selected": lens === l, onClick: () => setLens(l) }, t.lenses[l]))), /* @__PURE__ */ React.createElement("label", { className: "facet" }, t.status, /* @__PURE__ */ React.createElement("select", { value: kpi || facet, onChange: (e) => {
+    setFacet(e.target.value);
+    setKpi(null);
+  } }, /* @__PURE__ */ React.createElement("option", { value: "all" }, t.all), /* @__PURE__ */ React.createElement("option", { value: "active" }, t.inprog), /* @__PURE__ */ React.createElement("option", { value: "done" }, t.shipped), /* @__PURE__ */ React.createElement("option", { value: "hold" }, t.blocked))), /* @__PURE__ */ React.createElement("span", { className: "cnt" }, shown.length, " ", t.of, " ", D.projects.length))), lens === "board" && /* @__PURE__ */ React.createElement("div", { className: "grid" }, shown.map((p0) => {
     const p = loc(p0);
-    return /*#__PURE__*/React.createElement("button", {
-      className: "card" + (p.status === "active" ? " hot" : ""),
-      key: p.key,
-      onClick: () => setSel(p0)
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "card-h"
-    }, /*#__PURE__*/React.createElement("h3", null, /*#__PURE__*/React.createElement("span", {
-      className: "k mono"
-    }, p.key), " \xB7 ", p.name), /*#__PURE__*/React.createElement("span", {
-      className: "pct"
-    }, p.pct, "%")), /*#__PURE__*/React.createElement("p", null, p.blurb), /*#__PURE__*/React.createElement(Segments, {
-      seg: p.seg,
-      className: "minibar"
-    }), /*#__PURE__*/React.createElement("div", {
-      className: "task-chips"
-    }, /*#__PURE__*/React.createElement("span", {
-      className: "pill " + p.status
-    }, SL[p.status]), p.tasks.slice(0, 3).map(tk => /*#__PURE__*/React.createElement("span", {
-      key: tk[0],
-      className: "chip " + tk[2]
-    }, tk[0]))));
-  })), lens === "table" && /*#__PURE__*/React.createElement("div", {
-    className: "tbl-wrap"
-  }, /*#__PURE__*/React.createElement("table", {
-    className: "tbl"
-  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, t.key), /*#__PURE__*/React.createElement("th", null, t.project), /*#__PURE__*/React.createElement("th", null, t.squad), /*#__PURE__*/React.createElement("th", null, t.owner), /*#__PURE__*/React.createElement("th", null, t.progress), /*#__PURE__*/React.createElement("th", null, t.status))), /*#__PURE__*/React.createElement("tbody", null, shown.map(p0 => {
+    return /* @__PURE__ */ React.createElement("button", { className: "card" + (p.status === "active" ? " hot" : ""), key: p.key, onClick: () => setSel(p0) }, /* @__PURE__ */ React.createElement("div", { className: "card-h" }, /* @__PURE__ */ React.createElement("h3", null, /* @__PURE__ */ React.createElement("span", { className: "k mono" }, p.key), " · ", p.name), /* @__PURE__ */ React.createElement("span", { className: "pct" }, p.pct, "%")), /* @__PURE__ */ React.createElement("p", null, p.blurb), /* @__PURE__ */ React.createElement(Segments, { seg: p.seg, className: "minibar" }), /* @__PURE__ */ React.createElement("div", { className: "task-chips" }, /* @__PURE__ */ React.createElement("span", { className: "pill " + p.status }, SL[p.status]), p.tasks.slice(0, 3).map((tk) => /* @__PURE__ */ React.createElement("span", { key: tk[0], className: "chip " + tk[2] }, tk[0]))));
+  })), lens === "table" && /* @__PURE__ */ React.createElement("div", { className: "tbl-wrap" }, /* @__PURE__ */ React.createElement("table", { className: "tbl" }, /* @__PURE__ */ React.createElement("thead", null, /* @__PURE__ */ React.createElement("tr", null, /* @__PURE__ */ React.createElement("th", null, t.key), /* @__PURE__ */ React.createElement("th", null, t.project), /* @__PURE__ */ React.createElement("th", null, t.squad), /* @__PURE__ */ React.createElement("th", null, t.owner), /* @__PURE__ */ React.createElement("th", null, t.progress), /* @__PURE__ */ React.createElement("th", null, t.status))), /* @__PURE__ */ React.createElement("tbody", null, shown.map((p0) => {
     const p = loc(p0);
-    return /*#__PURE__*/React.createElement("tr", {
-      key: p.key,
-      onClick: () => setSel(p0)
-    }, /*#__PURE__*/React.createElement("td", {
-      className: "mono",
-      style: {
-        fontWeight: 700
-      }
-    }, p.key), /*#__PURE__*/React.createElement("td", null, p.name), /*#__PURE__*/React.createElement("td", null, p.squad), /*#__PURE__*/React.createElement("td", null, p.owner), /*#__PURE__*/React.createElement("td", null, p.pct, "%"), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("span", {
-      className: "pill " + p.status
-    }, SL[p.status])));
-  })))), lens === "releases" && /*#__PURE__*/React.createElement("div", {
-    className: "rels"
-  }, D.releases.map(r => /*#__PURE__*/React.createElement("div", {
-    className: "rel" + (r.now ? " now" : ""),
-    key: r.ver
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "tick"
-  }, r.done ? "✓" : "→"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "rel-h"
-  }, /*#__PURE__*/React.createElement("b", null, r.ver), /*#__PURE__*/React.createElement("span", {
-    className: "pill " + (r.now ? "active" : "done")
-  }, r.now ? t.thisWeek : t.shipped), /*#__PURE__*/React.createElement("span", {
-    className: "muted"
-  }, VI ? VI.relWhen[r.ver] || r.when : r.when)), /*#__PURE__*/React.createElement("div", {
-    className: "rel-sec"
-  }, /*#__PURE__*/React.createElement("h4", null, VI ? VI.relTitles[r.ver] || r.title : r.title), /*#__PURE__*/React.createElement("ul", null, (VI ? VI.relItems[r.ver] || r.items : r.items).map((it, i) => /*#__PURE__*/React.createElement("li", {
-    key: i
-  }, it)))))))), /*#__PURE__*/React.createElement("p", {
-    className: "ft"
-  }, lang === "vi" ? /*#__PURE__*/React.createElement(React.Fragment, null, "CyberSkill Status Hub \u2014 b\u1EA3n t\xE1i hi\u1EC7n UI kit c\u1EE7a design system. D\u1EF1ng tr\xEAn token ", /*#__PURE__*/React.createElement("span", {
-    className: "mono"
-  }, "styles.css"), ". Turn Your Will Into Real.") : /*#__PURE__*/React.createElement(React.Fragment, null, "CyberSkill Status Hub \u2014 a design-system UI kit recreation. Built on ", /*#__PURE__*/React.createElement("span", {
-    className: "mono"
-  }, "styles.css"), " tokens. Turn Your Will Into Real."))), /*#__PURE__*/React.createElement(Drawer, {
-    p: sel && loc(sel),
-    onClose: () => setSel(null),
-    t: t
-  }));
+    return /* @__PURE__ */ React.createElement("tr", { key: p.key, onClick: () => setSel(p0) }, /* @__PURE__ */ React.createElement("td", { className: "mono", style: { fontWeight: 700 } }, p.key), /* @__PURE__ */ React.createElement("td", null, p.name), /* @__PURE__ */ React.createElement("td", null, p.squad), /* @__PURE__ */ React.createElement("td", null, p.owner), /* @__PURE__ */ React.createElement("td", null, p.pct, "%"), /* @__PURE__ */ React.createElement("td", null, /* @__PURE__ */ React.createElement("span", { className: "pill " + p.status }, SL[p.status])));
+  })))), lens === "releases" && /* @__PURE__ */ React.createElement("div", { className: "rels" }, D.releases.map((r) => /* @__PURE__ */ React.createElement("div", { className: "rel" + (r.now ? " now" : ""), key: r.ver }, /* @__PURE__ */ React.createElement("div", { className: "tick" }, r.done ? "✓" : "→"), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "rel-h" }, /* @__PURE__ */ React.createElement("b", null, r.ver), /* @__PURE__ */ React.createElement("span", { className: "pill " + (r.now ? "active" : "done") }, r.now ? t.thisWeek : t.shipped), /* @__PURE__ */ React.createElement("span", { className: "muted" }, VI ? VI.relWhen[r.ver] || r.when : r.when)), /* @__PURE__ */ React.createElement("div", { className: "rel-sec" }, /* @__PURE__ */ React.createElement("h4", null, VI ? VI.relTitles[r.ver] || r.title : r.title), /* @__PURE__ */ React.createElement("ul", null, (VI ? VI.relItems[r.ver] || r.items : r.items).map((it, i) => /* @__PURE__ */ React.createElement("li", { key: i }, it)))))))), /* @__PURE__ */ React.createElement("p", { className: "ft" }, lang === "vi" ? /* @__PURE__ */ React.createElement(React.Fragment, null, "CyberSkill Status Hub — bản tái hiện UI kit của design system. Dựng trên token ", /* @__PURE__ */ React.createElement("span", { className: "mono" }, "styles.css"), ". Turn Your Will Into Real.") : /* @__PURE__ */ React.createElement(React.Fragment, null, "CyberSkill Status Hub — a design-system UI kit recreation. Built on ", /* @__PURE__ */ React.createElement("span", { className: "mono" }, "styles.css"), " tokens. Turn Your Will Into Real."))), /* @__PURE__ */ React.createElement(Drawer, { p: sel && loc(sel), onClose: () => setSel(null), t }));
 }
 window.StatusHub = StatusHub;
 })(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/status-hub/StatusHub.jsx", error: String((e && e.message) || e) }); }
 
 // ui_kits/status-hub/data.js
 try { (() => {
-// CyberSkill Status Hub — sample data (fictional, on-brand). window.SH_DATA
 window.SH_DATA = {
   updated: "18 Jul 2026, 13:20 ICT",
-  velocity: [{
-    wk: "W23",
-    n: 4
-  }, {
-    wk: "W24",
-    n: 7
-  }, {
-    wk: "W25",
-    n: 5
-  }, {
-    wk: "W26",
-    n: 9
-  }, {
-    wk: "W27",
-    n: 6
-  }, {
-    wk: "W28",
-    n: 11
-  }, {
-    wk: "W29",
-    n: 8
-  }],
-  projects: [{
-    key: "CDS",
-    name: "Design System v1.6",
-    status: "active",
-    pct: 72,
-    blurb: "Liquid Glass component bindings + 50 style packs.",
-    seg: {
-      done: 62,
-      active: 20,
-      hold: 4,
-      todo: 14
+  velocity: [
+    { wk: "W23", n: 4 },
+    { wk: "W24", n: 7 },
+    { wk: "W25", n: 5 },
+    { wk: "W26", n: 9 },
+    { wk: "W27", n: 6 },
+    { wk: "W28", n: 11 },
+    { wk: "W29", n: 8 }
+  ],
+  projects: [
+    {
+      key: "CDS",
+      name: "Design System v1.6",
+      status: "active",
+      pct: 72,
+      blurb: "Liquid Glass component bindings + 15 element packs.",
+      seg: { done: 62, active: 20, hold: 4, todo: 14 },
+      owner: "Design Lead",
+      updated: "2h ago",
+      squad: "Platform",
+      tasks: [["TASK-DS-041", "Glass surface bindings", "done"], ["TASK-DS-047", "Element-pack verifier v2", "active"], ["TASK-DS-052", "Dark-mode APCA re-check", "active"], ["TASK-DS-055", "Figma variable sync", "todo"]],
+      risk: ""
     },
-    owner: "Design Lead",
-    updated: "2h ago",
-    squad: "Platform",
-    tasks: [["TASK-DS-041", "Glass surface bindings", "done"], ["TASK-DS-047", "Style-pack verifier v2", "active"], ["TASK-DS-052", "Dark-mode APCA re-check", "active"], ["TASK-DS-055", "Figma variable sync", "todo"]],
-    risk: ""
-  }, {
-    key: "GENIE",
-    name: "Lumi Genie Chat",
-    status: "active",
-    pct: 58,
-    blurb: "Keyless Claude proxy; scripted wish-capture flow.",
-    seg: {
-      done: 48,
-      active: 24,
-      hold: 8,
-      todo: 20
+    {
+      key: "GENIE",
+      name: "Lumi Genie Chat",
+      status: "active",
+      pct: 58,
+      blurb: "Keyless Claude proxy; scripted wish-capture flow.",
+      seg: { done: 48, active: 24, hold: 8, todo: 20 },
+      owner: "AI Lead",
+      updated: "5h ago",
+      squad: "AI",
+      tasks: [["TASK-CHAR-026", "In-chat wish flow", "done"], ["TASK-CHAR-030", "One-time mascot hint", "active"], ["TASK-CHAR-021", "Golden-genie GLB", "hold"]],
+      risk: "GLB art asset is a hard external dependency — commission not yet confirmed (TASK-CHAR-021)."
     },
-    owner: "AI Lead",
-    updated: "5h ago",
-    squad: "AI",
-    tasks: [["TASK-CHAR-026", "In-chat wish flow", "done"], ["TASK-CHAR-030", "One-time mascot hint", "active"], ["TASK-CHAR-021", "Golden-genie GLB", "hold"]],
-    risk: "GLB art asset is a hard external dependency — commission not yet confirmed (TASK-CHAR-021)."
-  }, {
-    key: "SITE",
-    name: "cyberskill.world",
-    status: "active",
-    pct: 84,
-    blurb: "Bilingual storytelling landing; lead capture live.",
-    seg: {
-      done: 78,
-      active: 12,
-      hold: 0,
-      todo: 10
+    {
+      key: "SITE",
+      name: "cyberskill.world",
+      status: "active",
+      pct: 84,
+      blurb: "Bilingual storytelling landing; lead capture live.",
+      seg: { done: 78, active: 12, hold: 0, todo: 10 },
+      owner: "Web Lead",
+      updated: "1h ago",
+      squad: "Growth",
+      tasks: [["TASK-BIZ-003", "Lead pipeline e2e", "done"], ["TASK-SEO-012", "llms.txt route", "done"], ["TASK-CTA-020", "Teardown funnel polish", "active"]],
+      risk: ""
     },
-    owner: "Web Lead",
-    updated: "1h ago",
-    squad: "Growth",
-    tasks: [["TASK-BIZ-003", "Lead pipeline e2e", "done"], ["TASK-SEO-012", "llms.txt route", "done"], ["TASK-CTA-020", "Teardown funnel polish", "active"]],
-    risk: ""
-  }, {
-    key: "OS",
-    name: "CyberOS Agent Spine",
-    status: "hold",
-    pct: 41,
-    blurb: "BRAIN memory store + HITL acceptance gates.",
-    seg: {
-      done: 36,
-      active: 8,
-      hold: 30,
-      todo: 26
+    {
+      key: "OS",
+      name: "CyberOS Agent Spine",
+      status: "hold",
+      pct: 41,
+      blurb: "BRAIN memory store + HITL acceptance gates.",
+      seg: { done: 36, active: 8, hold: 30, todo: 26 },
+      owner: "Eng Lead",
+      updated: "1d ago",
+      squad: "Platform",
+      tasks: [["TASK-OS-018", "Gate runner", "done"], ["TASK-OS-022", "Memory compaction", "hold"], ["TASK-OS-025", "Provenance ledger", "hold"]],
+      risk: "Blocked on infra: provenance ledger needs the signing service (target Q1 2027)."
     },
-    owner: "Eng Lead",
-    updated: "1d ago",
-    squad: "Platform",
-    tasks: [["TASK-OS-018", "Gate runner", "done"], ["TASK-OS-022", "Memory compaction", "hold"], ["TASK-OS-025", "Provenance ledger", "hold"]],
-    risk: "Blocked on infra: provenance ledger needs the signing service (target Q1 2027)."
-  }, {
-    key: "AUDIT",
-    name: "DS Audit Framework",
-    status: "done",
-    pct: 100,
-    blurb: "125-criteria vendor-neutral audit; L3 tier held.",
-    seg: {
-      done: 100,
-      active: 0,
-      hold: 0,
-      todo: 0
+    {
+      key: "AUDIT",
+      name: "DS Audit Framework",
+      status: "done",
+      pct: 100,
+      blurb: "125-criteria vendor-neutral audit; L3 tier held.",
+      seg: { done: 100, active: 0, hold: 0, todo: 0 },
+      owner: "DesignOps",
+      updated: "3d ago",
+      squad: "Platform",
+      tasks: [["TASK-AUD-009", "Deterministic engine", "done"], ["TASK-AUD-011", "No-regression CI gate", "done"]],
+      risk: ""
     },
-    owner: "DesignOps",
-    updated: "3d ago",
-    squad: "Platform",
-    tasks: [["TASK-AUD-009", "Deterministic engine", "done"], ["TASK-AUD-011", "No-regression CI gate", "done"]],
-    risk: ""
-  }, {
-    key: "TOKENS",
-    name: "Token Pipeline",
-    status: "active",
-    pct: 66,
-    blurb: "DTCG → CSS/TS/Swift/Kotlin/Flutter/Figma.",
-    seg: {
-      done: 58,
-      active: 22,
-      hold: 0,
-      todo: 20
+    {
+      key: "TOKENS",
+      name: "Token Pipeline",
+      status: "active",
+      pct: 66,
+      blurb: "DTCG → CSS/TS/Swift/Kotlin/Flutter/Figma.",
+      seg: { done: 58, active: 22, hold: 0, todo: 20 },
+      owner: "Eng Lead",
+      updated: "6h ago",
+      squad: "Platform",
+      tasks: [["TASK-TOK-014", "Contrast grid export", "done"], ["TASK-TOK-019", "Flutter target", "active"], ["TASK-TOK-021", "Provenance JSON", "todo"]],
+      risk: ""
+    }
+  ],
+  releases: [
+    {
+      ver: "v1.6.0",
+      when: "This week",
+      now: true,
+      done: false,
+      title: "Glass bindings + element-pack v2",
+      items: ["Opt-in .cs-surface-* component bindings", "Element-pack verifier v2 (0 warnings across 15)", "Dark-mode APCA re-check"]
     },
-    owner: "Eng Lead",
-    updated: "6h ago",
-    squad: "Platform",
-    tasks: [["TASK-TOK-014", "Contrast grid export", "done"], ["TASK-TOK-019", "Flutter target", "active"], ["TASK-TOK-021", "Provenance JSON", "todo"]],
-    risk: ""
-  }],
-  releases: [{
-    ver: "v1.6.0",
-    when: "This week",
-    now: true,
-    done: false,
-    title: "Glass bindings + style-pack v2",
-    items: ["Opt-in .cs-surface-* component bindings", "Style-pack verifier v2 (0 warnings across 50)", "Dark-mode APCA re-check"]
-  }, {
-    ver: "v1.5.1",
-    when: "04 Jul 2026",
-    now: false,
-    done: true,
-    title: "50 style packs ship",
-    items: ["All 50 packs promoted to shipped", "Per-pack screenshot regression", "Gallery build script"]
-  }, {
-    ver: "v1.4.0",
-    when: "13 Jun 2026",
-    now: false,
-    done: true,
-    title: "Liquid Glass in code",
-    items: ["--cs-glass-* + --cs-depth-* scalars", "glass.css material layer", "Reduced-transparency fallbacks"]
-  }, {
-    ver: "v1.3.0",
-    when: "14 May 2026",
-    now: false,
-    done: true,
-    title: "Brand assets + Logo",
-    items: ["Official master mark ships", "React <Logo> from master artwork", "Light becomes default theme"]
-  }]
+    {
+      ver: "v1.5.1",
+      when: "04 Jul 2026",
+      now: false,
+      done: true,
+      title: "15 element packs ship",
+      items: ["All 15 packs promoted to shipped", "Per-pack screenshot regression", "Gallery build script"]
+    },
+    {
+      ver: "v1.4.0",
+      when: "13 Jun 2026",
+      now: false,
+      done: true,
+      title: "Liquid Glass in code",
+      items: ["--cs-glass-* + --cs-depth-* scalars", "glass.css material layer", "Reduced-transparency fallbacks"]
+    },
+    {
+      ver: "v1.3.0",
+      when: "14 May 2026",
+      now: false,
+      done: true,
+      title: "Brand assets + Logo",
+      items: ["Official master mark ships", "React <Logo> from master artwork", "Light becomes default theme"]
+    }
+  ]
 };
-
-// Vietnamese variants (kit fully EN⇄VN per owner decision, Jul 2026). window.SH_VI
 window.SH_VI = {
   updated: "18/07/2026, 13:20 ICT",
-  blurbs: {
-    CDS: "Liên kết component Liquid Glass + 50 gói phong cách.",
-    GENIE: "Proxy Claude không cần khóa; luồng tiếp nhận điều ước theo kịch bản.",
-    SITE: "Trang giới thiệu song ngữ kể chuyện; thu lead đang chạy.",
-    OS: "Kho nhớ BRAIN + cổng nghiệm thu có con người.",
-    AUDIT: "Bộ kiểm định trung lập 125 tiêu chí; giữ hạng L3.",
-    TOKENS: "DTCG → CSS/TS/Swift/Kotlin/Flutter/Figma."
-  },
-  risks: {
-    GENIE: "Tài sản GLB là phụ thuộc ngoài khó — chưa chốt đặt hàng (TASK-CHAR-021).",
-    OS: "Bị chặn bởi hạ tầng: sổ cái nguồn gốc cần dịch vụ ký số (mục tiêu Q1 2027)."
-  },
-  owners: {
-    "Design Lead": "Trưởng thiết kế",
-    "AI Lead": "Trưởng AI",
-    "Web Lead": "Trưởng web",
-    "Eng Lead": "Trưởng kỹ thuật",
-    "DesignOps": "DesignOps"
-  },
-  squads: {
-    Platform: "Nền tảng",
-    AI: "AI",
-    Growth: "Tăng trưởng"
-  },
-  updatedRel: {
-    "2h ago": "2 giờ trước",
-    "5h ago": "5 giờ trước",
-    "1h ago": "1 giờ trước",
-    "1d ago": "1 ngày trước",
-    "3d ago": "3 ngày trước",
-    "6h ago": "6 giờ trước"
-  },
-  relWhen: {
-    "v1.6.0": "Tuần này",
-    "v1.5.1": "04/07/2026",
-    "v1.4.0": "13/06/2026",
-    "v1.3.0": "14/05/2026"
-  },
-  relTitles: {
-    "v1.6.0": "Liên kết Glass + gói phong cách v2",
-    "v1.5.1": "50 gói phong cách ra mắt",
-    "v1.4.0": "Liquid Glass vào mã",
-    "v1.3.0": "Tài sản thương hiệu + Logo"
-  },
-  relItems: {
-    "v1.6.0": ["Liên kết component .cs-surface-* (tùy chọn)", "Trình kiểm gói phong cách v2 (0 cảnh báo trên 50 gói)", "Kiểm tra lại APCA cho chế độ tối"],
-    "v1.5.1": ["Cả 50 gói lên trạng thái đã ra mắt", "Regression ảnh chụp từng gói", "Script dựng gallery"],
-    "v1.4.0": ["Scalar --cs-glass-* + --cs-depth-*", "Lớp chất liệu glass.css", "Fallback khi giảm độ trong suốt"],
-    "v1.3.0": ["Master mark chính thức ra mắt", "<Logo> React từ artwork gốc", "Light thành theme mặc định"]
-  }
+  blurbs: { CDS: "Liên kết component Liquid Glass + 15 gói Ngũ Hành.", GENIE: "Proxy Claude không cần khóa; luồng tiếp nhận điều ước theo kịch bản.", SITE: "Trang giới thiệu song ngữ kể chuyện; thu lead đang chạy.", OS: "Kho nhớ BRAIN + cổng nghiệm thu có con người.", AUDIT: "Bộ kiểm định trung lập 125 tiêu chí; giữ hạng L3.", TOKENS: "DTCG → CSS/TS/Swift/Kotlin/Flutter/Figma." },
+  risks: { GENIE: "Tài sản GLB là phụ thuộc ngoài khó — chưa chốt đặt hàng (TASK-CHAR-021).", OS: "Bị chặn bởi hạ tầng: sổ cái nguồn gốc cần dịch vụ ký số (mục tiêu Q1 2027)." },
+  owners: { "Design Lead": "Trưởng thiết kế", "AI Lead": "Trưởng AI", "Web Lead": "Trưởng web", "Eng Lead": "Trưởng kỹ thuật", "DesignOps": "DesignOps" },
+  squads: { Platform: "Nền tảng", AI: "AI", Growth: "Tăng trưởng" },
+  updatedRel: { "2h ago": "2 giờ trước", "5h ago": "5 giờ trước", "1h ago": "1 giờ trước", "1d ago": "1 ngày trước", "3d ago": "3 ngày trước", "6h ago": "6 giờ trước" },
+  relWhen: { "v1.6.0": "Tuần này", "v1.5.1": "04/07/2026", "v1.4.0": "13/06/2026", "v1.3.0": "14/05/2026" },
+  relTitles: { "v1.6.0": "Liên kết Glass + gói Ngũ Hành v2", "v1.5.1": "15 gói Ngũ Hành ra mắt", "v1.4.0": "Liquid Glass vào mã", "v1.3.0": "Tài sản thương hiệu + Logo" },
+  relItems: { "v1.6.0": ["Liên kết component .cs-surface-* (tùy chọn)", "Trình kiểm gói Ngũ Hành v2 (0 cảnh báo trên 15 gói)", "Kiểm tra lại APCA cho chế độ tối"], "v1.5.1": ["Cả 15 gói lên trạng thái đã ra mắt", "Regression ảnh chụp từng gói", "Script dựng gallery"], "v1.4.0": ["Scalar --cs-glass-* + --cs-depth-*", "Lớp chất liệu glass.css", "Fallback khi giảm độ trong suốt"], "v1.3.0": ["Master mark chính thức ra mắt", "<Logo> React từ artwork gốc", "Light thành theme mặc định"] }
 };
 })(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/status-hub/data.js", error: String((e && e.message) || e) }); }
 
 // ui_kits/website/Website.jsx
 try { (() => {
-const {
-  useState,
-  useRef,
-  useEffect
-} = React;
-function I({
-  name,
-  size = 20,
-  stroke = 1.9
-}) {
+const { useState, useRef, useEffect } = React;
+function I({ name, size = 20, stroke = 1.9 }) {
   const p = {
     sparkle: "M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6z",
     chat: "M4 5h16v11H8l-4 4z",
@@ -9490,29 +5205,10 @@ function I({
     sun: "M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4",
     moon: "M20 13.5A8 8 0 1 1 10.5 4a6.5 6.5 0 0 0 9.5 9.5z"
   }[name];
-  return /*#__PURE__*/React.createElement("svg", {
-    width: size,
-    height: size,
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: stroke,
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: p
-  }));
+  return /* @__PURE__ */ React.createElement("svg", { width: size, height: size, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: stroke, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" }, /* @__PURE__ */ React.createElement("path", { d: p }));
 }
-function Chat({
-  t,
-  seed,
-  onClose
-}) {
-  const [msgs, setMsgs] = useState([{
-    who: "bot",
-    text: t.genie.greeting
-  }]);
+function Chat({ t, seed, onClose }) {
+  const [msgs, setMsgs] = useState([{ who: "bot", text: t.genie.greeting }]);
   const [val, setVal] = useState("");
   const bodyRef = useRef(null);
   useEffect(() => {
@@ -9525,50 +5221,11 @@ function Chat({
   function send(text) {
     const m = (text || "").trim();
     if (!m) return;
-    setMsgs(cur => [...cur, {
-      who: "me",
-      text: m
-    }]);
+    setMsgs((cur) => [...cur, { who: "me", text: m }]);
     setVal("");
-    setTimeout(() => setMsgs(cur => [...cur, {
-      who: "bot",
-      text: "A wish worth granting. I’ll hand it to the team — first, what should I call you?"
-    }]), 500);
+    setTimeout(() => setMsgs((cur) => [...cur, { who: "bot", text: "A wish worth granting. I’ll hand it to the team — first, what should I call you?" }]), 500);
   }
-  return /*#__PURE__*/React.createElement("div", {
-    className: "chat"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "chat-h"
-  }, /*#__PURE__*/React.createElement("img", {
-    src: "../../assets/lumi-poster.webp",
-    alt: ""
-  }), /*#__PURE__*/React.createElement("b", null, t.genie.title), /*#__PURE__*/React.createElement("button", {
-    onClick: onClose,
-    "aria-label": "Close chat"
-  }, /*#__PURE__*/React.createElement(I, {
-    name: "close",
-    size: 18
-  }))), /*#__PURE__*/React.createElement("div", {
-    className: "chat-b",
-    ref: bodyRef
-  }, msgs.map((m, i) => /*#__PURE__*/React.createElement("div", {
-    key: i,
-    className: "msg " + m.who
-  }, m.text)), msgs.length === 1 && /*#__PURE__*/React.createElement("div", {
-    className: "chips"
-  }, t.genie.chips.map(c => /*#__PURE__*/React.createElement("button", {
-    key: c,
-    onClick: () => send(c)
-  }, c)))), /*#__PURE__*/React.createElement("div", {
-    className: "chat-f"
-  }, /*#__PURE__*/React.createElement("input", {
-    value: val,
-    onChange: e => setVal(e.target.value),
-    onKeyDown: e => e.key === "Enter" && send(val),
-    placeholder: t.genie.placeholder
-  }), /*#__PURE__*/React.createElement("button", {
-    onClick: () => send(val)
-  }, t.genie.send)));
+  return /* @__PURE__ */ React.createElement("div", { className: "chat" }, /* @__PURE__ */ React.createElement("div", { className: "chat-h" }, /* @__PURE__ */ React.createElement("img", { src: "../../assets/lumi-poster.webp", alt: "" }), /* @__PURE__ */ React.createElement("b", null, t.genie.title), /* @__PURE__ */ React.createElement("button", { onClick: onClose, "aria-label": "Close chat" }, /* @__PURE__ */ React.createElement(I, { name: "close", size: 18 }))), /* @__PURE__ */ React.createElement("div", { className: "chat-b", ref: bodyRef }, msgs.map((m, i) => /* @__PURE__ */ React.createElement("div", { key: i, className: "msg " + m.who }, m.text)), msgs.length === 1 && /* @__PURE__ */ React.createElement("div", { className: "chips" }, t.genie.chips.map((c) => /* @__PURE__ */ React.createElement("button", { key: c, onClick: () => send(c) }, c)))), /* @__PURE__ */ React.createElement("div", { className: "chat-f" }, /* @__PURE__ */ React.createElement("input", { value: val, onChange: (e) => setVal(e.target.value), onKeyDown: (e) => e.key === "Enter" && send(val), placeholder: t.genie.placeholder }), /* @__PURE__ */ React.createElement("button", { onClick: () => send(val) }, t.genie.send)));
 }
 function Website() {
   const [loc, setLoc] = useState("en");
@@ -9582,234 +5239,16 @@ function Website() {
     setSeed(s || "");
     setChat(true);
   }
-  return /*#__PURE__*/React.createElement("div", {
-    className: "site",
-    "data-theme": dark ? "dark" : undefined
-  }, /*#__PURE__*/React.createElement("header", {
-    className: "hdr cs-surface-light"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "container hdr-in"
-  }, /*#__PURE__*/React.createElement("a", {
-    className: "brand",
-    href: "#top"
-  }, /*#__PURE__*/React.createElement("img", {
-    src: "../../assets/logo-mark.svg",
-    alt: ""
-  }), "CyberSkill"), /*#__PURE__*/React.createElement("nav", {
-    className: "nav"
-  }, t.nav.map((n, i) => /*#__PURE__*/React.createElement("a", {
-    key: i,
-    href: "#" + ["services", "work", "process", "careers", "contact"][i]
-  }, n))), /*#__PURE__*/React.createElement("div", {
-    className: "hdr-side"
-  }, /*#__PURE__*/React.createElement("button", {
-    className: "mini",
-    onClick: () => setLoc(loc === "en" ? "vi" : "en")
-  }, t.langLabel), /*#__PURE__*/React.createElement("button", {
-    className: "mini icon",
-    onClick: () => setDark(!dark),
-    "aria-label": "Toggle theme"
-  }, /*#__PURE__*/React.createElement(I, {
-    name: dark ? "sun" : "moon",
-    size: 18
-  })), /*#__PURE__*/React.createElement("button", {
-    className: "mini",
-    style: {
-      background: "var(--cs-color-brand-umber)",
-      color: "#fff",
-      borderColor: "transparent"
-    },
-    onClick: () => openChat("")
-  }, t.talk)))), /*#__PURE__*/React.createElement("section", {
-    className: "hero",
-    id: "top"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "container hero-in"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow"
-  }, t.eyebrow), /*#__PURE__*/React.createElement("h1", null, t.slogan), /*#__PURE__*/React.createElement("div", {
-    className: "vn"
-  }, t.sub), /*#__PURE__*/React.createElement("p", {
-    className: "lead"
-  }, t.lead), /*#__PURE__*/React.createElement("div", {
-    className: "wish"
-  }, /*#__PURE__*/React.createElement("input", {
-    value: wish,
-    onChange: e => setWish(e.target.value),
-    onKeyDown: e => e.key === "Enter" && openChat(wish),
-    placeholder: t.wishPlaceholder,
-    "aria-label": t.wishPlaceholder
-  }), /*#__PURE__*/React.createElement("button", {
-    className: "btn-gold",
-    onClick: () => openChat(wish)
-  }, /*#__PURE__*/React.createElement(I, {
-    name: "sparkle",
-    size: 18
-  }), t.wishCta), /*#__PURE__*/React.createElement("button", {
-    className: "btn-ghost-light",
-    onClick: () => openChat("")
-  }, t.talk))), /*#__PURE__*/React.createElement("div", {
-    className: "hero-art"
-  }, /*#__PURE__*/React.createElement("img", {
-    src: "../../assets/lumi-poster.webp",
-    alt: "Lumi, the golden genie"
-  })))), /*#__PURE__*/React.createElement("div", {
-    className: "marq"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "container marq-in"
-  }, t.marquee.map((m, i) => /*#__PURE__*/React.createElement(React.Fragment, {
-    key: i
-  }, i > 0 && /*#__PURE__*/React.createElement("b", null, "\xB7"), /*#__PURE__*/React.createElement("span", null, m))))), /*#__PURE__*/React.createElement("section", {
-    className: "sec",
-    id: "services"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "container"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow"
-  }, t.nav[0]), /*#__PURE__*/React.createElement("h2", null, t.servicesTitle), /*#__PURE__*/React.createElement("p", {
-    className: "sec-lead"
-  }, t.servicesLead), /*#__PURE__*/React.createElement("div", {
-    className: "svc-grid"
-  }, t.services.map((s, i) => /*#__PURE__*/React.createElement("article", {
-    className: "svc cs-surface-standard",
-    key: i
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "svc-ic"
-  }, /*#__PURE__*/React.createElement(I, {
-    name: s.icon
-  })), /*#__PURE__*/React.createElement("h3", null, s.t), /*#__PURE__*/React.createElement("p", null, s.s), /*#__PURE__*/React.createElement("ul", null, s.o.map(o => /*#__PURE__*/React.createElement("li", {
-    key: o
-  }, o)))))))), /*#__PURE__*/React.createElement("section", {
-    className: "sec sec-alt",
-    id: "process"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "container"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow"
-  }, t.nav[2]), /*#__PURE__*/React.createElement("h2", null, t.processTitle), /*#__PURE__*/React.createElement("p", {
-    className: "sec-lead"
-  }, t.processLead), /*#__PURE__*/React.createElement("div", {
-    className: "steps"
-  }, t.steps.map(s => /*#__PURE__*/React.createElement("div", {
-    className: "step",
-    key: s.n
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "n"
-  }, s.n), /*#__PURE__*/React.createElement("h3", null, s.t), /*#__PURE__*/React.createElement("p", null, s.s)))))), /*#__PURE__*/React.createElement("section", {
-    className: "sec",
-    id: "careers"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "container"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "band"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", null, t.careersTitle), /*#__PURE__*/React.createElement("p", null, t.careersLead)), /*#__PURE__*/React.createElement("button", {
-    className: "btn-gold",
-    onClick: () => openChat("")
-  }, t.careersCta, /*#__PURE__*/React.createElement(I, {
-    name: "arrow-right",
-    size: 18
-  }))))), /*#__PURE__*/React.createElement("section", {
-    className: "sec sec-alt",
-    id: "contact"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "container contact-grid"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow"
-  }, t.nav[4]), /*#__PURE__*/React.createElement("h2", null, t.contactTitle), /*#__PURE__*/React.createElement("p", {
-    className: "sec-lead",
-    style: {
-      marginBottom: 16
-    }
-  }, t.contactLead), /*#__PURE__*/React.createElement("p", {
-    className: "trust"
-  }, /*#__PURE__*/React.createElement(I, {
-    name: "check",
-    size: 16
-  }), t.form.trust)), sent ? /*#__PURE__*/React.createElement("div", {
-    className: "sent"
-  }, /*#__PURE__*/React.createElement(I, {
-    name: "check",
-    size: 18
-  }), " ", loc === "vi" ? "Đã nhận được lời nhắn. Cảm ơn bạn!" : "Message received. Thank you!") : /*#__PURE__*/React.createElement("form", {
-    className: "form",
-    onSubmit: e => {
-      e.preventDefault();
-      setSent(true);
-    }
-  }, /*#__PURE__*/React.createElement("label", {
-    className: "cs-field"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "cs-field__label"
-  }, t.form.name), /*#__PURE__*/React.createElement("input", {
-    className: "cs-field__control",
-    required: true
-  })), /*#__PURE__*/React.createElement("label", {
-    className: "cs-field"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "cs-field__label"
-  }, t.form.email), /*#__PURE__*/React.createElement("input", {
-    className: "cs-field__control",
-    type: "email",
-    required: true
-  })), /*#__PURE__*/React.createElement("label", {
-    className: "cs-field"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "cs-field__label"
-  }, t.form.company, " ", /*#__PURE__*/React.createElement("span", {
-    className: "muted",
-    style: {
-      fontWeight: 400,
-      color: "var(--cs-color-text-muted)"
-    }
-  }, "\xB7 ", t.form.optional)), /*#__PURE__*/React.createElement("input", {
-    className: "cs-field__control"
-  })), /*#__PURE__*/React.createElement("label", {
-    className: "cs-field"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "cs-field__label"
-  }, t.form.message), /*#__PURE__*/React.createElement("textarea", {
-    className: "cs-field__control",
-    rows: "3"
-  })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", {
-    type: "submit",
-    className: "btn-gold"
-  }, t.form.submit, /*#__PURE__*/React.createElement(I, {
-    name: "arrow-right",
-    size: 18
-  })))))), /*#__PURE__*/React.createElement("footer", {
-    className: "ft"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "container ft-in"
-  }, /*#__PURE__*/React.createElement("a", {
-    className: "brand",
-    href: "#top"
-  }, /*#__PURE__*/React.createElement("img", {
-    src: "../../assets/logo-mark.svg",
-    alt: ""
-  }), "CyberSkill"), /*#__PURE__*/React.createElement("div", {
-    className: "ft-links"
-  }, t.footerLinks.map(l => /*#__PURE__*/React.createElement("a", {
-    key: l,
-    href: "#top"
-  }, l))), /*#__PURE__*/React.createElement("small", null, "\xA9 2026 CyberSkill \xB7 ", t.footerRights, " \xB7 Saigon"))), !chat && /*#__PURE__*/React.createElement("button", {
-    className: "fab",
-    onClick: () => openChat("")
-  }, /*#__PURE__*/React.createElement("img", {
-    src: "../../assets/lumi-poster.webp",
-    alt: ""
-  }), t.talk), chat && /*#__PURE__*/React.createElement(Chat, {
-    t: t,
-    seed: seed,
-    onClose: () => setChat(false)
-  }));
+  return /* @__PURE__ */ React.createElement("div", { className: "site", "data-theme": dark ? "dark" : void 0 }, /* @__PURE__ */ React.createElement("header", { className: "hdr cs-surface-light" }, /* @__PURE__ */ React.createElement("div", { className: "container hdr-in" }, /* @__PURE__ */ React.createElement("a", { className: "brand", href: "#top" }, /* @__PURE__ */ React.createElement("img", { src: "../../assets/logo-mark.svg", alt: "" }), "CyberSkill"), /* @__PURE__ */ React.createElement("nav", { className: "nav" }, t.nav.map((n, i) => /* @__PURE__ */ React.createElement("a", { key: i, href: "#" + ["services", "work", "process", "careers", "contact"][i] }, n))), /* @__PURE__ */ React.createElement("div", { className: "hdr-side" }, /* @__PURE__ */ React.createElement("button", { className: "mini", onClick: () => setLoc(loc === "en" ? "vi" : "en") }, t.langLabel), /* @__PURE__ */ React.createElement("button", { className: "mini icon", onClick: () => setDark(!dark), "aria-label": "Toggle theme" }, /* @__PURE__ */ React.createElement(I, { name: dark ? "sun" : "moon", size: 18 })), /* @__PURE__ */ React.createElement("button", { className: "mini", style: { background: "var(--cs-color-brand-umber)", color: "#fff", borderColor: "transparent" }, onClick: () => openChat("") }, t.talk)))), /* @__PURE__ */ React.createElement("section", { className: "hero", id: "top" }, /* @__PURE__ */ React.createElement("div", { className: "container hero-in" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "eyebrow" }, t.eyebrow), /* @__PURE__ */ React.createElement("h1", null, t.slogan), /* @__PURE__ */ React.createElement("div", { className: "vn" }, t.sub), /* @__PURE__ */ React.createElement("p", { className: "lead" }, t.lead), /* @__PURE__ */ React.createElement("div", { className: "wish" }, /* @__PURE__ */ React.createElement("input", { value: wish, onChange: (e) => setWish(e.target.value), onKeyDown: (e) => e.key === "Enter" && openChat(wish), placeholder: t.wishPlaceholder, "aria-label": t.wishPlaceholder }), /* @__PURE__ */ React.createElement("button", { className: "btn-gold", onClick: () => openChat(wish) }, /* @__PURE__ */ React.createElement(I, { name: "sparkle", size: 18 }), t.wishCta), /* @__PURE__ */ React.createElement("button", { className: "btn-ghost-light", onClick: () => openChat("") }, t.talk))), /* @__PURE__ */ React.createElement("div", { className: "hero-art" }, /* @__PURE__ */ React.createElement("img", { src: "../../assets/lumi-poster.webp", alt: "Lumi, the golden genie" })))), /* @__PURE__ */ React.createElement("div", { className: "marq" }, /* @__PURE__ */ React.createElement("div", { className: "container marq-in" }, t.marquee.map((m, i) => /* @__PURE__ */ React.createElement(React.Fragment, { key: i }, i > 0 && /* @__PURE__ */ React.createElement("b", null, "·"), /* @__PURE__ */ React.createElement("span", null, m))))), /* @__PURE__ */ React.createElement("section", { className: "sec", id: "services" }, /* @__PURE__ */ React.createElement("div", { className: "container" }, /* @__PURE__ */ React.createElement("div", { className: "eyebrow" }, t.nav[0]), /* @__PURE__ */ React.createElement("h2", null, t.servicesTitle), /* @__PURE__ */ React.createElement("p", { className: "sec-lead" }, t.servicesLead), /* @__PURE__ */ React.createElement("div", { className: "svc-grid" }, t.services.map((s, i) => /* @__PURE__ */ React.createElement("article", { className: "svc cs-surface-standard", key: i }, /* @__PURE__ */ React.createElement("div", { className: "svc-ic" }, /* @__PURE__ */ React.createElement(I, { name: s.icon })), /* @__PURE__ */ React.createElement("h3", null, s.t), /* @__PURE__ */ React.createElement("p", null, s.s), /* @__PURE__ */ React.createElement("ul", null, s.o.map((o) => /* @__PURE__ */ React.createElement("li", { key: o }, o)))))))), /* @__PURE__ */ React.createElement("section", { className: "sec sec-alt", id: "process" }, /* @__PURE__ */ React.createElement("div", { className: "container" }, /* @__PURE__ */ React.createElement("div", { className: "eyebrow" }, t.nav[2]), /* @__PURE__ */ React.createElement("h2", null, t.processTitle), /* @__PURE__ */ React.createElement("p", { className: "sec-lead" }, t.processLead), /* @__PURE__ */ React.createElement("div", { className: "steps" }, t.steps.map((s) => /* @__PURE__ */ React.createElement("div", { className: "step", key: s.n }, /* @__PURE__ */ React.createElement("span", { className: "n" }, s.n), /* @__PURE__ */ React.createElement("h3", null, s.t), /* @__PURE__ */ React.createElement("p", null, s.s)))))), /* @__PURE__ */ React.createElement("section", { className: "sec", id: "careers" }, /* @__PURE__ */ React.createElement("div", { className: "container" }, /* @__PURE__ */ React.createElement("div", { className: "band" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h2", null, t.careersTitle), /* @__PURE__ */ React.createElement("p", null, t.careersLead)), /* @__PURE__ */ React.createElement("button", { className: "btn-gold", onClick: () => openChat("") }, t.careersCta, /* @__PURE__ */ React.createElement(I, { name: "arrow-right", size: 18 }))))), /* @__PURE__ */ React.createElement("section", { className: "sec sec-alt", id: "contact" }, /* @__PURE__ */ React.createElement("div", { className: "container contact-grid" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "eyebrow" }, t.nav[4]), /* @__PURE__ */ React.createElement("h2", null, t.contactTitle), /* @__PURE__ */ React.createElement("p", { className: "sec-lead", style: { marginBottom: 16 } }, t.contactLead), /* @__PURE__ */ React.createElement("p", { className: "trust" }, /* @__PURE__ */ React.createElement(I, { name: "check", size: 16 }), t.form.trust)), sent ? /* @__PURE__ */ React.createElement("div", { className: "sent" }, /* @__PURE__ */ React.createElement(I, { name: "check", size: 18 }), " ", loc === "vi" ? "Đã nhận được lời nhắn. Cảm ơn bạn!" : "Message received. Thank you!") : /* @__PURE__ */ React.createElement("form", { className: "form", onSubmit: (e) => {
+    e.preventDefault();
+    setSent(true);
+  } }, /* @__PURE__ */ React.createElement("label", { className: "cs-field" }, /* @__PURE__ */ React.createElement("span", { className: "cs-field__label" }, t.form.name), /* @__PURE__ */ React.createElement("input", { className: "cs-field__control", required: true })), /* @__PURE__ */ React.createElement("label", { className: "cs-field" }, /* @__PURE__ */ React.createElement("span", { className: "cs-field__label" }, t.form.email), /* @__PURE__ */ React.createElement("input", { className: "cs-field__control", type: "email", required: true })), /* @__PURE__ */ React.createElement("label", { className: "cs-field" }, /* @__PURE__ */ React.createElement("span", { className: "cs-field__label" }, t.form.company, " ", /* @__PURE__ */ React.createElement("span", { className: "muted", style: { fontWeight: 400, color: "var(--cs-color-text-muted)" } }, "· ", t.form.optional)), /* @__PURE__ */ React.createElement("input", { className: "cs-field__control" })), /* @__PURE__ */ React.createElement("label", { className: "cs-field" }, /* @__PURE__ */ React.createElement("span", { className: "cs-field__label" }, t.form.message), /* @__PURE__ */ React.createElement("textarea", { className: "cs-field__control", rows: "3" })), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("button", { type: "submit", className: "btn-gold" }, t.form.submit, /* @__PURE__ */ React.createElement(I, { name: "arrow-right", size: 18 })))))), /* @__PURE__ */ React.createElement("footer", { className: "ft" }, /* @__PURE__ */ React.createElement("div", { className: "container ft-in" }, /* @__PURE__ */ React.createElement("a", { className: "brand", href: "#top" }, /* @__PURE__ */ React.createElement("img", { src: "../../assets/logo-mark.svg", alt: "" }), "CyberSkill"), /* @__PURE__ */ React.createElement("div", { className: "ft-links" }, t.footerLinks.map((l) => /* @__PURE__ */ React.createElement("a", { key: l, href: "#top" }, l))), /* @__PURE__ */ React.createElement("small", null, "© 2026 CyberSkill · ", t.footerRights, " · Saigon"))), !chat && /* @__PURE__ */ React.createElement("button", { className: "fab", onClick: () => openChat("") }, /* @__PURE__ */ React.createElement("img", { src: "../../assets/lumi-poster.webp", alt: "" }), t.talk), chat && /* @__PURE__ */ React.createElement(Chat, { t, seed, onClose: () => setChat(false) }));
 }
 window.Website = Website;
 })(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/website/Website.jsx", error: String((e && e.message) || e) }); }
 
 // ui_kits/website/copy.js
 try { (() => {
-// cyberskill.world — real bilingual copy (EN + VN) lifted from the product
-// i18n dictionaries + content. window.SITE_COPY[locale]. Vietnamese-first.
 window.SITE_COPY = {
   en: {
     nav: ["Services", "Work", "Process", "Careers", "Contact"],
@@ -9824,62 +5263,26 @@ window.SITE_COPY = {
     marquee: ["Web apps", "Mobile apps", "Internal systems", "Automation", "Design systems", "Built to last"],
     servicesTitle: "What we build",
     servicesLead: "Three focused practices. One team that answers for the result.",
-    services: [{
-      icon: "sparkle",
-      t: "Web & mobile apps",
-      s: "Product apps your customers reach for — fast, accessible, bilingual by default.",
-      o: ["Web apps", "Mobile apps", "Design systems"]
-    }, {
-      icon: "chat",
-      t: "Internal systems & automation",
-      s: "The tools your team runs on: dashboards, workflows, and the automation behind them.",
-      o: ["Internal systems", "Automation"]
-    }, {
-      icon: "check",
-      t: "Built to last",
-      s: "Shipped software that keeps running — tested, documented, handed over cleanly.",
-      o: ["Testing", "Docs", "Handover"]
-    }],
+    services: [
+      { icon: "sparkle", t: "Web & mobile apps", s: "Product apps your customers reach for — fast, accessible, bilingual by default.", o: ["Web apps", "Mobile apps", "Design systems"] },
+      { icon: "chat", t: "Internal systems & automation", s: "The tools your team runs on: dashboards, workflows, and the automation behind them.", o: ["Internal systems", "Automation"] },
+      { icon: "check", t: "Built to last", s: "Shipped software that keeps running — tested, documented, handed over cleanly.", o: ["Testing", "Docs", "Handover"] }
+    ],
     processTitle: "The arc of a wish",
     processLead: "Every project follows one arc: from a clear wish to software running in the real world.",
-    steps: [{
-      n: "01",
-      t: "Make a wish",
-      s: "Tell us the outcome in a sentence or two. We reply within one business day."
-    }, {
-      n: "02",
-      t: "Shape it",
-      s: "A small senior team scopes the work and is honest about trade-offs."
-    }, {
-      n: "03",
-      t: "Build to ship",
-      s: "Short cycles, real software you can run — not slideware."
-    }, {
-      n: "04",
-      t: "Built to last",
-      s: "Tested, documented, handed over. It keeps running after we leave."
-    }],
+    steps: [
+      { n: "01", t: "Make a wish", s: "Tell us the outcome in a sentence or two. We reply within one business day." },
+      { n: "02", t: "Shape it", s: "A small senior team scopes the work and is honest about trade-offs." },
+      { n: "03", t: "Build to ship", s: "Short cycles, real software you can run — not slideware." },
+      { n: "04", t: "Built to last", s: "Tested, documented, handed over. It keeps running after we leave." }
+    ],
     careersTitle: "Build with us",
     careersLead: "We hire for craft and care — senior, small, and honest about trade-offs.",
     careersCta: "See open roles",
     contactTitle: "Tell us your wish",
     contactLead: "Send a short note. We reply within one business day.",
-    form: {
-      name: "Your name",
-      email: "Work email",
-      company: "Company",
-      message: "Anything we should know?",
-      submit: "Send",
-      optional: "optional",
-      trust: "Your details go straight to the team. We never share them."
-    },
-    genie: {
-      title: "Lumi · CyberSkill’s golden genie",
-      greeting: "Hello, I’m Lumi. Think of me as a friendly guide: tell me a wish, and I’ll share plain advice before asking for anything. When a wish is clear, it goes to a real person on the team.",
-      placeholder: "Type your wish…",
-      send: "Send",
-      chips: ["A web app", "An internal tool", "A design system"]
-    },
+    form: { name: "Your name", email: "Work email", company: "Company", message: "Anything we should know?", submit: "Send", optional: "optional", trust: "Your details go straight to the team. We never share them." },
+    genie: { title: "Lumi · CyberSkill’s golden genie", greeting: "Hello, I’m Lumi. Think of me as a friendly guide: tell me a wish, and I’ll share plain advice before asking for anything. When a wish is clear, it goes to a real person on the team.", placeholder: "Type your wish…", send: "Send", chips: ["A web app", "An internal tool", "A design system"] },
     footerRights: "All rights reserved.",
     footerLinks: ["Privacy", "Accessibility", "Terms"]
   },
@@ -9896,62 +5299,26 @@ window.SITE_COPY = {
     marquee: ["Ứng dụng web", "Ứng dụng di động", "Hệ thống nội bộ", "Tự động hóa", "Hệ thống thiết kế", "Bền bỉ lâu dài"],
     servicesTitle: "Chúng tôi xây dựng những gì",
     servicesLead: "Ba mảng chuyên sâu. Một đội chịu trách nhiệm đến kết quả cuối cùng.",
-    services: [{
-      icon: "sparkle",
-      t: "Ứng dụng web & di động",
-      s: "Sản phẩm khách hàng dùng mỗi ngày — nhanh, dễ tiếp cận, song ngữ mặc định.",
-      o: ["Ứng dụng web", "Di động", "Hệ thống thiết kế"]
-    }, {
-      icon: "chat",
-      t: "Hệ thống nội bộ & tự động hóa",
-      s: "Công cụ đội bạn vận hành: bảng điều khiển, quy trình và tự động hóa phía sau.",
-      o: ["Hệ thống nội bộ", "Tự động hóa"]
-    }, {
-      icon: "check",
-      t: "Bền bỉ lâu dài",
-      s: "Phần mềm bàn giao vẫn chạy tốt — được kiểm thử, tài liệu đầy đủ, bàn giao gọn.",
-      o: ["Kiểm thử", "Tài liệu", "Bàn giao"]
-    }],
+    services: [
+      { icon: "sparkle", t: "Ứng dụng web & di động", s: "Sản phẩm khách hàng dùng mỗi ngày — nhanh, dễ tiếp cận, song ngữ mặc định.", o: ["Ứng dụng web", "Di động", "Hệ thống thiết kế"] },
+      { icon: "chat", t: "Hệ thống nội bộ & tự động hóa", s: "Công cụ đội bạn vận hành: bảng điều khiển, quy trình và tự động hóa phía sau.", o: ["Hệ thống nội bộ", "Tự động hóa"] },
+      { icon: "check", t: "Bền bỉ lâu dài", s: "Phần mềm bàn giao vẫn chạy tốt — được kiểm thử, tài liệu đầy đủ, bàn giao gọn.", o: ["Kiểm thử", "Tài liệu", "Bàn giao"] }
+    ],
     processTitle: "Hành trình của một điều ước",
     processLead: "Mỗi dự án một hành trình: từ điều ước rõ đến phần mềm chạy giữa đời thật.",
-    steps: [{
-      n: "01",
-      t: "Ước một điều",
-      s: "Kể kết quả bạn muốn trong một hai câu. Chúng tôi phản hồi trong một ngày làm việc."
-    }, {
-      n: "02",
-      t: "Định hình",
-      s: "Đội nhỏ, kinh nghiệm bóc tách công việc và nói thẳng về đánh đổi."
-    }, {
-      n: "03",
-      t: "Xây để bàn giao",
-      s: "Chu kỳ ngắn, phần mềm chạy thật — không phải slide."
-    }, {
-      n: "04",
-      t: "Dùng lâu được",
-      s: "Kiểm thử, tài liệu, bàn giao. Vẫn chạy tốt sau khi chúng tôi rời đi."
-    }],
+    steps: [
+      { n: "01", t: "Ước một điều", s: "Kể kết quả bạn muốn trong một hai câu. Chúng tôi phản hồi trong một ngày làm việc." },
+      { n: "02", t: "Định hình", s: "Đội nhỏ, kinh nghiệm bóc tách công việc và nói thẳng về đánh đổi." },
+      { n: "03", t: "Xây để bàn giao", s: "Chu kỳ ngắn, phần mềm chạy thật — không phải slide." },
+      { n: "04", t: "Dùng lâu được", s: "Kiểm thử, tài liệu, bàn giao. Vẫn chạy tốt sau khi chúng tôi rời đi." }
+    ],
     careersTitle: "Cùng chúng tôi kiến tạo",
     careersLead: "Tuyển người có tay nghề và chỉn chu — đội gọn, kinh nghiệm, nói thẳng đánh đổi.",
     careersCta: "Xem vị trí đang mở",
     contactTitle: "Kể chúng tôi nghe điều bạn ước",
     contactLead: "Một lời nhắn ngắn là đủ. Chúng tôi phản hồi trong một ngày làm việc.",
-    form: {
-      name: "Tên của bạn",
-      email: "Email công việc",
-      company: "Công ty",
-      message: "Bạn muốn chia sẻ thêm điều gì?",
-      submit: "Gửi",
-      optional: "không bắt buộc",
-      trust: "Thông tin của bạn được gửi thẳng đến đội ngũ. Chúng tôi không chia sẻ cho bên thứ ba."
-    },
-    genie: {
-      title: "Lumi · thần đèn vàng CyberSkill",
-      greeting: "Chào bạn, mình là Lumi. Cứ kể mình một điều ước; mình tư vấn trước, chỉ xin thông tin khi bạn muốn gửi. Điều ước rõ sẽ được chuyển cho người thật trong đội.",
-      placeholder: "Viết điều ước của bạn…",
-      send: "Gửi",
-      chips: ["Một ứng dụng web", "Công cụ nội bộ", "Hệ thống thiết kế"]
-    },
+    form: { name: "Tên của bạn", email: "Email công việc", company: "Công ty", message: "Bạn muốn chia sẻ thêm điều gì?", submit: "Gửi", optional: "không bắt buộc", trust: "Thông tin của bạn được gửi thẳng đến đội ngũ. Chúng tôi không chia sẻ cho bên thứ ba." },
+    genie: { title: "Lumi · thần đèn vàng CyberSkill", greeting: "Chào bạn, mình là Lumi. Cứ kể mình một điều ước; mình tư vấn trước, chỉ xin thông tin khi bạn muốn gửi. Điều ước rõ sẽ được chuyển cho người thật trong đội.", placeholder: "Viết điều ước của bạn…", send: "Gửi", chips: ["Một ứng dụng web", "Công cụ nội bộ", "Hệ thống thiết kế"] },
     footerRights: "Bảo lưu mọi quyền.",
     footerLinks: ["Quyền riêng tư", "Khả năng tiếp cận", "Điều khoản"]
   }
