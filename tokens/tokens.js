@@ -1,10 +1,10 @@
-// CyberSkill design tokens — generated from tokens/*.css (v2.11.0). Do not edit by hand.
+// CyberSkill design tokens — generated from tokens/*.css (v1.0.0). Do not edit by hand.
 export const tokens = {
   "$meta": {
     "system": "CyberSkill Design System",
-    "version": "2.11.0",
-    "generated": "2026-07-19",
-    "note": "Generated from tokens/*.css. Root grouped by category; theme/element/expression scopes carry overrides only. Regenerate after any token change (see docs/conventions.md)."
+    "version": "1.0.0",
+    "generated": "2026-07-23",
+    "note": "Generated from tokens/*.css. Root grouped by category; theme/element scopes carry overrides only. Regenerate after any token change (see docs/conventions.md)."
   },
   "root": {
     "color": {
@@ -86,10 +86,10 @@ export const tokens = {
       "--cs-shadow-xl": "0 24px 80px rgba(31, 19, 11, 0.26)"
     },
     "duration": {
-      "--cs-duration-instant": "0ms",
-      "--cs-duration-fast": "0ms",
-      "--cs-duration-base": "0ms",
-      "--cs-duration-slow": "0ms"
+      "--cs-duration-instant": "80ms",
+      "--cs-duration-fast": "120ms",
+      "--cs-duration-base": "200ms",
+      "--cs-duration-slow": "320ms"
     },
     "ease": {
       "--cs-ease-standard": "cubic-bezier(0.2, 0, 0, 1)",
@@ -167,6 +167,12 @@ export const tokens = {
       "--cs-letter-spacing-tight": "-0.01em",
       "--cs-letter-spacing-normal": "0",
       "--cs-letter-spacing-caps": "0.08em"
+    },
+    "heading": {
+      "--cs-heading-family": "var(--cs-font-family-ui)",
+      "--cs-heading-weight-strong": "var(--cs-font-weight-extrabold)",
+      "--cs-heading-weight": "var(--cs-font-weight-bold)",
+      "--cs-heading-tracking": "var(--cs-letter-spacing-tight)"
     },
     "icon": {
       "--cs-icon-sm": "16px",
@@ -417,135 +423,6 @@ export const tokens = {
       "--cs-accent-grad-b": "#BFB29B",
       "--cs-color-text-accent": "#56504A",
       "--cs-color-link": "#56504A"
-    }
-  },
-  "expressions": {
-    "solid": {
-      "--cs-radius-md": "6px",
-      "--cs-radius-lg": "10px",
-      "--cs-component-button-radius": "6px",
-      "--cs-shadow-xs": "0 0 0 rgba(0,0,0,0)",
-      "--cs-shadow-sm": "0 1px 2px rgba(69,33,14,0.05)",
-      "--cs-shadow-md": "0 2px 6px rgba(69,33,14,0.08)",
-      "--cs-shadow-lg": "0 4px 12px rgba(69,33,14,0.10)",
-      "--cs-shadow-xl": "0 8px 24px rgba(69,33,14,0.12)",
-      "--cs-glass-whisper-blur": "0px",
-      "--cs-glass-light-blur": "0px",
-      "--cs-glass-standard-blur": "0px",
-      "--cs-glass-heavy-blur": "0px",
-      "--cs-glass-whisper-opacity": "100%",
-      "--cs-glass-light-opacity": "100%",
-      "--cs-glass-standard-opacity": "100%",
-      "--cs-glass-heavy-opacity": "100%"
-    },
-    "paper": {
-      "--cs-radius-sm": "3px",
-      "--cs-radius-md": "4px",
-      "--cs-radius-lg": "6px",
-      "--cs-component-button-radius": "4px",
-      "--cs-shadow-xs": "0 0 0 rgba(0,0,0,0)",
-      "--cs-shadow-sm": "0 0 0 rgba(0,0,0,0)",
-      "--cs-shadow-md": "0 0 0 rgba(0,0,0,0)",
-      "--cs-shadow-lg": "0 0 0 rgba(0,0,0,0)",
-      "--cs-shadow-xl": "0 0 0 rgba(0,0,0,0)",
-      "--cs-glass-whisper-blur": "0px",
-      "--cs-glass-light-blur": "0px",
-      "--cs-glass-standard-blur": "0px",
-      "--cs-glass-heavy-blur": "0px",
-      "--cs-glass-whisper-opacity": "100%",
-      "--cs-glass-light-opacity": "100%",
-      "--cs-glass-standard-opacity": "100%",
-      "--cs-glass-heavy-opacity": "100%",
-      "--cs-duration-base": "160ms",
-      "--cs-duration-slow": "240ms"
-    },
-    "soft": {
-      "--cs-radius-sm": "6px",
-      "--cs-radius-md": "12px",
-      "--cs-radius-lg": "22px",
-      "--cs-component-button-radius": "12px",
-      "--cs-shadow-xs": "0 2px 6px rgba(69,33,14,0.05)",
-      "--cs-shadow-sm": "0 6px 18px rgba(69,33,14,0.06), 0 16px 40px rgba(69,33,14,0.07)",
-      "--cs-shadow-md": "0 18px 44px rgba(31,19,11,0.14)",
-      "--cs-shadow-lg": "0 26px 70px rgba(69,33,14,0.14)",
-      "--cs-shadow-xl": "0 30px 90px rgba(31,19,11,0.20)",
-      "--cs-duration-base": "240ms",
-      "--cs-duration-slow": "380ms"
-    },
-    "dense": {
-      "--cs-radius-sm": "3px",
-      "--cs-radius-md": "6px",
-      "--cs-radius-lg": "10px",
-      "--cs-component-button-radius": "6px",
-      "--cs-component-button-sm-paddingY": "5px",
-      "--cs-component-button-sm-paddingX": "10px",
-      "--cs-component-button-sm-minHeight": "44px",
-      "--cs-component-button-md-paddingY": "12px",
-      "--cs-component-button-md-paddingX": "14px",
-      "--cs-component-button-md-minHeight": "44px",
-      "--cs-component-button-lg-paddingY": "10px",
-      "--cs-component-button-lg-paddingX": "18px",
-      "--cs-component-button-lg-minHeight": "48px",
-      "--cs-component-textfield-paddingY": "10px",
-      "--cs-component-textfield-paddingX": "10px",
-      "--cs-component-textfield-minHeight": "44px",
-      "--cs-shadow-sm": "0 1px 2px rgba(69,33,14,0.05)",
-      "--cs-shadow-md": "0 2px 8px rgba(69,33,14,0.10)",
-      "--cs-glass-whisper-blur": "0px",
-      "--cs-glass-light-blur": "0px",
-      "--cs-glass-standard-blur": "0px",
-      "--cs-glass-heavy-blur": "0px",
-      "--cs-glass-whisper-opacity": "100%",
-      "--cs-glass-light-opacity": "100%",
-      "--cs-glass-standard-opacity": "100%",
-      "--cs-glass-heavy-opacity": "100%",
-      "--cs-duration-fast": "100ms",
-      "--cs-duration-base": "150ms"
-    },
-    "luxe": {
-      "--cs-radius-sm": "6px",
-      "--cs-radius-md": "10px",
-      "--cs-radius-lg": "18px",
-      "--cs-component-button-radius": "999px",
-      "--cs-color-border-default": "#EEE3D0",
-      "--cs-shadow-xs": "0 2px 10px rgba(69,33,14,0.06)",
-      "--cs-shadow-sm": "0 10px 34px rgba(69,33,14,0.10)",
-      "--cs-shadow-md": "0 22px 60px rgba(31,19,11,0.16)",
-      "--cs-shadow-lg": "0 32px 90px rgba(69,33,14,0.18)",
-      "--cs-shadow-xl": "0 40px 120px rgba(31,19,11,0.24)",
-      "--cs-glass-whisper-blur": "12px",
-      "--cs-glass-light-blur": "18px",
-      "--cs-glass-standard-blur": "24px",
-      "--cs-glass-heavy-blur": "32px",
-      "--cs-glass-whisper-saturate": "120%",
-      "--cs-glass-light-saturate": "140%",
-      "--cs-glass-standard-saturate": "160%",
-      "--cs-glass-heavy-saturate": "190%",
-      "--cs-duration-base": "280ms",
-      "--cs-duration-slow": "460ms"
-    },
-    "bold": {
-      "--cs-radius-sm": "2px",
-      "--cs-radius-md": "4px",
-      "--cs-radius-lg": "6px",
-      "--cs-component-button-radius": "4px",
-      "--cs-color-border-default": "#45210E",
-      "--cs-component-textfield-border-default": "#45210E",
-      "--cs-shadow-xs": "2px 2px 0 #45210E",
-      "--cs-shadow-sm": "3px 3px 0 #45210E",
-      "--cs-shadow-md": "4px 4px 0 #45210E",
-      "--cs-shadow-lg": "6px 6px 0 #45210E",
-      "--cs-shadow-xl": "8px 8px 0 #45210E",
-      "--cs-glass-whisper-blur": "0px",
-      "--cs-glass-light-blur": "0px",
-      "--cs-glass-standard-blur": "0px",
-      "--cs-glass-heavy-blur": "0px",
-      "--cs-glass-whisper-opacity": "100%",
-      "--cs-glass-light-opacity": "100%",
-      "--cs-glass-standard-opacity": "100%",
-      "--cs-glass-heavy-opacity": "100%",
-      "--cs-duration-fast": "100ms",
-      "--cs-duration-base": "140ms"
     }
   }
 };

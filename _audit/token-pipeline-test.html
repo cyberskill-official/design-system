@@ -31,8 +31,11 @@ const hex2=n=>n.toString(16).toUpperCase().padStart(2,'0');
 const argb=c=>hex2(Math.round(c.a*255))+hex2(c.r)+hex2(c.g)+hex2(c.b);
 const px=v=>{ let m=/^(-?[\d.]+)px$/.exec(v); if(m)return +m[1]; m=/^(-?[\d.]+)rem$/.exec(v); if(m)return +m[1]*16; return null; };
 const em=v=>{ const m=/^(-?[\d.]+)em$/.exec(v); return m?+m[1]:null; };
-// expected literal per target for one token; null = represented as plain string constant
-function expected(name,type,value){
+// expected literal per target for one token; null = represented as plain string constant.
+// cssRaw = $extensions["com.cyberskill"].css — structured DTCG values (shadow composites, var() aliases,
+// percentage scalars) ship to natives as that raw CSS string (same rule as generate-native-tokens.mjs).
+function expected(name,type,value,cssRaw){
+  if(cssRaw!==undefined){ const s=JSON.stringify(String(cssRaw)); return { swift:'let '+name+': String = '+s, kt:'val '+name+' = '+s, dart:'const String '+name+' = '+s+';' }; }
   if(type==='color'){ const c=parseColor(String(value)); if(!c) return null;
     const hex6=(c.r<<16|c.g<<8|c.b).toString(16).toUpperCase().padStart(6,'0');
     return { swift:'let '+name+' = color(0x'+hex6+(c.a!==1?', alpha: '+c.a:'')+')', kt:'val '+name+' = Color(0x'+argb(c)+')', dart:'const Color '+name+' = Color(0x'+argb(c)+');' }; }
@@ -64,10 +67,10 @@ function expected(name,type,value){
     for(const t of prov.targets){ const s=await sha256(map[t.file]); assert(s===t.sha256,t.file+' drifted from provenance'); }
     return prov.targets.length+' targets pinned';
   });
-  const toks=[]; for(const [g,entries] of Object.entries(dtcg)){ if(g.startsWith('$'))continue; for(const [css,def] of Object.entries(entries)){ if(css.startsWith('$')||!def||def.$value===undefined)continue; toks.push({css,name:camel(css),value:def.$value,type:def.$type||'string'}); } }
+  const toks=[]; for(const [g,entries] of Object.entries(dtcg)){ if(g.startsWith('$'))continue; for(const [css,def] of Object.entries(entries)){ if(css.startsWith('$')||!def||def.$value===undefined)continue; toks.push({css,name:camel(css),value:def.$value,type:def.$type||'string',cssRaw:def.$extensions&&def.$extensions['com.cyberskill']?def.$extensions['com.cyberskill'].css:undefined}); } }
   await test('every base token present in all 3 targets',async()=>{
     const miss=[];
-    for(const t of toks){ const e=expected(t.name,t.type,t.value); if(!e){ miss.push(t.css+' (unconvertible)'); continue; }
+    for(const t of toks){ const e=expected(t.name,t.type,t.value,t.cssRaw); if(!e){ miss.push(t.css+' (unconvertible)'); continue; }
       if(swift.indexOf(e.swift)<0) miss.push(t.css+' [swift]');
       if(kt.indexOf(e.kt)<0) miss.push(t.css+' [kotlin]');
       if(dart.indexOf(e.dart)<0) miss.push(t.css+' [dart]');

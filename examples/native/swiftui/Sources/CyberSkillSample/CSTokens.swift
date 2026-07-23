@@ -1,6 +1,6 @@
 // CyberSkill Design System — native design tokens.
 // GENERATED from tokens/tokens.dtcg.json — do not hand-edit; regenerate on token change.
-// release v1.0.0 · source sha256 4995d751afc8e47a…
+// release v1.0.0 · source sha256 b6f5d972a38722f6…
 // conversions: rem→px at 16 · em→…Em relative doubles · rgba alpha→ARGB byte (round(a*255)) · durations in ms
 // dark element packs: see $extensions.overrides.elementsDark
 // provenance: tokens/provenance.json · parity gate: _audit/token-pipeline-test.html
@@ -79,10 +79,10 @@ public enum CSTokens {
   public static let shadowMd: String = "0 12px 30px rgba(31, 19, 11, 0.18)"
   public static let shadowLg: String = "0 20px 60px rgba(69, 33, 14, 0.18)"
   public static let shadowXl: String = "0 24px 80px rgba(31, 19, 11, 0.26)"
-  public static let durationInstantMs: Double = 0
-  public static let durationFastMs: Double = 0
-  public static let durationBaseMs: Double = 0
-  public static let durationSlowMs: Double = 0
+  public static let durationInstantMs: Double = 80
+  public static let durationFastMs: Double = 120
+  public static let durationBaseMs: Double = 200
+  public static let durationSlowMs: Double = 320
   public static let easeStandard: [Double] = [0.2, 0, 0, 1]
   public static let easeEntrance: [Double] = [0, 0, 0, 1]
   public static let easeExit: [Double] = [0.4, 0, 1, 1]
@@ -144,6 +144,10 @@ public enum CSTokens {
   public static let letterSpacingTightEm: Double = -0.01
   public static let letterSpacingNormal: Double = 0
   public static let letterSpacingCapsEm: Double = 0.08
+  public static let headingFamily: String = "var(--cs-font-family-ui)"
+  public static let headingWeightStrong: String = "var(--cs-font-weight-extrabold)"
+  public static let headingWeight: String = "var(--cs-font-weight-bold)"
+  public static let headingTracking: String = "var(--cs-letter-spacing-tight)"
   public static let iconSm: CGFloat = 16
   public static let iconMd: CGFloat = 20
   public static let iconLg: CGFloat = 24

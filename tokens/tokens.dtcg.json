@@ -3,8 +3,8 @@
   "$extensions": {
     "com.cyberskill": {
       "system": "CyberSkill Design System",
-      "version": "6.0.0",
-      "generated": "2026-07-22",
+      "version": "1.0.0",
+      "generated": "2026-07-23",
       "source": "tokens/tokens.json",
       "note": "Scope overrides (dark/system theme · 15 element×variant packs) are carried under $extensions.overrides keyed by CSS selector — apply the matching selector on :root/ancestor to activate.",
       "overrides": {
@@ -572,80 +572,212 @@
     }
   },
   "glass": {
+    "$description": "Liquid Glass material scalars — blur / saturate / surface opacity per material tier (tokens/elevation.css).",
     "--cs-glass-whisper-blur": {
       "$value": "8px",
       "$type": "dimension"
     },
     "--cs-glass-whisper-saturate": {
-      "$value": "110%"
+      "$value": 1.1,
+      "$type": "number",
+      "$description": "Backdrop saturate() multiplier of the whisper glass material. DTCG has no percentage type, so the closest legitimate $type is number (CSS 110% ÷ 100); the raw CSS form is preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "110%"
+        }
+      }
     },
     "--cs-glass-whisper-opacity": {
-      "$value": "60%"
+      "$value": 0.6,
+      "$type": "number",
+      "$description": "Surface opacity of the whisper glass material. DTCG has no percentage type, so the closest legitimate $type is number (CSS 60% ÷ 100); the raw CSS form is preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "60%"
+        }
+      }
     },
     "--cs-glass-light-blur": {
       "$value": "12px",
       "$type": "dimension"
     },
     "--cs-glass-light-saturate": {
-      "$value": "130%"
+      "$value": 1.3,
+      "$type": "number",
+      "$description": "Backdrop saturate() multiplier of the light glass material. DTCG has no percentage type, so the closest legitimate $type is number (CSS 130% ÷ 100); the raw CSS form is preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "130%"
+        }
+      }
     },
     "--cs-glass-light-opacity": {
-      "$value": "70%"
+      "$value": 0.7,
+      "$type": "number",
+      "$description": "Surface opacity of the light glass material. DTCG has no percentage type, so the closest legitimate $type is number (CSS 70% ÷ 100); the raw CSS form is preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "70%"
+        }
+      }
     },
     "--cs-glass-standard-blur": {
       "$value": "16px",
       "$type": "dimension"
     },
     "--cs-glass-standard-saturate": {
-      "$value": "150%"
+      "$value": 1.5,
+      "$type": "number",
+      "$description": "Backdrop saturate() multiplier of the standard glass material. DTCG has no percentage type, so the closest legitimate $type is number (CSS 150% ÷ 100); the raw CSS form is preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "150%"
+        }
+      }
     },
     "--cs-glass-standard-opacity": {
-      "$value": "80%"
+      "$value": 0.8,
+      "$type": "number",
+      "$description": "Surface opacity of the standard glass material. DTCG has no percentage type, so the closest legitimate $type is number (CSS 80% ÷ 100); the raw CSS form is preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "80%"
+        }
+      }
     },
     "--cs-glass-heavy-blur": {
       "$value": "24px",
       "$type": "dimension"
     },
     "--cs-glass-heavy-saturate": {
-      "$value": "180%"
+      "$value": 1.8,
+      "$type": "number",
+      "$description": "Backdrop saturate() multiplier of the heavy glass material. DTCG has no percentage type, so the closest legitimate $type is number (CSS 180% ÷ 100); the raw CSS form is preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "180%"
+        }
+      }
     },
     "--cs-glass-heavy-opacity": {
-      "$value": "90%"
+      "$value": 0.9,
+      "$type": "number",
+      "$description": "Surface opacity of the heavy glass material. DTCG has no percentage type, so the closest legitimate $type is number (CSS 90% ÷ 100); the raw CSS form is preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "90%"
+        }
+      }
     }
   },
   "shadow": {
     "$description": "Elevation shadows (light + dark overrides).",
     "--cs-shadow-xs": {
-      "$value": "0 1px 2px rgba(69, 33, 14, 0.06)"
+      "$value": {
+        "color": "rgba(69, 33, 14, 0.06)",
+        "offsetX": "0px",
+        "offsetY": "1px",
+        "blur": "2px",
+        "spread": "0px"
+      },
+      "$type": "shadow",
+      "$description": "Structured from the CSS box-shadow string in tokens/elevation.css; the raw CSS form (native/agent emission source) is preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "0 1px 2px rgba(69, 33, 14, 0.06)"
+        }
+      }
     },
     "--cs-shadow-sm": {
-      "$value": "0 1px 3px rgba(69, 33, 14, 0.04), 0 8px 24px rgba(69, 33, 14, 0.06)"
+      "$value": [
+        {
+          "color": "rgba(69, 33, 14, 0.04)",
+          "offsetX": "0px",
+          "offsetY": "1px",
+          "blur": "3px",
+          "spread": "0px"
+        },
+        {
+          "color": "rgba(69, 33, 14, 0.06)",
+          "offsetX": "0px",
+          "offsetY": "8px",
+          "blur": "24px",
+          "spread": "0px"
+        }
+      ],
+      "$type": "shadow",
+      "$description": "Structured from the CSS box-shadow string in tokens/elevation.css; the raw CSS form (native/agent emission source) is preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "0 1px 3px rgba(69, 33, 14, 0.04), 0 8px 24px rgba(69, 33, 14, 0.06)"
+        }
+      }
     },
     "--cs-shadow-md": {
-      "$value": "0 12px 30px rgba(31, 19, 11, 0.18)"
+      "$value": {
+        "color": "rgba(31, 19, 11, 0.18)",
+        "offsetX": "0px",
+        "offsetY": "12px",
+        "blur": "30px",
+        "spread": "0px"
+      },
+      "$type": "shadow",
+      "$description": "Structured from the CSS box-shadow string in tokens/elevation.css; the raw CSS form (native/agent emission source) is preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "0 12px 30px rgba(31, 19, 11, 0.18)"
+        }
+      }
     },
     "--cs-shadow-lg": {
-      "$value": "0 20px 60px rgba(69, 33, 14, 0.18)"
+      "$value": {
+        "color": "rgba(69, 33, 14, 0.18)",
+        "offsetX": "0px",
+        "offsetY": "20px",
+        "blur": "60px",
+        "spread": "0px"
+      },
+      "$type": "shadow",
+      "$description": "Structured from the CSS box-shadow string in tokens/elevation.css; the raw CSS form (native/agent emission source) is preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "0 20px 60px rgba(69, 33, 14, 0.18)"
+        }
+      }
     },
     "--cs-shadow-xl": {
-      "$value": "0 24px 80px rgba(31, 19, 11, 0.26)"
+      "$value": {
+        "color": "rgba(31, 19, 11, 0.26)",
+        "offsetX": "0px",
+        "offsetY": "24px",
+        "blur": "80px",
+        "spread": "0px"
+      },
+      "$type": "shadow",
+      "$description": "Structured from the CSS box-shadow string in tokens/elevation.css; the raw CSS form (native/agent emission source) is preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "0 24px 80px rgba(31, 19, 11, 0.26)"
+        }
+      }
     }
   },
   "duration": {
+    "$description": "Motion durations (tokens/motion.css :root). Real values — the prefers-reduced-motion override collapses them to 0ms at runtime only, never in exports.",
     "--cs-duration-instant": {
-      "$value": "0ms",
+      "$value": "80ms",
       "$type": "duration"
     },
     "--cs-duration-fast": {
-      "$value": "0ms",
+      "$value": "120ms",
       "$type": "duration"
     },
     "--cs-duration-base": {
-      "$value": "0ms",
+      "$value": "200ms",
       "$type": "duration"
     },
     "--cs-duration-slow": {
-      "$value": "0ms",
+      "$value": "320ms",
       "$type": "duration"
     }
   },
@@ -890,35 +1022,106 @@
     }
   },
   "text": {
+    "$description": "Semantic type-role aliases into the font size ramp — write intent, not magic numbers (tokens/typography.css).",
     "--cs-text-display": {
-      "$value": "var(--cs-font-size-5xl)"
+      "$value": "{font.--cs-font-size-5xl}",
+      "$type": "dimension",
+      "$description": "Semantic type-role alias into the font size ramp; resolves to a dimension. CSS form (var()) preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "var(--cs-font-size-5xl)"
+        }
+      }
     },
     "--cs-text-h1": {
-      "$value": "var(--cs-font-size-3xl)"
+      "$value": "{font.--cs-font-size-3xl}",
+      "$type": "dimension",
+      "$description": "Semantic type-role alias into the font size ramp; resolves to a dimension. CSS form (var()) preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "var(--cs-font-size-3xl)"
+        }
+      }
     },
     "--cs-text-h2": {
-      "$value": "var(--cs-font-size-2xl)"
+      "$value": "{font.--cs-font-size-2xl}",
+      "$type": "dimension",
+      "$description": "Semantic type-role alias into the font size ramp; resolves to a dimension. CSS form (var()) preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "var(--cs-font-size-2xl)"
+        }
+      }
     },
     "--cs-text-h3": {
-      "$value": "var(--cs-font-size-xl)"
+      "$value": "{font.--cs-font-size-xl}",
+      "$type": "dimension",
+      "$description": "Semantic type-role alias into the font size ramp; resolves to a dimension. CSS form (var()) preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "var(--cs-font-size-xl)"
+        }
+      }
     },
     "--cs-text-h4": {
-      "$value": "var(--cs-font-size-lg)"
+      "$value": "{font.--cs-font-size-lg}",
+      "$type": "dimension",
+      "$description": "Semantic type-role alias into the font size ramp; resolves to a dimension. CSS form (var()) preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "var(--cs-font-size-lg)"
+        }
+      }
     },
     "--cs-text-body-lg": {
-      "$value": "var(--cs-font-size-md)"
+      "$value": "{font.--cs-font-size-md}",
+      "$type": "dimension",
+      "$description": "Semantic type-role alias into the font size ramp; resolves to a dimension. CSS form (var()) preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "var(--cs-font-size-md)"
+        }
+      }
     },
     "--cs-text-body": {
-      "$value": "var(--cs-font-size-base)"
+      "$value": "{font.--cs-font-size-base}",
+      "$type": "dimension",
+      "$description": "Semantic type-role alias into the font size ramp; resolves to a dimension. CSS form (var()) preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "var(--cs-font-size-base)"
+        }
+      }
     },
     "--cs-text-secondary": {
-      "$value": "var(--cs-font-size-sm)"
+      "$value": "{font.--cs-font-size-sm}",
+      "$type": "dimension",
+      "$description": "Semantic type-role alias into the font size ramp; resolves to a dimension. CSS form (var()) preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "var(--cs-font-size-sm)"
+        }
+      }
     },
     "--cs-text-caption": {
-      "$value": "var(--cs-font-size-xs)"
+      "$value": "{font.--cs-font-size-xs}",
+      "$type": "dimension",
+      "$description": "Semantic type-role alias into the font size ramp; resolves to a dimension. CSS form (var()) preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "var(--cs-font-size-xs)"
+        }
+      }
     },
     "--cs-text-eyebrow": {
-      "$value": "var(--cs-font-size-xs)"
+      "$value": "{font.--cs-font-size-xs}",
+      "$type": "dimension",
+      "$description": "Semantic type-role alias into the font size ramp; resolves to a dimension. CSS form (var()) preserved in $extensions[\"com.cyberskill\"].css.",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "var(--cs-font-size-xs)"
+        }
+      }
     }
   },
   "letter": {
@@ -933,6 +1136,45 @@
     "--cs-letter-spacing-caps": {
       "$value": "0.08em",
       "$type": "dimension"
+    }
+  },
+  "heading": {
+    "$description": "Heading treatment roles (tokens/typography.css) — aliases into font/letter primitives. CSS var() forms preserved in $extensions[\"com.cyberskill\"].css.",
+    "--cs-heading-family": {
+      "$value": "{font.--cs-font-family-ui}",
+      "$type": "fontFamily",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "var(--cs-font-family-ui)"
+        }
+      }
+    },
+    "--cs-heading-weight-strong": {
+      "$value": "{font.--cs-font-weight-extrabold}",
+      "$type": "number",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "var(--cs-font-weight-extrabold)"
+        }
+      }
+    },
+    "--cs-heading-weight": {
+      "$value": "{font.--cs-font-weight-bold}",
+      "$type": "number",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "var(--cs-font-weight-bold)"
+        }
+      }
+    },
+    "--cs-heading-tracking": {
+      "$value": "{letter.--cs-letter-spacing-tight}",
+      "$type": "dimension",
+      "$extensions": {
+        "com.cyberskill": {
+          "css": "var(--cs-letter-spacing-tight)"
+        }
+      }
     }
   },
   "icon": {
