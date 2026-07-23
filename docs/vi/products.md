@@ -1,5 +1,7 @@
 # Product registry — ánh xạ element
 
+> **Tạm thời / provisional** (owner “decide for me”, Th7 2026). Mapping dưới đây là registry đang dùng cho agent và kit cho đến khi maintainer khóa — **không** invent ánh xạ product → element mới. Nâng lên khóa qua việc 3 trong `docs/decisions.md`.
+
 **Nguồn chân lý.** Ánh xạ sản phẩm portfolio CyberSkill sang pack element Ngũ Hành. Một element mỗi sản phẩm; accent phụ chỉ trong gradient wash theo Tương sinh.
 
 | Sản phẩm | Element | Variant | Phụ (Tương sinh) | Markup |

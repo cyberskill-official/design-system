@@ -2,13 +2,28 @@
 
 Cách mọi project — do người hoặc agent điều khiển — áp dụng design system HTML-first này, và cách nhận update an toàn.
 
+**Tên package:** `cyberskill-design-system` (xem `package.json`). Không coi `@cyberskill/react` lịch sử là đường cài cho monolith này.
+
+## Claude Code vs Google Stitch
+
+| Consumer | Bắt đầu tại | Hoạt động hôm nay | Không làm |
+|---|---|---|---|
+| **Claude Code** | `SKILL.md` → `README.md` → `styles.css` + `_esm/cs.mjs` / `_ds_bundle.js` (resolve theo prefix) | Mạnh — rules, components, prompts; gates qua full clone | Hardcode hậu tố bundle; coi Storybook host là hợp đồng portable |
+| **Google Stitch** | `DESIGN.md` → `llms.txt` → `tokens/tokens.dtcg.json` | Mạnh cho doctrine + tokens + HTML tĩnh `.cs-*` | Coi `templates/**/*.dc.html` là SoT — không có tweaks / `__dcSetProps` / DC compiler |
+| **Claude Design** | Full repo + DC compiler | Full fidelity (tweaks, `x-import`, template bilingual) | Bỏ qua vòng sync trong `docs/sync.md` |
+| **npm** | `cyberskill-design-system` | Hình dạng package đã gate; dry-run luôn | Giả định cài public đã duyệt — cần grant owner + `NPM_TOKEN` (soft-skip cho đến khi đó) |
+
+**Quy tắc DC cho Stitch:** Stitch (và mọi tool non-DC) **không** được tiêu thụ `*.dc.html` như nguồn chân lý. Dùng pattern export tĩnh, `templates/kitchen-sink.html`, `examples/static-hello/`, và class `.cs-*` từ `styles.css`.
+
+**Tín hiệu release:** VERSION giữ **1.0.0** (không CHANGELOG). Coi **git tip SHA** là chân lý kỹ thuật; đọc điểm nổi bật sản phẩm curated trong `docs/release-notes.md`.
+
 ## Đường nhanh cho AI agent (Claude Code, hoặc điều khiển một agent)
 
 **Bạn nhận:** `styles.css` (400+ token + class `.cs-*` + bề mặt Liquid Glass, `@import` `tokens/` + `base/`) · `_ds_bundle.js` (React component đã compile, không cần build) · `_esm/cs.mjs` (entry ESM re-export mọi component) · `_ds_manifest.json` (inventory máy đọc được) · mỗi component `Name.d.ts` (API) + `Name.prompt.md` (brief dùng) · `tokens/tokens.dtcg.json` (W3C DTCG) + `tokens.json`/`tokens.js`.
 
-**Checkout repo** — clone hoặc copy cả cây; mọi thứ là static đường dẫn tương đối. Điểm vào: Storybook trên host site (`/` / `npm run storybook`) · `guidelines/atomic-view.html` (mọi component live, portable) · `templates/<slug>/` (điểm bắt đầu copy được). Đọc `SKILL.md` trước khi author bất kỳ thứ gì on-brand; bản đồ sâu hơn ở `llms.txt` (inventory) và file này (hướng dẫn adopt + upgrade đầy đủ bên dưới).
+**Checkout repo** — clone hoặc copy cả cây; mọi thứ là static đường dẫn tương đối. Điểm vào: Storybook trên host site (`/` / `npm run storybook`) · `guidelines/atomic-view.html` (mọi component live, portable) · `templates/<slug>/` (điểm bắt đầu copy được — DC cho Claude Design; kitchen-sink / `.cs-*` cho Stitch). Đọc `SKILL.md` trước khi author bất kỳ thứ gì on-brand; reader Stitch bắt đầu tại `DESIGN.md`. Bản đồ sâu hơn ở `llms.txt` (inventory) và file này (hướng dẫn adopt + upgrade đầy đủ bên dưới).
 
-**Sau import — chứng minh health.** Mở `_audit/run.html`, để bảng gate chạy xong (mọi fast gate). Tất cả xanh = bản copy nhất quán nội bộ (contrast, docs, portability, tokens, consumer path, behavior, a11y, stories, bilingual parity).
+**Sau import — chứng minh health.** Mở `_audit/run.html`, để bảng gate chạy xong (mọi fast gate). Tất cả xanh = bản copy nhất quán nội bộ (contrast, docs, portability, tokens, consumer path, behavior, a11y, stories, bilingual parity). Chỉ full-clone — `_audit/` không nằm trong tarball npm.
 
 **Quy tắc giữ transfer lossless:**
 - Không bao giờ hardcode hậu tố namespace bundle (xem "Resolve by prefix" bên dưới — gate enforce).
@@ -23,7 +38,7 @@ Cách mọi project — do người hoặc agent điều khiển — áp dụng 
 
 ## Adopt qua npm (tùy chọn)
 
-Package có thể publish (`private: false`, phiên bản cố định **1.0.0**). License vẫn **UNLICENSED** — cài từ registry (hoặc tarball đã pack) **không** tự cấp quyền redistribution. Đến khi owner chọn license mở, **consumer cần grant tường minh** từ CyberSkill để dùng package trong sản phẩm.
+Package có thể publish (`private: false`, phiên bản cố định **1.0.0**). License vẫn **UNLICENSED** — cài từ registry (hoặc tarball đã pack) **không** tự cấp quyền redistribution. Đến khi owner chọn license mở, **consumer cần grant tường minh** từ CyberSkill để dùng package trong sản phẩm. Publish **không live mặc định**: thiếu `NPM_TOKEN` thì workflow **soft-skip** (exit 0 + report) — đó là trung thực, không phải release registry thành công. Xem `docs/decisions.md` và `docs/quality-gates.md`.
 
 ```bash
 # sau khi workflow npm-publish chạy thành công (hoặc từ tarball đã pack)
@@ -62,7 +77,7 @@ Rồi link styles và import từ entry package (`_esm/cs.mjs` qua `exports["."]
 
 ## Nâng cấp
 
-- **Phiên bản cố định.** `VERSION` và `package.json` giữ **1.0.0**. Không có file changelog design-system — coi tip repo là chân lý kỹ thuật, và đọc **Release Notes** curated (Storybook + `docs/release-notes.md`) cho điểm nổi bật hướng sản phẩm.
+- **Phiên bản cố định.** `VERSION` và `package.json` giữ **1.0.0**. Không có file changelog design-system — coi **git tip SHA** là chân lý kỹ thuật, và đọc **Release Notes** curated (Storybook + `docs/release-notes.md`) cho điểm nổi bật hướng sản phẩm.
 
 - Anchors (Umber/Ochre), tên class `.cs-*`, và tên token `--cs-*` là hợp đồng ổn định — an toàn để phụ thuộc. Đổi tên phá vỡ những hợp đồng đó phải hiếm và được gọi ra trong PR/docs khi xảy ra.
 

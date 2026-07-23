@@ -1,5 +1,7 @@
 # Product registry — element mapping
 
+> **Provisional** (owner “decide for me”, Jul 2026). Mappings below are the working registry for agents and kits until a maintainer lock — do **not** invent new product → element assignments. Promote to locked via `docs/decisions.md` task 3.
+
 **Source of truth.** Maps CyberSkill portfolio products to Ngũ Hành element packs. One element per product; secondary accents only in gradient washes along Tương sinh.
 
 | Product | Element | Variant | Secondary (Tương sinh) | Markup |

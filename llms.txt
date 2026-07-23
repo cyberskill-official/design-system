@@ -1,16 +1,19 @@
 # CyberSkill Design System
 
-> HTML-first, Vietnamese-first design system, pinned **v1.0.0**. Immutable anchors: Umber #45210E · Ochre #F4BA17. Three independent axes — Theme (light · dark) × Element (Ngũ Hành, 15 variants) × Language (EN · VI); surface treatment is liquid-glass (fixed). It ships 99 components / 115 exports, 84 copyable templates (EN·VN for emails + team/legal/finance; client/media collateral EN-first), and tokens in CSS + JSON + ESM + W3C DTCG + native mirrors. This file is the agent/tool front door: it maps each audience to the format it should consume.
+> HTML-first, Vietnamese-first design system, pinned **v1.0.0**. Immutable anchors: Umber #45210E · Ochre #F4BA17. Three independent axes — Theme (light · dark) × Element (Ngũ Hành, 15 variants) × Language (EN · VI); surface treatment is liquid-glass (fixed). It ships 99 components / 115 exports, 84 copyable templates (EN·VN for emails + team/legal/finance; client/media collateral EN-first), and tokens in CSS + JSON + ESM + W3C DTCG + native mirrors. This file is the agent/tool front door: it maps each audience to the format it should consume. npm package name is **`cyberskill-design-system`** (not `@cyberskill/react`). Release signal: tip SHA + [docs/release-notes.md](docs/release-notes.md) — no CHANGELOG.
 
-The portable contract (styles.css · bundle · tokens) works everywhere; the DC layer (`templates/**/*.dc.html`) is authoring-environment-only. The full non-negotiables list lives in `CONTRIBUTING.md` and `docs/conventions.md`.
+The portable contract (styles.css · `_esm/cs.mjs` · bundle · tokens) works everywhere; the DC layer (`templates/**/*.dc.html`) is **Claude Design / authoring-environment-only**. **Google Stitch must not treat `*.dc.html` as source of truth** — use `DESIGN.md`, DTCG, `styles.css`, kitchen-sink, and `.cs-*` static HTML instead. Dual path: [docs/consuming.md](docs/consuming.md). The full non-negotiables list lives in `CONTRIBUTING.md` and `docs/conventions.md`.
 
 ## Consume by audience
 
+- **Claude Code** → [SKILL.md](SKILL.md) first, then [README.md](README.md): compose with `styles.css` + `_esm/cs.mjs` / `_ds_bundle.js` (prefix resolve). Optional DC templates only when the session has the compiler. Gates/`_audit/` need a full clone.
+- **Google Stitch** → [DESIGN.md](DESIGN.md) first, then this file + [tokens/tokens.dtcg.json](tokens/tokens.dtcg.json): generate **static** UI. Do **not** open or rewrite `templates/**/*.dc.html` as if they were plain HTML.
 - [styles.css](styles.css): any web / framework / email (Vue, Svelte, plain HTML, React) — link this one file for every `--cs-*` token, the `.cs-*` component classes, and the Liquid Glass surfaces. Framework-agnostic, no build step.
+- [_esm/cs.mjs](_esm/cs.mjs): ESM React entry — `import { Button, … } from "./_esm/cs.mjs"` (still link `styles.css`).
 - [_ds_bundle.js](_ds_bundle.js): React (production) — `styles.css` + `<script src="_ds_bundle.js">`, then resolve the bundle global by prefix (its `_<projectId>` suffix is compiler-assigned and changes on re-import): `const CS = window[Object.keys(window).find(k => /^CyberSkillDesignSystem_/.test(k))]; const { Button, … } = CS`. Proven green by `_audit/consumer-smoke-test.html`. (Templates load via `ds-base.js`, which publishes a stable `window.CyberSkillDS` alias for the same reason.)
 - [tokens/tokens.json](tokens/tokens.json): design tools / native / token pipelines / other agents (Figma, Google Stitch, Style Dictionary) — every token grouped by category, plus theme/element override maps; also [tokens/tokens.js](tokens/tokens.js) (ESM) and [tokens/tokens.dtcg.json](tokens/tokens.dtcg.json) (**W3C DTCG** format for Tokens Studio for Figma / Style Dictionary). This is the canonical cross-tool contract.
 - [DESIGN.md](DESIGN.md): agents/tools that read a root DESIGN.md (Google Stitch open-spec style) — **this repo's** generated file with the brand doctrine, every token value (light + dark), and the component/template inventory. Generated from the DTCG source by `npm run build:design-md`; the `design-md-parity` gate pins it — do not hand-edit.
-- [templates/](templates/): Design Components (`templates/**/*.dc.html`) + the compiler (tweaks, `x-import`, `@dsCard` cards) for the authoring environment. Other tools consume the portable outputs above, not these.
+- [templates/](templates/): Design Components (`templates/**/*.dc.html`) + the compiler (tweaks, `x-import`, `@dsCard` cards) for **Claude Design** only. Stitch and other non-DC tools: [templates/kitchen-sink.html](templates/kitchen-sink.html) + `.cs-*` / [examples/static-hello/](examples/static-hello/) — **not** `*.dc.html`.
 
 ## Key files
 
@@ -33,7 +36,7 @@ The portable contract (styles.css · bundle · tokens) works everywhere; the DC 
 
 ## Docs — consumers
 
-- [docs/consuming.md](docs/consuming.md): adopting & upgrading, incl. the AI-agent quick path
+- [docs/consuming.md](docs/consuming.md): adopting & upgrading, Claude Code vs Stitch dual path, package name `cyberskill-design-system`
 - [docs/release-notes.md](docs/release-notes.md): curated product highlights (not a changelog)
 - [docs/conventions.md](docs/conventions.md): authoring rules (naming grammar, the three axes)
 - [docs/design-styles.md](docs/design-styles.md): the live styling axes and the fixed liquid-glass treatment
