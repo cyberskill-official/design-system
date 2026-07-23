@@ -191,7 +191,8 @@
  * consumer is a `background:var(--cs-accent-ink);color:#fff` banner/CTA-strip, which this override broke
  * (ink flips light here, for a theoretical ink-on-tint text role). Fixed by repointing every banner consumer
  * to `--cs-accent-strong` instead (already APCA-solved as a dark, white-text-safe fill) rather than touching
- * this gate-checked pack. ---- */
+ * this gate-checked pack. Themeable filled CTAs follow the same rule: `background:var(--cs-accent-strong);
+ * color:var(--cs-accent-on)` — never bright+on in dark (cream-on-bright fails WCAG). ---- */
 [data-theme="dark"][data-cs-element="tho"] {
   --cs-accent-bright: #FEC42C;
   --cs-accent-strong: #795507;
