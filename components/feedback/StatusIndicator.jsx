@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill StatusIndicator — coloured dot + label. status: online | busy | offline | error. */
 export function StatusIndicator({ status = "offline", pulse = false, children, className, ...props }) {

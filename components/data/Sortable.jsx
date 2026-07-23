@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Sortable — drag-to-reorder list (HTML5 DnD). items: [{key,label}]; onChange(newItems). */
 export function Sortable({ items = [], onChange, className }) {

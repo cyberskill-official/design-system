@@ -1,6 +1,6 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Breadcrumb — hierarchical trail; last item is current. */
 export function Breadcrumb({ items = [], lang, className, ...props }) {

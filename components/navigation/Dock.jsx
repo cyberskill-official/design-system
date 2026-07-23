@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Dock — icon dock with hover magnification. items: {icon,label,onSelect,active}. */
 export function Dock({ items = [], label, className }) {

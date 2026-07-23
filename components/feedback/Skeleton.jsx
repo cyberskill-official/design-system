@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Skeleton — shimmer placeholder. Use `lines` for text blocks, or variant="circle"/"block". */
 export function Skeleton({ variant = "block", width, height, lines, radius, className, style }) {

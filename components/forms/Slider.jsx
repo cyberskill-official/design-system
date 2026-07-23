@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Slider — brand-tinted native range input. Pass native props (min/max/step/value/onChange). */
 // `children` is destructured but never rendered on purpose: keeps stray children out of {...props} → void <input>.

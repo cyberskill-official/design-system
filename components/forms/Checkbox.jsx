@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Checkbox — native checkbox (brand accent-color) + label/description. */
 // `children` is destructured but never rendered on purpose: keeps stray children out of {...props} → void <input>.

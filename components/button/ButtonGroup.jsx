@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill ButtonGroup — joins adjacent Buttons into one segmented cluster (role=group). */
 export function ButtonGroup({ children, label, className, ...props }) {

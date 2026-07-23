@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Masonry — column-packed gallery (CSS columns). */
 export function Masonry({ columns = 3, gap = 16, children, className, style }) {

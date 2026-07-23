@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill CitationList — numbered provenance sources for AI output. Rows link out when href is set. */
 export function CitationList({ label = "Sources", items = [], className }) {

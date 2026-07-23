@@ -1,7 +1,7 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
 import { Icon } from "../icon/Icon.jsx";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Image — img with loading skeleton, warm fallback on error, optional click-to-preview lightbox. */
 export function Image({ src, alt = "", ratio, preview = false, fallback, lang, className, ...props }) {

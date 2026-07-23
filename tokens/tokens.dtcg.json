@@ -452,6 +452,26 @@
       "$value": "8px",
       "$type": "dimension"
     },
+    "--cs-component-button-xs-paddingY": {
+      "$value": "4px",
+      "$type": "dimension"
+    },
+    "--cs-component-button-xs-paddingX": {
+      "$value": "10px",
+      "$type": "dimension"
+    },
+    "--cs-component-button-xs-minHeight": {
+      "$value": "28px",
+      "$type": "dimension"
+    },
+    "--cs-component-button-xs-minWidth": {
+      "$value": "28px",
+      "$type": "dimension"
+    },
+    "--cs-component-button-xs-minHeight-coarse": {
+      "$value": "36px",
+      "$type": "dimension"
+    },
     "--cs-component-button-sm-paddingY": {
       "$value": "8px",
       "$type": "dimension"

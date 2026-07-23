@@ -1,6 +1,6 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill CommandPalette — ⌘K overlay with search + grouped actions. Controlled via open/onClose. */
 export function CommandPalette({ open, onClose, placeholder, groups = [], lang, className }) {

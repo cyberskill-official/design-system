@@ -1,6 +1,6 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Toolbar — horizontal action bar; overflow items collapse into a "⋯" menu. items: {label,icon,onSelect} or "-". */
 export function Toolbar({ items = [], overflowAfter, label, lang, className }) {

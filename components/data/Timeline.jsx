@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Timeline — vertical event trail. item.state: "done" (default) | "now" | "todo". */
 export function Timeline({ items = [], className }) {

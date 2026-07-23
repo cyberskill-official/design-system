@@ -1,6 +1,6 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Cascader — column-per-level picker for hierarchies (province → district style). */
 export function Cascader({ nodes = [], value = [], onChange, placeholder, label, disabled = false, lang, className }) {

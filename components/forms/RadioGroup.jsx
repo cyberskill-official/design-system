@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** A single labelled radio (brand accent-color). Usually composed via RadioGroup. */
 // `children` is destructured but never rendered on purpose: keeps stray children out of {...props} → void <input>.

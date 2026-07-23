@@ -1,6 +1,6 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Carousel — slides with prev/next + dots. children = slides. Bilingual aria. */
 export function Carousel({ children, startIndex = 0, label, lang, className }) {

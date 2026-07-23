@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Tooltip — hover/focus bubble above the trigger. Keep label short. */
 export function Tooltip({ label, children, className }) {

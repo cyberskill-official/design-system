@@ -1,6 +1,6 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 const TONE = {
   low: { color: "var(--cs-color-semantic-danger)", label: "Low", fill: 2 },

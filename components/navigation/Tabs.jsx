@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Tabs — data-driven tablist, controlled by value/onChange. Ochre underline on active. */
 export function Tabs({ tabs = [], value, onChange, className, ...props }) {

@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Popover — anchored floating panel. Uncontrolled (click toggles) or controlled. */
 export function Popover({ trigger, children, align = "start", open: controlled, onOpenChange, className }) {

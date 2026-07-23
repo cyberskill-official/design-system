@@ -1,6 +1,6 @@
 import React from "react";
 import { makeT, useLang, monthName } from "../_i18n/i18n.js";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 const WD = { en: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"], vi: ["T2", "T3", "T4", "T5", "T6", "T7", "CN"] };
 function grid(year, month) { // Monday week-start (VN convention)
   const first = new Date(year, month, 1);

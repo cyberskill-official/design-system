@@ -73,10 +73,10 @@
 .cs-button--danger-ghost:hover { background: color-mix(in oklab, var(--cs-color-semantic-danger, #b42318) 10%, transparent); filter: none; }
 
 .cs-button--xs {
-  min-height: 28px;
-  min-width: 28px;
-  padding-block: 4px;
-  padding-inline: 10px;
+  min-height: var(--cs-component-button-xs-minHeight, 28px);
+  min-width: var(--cs-component-button-xs-minWidth, 28px);
+  padding-block: var(--cs-component-button-xs-paddingY, 4px);
+  padding-inline: var(--cs-component-button-xs-paddingX, 10px);
   font-size: var(--cs-font-size-sm, 0.875rem);
 }
 .cs-button--sm {
@@ -108,7 +108,7 @@
 @media (pointer: coarse) {
   .cs-button { min-height: 44px; }
   .cs-button--sm { min-height: 40px; }
-  .cs-button--xs { min-height: 36px; }
+  .cs-button--xs { min-height: var(--cs-component-button-xs-minHeight-coarse, 36px); }
 }
 
 /* ---- TextField ---- */

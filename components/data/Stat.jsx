@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Stat — labelled metric with optional delta. trend: up | down | flat. */
 export function Stat({ label, value, delta, trend = "flat", className, ...props }) {

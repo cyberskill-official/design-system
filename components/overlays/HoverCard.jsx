@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill HoverCard — hover/focus-triggered rich preview panel (delayed open/close). */
 export function HoverCard({ trigger, children, openDelay = 150, closeDelay = 200, className }) {
