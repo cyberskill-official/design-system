@@ -30,17 +30,28 @@ export default {
       },
     },
   },
-  args: { size: 40 },
+  args: { size: 'md' },
 };
 
 export const Default = {};
 
 export const Matrix = {
-  name: 'Matrix / Sizes',
+  name: 'Matrix / Ring',
   render: (args) => (
     <div style={{ display: 'flex', gap: 12 }}>
-      <LumiAvatar {...args} size={28} />
-      <LumiAvatar {...args} size={48} />
+      <LumiAvatar {...args} />
+      <LumiAvatar {...args} ring />
+    </div>
+  ),
+};
+
+export const AllSizes = {
+  name: 'All sizes',
+  render: (args) => (
+    <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+      <LumiAvatar {...args} size="sm" />
+      <LumiAvatar {...args} size="md" />
+      <LumiAvatar {...args} size="lg" />
     </div>
   ),
 };

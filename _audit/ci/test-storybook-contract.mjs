@@ -2,7 +2,10 @@
  * Host Storybook contract:
  * - Live hub = Storybook only (guidelines/live-view.html must not exist)
  * - Complete CSF for every public primary
- * - Honest deep matrix: non-empty argTypes; Matrix/AllVariants/… render mounts primary
+ * - Honest deep matrix: non-empty argTypes; Matrix/AllVariants render mounts primary
+ * - CSF bar: AllSizes when argTypes.size exists; States (or Matrix subsection) for
+ *   disabled/loading/error/busy when those argTypes exist
+ * - Non-goal: full N-dimensional enum product is not required
  */
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -14,12 +17,18 @@ function assert(c, m) {
   if (!c) throw new Error(m);
 }
 
-const mainPath = existsSync(join(root, '.storybook/main.cjs'))
-  ? join(root, '.storybook/main.cjs')
-  : join(root, '.storybook/main.js');
+const mainPath = existsSync(join(root, '.storybook/main.js'))
+  ? join(root, '.storybook/main.js')
+  : join(root, '.storybook/main.cjs');
 const main = readFileSync(mainPath, 'utf8');
 assert(main.includes('../stories/'), 'stories glob');
 assert(main.includes('guidelines') || main.includes('/guidelines'), 'staticDirs include guidelines for Live iframes');
+assert(main.includes('@storybook/addon-docs') || main.includes('addon-docs'), 'SB10 addon-docs');
+assert(main.includes('@storybook/addon-a11y') || main.includes('addon-a11y'), 'addon-a11y');
+assert(!main.includes('addon-essentials'), 'no addon-essentials (removed in SB10)');
+assert(/export\s+default/.test(main), 'main config is ESM default export');
+assert(main.includes('@cs'), 'viteFinal @cs alias');
+assert(main.includes('react-vite') || main.includes('@storybook/react-vite'), 'react-vite framework');
 
 const preview = readFileSync(join(root, '.storybook/preview.jsx'), 'utf8');
 assert(preview.includes('styles.css'), 'imports styles.css');
@@ -28,6 +37,10 @@ assert(preview.includes('data-theme') && preview.includes('data-cs-element') && 
 const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
 assert(pkg.scripts['build:storybook'], 'build:storybook script');
 assert(pkg.scripts['build:site'], 'build:site script');
+const sbVer = String(pkg.devDependencies?.storybook || '');
+assert(/^[\^~]?10\./.test(sbVer), 'storybook package is v10, got ' + sbVer);
+assert(pkg.devDependencies?.['@storybook/addon-docs'], '@storybook/addon-docs present');
+assert(!pkg.devDependencies?.['@storybook/addon-essentials'], 'addon-essentials removed');
 
 const vercel = JSON.parse(readFileSync(join(root, 'vercel.json'), 'utf8'));
 assert(vercel.buildCommand.includes('build:site'), 'vercel builds site with storybook');
@@ -78,9 +91,20 @@ if (missing.length) {
   process.exit(1);
 }
 
+const MATRIX_CORE = /export\s+const\s+(Matrix|AllVariants)\b/;
 const MATRIX_EXPORT = /export\s+const\s+(Matrix|AllVariants|AllSizes|States|Disabled)\b/;
 const THEATER = /data-matrix-cell|Secondary composition context|forces multi-story depth/;
 const SPREAD_ARGS = /\{\s*\.\.\.\s*args\s*\}/;
+const STATE_KEYS = ['disabled', 'loading', 'error', 'busy'];
+
+function argTypesSection(text) {
+  return (text.split('argTypes:')[1] || '').split(/parameters:|args:/)[0] || '';
+}
+
+function hasArgTypeKey(text, key) {
+  const at = argTypesSection(text);
+  return new RegExp('(^|\\n)\\s*"?' + key + '"?\\s*:').test(at);
+}
 
 /** Extract balanced `{...}` starting at open brace index. */
 function balanced(s, start) {
@@ -133,15 +157,21 @@ for (const m of modules) {
   const text = readFileSync(own, 'utf8');
   assert(text.includes(m.relFromRoot), 'story imports path for ' + m.primary);
   assert(/export\s+const\s+Default\b/.test(text), 'Default story for ' + m.primary);
-  assert(MATRIX_EXPORT.test(text), 'matrix export for ' + m.primary);
+  assert(MATRIX_CORE.test(text), 'Matrix|AllVariants export for ' + m.primary);
+  assert(MATRIX_EXPORT.test(text), 'matrix-family export for ' + m.primary);
   assert(!THEATER.test(text), 'no theater placeholders in ' + m.primary);
 
   // argTypes must be a non-empty object (at least one documented prop key)
   assert(/argTypes:\s*\{/.test(text), 'argTypes block for ' + m.primary);
   assert(!/argTypes:\s*\{\s*\}/.test(text), 'argTypes not empty for ' + m.primary);
-  const atSection = (text.split('argTypes:')[1] || '').split(/parameters:|args:/)[0] || '';
+  const atSection = argTypesSection(text);
   const atKeys = [...atSection.matchAll(/^\s*"?([A-Za-z_][A-Za-z0-9_]*)"?\s*:/gm)].map((x) => x[1]);
   if (atKeys.length < 1) fail.push(m.primary + ' no argTypes keys');
+
+  // CSF bar: AllSizes required when size is documented in argTypes (full N-dim product is not)
+  if (hasArgTypeKey(text, 'size')) {
+    assert(/export\s+const\s+AllSizes\b/.test(text), 'AllSizes story for ' + m.primary + ' (argTypes.size)');
+  }
 
   const metaArgs = metaArgsObject(text);
   const metaHasFixtures = argsNonEmpty(metaArgs);
@@ -149,11 +179,29 @@ for (const m of modules) {
   // Extract matrix story body and require primary mount
   const matrixBodies = [...text.matchAll(/export\s+const\s+(Matrix|AllVariants|AllSizes|States|Disabled)\s*=\s*\{([\s\S]*?)\n\};/g)];
   assert(matrixBodies.length >= 1, 'matrix body for ' + m.primary);
+  const joinedBodies = matrixBodies.map((x) => x[2]).join('\n');
+
+  // Interactive CSF bar: each state argType must appear in States or a Matrix subsection
+  for (const key of STATE_KEYS) {
+    if (!hasArgTypeKey(text, key)) continue;
+    const shown =
+      key === 'disabled'
+        ? /\bdisabled\b/.test(joinedBodies)
+        : key === 'loading'
+          ? /\bloading\b/.test(joinedBodies)
+          : key === 'busy'
+            ? /\bbusy\b/.test(joinedBodies)
+            : /\berror\b/.test(joinedBodies);
+    if (!shown) {
+      fail.push(m.primary + ' missing ' + key + ' coverage in Matrix|AllVariants|States (argTypes.' + key + ')');
+    }
+  }
+
   for (const [, name, body] of matrixBodies) {
     if (!body.includes('<' + m.primary)) {
       fail.push(m.primary + ' ' + name + ' does not mount <' + m.primary);
     }
-    if (/disabled\s*[=:{]/.test(body)) {
+    if (new RegExp('<' + m.primary + '\\b[^>]*\\bdisabled(?:\\s|=|/|>)').test(body)) {
       const jsx = readFileSync(join(root, m.relFromRoot), 'utf8');
       const sig = jsx.match(new RegExp('export\\s+function\\s+' + m.primary + '\\s*\\(\\s*\\{([^}]*)\\}'));
       const params = sig ? sig[1] : '';
@@ -235,6 +283,8 @@ console.log('PASS test-storybook-contract', {
   modules: modules.length,
   covered: covered.size,
   matrixHonest: modules.length,
+  storybook: sbVer,
+  csfBar: 'AllSizes+States',
   liveSurfaces: true,
   liveShell: 'redirect',
 });

@@ -25,7 +25,17 @@ export default {
 export const Default = {};
 
 export const Matrix = {
-  name: 'Matrix / Sizes',
+  name: 'Matrix / Labels',
+  render: (args) => (
+    <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+      <Spinner {...args} label="Loading" />
+      <Spinner {...args} label="Saving" />
+    </div>
+  ),
+};
+
+export const AllSizes = {
+  name: 'All sizes',
   render: (args) => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
       <Spinner {...args} size={16} />

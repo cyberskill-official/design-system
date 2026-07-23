@@ -45,3 +45,13 @@ export const Matrix = {
     </div>
   ),
 };
+
+export const States = {
+  name: 'States',
+  render: (args) => (
+    <div style={{ display: 'grid', gap: 12, maxWidth: 420 }}>
+      <TimePicker {...args} />
+      <TimePicker {...args} disabled />
+    </div>
+  ),
+};

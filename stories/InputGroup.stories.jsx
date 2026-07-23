@@ -57,3 +57,13 @@ export const Matrix = {
     </div>
   ),
 };
+
+export const States = {
+  name: 'States',
+  render: () => (
+    <div style={{ display: 'grid', gap: 12, maxWidth: 420 }}>
+      <InputGroup placeholder="Amount" defaultValue="100" />
+      <InputGroup placeholder="Amount" defaultValue="100" disabled />
+    </div>
+  ),
+};

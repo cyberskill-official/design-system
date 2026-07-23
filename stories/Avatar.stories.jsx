@@ -30,18 +30,32 @@ export default {
       },
     },
   },
-  args: { name: 'Stephen Cheng', size: 40 },
+  args: { name: 'Stephen Cheng', size: 'md' },
 };
 
 export const Default = {};
 
 export const Matrix = {
-  name: 'Matrix / Sizes',
+  name: 'Matrix / Shape',
   render: (args) => (
     <div style={{ display: 'flex', gap: 12 }}>
-      <Avatar {...args} name="A" size={28} />
-      <Avatar {...args} name="B" size={40} />
-      <Avatar {...args} name="C" size={56} />
+      <Avatar {...args} name="A" />
+      <Avatar {...args} name="B" square />
+      <AvatarGroup>
+        <Avatar name="One" />
+        <Avatar name="Two" />
+      </AvatarGroup>
+    </div>
+  ),
+};
+
+export const AllSizes = {
+  name: 'All sizes',
+  render: (args) => (
+    <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+      <Avatar {...args} name="A" size="sm" />
+      <Avatar {...args} name="B" size="md" />
+      <Avatar {...args} name="C" size="lg" />
     </div>
   ),
 };

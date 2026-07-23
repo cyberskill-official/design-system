@@ -63,6 +63,27 @@ export const AllVariants = {
       <Button {...args} variant="ghost">ghost</Button>
       <Button {...args} variant="danger">danger</Button>
       <Button {...args} variant="danger-ghost">danger-ghost</Button>
+    </div>
+  ),
+};
+
+export const AllSizes = {
+  name: 'All sizes',
+  render: (args) => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
+      <Button {...args} size="xs">xs</Button>
+      <Button {...args} size="sm">sm</Button>
+      <Button {...args} size="md">md</Button>
+      <Button {...args} size="lg">lg</Button>
+    </div>
+  ),
+};
+
+export const States = {
+  name: 'States',
+  render: (args) => (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+      <Button {...args}>default</Button>
       <Button {...args} loading>loading</Button>
       <Button {...args} disabled>disabled</Button>
     </div>

@@ -1,6 +1,10 @@
-const path = require('node:path');
-const fs = require('node:fs');
+import path from 'node:path';
+import fs from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { mergeConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, '..');
 
 /** Serve/copy root portable files so Live/* iframes resolve /styles.css etc. */
@@ -50,12 +54,9 @@ function dsRootFilesPlugin() {
 }
 
 /** @type { import('@storybook/react-vite').StorybookConfig } */
-module.exports = {
+const config = {
   stories: ['../stories/**/*.mdx', '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-  addons: [
-    '@storybook/addon-essentials',
-    '@storybook/addon-a11y',
-  ],
+  addons: ['@storybook/addon-docs', '@storybook/addon-a11y'],
   framework: {
     name: '@storybook/react-vite',
     options: {},
@@ -70,12 +71,7 @@ module.exports = {
     { from: '../ui_kits', to: '/ui_kits' },
     { from: '../components', to: '/components' },
   ],
-  docs: {
-    autodocs: 'tag',
-  },
   async viteFinal(config) {
-    const { mergeConfig } = await import('vite');
-    const react = (await import('@vitejs/plugin-react')).default;
     config.plugins = config.plugins || [];
     if (!config.plugins.some((p) => p && p.name === 'vite:react-babel')) {
       config.plugins.push(react());
@@ -91,3 +87,5 @@ module.exports = {
     });
   },
 };
+
+export default config;

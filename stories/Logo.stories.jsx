@@ -28,7 +28,17 @@ export default {
 export const Default = {};
 
 export const Matrix = {
-  name: 'Matrix / Sizes',
+  name: 'Matrix / Decorative',
+  render: (args) => (
+    <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+      <Logo {...args} />
+      <Logo {...args} decorative />
+    </div>
+  ),
+};
+
+export const AllSizes = {
+  name: 'All sizes',
   render: (args) => (
     <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
       <Logo {...args} size={24} />
