@@ -4,7 +4,7 @@ Every deterministic quality gate in the system, what it asserts, its pass criter
 
 **Where gates run.** *Fast board CI* = the `fast-gates` job in `.github/workflows/design-system-gates.yml`, which serves the repo and drives `_audit/run.html` headless via `_audit/ci/run-gates.mjs` (every push/PR + nightly + manual) — new board rows are picked up automatically. Two gates additionally run standalone as *merge blockers* (`docs-consistency-blocker` job, via `_audit/ci/run-single-gate.mjs`). *Whole-set CI* = the `whole-set-audits` job (every push/PR + nightly — owner decision B). *Unit test* = `npm run test:unit` in the `unit-tests` job (plain Node, no browser). *Node pre-checks* = the `node-prechecks` job (browser-free authorities: bundle freshness, DESIGN.md freshness) plus the `token-provenance` job. Every browser gate publishes a verdict global (`window.__*`) that the headless runners read.
 
-## Fast board — 30 gates in `_audit/run.html`
+## Fast board — 31 gates in `_audit/run.html`
 
 | Gate | File | What it asserts | Pass criterion | Type | Where it runs |
 |---|---|---|---|---|---|
@@ -12,6 +12,7 @@ Every deterministic quality gate in the system, what it asserts, its pass criter
 | Three-axes guard | `_audit/axis-guard.html` | No live source reintroduces the retired Expression/Density product surface | 0 hits across manifest-indexed sources (`__axisguard`) | Hard | Fast board CI |
 | Manifest CSS paths | `_audit/manifest-css-guard.html` | Every `_ds_manifest.json` `globalCssPaths` entry exists as raw CSS; every `styles.css` `@import` is listed | 0 missing / 0 unlisted (`__cssguard`) | Hard | Fast board CI |
 | Docs consistency | `_audit/docs-consistency.html` | Every count claim in README/SKILL/llms.txt matches the compiler manifest; `VERSION` + `package.json` pinned 1.0.0; no changelog-file reference; stale-phrase blacklist (the retired suite/pack counts the Jul 2026 audit removed) clean across README/SKILL/llms + `docs/*.md` (audit report excluded by design — it quotes what it corrected); `DESIGN.md` exists with front-matter version = `VERSION` | 0 mismatched claims, 0 blacklist hits, pin + stamp intact (`__docs`) | Hard | Fast board CI + merge blocker |
+| Docs language parity | `_audit/docs-lang-parity.html` | Every operator-facing EN `docs/*.md` has a `docs/vi/` counterpart; VI is not an empty/TODO stub (≥40% EN length); stale-phrase blacklist clean on both EN and VI (audit report excluded by design) | 0 missing pairs, 0 stubs, 0 blacklist hits (`__docslangparity`) | Hard | Fast board CI |
 | DESIGN.md parity | `_audit/design-md-parity.html` | The root `DESIGN.md` (Stitch open-spec surface) byte-equals an in-browser regeneration from `tokens.dtcg.json` + `_ds_manifest.json` + `VERSION` via the shared `scripts/design-md-lib.mjs`; every one of the 138 token rows re-checked individually | Byte-identical + 0 drifted rows (`__designmd`) | Hard | Fast board CI |
 | Version stamp | `_audit/version-stamp.html` | `package.json`, `tokens.json`/`tokens.js` metas, DTCG `$extensions`, `provenance.json` release + dtcgStamp, and `DESIGN.md` front matter all equal `VERSION` (1.0.0 pin) | All 8 stamps equal (`__versionstamp`) | Hard | Fast board CI |
 | Namespace portability | `_audit/namespace-portability.html` | No manifest-indexed source hardcodes the compiler's project-id bundle suffix | 0 hardcoded suffixes (`__nsguard`) | Hard | Fast board CI |
@@ -35,9 +36,9 @@ Every deterministic quality gate in the system, what it asserts, its pass criter
 | APCA dark packs | `_audit/apca-dark-preview.html` | All 15 element×variant packs hold their APCA targets in dark (bright-as-text ≥ 75, accent UI ≥ 60, ink-on-accent ≥ 75, ink-on-tint ≥ 75) | 0 current failures (`__apcaPreview.currentFail === 0`) | Hard | Fast board CI |
 | Visual baselines | `_audit/visual-diff.html` | Template baselines exist and are loadable for side-by-side / overlay comparison | Baselines present; drift judged by eye (`__visualdiff`) | Advisory | Fast board CI |
 | Component baselines | `_audit/component-visual-diff.html` | 12 curated component crops anchor the atomic tiers for visual comparison | Crops render + baselines present (`__componentVisualDiff`) | Advisory | Fast board CI |
-| Axe smoke | `_audit/axe-smoke.html` | axe-core serious/critical rules on a mounted bilingual component cluster | 0 serious/critical findings (`__axesmoke`) | Advisory (CDN dependency) | Fast board CI |
+| Axe smoke | `_audit/axe-smoke.html` | axe-core 4.10.0 (vendored at `_audit/vendor/axe.min.js`) serious/critical rules on a mounted bilingual component cluster | 0 serious/critical findings (`__axesmoke`) | Hard | Fast board CI |
 | Print smoke | `_audit/print-smoke.html` | Document templates declare the print-ownership meta and `@page` CSS hooks the export path relies on | 0 documents missing print hooks (`__printsmoke`) | Hard | Fast board CI |
-| Pixel CI scaffold | `_audit/pixel-ci.html` | Baselines, the visual-diff harness, and the `_audit/ci/pixel-diff.mjs` contract all exist and agree | Contract complete (`__pixelci`) | Advisory | Fast board CI |
+| Pixel CI | `_audit/pixel-ci.html` + `_audit/ci/pixel-diff.mjs` | Curated baselines exist; Playwright capture script performs real % pixel compare; last report surfaces `drifted[]` / `maxDiff` | Contract complete (`__pixelci.pass`); numeric drift advisory only (`drifted`, `maxDiff`) | Advisory | Fast board CI + optional `pixel-diff` job (`continue-on-error`) |
 
 ## Whole-set audits — every template, every axis
 
@@ -45,7 +46,7 @@ Every deterministic quality gate in the system, what it asserts, its pass criter
 |---|---|---|---|---|---|
 | Responsive overflow | `_audit/responsive-overflow.html` | Every template (84) + 3 UI kits render at 390 px without horizontal document overflow | 0 overflowing surfaces (`__overflow`) | Hard | Whole-set CI (every PR + nightly) |
 | Language overflow | `_audit/language-overflow.html` | Same set forced to Tiếng Việt: VN applies, no overflow, no clipped text in fixed/nowrap boxes | 0 over/clip, 0 VN-not-applied (`__language`) | Hard | Whole-set CI (every PR + nightly) |
-| Theme overflow | `_audit/theme-overflow.html` | Same set forced dark: dark applies and no document overflow (its DOM-walk contrast rows are advisory) | Dark applied + 0 overflow (`__theme`) | Hard (contrast rows advisory) | Whole-set CI (every PR + nightly) |
+| Theme overflow | `_audit/theme-overflow.html` | Same set forced dark: dark applies, no document overflow, and no reproducible solid-bg leaf-text WCAG fails outside `REVIEWED_OK` | Dark applied + 0 overflow + 0 open contrast (`__theme`) | Hard (allowlisted near-misses only) | Whole-set CI (every PR + nightly) |
 
 ## Node pre-checks (browser-free)
 
@@ -55,26 +56,35 @@ Every deterministic quality gate in the system, what it asserts, its pass criter
 | Bundle freshness (authority) | `_audit/ci/check-bundle-freshness.mjs` | The committed `_ds_bundle.js` was built from the component sources as they exist now — full source discovery (walks `components/`, `ui_kits/`, root sources), so new/deleted files are caught too, which the browser row cannot do | Exit 0, 0 drifted/new/deleted sources | Hard | CI `node-prechecks` job |
 | DESIGN.md freshness | `scripts/generate-design-md.mjs --check` | The root `DESIGN.md` byte-equals a fresh regeneration from DTCG + manifest + `VERSION` | Exit 0 on byte match | Hard | CI `node-prechecks` job |
 
-## Unit tests — `npm run test:unit` (6)
+## Unit tests — `npm run test:unit` (7)
 
 | Test | File | What it asserts | Pass criterion | Type | Where it runs |
 |---|---|---|---|---|---|
 | Nav model | `_audit/ci/test-nav-model.mjs` | The shipped `guidelines/nav-model.js` classify/group logic behaves (drives the real module) | All assertions pass (exit 0) | Hard | Unit test |
 | Health/Tokens UI contract | `_audit/ci/test-health-tokens-contract.mjs` | Structural contracts of the Health + Tokens HTML entry points hold | All assertions pass (exit 0) | Hard | Unit test |
 | Form paths | `_audit/ci/test-form-paths.mjs` | Form path helpers behave (drives the shipped `Form.jsx` via dynamic import) | All assertions pass (exit 0) | Hard | Unit test |
-| Storybook contract | `_audit/ci/test-storybook-contract.mjs` | Live hub is Storybook only; complete CSF for every public primary; deep matrices are honest (non-empty argTypes, matrix stories mount the primary) | All assertions pass (exit 0) | Hard | Unit test |
+| Storybook contract | `_audit/ci/test-storybook-contract.mjs` | Live hub is Storybook only; SB10 ESM main + addon-docs/a11y; complete CSF for every public primary; Matrix/AllVariants + AllSizes when `argTypes.size`; States/Matrix cover disabled/loading/error/busy; honest mounts (full N-dim enum product not required) | All assertions pass (exit 0) | Hard | Unit test |
 | Figma push helpers | `_audit/ci/test-figma-push-helpers.mjs` | Pure helpers in `push-figma-variables.mjs` behave (no network, no secrets) | All assertions pass (exit 0) | Hard | Unit test |
-| Native samples | `_audit/ci/test-native-samples.mjs` | SwiftUI / Compose / Flutter sample apps each have ≥ 3 screens and reference the generated token constants | All assertions pass (exit 0) | Hard | Unit test |
+| Code Connect helpers | `_audit/ci/test-code-connect.mjs` | 99 primaries, node-map/render helpers, soft-skip classifiers, committed `figma.config.json` + high-traffic `.figma.tsx` | All assertions pass (exit 0) | Hard | Unit test |
+| Native samples | `_audit/ci/test-native-samples.mjs` | SwiftUI / Compose / Flutter sample apps each have ≥ 3 screens, reference generated token constants, and ship Fastlane store scaffolds (submit disabled) | All assertions pass (exit 0) | Hard | Unit test |
 
 The `test:unit` suite is wired into the CI workflow as part of the July 2026 hardening change (it previously only ran locally).
 
+## Sync / distribution jobs (soft-skip)
+
+| Job | Script / workflow | What it asserts | Soft-skip when | Where it runs |
+|---|---|---|---|---|
+| Code Connect | `_audit/ci/code-connect-publish.mjs` + `code-connect` job | Config + 99 mappings; optional publish | Missing `FIGMA_TOKEN`/`FIGMA_FILE_KEY` or API 403/404/429 | PR + `main` + manual |
+| npm publish | `_audit/ci/npm-publish.mjs` + `npm-publish.yml` | Pack-safe `files`/`exports`; optional `npm publish` | Missing `NPM_TOKEN` or registry auth/404/403 | `workflow_dispatch` / `v*` tags |
+| Native store | `_audit/ci/native-store-dry-run.mjs` + `native-store.yml` | Fastlane scaffolds + metadata; signed-release secrets check | Missing `ASC_*` / `PLAY_SERVICE_ACCOUNT_JSON` (submit always disabled) | PR + `main` (paths) + manual |
+
 ## July 2026 hardening — delivered
 
-The eight gates the audit planned (token-format-parity, version-stamp, support-runtime-identity, package-exports-integrity, template-lang-parity, dtcg-typing, bundle-freshness, design-md-parity) are now **implemented** — see their rows in the fast-board and Node-pre-check tables above. All are wired into `_audit/run.html`, `_audit/index.html`, the CI workflow (`fast-gates` picks the board rows up automatically; `node-prechecks` + `unit-tests` are new jobs), and `dashboard.html` (whose Health tab embeds `run.html`, so board rows surface there without a separate list). The docs-consistency gate carries the stale-phrase blacklist (retired suite/pack counts) + `DESIGN.md` stamp extensions described in its row.
+The eight gates the audit planned (token-format-parity, version-stamp, support-runtime-identity, package-exports-integrity, template-lang-parity, dtcg-typing, bundle-freshness, design-md-parity) are now **implemented** — see their rows in the fast-board and Node-pre-check tables above. All are wired into `_audit/run.html`, `_audit/index.html`, the CI workflow (`fast-gates` picks the board rows up automatically; `node-prechecks` + `unit-tests` are new jobs), and `dashboard.html` (whose Health tab embeds `run.html`, so board rows surface there without a separate list). The docs-consistency gate carries the stale-phrase blacklist (retired suite/pack counts) + `DESIGN.md` stamp extensions described in its row. The docs-lang-parity gate locks the `docs/vi/` mirror.
 
 ## Human-reviewed, never automated
 
 - **Brand voice / copy** — warm · direct · honest · respectful is judged by a human, not a regex.
 - **Legal template content** — counsel reviews the instruments; gates only check structure, bilingual mechanics, and print geometry.
-- **Pixel-diff judgment** — owner decision A: visual drift stays advisory and is judged by eye against the baselines.
+- **Pixel-diff judgment** — owner decision A: visual / pixel rows stay advisory. Playwright `%` drift (`drifted[]`, `maxDiff`) is reported but never auto-fails a PR; humans still judge intentional redesigns against baselines.
 - **Component API design review** — prop naming and ergonomics are reviewed by the owner, not asserted.

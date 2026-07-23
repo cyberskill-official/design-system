@@ -1,10 +1,12 @@
 /**
  * Structural proof for multi-screen native sample apps.
  * Asserts SwiftUI / Compose / Flutter each have ≥3 screens and reference generated CSTokens.
+ * Also asserts App Store / Play Store Fastlane scaffolds (Phase 7).
  */
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { missingSecrets, ASC_SECRETS, PLAY_SECRETS } from './native-store-dry-run.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
 function assert(c, m) {
@@ -95,6 +97,48 @@ assert(
 // Sync script exists
 assert(existsSync(join(root, 'examples/native/sync-tokens.mjs')), 'sync-tokens.mjs');
 
+// --- Store packaging scaffolds (Phase 7 / Decision 1C) ---
+function assertStoreScaffold(relRoot, files) {
+  for (const f of files) {
+    const p = join(root, relRoot, f);
+    assert(existsSync(p), 'store scaffold missing ' + join(relRoot, f));
+    assert(readFileSync(p, 'utf8').trim().length > 0, 'store scaffold empty ' + f);
+  }
+  const fast = read(join(relRoot, 'fastlane/Fastfile'));
+  assert(/upload_store/.test(fast), relRoot + ' Fastfile needs upload_store lane');
+  assert(/Store submit disabled|samples remain samples/i.test(fast), relRoot + ' must refuse store submit');
+}
+
+assertStoreScaffold(swiftRoot, [
+  'Gemfile',
+  'fastlane/Fastfile',
+  'fastlane/Appfile',
+  'fastlane/metadata/en-US/name.txt',
+  'fastlane/metadata/en-US/description.txt',
+]);
+assertStoreScaffold(composeRoot, [
+  'Gemfile',
+  'signing.properties.example',
+  'fastlane/Fastfile',
+  'fastlane/Appfile',
+  'fastlane/metadata/android/en-US/title.txt',
+  'fastlane/metadata/android/en-US/changelogs/1.txt',
+]);
+assertStoreScaffold(flutterRoot, [
+  'Gemfile',
+  'fastlane/Fastfile',
+  'fastlane/Appfile',
+  'fastlane/metadata/ios/en-US/name.txt',
+  'fastlane/metadata/android/en-US/title.txt',
+  'fastlane/metadata/android/en-US/changelogs/1.txt',
+]);
+assert(existsSync(join(root, '_audit/ci/native-store-dry-run.mjs')), 'native-store-dry-run.mjs');
+assert(existsSync(join(root, '.github/workflows/native-store.yml')), 'native-store.yml workflow');
+
+assert(missingSecrets(ASC_SECRETS, {}).length === ASC_SECRETS.length, 'ASC secrets empty-env');
+assert(missingSecrets(PLAY_SECRETS, { PLAY_SERVICE_ACCOUNT_JSON: 'x' }).length === 0, 'Play secret present');
+assert(missingSecrets(ASC_SECRETS, { ASC_KEY_ID: 'a', ASC_ISSUER_ID: 'b', ASC_KEY_P8: 'c' }).length === 0, 'ASC complete');
+
 // Inventory size
 const swiftFiles = walk(join(root, swiftRoot)).filter((f) => f.endsWith('.swift'));
 const ktFiles = walk(join(root, composeRoot)).filter((f) => f.endsWith('.kt'));
@@ -110,4 +154,5 @@ console.log('PASS test-native-samples', {
   swiftFiles: swiftFiles.length,
   ktFiles: ktFiles.length,
   dartFiles: dartFiles.length,
+  storeScaffolds: ['swiftui', 'compose', 'flutter'],
 });

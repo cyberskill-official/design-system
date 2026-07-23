@@ -55,8 +55,9 @@ jobs:
         run: node _audit/ci/check-token-provenance.mjs
 
   unit-tests:
-    # npm run test:unit — 6 plain-Node contract tests (nav model, health/tokens UI,
-    # form paths, Storybook contract, Figma helpers, native samples). No browser.
+    # npm run test:unit — 7 plain-Node contract tests (nav model, health/tokens UI,
+    # form paths, Storybook contract, Figma helpers, Code Connect helpers, native samples).
+    # Wired into CI by the Jul 2026 hardening (previously local-only). No browser.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -143,8 +144,41 @@ jobs:
         run: node _audit/ci/run-single-gate.mjs http://127.0.0.1:8080/_audit/responsive-overflow.html __overflow 360000
       - name: language-overflow (all 84 templates, forced VN)
         run: node _audit/ci/run-single-gate.mjs http://127.0.0.1:8080/_audit/language-overflow.html __language 360000
-      - name: theme-overflow (all 84 templates, forced dark — hard gate only; contrast stays advisory)
+      - name: theme-overflow (all 84 templates, forced dark — overflow + contrast hard; REVIEWED_OK allowlist)
         run: node _audit/ci/run-single-gate.mjs http://127.0.0.1:8080/_audit/theme-overflow.html __theme 360000
+
+  pixel-diff:
+    # Owner decision A: advisory only — never blocks merge on % drift.
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install npm dependencies
+        run: npm ci
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-chromium
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Serve the repo statically
+        run: npx --yes serve@14 -l 8080 . &
+      - name: Wait for server
+        run: npx --yes wait-on@7 http://127.0.0.1:8080/dashboard.html
+      - name: Playwright pixel compare (advisory)
+        run: node _audit/ci/pixel-diff.mjs http://127.0.0.1:8080
+      - name: Upload pixel-diff report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pixel-diff-report
+          path: _audit/ci/pixel-diff-report.json
+          if-no-files-found: ignore
 
   regenerate-tokens:
     # Only when DTCG / generator / native targets can drift. Deterministic output → no-op commit when clean.
@@ -265,4 +299,34 @@ jobs:
         with:
           name: figma-push-report
           path: _audit/ci/figma-push-report.json
+          if-no-files-found: ignore
+
+  code-connect:
+    # Decision 1C: live Code Connect path; soft-skip when secrets missing or API 403/404/429.
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install npm dependencies
+        run: npm ci
+      - name: Code Connect dry-run (config + 99 mappings, no secrets)
+        run: node _audit/ci/code-connect-publish.mjs --dry-run
+      - name: Code Connect publish (soft-skip without secrets / on 403·404·429)
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+          FIGMA_FILE_KEY: ${{ secrets.FIGMA_FILE_KEY }}
+        run: node _audit/ci/code-connect-publish.mjs
+      - name: Upload Code Connect report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-connect-report
+          path: _audit/ci/code-connect-report.json
           if-no-files-found: ignore
