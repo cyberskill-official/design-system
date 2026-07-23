@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Menubar — app-style horizontal menu bar. menus: [{label, items:[{label,onSelect,danger}|"-"]}]. */
 export function Menubar({ menus = [], className }) {

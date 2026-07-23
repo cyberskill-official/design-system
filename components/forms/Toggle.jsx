@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Toggle — a single pressable on/off button (≠ Switch: no form semantics; ≠ SegmentedControl: standalone). */
 export function Toggle({ pressed, defaultPressed = false, onChange, icon, children, disabled = false, className, ...props }) {

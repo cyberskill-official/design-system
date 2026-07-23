@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Accordion — collapsible sections. Single-open by default; allowMultiple for many. */
 export function Accordion({ items = [], defaultOpen = 0, allowMultiple = false, className }) {

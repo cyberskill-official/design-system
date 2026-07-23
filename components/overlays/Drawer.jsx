@@ -1,6 +1,6 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Drawer — slide-in side panel with scrim. side: right (default) | left. */
 export function Drawer({ open, onClose, title, side = "right", children, actions, lang, className }) {

@@ -1,6 +1,6 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 const SWATCHES = ["#F4BA17", "#C77B4A", "#E0632B", "#C43D1F", "#7A9B57", "#3E5A2E", "#4E8E9B", "#2E5E7E", "#BFB29B", "#45210E"];
 
 /** CyberSkill ColorPicker — curated brand swatches + custom hex input. */

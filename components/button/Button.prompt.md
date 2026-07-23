@@ -8,5 +8,5 @@
 
 - **variant**: `primary` (Umber) · `secondary` (outlined) · `tertiary` (subtle raised) · `ghost` · `danger` · `danger-ghost`
 
-- **size**: `xs` · `sm` (36px) · `md` (44px, default) · `lg` (52px)
+- **size**: `xs` (28px) · `sm` (36px) · `md` (44px, default) · `lg` (52px) — sizes from `--cs-component-button-{xs,sm,md,lg}-*` tokens
 - **loading** shows a spinner + sets `aria-busy`; **fullWidth** stretches; **icon** adds a leading glyph.

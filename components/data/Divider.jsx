@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Divider — hairline rule. `label` centres text; `vertical` for inline splits. */
 // `children` is destructured but never rendered on purpose: keeps stray children out of {...props} → void <hr> / label <div>.

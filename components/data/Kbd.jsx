@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Kbd — keyboard key hint. */
 export function Kbd({ children, className, ...props }) {

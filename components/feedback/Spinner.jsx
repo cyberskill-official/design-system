@@ -1,6 +1,6 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Spinner — indeterminate loading indicator. */
 export function Spinner({ size = 20, label, lang, className, style, ...props }) {

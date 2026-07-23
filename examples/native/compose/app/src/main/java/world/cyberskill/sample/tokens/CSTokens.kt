@@ -1,6 +1,6 @@
 // CyberSkill Design System — native design tokens.
 // GENERATED from tokens/tokens.dtcg.json — do not hand-edit; regenerate on token change.
-// release v1.0.0 · source sha256 b6f5d972a38722f6…
+// release v1.0.0 · source sha256 5a45aa0b1ca5f86c…
 // conversions: rem→px at 16 · em→…Em relative doubles · rgba alpha→ARGB byte (round(a*255)) · durations in ms
 // dark element packs: see $extensions.overrides.elementsDark
 // provenance: tokens/provenance.json · parity gate: _audit/token-pipeline-test.html
@@ -32,6 +32,11 @@ object CSTokens {
   val componentButtonPrimaryFg = Color(0xFFFFFFFF)
   val componentButtonGap = 8.dp
   val componentButtonRadius = 8.dp
+  val componentButtonXsPaddingY = 4.dp
+  val componentButtonXsPaddingX = 10.dp
+  val componentButtonXsMinHeight = 28.dp
+  val componentButtonXsMinWidth = 28.dp
+  val componentButtonXsMinHeightCoarse = 36.dp
   val componentButtonSmPaddingY = 8.dp
   val componentButtonSmPaddingX = 14.dp
   val componentButtonSmMinHeight = 36.dp

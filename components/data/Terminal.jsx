@@ -1,6 +1,6 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Terminal — command console: history + prompt input; onCommand returns output (string or lines). */
 export function Terminal({ title = "cyberskill — zsh", welcome, onCommand, prompt = "➜", lang, className }) {

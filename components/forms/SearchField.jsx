@@ -1,6 +1,6 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill SearchField — pill search input with icon + clear. Controlled or uncontrolled. */
 // `children` is destructured but never rendered on purpose: keeps stray children out of {...props} → void <input>.

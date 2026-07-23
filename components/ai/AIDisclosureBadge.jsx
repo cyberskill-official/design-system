@@ -1,6 +1,5 @@
 import React from "react";
-
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /**
  * CyberSkill AIDisclosureBadge — a pill that discloses AI involvement and, when

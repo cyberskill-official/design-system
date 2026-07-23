@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill PromptSuggestions — tappable "wish" starter chips for a chat/prompt. */
 export function PromptSuggestions({ suggestions = [], onSelect, className }) {

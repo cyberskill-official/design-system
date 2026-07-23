@@ -1,7 +1,7 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
 import { Tree } from "../data/Tree.jsx";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill TreeSelect — field opening a Tree; picking a node sets the value. */
 export function TreeSelect({ nodes = [], value, onChange, placeholder, label, disabled = false, lang, className }) {

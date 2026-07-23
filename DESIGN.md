@@ -222,6 +222,11 @@ Component-level design decisions (button · textfield). Dark values are theme ov
 | `--cs-component-button-primary-fg` | `#FFFFFF` | `#1a1108` |
 | `--cs-component-button-gap` | `8px` | — |
 | `--cs-component-button-radius` | `8px` | — |
+| `--cs-component-button-xs-paddingY` | `4px` | — |
+| `--cs-component-button-xs-paddingX` | `10px` | — |
+| `--cs-component-button-xs-minHeight` | `28px` | — |
+| `--cs-component-button-xs-minWidth` | `28px` | — |
+| `--cs-component-button-xs-minHeight-coarse` | `36px` | — |
 | `--cs-component-button-sm-paddingY` | `8px` | — |
 | `--cs-component-button-sm-paddingX` | `14px` | — |
 | `--cs-component-button-sm-minHeight` | `36px` | — |

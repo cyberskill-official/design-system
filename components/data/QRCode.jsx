@@ -1,6 +1,6 @@
 import React from "react";
 import { qrMatrix } from "./qr-encode.js";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill QRCode — SVG QR (byte mode, EC-L, versions 1–4 ≈ up to 78 bytes). Umber on transparent. */
 export function QRCode({ value = "", size = 128, color = "var(--cs-color-text-primary)", label, className }) {

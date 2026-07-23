@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill CodeBlock — dark mono code panel with a filename bar + copy button. */
 export function CodeBlock({ code = "", filename, language = "code", showBar = true, className }) {

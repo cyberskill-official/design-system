@@ -1,7 +1,6 @@
 import React from "react";
 import { CS_LOGO_VIEWBOX, CS_LOGO_MARK_INNER } from "./logo-data.js";
-
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /**
  * CyberSkill brand mark. Renders the EXACT official master artwork (Umber ground,

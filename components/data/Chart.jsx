@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Chart — token-colored SVG charts: bar | line | spark | pie. data: [{label,value}]. */
 export function Chart({ type = "bar", data = [], height = 160, color = "var(--cs-accent)", showValues = false, label, className }) {

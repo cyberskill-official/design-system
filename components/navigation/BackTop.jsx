@@ -1,6 +1,6 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill BackTop — scroll-to-top button; appears after a scroll threshold. */
 export function BackTop({ threshold = 320, label, lang, className }) {

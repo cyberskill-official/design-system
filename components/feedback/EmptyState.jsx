@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill EmptyState — friendly placeholder for empty views. */
 export function EmptyState({ icon, title, children, actions, className }) {

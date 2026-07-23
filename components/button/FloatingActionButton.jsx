@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill FloatingActionButton — round primary action; optional speed-dial actions. */
 export function FloatingActionButton({ icon, label, actions = [], onClick, position = "fixed", className }) {

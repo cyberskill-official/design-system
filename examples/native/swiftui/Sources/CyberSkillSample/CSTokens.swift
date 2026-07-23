@@ -1,6 +1,6 @@
 // CyberSkill Design System — native design tokens.
 // GENERATED from tokens/tokens.dtcg.json — do not hand-edit; regenerate on token change.
-// release v1.0.0 · source sha256 b6f5d972a38722f6…
+// release v1.0.0 · source sha256 5a45aa0b1ca5f86c…
 // conversions: rem→px at 16 · em→…Em relative doubles · rgba alpha→ARGB byte (round(a*255)) · durations in ms
 // dark element packs: see $extensions.overrides.elementsDark
 // provenance: tokens/provenance.json · parity gate: _audit/token-pipeline-test.html
@@ -34,6 +34,11 @@ public enum CSTokens {
   public static let componentButtonPrimaryFg = color(0xFFFFFF)
   public static let componentButtonGap: CGFloat = 8
   public static let componentButtonRadius: CGFloat = 8
+  public static let componentButtonXsPaddingY: CGFloat = 4
+  public static let componentButtonXsPaddingX: CGFloat = 10
+  public static let componentButtonXsMinHeight: CGFloat = 28
+  public static let componentButtonXsMinWidth: CGFloat = 28
+  public static let componentButtonXsMinHeightCoarse: CGFloat = 36
   public static let componentButtonSmPaddingY: CGFloat = 8
   public static let componentButtonSmPaddingX: CGFloat = 14
   public static let componentButtonSmMinHeight: CGFloat = 36

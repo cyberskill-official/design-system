@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill ContextMenu — right-click menu scoped to its children. items: {label,onSelect,danger} or "-" separator. */
 export function ContextMenu({ items = [], children, className }) {

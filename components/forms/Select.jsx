@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Select — native <select> in the .cs-field frame with a chevron.
  *  Pass `options` [{value,label}] or <option> children. */

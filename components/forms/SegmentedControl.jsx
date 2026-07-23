@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill SegmentedControl — pill toggle group (single select). Matches the Status Hub lens switcher. */
 export function SegmentedControl({ options = [], value, onChange, className, ...props }) {

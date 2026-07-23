@@ -1,6 +1,6 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill TagInput — multi-value token input. Enter/comma adds, Backspace removes last, blur commits. */
 export function TagInput({ value, defaultValue = [], onChange, placeholder, max, disabled = false, lang, className }) {

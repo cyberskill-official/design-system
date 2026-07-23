@@ -1,6 +1,6 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Splitter — two resizable panes with a draggable (and arrow-key) divider. */
 export function Splitter({ start, end, initial = 50, min = 20, max = 80, height = 240, lang, className }) {

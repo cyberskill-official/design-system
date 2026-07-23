@@ -1,6 +1,6 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 function pages(page, count) {
   if (count <= 7) return Array.from({ length: count }, (_, i) => i + 1);

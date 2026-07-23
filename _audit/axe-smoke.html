@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><title>CyberSkill — axe smoke (advisory)</title>
+<html lang="en"><head><meta charset="utf-8"><title>CyberSkill — axe smoke</title>
 <link rel="stylesheet" href="../styles.css">
 <style>
   body{margin:0;font-family:var(--cs-font-family-ui);background:#efe6d8;color:#231a12;padding:16px 20px}
@@ -12,10 +12,10 @@
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
 <script src="../_ds_bundle.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axe-core/4.10.0/axe.min.js" crossorigin="anonymous"></script>
+<script src="./vendor/axe.min.js"></script>
 </head><body>
-<h1>Axe smoke (advisory)</h1>
-<p class="lede">Mounts a small bilingual component cluster and runs <b>axe-core</b> serious/critical rules. Advisory on the fast board (CDN + axe version drift). Verdict: <code>window.__axesmoke.pass</code>.</p>
+<h1>Axe smoke</h1>
+<p class="lede">Mounts a small bilingual component cluster and runs <b>axe-core</b> 4.10.0 (vendored at <code>_audit/vendor/axe.min.js</code>) serious/critical rules. Hard gate on the fast board. Verdict: <code>window.__axesmoke.pass</code>.</p>
 <div id="list"></div><div id="sum">running…</div><div id="stage"></div>
 <script>
 const list=document.getElementById('list'), stage=document.getElementById('stage');
@@ -24,7 +24,7 @@ function row(ok,t){const d=document.createElement('div');d.className='row '+(ok?
 (async()=>{
   const fails=[];
   P.current='preflight'; P.done=0;
-  if(typeof axe==='undefined'){ fails.push('axe-core CDN failed to load'); }
+  if(typeof axe==='undefined'){ fails.push('axe-core vendor failed to load (_audit/vendor/axe.min.js)'); }
   const NS=window[Object.keys(window).find(k=>/^CyberSkillDesignSystem_[0-9a-f]{6}$/.test(k))];
   if(!NS) fails.push('bundle namespace missing');
   if(fails.length){ finish(false,fails); return; }
@@ -48,7 +48,7 @@ function row(ok,t){const d=document.createElement('div');d.className='row '+(ok?
   }catch(e){ finish(false,[String(e)]); }
   function finish(pass, fails){
     P.current='done'; P.done=3;
-    window.__axesmoke={pass,fails:fails||[],advisory:true};
+    window.__axesmoke={pass,fails:fails||[]};
     const s=document.getElementById('sum');
     s.textContent=pass?'✓ PASS — no serious/critical axe hits':'✗ FAIL — '+(fails||[]).join(', ');
     s.style.color=pass?'#166534':'#B42318';

@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill ProgressBar — determinate progress. variant: ochre (default) | umber | success. */
 export function ProgressBar({ value = 0, max = 100, variant, label, className }) {

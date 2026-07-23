@@ -1,6 +1,6 @@
 import React from "react";
 import { makeT, useLang } from "../_i18n/i18n.js";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Comment — discussion entry: avatar, author, meta, body, actions, nested replies. */
 export function Comment({ avatar, author, meta, children, actions = [], replies, lang, className }) {

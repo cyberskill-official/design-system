@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Textarea — multi-line input in the .cs-field frame; label/description/error. */
 export function Textarea({ id, label, description, error, disabled = false, rows = 4, className, ...props }) {

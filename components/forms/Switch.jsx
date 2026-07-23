@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Switch — accessible toggle (role="switch"); Umber on, Ochre knob-track in dark. */
 // `children` is destructured but never rendered on purpose: keeps stray children out of {...props} → void <input>.

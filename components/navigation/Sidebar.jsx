@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Sidebar — vertical app-shell navigation. Compose NavItem children; optional label groups. */
 export function Sidebar({ label, children, className, ...props }) {

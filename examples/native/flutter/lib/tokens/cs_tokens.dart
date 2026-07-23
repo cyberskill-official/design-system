@@ -1,6 +1,6 @@
 // CyberSkill Design System — native design tokens.
 // GENERATED from tokens/tokens.dtcg.json — do not hand-edit; regenerate on token change.
-// release v1.0.0 · source sha256 b6f5d972a38722f6…
+// release v1.0.0 · source sha256 5a45aa0b1ca5f86c…
 // conversions: rem→px at 16 · em→…Em relative doubles · rgba alpha→ARGB byte (round(a*255)) · durations in ms
 // dark element packs: see $extensions.overrides.elementsDark
 // provenance: tokens/provenance.json · parity gate: _audit/token-pipeline-test.html
@@ -30,6 +30,11 @@ class CSTokens {
   static const Color componentButtonPrimaryFg = Color(0xFFFFFFFF);
   static const double componentButtonGap = 8;
   static const double componentButtonRadius = 8;
+  static const double componentButtonXsPaddingY = 4;
+  static const double componentButtonXsPaddingX = 10;
+  static const double componentButtonXsMinHeight = 28;
+  static const double componentButtonXsMinWidth = 28;
+  static const double componentButtonXsMinHeightCoarse = 36;
   static const double componentButtonSmPaddingY = 8;
   static const double componentButtonSmPaddingX = 14;
   static const double componentButtonSmMinHeight = 36;

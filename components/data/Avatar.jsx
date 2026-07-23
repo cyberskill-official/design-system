@@ -1,5 +1,5 @@
 import React from "react";
-function cx(...c) { return c.filter(Boolean).join(" "); }
+import { cx } from "../_utils/cx.js";
 
 /** CyberSkill Avatar — image or initials on Umber. sizes sm|md|lg; square variant. */
 export function Avatar({ src, name = "", size = "md", square = false, className, ...props }) {
