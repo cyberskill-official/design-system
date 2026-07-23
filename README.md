@@ -9,7 +9,7 @@
 This is the **entrance document** for the CyberSkill Design System — pinned **v1.0.0** until launch (see `VERSION`). Open **`dashboard.html`** for the single-page hub (Overview · Docs · Live · Health · Tokens). **Live** is Storybook at `/playground/` (host-only). One sentence: a warm, Vietnamese-first, enterprise-grade system where every surface resolves three independent axes — **Theme** (light · dark) × **Element** (Ngũ Hành product identity: Kim · Mộc · Thủy · Hỏa · Thổ, 15 variants) × **Language** (EN · VI). Surface treatment is liquid-glass (fixed).
 
 **Quick start by audience**
-- **Designers** — open the Design System tab and the Templates picker (84 starting points, including the 41-document lawyer-validated Employment Suite); the Identity Lab (`ui_kits/status-hub/identity-lab.html`) lets you flip axes live.
+- **Designers** — open the Design System tab and the Templates picker (84 starting points, including the 37-document lawyer-validated Employment Suite); the Identity Lab (`ui_kits/status-hub/identity-lab.html`) lets you flip axes live.
 
 - **AI agents** — read `SKILL.md` (normative Hard rules + orientation), then the guide below; component contracts live beside each component (`.d.ts` + `.prompt.md`).
 
@@ -23,7 +23,7 @@ This is the **entrance document** for the CyberSkill Design System — pinned **
 | `SKILL.md` | Agent entry — hard rules + fast orientation |
 | `docs/conventions.md` | How to extend the system (naming grammar, checklists, the three axes, decision log) |
 | `docs/products.md` | Product → element registry (provisional) |
-| `docs/contrast-report.md` | Generated APCA report — 0 failures at Lc ≥ 60 |
+| `docs/contrast-report.md` | Generated APCA elemental sweep — 0 failures at its Lc ≥ 60 UI-label floor. Body text authors to the stricter Lc ≥ 75 floor (see Anchor immutables); the sweep's Lc ≥ 60 rows are accent/label pairings, not body text. |
 | `docs/consuming.md` | Adopting & upgrading — quick path for AI agents, adopt (static/React/ESM), the three axes, upgrade + extend |
 | `docs/template-schema-v2.md` | Typed content-slot spec for templates — opt-in, machine-checkable |
 | `docs/deploy.md` | Deploying the live site — Vercel (zero-config) · generic VPS/nginx · post-deploy checklist |
@@ -31,6 +31,11 @@ This is the **entrance document** for the CyberSkill Design System — pinned **
 | `docs/live-hub.md` | Storybook is the single Live hub; surface map |
 | `docs/figma.md` | Figma / Tokens Studio (non-Enterprise decision A) |
 | `docs/storybook.md` | Host playground at `/playground/` |
+| `docs/sync.md` | Repo ↔ Claude Design round-trip fidelity & two-way sync |
+| `docs/design-styles.md` | The live styling axes (Theme × Element × Language) and the fixed liquid-glass treatment |
+| `docs/decisions-pending.md` | Recorded owner decisions (whole-set CI, pixel advisory, Figma non-Enterprise) |
+| `docs/BACKLOG.md` | Deferred work — approved in direction, not built yet |
+| `docs/audit-2026-07.md` | July 2026 deep audit — verdict, findings by severity, what was fixed vs deferred |
 
 ---
 
@@ -39,12 +44,13 @@ Consumers link one file: **`styles.css`**.
 
 ## Sources
 
-Built by reading CyberSkill's own repositories — explore them for deeper fidelity:
+This system was **lifted from CyberSkill's own upstream repositories** — none of the sources below live in this tree; explore them for deeper fidelity:
 - **Design system** (tokens, React components, brand assets, doctrine, style packs): https://github.com/cyberskill-official/design-system
 - **Marketing site** (Next.js, bilingual, Lumi genie, in-repo icon set): https://github.com/cyberskill-official/landing-page
 - **Audit framework** (referenced): https://github.com/cyberskill-official/design-system-audit-framework
 
-The doctrine itself is the single-file `DESIGN.md` (22 Parts, ~1.3 MB) in the design-system repo; tokens come from `@cyberskill/tokens`, components from `@cyberskill/react`, the master mark from `@cyberskill/brand-assets`. Where a value here differs from a guess, **the repo source wins** — every token and component in this project was lifted from that code.
+The written doctrine is a single-file `DESIGN.md` (22 Parts, ~1.3 MB) maintained **upstream** in that design-system repo, not here; likewise `@cyberskill/tokens`, `@cyberskill/react`, and `@cyberskill/brand-assets` are external upstream packages. Their contents were lifted into this tree as `tokens/`, `components/`, and `assets/`. Where a value here differs from a guess, **the upstream source wins** — every token and component in this project was lifted from that code.
+
 ---
 
 ## Anchor immutables (never change these)
@@ -120,23 +126,23 @@ Copied assets live in `assets/`: `logo-mark.svg` / `logo-mark.png` (official mas
 
 ## Components
 
-**A comprehensive library — 115 exports across 8 groups.** Each has a `.jsx`, a `.d.ts` props contract, a `.prompt.md`, and a Design-System card. Mount from the compiled bundle. The bundle's global is `window.CyberSkillDesignSystem_<projectId>` — the 6-hex suffix is assigned by the compiler and **changes when this system is imported into another project**, so resolve it by prefix rather than hardcoding it: `const CS = window[Object.keys(window).find(k => /^CyberSkillDesignSystem_/.test(k))]; const { Button } = CS;`
+**A comprehensive library — 115 exports across 8 groups.** 99 of these are primary component files, and every primary ships the full contract trio — a `.jsx`, a `.d.ts` props contract, a `.prompt.md` — plus a Design-System card. The other 16 are co-exports (sub-parts such as `CardHeader`, `Tab`, `MenuItem`, `Radio`, and data consts such as `CS_ICONS`) documented inside their parent's files rather than with files of their own. Mount from the compiled bundle. The bundle's global is `window.CyberSkillDesignSystem_<projectId>` — the 6-hex suffix is assigned by the compiler and **changes when this system is imported into another project**, so resolve it by prefix rather than hardcoding it: `const CS = window[Object.keys(window).find(k => /^CyberSkillDesignSystem_/.test(k))]; const { Button } = CS;`
 
-- **Core — actions & overlays** — `Button`, `Dialog`
+- **Core — actions & overlays** — `Button`, `ButtonGroup`, `FloatingActionButton`, `Dialog`
 
-- **Forms** — `TextField`, `Textarea`, `Select`, `Checkbox`, `RadioGroup` (+ `Radio`), `Switch`, `SearchField`, `NumberField`, `Slider`, `FileUpload`, `SegmentedControl`
+- **Forms** — `TextField`, `Textarea`, `Select`, `Checkbox`, `RadioGroup` (+ `Radio`), `Switch`, `SearchField`, `NumberField`, `Slider`, `FileUpload`, `SegmentedControl`, `Toggle`, `Rating`, `InputOTP`, `InputGroup`, `TagInput`, `TimePicker`, `Combobox`, `Mentions`, `InlineEdit`, `ColorPicker`, `Calendar`, `DatePicker`, `Cascader`, `TreeSelect`, `Transfer`, `Editor`, `Form` (+ `FormField`, `FormFieldArray`, `FormWizard`)
 
-- **Data & layout** — `DataTable`, `Card` (+ `CardHeader`, `CardBody`, `CardFooter`), `Stat`, `Avatar` (+ `AvatarGroup`), `Tooltip`, `Divider`, `List` (+ `ListItem`), `DescriptionList`, `Timeline`, `Accordion`, `Kbd`, `CodeBlock`
+- **Data & layout** — `DataTable`, `DataGrid`, `TreeTable`, `Card` (+ `CardHeader`, `CardBody`, `CardFooter`), `Stat`, `Avatar` (+ `AvatarGroup`), `Tooltip`, `Divider`, `List` (+ `ListItem`), `DescriptionList`, `Timeline`, `Accordion`, `Kbd`, `CodeBlock`, `Tree`, `Comment`, `Carousel`, `Image`, `Masonry`, `Splitter`, `Sortable`, `Chart`, `Terminal`, `QRCode`, `Watermark`
 
-- **Feedback & status** — `Badge`, `Tag`, `Alert`, `Toast` (+ `ToastStack`), `Spinner`, `ProgressBar`, `Skeleton`, `StatusIndicator`, `EmptyState`
+- **Feedback & status** — `Badge`, `Tag`, `Alert`, `Toast` (+ `ToastStack`), `Spinner`, `ProgressBar`, `Skeleton`, `StatusIndicator`, `EmptyState`, `Result`
 
-- **Navigation** — `Tabs` (+ `Tab`), `Breadcrumb`, `Pagination`, `Menu` (+ `MenuItem`), `Sidebar` (+ `NavItem`), `Steps`, `CommandPalette`
+- **Navigation** — `Tabs` (+ `Tab`), `Breadcrumb`, `Pagination`, `Menu` (+ `MenuItem`), `Sidebar` (+ `NavItem`), `Steps`, `CommandPalette`, `Menubar`, `NavigationMenu`, `Anchor`, `Toolbar`, `Dock`, `BackTop`, `Link`, `HotKeys`
 
-- **Overlays** — `Popover`, `Drawer`
+- **Overlays** — `Popover`, `Drawer`, `HoverCard`, `Popconfirm`, `ContextMenu`, `Tour`
 
 - **AI-native** — `AIDisclosureBadge`, `HumanReviewGate`, `PromptInput`, `ChatMessage`, `ConfidenceMeter`, `PromptSuggestions`, `TypingIndicator`, `CitationList`
 
-- **Brand** — `Logo`, `Icon`, `LumiAvatar`
+- **Brand** — `Logo` (+ the `CS_LOGO_MARK_INNER` / `CS_LOGO_VIEWBOX` data consts), `Icon` (+ the `CS_ICONS` data const), `LumiAvatar`
 
 **Atomic tiers** — the same 115 exports seen through the design-composition lens (browsable live in `guidelines/atomic-view.html`, where one toolbar reskins every tier across Theme × Element × Language). The eight groups above are the *functional/import* grouping (how the bundle is organized); these tiers are the *composition* grouping — same components, two lenses.
 
@@ -272,7 +278,7 @@ ui_kits/status-hub/        Status Hub recreation (index · login · settings · 
 ui_kits/website/           cyberskill.world recreation (index · work · careers · chat + site.css · copy.js · Website.jsx)
 ui_kits/deck/              brand deck on deck-stage (index.html; deck-stage runtime lives in templates/_vendor/, outside the compiled bundle; export PPTX/PDF on demand)
 assets/                    logo-mark.svg/png · favicon.svg · aurora-gold.jpg + aurora-{hoa,thuy,moc,kim}.png · lumi-poster.webp
-docs/                      conventions (incl. decision log) · products registry · contrast report
+docs/                      the full doc set (see Document map above) + viewer.html reader
 fonts/                     self-hosted Be Vietnam Pro + JetBrains Mono woff2 (latin · latin-ext · vietnamese)
 thumbnail.html             project tile
 SKILL.md                   Agent-Skills-compatible entry
