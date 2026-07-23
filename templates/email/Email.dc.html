@@ -38,7 +38,13 @@
     </div>
     <div style="border-top:1px solid var(--cs-color-border-default);padding:22px 32px;background:var(--cs-color-surface-raised)">
       <p style="margin:0 0 6px;font-size:13px;color:var(--cs-color-text-muted)">Hiện Thực Hoá Ý Chí · Turn Your Will Into Real</p>
-      <p style="margin:0;font-size:12px;color:var(--cs-color-text-muted)">CyberSkill · Saigon · <a href="#" style="color:var(--cs-color-link)">Unsubscribe</a> · <a href="#" style="color:var(--cs-color-link)">Preferences</a></p>
+      <sc-if value="{{ isEN }}" hint-placeholder-val="{{ true }}">
+        <p style="margin:0;font-size:12px;color:var(--cs-color-text-muted)">CyberSkill · Saigon · <a href="#" style="color:var(--cs-color-link)">Unsubscribe</a> · <a href="#" style="color:var(--cs-color-link)">Preferences</a></p>
+      </sc-if>
+      <sc-if value="{{ isVN }}"><div lang="vi" style="display:contents">
+        <sc-if value="{{ isBoth }}"><div style="border-top:1px solid var(--cs-color-border-default);margin:6px 0"></div></sc-if>
+        <p style="margin:0;font-size:12px;color:var(--cs-color-text-muted)">CyberSkill · Saigon · <a href="#" style="color:var(--cs-color-link)">Huỷ đăng ký</a> · <a href="#" style="color:var(--cs-color-link)">Tuỳ chọn</a></p>
+      </div></sc-if>
     </div>
   </div>
 </div>

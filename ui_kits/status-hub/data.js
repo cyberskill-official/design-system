@@ -6,9 +6,9 @@ window.SH_DATA = {
     { wk: "W26", n: 9 }, { wk: "W27", n: 6 }, { wk: "W28", n: 11 }, { wk: "W29", n: 8 },
   ],
   projects: [
-    { key: "CDS", name: "Design System v1.6", status: "active", pct: 72, blurb: "Liquid Glass component bindings + 50 style packs.",
+    { key: "CDS", name: "Design System v1.6", status: "active", pct: 72, blurb: "Liquid Glass component bindings + 15 element packs.",
       seg: { done: 62, active: 20, hold: 4, todo: 14 }, owner: "Design Lead", updated: "2h ago", squad: "Platform",
-      tasks: [["TASK-DS-041","Glass surface bindings","done"],["TASK-DS-047","Style-pack verifier v2","active"],["TASK-DS-052","Dark-mode APCA re-check","active"],["TASK-DS-055","Figma variable sync","todo"]],
+      tasks: [["TASK-DS-041","Glass surface bindings","done"],["TASK-DS-047","Element-pack verifier v2","active"],["TASK-DS-052","Dark-mode APCA re-check","active"],["TASK-DS-055","Figma variable sync","todo"]],
       risk: "" },
     { key: "GENIE", name: "Lumi Genie Chat", status: "active", pct: 58, blurb: "Keyless Claude proxy; scripted wish-capture flow.",
       seg: { done: 48, active: 24, hold: 8, todo: 20 }, owner: "AI Lead", updated: "5h ago", squad: "AI",
@@ -32,10 +32,10 @@ window.SH_DATA = {
       risk: "" },
   ],
   releases: [
-    { ver: "v1.6.0", when: "This week", now: true, done: false, title: "Glass bindings + style-pack v2",
-      items: ["Opt-in .cs-surface-* component bindings", "Style-pack verifier v2 (0 warnings across 50)", "Dark-mode APCA re-check"] },
-    { ver: "v1.5.1", when: "04 Jul 2026", now: false, done: true, title: "50 style packs ship",
-      items: ["All 50 packs promoted to shipped", "Per-pack screenshot regression", "Gallery build script"] },
+    { ver: "v1.6.0", when: "This week", now: true, done: false, title: "Glass bindings + element-pack v2",
+      items: ["Opt-in .cs-surface-* component bindings", "Element-pack verifier v2 (0 warnings across 15)", "Dark-mode APCA re-check"] },
+    { ver: "v1.5.1", when: "04 Jul 2026", now: false, done: true, title: "15 element packs ship",
+      items: ["All 15 packs promoted to shipped", "Per-pack screenshot regression", "Gallery build script"] },
     { ver: "v1.4.0", when: "13 Jun 2026", now: false, done: true, title: "Liquid Glass in code",
       items: ["--cs-glass-* + --cs-depth-* scalars", "glass.css material layer", "Reduced-transparency fallbacks"] },
     { ver: "v1.3.0", when: "14 May 2026", now: false, done: true, title: "Brand assets + Logo",
@@ -46,12 +46,12 @@ window.SH_DATA = {
 // Vietnamese variants (kit fully EN⇄VN per owner decision, Jul 2026). window.SH_VI
 window.SH_VI = {
   updated: "18/07/2026, 13:20 ICT",
-  blurbs: { CDS: "Liên kết component Liquid Glass + 50 gói phong cách.", GENIE: "Proxy Claude không cần khóa; luồng tiếp nhận điều ước theo kịch bản.", SITE: "Trang giới thiệu song ngữ kể chuyện; thu lead đang chạy.", OS: "Kho nhớ BRAIN + cổng nghiệm thu có con người.", AUDIT: "Bộ kiểm định trung lập 125 tiêu chí; giữ hạng L3.", TOKENS: "DTCG → CSS/TS/Swift/Kotlin/Flutter/Figma." },
+  blurbs: { CDS: "Liên kết component Liquid Glass + 15 gói Ngũ Hành.", GENIE: "Proxy Claude không cần khóa; luồng tiếp nhận điều ước theo kịch bản.", SITE: "Trang giới thiệu song ngữ kể chuyện; thu lead đang chạy.", OS: "Kho nhớ BRAIN + cổng nghiệm thu có con người.", AUDIT: "Bộ kiểm định trung lập 125 tiêu chí; giữ hạng L3.", TOKENS: "DTCG → CSS/TS/Swift/Kotlin/Flutter/Figma." },
   risks: { GENIE: "Tài sản GLB là phụ thuộc ngoài khó — chưa chốt đặt hàng (TASK-CHAR-021).", OS: "Bị chặn bởi hạ tầng: sổ cái nguồn gốc cần dịch vụ ký số (mục tiêu Q1 2027)." },
   owners: { "Design Lead": "Trưởng thiết kế", "AI Lead": "Trưởng AI", "Web Lead": "Trưởng web", "Eng Lead": "Trưởng kỹ thuật", "DesignOps": "DesignOps" },
   squads: { Platform: "Nền tảng", AI: "AI", Growth: "Tăng trưởng" },
   updatedRel: { "2h ago": "2 giờ trước", "5h ago": "5 giờ trước", "1h ago": "1 giờ trước", "1d ago": "1 ngày trước", "3d ago": "3 ngày trước", "6h ago": "6 giờ trước" },
   relWhen: { "v1.6.0": "Tuần này", "v1.5.1": "04/07/2026", "v1.4.0": "13/06/2026", "v1.3.0": "14/05/2026" },
-  relTitles: { "v1.6.0": "Liên kết Glass + gói phong cách v2", "v1.5.1": "50 gói phong cách ra mắt", "v1.4.0": "Liquid Glass vào mã", "v1.3.0": "Tài sản thương hiệu + Logo" },
-  relItems: { "v1.6.0": ["Liên kết component .cs-surface-* (tùy chọn)", "Trình kiểm gói phong cách v2 (0 cảnh báo trên 50 gói)", "Kiểm tra lại APCA cho chế độ tối"], "v1.5.1": ["Cả 50 gói lên trạng thái đã ra mắt", "Regression ảnh chụp từng gói", "Script dựng gallery"], "v1.4.0": ["Scalar --cs-glass-* + --cs-depth-*", "Lớp chất liệu glass.css", "Fallback khi giảm độ trong suốt"], "v1.3.0": ["Master mark chính thức ra mắt", "<Logo> React từ artwork gốc", "Light thành theme mặc định"] },
+  relTitles: { "v1.6.0": "Liên kết Glass + gói Ngũ Hành v2", "v1.5.1": "15 gói Ngũ Hành ra mắt", "v1.4.0": "Liquid Glass vào mã", "v1.3.0": "Tài sản thương hiệu + Logo" },
+  relItems: { "v1.6.0": ["Liên kết component .cs-surface-* (tùy chọn)", "Trình kiểm gói Ngũ Hành v2 (0 cảnh báo trên 15 gói)", "Kiểm tra lại APCA cho chế độ tối"], "v1.5.1": ["Cả 15 gói lên trạng thái đã ra mắt", "Regression ảnh chụp từng gói", "Script dựng gallery"], "v1.4.0": ["Scalar --cs-glass-* + --cs-depth-*", "Lớp chất liệu glass.css", "Fallback khi giảm độ trong suốt"], "v1.3.0": ["Master mark chính thức ra mắt", "<Logo> React từ artwork gốc", "Light thành theme mặc định"] },
 };
