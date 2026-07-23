@@ -64,13 +64,30 @@ Giữ plan Figma hiện tại. Variables REST API chỉ Enterprise — job ghi *
 - Workflow `.github/workflows/native-store.yml`; dry-run luôn; kiểm signed-release cần `ASC_KEY_ID` / `ASC_ISSUER_ID` / `ASC_KEY_P8` / `PLAY_SERVICE_ACCOUNT_JSON`.
 - Lane `upload_store` từ chối submit — sample vẫn là sample đến khi có nhu cầu sản phẩm. Xem `examples/native/README.md`.
 
+## 9. Registry products — đã khóa
+
+**Lựa chọn owner: khóa registry product → element** (Th7 2026)
+
+`docs/products.md` (+ `docs/vi/products.md`) là nguồn chân lý **đã khóa** cho tám ánh xạ portfolio. Agent và kit phải dùng các hàng đó; không invent ánh xạ product → element mới. Mọi thay đổi cần sửa biên bản quyết định này trong cùng change.
+
+## Mặc định roadmap (mở khóa phân phối)
+
+Ghi nhận Th7 2026 — chỉ mặc định tài liệu; **không cái nào đang live**:
+
+- **Figma Variables** — giữ Tokens Studio / non-Enterprise (quyết định §3). Soft-skip Variables REST vẫn trung thực.
+- **Code Connect** — hoãn publish live đến khi có Org + library đã publish + `nodeId` thật (quyết định §6). Soft-skip ≠ publish.
+- **npm** — giữ soft-skip đến khi có grant owner + `NPM_TOKEN` (quyết định §7). Soft-skip ≠ release đã publish.
+
 ## Việc maintainer (đang mở)
 
 Theo dõi vận hành — không phải marketing sản phẩm, không phải backlog công khai:
 
 1. **Code Connect node ID** — thay stub tổng hợp `9999:*` trong `code-connect/node-map.json` bằng node ID library đã publish khi Figma Org/Enterprise sẵn sàng.
 2. **Grant npm / `NPM_TOKEN`** — đặt GitHub secret và cấp grant consumer tường minh trước khi coi cài từ registry là đường phân phối đã duyệt.
-3. **Chốt registry products** — nâng `docs/products.md` từ mapping product → element tạm thời thành registry khóa.
+
+~~3. Chốt registry products~~ — **xong** (Th7 2026): xem quyết định §9; `docs/products.md` đã khóa.
+
+Schema sidecar và Storybook `FullMatrix` tiếp tục lớn **theo cơ hội** khi primary đã đủ điều kiện (hiện chỉ Button có FullMatrix theo contract) — không phải đợt mass-add. Xem `docs/quality-gates.md`.
 
 ## Cách đổi một quyết định
 

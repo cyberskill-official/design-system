@@ -28,7 +28,7 @@ This is the **entrance document** for the CyberSkill Design System — pinned **
 | `docs/conventions.md` | How to extend the system (naming grammar, checklists, the three axes) |
 | `docs/release-notes.md` | Curated product highlights (not a changelog) |
 | `docs/design-styles.md` | The live styling axes (Theme × Element × Language) and the fixed liquid-glass treatment |
-| `docs/products.md` | Product → element registry (**provisional** until maintainer lock — do not invent assignments) |
+| `docs/products.md` | Product → element registry (**locked** — do not invent assignments) |
 | `docs/contrast-report.md` | Generated APCA elemental sweep — 0 failures at its Lc ≥ 60 UI-label floor. Body text authors to the stricter Lc ≥ 75 floor (see Anchor immutables); the sweep's Lc ≥ 60 rows are accent/label pairings, not body text. |
 | `docs/template-schema-v2.md` | Typed content-slot spec for templates — opt-in, machine-checkable |
 | `docs/deploy.md` | Deploying the live site — Vercel (zero-config) · generic VPS/nginx · post-deploy checklist |

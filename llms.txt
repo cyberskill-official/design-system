@@ -40,7 +40,7 @@ The portable contract (styles.css · `_esm/cs.mjs` · bundle · tokens) works ev
 - [docs/release-notes.md](docs/release-notes.md): curated product highlights (not a changelog)
 - [docs/conventions.md](docs/conventions.md): authoring rules (naming grammar, the three axes)
 - [docs/design-styles.md](docs/design-styles.md): the live styling axes and the fixed liquid-glass treatment
-- [docs/products.md](docs/products.md): product → element registry
+- [docs/products.md](docs/products.md): product → element registry (**locked**)
 - [docs/contrast-report.md](docs/contrast-report.md): generated APCA elemental sweep — 0 failures at its Lc ≥ 60 UI-label floor (body text authors to Lc ≥ 75)
 - [docs/template-schema-v2.md](docs/template-schema-v2.md): typed content-slot spec for templates
 - [docs/deploy.md](docs/deploy.md): deploying the live site (Vercel / VPS / any static host)
