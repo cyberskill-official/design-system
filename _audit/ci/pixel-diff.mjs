@@ -197,7 +197,10 @@ async function applyTheme(page, theme) {
 async function capture(page, target) {
   await page.setViewportSize({ width: FRAME.w, height: FRAME.h });
   await page.goto(base.replace(/\/$/, '') + target.path, { waitUntil: 'networkidle', timeout: 90000 });
-  await page.waitForTimeout(500);
+  await page.evaluate(async () => {
+    if (document.fonts && document.fonts.ready) await document.fonts.ready;
+  });
+  await page.waitForTimeout(700);
   await applyTheme(page, target.theme);
   const shot = await page.screenshot({ fullPage: false, type: 'png' });
   if (!shot || shot.length < 100 || shot[0] !== 0x89) {
