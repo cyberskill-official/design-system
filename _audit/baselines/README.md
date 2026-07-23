@@ -29,23 +29,23 @@ They anchor the archetypes, not every template. Declare each in `BASE` inside `v
 
 ## Regenerate (Playwright — preferred for pixel CI)
 
-Baselines must match **Linux amd64 Chromium** (CI runs `ubuntu-latest`). Regenerating on macOS or arm64 Docker will look green locally and fail in CI.
+Baselines must match **GitHub Actions `ubuntu-latest` Chromium** (not macOS, and not necessarily the Playwright Docker image). Prefer refreshing on the CI runner when Pixel CI drifts (the `pixel-diff` job uploads `pixel-baselines-linux`), then commit those PNGs.
 
-Serve the repo, then rewrite every curated PNG from a live Chromium capture **inside the Playwright Linux amd64 image**:
+Local amd64 Docker can approximate:
 
 ```bash
 docker run --rm --platform linux/amd64 -v "$PWD":/work -w /work mcr.microsoft.com/playwright:v1.47.0-jammy \
   bash -lc 'npx --yes serve@14 -l 8080 . >/tmp/serve.log 2>&1 & npx --yes wait-on@7 http://127.0.0.1:8080/dashboard.html && node _audit/ci/pixel-diff.mjs --update http://127.0.0.1:8080'
 ```
 
-Compare without rewriting (hard — non-zero exit on drift), also on Linux amd64:
+Compare without rewriting (hard — non-zero exit on drift):
 
 ```bash
 docker run --rm --platform linux/amd64 -v "$PWD":/work -w /work mcr.microsoft.com/playwright:v1.47.0-jammy \
   bash -lc 'npx --yes serve@14 -l 8080 . >/tmp/serve.log 2>&1 & npx --yes wait-on@7 http://127.0.0.1:8080/dashboard.html && node _audit/ci/pixel-diff.mjs http://127.0.0.1:8080'
 ```
 
-Baselines **must** be real PNGs (not JPEG-named-as-PNG). After an intentional redesign, re-run `--update` on Linux amd64, commit the PNGs, and note it in the PR description.
+Baselines **must** be real PNGs (not JPEG-named-as-PNG). After an intentional redesign, refresh on CI (or amd64 Linux matching the runner), commit the PNGs, and note it in the PR description.
 
 ## Manual / review-assist capture
 
