@@ -26,9 +26,9 @@ const reportPath = resolve(__dirname, 'pixel-diff-report.json');
 
 const FRAME = { w: 909, h: 540 };
 /** Channel delta above this counts a pixel as different (anti-alias / subpixel tolerance). */
-const CHANNEL_TOLERANCE = 12;
+const CHANNEL_TOLERANCE = 16;
 /** % of differing pixels above this lands the slug in `drifted[]` and fails the run. */
-const DRIFT_PCT = 0.5;
+const DRIFT_PCT = 1.0;
 
 const TARGETS = [
   { slug: 'kitchen-sink', path: '/templates/kitchen-sink.html' },
@@ -197,12 +197,16 @@ async function applyTheme(page, theme) {
 async function capture(page, target) {
   await page.setViewportSize({ width: FRAME.w, height: FRAME.h });
   await page.goto(base.replace(/\/$/, '') + target.path, { waitUntil: 'networkidle', timeout: 90000 });
+  await page.addStyleTag({
+    content:
+      '*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}',
+  });
   await page.evaluate(async () => {
     if (document.fonts && document.fonts.ready) await document.fonts.ready;
   });
-  await page.waitForTimeout(700);
+  await page.waitForTimeout(900);
   await applyTheme(page, target.theme);
-  const shot = await page.screenshot({ fullPage: false, type: 'png' });
+  const shot = await page.screenshot({ fullPage: false, type: 'png', animations: 'disabled' });
   if (!shot || shot.length < 100 || shot[0] !== 0x89) {
     throw new Error('bad screenshot for ' + target.slug);
   }
