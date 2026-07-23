@@ -130,7 +130,13 @@ const chip=(lc,t)=>'<span class="lc '+(lc>=t?'ok':(lc>=t-10?'warn':'bad'))+'">Lc
   const n=Object.keys(verdict.packs).length;
   document.getElementById('sum').textContent=n+' packs analyzed · current dark: '+(n-verdict.currentFail)+'/'+n+' pass APCA targets · proposed: '+(n-verdict.proposedFail)+'/'+n+' pass · '+out.length+' packs would change';
   document.getElementById('css').value=out.length?('/* APCA-derived dark elemental packs — PROPOSAL v'+new Date().toISOString().slice(0,10)+' — paste into tokens/elements.css after owner approval */\n\n'+out.join('\n\n')+'\n'):'/* every pack already passes — no changes proposed */';
-  window.__apcaPreview={packs:n,currentFail:verdict.currentFail,proposedFail:verdict.proposedFail,changed:out.length};
+  window.__apcaPreview={
+    pass:verdict.currentFail===0,
+    packs:n,
+    currentFail:verdict.currentFail,
+    proposedFail:verdict.proposedFail,
+    changed:out.length
+  };
   console.log('APCA PREVIEW '+JSON.stringify(window.__apcaPreview));
   document.getElementById('copy').onclick=()=>{const b=document.getElementById('css');b.focus();b.select();try{document.execCommand('copy');}catch(e){}};
 })();

@@ -28,9 +28,14 @@ const coreCheck=["--cs-color-text-primary","--cs-color-text-muted","--cs-color-t
 probe.removeAttribute('data-cs-element');probe.removeAttribute('data-cs-variant');
 const csr=getComputedStyle(probe);
 const coreMiss=coreCheck.filter(t=>!csr.getPropertyValue(t).trim());
-window.__contract={elementFails:fails, coreMissing:coreMiss, total:rows.length};
+window.__contract={
+  pass:fails===0&&coreMiss.length===0,
+  elementFails:fails,
+  coreMissing:coreMiss,
+  total:rows.length
+};
 document.getElementById('out').textContent =
-  "TOKEN CONTRACT — "+(fails===0&&coreMiss.length===0?"✓ PASS":"✗ FAIL")+"\n\n"+
+  "TOKEN CONTRACT — "+(window.__contract.pass?"✓ PASS":"✗ FAIL")+"\n\n"+
   "Element role tokens ("+rows.length+" scopes, 9 roles each):\n"+rows.join("\n")+
   "\n\nCore tokens: "+(coreMiss.length?"✗ missing "+coreMiss.join(", "):"✓ all resolve");
 </script>
