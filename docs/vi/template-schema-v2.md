@@ -1,0 +1,36 @@
+# Template content-schema v2 — content slot có kiểu
+
+Metadata thuần additive, opt-in: sidecar `templates/<slug>/content-schema.json` cạnh `.dc.html` của template, khai báo **kiểu** của mỗi `{{ hole }}` đã có trong template — để agent hoặc pipeline điền/validate nội dung khách thật theo chương trình mà không parse HTML hay đoán.
+
+**Không cần đổi markup template.** `id` của slot là tên hole đã dùng trong `.dc.html` (ví dụ `{{ heroH }}`) và đã bind trong `renderVals()` của logic class — schema chỉ mô tả nó.
+
+## Hình dạng
+
+```json
+{
+  "$schemaVersion": "2.0",
+  "template": "marketing-page",
+  "slots": [
+    { "id": "heroH", "type": "text", "label": "Hero headline", "maxLength": 70, "required": true },
+    { "id": "heroP", "type": "richtext", "label": "Hero paragraph" },
+    { "id": "svcKicker", "type": "text", "label": "Services eyebrow", "maxLength": 40 }
+  ]
+}
+```
+
+| Trường | Bắt buộc | Ghi chú |
+|---|---|---|
+| `$schemaVersion` | có | `"2.0"` cho spec này |
+| `template` | có | khớp tên thư mục `templates/<slug>/` |
+| `slots[].id` | có | phải bằng một hole `{{ id }}` thật trong `.dc.html` sibling |
+| `slots[].type` | có | một trong: `text`, `richtext`, `image`, `link`, `list`, `table`, `date` |
+| `slots[].label` | có | đọc được bởi người, cho UI điền nội dung |
+| `slots[].maxLength` | không | chỉ text/richtext — hướng dẫn soft, DC không enforce |
+| `slots[].required` | không | mặc định `false` |
+| `slots[].i18n` | không | `{"en": "...", "vi": "..."}` — cho template ship biến thể EN·VI |
+
+Hình dạng máy kiểm được chính thức nằm ở `templates/schema/content-schema.schema.json` (JSON Schema draft-07). `_audit/template-schema-test.html` validate mọi sidecar tồn tại — hai chiều: mọi slot id khai báo phải resolve tới hole thật trong template, và (informational) báo coverage trên toàn `templates/`.
+
+## Rollout
+
+Giống visual-diff baselines, ban đầu ship **cố ý chưa đầy đủ** — ba exemplar (một mỗi archetype lớn) chứng minh pattern end-to-end: `marketing-page` (product), `bod-report` (document), `slide-deck` (deck). Sau đó đã **quét tới mọi template hole-driven** — 26 trên 84 template tham số hóa copy qua token `{{ hole }}` bind trong `renderVals()` (phần còn lại hardcode copy bilingual trực tiếp theo nhánh `sc-if` ngôn ngữ, format schema này chưa có slot). Cả 26 giờ ship sidecar; thêm một cái cho mọi template nhận content hole-driven khi chạm tới.

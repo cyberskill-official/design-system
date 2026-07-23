@@ -42,14 +42,15 @@ The portable contract (styles.css · bundle · tokens) works everywhere; the DC 
 - [docs/ci-cd.md](docs/ci-cd.md): CI/CD automation — workflow, headless gate runner, provenance pre-check
 - [docs/template-schema-v2.md](docs/template-schema-v2.md): typed content-slot spec for templates
 - [docs/live-hub.md](docs/live-hub.md): Storybook is the single Live hub; surface map
-- [docs/figma.md](docs/figma.md): Figma / Tokens Studio notes (non-Enterprise decision A)
+- [docs/figma.md](docs/figma.md): Figma / Tokens Studio import recipe + Code Connect (Decision 1C soft-skip) + Variables REST notes (non-Enterprise decision A)
 - [docs/storybook.md](docs/storybook.md): host playground at `/playground/`
 - [docs/design-styles.md](docs/design-styles.md): the live styling axes and the fixed liquid-glass treatment
 - [docs/decisions-pending.md](docs/decisions-pending.md): recorded owner decisions
 - [docs/BACKLOG.md](docs/BACKLOG.md): deferred work — approved in direction, not built yet
 - [docs/audit-2026-07.md](docs/audit-2026-07.md): July 2026 deep audit — verdict, findings, fixes vs deferrals
 - [docs/quality-gates.md](docs/quality-gates.md): benchmark reference — every quality gate, its assertion, pass criterion, where it runs
-- [docs/viewer.html](docs/viewer.html): reader UI for all of the above
+- [docs/vi/](docs/vi/): Vietnamese mirror of every operator-facing `docs/*.md`
+- [docs/viewer.html](docs/viewer.html): reader UI for all of the above (EN|VI toggle for `docs/*.md`)
 
 ## Non-negotiables
 

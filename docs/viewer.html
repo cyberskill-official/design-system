@@ -5,8 +5,13 @@
   *{box-sizing:border-box}html,body{height:100%}
   body{margin:0;font-family:var(--cs-font-family-ui);background:var(--cs-color-surface-page);color:var(--cs-color-text-primary);display:grid;grid-template-columns:min(230px,36vw) 1fr}
   aside{border-inline-end:1px solid var(--cs-color-border-default);background:var(--cs-color-surface-panel);overflow:auto;padding:14px 10px}
-  aside h1{font-size:13px;font-weight:800;margin:2px 8px 10px;color:var(--cs-color-brand-umber)}
+  aside h1{font-size:13px;font-weight:800;margin:2px 8px 6px;color:var(--cs-color-brand-umber)}
   [data-theme="dark"] aside h1{color:var(--cs-color-brand-ochre)}
+  .langtog{display:flex;gap:4px;margin:0 8px 10px}
+  .langtog button{flex:1;font:700 11px/1 var(--cs-font-family-ui);letter-spacing:.04em;padding:7px 0;border-radius:8px;border:1px solid var(--cs-color-border-default);background:var(--cs-color-surface-raised);color:var(--cs-color-text-muted);cursor:pointer}
+  .langtog button.on{background:var(--cs-color-brand-umber);color:var(--cs-color-text-inverse);border-color:var(--cs-color-brand-umber)}
+  [data-theme="dark"] .langtog button.on{background:var(--cs-color-brand-ochre);color:var(--cs-color-brand-umber);border-color:var(--cs-color-brand-ochre)}
+  .langhint{font-size:10.5px;color:var(--cs-color-text-muted);margin:0 10px 8px;line-height:1.4}
   aside a{display:block;font-size:13px;font-weight:600;color:var(--cs-color-text-muted);text-decoration:none;padding:7px 10px;border-radius:8px}
   aside a:hover{color:var(--cs-color-text-primary);background:var(--cs-color-surface-raised)}
   aside a.on{color:var(--cs-color-brand-umber);background:var(--cs-color-surface-raised)}
@@ -45,27 +50,59 @@
   }
 </style></head>
 <body>
-<aside id="nav"><h1>CyberSkill Docs</h1><input id="docsearch" type="search" placeholder="Search all docs…"><div id="navlinks"></div></aside>
+<aside id="nav"><h1>CyberSkill Docs</h1>
+<div class="langtog" role="group" aria-label="Doc language"><button type="button" id="lang-en" data-lang="en">EN</button><button type="button" id="lang-vi" data-lang="vi">VI</button></div>
+<p class="langhint" id="langhint">Operator docs under docs/ · entrance docs stay EN</p>
+<input id="docsearch" type="search" placeholder="Search all docs…"><div id="navlinks"></div></aside>
 <main><article id="doc"><p style="color:var(--cs-color-text-muted)">Loading…</p></article><p id="err" hidden></p></main>
 <script>
-const DOCS=[
+const DOCS_EN=[
  ['Start',[['README.md','README'],['SKILL.md','SKILL (agent rules)'],['llms.txt','llms.txt'],['CONTRIBUTING.md','Contributing']]],
  ['Guides',[['docs/consuming.md','Consuming & upgrading (incl. AI-agent quick path)'],['docs/deploy.md','Deploy (Vercel/VPS)'],['docs/ci-cd.md','CI/CD automation'],['docs/template-schema-v2.md','Template content-schema v2'],['docs/conventions.md','Conventions'],['docs/sync.md','Git sync & hygiene'],['docs/storybook.md','Storybook (host playground)'],['docs/live-hub.md','Live hub (Storybook)'],['docs/decisions-pending.md','Decisions pending']]],
  ['Reference',[['docs/BACKLOG.md','Backlog'],['docs/quality-gates.md','Quality gates'],['docs/audit-2026-07.md','Audit — July 2026'],['docs/contrast-report.md','Contrast report'],['docs/products.md','Products'],['docs/design-styles.md','Design styles'],['docs/figma.md','Figma']]]
 ];
-const ALL=DOCS.flatMap(g=>g[1].map(d=>d[0]));
+const DOCS_VI=[
+ ['Bắt đầu',[['README.md','README (EN)'],['SKILL.md','SKILL (EN)'],['llms.txt','llms.txt (EN)'],['CONTRIBUTING.md','Contributing (EN)']]],
+ ['Hướng dẫn',[['docs/consuming.md','Tiêu thụ & nâng cấp'],['docs/deploy.md','Deploy (Vercel/VPS)'],['docs/ci-cd.md','CI/CD'],['docs/template-schema-v2.md','Template schema v2'],['docs/conventions.md','Conventions'],['docs/sync.md','Đồng bộ Git'],['docs/storybook.md','Storybook (host)'],['docs/live-hub.md','Live hub (Storybook)'],['docs/decisions-pending.md','Quyết định đang mở']]],
+ ['Tham chiếu',[['docs/BACKLOG.md','Backlog'],['docs/quality-gates.md','Quality gates'],['docs/audit-2026-07.md','Audit — Th7 2026'],['docs/contrast-report.md','Báo cáo contrast'],['docs/products.md','Sản phẩm'],['docs/design-styles.md','Phong cách'],['docs/figma.md','Figma']]]
+];
+let lang=(localStorage.getItem('cs-docs-lang')==='vi')?'vi':'en';
+function DOCS(){ return lang==='vi'?DOCS_VI:DOCS_EN; }
+const ALL=DOCS_EN.flatMap(g=>g[1].map(d=>d[0]));
 const nav=document.getElementById('navlinks');
-function renderNav(){ nav.innerHTML=''; for(const [g,items] of DOCS){ const h=document.createElement('div'); h.className='grp'; h.textContent=g; nav.appendChild(h);
+function syncLangUi(){
+  document.getElementById('lang-en').classList.toggle('on',lang==='en');
+  document.getElementById('lang-vi').classList.toggle('on',lang==='vi');
+  document.getElementById('langhint').textContent=lang==='vi'
+    ? 'docs/*.md → docs/vi/ · README/SKILL/llms/CONTRIBUTING vẫn EN'
+    : 'Operator docs under docs/ · entrance docs stay EN';
+  document.getElementById('docsearch').placeholder=lang==='vi'?'Tìm mọi docs…':'Search all docs…';
+  document.documentElement.lang=lang==='vi'?'vi':'en';
+}
+function renderNav(){ nav.innerHTML=''; for(const [g,items] of DOCS()){ const h=document.createElement('div'); h.className='grp'; h.textContent=g; nav.appendChild(h);
   for(const [p,label] of items){ const a=document.createElement('a'); a.href='#'+p; a.dataset.p=p; a.textContent=label; nav.appendChild(a); } } }
-renderNav();
+syncLangUi(); renderNav();
+document.querySelector('.langtog').addEventListener('click',(e)=>{
+  const b=e.target.closest('button[data-lang]'); if(!b) return;
+  lang=b.dataset.lang; localStorage.setItem('cs-docs-lang',lang);
+  syncLangUi(); renderNav(); markActive();
+  docCache=null; // refetch under new language
+  load(cur||'README.md');
+});
 function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-const LABEL={}; for(const [,items] of DOCS) for(const [p,l] of items) LABEL[p]=l;
+function labelsNow(){ const L={}; for(const [,items] of DOCS()) for(const [p,l] of items) L[p]=l; return L; }
+/** Logical nav path (docs/foo.md) → fetch path (docs/vi/foo.md when VI). Entrance docs stay EN. */
+function fetchPath(p){
+  if(lang==='vi' && p.startsWith('docs/') && !p.startsWith('docs/vi/')) return 'docs/vi/'+p.slice(5);
+  return p;
+}
 let docCache=null;
-async function ensureCache(){ if(docCache) return docCache; docCache={}; await Promise.all(ALL.map(async p=>{ try{ docCache[p]=await fetchDoc(p); }catch(e){ docCache[p]=''; } })); return docCache; }
+async function ensureCache(){ if(docCache) return docCache; docCache={}; await Promise.all(ALL.map(async p=>{ try{ docCache[p]=await fetchDoc(fetchPath(p)); }catch(e){ docCache[p]=''; } })); return docCache; }
 function snippet(text,q){ const i=text.toLowerCase().indexOf(q.toLowerCase()); if(i<0) return ''; const s=Math.max(0,i-30), e=Math.min(text.length,i+q.length+50); return (s>0?'…':'')+esc(text.slice(s,e)).replace(new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'),'<mark>$1</mark>')+(e<text.length?'…':''); }
 function highlightIn(q){ if(!q) return; const doc=document.getElementById('doc'); const walker=document.createTreeWalker(doc,NodeFilter.SHOW_TEXT); const re=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i'); let node; while((node=walker.nextNode())){ if(re.test(node.nodeValue)){ const span=document.createElement('span'); const idx=node.nodeValue.search(re); const before=node.nodeValue.slice(0,idx), match=node.nodeValue.slice(idx,idx+q.length), after=node.nodeValue.slice(idx+q.length); span.innerHTML=esc(before)+'<mark>'+esc(match)+'</mark>'+esc(after); node.replaceWith(span); span.scrollIntoView({block:'center'}); break; } } }
 async function runSearch(q){
   const cache=await ensureCache();
+  const LABEL=labelsNow();
   const hits=ALL.filter(p=>cache[p] && cache[p].toLowerCase().includes(q.toLowerCase()));
   nav.innerHTML='';
   const res=document.createElement('div'); res.className='searchres'; res.textContent=hits.length+' match'+(hits.length===1?'':'es')+' for “'+q+'”'; nav.appendChild(res);
@@ -172,13 +209,13 @@ async function fetchDoc(p){
   throw lastErr || new Error('all fetch paths failed');
 }
 async function load(p){
-  cur=p; document.title='CyberSkill · '+p;
+  cur=p; document.title='CyberSkill · '+p+(lang==='vi' && p.startsWith('docs/')?' · VI':'');
   markActive();
   const doc=document.getElementById('doc'), err=document.getElementById('err');
   err.hidden=true;
   doc.innerHTML='<p style="color:var(--cs-color-text-muted)">Loading…</p>';
-  try{ doc.innerHTML=md(await fetchDoc(p)); document.querySelector('main').scrollTop=0; }
-  catch(e){ doc.innerHTML=''; err.hidden=false; err.textContent='Could not load '+p+' — '+(e && e.message || e); }
+  try{ doc.innerHTML=md(await fetchDoc(fetchPath(p))); document.querySelector('main').scrollTop=0; }
+  catch(e){ doc.innerHTML=''; err.hidden=false; err.textContent='Could not load '+fetchPath(p)+' — '+(e && e.message || e); }
 }
 document.getElementById('doc').addEventListener('click',(e)=>{
   const a=e.target.closest('a'); if(!a) return; const href=a.getAttribute('href')||'';
