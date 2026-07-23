@@ -1,27 +1,37 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><title>CyberSkill — pixel CI scaffold (advisory)</title>
+<html lang="en"><head><meta charset="utf-8"><title>CyberSkill — pixel CI (advisory)</title>
 <link rel="stylesheet" href="../styles.css">
 <style>
   body{margin:0;font-family:var(--cs-font-family-ui);background:#efe6d8;color:#231a12;padding:16px 20px}
-  h1{font-size:16px;margin:0 0 6px}.lede{font-size:13px;color:#6b5d4f;max-width:920px;line-height:1.5}
+  h1{font-size:16px;margin:0 0 6px}.lede{font-size:13px;color:#6b5d4f;max-width:960px;line-height:1.5}
   .row{font:12.5px ui-monospace,monospace;padding:4px 8px;border-radius:5px;margin:2px 0}
   .ok{background:#dcfce7;color:#166534}.bad{background:#FEE2E2;color:#B42318;font-weight:700}
+  .adv{background:#FEF3C7;color:#92400E}
   #sum{font-size:15px;font-weight:800;margin:12px 0}
+  table{border-collapse:collapse;font:12px ui-monospace,monospace;margin-top:8px}
+  td,th{padding:3px 10px 3px 0;text-align:left} th{color:#6b5d4f;font-weight:600}
+  .y{color:#166534}.n{color:#92400E}.e{color:#B42318}
 </style></head><body>
-<h1>Pixel CI scaffold (advisory)</h1>
-<p class="lede">In-browser scaffold for true pixel regression. Proves baselines exist, visual-diff harness is wired, and publishes a machine-readable contract for <code>_audit/ci/pixel-diff.mjs</code> (Playwright). Does not invent green screenshots without capture. Verdict: <code>window.__pixelci.pass</code>.</p>
-<div id="list"></div><div id="sum">running…</div>
+<h1>Pixel CI — real Playwright compare (advisory)</h1>
+<p class="lede">Hard board pass still means harness + baselines + CI script contract. Numeric drift lives on the advisory channel: <code>_audit/ci/pixel-diff.mjs</code> captures 909×540 screenshots, diffs against <code>_audit/baselines/</code>, and writes <code>drifted[]</code> / <code>maxDiff</code> into <code>pixel-diff-report.json</code>. Owner decision A — PRs are not auto-failed on %. Verdict: <code>window.__pixelci.pass</code>.</p>
+<div id="list"></div>
+<div id="diff"></div>
+<div id="sum">running…</div>
 <script>
 const list=document.getElementById('list');
-const P=window.__gateProgress={done:0,total:3,current:'boot'};
-function row(ok,t){const d=document.createElement('div');d.className='row '+(ok?'ok':'bad');d.textContent=(ok?'✓ ':'✗ ')+t;list.appendChild(d);}
+const diffEl=document.getElementById('diff');
+const P=window.__gateProgress={done:0,total:4,current:'boot'};
+function row(ok,t,cls){const d=document.createElement('div');d.className='row '+(cls||(ok?'ok':'bad'));d.textContent=(ok?'✓ ':'✗ ')+t;list.appendChild(d);}
+// Keep in lockstep with TARGETS in _audit/ci/pixel-diff.mjs
+const NAMES=[
+  'kitchen-sink','auth','dashboard','dashboard-dark','bod-report','slide-deck',
+  'marketing-page','email','vn-labor-contract','tech-incident-report','status-hub','website'
+];
 (async()=>{
   const fails=[];
   P.current='baselines';
-  // Sample known baseline names from visual-diff contract
-  const names=['kitchen-sink','auth','dashboard-dark','bod-report'];
   let found=0;
-  for(const n of names){
+  for(const n of NAMES){
     try{
       const r=await fetch('./baselines/'+n+'.png',{method:'HEAD',cache:'no-store'});
       if(r.ok){ found++; row(true,'baseline '+n+'.png'); }
@@ -36,17 +46,60 @@ function row(ok,t){const d=document.createElement('div');d.className='row '+(ok?
     if(!ok) fails.push('visual-diff missing');
   }catch(e){ fails.push(String(e)); row(false,String(e)); }
   P.done=2; P.current='ci-script';
+  let scriptOk=false;
   try{
     const sc=await (await fetch('./ci/pixel-diff.mjs',{cache:'no-store'})).text();
-    const ok=/pixel|baseline|playwright/i.test(sc);
-    row(ok,'ci/pixel-diff.mjs scaffold present');
-    if(!ok) fails.push('pixel-diff.mjs weak');
+    scriptOk=/decodePng|diffImages|drifted|maxDiff|playwright/i.test(sc) && /DRIFT_PCT|CHANNEL_TOLERANCE/.test(sc);
+    row(scriptOk,'ci/pixel-diff.mjs real compare present');
+    if(!scriptOk) fails.push('pixel-diff.mjs missing real compare');
   }catch(e){ fails.push('pixel-diff.mjs: '+e); row(false,'pixel-diff.mjs missing — '+e); }
-  P.done=3; P.current='done';
-  const pass=fails.length===0;
-  window.__pixelci={pass,found,fails,advisory:true,note:'True pixel thresholds require Playwright capture outside this page'};
+  P.done=3; P.current='report';
+  let drifted=[], maxDiff=null, report=null, reportNote='no report yet — run node _audit/ci/pixel-diff.mjs';
+  try{
+    const r=await fetch('./ci/pixel-diff-report.json',{cache:'no-store'});
+    if(r.ok){
+      report=await r.json();
+      drifted=Array.isArray(report.drifted)?report.drifted:[];
+      maxDiff=typeof report.maxDiff==='number'?report.maxDiff:null;
+      reportNote='report '+ (report.generatedAt||'') + ' · maxDiff='+maxDiff+'% · drifted=['+drifted.join(', ')+']';
+      row(true, reportNote, drifted.length?'adv':'ok');
+      if(report.results && report.results.length){
+        let html='<h3 style="font-size:13px;margin:14px 0 4px">Last compare</h3><table><tr><th>slug</th><th>diff %</th><th>status</th></tr>';
+        for(const rowR of report.results){
+          const pct=typeof rowR.pct==='number'?rowR.pct.toFixed(3)+'%':(rowR.error||'—');
+          const st=rowR.error?'error':rowR.updated?'updated':rowR.drifted?'drifted':'match';
+          const cls=rowR.error?'e':rowR.drifted?'n':'y';
+          html+='<tr><td>'+rowR.slug+'</td><td>'+pct+'</td><td class="'+cls+'">'+st+'</td></tr>';
+        }
+        html+='</table>';
+        diffEl.innerHTML=html;
+      }
+    }else{
+      row(true, reportNote, 'adv');
+    }
+  }catch(e){
+    row(true, reportNote, 'adv');
+  }
+  P.done=4; P.current='done';
+  // Hard pass for the advisory board row = contract complete (baselines + harness + real script).
+  // Drift never flips pass — decision A.
+  const pass=fails.length===0 && scriptOk;
+  window.__pixelci={
+    pass,
+    advisory:true,
+    found,
+    total:NAMES.length,
+    fails,
+    drifted,
+    maxDiff,
+    report: report?{generatedAt:report.generatedAt,maxDiff:report.maxDiff,drifted:report.drifted}:null,
+    note:'Numeric drift is advisory (decision A). pass = harness + baselines + real compare script.'
+  };
   const s=document.getElementById('sum');
-  s.textContent=pass?('✓ PASS — scaffold ready · '+found+' baselines checked'):('✗ FAIL — '+fails.join('; '));
+  s.textContent=pass
+    ?('✓ PASS — pixel contract ready · '+found+'/'+NAMES.length+' baselines'+(maxDiff!=null?(' · maxDiff '+maxDiff+'% (advisory)'):''))
+    :('✗ FAIL — '+fails.join('; '));
   s.style.color=pass?'#166534':'#B42318';
+  console.log('PIXELCI VERDICT '+JSON.stringify(window.__pixelci));
 })();
 </script></body></html>
