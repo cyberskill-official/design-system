@@ -64,13 +64,30 @@ Stay on the current Figma plan. Variables REST API is Enterprise-only — write 
 - Workflow `.github/workflows/native-store.yml`; dry-run always; signed-release checks need `ASC_KEY_ID` / `ASC_ISSUER_ID` / `ASC_KEY_P8` / `PLAY_SERVICE_ACCOUNT_JSON`.
 - `upload_store` lanes refuse submit — samples remain samples until product need. See `examples/native/README.md`.
 
+## 9. Products registry — locked
+
+**Owner choice: lock the product → element registry** (Jul 2026)
+
+`docs/products.md` (+ `docs/vi/products.md`) is the **locked** source of truth for the eight portfolio mappings. Agents and kits must use those rows; do not invent new product → element assignments. Changes require an edit to this decision record in the same change.
+
+## Roadmap defaults (distribution unlocks)
+
+Recorded Jul 2026 — document defaults only; **none of these are live**:
+
+- **Figma Variables** — stay Tokens Studio / non-Enterprise (decision §3). Soft-skip on Variables REST remains honest.
+- **Code Connect** — defer live publish until Org + published library + real `nodeId`s (decision §6). Soft-skip ≠ publish.
+- **npm** — remain soft-skip until owner grant + `NPM_TOKEN` (decision §7). Soft-skip ≠ a published release.
+
 ## Maintainer tasks (open)
 
 Operational follow-ups — not product marketing, not a backlog surface:
 
 1. **Code Connect node IDs** — replace synthetic `9999:*` stubs in `code-connect/node-map.json` with real published-library node IDs once the Figma Org/Enterprise library is ready.
 2. **npm grant / `NPM_TOKEN`** — set the GitHub secret and issue an explicit consumer grant before treating registry install as an approved distribution path.
-3. **Finalize products registry** — promote `docs/products.md` from provisional product → element mappings to the locked registry.
+
+~~3. Finalize products registry~~ — **done** (Jul 2026): see decision §9; `docs/products.md` is locked.
+
+Schema sidecars and Storybook `FullMatrix` continue to grow **opportunistically** when a primary already qualifies (today only Button has FullMatrix under the contract) — not as a mass-add pass. See `docs/quality-gates.md`.
 
 ## How to change a decision
 

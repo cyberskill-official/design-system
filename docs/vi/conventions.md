@@ -45,7 +45,7 @@ Xử lý bề mặt là liquid-glass (cố định). Bất biến dưới mọi 
 
 - Trục chỉ Theme × Element × Language. Xử lý bề mặt liquid-glass (cố định).
 
-- Product registry tạm thời ("decide for me", Th7 2026) đến khi có list sản phẩm thật.
+- Product registry **đã khóa** (Th7 2026) — tám ánh xạ portfolio trong `docs/products.md`; không invent ánh xạ product → element mới.
 
 - Chữ không bao giờ ngồi trên mid-tone `-accent` — mã hóa sau APCA sweep (xem `docs/contrast-report.md`).
 

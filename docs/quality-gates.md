@@ -73,7 +73,7 @@ The `test:unit` suite is wired into the CI workflow as part of the July 2026 har
 
 ## Sync / distribution jobs (soft-skip)
 
-Soft-skip means the job exits 0 with a report when secrets/plan/API cannot complete the real write — **not** that npm, Code Connect, or Figma Variables are live. Treat soft-skip as provisional honesty until the maintainer tasks in `docs/decisions.md` land.
+Soft-skip means the job exits 0 with a report when secrets/plan/API cannot complete the real write — **not** that npm, Code Connect, or Figma Variables are live. Treat soft-skip as provisional honesty until the remaining maintainer tasks in `docs/decisions.md` land (Code Connect node IDs; npm grant / `NPM_TOKEN`). Schema sidecars and Storybook `FullMatrix` grow opportunistically when a primary already qualifies — not as a mass-add pass.
 
 | Job | Script / workflow | What it asserts | Soft-skip when | Where it runs |
 |---|---|---|---|---|

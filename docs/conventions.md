@@ -45,7 +45,7 @@ Surface treatment is liquid-glass (fixed). Immutable under all axes: Umber/Ochre
 
 - Axes are Theme × Element × Language only. Surface treatment is liquid-glass (fixed).
 
-- Product registry is provisional ("decide for me", Jul 2026) until a real product list exists.
+- Product registry is **locked** (Jul 2026) — eight portfolio mappings in `docs/products.md`; do not invent new product → element assignments.
 
 - Text never sits on the mid-tone `-accent` — codified after the APCA sweep (see `docs/contrast-report.md`).
 
