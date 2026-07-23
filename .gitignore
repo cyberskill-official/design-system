@@ -1,19 +1,24 @@
 # CyberSkill Design System — .gitignore
-# NOTE: this HTML-first system has no build step in a plain git repo, so the
-# COMPILED artifacts (_ds_bundle.js, _ds_manifest.json, _adherence.oxlintrc.json)
-# are intentionally COMMITTED here — consumers load them directly. Remove those
-# lines from "keep, do not ignore" only if you add a build step that regenerates them.
+# NOTE: this HTML-first system COMMITS its compiled artifacts (_ds_bundle.js,
+# _ds_manifest.json, _adherence.oxlintrc.json) — consumers load them directly.
+# _ds_bundle.js is regenerated deterministically by `npm run build:bundle`
+# (scripts/build-bundle.mjs); the bundle-freshness gate keeps it in lockstep
+# with component sources. _ds_manifest.json stays compiler-owned (Claude Design).
 
 # Transient / local-only — do not commit
 uploads/
 scraps/
-_audit/exports/          # heavy generated PPTX / standalone HTML proofs
+# heavy generated PPTX / standalone HTML proofs
+_audit/exports/
 
 # OS / editor cruft
 .DS_Store
 Thumbs.db
 *.log
 *.tmp
+
+# Local AI-tool state (Claude Code permissions/worktrees)
+.claude/
 
 # Node (only if you later add tooling)
 node_modules/
