@@ -8,5 +8,5 @@ import { Select } from './Select.jsx'
  */
 figma.connect(Select, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-70', {
   example: () => <Select />,
-  imports: ["import { Select } from 'cyberskill-design-system'"],
+  imports: ["import { Select } from '@cyberskill/design'"],
 })

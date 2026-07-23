@@ -8,5 +8,5 @@ import { Divider } from './Divider.jsx'
  */
 figma.connect(Divider, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-31', {
   example: () => <Divider />,
-  imports: ["import { Divider } from 'cyberskill-design-system'"],
+  imports: ["import { Divider } from '@cyberskill/design'"],
 })

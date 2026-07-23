@@ -8,5 +8,5 @@ import { Chart } from './Chart.jsx'
  */
 figma.connect(Chart, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-15', {
   example: () => <Chart />,
-  imports: ["import { Chart } from 'cyberskill-design-system'"],
+  imports: ["import { Chart } from '@cyberskill/design'"],
 })

@@ -8,5 +8,5 @@ import { Menu } from './Menu.jsx'
  */
 figma.connect(Menu, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-54', {
   example: () => <Menu />,
-  imports: ["import { Menu } from 'cyberskill-design-system'"],
+  imports: ["import { Menu } from '@cyberskill/design'"],
 })

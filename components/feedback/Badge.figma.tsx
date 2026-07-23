@@ -8,5 +8,5 @@ import { Badge } from './Badge.jsx'
  */
 figma.connect(Badge, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-7', {
   example: () => <Badge />,
-  imports: ["import { Badge } from 'cyberskill-design-system'"],
+  imports: ["import { Badge } from '@cyberskill/design'"],
 })

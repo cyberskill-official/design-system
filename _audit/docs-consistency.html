@@ -18,7 +18,7 @@
 </style>
 </head><body>
 <h1><b>CyberSkill</b> · Docs-consistency check</h1>
-<p class="sub">Asserts every count claim in the live docs matches <code>_ds_manifest.json</code>, that <code>VERSION</code> / <code>package.json</code> stay pinned at <b>1.0.0</b>, that live entrance docs do not reintroduce <code>CHANGELOG.md</code>, that a <b>stale-phrase blacklist</b> (the retired "50 style packs" / "41-document(s)" suite counts) stays out of README / SKILL / llms.txt / <code>docs/*.md</code>, that the generated root <code>DESIGN.md</code> exists with its front-matter version matching <code>VERSION</code>, and that <b>agent routing stays honest</b> (Claude path cites <code>_esm/cs.mjs</code> + bundle prefix; Stitch path forbids treating <code>*.dc.html</code> as SoT; package name is <code>cyberskill-design-system</code>). Historical audit notes live under <code>_audit/archive/</code> (not scanned). Verdict on <code>window.__docs</code>.</p>
+<p class="sub">Asserts every count claim in the live docs matches <code>_ds_manifest.json</code>, that <code>VERSION</code> / <code>package.json</code> stay pinned at <b>1.0.0</b>, that live entrance docs do not reintroduce <code>CHANGELOG.md</code>, that a <b>stale-phrase blacklist</b> (the retired "50 style packs" / "41-document(s)" suite counts) stays out of README / SKILL / llms.txt / <code>docs/*.md</code>, that the generated root <code>DESIGN.md</code> exists with its front-matter version matching <code>VERSION</code>, and that <b>agent routing stays honest</b> (Claude path cites <code>_esm/cs.mjs</code> + bundle prefix; Stitch path forbids treating <code>*.dc.html</code> as SoT; package name is <code>@cyberskill/design</code>). Historical audit notes live under <code>_audit/archive/</code> (not scanned). Verdict on <code>window.__docs</code>.</p>
 <div id="report">running…</div>
 <div id="truth" class="truth"></div>
 <script>
@@ -135,9 +135,9 @@ function ctx(s, i, n){ return s.slice(Math.max(0,i-4), i+n+18).replace(/\s+/g," 
     stitchDcBan ? '' : 'missing explicit Stitch must-not-consume *.dc.html warning');
   step('Claude path cites _esm/cs.mjs in SKILL.md', /_esm\/cs\.mjs/.test(skill), /_esm\/cs\.mjs/.test(skill) ? '' : 'missing _esm/cs.mjs');
   step('Claude path cites bundle prefix resolve (SKILL or llms)', /CyberSkillDesignSystem_/.test(skill + '\n' + llms), '');
-  const pkgNameOk = /cyberskill-design-system/.test(readme) && /cyberskill-design-system/.test(consuming)
+  const pkgNameOk = readme.includes('@cyberskill/design') && consuming.includes('@cyberskill/design')
     && !/(?:^|[^\w-])npm install @cyberskill\/react\b/.test(readme + '\n' + consuming);
-  step('package name cyberskill-design-system (README + consuming; no @cyberskill/react install)', pkgNameOk, '');
+  step('package name @cyberskill/design (README + consuming; no @cyberskill/react install)', pkgNameOk, '');
   step('consuming.md dual path mentions Claude Code and Stitch', /Claude Code/i.test(consuming) && /Stitch/i.test(consuming), '');
   finish();
 })();

@@ -2,7 +2,7 @@
 
 How any project — human-driven or agent-driven — adopts this HTML-first design system, and how to take updates safely.
 
-**Package name:** `cyberskill-design-system` (see `package.json`). Do not treat historical `@cyberskill/react` as the install path for this monolith.
+**Package name:** `@cyberskill/design` (see `package.json`). Do not treat historical `@cyberskill/react` as the install path for this monolith.
 
 ## Claude Code vs Google Stitch
 
@@ -11,7 +11,7 @@ How any project — human-driven or agent-driven — adopts this HTML-first desi
 | **Claude Code** | `SKILL.md` → `README.md` → `styles.css` + `_esm/cs.mjs` / `_ds_bundle.js` (prefix resolve) | Strong — rules, components, prompts; gates via full clone | Hardcode the bundle suffix; treat Storybook host as the portable contract |
 | **Google Stitch** | `DESIGN.md` → `llms.txt` → `tokens/tokens.dtcg.json` | Strong for doctrine + tokens + static `.cs-*` HTML | Treat `templates/**/*.dc.html` as SoT — no tweaks / `__dcSetProps` / DC compiler |
 | **Claude Design** | Full repo + DC compiler | Full fidelity (tweaks, `x-import`, bilingual templates) | Skip the sync loop in `docs/sync.md` |
-| **npm** | `cyberskill-design-system` | Package shape gated; dry-run always | Assume public install is approved — needs owner grant + `NPM_TOKEN` (soft-skip until then) |
+| **npm** | `@cyberskill/design` | Package shape gated; dry-run always | Assume public install is approved — needs owner grant + `NPM_TOKEN` (soft-skip until then) |
 
 **Stitch DC rule:** Stitch (and any non-DC tool) must **not** consume `*.dc.html` as source of truth. Use static export patterns, `templates/kitchen-sink.html`, `examples/static-hello/`, and `.cs-*` classes from `styles.css`.
 
@@ -42,7 +42,8 @@ The package is publishable (`private: false`, version pinned **1.0.0**). License
 
 ```bash
 # after a successful npm-publish workflow run (or from a packed tarball)
-npm install cyberskill-design-system@1.0.0
+# requires the @cyberskill org on the registry + owner grant + NPM_TOKEN on publish
+npm install @cyberskill/design@1.0.0
 ```
 
 Then link styles and import from the package entry (`_esm/cs.mjs` via `exports["."]`), or continue using the static tree paths below. The published tarball is the **full portable tree** (styles, tokens, components, templates, guidelines, docs, UI kits) — not a minimal “lib-only” subset. Host-only tooling (Storybook, `_audit/`) is not in `files[]`.

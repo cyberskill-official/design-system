@@ -8,5 +8,5 @@ import { NumberField } from './NumberField.jsx'
  */
 figma.connect(NumberField, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-57', {
   example: () => <NumberField />,
-  imports: ["import { NumberField } from 'cyberskill-design-system'"],
+  imports: ["import { NumberField } from '@cyberskill/design'"],
 })

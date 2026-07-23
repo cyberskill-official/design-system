@@ -2,7 +2,7 @@
 
 Cách mọi project — do người hoặc agent điều khiển — áp dụng design system HTML-first này, và cách nhận update an toàn.
 
-**Tên package:** `cyberskill-design-system` (xem `package.json`). Không coi `@cyberskill/react` lịch sử là đường cài cho monolith này.
+**Tên package:** `@cyberskill/design` (xem `package.json`). Không coi `@cyberskill/react` lịch sử là đường cài cho monolith này.
 
 ## Claude Code vs Google Stitch
 
@@ -11,7 +11,7 @@ Cách mọi project — do người hoặc agent điều khiển — áp dụng 
 | **Claude Code** | `SKILL.md` → `README.md` → `styles.css` + `_esm/cs.mjs` / `_ds_bundle.js` (resolve theo prefix) | Mạnh — rules, components, prompts; gates qua full clone | Hardcode hậu tố bundle; coi Storybook host là hợp đồng portable |
 | **Google Stitch** | `DESIGN.md` → `llms.txt` → `tokens/tokens.dtcg.json` | Mạnh cho doctrine + tokens + HTML tĩnh `.cs-*` | Coi `templates/**/*.dc.html` là SoT — không có tweaks / `__dcSetProps` / DC compiler |
 | **Claude Design** | Full repo + DC compiler | Full fidelity (tweaks, `x-import`, template bilingual) | Bỏ qua vòng sync trong `docs/sync.md` |
-| **npm** | `cyberskill-design-system` | Hình dạng package đã gate; dry-run luôn | Giả định cài public đã duyệt — cần grant owner + `NPM_TOKEN` (soft-skip cho đến khi đó) |
+| **npm** | `@cyberskill/design` | Hình dạng package đã gate; dry-run luôn | Giả định cài public đã duyệt — cần grant owner + `NPM_TOKEN` (soft-skip cho đến khi đó) |
 
 **Quy tắc DC cho Stitch:** Stitch (và mọi tool non-DC) **không** được tiêu thụ `*.dc.html` như nguồn chân lý. Dùng pattern export tĩnh, `templates/kitchen-sink.html`, `examples/static-hello/`, và class `.cs-*` từ `styles.css`.
 
@@ -42,7 +42,8 @@ Package có thể publish (`private: false`, phiên bản cố định **1.0.0**
 
 ```bash
 # sau khi workflow npm-publish chạy thành công (hoặc từ tarball đã pack)
-npm install cyberskill-design-system@1.0.0
+# cần org @cyberskill trên registry + grant owner + NPM_TOKEN khi publish
+npm install @cyberskill/design@1.0.0
 ```
 
 Rồi link styles và import từ entry package (`_esm/cs.mjs` qua `exports["."]`) , hoặc tiếp tục dùng đường cây tĩnh bên dưới. Tarball đã publish là **cả cây portable** (styles, tokens, components, templates, guidelines, docs, UI kits) — không phải subset “chỉ lib” tối thiểu. Tooling chỉ-host (Storybook, `_audit/`) không nằm trong `files[]`.

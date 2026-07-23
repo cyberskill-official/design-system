@@ -8,5 +8,5 @@ import { Masonry } from './Masonry.jsx'
  */
 figma.connect(Masonry, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-52', {
   example: () => <Masonry />,
-  imports: ["import { Masonry } from 'cyberskill-design-system'"],
+  imports: ["import { Masonry } from '@cyberskill/design'"],
 })

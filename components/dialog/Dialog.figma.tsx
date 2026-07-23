@@ -8,5 +8,5 @@ figma.connect(Dialog, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill
     children: figma.string('Body'),
   },
   example: (props) => <Dialog {...props} />,
-  imports: ["import { Dialog } from 'cyberskill-design-system'"],
+  imports: ["import { Dialog } from '@cyberskill/design'"],
 })

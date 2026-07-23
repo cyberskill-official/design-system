@@ -8,5 +8,5 @@ import { ProgressBar } from './ProgressBar.jsx'
  */
 figma.connect(ProgressBar, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-61', {
   example: () => <ProgressBar />,
-  imports: ["import { ProgressBar } from 'cyberskill-design-system'"],
+  imports: ["import { ProgressBar } from '@cyberskill/design'"],
 })

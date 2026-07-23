@@ -8,5 +8,5 @@ import { CodeBlock } from './CodeBlock.jsx'
  */
 figma.connect(CodeBlock, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-19', {
   example: () => <CodeBlock />,
-  imports: ["import { CodeBlock } from 'cyberskill-design-system'"],
+  imports: ["import { CodeBlock } from '@cyberskill/design'"],
 })

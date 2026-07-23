@@ -8,5 +8,5 @@ import { DataGrid } from './DataGrid.jsx'
  */
 figma.connect(DataGrid, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-26', {
   example: () => <DataGrid />,
-  imports: ["import { DataGrid } from 'cyberskill-design-system'"],
+  imports: ["import { DataGrid } from '@cyberskill/design'"],
 })

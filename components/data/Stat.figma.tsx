@@ -8,5 +8,5 @@ import { Stat } from './Stat.jsx'
  */
 figma.connect(Stat, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-77', {
   example: () => <Stat />,
-  imports: ["import { Stat } from 'cyberskill-design-system'"],
+  imports: ["import { Stat } from '@cyberskill/design'"],
 })

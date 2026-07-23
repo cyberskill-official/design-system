@@ -13,5 +13,5 @@ figma.connect(Alert, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?
     children: figma.string('Body'),
   },
   example: (props) => <Alert {...props} />,
-  imports: ["import { Alert } from 'cyberskill-design-system'"],
+  imports: ["import { Alert } from '@cyberskill/design'"],
 })

@@ -8,5 +8,5 @@ import { PromptSuggestions } from './PromptSuggestions.jsx'
  */
 figma.connect(PromptSuggestions, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-63', {
   example: () => <PromptSuggestions />,
-  imports: ["import { PromptSuggestions } from 'cyberskill-design-system'"],
+  imports: ["import { PromptSuggestions } from '@cyberskill/design'"],
 })

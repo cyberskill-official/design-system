@@ -8,5 +8,5 @@ import { Form } from './Form.jsx'
  */
 figma.connect(Form, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-38', {
   example: () => <Form />,
-  imports: ["import { Form } from 'cyberskill-design-system'"],
+  imports: ["import { Form } from '@cyberskill/design'"],
 })

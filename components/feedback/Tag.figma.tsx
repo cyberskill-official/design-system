@@ -8,5 +8,5 @@ import { Tag } from './Tag.jsx'
  */
 figma.connect(Tag, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-82', {
   example: () => <Tag />,
-  imports: ["import { Tag } from 'cyberskill-design-system'"],
+  imports: ["import { Tag } from '@cyberskill/design'"],
 })

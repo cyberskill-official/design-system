@@ -8,5 +8,5 @@ import { Comment } from './Comment.jsx'
  */
 figma.connect(Comment, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-23', {
   example: () => <Comment />,
-  imports: ["import { Comment } from 'cyberskill-design-system'"],
+  imports: ["import { Comment } from '@cyberskill/design'"],
 })

@@ -8,5 +8,5 @@ import { ConfidenceMeter } from './ConfidenceMeter.jsx'
  */
 figma.connect(ConfidenceMeter, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-24', {
   example: () => <ConfidenceMeter />,
-  imports: ["import { ConfidenceMeter } from 'cyberskill-design-system'"],
+  imports: ["import { ConfidenceMeter } from '@cyberskill/design'"],
 })

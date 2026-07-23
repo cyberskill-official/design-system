@@ -8,5 +8,5 @@ import { Editor } from './Editor.jsx'
  */
 figma.connect(Editor, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-34', {
   example: () => <Editor />,
-  imports: ["import { Editor } from 'cyberskill-design-system'"],
+  imports: ["import { Editor } from '@cyberskill/design'"],
 })

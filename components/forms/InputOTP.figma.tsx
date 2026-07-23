@@ -8,5 +8,5 @@ import { InputOTP } from './InputOTP.jsx'
  */
 figma.connect(InputOTP, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-46', {
   example: () => <InputOTP />,
-  imports: ["import { InputOTP } from 'cyberskill-design-system'"],
+  imports: ["import { InputOTP } from '@cyberskill/design'"],
 })

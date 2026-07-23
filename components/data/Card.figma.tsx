@@ -8,5 +8,5 @@ figma.connect(Card, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?n
     children: figma.string('Content'),
   },
   example: (props) => <Card {...props} />,
-  imports: ["import { Card } from 'cyberskill-design-system'"],
+  imports: ["import { Card } from '@cyberskill/design'"],
 })

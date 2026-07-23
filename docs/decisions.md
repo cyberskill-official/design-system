@@ -40,21 +40,21 @@ Stay on the current Figma plan. Variables REST API is Enterprise-only — write 
 | `tokens/tokens.json` | CSS-oriented grouped export |
 | `tokens/*.css` + `styles.css` | Runtime UI |
 
-## 6. Code Connect — path shipped; **not live** until node IDs + plan
+## 6. Code Connect — path shipped; **deferred** on free Figma
 
-**Status: provisional / soft-skip — not a live library publish** (Jul 2026)
+**Status: provisional / soft-skip — not a live library publish** (Jul 2026; deferred Jul 2026)
 
-- CI job `code-connect` + `figma.config.json` + 99 `*.figma.tsx` mappings are in-repo.
-- Publish runs when `FIGMA_TOKEN` / `FIGMA_FILE_KEY` are present and the API accepts the file; otherwise the job **soft-skips** (exit 0 + report) without failing the board. Soft-skip ≠ successful Code Connect publish.
-- **Still needed for a green live publish:** Org/Enterprise plan with Code Connect, components **published** to the team library, and real `nodeId` values in `code-connect/node-map.json` (replace synthetic `9999:*` stubs — do not invent node IDs). See `docs/figma.md`.
+- CI job `code-connect` + `figma.config.json` + 99 `*.figma.tsx` mappings are in-repo (import snippets use `@cyberskill/design`).
+- Publish soft-skips when secrets are missing or the API returns 403/404/429. Soft-skip ≠ successful Code Connect publish.
+- **Owner deferral:** stay on **Figma free / non-Org** for now — do not pursue live Code Connect until an Org/Enterprise seat with a published team library is available. Then replace synthetic `9999:*` stubs in `code-connect/node-map.json` with real `nodeId`s. See `docs/figma.md`.
 
 ## 7. npm publish — path shipped; **not live** until grant + `NPM_TOKEN`
 
 **Status: provisional / soft-skip — registry distribution not approved by default** (Jul 2026)
 
-- `package.json` is `private: false`; package name **`cyberskill-design-system`**; `prepublishOnly` runs `build:bundle` + `build:design-md --check`.
+- `package.json` is `private: false`; package name **`@cyberskill/design`** (scoped `@cyberskill/*` convention; `publishConfig.access: public`); `prepublishOnly` runs `build:bundle` + `build:design-md --check`.
 - Workflow `.github/workflows/npm-publish.yml` on `workflow_dispatch` / `v*` tags; without `NPM_TOKEN` the job **soft-skips** (exit 0 + tarball report). Soft-skip ≠ a published release.
-- License stays **UNLICENSED**; version stays **1.0.0**. Consumers need an **explicit grant** from the owner (see `docs/consuming.md`) — publishing to the public registry does not open-source the package by itself.
+- License stays **UNLICENSED**; version stays **1.0.0**. Consumers need an **explicit grant** from the owner (see `docs/consuming.md`) — publishing to the public registry does not open-source the package by itself. The npm org **`@cyberskill`** must exist (or be created) before the first publish.
 
 ## 8. Native store packaging — scaffolds shipped; submit disabled
 
@@ -75,15 +75,15 @@ Stay on the current Figma plan. Variables REST API is Enterprise-only — write 
 Recorded Jul 2026 — document defaults only; **none of these are live**:
 
 - **Figma Variables** — stay Tokens Studio / non-Enterprise (decision §3). Soft-skip on Variables REST remains honest.
-- **Code Connect** — defer live publish until Org + published library + real `nodeId`s (decision §6). Soft-skip ≠ publish.
-- **npm** — remain soft-skip until owner grant + `NPM_TOKEN` (decision §7). Soft-skip ≠ a published release.
+- **Code Connect** — **skipped while on Figma free**; revisit only after Org + published library + real `nodeId`s (decision §6). Soft-skip ≠ publish.
+- **npm** — remain soft-skip until owner grant + `NPM_TOKEN` + `@cyberskill` org on the registry (decision §7). Soft-skip ≠ a published release.
 
 ## Maintainer tasks (open)
 
 Operational follow-ups — not product marketing, not a backlog surface:
 
-1. **Code Connect node IDs** — replace synthetic `9999:*` stubs in `code-connect/node-map.json` with real published-library node IDs once the Figma Org/Enterprise library is ready.
-2. **npm grant / `NPM_TOKEN`** — set the GitHub secret and issue an explicit consumer grant before treating registry install as an approved distribution path.
+1. **Code Connect** — deferred (Figma free). When upgrading to Org: replace `9999:*` stubs in `code-connect/node-map.json` with real published-library node IDs.
+2. **npm grant / `NPM_TOKEN`** — create/claim the **`@cyberskill`** npm org, set the GitHub secret, and issue an explicit consumer grant before treating `npm install @cyberskill/design` as an approved path.
 
 ~~3. Finalize products registry~~ — **done** (Jul 2026): see decision §9; `docs/products.md` is locked.
 

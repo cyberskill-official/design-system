@@ -8,5 +8,5 @@ import { Terminal } from './Terminal.jsx'
  */
 figma.connect(Terminal, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-84', {
   example: () => <Terminal />,
-  imports: ["import { Terminal } from 'cyberskill-design-system'"],
+  imports: ["import { Terminal } from '@cyberskill/design'"],
 })

@@ -8,5 +8,5 @@ import { FileUpload } from './FileUpload.jsx'
  */
 figma.connect(FileUpload, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-36', {
   example: () => <FileUpload />,
-  imports: ["import { FileUpload } from 'cyberskill-design-system'"],
+  imports: ["import { FileUpload } from '@cyberskill/design'"],
 })

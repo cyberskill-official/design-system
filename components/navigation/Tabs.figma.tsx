@@ -8,5 +8,5 @@ import { Tabs } from './Tabs.jsx'
  */
 figma.connect(Tabs, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-81', {
   example: () => <Tabs />,
-  imports: ["import { Tabs } from 'cyberskill-design-system'"],
+  imports: ["import { Tabs } from '@cyberskill/design'"],
 })

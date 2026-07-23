@@ -8,5 +8,5 @@ import { Sidebar } from './Sidebar.jsx'
  */
 figma.connect(Sidebar, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-71', {
   example: () => <Sidebar />,
-  imports: ["import { Sidebar } from 'cyberskill-design-system'"],
+  imports: ["import { Sidebar } from '@cyberskill/design'"],
 })

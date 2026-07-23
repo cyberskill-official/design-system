@@ -8,5 +8,5 @@ import { Sortable } from './Sortable.jsx'
  */
 figma.connect(Sortable, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-74', {
   example: () => <Sortable />,
-  imports: ["import { Sortable } from 'cyberskill-design-system'"],
+  imports: ["import { Sortable } from '@cyberskill/design'"],
 })

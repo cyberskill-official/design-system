@@ -8,5 +8,5 @@ import { EmptyState } from './EmptyState.jsx'
  */
 figma.connect(EmptyState, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-35', {
   example: () => <EmptyState />,
-  imports: ["import { EmptyState } from 'cyberskill-design-system'"],
+  imports: ["import { EmptyState } from '@cyberskill/design'"],
 })

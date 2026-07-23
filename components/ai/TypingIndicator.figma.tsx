@@ -8,5 +8,5 @@ import { TypingIndicator } from './TypingIndicator.jsx'
  */
 figma.connect(TypingIndicator, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-98', {
   example: () => <TypingIndicator />,
-  imports: ["import { TypingIndicator } from 'cyberskill-design-system'"],
+  imports: ["import { TypingIndicator } from '@cyberskill/design'"],
 })

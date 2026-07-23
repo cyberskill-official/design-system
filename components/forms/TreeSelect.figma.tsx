@@ -8,5 +8,5 @@ import { TreeSelect } from './TreeSelect.jsx'
  */
 figma.connect(TreeSelect, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-96', {
   example: () => <TreeSelect />,
-  imports: ["import { TreeSelect } from 'cyberskill-design-system'"],
+  imports: ["import { TreeSelect } from '@cyberskill/design'"],
 })

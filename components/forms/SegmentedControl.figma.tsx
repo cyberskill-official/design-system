@@ -8,5 +8,5 @@ import { SegmentedControl } from './SegmentedControl.jsx'
  */
 figma.connect(SegmentedControl, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-69', {
   example: () => <SegmentedControl />,
-  imports: ["import { SegmentedControl } from 'cyberskill-design-system'"],
+  imports: ["import { SegmentedControl } from '@cyberskill/design'"],
 })

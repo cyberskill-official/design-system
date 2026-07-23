@@ -8,5 +8,5 @@ import { Tour } from './Tour.jsx'
  */
 figma.connect(Tour, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-93', {
   example: () => <Tour />,
-  imports: ["import { Tour } from 'cyberskill-design-system'"],
+  imports: ["import { Tour } from '@cyberskill/design'"],
 })

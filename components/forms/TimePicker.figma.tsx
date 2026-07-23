@@ -8,5 +8,5 @@ import { TimePicker } from './TimePicker.jsx'
  */
 figma.connect(TimePicker, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-88', {
   example: () => <TimePicker />,
-  imports: ["import { TimePicker } from 'cyberskill-design-system'"],
+  imports: ["import { TimePicker } from '@cyberskill/design'"],
 })

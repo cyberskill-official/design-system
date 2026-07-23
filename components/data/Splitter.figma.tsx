@@ -8,5 +8,5 @@ import { Splitter } from './Splitter.jsx'
  */
 figma.connect(Splitter, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-76', {
   example: () => <Splitter />,
-  imports: ["import { Splitter } from 'cyberskill-design-system'"],
+  imports: ["import { Splitter } from '@cyberskill/design'"],
 })

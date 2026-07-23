@@ -8,5 +8,5 @@ import { NavigationMenu } from './NavigationMenu.jsx'
  */
 figma.connect(NavigationMenu, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-56', {
   example: () => <NavigationMenu />,
-  imports: ["import { NavigationMenu } from 'cyberskill-design-system'"],
+  imports: ["import { NavigationMenu } from '@cyberskill/design'"],
 })

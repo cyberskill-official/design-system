@@ -8,5 +8,5 @@ import { DatePicker } from './DatePicker.jsx'
  */
 figma.connect(DatePicker, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-28', {
   example: () => <DatePicker />,
-  imports: ["import { DatePicker } from 'cyberskill-design-system'"],
+  imports: ["import { DatePicker } from '@cyberskill/design'"],
 })

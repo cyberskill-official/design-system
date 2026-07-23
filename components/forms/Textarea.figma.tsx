@@ -8,5 +8,5 @@ import { Textarea } from './Textarea.jsx'
  */
 figma.connect(Textarea, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-85', {
   example: () => <Textarea />,
-  imports: ["import { Textarea } from 'cyberskill-design-system'"],
+  imports: ["import { Textarea } from '@cyberskill/design'"],
 })

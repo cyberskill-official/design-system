@@ -8,5 +8,5 @@ import { Image } from './Image.jsx'
  */
 figma.connect(Image, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-43', {
   example: () => <Image />,
-  imports: ["import { Image } from 'cyberskill-design-system'"],
+  imports: ["import { Image } from '@cyberskill/design'"],
 })

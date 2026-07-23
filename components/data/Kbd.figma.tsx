@@ -8,5 +8,5 @@ import { Kbd } from './Kbd.jsx'
  */
 figma.connect(Kbd, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-47', {
   example: () => <Kbd />,
-  imports: ["import { Kbd } from 'cyberskill-design-system'"],
+  imports: ["import { Kbd } from '@cyberskill/design'"],
 })

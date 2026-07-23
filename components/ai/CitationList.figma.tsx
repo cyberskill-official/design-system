@@ -8,5 +8,5 @@ import { CitationList } from './CitationList.jsx'
  */
 figma.connect(CitationList, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-18', {
   example: () => <CitationList />,
-  imports: ["import { CitationList } from 'cyberskill-design-system'"],
+  imports: ["import { CitationList } from '@cyberskill/design'"],
 })

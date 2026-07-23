@@ -8,5 +8,5 @@ import { Anchor } from './Anchor.jsx'
  */
 figma.connect(Anchor, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-4', {
   example: () => <Anchor />,
-  imports: ["import { Anchor } from 'cyberskill-design-system'"],
+  imports: ["import { Anchor } from '@cyberskill/design'"],
 })

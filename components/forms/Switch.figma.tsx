@@ -8,5 +8,5 @@ import { Switch } from './Switch.jsx'
  */
 figma.connect(Switch, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-80', {
   example: () => <Switch />,
-  imports: ["import { Switch } from 'cyberskill-design-system'"],
+  imports: ["import { Switch } from '@cyberskill/design'"],
 })

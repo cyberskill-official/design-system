@@ -8,5 +8,5 @@ import { Tree } from './Tree.jsx'
  */
 figma.connect(Tree, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-95', {
   example: () => <Tree />,
-  imports: ["import { Tree } from 'cyberskill-design-system'"],
+  imports: ["import { Tree } from '@cyberskill/design'"],
 })

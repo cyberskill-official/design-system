@@ -8,5 +8,5 @@ import { Toolbar } from './Toolbar.jsx'
  */
 figma.connect(Toolbar, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-91', {
   example: () => <Toolbar />,
-  imports: ["import { Toolbar } from 'cyberskill-design-system'"],
+  imports: ["import { Toolbar } from '@cyberskill/design'"],
 })

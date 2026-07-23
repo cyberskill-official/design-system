@@ -10,5 +10,5 @@ figma.connect(TextField, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSk
     placeholder: figma.string('Placeholder'),
   },
   example: (props) => <TextField {...props} />,
-  imports: ["import { TextField } from 'cyberskill-design-system'"],
+  imports: ["import { TextField } from '@cyberskill/design'"],
 })

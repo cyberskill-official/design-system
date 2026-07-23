@@ -8,5 +8,5 @@ import { Menubar } from './Menubar.jsx'
  */
 figma.connect(Menubar, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-55', {
   example: () => <Menubar />,
-  imports: ["import { Menubar } from 'cyberskill-design-system'"],
+  imports: ["import { Menubar } from '@cyberskill/design'"],
 })

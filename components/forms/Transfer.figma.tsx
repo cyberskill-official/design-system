@@ -8,5 +8,5 @@ import { Transfer } from './Transfer.jsx'
  */
 figma.connect(Transfer, 'https://www.figma.com/design/CS_FIGMA_FILE_KEY/CyberSkill?node-id=9999-94', {
   example: () => <Transfer />,
-  imports: ["import { Transfer } from 'cyberskill-design-system'"],
+  imports: ["import { Transfer } from '@cyberskill/design'"],
 })
