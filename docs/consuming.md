@@ -6,9 +6,9 @@ How any project — human-driven or agent-driven — adopts this HTML-first desi
 
 **What you get:** `styles.css` (400+ tokens + `.cs-*` classes + Liquid Glass surfaces, `@import`s `tokens/` + `base/`) · `_ds_bundle.js` (compiled React components, no build step) · `_esm/cs.mjs` (ESM entry re-exporting every component) · `_ds_manifest.json` (machine-readable inventory) · per-component `Name.d.ts` (API) + `Name.prompt.md` (usage brief) · `tokens/tokens.dtcg.json` (W3C DTCG) + `tokens.json`/`tokens.js`.
 
-**Repo checkout** — clone or copy the whole tree; everything is relative-path static. Entry points: `dashboard.html` (hub) · `guidelines/atomic-view.html` (every component live) · `templates/<slug>/` (copyable starting points). Read `SKILL.md` before authoring anything on-brand; deeper maps live in `llms.txt` (inventory) and this file (full adoption + upgrade guide below).
+**Repo checkout** — clone or copy the whole tree; everything is relative-path static. Entry points: Storybook on the host site (`/` / `npm run storybook`) · `guidelines/atomic-view.html` (every component live, portable) · `templates/<slug>/` (copyable starting points). Read `SKILL.md` before authoring anything on-brand; deeper maps live in `llms.txt` (inventory) and this file (full adoption + upgrade guide below).
 
-**After import — prove health.** Open `_audit/run.html` (or the dashboard **Health** tab), let the gate board finish (every fast gate). All green = the copy is internally consistent (contrast, docs, portability, tokens, consumer path, behavior, a11y, stories, bilingual parity).
+**After import — prove health.** Open `_audit/run.html`, let the gate board finish (every fast gate). All green = the copy is internally consistent (contrast, docs, portability, tokens, consumer path, behavior, a11y, stories, bilingual parity).
 
 **Rules that keep transfer lossless:**
 - Never hardcode the bundle namespace suffix (see "Resolve by prefix" below — gate-enforced).
@@ -23,7 +23,7 @@ How any project — human-driven or agent-driven — adopts this HTML-first desi
 
 ## Adopt via npm (optional)
 
-The package is publishable (`private: false`, version pinned **1.0.0** until LAUNCH). License remains **UNLICENSED** — installing from the registry (or a packed tarball) does **not** grant redistribution rights by itself. Until the owner says LAUNCH and chooses an open license, **consumers need an explicit grant** from CyberSkill to use the package in a product.
+The package is publishable (`private: false`, version pinned **1.0.0**). License remains **UNLICENSED** — installing from the registry (or a packed tarball) does **not** grant redistribution rights by itself. Until the owner chooses an open license, **consumers need an explicit grant** from CyberSkill to use the package in a product.
 
 ```bash
 # after a successful npm-publish workflow run (or from a packed tarball)
@@ -32,7 +32,7 @@ npm install cyberskill-design-system@1.0.0
 
 Then link styles and import from the package entry (`_esm/cs.mjs` via `exports["."]`), or continue using the static tree paths below. The published tarball is the **full portable tree** (styles, tokens, components, templates, guidelines, docs, UI kits) — not a minimal “lib-only” subset. Host-only tooling (Storybook, `_audit/`) is not in `files[]`.
 
-**Publish path (maintainers):** `prepublishOnly` runs `build:bundle` + `build:design-md --check`. Workflow `.github/workflows/npm-publish.yml` on `workflow_dispatch` / `v*` tags; **soft-skips** when `NPM_TOKEN` is absent (`node _audit/ci/npm-publish.mjs --dry-run` always lists the tarball). See `docs/ci-cd.md`.
+**Publish path (maintainers):** `prepublishOnly` runs `build:bundle` + `build:design-md --check`. Workflow `.github/workflows/npm-publish.yml` on `workflow_dispatch` / `v*` tags; publish requires `NPM_TOKEN` (`node _audit/ci/npm-publish.mjs --dry-run` always lists the tarball). See `docs/ci-cd.md` and `docs/decisions.md`.
 
 ## Adopt (two paths, plus a module shortcut)
 
@@ -62,15 +62,15 @@ State Theme (`data-theme`), Element (`data-cs-element` + `data-cs-variant`), and
 
 ## Upgrading
 
-- **Version is pinned.** `VERSION` and `package.json` stay at **1.0.0** until the owner says LAUNCH. There is no design-system changelog during this phase — treat the repo tip as the only truth.
+- **Version is pinned.** `VERSION` and `package.json` stay at **1.0.0**. There is no design-system changelog file — treat the repo tip as the technical truth, and read curated **Release Notes** (Storybook + `docs/release-notes.md`) for product-facing highlights.
 
 - Anchors (Umber/Ochre), the `.cs-*` class names, and the `--cs-*` token names are stable contracts — safe to depend on. Breaking renames of those contracts should be rare and called out in the PR/docs when they happen.
 
-- **Re-run the smoke test after upgrading.** Open `_audit/consumer-smoke-test.html` and the full Health board (`_audit/run.html` / dashboard Health tab) against the new tip — the runner proves the packaged path still resolves.
+- **Re-run the smoke test after upgrading.** Open `_audit/consumer-smoke-test.html` and the full Health board (`_audit/run.html`) against the new tip — the runner proves the packaged path still resolves.
 
-## Host playground (optional)
+## Host Storybook (optional)
 
-The live site serves Storybook at `/playground/` as the **single Live hub** for operators (Theme × Element × Language + control matrices). That is **host-only tooling** — do not depend on Storybook in product apps. Portable Atomic View remains at `guidelines/atomic-view.html`. See `docs/storybook.md` and `docs/live-hub.md`.
+The live site serves Storybook at `/` as the **product surface** for operators (Theme × Element × Language + control matrices). That is **host-only tooling** — do not depend on Storybook in product apps. Portable Atomic View remains at `guidelines/atomic-view.html`. See `docs/storybook.md` and `docs/live-hub.md`.
 
 ## Five-minute consumer spike
 

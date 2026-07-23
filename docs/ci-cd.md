@@ -2,7 +2,7 @@
 
 **Gate CI** (this workflow) still treats the design system as a static tree: serve the repo, open `_audit/run.html` headlessly, read verdict globals. No product bundler is required for gates.
 
-**Host deploy** (Vercel, separate from this workflow) does run `npm install` + `npm run build:site` so the optional Storybook playground ships at `/playground/` — see `docs/deploy.md` and `docs/storybook.md`. That host packaging path is not required for consuming projects or for the gate jobs below.
+**Host deploy** (Vercel, separate from this workflow) does run `npm install` + `npm run build:site` so Storybook ships as the product surface at `/` — see `docs/deploy.md` and `docs/storybook.md`. That host packaging path is not required for consuming projects or for the gate jobs below.
 
 ## Badge
 
@@ -66,7 +66,7 @@ node _audit/ci/generate-native-tokens.mjs
 
 ## What this does NOT auto-fail (by design)
 
-- **Pixel-threshold hard fail** — owner choice A (advisory visual rows only).
+- **Side-by-side visual / component baseline rows** — advisory only (drift judged by eye). Playwright `%` pixel compare is a **hard** gate (`pixel-diff` job + board Pixel CI row).
 - **Figma Variables write on non-Enterprise** — soft-skip with report artifact.
 - **Code Connect publish** — soft-skip when secrets missing or API 403/404/429 (Decision 1C).
 - **npm publish** — soft-skip when `NPM_TOKEN` absent (Decision 1C).

@@ -32,10 +32,10 @@ export default {
 export const Default = { render: () => (<ToastStack><Toast title="Wish accepted">Lumi is on it.</Toast></ToastStack>) };
 
 export const Matrix = {
-  name: 'Matrix / Variants',
+  name: 'Matrix / All variants',
   render: () => (
     <ToastStack>
-      <Toast title="Default">Body</Toast>
+      <Toast variant="default" title="Default">Body</Toast>
       <Toast variant="success" title="Success">Saved</Toast>
       <Toast variant="danger" title="Danger">Failed</Toast>
     </ToastStack>

@@ -94,7 +94,7 @@ Document URLs use placeholder file key **`CS_FIGMA_FILE_KEY`**. Publish substitu
 3. `npm run code-connect:generate` to rewrite `.figma.tsx` URLs.
 4. With secrets: `node _audit/ci/code-connect-publish.mjs` (or let the CI job run on `main`).
 
-Until real node IDs exist, synthetic `9999:*` stubs remain; publish soft-skips on 404. Remaining blockers: `docs/decisions-pending.md` §6.
+Until real node IDs exist, synthetic `9999:*` stubs remain; publish reports and exits cleanly on 404. Remaining blockers: `docs/decisions.md` §6.
 
 ```bash
 npm run code-connect:dry-run

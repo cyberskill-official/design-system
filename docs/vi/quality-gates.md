@@ -1,6 +1,6 @@
 # Quality gates — tài liệu chuẩn benchmark
 
-Mọi quality gate deterministic trong hệ thống, nó assert gì, tiêu chí pass, hard hay advisory, và chạy ở đâu. Audit thúc đẩy tài liệu này là `docs/audit-2026-07.md`.
+Mọi quality gate deterministic trong hệ thống, nó assert gì, tiêu chí pass, hard hay advisory, và chạy ở đâu.
 
 **Gate chạy ở đâu.** *Fast board CI* = job `fast-gates` trong `.github/workflows/design-system-gates.yml`, serve repo và điều khiển `_audit/run.html` headless qua `_audit/ci/run-gates.mjs` (mọi push/PR + nightly + thủ công) — hàng board mới được nhận tự động. Hai gate thêm chạy standalone như *merge blocker* (job `docs-consistency-blocker`, qua `_audit/ci/run-single-gate.mjs`). *Whole-set CI* = job `whole-set-audits` (mọi push/PR + nightly — quyết định B của owner). *Unit test* = `npm run test:unit` trong job `unit-tests` (Node thuần, không trình duyệt). *Node pre-checks* = job `node-prechecks` (authority không trình duyệt: bundle freshness, DESIGN.md freshness) cộng job `token-provenance`. Mọi browser gate publish verdict global (`window.__*`) mà headless runner đọc.
 
@@ -38,7 +38,7 @@ Mọi quality gate deterministic trong hệ thống, nó assert gì, tiêu chí 
 | Component baselines | `_audit/component-visual-diff.html` | 12 crop component curated neo các tầng atomic cho so sánh visual | Crop render + baseline có (`__componentVisualDiff`) | Advisory | Fast board CI |
 | Axe smoke | `_audit/axe-smoke.html` | Rule serious/critical của axe-core 4.10.0 (vendored tại `_audit/vendor/axe.min.js`) trên cụm component bilingual đã mount | 0 finding serious/critical (`__axesmoke`) | Hard | Fast board CI |
 | Print smoke | `_audit/print-smoke.html` | Document template khai báo meta print-ownership và hook CSS `@page` mà đường export dựa vào | 0 document thiếu print hook (`__printsmoke`) | Hard | Fast board CI |
-| Pixel CI | `_audit/pixel-ci.html` + `_audit/ci/pixel-diff.mjs` | Baseline curated tồn tại; script Playwright capture so sánh % pixel thật; report gần nhất hiện `drifted[]` / `maxDiff` | Hợp đồng đủ (`__pixelci.pass`); drift số chỉ advisory (`drifted`, `maxDiff`) | Advisory | Fast board CI + job `pixel-diff` tùy chọn (`continue-on-error`) |
+| Pixel CI | `_audit/pixel-ci.html` + `_audit/ci/pixel-diff.mjs` | Baseline curated tồn tại; script Playwright capture so sánh % pixel thật; report gần nhất phải sạch (`drifted[]` rỗng) | Hợp đồng + compare sạch (`__pixelci.pass`); drift hoặc thiếu report → fail | Hard | Fast board CI (bước compare nuôi hàng) + job `pixel-diff` |
 
 ## Whole-set audits — mọi template, mọi trục
 
@@ -63,7 +63,7 @@ Mọi quality gate deterministic trong hệ thống, nó assert gì, tiêu chí 
 | Nav model | `_audit/ci/test-nav-model.mjs` | Logic classify/group của `guidelines/nav-model.js` đã ship hành xử đúng (chạy module thật) | Mọi assert pass (exit 0) | Hard | Unit test |
 | Health/Tokens UI contract | `_audit/ci/test-health-tokens-contract.mjs` | Hợp đồng cấu trúc của entry HTML Health + Tokens giữ | Mọi assert pass (exit 0) | Hard | Unit test |
 | Form paths | `_audit/ci/test-form-paths.mjs` | Helper Form path hành xử đúng (chạy `Form.jsx` đã ship qua dynamic import) | Mọi assert pass (exit 0) | Hard | Unit test |
-| Storybook contract | `_audit/ci/test-storybook-contract.mjs` | Live hub chỉ là Storybook; SB10 ESM main + addon-docs/a11y; CSF đủ cho mọi public primary; Matrix/AllVariants + AllSizes khi có `argTypes.size`; States/Matrix phủ disabled/loading/error/busy; mount trung thực (không yêu cầu tích đầy đủ N chiều enum) | Mọi assert pass (exit 0) | Hard | Unit test |
+| Storybook contract | `_audit/ci/test-storybook-contract.mjs` | Live hub chỉ là Storybook; SB10 ESM main + addon-docs/a11y; CSF đủ cho mọi public primary; Matrix/AllVariants + AllSizes khi có `argTypes.size`; States/Matrix phủ disabled/loading/error/busy; mọi enum size/variant rời rạc được mount; FullMatrix bắt buộc khi ≥2 trục trong {size, variant, state} tồn tại | Mọi assert pass (exit 0) | Hard | Unit test |
 | Figma push helpers | `_audit/ci/test-figma-push-helpers.mjs` | Helper thuần trong `push-figma-variables.mjs` hành xử đúng (không mạng, không secret) | Mọi assert pass (exit 0) | Hard | Unit test |
 | Code Connect helpers | `_audit/ci/test-code-connect.mjs` | 99 primaries, helper node-map/render, classifier soft-skip, `figma.config.json` đã commit + `.figma.tsx` traffic cao | Mọi assert pass (exit 0) | Hard | Unit test |
 | Native samples | `_audit/ci/test-native-samples.mjs` | App sample SwiftUI / Compose / Flutter mỗi cái ≥ 3 màn hình, tham chiếu hằng token đã generate, và ship scaffold Fastlane store (submit tắt) | Mọi assert pass (exit 0) | Hard | Unit test |
@@ -86,5 +86,5 @@ Tám gate audit lên kế hoạch (token-format-parity, version-stamp, support-r
 
 - **Brand voice / copy** — ấm · trực tiếp · trung thực · tôn trọng do người đánh giá, không regex.
 - **Nội dung template pháp lý** — counsel review instrument; gate chỉ kiểm cấu trúc, cơ chế bilingual, và hình học print.
-- **Phán đoán pixel-diff** — quyết định A của owner: hàng visual / pixel vẫn advisory. Drift `%` từ Playwright (`drifted[]`, `maxDiff`) được báo cáo nhưng không bao giờ auto-fail PR; người vẫn phán redesign có chủ đích so với baseline.
+- **Baseline pixel-diff** — drift `%` Playwright auto-fail (hard). Sau redesign có chủ đích, làm mới `_audit/baselines/` bằng `pixel-diff.mjs --update` và commit. Trang review side-by-side visual / component vẫn advisory (đánh giá bằng mắt).
 - **Review thiết kế API component** — đặt tên prop và ergonomics do owner review, không assert.

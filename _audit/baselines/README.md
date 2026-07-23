@@ -3,7 +3,7 @@
 Reference captures of representative surfaces. Two consumers share this folder:
 
 1. **`_audit/visual-diff.html`** — side-by-side / overlay review assist (drift judged by eye).
-2. **`_audit/ci/pixel-diff.mjs`** — real Playwright raster compare at **909×540** (`deviceScaleFactor: 1`). Writes advisory `drifted[]` / `maxDiff` to `_audit/ci/pixel-diff-report.json`. Owner decision A: % drift never auto-fails a PR.
+2. **`_audit/ci/pixel-diff.mjs`** — real Playwright raster compare at **909×540** (`deviceScaleFactor: 1`). Writes `drifted[]` / `maxDiff` to `_audit/ci/pixel-diff-report.json`. Hard gate: % drift above threshold exits non-zero and fails the board Pixel CI row.
 
 ## Set — per-tier (curated)
 
@@ -36,13 +36,13 @@ npx --yes serve@14 -l 8080 .
 node _audit/ci/pixel-diff.mjs --update http://127.0.0.1:8080
 ```
 
-Compare without rewriting (advisory report only):
+Compare without rewriting (hard — non-zero exit on drift):
 
 ```bash
 node _audit/ci/pixel-diff.mjs http://127.0.0.1:8080
 ```
 
-Baselines **must** be real PNGs (not JPEG-named-as-PNG). After an intentional redesign, re-run `--update` and note it in the PR description. Pure % drift on an unchanged intentional look is advisory noise — judgment stays human (decision A).
+Baselines **must** be real PNGs (not JPEG-named-as-PNG). After an intentional redesign, re-run `--update`, commit the PNGs, and note it in the PR description.
 
 ## Manual / review-assist capture
 

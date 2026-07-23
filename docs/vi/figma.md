@@ -94,7 +94,7 @@ URL tài liệu dùng file key placeholder **`CS_FIGMA_FILE_KEY`**. Publish thay
 3. `npm run code-connect:generate` để viết lại URL `.figma.tsx`.
 4. Có secrets: `node _audit/ci/code-connect-publish.mjs` (hoặc để job CI chạy trên `main`).
 
-Đến khi có node ID thật, stub tổng hợp `9999:*` vẫn còn; publish soft-skip trên 404. Blocker còn lại: `docs/decisions-pending.md` §6.
+Đến khi có node ID thật, stub tổng hợp `9999:*` vẫn còn; publish báo cáo và thoát sạch trên 404. Blocker còn lại: `docs/decisions.md` §6.
 
 ```bash
 npm run code-connect:dry-run

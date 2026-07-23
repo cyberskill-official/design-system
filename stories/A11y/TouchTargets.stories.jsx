@@ -112,6 +112,7 @@ function TouchTargetsPage() {
       <SectionTitle>Where the guarantee lives</SectionTitle>
       <ul className="cs-body" style={{ maxWidth: '72ch', paddingLeft: 20, display: 'grid', gap: 6 }}>
         <li><Mono>--cs-component-button-md-minHeight</Mono> is 44px in every expression — md is the 44px default everywhere, not only on touch.</li>
+        <li>Coarse bumps are tokenized: <Mono>--cs-component-button-xs-minHeight-coarse</Mono> (36px), <Mono>--cs-component-button-sm-minHeight-coarse</Mono> (40px), <Mono>--cs-component-button-md-minHeight-coarse</Mono> (44px).</li>
         <li><Mono>base/a11y.css</Mono> raises tabs, pagination, menu items, steppers, selection controls and more to the 44px floor under <Mono>@media (pointer: coarse)</Mono>.</li>
         <li>TextField controls carry <Mono>--cs-component-textfield-minHeight</Mono> (44px) on every pointer.</li>
       </ul>

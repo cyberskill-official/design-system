@@ -484,6 +484,10 @@
       "$value": "36px",
       "$type": "dimension"
     },
+    "--cs-component-button-sm-minHeight-coarse": {
+      "$value": "40px",
+      "$type": "dimension"
+    },
     "--cs-component-button-md-paddingY": {
       "$value": "12px",
       "$type": "dimension"
@@ -493,6 +497,10 @@
       "$type": "dimension"
     },
     "--cs-component-button-md-minHeight": {
+      "$value": "44px",
+      "$type": "dimension"
+    },
+    "--cs-component-button-md-minHeight-coarse": {
       "$value": "44px",
       "$type": "dimension"
     },

@@ -104,10 +104,10 @@
 @keyframes cs-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .cs-button__spinner { animation-duration: 1.4s; } }
 
-/* Touch ergonomics: enforce a 44px target on coarse pointers. */
+/* Touch ergonomics: bump small sizes on coarse pointers (tokenized). */
 @media (pointer: coarse) {
-  .cs-button { min-height: 44px; }
-  .cs-button--sm { min-height: 40px; }
+  .cs-button { min-height: var(--cs-component-button-md-minHeight-coarse, var(--cs-component-button-md-minHeight, 44px)); }
+  .cs-button--sm { min-height: var(--cs-component-button-sm-minHeight-coarse, 40px); }
   .cs-button--xs { min-height: var(--cs-component-button-xs-minHeight-coarse, 36px); }
 }
 

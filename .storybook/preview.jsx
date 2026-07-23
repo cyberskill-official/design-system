@@ -8,18 +8,30 @@ const preview = {
     options: {
       storySort: {
         order: [
-          'Intro',
+          'Docs',
+          [
+            'Introduction',
+            'Consuming',
+            'Deploy',
+            'Conventions',
+            'Design styles',
+            'Products',
+            'Schema',
+            'Figma',
+            'Contrast',
+            'Voice & Language',
+            'The Three Axes',
+          ],
           'Foundations',
           ['Colors', 'Typography', 'Spacing', 'Elevation', 'Motion', 'Elements'],
-          'Guidelines',
-          ['Voice & Language', 'The Three Axes', 'Consuming'],
           'Components',
           'A11y',
           ['Focus ring', 'Touch targets', 'Reduced motion', 'Contrast (APCA)'],
           'I18n',
-          'Live',
-          ['Intro', 'Surfaces'],
+          'Release Notes',
           'Status',
+          'Maintainer',
+          ['Surfaces'],
           '*',
         ],
       },
@@ -27,7 +39,7 @@ const preview = {
     docs: {
       description: {
         component:
-          'Host Live hub only (single interactive site). Portable consumers still use styles.css + _ds_bundle.js / ESM — never Storybook.',
+          'Product Storybook at `/` (host-only). Portable consumers use styles.css + _ds_bundle.js / ESM — never Storybook.',
       },
     },
   },
@@ -81,7 +93,7 @@ const preview = {
       const theme = context.globals.theme || 'light';
       const [element, variant] = String(context.globals.element || 'tho|').split('|');
       const language = context.globals.language || 'en';
-      // Mirror production axes used across Atomic View / templates
+      const fullscreen = context.parameters.layout === 'fullscreen';
       if (typeof document !== 'undefined') {
         const root = document.documentElement;
         if (theme === 'dark') root.setAttribute('data-theme', 'dark');
@@ -95,7 +107,7 @@ const preview = {
           lang={language}
           style={{
             minHeight: '100%',
-            padding: 16,
+            padding: fullscreen ? 0 : 16,
             background: 'var(--cs-color-surface-page)',
             color: 'var(--cs-color-text-primary)',
             fontFamily: 'var(--cs-font-family-ui)',

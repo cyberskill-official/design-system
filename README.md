@@ -6,7 +6,7 @@
 
 ## Start here
 
-This is the **entrance document** for the CyberSkill Design System — pinned **v1.0.0** until launch (see `VERSION`). Open **`dashboard.html`** for the single-page hub (Overview · Docs · Live · Health · Tokens). **Live** is Storybook at `/playground/` (host-only). One sentence: a warm, Vietnamese-first, enterprise-grade system where every surface resolves three independent axes — **Theme** (light · dark) × **Element** (Ngũ Hành product identity: Kim · Mộc · Thủy · Hỏa · Thổ, 15 variants) × **Language** (EN · VI). Surface treatment is liquid-glass (fixed).
+This is the **entrance document** for the CyberSkill Design System — pinned **v1.0.0** (see `VERSION`). The **product site** is Storybook at **`/`** on `design.cyberskill.world` (host-only; local: `npm run storybook`). Legacy `/dashboard*` and `/playground*` redirect to `/`. One sentence: a warm, Vietnamese-first, enterprise-grade system where every surface resolves three independent axes — **Theme** (light · dark) × **Element** (Ngũ Hành product identity: Kim · Mộc · Thủy · Hỏa · Thổ, 15 variants) × **Language** (EN · VI). Surface treatment is liquid-glass (fixed).
 
 **Quick start by audience**
 - **Designers** — open the Design System tab and the Templates picker (84 starting points, including the 37-document lawyer-validated Employment Suite); the Identity Lab (`ui_kits/status-hub/identity-lab.html`) lets you flip axes live.
@@ -15,30 +15,35 @@ This is the **entrance document** for the CyberSkill Design System — pinned **
 
 - **Consuming projects** — link **`styles.css`** (one file = everything), or copy a `templates/<slug>/` folder and edit one line in its `ds-base.js` (one-line rebind, validated end-to-end Jul 2026). Scope identity with `data-theme` · `data-cs-element` (+`data-cs-variant`) · `lang`.
 
-**Document map**
+**Document map — consumers**
 
 | Doc | What it answers |
 |---|---|
 | `README.md` (this file, below) | The full guide: anchors, voice, visual foundations, components, templates, index |
-| `DESIGN.md` | Generated open-spec surface (Stitch-style) — doctrine + every token value + inventory, from DTCG; regenerate via `npm run build:design-md` |
+| `DESIGN.md` | **This repo's** generated open-spec surface (Stitch-style) — doctrine + every token value + inventory, from DTCG; regenerate via `npm run build:design-md`. Do not hand-edit. |
 | `SKILL.md` | Agent entry — hard rules + fast orientation |
-| `docs/conventions.md` | How to extend the system (naming grammar, checklists, the three axes, decision log) |
-| `docs/products.md` | Product → element registry (provisional) |
-| `docs/contrast-report.md` | Generated APCA elemental sweep — 0 failures at its Lc ≥ 60 UI-label floor. Body text authors to the stricter Lc ≥ 75 floor (see Anchor immutables); the sweep's Lc ≥ 60 rows are accent/label pairings, not body text. |
 | `docs/consuming.md` | Adopting & upgrading — quick path for AI agents, adopt (static/React/ESM), the three axes, upgrade + extend |
+| `docs/conventions.md` | How to extend the system (naming grammar, checklists, the three axes) |
+| `docs/release-notes.md` | Curated product highlights (not a changelog) |
+| `docs/design-styles.md` | The live styling axes (Theme × Element × Language) and the fixed liquid-glass treatment |
+| `docs/products.md` | Product → element registry (provisional until maintainer lock) |
+| `docs/contrast-report.md` | Generated APCA elemental sweep — 0 failures at its Lc ≥ 60 UI-label floor. Body text authors to the stricter Lc ≥ 75 floor (see Anchor immutables); the sweep's Lc ≥ 60 rows are accent/label pairings, not body text. |
 | `docs/template-schema-v2.md` | Typed content-slot spec for templates — opt-in, machine-checkable |
 | `docs/deploy.md` | Deploying the live site — Vercel (zero-config) · generic VPS/nginx · post-deploy checklist |
-| `docs/ci-cd.md` | CI/CD automation — GitHub Actions workflow, headless gate runner, token-provenance pre-check, badge |
-| `docs/live-hub.md` | Storybook is the single Live hub; surface map |
-| `docs/figma.md` | Figma / Tokens Studio (non-Enterprise decision A) |
-| `docs/storybook.md` | Host playground at `/playground/` |
-| `docs/sync.md` | Repo ↔ Claude Design round-trip fidelity & two-way sync |
-| `docs/design-styles.md` | The live styling axes (Theme × Element × Language) and the fixed liquid-glass treatment |
-| `docs/decisions-pending.md` | Recorded owner decisions (whole-set CI, pixel advisory, Figma non-Enterprise) |
-| `docs/BACKLOG.md` | Deferred work — approved in direction, not built yet |
-| `docs/audit-2026-07.md` | July 2026 deep audit — verdict, findings by severity, what was fixed vs deferred |
-| `docs/quality-gates.md` | Benchmark reference — every quality gate, what it asserts, pass criterion, where it runs |
+| `docs/live-hub.md` | Storybook at `/` is the product surface; surface map |
+| `docs/storybook.md` | Host Storybook product surface at `/` |
+| `docs/figma.md` | Figma / Tokens Studio import recipe for consumers and maintainers |
 | `docs/vi/*.md` | Vietnamese mirror of every operator-facing `docs/*.md` (toggle EN\|VI in `docs/viewer.html`; entrance docs stay EN) |
+
+**Document map — maintainers** (CI, decisions, gates — not consumer onboarding)
+
+| Doc | What it answers |
+|---|---|
+| `docs/decisions.md` | Recorded owner decisions + open maintainer tasks (Code Connect node IDs, npm grant/`NPM_TOKEN`, products registry) |
+| `docs/ci-cd.md` | CI/CD automation — GitHub Actions workflow, headless gate runner, token-provenance pre-check, badge |
+| `docs/quality-gates.md` | Benchmark reference — every quality gate, what it asserts, pass criterion, where it runs |
+| `docs/sync.md` | Repo ↔ authoring-environment round-trip fidelity & two-way sync |
+| `_audit/archive/` | Historical audit notes (not public docs) |
 
 ---
 
@@ -47,14 +52,13 @@ Consumers link one file: **`styles.css`**.
 
 ## Sources
 
-This system was **lifted from CyberSkill's own upstream repositories** — none of the sources below live in this tree; explore them for deeper fidelity:
-- **Design system** (tokens, React components, brand assets, doctrine, style packs): https://github.com/cyberskill-official/design-system
+**This repository** (`cyberskill-official/design-system`) is the design-system source of truth: tokens, React components, brand assets, templates, and gates live here.
+
+Related CyberSkill repos (not in this tree — explore for product/marketing fidelity):
 - **Marketing site** (Next.js, bilingual, Lumi genie, in-repo icon set): https://github.com/cyberskill-official/landing-page
-- **Audit framework** (referenced): https://github.com/cyberskill-official/design-system-audit-framework
+- **Audit framework** (referenced tooling): https://github.com/cyberskill-official/design-system-audit-framework
 
-The written doctrine is a single-file `DESIGN.md` (22 Parts, ~1.3 MB) maintained **upstream** in that design-system repo, not here; likewise `@cyberskill/tokens`, `@cyberskill/react`, and `@cyberskill/brand-assets` are external upstream packages. Their contents were lifted into this tree as `tokens/`, `components/`, and `assets/`. Where a value here differs from a guess, **the upstream source wins** — every token and component in this project was lifted from that code.
-
-Separate from that upstream doctrine file, **this repo now ships its own root [`DESIGN.md`](DESIGN.md)** — a compact, **generated** open-spec surface (Google-Stitch-style: brand doctrine, every token value light + dark, component/template inventory) built from `tokens/tokens.dtcg.json` + `_ds_manifest.json` by `npm run build:design-md`. Never edit it by hand; the `design-md-parity` gate pins it byte-for-byte to the token source.
+**[`DESIGN.md`](DESIGN.md) in this repo** is the generated open-spec surface (Google-Stitch-style: brand doctrine, every token value light + dark, component/template inventory). It is built from `tokens/tokens.dtcg.json` + `_ds_manifest.json` by `npm run build:design-md`. Never edit it by hand; the `design-md-parity` gate pins it byte-for-byte to the token source. It is not a separate upstream doctrine file.
 ---
 
 ## Anchor immutables (never change these)

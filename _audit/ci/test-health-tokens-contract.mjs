@@ -12,6 +12,9 @@ function assert(cond, msg) { if (!cond) throw new Error(msg); }
 const run = readFileSync(join(root, '_audit/run.html'), 'utf8');
 assert(run.includes('class="open"'), 'health rows have open links');
 assert(run.includes('window.__csHealthUi'), 'health exposes UI contract');
+assert(run.includes('id="rerun"') || /Re-run/i.test(run), 'Re-run control present');
+assert(/hard vs advisory|Hard<\/b> gates|advisory/i.test(run), 'hard vs advisory language');
+assert(run.includes('id="timestamps"') || /Started:|Finished:|Last run/i.test(run), 'timestamps present');
 assert(run.includes('id="wholeset"'), 'whole-set panel present');
 assert(run.includes('responsive-overflow.html'), 'responsive whole-set link');
 assert(run.includes('language-overflow.html'), 'language whole-set link');
@@ -36,9 +39,13 @@ assert(tokens.includes('__csTokensLastCopy'), 'last copy observability');
 
 // Live hub is Storybook only — no live-view.html shell or redirect.
 assert(!existsSync(join(root, 'guidelines/live-view.html')), 'live-view.html removed');
-const liveSurfaces = readFileSync(join(root, 'stories/Live/Surfaces.stories.jsx'), 'utf8');
-assert(liveSurfaces.includes('motion.html'), 'motion surface in Storybook Live');
-assert(liveSurfaces.includes('rtl-preview.html'), 'rtl surface in Storybook Live');
+const surfacesPath = existsSync(join(root, 'stories/Maintainer/Surfaces.stories.jsx'))
+  ? join(root, 'stories/Maintainer/Surfaces.stories.jsx')
+  : join(root, 'stories/Live/Surfaces.stories.jsx');
+const liveSurfaces = readFileSync(surfacesPath, 'utf8');
+assert(liveSurfaces.includes('motion.html'), 'motion surface in Storybook Maintainer');
+assert(liveSurfaces.includes('rtl-preview.html'), 'rtl surface in Storybook Maintainer');
+assert(liveSurfaces.includes('atomic-view.html'), 'atomic view buried under Maintainer');
 assert(existsSync(join(root, 'guidelines/motion.html')), 'motion.html still portable');
 assert(existsSync(join(root, 'guidelines/rtl-preview.html')), 'rtl-preview still portable');
 

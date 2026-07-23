@@ -19,6 +19,15 @@
     { "id": "ctaH", "type": "text", "label": "Closing CTA headline", "maxLength": 60, "required": true },
     { "id": "ctaP", "type": "richtext", "label": "Closing CTA paragraph", "maxLength": 160 },
     { "id": "talkBtn", "type": "text", "label": "Primary CTA button label", "maxLength": 24, "required": true },
-    { "id": "footer", "type": "text", "label": "Footer line", "maxLength": 80 }
+    { "id": "footer", "type": "text", "label": "Footer line", "maxLength": 80 },
+    { "id": "navServices", "type": "text", "label": "Nav · Services", "maxLength": 24 },
+    { "id": "navProcess", "type": "text", "label": "Nav · Process", "maxLength": 24 },
+    { "id": "navContact", "type": "text", "label": "Nav · Contact", "maxLength": 24 },
+    { "id": "promptSend", "type": "text", "label": "Hero prompt send label", "maxLength": 24 },
+    { "id": "genieLabel", "type": "text", "label": "Chat launcher label", "maxLength": 24 },
+    { "id": "closeChat", "type": "text", "label": "Chat close label", "maxLength": 16 },
+    { "id": "chatHello", "type": "richtext", "label": "Chat greeting", "maxLength": 160 },
+    { "id": "chatPh", "type": "text", "label": "Chat input placeholder", "maxLength": 60 },
+    { "id": "chatSend", "type": "text", "label": "Chat send label", "maxLength": 24 }
   ]
 }

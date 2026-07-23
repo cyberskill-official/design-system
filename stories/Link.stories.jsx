@@ -1,29 +1,28 @@
 import { Link } from '../components/navigation/Link.jsx';
 
+const VARIANTS = ['default', 'muted', 'standalone'];
+
 export default {
   title: 'Components/Navigation/Link',
   component: Link,
   tags: ['autodocs'],
   argTypes: {
-  "href": {
-    "control": "text"
+    href: {
+      control: 'text',
+    },
+    variant: {
+      control: 'select',
+      options: VARIANTS,
+    },
+    external: {
+      control: 'boolean',
+    },
   },
-  "variant": {
-    "control": "select",
-    "options": [
-      "default",
-      "muted",
-      "standalone"
-    ]
-  },
-  "external": {
-    "control": "boolean"
-  }
-},
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus honest control matrix mounting Link. Portable consumers use styles.css + bundle, not Storybook.',
+        component:
+          'Host Live CSF — Default plus exhaustive variant matrix mounting Link. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -33,11 +32,14 @@ export default {
 export const Default = {};
 
 export const Matrix = {
-  name: 'Matrix / Labels',
+  name: 'Matrix / All variants',
   render: (args) => (
-    <div style={{ display: 'flex', gap: 12 }}>
-      <Link {...args} href="#">Doctrine</Link>
-      <Link {...args} href="#tokens">Tokens</Link>
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+      {VARIANTS.map((variant) => (
+        <Link key={variant} {...args} href="#" variant={variant}>
+          {variant}
+        </Link>
+      ))}
     </div>
   ),
 };

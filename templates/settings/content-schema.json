@@ -52,6 +52,16 @@
       "maxLength": 30
     },
     {
+      "id": "squads",
+      "type": "list",
+      "label": "Squad select options"
+    },
+    {
+      "id": "langs",
+      "type": "list",
+      "label": "Interface language select options"
+    },
+    {
       "id": "notifH",
       "type": "text",
       "label": "Notifications section heading",

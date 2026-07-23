@@ -88,15 +88,34 @@ window.addEventListener('load',()=>setTimeout(async()=>{
     const blocks=[...css.matchAll(/@media\s*\(pointer:\s*coarse\)\s*\{/g)];
     assert(blocks.length>0,'no pointer:coarse block found in a11y.css/components.css');
     let combined=''; for(const b of blocks){ let depth=1,i=b.index+b[0].length; const start=i; for(;i<css.length&&depth>0;i++){ if(css[i]==='{')depth++; else if(css[i]==='}')depth--; } combined+=css.slice(start,i-1)+'\n'; }
+    // Tokenized coarse floors (Jul 2026 hub polish) use var(--token, NNpx) /
+    // nested var(--a, var(--b, NNpx)). Resolve the innermost px fallback as the
+    // guaranteed floor; if the rule only names a custom property, look it up in
+    // component-tokens.css.
+    const ctok=await (await fetch('../tokens/component-tokens.css')).text();
+    const tokenPx=(name)=>{
+      const re=new RegExp(name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\s*:\\s*(\\d+(?:\\.\\d+)?)px');
+      const tm=re.exec(ctok);
+      return tm?parseFloat(tm[1]):null;
+    };
+    const declaredPx=(body)=>{
+      const sizeDecl=/(?:min-height|min-block-size|block-size)\s*:\s*([^;]+)/.exec(body);
+      if(!sizeDecl) return null;
+      const val=sizeDecl[1].trim();
+      const pxHits=[...val.matchAll(/(\d+(?:\.\d+)?)px/g)];
+      if(pxHits.length) return parseFloat(pxHits[pxHits.length-1][1]); // innermost fallback
+      const varOnly=/var\(\s*(--[A-Za-z0-9_-]+)/.exec(val);
+      if(varOnly) return tokenPx(varOnly[1]);
+      return null;
+    };
     const bad=[];
     for(const [sel,floor] of Object.entries(FLOOR)){
       const escaped=sel.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
       const re=new RegExp(escaped+'\\s*\\{([^}]*)\\}');
       const m=re.exec(combined);
       if(!m){ bad.push(sel+' (no coarse-pointer rule found)'); continue; }
-      const sizeM=/(?:min-height|min-block-size|block-size)\s*:\s*(\d+(?:\.\d+)?)px/.exec(m[1]);
-      if(!sizeM){ bad.push(sel+' (no px size declared)'); continue; }
-      const v=parseFloat(sizeM[1]);
+      const v=declaredPx(m[1]);
+      if(v==null){ bad.push(sel+' (no px size declared)'); continue; }
       if(v<floor) bad.push(sel+' ('+v+'px < '+floor+'px)');
     }
     assert(bad.length===0,'below documented floor: '+bad.join(', '));

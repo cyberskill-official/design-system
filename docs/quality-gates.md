@@ -1,6 +1,6 @@
 # Quality gates — the benchmark reference
 
-Every deterministic quality gate in the system, what it asserts, its pass criterion, whether it blocks (hard) or informs (advisory), and where it runs. The audit that motivated this reference is `docs/audit-2026-07.md`.
+Every deterministic quality gate in the system, what it asserts, its pass criterion, whether it blocks (hard) or informs (advisory), and where it runs.
 
 **Where gates run.** *Fast board CI* = the `fast-gates` job in `.github/workflows/design-system-gates.yml`, which serves the repo and drives `_audit/run.html` headless via `_audit/ci/run-gates.mjs` (every push/PR + nightly + manual) — new board rows are picked up automatically. Two gates additionally run standalone as *merge blockers* (`docs-consistency-blocker` job, via `_audit/ci/run-single-gate.mjs`). *Whole-set CI* = the `whole-set-audits` job (every push/PR + nightly — owner decision B). *Unit test* = `npm run test:unit` in the `unit-tests` job (plain Node, no browser). *Node pre-checks* = the `node-prechecks` job (browser-free authorities: bundle freshness, DESIGN.md freshness) plus the `token-provenance` job. Every browser gate publishes a verdict global (`window.__*`) that the headless runners read.
 
@@ -38,7 +38,7 @@ Every deterministic quality gate in the system, what it asserts, its pass criter
 | Component baselines | `_audit/component-visual-diff.html` | 12 curated component crops anchor the atomic tiers for visual comparison | Crops render + baselines present (`__componentVisualDiff`) | Advisory | Fast board CI |
 | Axe smoke | `_audit/axe-smoke.html` | axe-core 4.10.0 (vendored at `_audit/vendor/axe.min.js`) serious/critical rules on a mounted bilingual component cluster | 0 serious/critical findings (`__axesmoke`) | Hard | Fast board CI |
 | Print smoke | `_audit/print-smoke.html` | Document templates declare the print-ownership meta and `@page` CSS hooks the export path relies on | 0 documents missing print hooks (`__printsmoke`) | Hard | Fast board CI |
-| Pixel CI | `_audit/pixel-ci.html` + `_audit/ci/pixel-diff.mjs` | Curated baselines exist; Playwright capture script performs real % pixel compare; last report surfaces `drifted[]` / `maxDiff` | Contract complete (`__pixelci.pass`); numeric drift advisory only (`drifted`, `maxDiff`) | Advisory | Fast board CI + optional `pixel-diff` job (`continue-on-error`) |
+| Pixel CI | `_audit/pixel-ci.html` + `_audit/ci/pixel-diff.mjs` | Curated baselines exist; Playwright capture script performs real % pixel compare; last report must be clean (`drifted[]` empty) | Contract + clean compare (`__pixelci.pass`); drift or missing report fails | Hard | Fast board CI (compare step feeds the row) + `pixel-diff` job |
 
 ## Whole-set audits — every template, every axis
 
@@ -63,7 +63,7 @@ Every deterministic quality gate in the system, what it asserts, its pass criter
 | Nav model | `_audit/ci/test-nav-model.mjs` | The shipped `guidelines/nav-model.js` classify/group logic behaves (drives the real module) | All assertions pass (exit 0) | Hard | Unit test |
 | Health/Tokens UI contract | `_audit/ci/test-health-tokens-contract.mjs` | Structural contracts of the Health + Tokens HTML entry points hold | All assertions pass (exit 0) | Hard | Unit test |
 | Form paths | `_audit/ci/test-form-paths.mjs` | Form path helpers behave (drives the shipped `Form.jsx` via dynamic import) | All assertions pass (exit 0) | Hard | Unit test |
-| Storybook contract | `_audit/ci/test-storybook-contract.mjs` | Live hub is Storybook only; SB10 ESM main + addon-docs/a11y; complete CSF for every public primary; Matrix/AllVariants + AllSizes when `argTypes.size`; States/Matrix cover disabled/loading/error/busy; honest mounts (full N-dim enum product not required) | All assertions pass (exit 0) | Hard | Unit test |
+| Storybook contract | `_audit/ci/test-storybook-contract.mjs` | Live hub is Storybook only; SB10 ESM main + addon-docs/a11y; complete CSF for every public primary; Matrix/AllVariants + AllSizes when `argTypes.size`; States/Matrix cover disabled/loading/error/busy; every discrete size/variant enum mounted; FullMatrix required when ≥2 of {size, variant, state} axes exist | All assertions pass (exit 0) | Hard | Unit test |
 | Figma push helpers | `_audit/ci/test-figma-push-helpers.mjs` | Pure helpers in `push-figma-variables.mjs` behave (no network, no secrets) | All assertions pass (exit 0) | Hard | Unit test |
 | Code Connect helpers | `_audit/ci/test-code-connect.mjs` | 99 primaries, node-map/render helpers, soft-skip classifiers, committed `figma.config.json` + high-traffic `.figma.tsx` | All assertions pass (exit 0) | Hard | Unit test |
 | Native samples | `_audit/ci/test-native-samples.mjs` | SwiftUI / Compose / Flutter sample apps each have ≥ 3 screens, reference generated token constants, and ship Fastlane store scaffolds (submit disabled) | All assertions pass (exit 0) | Hard | Unit test |
@@ -86,5 +86,5 @@ The eight gates the audit planned (token-format-parity, version-stamp, support-r
 
 - **Brand voice / copy** — warm · direct · honest · respectful is judged by a human, not a regex.
 - **Legal template content** — counsel reviews the instruments; gates only check structure, bilingual mechanics, and print geometry.
-- **Pixel-diff judgment** — owner decision A: visual / pixel rows stay advisory. Playwright `%` drift (`drifted[]`, `maxDiff`) is reported but never auto-fails a PR; humans still judge intentional redesigns against baselines.
+- **Pixel-diff baselines** — Playwright `%` drift auto-fails (hard). After intentional redesigns, refresh `_audit/baselines/` with `pixel-diff.mjs --update` and commit. Side-by-side visual / component review pages stay advisory (judgment by eye).
 - **Component API design review** — prop naming and ergonomics are reviewed by the owner, not asserted.

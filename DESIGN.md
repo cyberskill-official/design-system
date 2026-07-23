@@ -230,9 +230,11 @@ Component-level design decisions (button · textfield). Dark values are theme ov
 | `--cs-component-button-sm-paddingY` | `8px` | — |
 | `--cs-component-button-sm-paddingX` | `14px` | — |
 | `--cs-component-button-sm-minHeight` | `36px` | — |
+| `--cs-component-button-sm-minHeight-coarse` | `40px` | — |
 | `--cs-component-button-md-paddingY` | `12px` | — |
 | `--cs-component-button-md-paddingX` | `20px` | — |
 | `--cs-component-button-md-minHeight` | `44px` | — |
+| `--cs-component-button-md-minHeight-coarse` | `44px` | — |
 | `--cs-component-button-lg-paddingY` | `16px` | — |
 | `--cs-component-button-lg-paddingX` | `28px` | — |
 | `--cs-component-button-lg-minHeight` | `52px` | — |

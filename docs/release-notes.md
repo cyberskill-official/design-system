@@ -1,0 +1,31 @@
+# Release Notes
+
+Curated product highlights for operators. This is **not** a git log and **not** a `CHANGELOG.md` — the design system does not maintain a changelog file. Version stays pinned at **1.0.0**; technical continuity is the repo tip, and product-facing continuity is this page (mirrored in Storybook **Release Notes**).
+
+## Storybook at the domain root
+
+`design.cyberskill.world/` is the full Storybook product site. Docs, Foundations, Components, Release Notes, and Status live in one sidebar. Legacy `/dashboard` and `/playground` paths redirect to `/`.
+
+Portable consumers are unchanged: `styles.css`, `_ds_bundle.js`, and `_esm/cs.mjs` remain the adoption paths. Storybook is host-only tooling.
+
+## Quality gates on Status
+
+The **Status** story embeds the fast gate board (`_audit/run.html`). Hard gates fail the board when broken; advisory rows are labelled clearly and do not flip the aggregate pass. Open Status once to auto-run; use **Re-run** for a fresh pass.
+
+## Bilingual docs and templates
+
+Public operator docs ship EN·VI pairs under `docs/` / `docs/vi/`. Templates remain bilingual EN·VN with fully separated language modes. Component strings resolve from the central registry.
+
+## Foundations and CSF library
+
+Theme × Element × Language toolbar globals mirror production templates. Every public primary ships a Default story plus an honest control matrix. Foundations cover colors, typography, spacing, elevation, motion, and the 15 Ngũ Hành element packs.
+
+## Tokens and native mirrors
+
+CSS tokens, DTCG (`tokens/tokens.dtcg.json`), and pre-generated SwiftUI / Compose / Flutter mirrors stay in lockstep via the token pipeline. Text never sits on mid-tone `-accent` — APCA doctrine is gate-enforced.
+
+## What we never ship
+
+- A root **`CHANGELOG.md`** (forbidden by doctrine and docs-consistency)
+- A VERSION bump without an explicit owner decision
+- Storybook as a consumer dependency

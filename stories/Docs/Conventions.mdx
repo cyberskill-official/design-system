@@ -1,0 +1,42 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/Conventions" />
+
+# Conventions (trimmed)
+
+For humans and agents **extending** this system. Consumers: start with **Docs → Consuming**.
+
+## Expansion rule
+
+When anything grows — element/variant, icon, component, token role, language, or template pattern — propagate it to **every deliverable in the same change**: tokens/source → specimens → component contract trio → all templates → Storybook / Identity Lab → docs. **Do not bump `VERSION` and do not maintain a `CHANGELOG.md`** — version stays at **1.0.0** until LAUNCH. Continuity is git history plus curated **Release Notes**.
+
+## The three axes
+
+| Axis | Attribute | Owns |
+|---|---|---|
+| **Theme** | `data-theme` | light / dark |
+| **Element** | `data-cs-element` + `data-cs-variant` | Ngũ Hành identity (15 packs) |
+| **Language** | `lang` | EN · VI copy |
+
+Surface treatment is **liquid-glass** (fixed — not a fourth axis). Immutable under all axes: Umber/Ochre anchors, voice, type families, semantic status colors, the 3px Ochre focus ring, APCA floors, ≥44px targets.
+
+## Naming
+
+- Tokens: `--cs-<layer>-<role>[-<state>]`
+- Classes: `.cs-<block>[-<part>][--modifier]`
+- Files: concern names, never changelog-style names (`interaction`, not `refinements2`)
+
+## Quick checklists
+
+- **New component** — `.jsx` + `.d.ts` + `.prompt.md`; resolve bundle namespace by prefix; tokens only (no hex outside `tokens/`)
+- **New template** — `templates/<slug>/` with `ds-base.js` path rebind; mount via `CyberSkillDS.…`; bilingual EN·VN
+- **Ship** — compiler clean + Status gate board green + docs consistency
+
+## Decision highlights
+
+- Axes are Theme × Element × Language only
+- Text never sits on the mid-tone `-accent`
+- Namespace is resolved, never hardcoded
+- Language variants render fully separated (EN or VI — not mixed)
+
+Canonical long form: `docs/conventions.md`. Voice summary: **Docs → Voice & Language**. Axes walkthrough: **Docs → The Three Axes**.

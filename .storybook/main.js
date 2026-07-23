@@ -70,6 +70,7 @@ const config = {
     { from: '../templates', to: '/templates' },
     { from: '../ui_kits', to: '/ui_kits' },
     { from: '../components', to: '/components' },
+    { from: '../_audit', to: '/_audit' },
   ],
   async viteFinal(config) {
     config.plugins = config.plugins || [];
@@ -77,7 +78,9 @@ const config = {
       config.plugins.push(react());
     }
     config.plugins.push(dsRootFilesPlugin());
+    // Production `/` is Storybook — keep Vite asset base at domain root (not /playground/).
     return mergeConfig(config, {
+      base: '/',
       resolve: {
         alias: {
           '@cs': path.join(repoRoot, 'components'),

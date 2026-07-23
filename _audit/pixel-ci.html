@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><title>CyberSkill — pixel CI (advisory)</title>
+<html lang="en"><head><meta charset="utf-8"><title>CyberSkill — pixel CI (hard)</title>
 <link rel="stylesheet" href="../styles.css">
 <style>
   body{margin:0;font-family:var(--cs-font-family-ui);background:#efe6d8;color:#231a12;padding:16px 20px}
   h1{font-size:16px;margin:0 0 6px}.lede{font-size:13px;color:#6b5d4f;max-width:960px;line-height:1.5}
   .row{font:12.5px ui-monospace,monospace;padding:4px 8px;border-radius:5px;margin:2px 0}
   .ok{background:#dcfce7;color:#166534}.bad{background:#FEE2E2;color:#B42318;font-weight:700}
-  .adv{background:#FEF3C7;color:#92400E}
+  .warn{background:#FEF3C7;color:#92400E}
   #sum{font-size:15px;font-weight:800;margin:12px 0}
   table{border-collapse:collapse;font:12px ui-monospace,monospace;margin-top:8px}
   td,th{padding:3px 10px 3px 0;text-align:left} th{color:#6b5d4f;font-weight:600}
   .y{color:#166534}.n{color:#92400E}.e{color:#B42318}
 </style></head><body>
-<h1>Pixel CI — real Playwright compare (advisory)</h1>
-<p class="lede">Hard board pass still means harness + baselines + CI script contract. Numeric drift lives on the advisory channel: <code>_audit/ci/pixel-diff.mjs</code> captures 909×540 screenshots, diffs against <code>_audit/baselines/</code>, and writes <code>drifted[]</code> / <code>maxDiff</code> into <code>pixel-diff-report.json</code>. Owner decision A — PRs are not auto-failed on %. Verdict: <code>window.__pixelci.pass</code>.</p>
+<h1>Pixel CI — real Playwright compare (hard)</h1>
+<p class="lede">Hard quality check: <code>_audit/ci/pixel-diff.mjs</code> captures 909×540 screenshots, diffs against <code>_audit/baselines/</code>, and fails when <code>drifted[]</code> is non-empty or capture fails. Board pass requires baselines + harness + compare script <em>and</em> a clean last compare report (no drift). Verdict: <code>window.__pixelci.pass</code>.</p>
 <div id="list"></div>
 <div id="diff"></div>
 <div id="sum">running…</div>
@@ -49,20 +49,34 @@ const NAMES=[
   let scriptOk=false;
   try{
     const sc=await (await fetch('./ci/pixel-diff.mjs',{cache:'no-store'})).text();
-    scriptOk=/decodePng|diffImages|drifted|maxDiff|playwright/i.test(sc) && /DRIFT_PCT|CHANNEL_TOLERANCE/.test(sc);
-    row(scriptOk,'ci/pixel-diff.mjs real compare present');
-    if(!scriptOk) fails.push('pixel-diff.mjs missing real compare');
+    scriptOk=/decodePng|diffImages|drifted|maxDiff|playwright/i.test(sc) && /DRIFT_PCT|CHANNEL_TOLERANCE/.test(sc) && !/advisory:\s*true/.test(sc);
+    row(scriptOk,'ci/pixel-diff.mjs hard compare present');
+    if(!scriptOk) fails.push('pixel-diff.mjs missing hard compare');
   }catch(e){ fails.push('pixel-diff.mjs: '+e); row(false,'pixel-diff.mjs missing — '+e); }
   P.done=3; P.current='report';
   let drifted=[], maxDiff=null, report=null, reportNote='no report yet — run node _audit/ci/pixel-diff.mjs';
+  let compareOk=false;
   try{
     const r=await fetch('./ci/pixel-diff-report.json',{cache:'no-store'});
     if(r.ok){
       report=await r.json();
       drifted=Array.isArray(report.drifted)?report.drifted:[];
       maxDiff=typeof report.maxDiff==='number'?report.maxDiff:null;
-      reportNote='report '+ (report.generatedAt||'') + ' · maxDiff='+maxDiff+'% · drifted=['+drifted.join(', ')+']';
-      row(true, reportNote, drifted.length?'adv':'ok');
+      const captureFails=report.captureFails|0;
+      compareOk=drifted.length===0 && captureFails===0 && !report.updated;
+      // Fresh --update report is not a compare; treat as needing a compare pass.
+      if(report.updated){
+        reportNote='report is from --update — re-run without --update to compare';
+        row(false, reportNote);
+        fails.push('report is update-only; re-run compare');
+      }else{
+        reportNote='report '+ (report.generatedAt||'') + ' · maxDiff='+maxDiff+'% · drifted=['+drifted.join(', ')+']';
+        row(compareOk, reportNote, compareOk?'ok':'bad');
+        if(!compareOk){
+          if(drifted.length) fails.push('drift: '+drifted.join(', '));
+          if(captureFails) fails.push('captureFails='+captureFails);
+        }
+      }
       if(report.results && report.results.length){
         let html='<h3 style="font-size:13px;margin:14px 0 4px">Last compare</h3><table><tr><th>slug</th><th>diff %</th><th>status</th></tr>';
         for(const rowR of report.results){
@@ -75,29 +89,31 @@ const NAMES=[
         diffEl.innerHTML=html;
       }
     }else{
-      row(true, reportNote, 'adv');
+      row(false, reportNote);
+      fails.push('missing pixel-diff-report.json — run pixel-diff.mjs');
     }
   }catch(e){
-    row(true, reportNote, 'adv');
+    row(false, reportNote);
+    fails.push('missing pixel-diff-report.json — run pixel-diff.mjs');
   }
   P.done=4; P.current='done';
-  // Hard pass for the advisory board row = contract complete (baselines + harness + real script).
-  // Drift never flips pass — decision A.
-  const pass=fails.length===0 && scriptOk;
+  // Hard pass = contract + clean compare report (no drift).
+  const pass=fails.length===0 && scriptOk && compareOk;
   window.__pixelci={
     pass,
-    advisory:true,
+    advisory:false,
+    hard:true,
     found,
     total:NAMES.length,
     fails,
     drifted,
     maxDiff,
     report: report?{generatedAt:report.generatedAt,maxDiff:report.maxDiff,drifted:report.drifted}:null,
-    note:'Numeric drift is advisory (decision A). pass = harness + baselines + real compare script.'
+    note:'Hard gate. pass = baselines + harness + real compare script + clean last report (no drift).'
   };
   const s=document.getElementById('sum');
   s.textContent=pass
-    ?('✓ PASS — pixel contract ready · '+found+'/'+NAMES.length+' baselines'+(maxDiff!=null?(' · maxDiff '+maxDiff+'% (advisory)'):''))
+    ?('✓ PASS — pixel compare clean · '+found+'/'+NAMES.length+' baselines'+(maxDiff!=null?(' · maxDiff '+maxDiff+'%'):''))
     :('✗ FAIL — '+fails.join('; '));
   s.style.color=pass?'#166534':'#B42318';
   console.log('PIXELCI VERDICT '+JSON.stringify(window.__pixelci));
