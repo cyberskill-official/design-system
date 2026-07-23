@@ -31,7 +31,14 @@ const px = (v) => { let m = /^(-?[\d.]+)px$/.exec(v); if (m) return +m[1]; m = /
 const em = (v) => { const m = /^(-?[\d.]+)em$/.exec(v); return m ? +m[1] : null; };
 
 // Same per-token transform as the gate's `expected()` — keep these two in lockstep by hand if either changes.
-function expected(name, type, value) {
+// Round-trip contract: a token carrying $extensions["com.cyberskill"].css (structured DTCG value whose
+// authoritative emission form is the raw CSS string — shadow composites, var() aliases, percentage
+// scalars) ships to natives as that raw string, preserving the legacy String-constant shape.
+function expected(name, type, value, cssRaw) {
+  if (cssRaw !== undefined) {
+    const s = JSON.stringify(String(cssRaw));
+    return { swift: `let ${name}: String = ${s}`, kt: `val ${name} = ${s}`, dart: `const String ${name} = ${s};` };
+  }
   if (type === 'color') {
     const c = parseColor(String(value)); if (!c) return null;
     const hex6 = ((c.r << 16) | (c.g << 8) | c.b).toString(16).toUpperCase().padStart(6, '0');
@@ -78,7 +85,8 @@ for (const [g, entries] of Object.entries(dtcg)) {
   for (const [css, def] of Object.entries(entries)) {
     if (css.startsWith('$') || !def || def.$value === undefined) continue;
     const type = def.$type || 'string';
-    base.push({ css, name: camel(css), value: def.$value, type });
+    const cssRaw = def.$extensions && def.$extensions['com.cyberskill'] ? def.$extensions['com.cyberskill'].css : undefined;
+    base.push({ css, name: camel(css), value: def.$value, type, cssRaw });
     byType[type] = (byType[type] || 0) + 1;
   }
 }
@@ -103,7 +111,7 @@ for (const [elKey, props] of Object.entries(ext.overrides.elementsDark || {})) {
 function render(list, lang) {
   const out = [];
   for (const t of list) {
-    const e = expected(t.name, t.type, t.value);
+    const e = expected(t.name, t.type, t.value, t.cssRaw);
     if (!e) { console.error('WARN: unconvertible token', t.css, t.type); continue; }
     out.push(e[lang]);
   }

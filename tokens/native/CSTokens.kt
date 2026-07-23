@@ -1,6 +1,6 @@
 // CyberSkill Design System — native design tokens.
 // GENERATED from tokens/tokens.dtcg.json — do not hand-edit; regenerate on token change.
-// release v1.0.0 · source sha256 4995d751afc8e47a…
+// release v1.0.0 · source sha256 b6f5d972a38722f6…
 // conversions: rem→px at 16 · em→…Em relative doubles · rgba alpha→ARGB byte (round(a*255)) · durations in ms
 // dark element packs: see $extensions.overrides.elementsDark
 // provenance: tokens/provenance.json · parity gate: _audit/token-pipeline-test.html
@@ -77,10 +77,10 @@ object CSTokens {
   val shadowMd = "0 12px 30px rgba(31, 19, 11, 0.18)"
   val shadowLg = "0 20px 60px rgba(69, 33, 14, 0.18)"
   val shadowXl = "0 24px 80px rgba(31, 19, 11, 0.26)"
-  val durationInstantMs = 0
-  val durationFastMs = 0
-  val durationBaseMs = 0
-  val durationSlowMs = 0
+  val durationInstantMs = 80
+  val durationFastMs = 120
+  val durationBaseMs = 200
+  val durationSlowMs = 320
   val easeStandard = doubleArrayOf(0.2, 0, 0, 1)
   val easeEntrance = doubleArrayOf(0, 0, 0, 1)
   val easeExit = doubleArrayOf(0.4, 0, 1, 1)
@@ -142,6 +142,10 @@ object CSTokens {
   val letterSpacingTightEm = -0.01f
   val letterSpacingNormal = 0
   val letterSpacingCapsEm = 0.08f
+  val headingFamily = "var(--cs-font-family-ui)"
+  val headingWeightStrong = "var(--cs-font-weight-extrabold)"
+  val headingWeight = "var(--cs-font-weight-bold)"
+  val headingTracking = "var(--cs-letter-spacing-tight)"
   val iconSm = 16.dp
   val iconMd = 20.dp
   val iconLg = 24.dp

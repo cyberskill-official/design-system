@@ -1,6 +1,6 @@
 // CyberSkill Design System — native design tokens.
 // GENERATED from tokens/tokens.dtcg.json — do not hand-edit; regenerate on token change.
-// release v1.0.0 · source sha256 4995d751afc8e47a…
+// release v1.0.0 · source sha256 b6f5d972a38722f6…
 // conversions: rem→px at 16 · em→…Em relative doubles · rgba alpha→ARGB byte (round(a*255)) · durations in ms
 // dark element packs: see $extensions.overrides.elementsDark
 // provenance: tokens/provenance.json · parity gate: _audit/token-pipeline-test.html
@@ -75,10 +75,10 @@ class CSTokens {
   static const String shadowMd = "0 12px 30px rgba(31, 19, 11, 0.18)";
   static const String shadowLg = "0 20px 60px rgba(69, 33, 14, 0.18)";
   static const String shadowXl = "0 24px 80px rgba(31, 19, 11, 0.26)";
-  static const double durationInstantMs = 0;
-  static const double durationFastMs = 0;
-  static const double durationBaseMs = 0;
-  static const double durationSlowMs = 0;
+  static const double durationInstantMs = 80;
+  static const double durationFastMs = 120;
+  static const double durationBaseMs = 200;
+  static const double durationSlowMs = 320;
   static const List<double> easeStandard = [0.2, 0, 0, 1];
   static const List<double> easeEntrance = [0, 0, 0, 1];
   static const List<double> easeExit = [0.4, 0, 1, 1];
@@ -140,6 +140,10 @@ class CSTokens {
   static const double letterSpacingTightEm = -0.01;
   static const double letterSpacingNormal = 0;
   static const double letterSpacingCapsEm = 0.08;
+  static const String headingFamily = "var(--cs-font-family-ui)";
+  static const String headingWeightStrong = "var(--cs-font-weight-extrabold)";
+  static const String headingWeight = "var(--cs-font-weight-bold)";
+  static const String headingTracking = "var(--cs-letter-spacing-tight)";
   static const double iconSm = 16;
   static const double iconMd = 20;
   static const double iconLg = 24;
