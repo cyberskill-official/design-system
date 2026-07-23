@@ -36,6 +36,38 @@ assert(main.includes('react-vite') || main.includes('@storybook/react-vite'), 'r
 const preview = readFileSync(join(root, '.storybook/preview.jsx'), 'utf8');
 assert(preview.includes('styles.css'), 'imports styles.css');
 assert(preview.includes('data-theme') && preview.includes('data-cs-element') && preview.includes('lang'), 'axes globals');
+assert(preview.includes('data-cs-variant'), 'decorator wires data-cs-variant');
+
+/** Canonical 15 packs — same order/keys as Identity Lab, atomic-view, tokens.elements, template EL maps. */
+const ELEMENT_TOOLBAR_PACKS = [
+  'tho|',
+  'tho|clay',
+  'tho|sand',
+  'hoa|',
+  'hoa|lava',
+  'hoa|plasma',
+  'thuy|',
+  'thuy|ocean',
+  'thuy|mist',
+  'moc|',
+  'moc|bamboo',
+  'moc|forest',
+  'kim|',
+  'kim|steel',
+  'kim|titanium',
+];
+assert(ELEMENT_TOOLBAR_PACKS.length === 15, 'canonical pack list is 15');
+const elementToolbarBlock = preview.match(/element:\s*\{[\s\S]*?toolbar:\s*\{[\s\S]*?items:\s*\[([\s\S]*?)\]/);
+assert(elementToolbarBlock, 'Element toolbar items array present');
+const elementToolbarItems = elementToolbarBlock[1];
+for (const pack of ELEMENT_TOOLBAR_PACKS) {
+  assert(
+    elementToolbarItems.includes(`value: '${pack}'`) || elementToolbarItems.includes(`value: "${pack}"`),
+    `Element toolbar includes pack ${pack}`,
+  );
+}
+const toolbarValueCount = (elementToolbarItems.match(/value:\s*['"][^'"]+['"]/g) || []).length;
+assert(toolbarValueCount === 15, `Element toolbar has exactly 15 packs, got ${toolbarValueCount}`);
 
 const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
 assert(pkg.scripts['build:storybook'], 'build:storybook script');
