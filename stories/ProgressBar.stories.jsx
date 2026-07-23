@@ -1,46 +1,48 @@
 import { ProgressBar } from '../components/feedback/ProgressBar.jsx';
 
+const VARIANTS = ['ochre', 'umber', 'success'];
+
 export default {
   title: 'Components/Feedback/ProgressBar',
   component: ProgressBar,
   tags: ['autodocs'],
   argTypes: {
-  "value": {
-    "control": "number"
+    value: {
+      control: 'number',
+    },
+    max: {
+      control: 'number',
+    },
+    variant: {
+      control: 'select',
+      options: VARIANTS,
+    },
+    label: {
+      control: 'text',
+    },
   },
-  "max": {
-    "control": "number"
-  },
-  "variant": {
-    "control": "select",
-    "options": [
-      "ochre",
-      "umber",
-      "success"
-    ]
-  },
-  "label": {
-    "control": "text"
-  }
-},
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus honest control matrix mounting ProgressBar. Portable consumers use styles.css + bundle, not Storybook.',
+        component:
+          'Host Live CSF — Default plus exhaustive variant matrix mounting ProgressBar. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
-  args: { value: 0.45, label: 'Build progress' },
+  args: { value: 45, label: 'Build progress' },
 };
 
 export const Default = {};
 
 export const Matrix = {
-  name: 'Matrix / Values',
+  name: 'Matrix / All variants',
   render: (args) => (
     <div style={{ display: 'grid', gap: 12 }}>
-      <ProgressBar {...args} value={0.2} label="20%" />
-      <ProgressBar {...args} value={0.8} label="80%" />
+      {VARIANTS.map((variant) => (
+        <ProgressBar key={variant} {...args} variant={variant} value={45} label={variant} />
+      ))}
+      <ProgressBar {...args} value={20} label="20%" />
+      <ProgressBar {...args} value={80} label="80%" />
     </div>
   ),
 };

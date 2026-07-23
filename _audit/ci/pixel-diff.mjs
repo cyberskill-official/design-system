@@ -2,10 +2,10 @@
 /**
  * Pixel CI — Playwright screenshots vs `_audit/baselines/<slug>.png`, % pixel diff.
  *
- * Owner decision A: numeric drift is advisory only. This script never fails a PR
- * solely because pixels moved — exit 0 after a successful compare even when
- * `drifted[]` is non-empty. Non-zero exits are structural (missing baselines,
- * bad capture, missing Playwright).
+ * Hard gate: visual drift above DRIFT_PCT (or size mismatch / capture failure)
+ * exits non-zero. Missing baselines / Playwright also fail. Use `--update` after
+ * intentional redesigns **on Linux Chromium** (CI is ubuntu-latest), then commit
+ * the refreshed PNGs. macOS captures will drift in CI — see `_audit/baselines/README.md`.
  *
  * Usage:
  *   node _audit/ci/pixel-diff.mjs [baseUrl]
@@ -26,9 +26,9 @@ const reportPath = resolve(__dirname, 'pixel-diff-report.json');
 
 const FRAME = { w: 909, h: 540 };
 /** Channel delta above this counts a pixel as different (anti-alias / subpixel tolerance). */
-const CHANNEL_TOLERANCE = 12;
-/** % of differing pixels above this lands the slug in `drifted[]` (advisory). */
-const DRIFT_PCT = 0.5;
+const CHANNEL_TOLERANCE = 16;
+/** % of differing pixels above this lands the slug in `drifted[]` and fails the run. */
+const DRIFT_PCT = 1.0;
 
 const TARGETS = [
   { slug: 'kitchen-sink', path: '/templates/kitchen-sink.html' },
@@ -41,8 +41,8 @@ const TARGETS = [
   { slug: 'email', path: '/templates/email/Email.dc.html' },
   { slug: 'vn-labor-contract', path: '/templates/vn-labor-contract/VnLaborContract.dc.html' },
   { slug: 'tech-incident-report', path: '/templates/tech-incident-report/TechIncidentReport.dc.html' },
-  { slug: 'status-hub', path: '/ui_kits/status-hub/index.html' },
-  { slug: 'website', path: '/ui_kits/website/index.html' },
+  { slug: 'status-hub', path: '/ui_kits/status-hub/' },
+  { slug: 'website', path: '/ui_kits/website/' },
 ];
 
 const args = process.argv.slice(2).filter((a) => a !== '--');
@@ -197,9 +197,16 @@ async function applyTheme(page, theme) {
 async function capture(page, target) {
   await page.setViewportSize({ width: FRAME.w, height: FRAME.h });
   await page.goto(base.replace(/\/$/, '') + target.path, { waitUntil: 'networkidle', timeout: 90000 });
-  await page.waitForTimeout(500);
+  await page.addStyleTag({
+    content:
+      '*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}',
+  });
+  await page.evaluate(async () => {
+    if (document.fonts && document.fonts.ready) await document.fonts.ready;
+  });
+  await page.waitForTimeout(900);
   await applyTheme(page, target.theme);
-  const shot = await page.screenshot({ fullPage: false, type: 'png' });
+  const shot = await page.screenshot({ fullPage: false, type: 'png', animations: 'disabled' });
   if (!shot || shot.length < 100 || shot[0] !== 0x89) {
     throw new Error('bad screenshot for ' + target.slug);
   }
@@ -285,8 +292,8 @@ async function main() {
   const pcts = results.filter((r) => typeof r.pct === 'number' && !r.updated).map((r) => r.pct);
   const maxDiff = pcts.length ? Math.max(...pcts) : 0;
   const report = {
-    advisory: true,
-    decision: 'A',
+    advisory: false,
+    hard: true,
     updated: update,
     frame: FRAME,
     channelTolerance: CHANNEL_TOLERANCE,
@@ -298,7 +305,7 @@ async function main() {
     drifted,
     maxDiff: +maxDiff.toFixed(4),
     captureFails,
-    note: 'Numeric drift is advisory (owner decision A). Hard board pass = harness + baselines present.',
+    note: 'Visual drift above driftPctThreshold fails this script (hard gate). Refresh with --update after intentional redesigns.',
   };
   writeFileSync(reportPath, JSON.stringify(report, null, 2) + '\n');
   console.log(
@@ -307,8 +314,8 @@ async function main() {
     '· maxDiff=' + report.maxDiff + '% · drifted=[' + drifted.join(', ') + ']'
   );
 
-  // Structural capture failures still exit non-zero; pure visual drift exits 0.
-  if (captureFails) process.exit(1);
+  if (update) process.exit(captureFails ? 1 : 0);
+  if (captureFails || drifted.length) process.exit(1);
   process.exit(0);
 }
 

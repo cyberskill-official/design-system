@@ -2,7 +2,7 @@
 
 **Gate CI** (workflow này) vẫn coi design system như cây tĩnh: serve repo, mở `_audit/run.html` headless, đọc verdict globals. Không cần product bundler cho gates.
 
-**Host deploy** (Vercel, tách khỏi workflow này) chạy `npm install` + `npm run build:site` để Storybook playground tùy chọn ship tại `/playground/` — xem `docs/deploy.md` và `docs/storybook.md`. Đường đóng gói host đó không bắt buộc cho consuming project hay các job gate bên dưới.
+**Host deploy** (Vercel, tách khỏi workflow này) chạy `npm install` + `npm run build:site` để Storybook ship làm bề mặt sản phẩm tại `/` — xem `docs/deploy.md` và `docs/storybook.md`. Đường đóng gói host đó không bắt buộc cho consuming project hay các job gate bên dưới.
 
 ## Badge
 
@@ -66,7 +66,7 @@ node _audit/ci/generate-native-tokens.mjs
 
 ## Những gì KHÔNG auto-fail (có chủ đích)
 
-- **Pixel-threshold hard fail** — lựa chọn A của owner (chỉ hàng visual advisory).
+- **Hàng visual / component baseline side-by-side** — chỉ advisory (drift đánh giá bằng mắt). So sánh `%` pixel Playwright là gate **hard** (job `pixel-diff` + hàng Pixel CI trên board).
 - **Figma Variables write trên non-Enterprise** — soft-skip kèm report artifact.
 - **Code Connect publish** — soft-skip khi thiếu secret hoặc API 403/404/429 (Quyết định 1C).
 - **npm publish** — soft-skip khi thiếu `NPM_TOKEN` (Quyết định 1C).

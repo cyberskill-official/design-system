@@ -1,27 +1,27 @@
 # CyberSkill Design System
 
-> HTML-first, Vietnamese-first design system, pinned **v1.0.0** until launch. Immutable anchors: Umber #45210E · Ochre #F4BA17. Three independent axes — Theme (light · dark) × Element (Ngũ Hành, 15 variants) × Language (EN · VI); surface treatment is liquid-glass (fixed). It ships 99 components / 115 exports, 84 copyable templates (all bilingual), and tokens in CSS + JSON + ESM + W3C DTCG + native mirrors. This file is the agent/tool front door: it maps each audience to the format it should consume.
+> HTML-first, Vietnamese-first design system, pinned **v1.0.0**. Immutable anchors: Umber #45210E · Ochre #F4BA17. Three independent axes — Theme (light · dark) × Element (Ngũ Hành, 15 variants) × Language (EN · VI); surface treatment is liquid-glass (fixed). It ships 99 components / 115 exports, 84 copyable templates (EN·VN for emails + team/legal/finance; client/media collateral EN-first), and tokens in CSS + JSON + ESM + W3C DTCG + native mirrors. This file is the agent/tool front door: it maps each audience to the format it should consume.
 
-The portable contract (styles.css · bundle · tokens) works everywhere; the DC layer (`templates/**/*.dc.html`) is Claude-Design-only. The full non-negotiables list lives in `CONTRIBUTING.md` and `docs/conventions.md`.
+The portable contract (styles.css · bundle · tokens) works everywhere; the DC layer (`templates/**/*.dc.html`) is authoring-environment-only. The full non-negotiables list lives in `CONTRIBUTING.md` and `docs/conventions.md`.
 
 ## Consume by audience
 
 - [styles.css](styles.css): any web / framework / email (Vue, Svelte, plain HTML, React) — link this one file for every `--cs-*` token, the `.cs-*` component classes, and the Liquid Glass surfaces. Framework-agnostic, no build step.
 - [_ds_bundle.js](_ds_bundle.js): React (production) — `styles.css` + `<script src="_ds_bundle.js">`, then resolve the bundle global by prefix (its `_<projectId>` suffix is compiler-assigned and changes on re-import): `const CS = window[Object.keys(window).find(k => /^CyberSkillDesignSystem_/.test(k))]; const { Button, … } = CS`. Proven green by `_audit/consumer-smoke-test.html`. (Templates load via `ds-base.js`, which publishes a stable `window.CyberSkillDS` alias for the same reason.)
 - [tokens/tokens.json](tokens/tokens.json): design tools / native / token pipelines / other agents (Figma, Google Stitch, Style Dictionary) — every token grouped by category, plus theme/element override maps; also [tokens/tokens.js](tokens/tokens.js) (ESM) and [tokens/tokens.dtcg.json](tokens/tokens.dtcg.json) (**W3C DTCG** format for Tokens Studio for Figma / Style Dictionary). This is the canonical cross-tool contract.
-- [DESIGN.md](DESIGN.md): agents/tools that read a root DESIGN.md (Google Stitch open-spec style) — one generated file with the brand doctrine, every token value (light + dark), and the component/template inventory. Generated from the DTCG source by `npm run build:design-md`; the `design-md-parity` gate pins it — do not hand-edit.
-- [templates/](templates/): Claude Design (authoring + live preview) — `templates/**/*.dc.html` Design Components + the compiler (tweaks, `x-import`, `@dsCard` cards). Native to Claude Design — not portable; other tools consume the outputs above, not these.
+- [DESIGN.md](DESIGN.md): agents/tools that read a root DESIGN.md (Google Stitch open-spec style) — **this repo's** generated file with the brand doctrine, every token value (light + dark), and the component/template inventory. Generated from the DTCG source by `npm run build:design-md`; the `design-md-parity` gate pins it — do not hand-edit.
+- [templates/](templates/): Design Components (`templates/**/*.dc.html`) + the compiler (tweaks, `x-import`, `@dsCard` cards) for the authoring environment. Other tools consume the portable outputs above, not these.
 
 ## Key files
 
-- [dashboard.html](dashboard.html): single-page hub (tabs: Overview · Docs · Live · Health · Tokens); Live = Storybook `/playground/`
+- [dashboard.html](dashboard.html): legacy redirect stub → `/` (product site is Storybook)
 - [styles.css](styles.css): single entry point (`@import`s `tokens/` then `base/`)
 - [_esm/cs.mjs](_esm/cs.mjs): ESM entry (imports every component, no build)
 - [tokens/](tokens/): design tokens as CSS custom properties + `tokens.json` / `tokens.js` / `tokens.dtcg.json` (W3C DTCG) + `viewer.html` (table + raw modes) + `native/` (SwiftUI/Compose/Flutter)
 - [base/](base/): reset, component classes (`.cs-*`), a11y, responsive, glass
 - [components/](components/): 99 components / 115 exports — every primary ships `.jsx` + `.d.ts` + `.prompt.md` + a `@dsCard` card; co-exports are documented in their parent's files
 - [templates/](templates/): 84 copyable starting points (`.dc.html`); `email-safe/` send-ready emails; `kitchen-sink.html`; `playground.html`
-- [guidelines/](guidelines/): specimen cards + `atomic-view.html` (portable component grid) — host Live hub is Storybook at `/playground/`
+- [guidelines/](guidelines/): specimen cards + `atomic-view.html` (portable component grid) — host product surface is Storybook at `/`
 - [ui_kits/](ui_kits/): product recreations — status-hub · website · deck
 - [fonts/](fonts/): self-hosted Be Vietnam Pro + JetBrains Mono woff2
 - [assets/](assets/): official logo mark (never recreate) · favicon · aurora washes · Lumi mascot
@@ -31,26 +31,29 @@ The portable contract (styles.css · bundle · tokens) works everywhere; the DC 
 - [CONTRIBUTING.md](CONTRIBUTING.md): one-page onboarding for extending the system
 - [VERSION](VERSION): pinned 1.0.0 (matches [package.json](package.json))
 
-## Docs
+## Docs — consumers
 
-- [docs/conventions.md](docs/conventions.md): authoring rules (naming grammar, the three axes) + decision log
 - [docs/consuming.md](docs/consuming.md): adopting & upgrading, incl. the AI-agent quick path
-- [docs/sync.md](docs/sync.md): repo ↔ Claude Design round-trip fidelity & two-way sync
-- [docs/contrast-report.md](docs/contrast-report.md): generated APCA elemental sweep — 0 failures at its Lc ≥ 60 UI-label floor (body text authors to Lc ≥ 75)
-- [docs/products.md](docs/products.md): product → element registry
-- [docs/deploy.md](docs/deploy.md): deploying the live site (Vercel / VPS / any static host)
-- [docs/ci-cd.md](docs/ci-cd.md): CI/CD automation — workflow, headless gate runner, provenance pre-check
-- [docs/template-schema-v2.md](docs/template-schema-v2.md): typed content-slot spec for templates
-- [docs/live-hub.md](docs/live-hub.md): Storybook is the single Live hub; surface map
-- [docs/figma.md](docs/figma.md): Figma / Tokens Studio import recipe + Code Connect (Decision 1C soft-skip) + Variables REST notes (non-Enterprise decision A)
-- [docs/storybook.md](docs/storybook.md): host playground at `/playground/`
+- [docs/release-notes.md](docs/release-notes.md): curated product highlights (not a changelog)
+- [docs/conventions.md](docs/conventions.md): authoring rules (naming grammar, the three axes)
 - [docs/design-styles.md](docs/design-styles.md): the live styling axes and the fixed liquid-glass treatment
-- [docs/decisions-pending.md](docs/decisions-pending.md): recorded owner decisions
-- [docs/BACKLOG.md](docs/BACKLOG.md): deferred work — approved in direction, not built yet
-- [docs/audit-2026-07.md](docs/audit-2026-07.md): July 2026 deep audit — verdict, findings, fixes vs deferrals
-- [docs/quality-gates.md](docs/quality-gates.md): benchmark reference — every quality gate, its assertion, pass criterion, where it runs
+- [docs/products.md](docs/products.md): product → element registry
+- [docs/contrast-report.md](docs/contrast-report.md): generated APCA elemental sweep — 0 failures at its Lc ≥ 60 UI-label floor (body text authors to Lc ≥ 75)
+- [docs/template-schema-v2.md](docs/template-schema-v2.md): typed content-slot spec for templates
+- [docs/deploy.md](docs/deploy.md): deploying the live site (Vercel / VPS / any static host)
+- [docs/live-hub.md](docs/live-hub.md): Storybook at `/` is the product surface; surface map
+- [docs/storybook.md](docs/storybook.md): host Storybook product surface at `/`
+- [docs/figma.md](docs/figma.md): Figma / Tokens Studio import recipe
 - [docs/vi/](docs/vi/): Vietnamese mirror of every operator-facing `docs/*.md`
-- [docs/viewer.html](docs/viewer.html): reader UI for all of the above (EN|VI toggle for `docs/*.md`)
+- [docs/viewer.html](docs/viewer.html): reader UI (EN|VI toggle for `docs/*.md`)
+
+## Docs — maintainers
+
+- [docs/decisions.md](docs/decisions.md): recorded owner decisions + open maintainer tasks
+- [docs/ci-cd.md](docs/ci-cd.md): CI/CD automation — workflow, headless gate runner, provenance pre-check
+- [docs/quality-gates.md](docs/quality-gates.md): benchmark reference — every quality gate, its assertion, pass criterion, where it runs
+- [docs/sync.md](docs/sync.md): repo ↔ authoring-environment round-trip fidelity & two-way sync
+- [_audit/archive/](_audit/archive/): historical audit notes (not public docs)
 
 ## Non-negotiables
 
@@ -61,4 +64,4 @@ The portable contract (styles.css · bundle · tokens) works everywhere; the DC 
 
 ## Sync
 
-- [docs/sync.md](docs/sync.md): repo is the source of truth — Claude Design pulls the whole tree at session start and commits back via PR at session end (it can read but not push)
+- [docs/sync.md](docs/sync.md): repo is the source of truth — pull the whole tree at session start and commit back via PR at session end

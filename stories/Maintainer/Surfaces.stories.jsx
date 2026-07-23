@@ -2,25 +2,21 @@ import React from 'react';
 import { IframeSurface } from './IframeSurface.jsx';
 
 /**
- * Non-component portable surfaces iframed into Storybook Live/*.
- * Portable HTML remains in-tree; Storybook is the single operator Live hub.
+ * Maintainer-only portable surfaces iframed into Storybook.
+ * Atomic View stays for gates / clone-and-open — not a public product entry.
+ * Portable HTML remains in-tree; Storybook at `/` is the product surface.
  */
 export default {
-  title: 'Live/Surfaces',
+  title: 'Maintainer/Surfaces',
   parameters: {
     layout: 'fullscreen',
     docs: {
       description: {
         component:
-          'Live hub surfaces (Atomic View, Motion, Identity Lab, templates, kitchen-sink, AI cluster, RTL). Portable HTML is unchanged; Storybook is the single operator Live entry.',
+          'Maintainer surfaces (Motion, Identity Lab, templates, kitchen-sink, AI cluster, RTL, Atomic View). Atomic View is buried here for gates — not a public top-level Docs entry.',
       },
     },
   },
-};
-
-export const ComponentsAtomicView = {
-  name: 'Components (Atomic View)',
-  render: () => <IframeSurface src="/guidelines/atomic-view.html" title="Atomic View" />,
 };
 
 export const Motion = {
@@ -54,4 +50,10 @@ export const AICluster = {
 
 export const RTL = {
   render: () => <IframeSurface src="/guidelines/rtl-preview.html" title="RTL" />,
+};
+
+/** Gate / portable consumer surface — last in the Maintainer list on purpose. */
+export const AtomicView = {
+  name: 'Atomic View (gates)',
+  render: () => <IframeSurface src="/guidelines/atomic-view.html" title="Atomic View" />,
 };

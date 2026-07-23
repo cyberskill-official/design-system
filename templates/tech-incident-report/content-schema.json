@@ -1,0 +1,25 @@
+{
+  "$schemaVersion": "2.0",
+  "template": "tech-incident-report",
+  "slots": [
+    {
+      "id": "timeline",
+      "type": "list",
+      "label": "Incident timeline items",
+      "i18n": {
+        "en": "Ordered timeline entries (title, meta, state, body)",
+        "vi": "Các mục dòng thời gian (title, meta, state, body)"
+      }
+    },
+    {
+      "id": "cols",
+      "type": "table",
+      "label": "Action-items table columns"
+    },
+    {
+      "id": "actions",
+      "type": "table",
+      "label": "Action-items table rows"
+    }
+  ]
+}

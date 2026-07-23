@@ -3,7 +3,7 @@
 Reference captures of representative surfaces. Two consumers share this folder:
 
 1. **`_audit/visual-diff.html`** — side-by-side / overlay review assist (drift judged by eye).
-2. **`_audit/ci/pixel-diff.mjs`** — real Playwright raster compare at **909×540** (`deviceScaleFactor: 1`). Writes advisory `drifted[]` / `maxDiff` to `_audit/ci/pixel-diff-report.json`. Owner decision A: % drift never auto-fails a PR.
+2. **`_audit/ci/pixel-diff.mjs`** — real Playwright raster compare at **909×540** (`deviceScaleFactor: 1`). Writes `drifted[]` / `maxDiff` to `_audit/ci/pixel-diff-report.json`. Hard gate: % drift above threshold exits non-zero and fails the board Pixel CI row.
 
 ## Set — per-tier (curated)
 
@@ -29,20 +29,23 @@ They anchor the archetypes, not every template. Declare each in `BASE` inside `v
 
 ## Regenerate (Playwright — preferred for pixel CI)
 
-Serve the repo, then rewrite every curated PNG from a live Chromium capture:
+Baselines must match **GitHub Actions `ubuntu-latest` Chromium** (not macOS, and not necessarily the Playwright Docker image). Prefer refreshing on the CI runner when Pixel CI drifts (the `pixel-diff` job uploads `pixel-baselines-linux`), then commit those PNGs.
+
+Local amd64 Docker can approximate:
 
 ```bash
-npx --yes serve@14 -l 8080 .
-node _audit/ci/pixel-diff.mjs --update http://127.0.0.1:8080
+docker run --rm --platform linux/amd64 -v "$PWD":/work -w /work mcr.microsoft.com/playwright:v1.47.0-jammy \
+  bash -lc 'npx --yes serve@14 -l 8080 . >/tmp/serve.log 2>&1 & npx --yes wait-on@7 http://127.0.0.1:8080/dashboard.html && node _audit/ci/pixel-diff.mjs --update http://127.0.0.1:8080'
 ```
 
-Compare without rewriting (advisory report only):
+Compare without rewriting (hard — non-zero exit on drift):
 
 ```bash
-node _audit/ci/pixel-diff.mjs http://127.0.0.1:8080
+docker run --rm --platform linux/amd64 -v "$PWD":/work -w /work mcr.microsoft.com/playwright:v1.47.0-jammy \
+  bash -lc 'npx --yes serve@14 -l 8080 . >/tmp/serve.log 2>&1 & npx --yes wait-on@7 http://127.0.0.1:8080/dashboard.html && node _audit/ci/pixel-diff.mjs http://127.0.0.1:8080'
 ```
 
-Baselines **must** be real PNGs (not JPEG-named-as-PNG). After an intentional redesign, re-run `--update` and note it in the PR description. Pure % drift on an unchanged intentional look is advisory noise — judgment stays human (decision A).
+Baselines **must** be real PNGs (not JPEG-named-as-PNG). After an intentional redesign, refresh on CI (or amd64 Linux matching the runner), commit the PNGs, and note it in the PR description.
 
 ## Manual / review-assist capture
 

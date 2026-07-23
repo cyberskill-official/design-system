@@ -1,30 +1,25 @@
 import { Badge } from '../components/feedback/Badge.jsx';
 
+const VARIANTS = ['neutral', 'solid', 'ochre', 'success', 'danger', 'warning', 'info'];
+
 export default {
   title: 'Components/Feedback/Badge',
   component: Badge,
   tags: ['autodocs'],
   argTypes: {
-  "variant": {
-    "control": "select",
-    "options": [
-      "neutral",
-      "solid",
-      "ochre",
-      "success",
-      "danger",
-      "warning",
-      "info"
-    ]
+    variant: {
+      control: 'select',
+      options: VARIANTS,
+    },
+    dot: {
+      control: 'boolean',
+    },
   },
-  "dot": {
-    "control": "boolean"
-  }
-},
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus honest control matrix mounting Badge. Portable consumers use styles.css + bundle, not Storybook.',
+        component:
+          'Host Live CSF — Default plus exhaustive variant matrix mounting Badge. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -34,11 +29,17 @@ export default {
 export const Default = {};
 
 export const Matrix = {
-  name: 'Matrix / Labels',
+  name: 'Matrix / All variants',
   render: (args) => (
-    <div style={{ display: 'flex', gap: 8 }}>
-      <Badge {...args}>New</Badge>
-      <Badge {...args}>Beta</Badge>
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+      {VARIANTS.map((variant) => (
+        <Badge key={variant} {...args} variant={variant}>
+          {variant}
+        </Badge>
+      ))}
+      <Badge {...args} variant="ochre" dot>
+        dot
+      </Badge>
     </div>
   ),
 };

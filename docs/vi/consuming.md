@@ -6,9 +6,9 @@ Cách mọi project — do người hoặc agent điều khiển — áp dụng 
 
 **Bạn nhận:** `styles.css` (400+ token + class `.cs-*` + bề mặt Liquid Glass, `@import` `tokens/` + `base/`) · `_ds_bundle.js` (React component đã compile, không cần build) · `_esm/cs.mjs` (entry ESM re-export mọi component) · `_ds_manifest.json` (inventory máy đọc được) · mỗi component `Name.d.ts` (API) + `Name.prompt.md` (brief dùng) · `tokens/tokens.dtcg.json` (W3C DTCG) + `tokens.json`/`tokens.js`.
 
-**Checkout repo** — clone hoặc copy cả cây; mọi thứ là static đường dẫn tương đối. Điểm vào: `dashboard.html` (hub) · `guidelines/atomic-view.html` (mọi component live) · `templates/<slug>/` (điểm bắt đầu copy được). Đọc `SKILL.md` trước khi author bất kỳ thứ gì on-brand; bản đồ sâu hơn ở `llms.txt` (inventory) và file này (hướng dẫn adopt + upgrade đầy đủ bên dưới).
+**Checkout repo** — clone hoặc copy cả cây; mọi thứ là static đường dẫn tương đối. Điểm vào: Storybook trên host site (`/` / `npm run storybook`) · `guidelines/atomic-view.html` (mọi component live, portable) · `templates/<slug>/` (điểm bắt đầu copy được). Đọc `SKILL.md` trước khi author bất kỳ thứ gì on-brand; bản đồ sâu hơn ở `llms.txt` (inventory) và file này (hướng dẫn adopt + upgrade đầy đủ bên dưới).
 
-**Sau import — chứng minh health.** Mở `_audit/run.html` (hoặc tab **Health** trên dashboard), để bảng gate chạy xong (mọi fast gate). Tất cả xanh = bản copy nhất quán nội bộ (contrast, docs, portability, tokens, consumer path, behavior, a11y, stories, bilingual parity).
+**Sau import — chứng minh health.** Mở `_audit/run.html`, để bảng gate chạy xong (mọi fast gate). Tất cả xanh = bản copy nhất quán nội bộ (contrast, docs, portability, tokens, consumer path, behavior, a11y, stories, bilingual parity).
 
 **Quy tắc giữ transfer lossless:**
 - Không bao giờ hardcode hậu tố namespace bundle (xem "Resolve by prefix" bên dưới — gate enforce).
@@ -23,7 +23,7 @@ Cách mọi project — do người hoặc agent điều khiển — áp dụng 
 
 ## Adopt qua npm (tùy chọn)
 
-Package có thể publish (`private: false`, phiên bản cố định **1.0.0** đến khi LAUNCH). License vẫn **UNLICENSED** — cài từ registry (hoặc tarball đã pack) **không** tự cấp quyền redistribution. Đến khi owner nói LAUNCH và chọn license mở, **consumer cần grant tường minh** từ CyberSkill để dùng package trong sản phẩm.
+Package có thể publish (`private: false`, phiên bản cố định **1.0.0**). License vẫn **UNLICENSED** — cài từ registry (hoặc tarball đã pack) **không** tự cấp quyền redistribution. Đến khi owner chọn license mở, **consumer cần grant tường minh** từ CyberSkill để dùng package trong sản phẩm.
 
 ```bash
 # sau khi workflow npm-publish chạy thành công (hoặc từ tarball đã pack)
@@ -32,7 +32,7 @@ npm install cyberskill-design-system@1.0.0
 
 Rồi link styles và import từ entry package (`_esm/cs.mjs` qua `exports["."]`) , hoặc tiếp tục dùng đường cây tĩnh bên dưới. Tarball đã publish là **cả cây portable** (styles, tokens, components, templates, guidelines, docs, UI kits) — không phải subset “chỉ lib” tối thiểu. Tooling chỉ-host (Storybook, `_audit/`) không nằm trong `files[]`.
 
-**Đường publish (maintainer):** `prepublishOnly` chạy `build:bundle` + `build:design-md --check`. Workflow `.github/workflows/npm-publish.yml` trên `workflow_dispatch` / tag `v*`; **soft-skip** khi thiếu `NPM_TOKEN` (`node _audit/ci/npm-publish.mjs --dry-run` luôn liệt kê tarball). Xem `docs/ci-cd.md`.
+**Đường publish (maintainer):** `prepublishOnly` chạy `build:bundle` + `build:design-md --check`. Workflow `.github/workflows/npm-publish.yml` trên `workflow_dispatch` / tag `v*`; publish cần `NPM_TOKEN` (`node _audit/ci/npm-publish.mjs --dry-run` luôn liệt kê tarball). Xem `docs/ci-cd.md` và `docs/decisions.md`.
 
 ## Adopt (hai đường, cộng shortcut module)
 
@@ -62,15 +62,15 @@ Rồi link styles và import từ entry package (`_esm/cs.mjs` qua `exports["."]
 
 ## Nâng cấp
 
-- **Phiên bản cố định.** `VERSION` và `package.json` giữ **1.0.0** đến khi owner nói LAUNCH. Không có changelog design-system trong giai đoạn này — coi tip repo là chân lý duy nhất.
+- **Phiên bản cố định.** `VERSION` và `package.json` giữ **1.0.0**. Không có file changelog design-system — coi tip repo là chân lý kỹ thuật, và đọc **Release Notes** curated (Storybook + `docs/release-notes.md`) cho điểm nổi bật hướng sản phẩm.
 
 - Anchors (Umber/Ochre), tên class `.cs-*`, và tên token `--cs-*` là hợp đồng ổn định — an toàn để phụ thuộc. Đổi tên phá vỡ những hợp đồng đó phải hiếm và được gọi ra trong PR/docs khi xảy ra.
 
-- **Chạy lại smoke test sau nâng cấp.** Mở `_audit/consumer-smoke-test.html` và bảng Health đầy đủ (`_audit/run.html` / tab Health dashboard) trên tip mới — runner chứng minh đường packaged vẫn resolve.
+- **Chạy lại smoke test sau nâng cấp.** Mở `_audit/consumer-smoke-test.html` và bảng Health đầy đủ (`_audit/run.html`) trên tip mới — runner chứng minh đường packaged vẫn resolve.
 
-## Host playground (tùy chọn)
+## Host Storybook (tùy chọn)
 
-Site live phục vụ Storybook tại `/playground/` như **Live hub duy nhất** cho operator (Theme × Element × Language + ma trận điều khiển). Đó là **tooling chỉ-host** — đừng phụ thuộc Storybook trong product app. Atomic View portable vẫn ở `guidelines/atomic-view.html`. Xem `docs/storybook.md` và `docs/live-hub.md`.
+Site live phục vụ Storybook tại `/` như **bề mặt sản phẩm** cho operator (Theme × Element × Language + ma trận điều khiển). Đó là **tooling chỉ-host** — đừng phụ thuộc Storybook trong product app. Atomic View portable vẫn ở `guidelines/atomic-view.html`. Xem `docs/storybook.md` và `docs/live-hub.md`.
 
 ## Spike consumer năm phút
 

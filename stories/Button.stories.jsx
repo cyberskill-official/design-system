@@ -1,50 +1,44 @@
 import { Button } from '../components/button/Button.jsx';
+import { cartesian, comboLabel, MatrixGrid, stateCombos } from './lib/matrix.jsx';
+
+const VARIANTS = ['primary', 'secondary', 'tertiary', 'ghost', 'danger', 'danger-ghost'];
+const SIZES = ['xs', 'sm', 'md', 'lg'];
+const STATE_KEYS = ['loading', 'disabled'];
 
 export default {
   title: 'Components/Button/Button',
   component: Button,
   tags: ['autodocs'],
   argTypes: {
-  "variant": {
-    "control": "select",
-    "options": [
-      "primary",
-      "secondary",
-      "tertiary",
-      "ghost",
-      "danger",
-      "danger-ghost"
-    ]
+    variant: {
+      control: 'select',
+      options: VARIANTS,
+    },
+    size: {
+      control: 'select',
+      options: SIZES,
+    },
+    loading: {
+      control: 'boolean',
+    },
+    disabled: {
+      control: 'boolean',
+    },
+    fullWidth: {
+      control: 'boolean',
+    },
+    icon: {
+      control: 'object',
+    },
+    type: {
+      control: 'text',
+    },
   },
-  "size": {
-    "control": "select",
-    "options": [
-      "xs",
-      "sm",
-      "md",
-      "lg"
-    ]
-  },
-  "loading": {
-    "control": "boolean"
-  },
-  "disabled": {
-    "control": "boolean"
-  },
-  "fullWidth": {
-    "control": "boolean"
-  },
-  "icon": {
-    "control": "object"
-  },
-  "type": {
-    "control": "text"
-  }
-},
   parameters: {
     docs: {
       description: {
-        component: 'Host Live CSF — Default plus honest control matrix mounting Button. Portable consumers use styles.css + bundle, not Storybook.',
+        component:
+          'Host Live CSF — Default plus exhaustive size × variant × key-state FullMatrix. Portable consumers use styles.css + bundle, not Storybook.',
       },
     },
   },
@@ -57,12 +51,11 @@ export const AllVariants = {
   name: 'Matrix / All variants',
   render: (args) => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-      <Button {...args} variant="primary">primary</Button>
-      <Button {...args} variant="secondary">secondary</Button>
-      <Button {...args} variant="tertiary">tertiary</Button>
-      <Button {...args} variant="ghost">ghost</Button>
-      <Button {...args} variant="danger">danger</Button>
-      <Button {...args} variant="danger-ghost">danger-ghost</Button>
+      {VARIANTS.map((variant) => (
+        <Button key={variant} {...args} variant={variant}>
+          {variant}
+        </Button>
+      ))}
     </div>
   ),
 };
@@ -71,10 +64,11 @@ export const AllSizes = {
   name: 'All sizes',
   render: (args) => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
-      <Button {...args} size="xs">xs</Button>
-      <Button {...args} size="sm">sm</Button>
-      <Button {...args} size="md">md</Button>
-      <Button {...args} size="lg">lg</Button>
+      {SIZES.map((size) => (
+        <Button key={size} {...args} size={size}>
+          {size}
+        </Button>
+      ))}
     </div>
   ),
 };
@@ -84,8 +78,42 @@ export const States = {
   render: (args) => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
       <Button {...args}>default</Button>
-      <Button {...args} loading>loading</Button>
-      <Button {...args} disabled>disabled</Button>
+      <Button {...args} loading>
+        loading
+      </Button>
+      <Button {...args} disabled>
+        disabled
+      </Button>
     </div>
   ),
+};
+
+/** Exhaustive size × variant × key-state product (closes the old N-dim non-goal). */
+export const FullMatrix = {
+  name: 'Full matrix / size × variant × state',
+  render: (args) => {
+    const cells = cartesian({ size: SIZES, variant: VARIANTS }).flatMap((combo) =>
+      stateCombos(STATE_KEYS).map((state) => {
+        const props = { size: combo.size, variant: combo.variant, ...state };
+        const label = comboLabel(props, ['variant', 'size', 'loading', 'disabled']);
+        return (
+          <Button
+            key={label}
+            {...args}
+            size={combo.size}
+            variant={combo.variant}
+            loading={!!state.loading}
+            disabled={!!state.disabled}
+          >
+            {label}
+          </Button>
+        );
+      }),
+    );
+    return (
+      <MatrixGrid gap={10} minWidth={140}>
+        {cells}
+      </MatrixGrid>
+    );
+  },
 };

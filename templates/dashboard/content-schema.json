@@ -64,6 +64,20 @@
       "maxLength": 80
     },
     {
+      "id": "stInprog",
+      "type": "text",
+      "label": "Status badge · in progress",
+      "maxLength": 24,
+      "i18n": { "en": "In progress", "vi": "Đang làm" }
+    },
+    {
+      "id": "stBlocked",
+      "type": "text",
+      "label": "Status badge · blocked",
+      "maxLength": 24,
+      "i18n": { "en": "Blocked", "vi": "Bị chặn" }
+    },
+    {
       "id": "tblCap",
       "type": "text",
       "label": "Table caption",

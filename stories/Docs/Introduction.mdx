@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/Introduction" />
+
+# CyberSkill Design System
+
+This Storybook is the **product surface** at `design.cyberskill.world` (`/`). Use the sidebar for Docs, Foundations, Components, Release Notes, and Status. Toolbar globals match production: **Theme × Element × Language**.
+
+## Who this is for
+
+Operators and maintainers exploring the system live. **Product apps never depend on Storybook** — they link `styles.css` plus `_ds_bundle.js` or `_esm/cs.mjs`. Portable Atomic View stays at `guidelines/atomic-view.html` for gates and clone-and-open (buried under **Maintainer** here).
+
+## Sidebar
+
+| Group | What you get |
+|---|---|
+| **Docs** | Public guides — consuming, deploy, conventions, styles, products, schema, Figma, contrast, voice, axes |
+| **Foundations** | Colors, typography, spacing, elevation, motion, elements |
+| **Components** | Full CSF library with Default + control matrices |
+| **Release Notes** | Curated product prose (not a git dump; **no CHANGELOG.md**) |
+| **Status** | Gate board (`_audit/run.html`) embedded full-bleed |
+| **A11y / I18n** | Accessibility specimens and bilingual pairs |
+| **Maintainer** | Portable HTML surfaces (Atomic View, Motion, Identity Lab, templates) for gates |
+
+## Start here
+
+1. **Docs → Consuming** — adopt via stylesheet, bundle, or ESM
+2. **Foundations → Elements** — Ngũ Hành identity packs
+3. **Components** — pick a primary and open its matrix
+4. **Status** — run the fast gate board (auto-runs on first load; **Re-run** on demand)
+
+Version stays pinned at **1.0.0** until LAUNCH. Continuity is git history plus curated Release Notes — never a `CHANGELOG.md` file.

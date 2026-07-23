@@ -3,117 +3,22 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CyberSkill Design System · Dashboard</title>
-<meta name="description" content="CyberSkill Design System — HTML-first, Vietnamese-first. Theme × Element × Language.">
+<title>CyberSkill Design System</title>
+<meta name="description" content="CyberSkill Design System — Storybook at design.cyberskill.world. Theme × Element × Language.">
 <meta property="og:title" content="CyberSkill Design System">
-<meta property="og:description" content="Bilingual EN·VI design system — live components, templates, UI kits, health gates.">
+<meta property="og:description" content="Bilingual EN·VI design system — live components, docs, and foundations in Storybook.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://design.cyberskill.world/">
 <meta property="og:image" content="https://design.cyberskill.world/assets/og-dashboard.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://design.cyberskill.world/assets/og-dashboard.png">
 <meta name="theme-color" content="#45210E">
-<link rel="preload" href="fonts/bevietnampro-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css" />
-<style>
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{margin:0;font-family:var(--cs-font-family-ui);color:var(--cs-color-text-primary);background:var(--cs-color-surface-raised);display:flex;flex-direction:column}
-  header{display:flex;align-items:center;gap:16px 22px;flex-wrap:wrap;padding:12px 22px;background:var(--cs-color-surface-panel);border-block-end:1px solid var(--cs-color-border-default)}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16px;letter-spacing:-.01em}
-  .brand .ver{font:600 11px/1 var(--cs-font-family-mono);color:var(--cs-color-text-inverse);background:var(--cs-color-brand-umber);padding:4px 7px;border-radius:999px}
-  .stats{display:flex;gap:16px;flex-wrap:wrap;margin-inline-start:auto;font-size:12px;color:var(--cs-color-text-muted)}
-  .stats b{color:var(--cs-color-text-primary);font-family:var(--cs-font-family-mono)}
-  .gates{font:600 11px/1 var(--cs-font-family-mono);padding:5px 9px;border-radius:999px;border:1px solid var(--cs-color-border-default);background:var(--cs-color-surface-raised);color:var(--cs-color-text-muted);cursor:pointer}
-  .gates.ok{background:#dcfce7;color:#166534;border-color:#16a34a55}.gates.bad{background:#FEE2E2;color:#B42318;border-color:#dc262655}
-  nav.tabs{display:flex;gap:2px;padding:0 16px;background:var(--cs-color-surface-panel);border-block-end:1px solid var(--cs-color-border-default);overflow-x:auto}
-  nav.tabs button{appearance:none;border:0;background:transparent;font:inherit;font-weight:600;font-size:13.5px;color:var(--cs-color-text-muted);padding:11px 14px;cursor:pointer;border-block-end:2px solid transparent;white-space:nowrap}
-  nav.tabs button:hover{color:var(--cs-color-text-primary)}
-  nav.tabs button[aria-selected="true"]{color:var(--cs-color-brand-umber);border-block-end-color:var(--cs-color-brand-ochre)}
-  [data-theme="dark"] nav.tabs button[aria-selected="true"]{color:var(--cs-color-brand-ochre)}
-  main{flex:1;min-height:0;position:relative}
-  iframe{width:100%;height:100%;border:0;display:block;background:var(--cs-color-surface-page)}
-  #overview{position:absolute;inset:0;overflow:auto;padding:28px 26px;background:var(--cs-color-surface-page)}
-  #overview.hide,iframe.hide{display:none}
-  .lede{max-width:720px;color:var(--cs-color-text-muted);line-height:1.65;font-size:14.5px;margin:0 0 18px}
-  .lede b{color:var(--cs-color-text-primary)}
-  .axes{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
-  .axes span{font:600 12px/1 var(--cs-font-family-mono);padding:6px 10px;border-radius:999px;background:var(--cs-color-surface-panel);border:1px solid var(--cs-color-border-default);color:var(--cs-color-text-primary)}
-  .hint{max-width:720px;font-size:13px;line-height:1.55;color:var(--cs-color-text-muted);margin:0 0 18px}
-  .hint code{font-family:var(--cs-font-family-mono);font-size:12px;background:var(--cs-color-surface-raised);padding:1px 5px;border-radius:4px}
-  .play{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font:700 13px var(--cs-font-family-ui);color:var(--cs-color-text-inverse);background:var(--cs-color-brand-umber);padding:10px 14px;border-radius:10px;border:1px solid var(--cs-color-brand-umber)}
-  .play:hover{filter:brightness(1.05)}
-  .play.secondary{background:var(--cs-color-surface-panel);color:var(--cs-color-brand-umber);border-color:var(--cs-color-border-default)}
-  .playrow{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 14px}
-  .note{max-width:720px;font-size:12.5px;line-height:1.55;color:var(--cs-color-text-primary);opacity:.8}
-</style>
+<link rel="canonical" href="https://design.cyberskill.world/">
+<meta http-equiv="refresh" content="0; url=/">
+<link rel="icon" href="assets/favicon.svg">
+<script>location.replace('/');</script>
 </head>
-<body>
-<header>
-  <span class="brand"><span>CyberSkill Design System</span><span class="ver" id="ver">v1.0.0</span></span>
-  <span class="stats" id="stats"></span>
-  <button class="gates" id="gates" hidden></button>
-</header>
-<nav class="tabs" id="tabs" role="tablist"></nav>
-<main>
-  <div id="overview">
-    <p class="lede">One hub for the whole system. Use the tabs above — <b>Docs</b> for guides, <b>Live</b> for Storybook (Theme × Element × Language + control matrices), <b>Health</b> for the fast gate board (and whole-set audits), <b>Tokens</b> for the design-token table and raw JSON.</p>
-    <div class="axes" aria-label="Product axes">
-      <span>Theme · light / dark</span>
-      <span>Element · Ngũ Hành (15)</span>
-      <span>Language · EN / VI</span>
-    </div>
-    <div class="playrow">
-      <a class="play" id="playground-link" href="playground/index.html">Open Live (Storybook) →</a>
-      <a class="play secondary" href="guidelines/atomic-view.html">Atomic View (portable)</a>
-    </div>
-    <p class="hint">Consumers link <code>styles.css</code> (and optionally <code>_ds_bundle.js</code> for React). <b>Live</b> is Storybook at <code>/playground/</code> (host-only). Portable tree (CSS · tokens · bundle · templates · Atomic View) stays for products and gates. Version pinned at <b>1.0.0</b> until launch.</p>
-    <p class="note" id="playground-note">Live path: <code>/playground/</code> on production. Local: <code>npm run storybook</code> or <code>npm run build:site</code>. Map: <code>docs/live-hub.md</code>.</p>
-  </div>
-  <iframe id="frame" class="hide" title="panel"></iframe>
-</main>
-<script>
-const TABS=[
-  {id:'overview',label:'Overview'},
-  {id:'docs',label:'Docs',src:'docs/viewer.html'},
-  {id:'live',label:'Live',src:'playground/index.html'},
-  {id:'health',label:'Health',src:'_audit/run.html'},
-  {id:'tokens',label:'Tokens',src:'tokens/viewer.html'},
-];
-const tabsEl=document.getElementById('tabs'), frame=document.getElementById('frame'), overview=document.getElementById('overview');
-function select(id){
-  const t=TABS.find(x=>x.id===id)||TABS[0];
-  [...tabsEl.children].forEach(b=>b.setAttribute('aria-selected', b.dataset.id===t.id));
-  if(t.id==='overview'){ overview.classList.remove('hide'); frame.classList.add('hide'); location.hash=''; return; }
-  overview.classList.add('hide'); frame.classList.remove('hide');
-  if(frame.src.indexOf(t.src)<0) frame.src=t.src;
-  location.hash=t.id;
-}
-// Prefer packaged static playground; fall back to note if missing (dev without build).
-(async()=>{
-  try{
-    const r=await fetch('playground/index.html',{method:'HEAD',cache:'no-store'});
-    if(!r.ok) document.getElementById('playground-link').title='Run npm run build:storybook (or build:site) to generate /playground/';
-  }catch(e){}
-})();
-TABS.forEach(t=>{ const b=document.createElement('button'); b.textContent=t.label; b.dataset.id=t.id; b.setAttribute('role','tab'); b.onclick=()=>select(t.id); tabsEl.appendChild(b); });
-(async()=>{
-  try{ document.getElementById('ver').textContent='v'+(await (await fetch('VERSION',{cache:'no-store'})).text()).trim(); }catch(e){ document.getElementById('ver').textContent='v1.0.0'; }
-  try{ const M=await (await fetch('_ds_manifest.json',{cache:'no-store'})).json();
-    const n=(x)=>Array.isArray(x)?x.length:(x&&typeof x==='object'?Object.keys(x).length:x);
-    const t=n(M.templates), tok=M.tokenCount||n(M.tokens), cards=n(M.cards);
-    const parts=[]; if(t)parts.push('<b>'+t+'</b> templates'); if(cards)parts.push('<b>'+cards+'</b> cards'); if(tok)parts.push('<b>'+tok+'</b> tokens');
-    document.getElementById('stats').innerHTML=parts.join(' · ');
-  }catch(e){}
-  try{
-    const g=JSON.parse(localStorage.getItem('cs:last-gate-run')||'null'); const el=document.getElementById('gates');
-    el.hidden=false; el.onclick=()=>select('health');
-    if(g){ const m=Math.round((Date.now()-g.ts)/60000); const ago=m<1?'just now':m<60?m+'m ago':m<1440?Math.round(m/60)+'h ago':Math.round(m/1440)+'d ago';
-      el.className='gates '+(g.pass?'ok':'bad');
-      el.textContent=(g.pass?'✓ gates '+g.total+'/'+g.total:'✗ gates — '+(g.failed||[]).join(', ').slice(0,48))+' · '+ago;
-    } else { el.textContent='gates: not run yet →'; }
-  }catch(e){}
-})();
-select((location.hash||'').replace('#','')||'overview');
-</script>
+<body style="font-family:system-ui;padding:24px;background:#FBF6EE;color:#231a12">
+<p>The product site is Storybook at <a href="/" style="color:#45210E">/</a> (legacy dashboard retired).</p>
 </body>
 </html>

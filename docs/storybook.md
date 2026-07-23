@@ -1,30 +1,34 @@
-# Storybook — single Live hub (host)
+# Storybook — product surface at `/` (host)
 
-Storybook **10** is the **only live interactive hub** for operators on `design.cyberskill.world`. It is still **not** part of the portable consumer contract.
+Storybook **10** is the **product site** for operators on `design.cyberskill.world` (`/`). It is still **not** part of the portable consumer contract.
 
 ## URL
 
 | Context | Path |
 |---|---|
-| Production Live | `https://design.cyberskill.world/playground/` |
-| Local packaged site | `/playground/` after `npm run build:site` |
+| Production | `https://design.cyberskill.world/` |
+| Local packaged site | `/` after `npm run build:site` (serve `.vercel-static/`) |
 | Local dev | `npm run storybook` → http://localhost:6006 |
+| Legacy | `/dashboard`, `/dashboard/`, `/dashboard.html`, `/dashboard/:path*`, `/playground`, `/playground/`, `/playground/:path*` → `/` |
 
 ## What it includes
 
 - Full component CSF with **Default + deep control matrices** (`Matrix` / `AllVariants`)
-- **CSF bar (not full cartesian product):**
+- **CSF bar (exhaustive where axes exist):**
   - `AllSizes` whenever `argTypes.size` exists (token ramp or representative numeric sizes)
   - `States` (or a Matrix subsection) covering `disabled` / `loading` / `error` / `busy` when those argTypes exist
-  - Explicit non-goal: the full N-dimensional enum product of every prop combination is **not** required
+  - Every discrete `size` / `variant` enum option mounted in a matrix-family story
+  - `FullMatrix` when ≥2 of {size enums, variant enums, state keys} exist — the size × variant × key-state product via shared helpers in `stories/lib/matrix.jsx`
 - Toolbar globals: Theme × Element × Language (same axes as templates)
-- **Live/** stories for non-component portable surfaces (Motion, Identity Lab, template playground, kitchen-sink, image slots, AI cluster, RTL, Atomic View iframe)
+- **Docs/** public MDX guides; **Release Notes/** curated product prose (**no CHANGELOG.md**); **Status/** embeds `_audit/run.html` full-bleed
+- **Maintainer/** stories for portable HTML surfaces (Motion, Identity Lab, templates, kitchen-sink, AI cluster, RTL; Atomic View buried for gates)
 - Same `styles.css` as production
 - Addons: `@storybook/addon-docs` + `@storybook/addon-a11y` (essentials folded into core in SB10)
 
 ## Config
 
-- `.storybook/main.js` — ESM Storybook 10 config, Vite + `@cs` → `components/` alias
+- `.storybook/main.js` — ESM Storybook 10 config, Vite + `@cs` → `components/` alias, **`base: '/'`** for domain-root assets
+- `.storybook/manager-head.html` — OG / canonical meta for the production `/` surface
 - Autodocs via `tags: ['autodocs']` on CSF meta (no `docs.autodocs` in main)
 
 ## What consumers still use (unchanged)
@@ -42,11 +46,11 @@ Storybook **10** is the **only live interactive hub** for operators on `design.c
 ```bash
 npm install
 npm run storybook
-npm run build:storybook    # → storybook-static/
-npm run build:site         # packages Live hub under .vercel-static/playground/
+npm run build:storybook    # → storybook-static/ (base `/`)
+npm run build:site         # packages Storybook at .vercel-static/ root
 npm run test:storybook-contract
 ```
 
 ## Map
 
-Portable HTML surfaces iframed from Live/* are listed in `docs/live-hub.md`.
+Portable HTML surfaces iframed from Maintainer/* are listed in `docs/live-hub.md`. Status embeds `_audit/run.html` (auto-run on first load; **Re-run** on demand).

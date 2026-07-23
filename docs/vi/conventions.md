@@ -4,7 +4,7 @@ Cho người và agent *mở rộng hệ thống này*. (Consumer: đọc `SKILL
 
 ## Quy tắc expansion
 
-**Khi bất kỳ thứ gì lớn lên, mọi thứ cập nhật trong cùng một change.** Element/variant, icon, component, token role, ngôn ngữ, hoặc pattern template mới phải lan tới: tokens/source → specimen cards (guidelines + card nhóm component) **và trang guideline liên quan** → bộ ba hợp đồng component (`.jsx` + `.d.ts` + `.prompt.md`) → **mọi** template (tweak enum và map) → Storybook Live / Identity Lab → docs (đếm README, SKILL, **và mọi tài liệu liên quan change chạm** — kit README, registry, contrast report regen sau đổi token). **Không bump `VERSION` và không maintain changelog** — version giữ 1.0.0 đến LAUNCH. Gate mọi expansion bằng compiler check **và grep enum/list cũ** — không ship nửa lan. Ranh giới phạm vi đã ghi (doctrine, không phải lỗ): trang UI-kit giữ tái tạo Thổ pixel-faithful (trục demo ở Storybook Live và Identity Lab); mọi template bilingual EN·VN và mặc định tiếng Anh (collateral client/media giữ English-primary), và biến thể ngôn ngữ render **tách hoàn toàn** — xem decision log.
+**Khi bất kỳ thứ gì lớn lên, mọi thứ cập nhật trong cùng một change.** Element/variant, icon, component, token role, ngôn ngữ, hoặc pattern template mới phải lan tới: tokens/source → specimen cards (guidelines + card nhóm component) **và trang guideline liên quan** → bộ ba hợp đồng component (`.jsx` + `.d.ts` + `.prompt.md`) → **mọi** template (tweak enum và map) → Storybook Live / Identity Lab → docs (đếm README, SKILL, **và mọi tài liệu liên quan change chạm** — kit README, registry, contrast report regen sau đổi token). **Không bump `VERSION` và không maintain file changelog** — version giữ 1.0.0. Continuity là git history cộng **Release Notes** curated (`docs/release-notes.md` / Storybook). Gate mọi expansion bằng compiler check **và grep enum/list cũ** — không ship nửa lan. Ranh giới phạm vi đã ghi (doctrine, không phải lỗ): trang UI-kit giữ tái tạo Thổ pixel-faithful (trục demo ở Storybook Live và Identity Lab); mọi template bilingual EN·VN và mặc định tiếng Anh (collateral client/media giữ English-primary), và biến thể ngôn ngữ render **tách hoàn toàn** — xem decision log.
 
 ## Ba trục
 
@@ -37,7 +37,7 @@ Xử lý bề mặt là liquid-glass (cố định). Bất biến dưới mọi 
 
 **Element variant mới** — ở trong envelope oklch của element; đặt 9 token hợp đồng `--cs-accent-*` cộng `--cs-color-text-accent`/`--cs-color-link` (APCA-check cả hai); aurora wash kế thừa từ element qua `.cs-aurora-wash` (chỉ override class rule nếu variant thật sự cần ảnh riêng); đối tác gradient (`grad-b`) phải theo Tương sinh.
 
-**Ship check** — chạy compiler check đến sạch, rồi chạy `_audit/docs-consistency.html` **và** `_audit/namespace-portability.html` (cả hai phải xanh). Version giữ pin 1.0.0 đến LAUNCH.
+**Ship check** — chạy compiler check đến sạch, rồi chạy `_audit/docs-consistency.html` **và** `_audit/namespace-portability.html` (cả hai phải xanh). Version giữ pin 1.0.0.
 
 ## Decision log (owner duyệt)
 

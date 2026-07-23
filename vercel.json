@@ -5,18 +5,47 @@
   "outputDirectory": ".vercel-static",
   "cleanUrls": false,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/dashboard",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/dashboard/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/dashboard.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/dashboard/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/playground",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/playground/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/playground/:path*",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/",
       "destination": "/index.html"
-    },
-    {
-      "source": "/playground",
-      "destination": "/playground/index.html"
-    },
-    {
-      "source": "/playground/(.*)",
-      "destination": "/playground/index.html"
     }
   ],
   "headers": [
