@@ -21,6 +21,19 @@ How any project — human-driven or agent-driven — adopts this HTML-first desi
 
 - Extending the system? Follow `CONTRIBUTING.md` (Expansion Rule: propagate to every deliverable in one change; verify via `_audit/`).
 
+## Adopt via npm (optional)
+
+The package is publishable (`private: false`, version pinned **1.0.0** until LAUNCH). License remains **UNLICENSED** — installing from the registry (or a packed tarball) does **not** grant redistribution rights by itself. Until the owner says LAUNCH and chooses an open license, **consumers need an explicit grant** from CyberSkill to use the package in a product.
+
+```bash
+# after a successful npm-publish workflow run (or from a packed tarball)
+npm install cyberskill-design-system@1.0.0
+```
+
+Then link styles and import from the package entry (`_esm/cs.mjs` via `exports["."]`), or continue using the static tree paths below. The published tarball is the **full portable tree** (styles, tokens, components, templates, guidelines, docs, UI kits) — not a minimal “lib-only” subset. Host-only tooling (Storybook, `_audit/`) is not in `files[]`.
+
+**Publish path (maintainers):** `prepublishOnly` runs `build:bundle` + `build:design-md --check`. Workflow `.github/workflows/npm-publish.yml` on `workflow_dispatch` / `v*` tags; **soft-skips** when `NPM_TOKEN` is absent (`node _audit/ci/npm-publish.mjs --dry-run` always lists the tarball). See `docs/ci-cd.md`.
+
 ## Adopt (two paths, plus a module shortcut)
 
 **1. Static / prototypes / mocks — link the stylesheet.** Copy `styles.css` (+ the `tokens/`, `base/`, `fonts/` it `@import`s, or serve the whole tree) and link it; you now have every `--cs-*` token, the `.cs-*` component classes, and the Liquid Glass surfaces. Compose with the classes (see `templates/kitchen-sink.html`). Copy any asset you reference from `assets/`.

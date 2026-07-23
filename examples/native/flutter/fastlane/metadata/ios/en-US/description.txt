@@ -1,0 +1,1 @@
+Pre-release CyberSkill design-system sample for Flutter. Demonstrates Sign in → Home → Settings using generated brand tokens. Not a production product — packaging scaffold only until a real product need.
