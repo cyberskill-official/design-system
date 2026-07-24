@@ -54,7 +54,7 @@ Giữ plan Figma hiện tại. Variables REST API chỉ Enterprise — job ghi *
 
 - `package.json` là `private: false`; tên package **`@cyberskill/design`** (`publishConfig.access: public`); `repository.url` khớp repo GitHub này cho provenance.
 - Workflow `.github/workflows/npm-publish.yml`: `id-token: write` + runner GitHub-hosted; **không** đặt `NPM_TOKEN` / `NODE_AUTH_TOKEN` trên bước publish (OIDC). Trusted Publisher trên npm phải liệt kê filename workflow **`npm-publish.yml`** cho `cyberskill-official/design-system`. Soft-skip khi auth / 403 / 404 / EOTP / conflict phiên bản.
-- License giữ **UNLICENSED**; phiên bản giữ **1.0.0**. Consumer vẫn cần **grant tường minh** (văn bản chính sách — không phải secret) trước khi coi cài là đã duyệt. Xem `docs/consuming.md`.
+- License giữ **UNLICENSED**; phiên bản giữ **1.0.0**. Dùng đã duyệt ghi tại **`docs/consumer-grant.md`** (sản phẩm portfolio CyberSkill). Cài từ registry một mình không phải license công khai.
 
 ## 8. Đóng gói store native — scaffold đã ship; submit tắt
 
@@ -76,14 +76,15 @@ Ghi nhận Th7 2026 — mặc định mở khóa (cập nhật khi bước vận
 
 - **Figma Variables** — giữ Tokens Studio / non-Enterprise (quyết định §3). Soft-skip Variables REST vẫn trung thực.
 - **Code Connect** — **bỏ qua khi còn Figma free**; chỉ xem lại sau Org + library đã publish + `nodeId` thật (quyết định §6). Soft-skip ≠ publish.
-- **npm** — **`@cyberskill/design@1.0.0` đã publish**; CI dùng **Trusted Publishing (OIDC)** qua `npm-publish.yml`. Grant consumer viết tay vẫn do owner (quyết định §7).
+- **npm** — **`@cyberskill/design@1.0.0` đã publish**; CI dùng **Trusted Publishing (OIDC)** qua `npm-publish.yml`; grant consumer có hiệu lực tại `docs/consumer-grant.md` (quyết định §7).
 
 ## Việc maintainer (đang mở)
 
 Theo dõi vận hành — không phải marketing sản phẩm, không phải backlog công khai:
 
 1. **Code Connect** — hoãn (Figma free). Khi lên Org: thay stub `9999:*` trong `code-connect/node-map.json` bằng node ID library đã publish.
-2. **Grant consumer npm** — ~~publish lần đầu / Trusted Publisher / OIDC workflow~~ **xong**. Còn lại: viết grant consumer cho team được duyệt (xem `docs/consuming.md`).
+
+~~2. Grant consumer npm~~ — **xong** (Th7 2026): Trusted Publishing + `docs/consumer-grant.md` (+ VI) cho sản phẩm portfolio CyberSkill.
 
 ~~3. Chốt registry products~~ — **xong** (Th7 2026): xem quyết định §9; `docs/products.md` đã khóa.
 

@@ -73,7 +73,7 @@ Suite `test:unit` được nối vào CI workflow như một phần của harden
 
 ## Job sync / phân phối (soft-skip)
 
-Soft-skip nghĩa là job exit 0 kèm report khi secret/plan/API không hoàn tất write thật — **không** có nghĩa Code Connect hay Figma Variables đang live. npm CI publish dùng Trusted Publishing; soft-skip là trung thực auth/conflict. Coi việc maintainer còn lại trong `docs/decisions.md` là danh sách mở (Code Connect hoãn; grant consumer npm). Schema sidecar và Storybook `FullMatrix` lớn theo cơ hội khi primary đã đủ điều kiện — không phải đợt mass-add.
+Soft-skip nghĩa là job exit 0 kèm report khi secret/plan/API không hoàn tất write thật — **không** có nghĩa Code Connect hay Figma Variables đang live. npm CI publish dùng Trusted Publishing; soft-skip là trung thực auth/conflict. Coi việc maintainer còn lại trong `docs/decisions.md` là danh sách mở (Code Connect hoãn; grant consumer tại `docs/consumer-grant.md`). Schema sidecar và Storybook `FullMatrix` lớn theo cơ hội khi primary đã đủ điều kiện — không phải đợt mass-add.
 
 | Job | Script / workflow | Assert gì | Soft-skip khi | Chạy ở đâu |
 |---|---|---|---|---|
