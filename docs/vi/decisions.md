@@ -50,10 +50,11 @@ Giữ plan Figma hiện tại. Variables REST API chỉ Enterprise — job ghi *
 
 ## 7. npm publish — live qua Trusted Publishing (OIDC)
 
-**Trạng thái: `@cyberskill/design@1.0.0` đã trên registry; CI publish dùng npm Trusted Publishing** (Th7 2026)
+**Trạng thái: `@cyberskill/design@1.0.0` đã trên registry; CI publish dùng npm Trusted Publishing; token bị cấm** (Th7 2026)
 
 - `package.json` là `private: false`; tên package **`@cyberskill/design`** (`publishConfig.access: public`); `repository.url` khớp repo GitHub này cho provenance.
 - Workflow `.github/workflows/npm-publish.yml`: `id-token: write` + runner GitHub-hosted; **không** đặt `NPM_TOKEN` / `NODE_AUTH_TOKEN` trên bước publish (OIDC). Trusted Publisher trên npm phải liệt kê filename workflow **`npm-publish.yml`** cho `cyberskill-official/design-system`. Soft-skip khi auth / 403 / 404 / EOTP / conflict phiên bản.
+- **Publishing access** trên npmjs: **Require two-factor authentication and disallow tokens** (Trusted Publishing OIDC vẫn hoạt động; token publish classic / granular bị từ chối). Secret `NPM_TOKEN` dài hạn đã thu hồi.
 - License giữ **UNLICENSED**; phiên bản giữ **1.0.0**. Dùng đã duyệt ghi tại **`docs/consumer-grant.md`** (sản phẩm portfolio CyberSkill). Cài từ registry một mình không phải license công khai.
 
 ## 8. Đóng gói store native — scaffold đã ship; submit tắt
@@ -76,7 +77,7 @@ Ghi nhận Th7 2026 — mặc định mở khóa (cập nhật khi bước vận
 
 - **Figma Variables** — giữ Tokens Studio / non-Enterprise (quyết định §3). Soft-skip Variables REST vẫn trung thực.
 - **Code Connect** — **bỏ qua khi còn Figma free**; chỉ xem lại sau Org + library đã publish + `nodeId` thật (quyết định §6). Soft-skip ≠ publish.
-- **npm** — **`@cyberskill/design@1.0.0` đã publish**; CI dùng **Trusted Publishing (OIDC)** qua `npm-publish.yml`; grant consumer có hiệu lực tại `docs/consumer-grant.md` (quyết định §7).
+- **npm** — **`@cyberskill/design@1.0.0` đã publish**; CI dùng **Trusted Publishing (OIDC)** qua `npm-publish.yml`; npmjs **disallow tokens**; grant consumer có hiệu lực tại `docs/consumer-grant.md` (quyết định §7).
 
 ## Việc maintainer (đang mở)
 

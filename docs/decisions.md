@@ -50,10 +50,11 @@ Stay on the current Figma plan. Variables REST API is Enterprise-only — write 
 
 ## 7. npm publish — live via Trusted Publishing (OIDC)
 
-**Status: `@cyberskill/design@1.0.0` is on the registry; CI publish uses npm Trusted Publishing** (Jul 2026)
+**Status: `@cyberskill/design@1.0.0` is on the registry; CI publish uses npm Trusted Publishing; tokens disallowed** (Jul 2026)
 
 - `package.json` is `private: false`; package name **`@cyberskill/design`** (`publishConfig.access: public`); `repository.url` matches this GitHub repo for provenance.
 - Workflow `.github/workflows/npm-publish.yml`: `id-token: write` + GitHub-hosted runner; **no** `NPM_TOKEN` / `NODE_AUTH_TOKEN` on the publish step (OIDC). npm Trusted Publisher must list workflow filename **`npm-publish.yml`** for `cyberskill-official/design-system`. Soft-skip on auth / 403 / 404 / EOTP / version conflict.
+- Package **Publishing access** on npmjs: **Require two-factor authentication and disallow tokens** (OIDC Trusted Publishing still works; classic / granular publish tokens are rejected). Long-lived `NPM_TOKEN` secrets are revoked.
 - License stays **UNLICENSED**; version stays **1.0.0**. Approved use is recorded in **`docs/consumer-grant.md`** (CyberSkill portfolio products). Registry install alone is not a public license.
 
 ## 8. Native store packaging — scaffolds shipped; submit disabled
@@ -76,7 +77,7 @@ Recorded Jul 2026 — unlock defaults (updated as operator steps land):
 
 - **Figma Variables** — stay Tokens Studio / non-Enterprise (decision §3). Soft-skip on Variables REST remains honest.
 - **Code Connect** — **skipped while on Figma free**; revisit only after Org + published library + real `nodeId`s (decision §6). Soft-skip ≠ publish.
-- **npm** — **`@cyberskill/design@1.0.0` published**; CI uses **Trusted Publishing (OIDC)** via `npm-publish.yml`; consumer grant in force at `docs/consumer-grant.md` (decision §7).
+- **npm** — **`@cyberskill/design@1.0.0` published**; CI uses **Trusted Publishing (OIDC)** via `npm-publish.yml`; npmjs **disallow tokens**; consumer grant in force at `docs/consumer-grant.md` (decision §7).
 
 ## Maintainer tasks (open)
 
