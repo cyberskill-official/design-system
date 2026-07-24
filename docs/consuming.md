@@ -38,7 +38,7 @@ How any project — human-driven or agent-driven — adopts this HTML-first desi
 
 ## Adopt via npm (optional)
 
-The package is publishable (`private: false`, version pinned **1.0.0**). License remains **UNLICENSED** — installing from the registry does **not** grant redistribution rights by itself. **`@cyberskill/design@1.0.0` is published.** CI republishes via **npm Trusted Publishing (OIDC)** on workflow `npm-publish.yml` (no long-lived publish token required). Approved use is recorded in **`docs/consumer-grant.md`** (CyberSkill portfolio products from `docs/products.md`). See `docs/decisions.md` and `docs/ci-cd.md`.
+The package is publishable (`private: false`, version pinned **1.0.0**). License remains **UNLICENSED** — installing from the registry does **not** grant redistribution rights by itself. **`@cyberskill/design@1.0.0` is published.** CI republishes via **npm Trusted Publishing (OIDC)** on workflow `npm-publish.yml` (no long-lived publish token; package Publishing access **disallows tokens**). Approved use is recorded in **`docs/consumer-grant.md`** (CyberSkill portfolio products from `docs/products.md`). See `docs/decisions.md` and `docs/ci-cd.md`.
 
 **Consumer grant (owner policy — not a secret).** Written and in force at `docs/consumer-grant.md` (+ `docs/vi/consumer-grant.md`). External teams need a dated stanza appended there; redistribution outside granted products needs a further written grant.
 

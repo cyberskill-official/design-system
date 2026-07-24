@@ -1,8 +1,9 @@
-# npm publish — Trusted Publishing (OIDC) primary; optional NPM_TOKEN fallback
+# npm publish — Trusted Publishing (OIDC) only
 #
 # Triggers: workflow_dispatch, or push of version tags (v*).
 # Requires npm Trusted Publisher on @cyberskill/design for workflow file npm-publish.yml
 # (org cyberskill-official / repo design-system). Soft-skip on auth/404/403/conflict.
+# Package Publishing access: Require 2FA and disallow tokens (OIDC exempt).
 # Version stays pinned at 1.0.0 until LAUNCH — license remains UNLICENSED (explicit grant required).
 
 name: npm-publish
@@ -35,8 +36,7 @@ jobs:
       - name: Pack dry-run (always)
         run: node _audit/ci/npm-publish.mjs --dry-run
       - name: Publish to npm (OIDC Trusted Publishing)
-        # Do not set NODE_AUTH_TOKEN / NPM_TOKEN here — that forces classic token auth
-        # and can reintroduce EOTP. Optional fallback: set NPM_TOKEN only if OIDC is unavailable.
+        # Do not set NODE_AUTH_TOKEN / NPM_TOKEN — package disallows tokens; OIDC only.
         run: node _audit/ci/npm-publish.mjs
       - name: Upload npm-publish report
         if: always()

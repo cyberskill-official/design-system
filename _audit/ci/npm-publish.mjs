@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 /**
- * npm publish — Trusted Publishing (OIDC) on GitHub Actions; optional NPM_TOKEN fallback.
+ * npm publish — Trusted Publishing (OIDC) on GitHub Actions.
  *
  * Usage:
  *   node _audit/ci/npm-publish.mjs --dry-run   # pack inventory only (no auth)
  *   node _audit/ci/npm-publish.mjs             # npm publish --access public
  *
  * In GitHub Actions with id-token: write + npm Trusted Publisher configured,
- * the CLI authenticates via OIDC (do not set NODE_AUTH_TOKEN).
- * Locally / without OIDC: set NPM_TOKEN, or soft-skip when absent.
+ * the CLI authenticates via OIDC (do not set NODE_AUTH_TOKEN / NPM_TOKEN).
+ * Package Publishing access disallows classic tokens; local non-OIDC → soft-skip
+ * (interactive maintainer publish uses `npm publish --otp` outside this script).
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -48,7 +49,7 @@ function softSkip(reason, detail) {
   console.error('');
   console.error(`SOFT SKIP — npm publish (${reason}).`);
   if (detail) console.error(detail);
-  console.error('CI: configure npm Trusted Publisher for npm-publish.yml (OIDC). Local: set NPM_TOKEN or use --otp. See docs/ci-cd.md.');
+  console.error('CI: configure npm Trusted Publisher for npm-publish.yml (OIDC). Package disallows classic tokens — local interactive: npm publish --otp. See docs/ci-cd.md.');
   writeReport({ skipped: true, reason, message: detail || reason });
   process.exit(0);
 }
@@ -94,11 +95,11 @@ function main() {
   const oidc = preferOidcPublish(process.env);
 
   if (!oidc && !token) {
-    softSkip('missing_secrets', 'Not on GitHub Actions OIDC and NPM_TOKEN empty — no publish attempted.');
+    softSkip('missing_secrets', 'Not on GitHub Actions OIDC — no publish attempted (package disallows classic tokens).');
   }
 
   // For OIDC: do not inject NODE_AUTH_TOKEN (forces classic auth / EOTP).
-  // For token fallback: pass NODE_AUTH_TOKEN only.
+  // Token env is legacy-only and will fail under "disallow tokens"; still soft-skip on 403.
   const env = { ...process.env };
   if (oidc) {
     delete env.NODE_AUTH_TOKEN;
@@ -107,7 +108,7 @@ function main() {
   } else {
     env.NODE_AUTH_TOKEN = token;
     env.NPM_TOKEN = token;
-    console.log('Auth mode: NPM_TOKEN fallback');
+    console.log('Auth mode: NPM_TOKEN (likely rejected — package disallows tokens)');
   }
 
   const pub = spawnSync('npm', ['publish', '--access', 'public'], {

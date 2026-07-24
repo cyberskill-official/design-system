@@ -20,7 +20,7 @@
 8. **`code-connect`** — on PR + `main` + manual. Decision 1C: dry-run always (config + 99 mappings); publish soft-skips when `FIGMA_TOKEN` / `FIGMA_FILE_KEY` missing or API 403/404/429. See `docs/figma.md`.
 9. **`regenerate-tokens`** — path-filtered on push/PR (`tokens.dtcg.json`, natives, generator, `VERSION`); always available on schedule/manual. Deterministic native output; pushes with `contents: write` (or `DS_PUSH_TOKEN`).
 
-Separate workflow **`npm-publish`** (`.github/workflows/npm-publish.yml`): `workflow_dispatch` + `v*` tags; pack dry-run always; publish via **npm Trusted Publishing (OIDC)** (`id-token: write`, no `NPM_TOKEN` on the publish step). Soft-skips on auth / 403 / 404 / EOTP / version conflict. Version stays **1.0.0**; license **UNLICENSED**. Trusted Publisher on npmjs must match workflow filename `npm-publish.yml`.
+Separate workflow **`npm-publish`** (`.github/workflows/npm-publish.yml`): `workflow_dispatch` + `v*` tags; pack dry-run always; publish via **npm Trusted Publishing (OIDC)** (`id-token: write`, no `NPM_TOKEN` on the publish step). Soft-skips on auth / 403 / 404 / EOTP / version conflict. Version stays **1.0.0**; license **UNLICENSED**. Trusted Publisher on npmjs must match workflow filename `npm-publish.yml`. Package Publishing access is **Require 2FA and disallow tokens** (OIDC still works; classic tokens rejected).
 
 Separate workflow **`native-store`** (`.github/workflows/native-store.yml`): PR + `main` (path-filtered) + `workflow_dispatch`; scaffold dry-run always; signed-release check soft-skips without `ASC_KEY_ID` / `ASC_ISSUER_ID` / `ASC_KEY_P8` / `PLAY_SERVICE_ACCOUNT_JSON`. **Never submits** to App Store / Play — samples remain samples. See `examples/native/README.md`.
 
@@ -78,7 +78,7 @@ node _audit/ci/generate-native-tokens.mjs
 npm run code-connect:dry-run          # config + ≥99 mappings; no secrets
 node _audit/ci/code-connect-publish.mjs   # without secrets → SOFT SKIP missing_secrets
 npm run npm:pack-dry-run              # tarball inventory; no auth
-node _audit/ci/npm-publish.mjs        # GHA OIDC or NPM_TOKEN; else SOFT SKIP
+node _audit/ci/npm-publish.mjs        # GHA OIDC; else SOFT SKIP (tokens disallowed on package)
 npm run native:store-dry-run          # Fastlane scaffolds + metadata; no ASC_*/Play JSON
 node _audit/ci/native-store-dry-run.mjs   # without secrets → SOFT SKIP missing_secrets
 ```

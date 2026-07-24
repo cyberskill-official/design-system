@@ -38,7 +38,7 @@ Cách mọi project — do người hoặc agent điều khiển — áp dụng 
 
 ## Adopt qua npm (tùy chọn)
 
-Package có thể publish (`private: false`, phiên bản cố định **1.0.0**). License vẫn **UNLICENSED** — cài từ registry **không** tự cấp quyền redistribution. **`@cyberskill/design@1.0.0` đã publish.** CI republish qua **npm Trusted Publishing (OIDC)** trên workflow `npm-publish.yml` (không cần token publish dài hạn). Dùng đã duyệt ghi tại **`docs/consumer-grant.md`** (sản phẩm portfolio CyberSkill từ `docs/products.md`). Xem `docs/decisions.md` và `docs/ci-cd.md`.
+Package có thể publish (`private: false`, phiên bản cố định **1.0.0**). License vẫn **UNLICENSED** — cài từ registry **không** tự cấp quyền redistribution. **`@cyberskill/design@1.0.0` đã publish.** CI republish qua **npm Trusted Publishing (OIDC)** trên workflow `npm-publish.yml` (không token publish dài hạn; Publishing access package **disallow tokens**). Dùng đã duyệt ghi tại **`docs/consumer-grant.md`** (sản phẩm portfolio CyberSkill từ `docs/products.md`). Xem `docs/decisions.md` và `docs/ci-cd.md`.
 
 **Grant consumer (chính sách owner — không phải secret).** Đã viết và có hiệu lực tại `docs/consumer-grant.md` (+ `docs/vi/consumer-grant.md`). Team bên ngoài cần stanza có ngày thêm vào đó; redistribution ngoài sản phẩm đã grant cần grant viết thêm.
 

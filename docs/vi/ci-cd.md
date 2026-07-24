@@ -20,7 +20,7 @@
 8. **`code-connect`** — trên PR + `main` + thủ công. Quyết định 1C: dry-run luôn (config + 99 mapping); publish soft-skip khi thiếu `FIGMA_TOKEN` / `FIGMA_FILE_KEY` hoặc API 403/404/429. Xem `docs/figma.md`.
 9. **`regenerate-tokens`** — path-filtered trên push/PR (`tokens.dtcg.json`, natives, generator, `VERSION`); luôn có trên schedule/manual. Output native deterministic; push với `contents: write` (hoặc `DS_PUSH_TOKEN`).
 
-Workflow riêng **`npm-publish`** (`.github/workflows/npm-publish.yml`): `workflow_dispatch` + tag `v*`; pack dry-run luôn; publish qua **npm Trusted Publishing (OIDC)** (`id-token: write`, không `NPM_TOKEN` trên bước publish). Soft-skip khi auth / 403 / 404 / EOTP / conflict phiên bản. Phiên bản giữ **1.0.0**; license **UNLICENSED**. Trusted Publisher trên npmjs phải khớp filename workflow `npm-publish.yml`.
+Workflow riêng **`npm-publish`** (`.github/workflows/npm-publish.yml`): `workflow_dispatch` + tag `v*`; pack dry-run luôn; publish qua **npm Trusted Publishing (OIDC)** (`id-token: write`, không `NPM_TOKEN` trên bước publish). Soft-skip khi auth / 403 / 404 / EOTP / conflict phiên bản. Phiên bản giữ **1.0.0**; license **UNLICENSED**. Trusted Publisher trên npmjs phải khớp filename workflow `npm-publish.yml`. Publishing access package: **Require 2FA and disallow tokens** (OIDC vẫn chạy; token classic bị từ chối).
 
 Workflow riêng **`native-store`** (`.github/workflows/native-store.yml`): PR + `main` (path-filtered) + `workflow_dispatch`; dry-run scaffold luôn; kiểm signed-release soft-skip khi thiếu `ASC_KEY_ID` / `ASC_ISSUER_ID` / `ASC_KEY_P8` / `PLAY_SERVICE_ACCOUNT_JSON`. **Không bao giờ submit** lên App Store / Play — sample vẫn là sample. Xem `examples/native/README.md`.
 
@@ -78,7 +78,7 @@ node _audit/ci/generate-native-tokens.mjs
 npm run code-connect:dry-run          # config + ≥99 mapping; không secret
 node _audit/ci/code-connect-publish.mjs   # thiếu secret → SOFT SKIP missing_secrets
 npm run npm:pack-dry-run              # inventory tarball; không auth
-node _audit/ci/npm-publish.mjs        # GHA OIDC hoặc NPM_TOKEN; không thì SOFT SKIP
+node _audit/ci/npm-publish.mjs        # GHA OIDC; không thì SOFT SKIP (package disallow tokens)
 npm run native:store-dry-run          # scaffold Fastlane + metadata; không ASC_*/Play JSON
 node _audit/ci/native-store-dry-run.mjs   # thiếu secret → SOFT SKIP missing_secrets
 ```

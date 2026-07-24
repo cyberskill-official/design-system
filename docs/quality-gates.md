@@ -79,7 +79,7 @@ Soft-skip means the job exits 0 with a report when secrets/plan/API cannot compl
 |---|---|---|---|---|
 | Figma Variables | `_audit/ci/push-figma-variables.mjs` + `figma-variables-push` job | Secrets open the file; optional Variables write | Non-Enterprise / missing `file_variables:*` scopes / API 403 | `main` push + manual |
 | Code Connect | `_audit/ci/code-connect-publish.mjs` + `code-connect` job | Config + 99 mappings; optional publish | Missing `FIGMA_TOKEN`/`FIGMA_FILE_KEY` or API 403/404/429 | PR + `main` + manual |
-| npm publish | `_audit/ci/npm-publish.mjs` + `npm-publish.yml` | Pack-safe `files`/`exports`; optional `npm publish` via OIDC Trusted Publishing | Auth / 403 / 404 / EOTP / version conflict | `workflow_dispatch` / `v*` tags |
+| npm publish | `_audit/ci/npm-publish.mjs` + `npm-publish.yml` | Pack-safe `files`/`exports`; `npm publish` via OIDC Trusted Publishing (tokens disallowed on package) | Auth / 403 / 404 / EOTP / version conflict | `workflow_dispatch` / `v*` tags |
 | Native store | `_audit/ci/native-store-dry-run.mjs` + `native-store.yml` | Fastlane scaffolds + metadata; signed-release secrets check | Missing `ASC_*` / `PLAY_SERVICE_ACCOUNT_JSON` (submit always disabled) | PR + `main` (paths) + manual |
 
 ## July 2026 hardening — delivered
