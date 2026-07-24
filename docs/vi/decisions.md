@@ -48,13 +48,13 @@ Giữ plan Figma hiện tại. Variables REST API chỉ Enterprise — job ghi *
 - Publish soft-skip khi thiếu secret hoặc API trả 403/404/429. Soft-skip ≠ publish Code Connect thành công.
 - **Owner hoãn:** giữ **Figma free / non-Org** — không theo đuổi Code Connect live đến khi có ghế Org/Enterprise và team library đã publish. Khi đó thay stub `9999:*` trong `code-connect/node-map.json` bằng `nodeId` thật. Xem `docs/figma.md`.
 
-## 7. npm publish — đường đã ship; **chưa live** đến khi có grant + `NPM_TOKEN`
+## 7. npm publish — đường đã ship; đang mở khóa
 
-**Trạng thái: provisional / soft-skip — phân phối registry chưa duyệt mặc định** (Th7 2026)
+**Trạng thái: sẵn sàng vận hành; package chưa có trên registry dưới tên `@cyberskill/design`** (Th7 2026)
 
 - `package.json` là `private: false`; tên package **`@cyberskill/design`** (convention scoped `@cyberskill/*`; `publishConfig.access: public`); `prepublishOnly` chạy `build:bundle` + `build:design-md --check`.
 - Workflow `.github/workflows/npm-publish.yml` trên `workflow_dispatch` / tag `v*`; thiếu `NPM_TOKEN` thì job **soft-skip** (exit 0 + báo cáo tarball). Soft-skip ≠ release đã publish.
-- License giữ **UNLICENSED**; phiên bản giữ **1.0.0**. Consumer cần **grant tường minh** từ owner (xem `docs/consuming.md`) — publish lên public registry không tự open-source package. Org npm **`@cyberskill`** phải tồn tại (hoặc được tạo) trước lần publish đầu.
+- **Tiến độ owner:** org npm **`@cyberskill`** đã publish package khác; `NPM_TOKEN` đã đặt trên repo. **Vẫn cần:** chạy **Actions → npm-publish → Run workflow** một lần để `@cyberskill/design@1.0.0` lên registry, rồi cấp **grant consumer tường minh** (văn bản chính sách — không phải secret) cho team được phép cài. License giữ **UNLICENSED**; phiên bản giữ **1.0.0**. Xem `docs/consuming.md`.
 
 ## 8. Đóng gói store native — scaffold đã ship; submit tắt
 
@@ -72,18 +72,18 @@ Giữ plan Figma hiện tại. Variables REST API chỉ Enterprise — job ghi *
 
 ## Mặc định roadmap (mở khóa phân phối)
 
-Ghi nhận Th7 2026 — chỉ mặc định tài liệu; **không cái nào đang live**:
+Ghi nhận Th7 2026 — mặc định mở khóa (cập nhật khi bước vận hành xong):
 
 - **Figma Variables** — giữ Tokens Studio / non-Enterprise (quyết định §3). Soft-skip Variables REST vẫn trung thực.
 - **Code Connect** — **bỏ qua khi còn Figma free**; chỉ xem lại sau Org + library đã publish + `nodeId` thật (quyết định §6). Soft-skip ≠ publish.
-- **npm** — giữ soft-skip đến khi có grant owner + `NPM_TOKEN` + org `@cyberskill` trên registry (quyết định §7). Soft-skip ≠ release đã publish.
+- **npm** — org `@cyberskill` + `NPM_TOKEN` sẵn sàng; lần publish đầu `@cyberskill/design` + grant consumer viết tay vẫn do owner chạy (quyết định §7). Soft-skip ≠ release đã publish của *package này*.
 
 ## Việc maintainer (đang mở)
 
 Theo dõi vận hành — không phải marketing sản phẩm, không phải backlog công khai:
 
 1. **Code Connect** — hoãn (Figma free). Khi lên Org: thay stub `9999:*` trong `code-connect/node-map.json` bằng node ID library đã publish.
-2. **Grant npm / `NPM_TOKEN`** — tạo/claim org npm **`@cyberskill`**, đặt GitHub secret, và cấp grant consumer tường minh trước khi coi `npm install @cyberskill/design` là đường đã duyệt.
+2. **npm publish lần đầu + grant** — ~~org / `NPM_TOKEN`~~ **xong**. Còn lại: Actions → **npm-publish** → Run workflow; xác nhận `npm view @cyberskill/design`; viết grant consumer cho team được duyệt (xem `docs/consuming.md`).
 
 ~~3. Chốt registry products~~ — **xong** (Th7 2026): xem quyết định §9; `docs/products.md` đã khóa.
 
