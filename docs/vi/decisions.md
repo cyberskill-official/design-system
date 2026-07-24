@@ -89,6 +89,8 @@ Theo dõi vận hành — không phải marketing sản phẩm, không phải ba
 
 ~~3. Chốt registry products~~ — **xong** (Th7 2026): xem quyết định §9; `docs/products.md` đã khóa.
 
+~~4. Đường consumer registry đầu tiên~~ — **xong** (Th7 2026): `examples/npm-hello/` cài `@cyberskill/design@1.0.0` cho identity **Lumi** đã khóa; ghi trong `docs/consuming.md` (+ VI) và `docs/release-notes.md`.
+
 Schema sidecar và Storybook `FullMatrix` tiếp tục lớn **theo cơ hội** khi primary đã đủ điều kiện (hiện chỉ Button có FullMatrix theo contract) — không phải đợt mass-add. Xem `docs/quality-gates.md`.
 
 ## Cách đổi một quyết định

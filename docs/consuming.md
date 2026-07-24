@@ -48,6 +48,8 @@ npm install @cyberskill/design@1.0.0
 
 Then link styles and import from the package entry (`_esm/cs.mjs` via `exports["."]`), or continue using the static tree paths below. The published tarball is the **full portable tree** (styles, tokens, components, templates, guidelines, docs, UI kits) — not a minimal “lib-only” subset. Host-only tooling (Storybook, `_audit/`) is not in `files[]`.
 
+**First real install (Lumi).** Copy-paste working consumer: `examples/npm-hello/` — installs `@cyberskill/design@1.0.0` from the registry, links `styles.css`, mounts `Button` via package exports, scopes **Lumi** with `data-cs-element="hoa" data-cs-variant="plasma"` (locked row in `docs/products.md`). From that folder: `npm install && npm run smoke && npm start` → open `http://127.0.0.1:8766/`. Status Hub teams use the same install and swap to `data-cs-element="thuy"` — do not invent mappings.
+
 **Publish path (maintainers):** `prepublishOnly` runs `build:bundle` + `build:design-md --check`. Workflow `.github/workflows/npm-publish.yml` on `workflow_dispatch` / `v*` tags uses **Trusted Publishing** (`permissions.id-token: write`; do not set `NODE_AUTH_TOKEN` on the publish step). `node _audit/ci/npm-publish.mjs --dry-run` always lists the tarball. See `docs/ci-cd.md` and `docs/decisions.md`.
 
 ## Adopt (two paths, plus a module shortcut)
@@ -89,6 +91,18 @@ State Theme (`data-theme`), Element (`data-cs-element` + `data-cs-variant`), and
 The live site serves Storybook at `/` as the **product surface** for operators (Theme × Element × Language + control matrices). That is **host-only tooling** — do not depend on Storybook in product apps. Portable Atomic View remains at `guidelines/atomic-view.html`. See `docs/storybook.md` and `docs/live-hub.md`.
 
 ## Five-minute consumer spike
+
+**Registry path (preferred for product apps):**
+
+```bash
+cd examples/npm-hello
+npm install
+npm run smoke
+npm start
+# open http://127.0.0.1:8766/
+```
+
+**Clone / static path (no npm):**
 
 ```bash
 # from monorepo root

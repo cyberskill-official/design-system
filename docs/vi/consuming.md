@@ -48,6 +48,8 @@ npm install @cyberskill/design@1.0.0
 
 Rồi link styles và import từ entry package (`_esm/cs.mjs` qua `exports["."]`) , hoặc tiếp tục dùng đường cây tĩnh bên dưới. Tarball đã publish là **cả cây portable** (styles, tokens, components, templates, guidelines, docs, UI kits) — không phải subset “chỉ lib” tối thiểu. Tooling chỉ-host (Storybook, `_audit/`) không nằm trong `files[]`.
 
+**Cài thật đầu tiên (Lumi).** Consumer copy-paste: `examples/npm-hello/` — cài `@cyberskill/design@1.0.0` từ registry, link `styles.css`, mount `Button` qua package exports, scope **Lumi** với `data-cs-element="hoa" data-cs-variant="plasma"` (hàng đã khóa trong `docs/products.md`). Trong thư mục đó: `npm install && npm run smoke && npm start` → mở `http://127.0.0.1:8766/`. Team Status Hub dùng cùng install và đổi sang `data-cs-element="thuy"` — không invent ánh xạ.
+
 **Đường publish (maintainer):** `prepublishOnly` chạy `build:bundle` + `build:design-md --check`. Workflow `.github/workflows/npm-publish.yml` trên `workflow_dispatch` / tag `v*` dùng **Trusted Publishing** (`permissions.id-token: write`; không đặt `NODE_AUTH_TOKEN` trên bước publish). `node _audit/ci/npm-publish.mjs --dry-run` luôn liệt kê tarball. Xem `docs/ci-cd.md` và `docs/decisions.md`.
 
 ## Adopt (hai đường, cộng shortcut module)
@@ -89,6 +91,18 @@ Rồi link styles và import từ entry package (`_esm/cs.mjs` qua `exports["."]
 Site live phục vụ Storybook tại `/` như **bề mặt sản phẩm** cho operator (Theme × Element × Language + ma trận điều khiển). Đó là **tooling chỉ-host** — đừng phụ thuộc Storybook trong product app. Atomic View portable vẫn ở `guidelines/atomic-view.html`. Xem `docs/storybook.md` và `docs/live-hub.md`.
 
 ## Spike consumer năm phút
+
+**Đường registry (ưu tiên cho product app):**
+
+```bash
+cd examples/npm-hello
+npm install
+npm run smoke
+npm start
+# mở http://127.0.0.1:8766/
+```
+
+**Đường clone / tĩnh (không npm):**
 
 ```bash
 # từ monorepo root

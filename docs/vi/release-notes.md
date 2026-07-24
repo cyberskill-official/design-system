@@ -2,6 +2,16 @@
 
 Điểm nổi bật sản phẩm cho operator — **không** phải git log và **không** phải `CHANGELOG.md`. Hệ thống thiết kế không maintain file changelog. Phiên bản giữ cố định **1.0.0**; chân lý kỹ thuật là tip repo, chân lý hướng sản phẩm là trang này (đồng bộ Storybook **Release Notes**).
 
+## `@cyberskill/design@1.0.0` trên npm (Trusted Publishing)
+
+Package đã live trên npm registry với tên **`@cyberskill/design@1.0.0`**. CI publish qua **npm Trusted Publishing (OIDC)** — không token publish dài hạn. Publishing access trên npmjs **disallow tokens** (OIDC vẫn chạy; token publish classic / granular bị từ chối).
+
+Dùng đã duyệt cho sản phẩm portfolio CyberSkill ghi tại **`docs/consumer-grant.md`** (+ VI). Package vẫn **UNLICENSED**; cài từ registry một mình không phải license công khai. Đường cài đầu tiên copy-paste cho sản phẩm đã khóa (Lumi · Hỏa · plasma): `examples/npm-hello/` — xem `docs/consuming.md`.
+
+```bash
+npm install @cyberskill/design@1.0.0
+```
+
 ## Storybook tại gốc domain
 
 `design.cyberskill.world/` là site sản phẩm Storybook đầy đủ. Docs, Foundations, Components, Release Notes và Status nằm trong một sidebar. Đường legacy `/dashboard` và `/playground` redirect về `/`.
