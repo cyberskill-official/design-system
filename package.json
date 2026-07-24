@@ -5,6 +5,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyberskill-official/design-system.git"
+  },
   "module": "_esm/cs.mjs",
   "exports": {
     ".": {

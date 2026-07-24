@@ -15,7 +15,7 @@ This is the **entrance document** for the CyberSkill Design System — pinned **
 
 - **Google Stitch** — start at **`DESIGN.md`** (generated open-spec) → `llms.txt` → `tokens/tokens.dtcg.json`. Build **static** UI with `styles.css` + `.cs-*` / kitchen-sink / `examples/static-hello/`. **Do not** treat `templates/**/*.dc.html` as source of truth.
 
-- **Consuming projects** — npm package name is **`@cyberskill/design`** (see `docs/consuming.md`; grant + `NPM_TOKEN` required before registry install is an approved path). Or link **`styles.css`** from a clone/subtree (one file = everything), or copy a `templates/<slug>/` folder and edit one line in its `ds-base.js` (one-line rebind, validated end-to-end Jul 2026). Scope identity with `data-theme` · `data-cs-element` (+`data-cs-variant`) · `lang`. Release signal: tip SHA + `docs/release-notes.md` (VERSION stays **1.0.0**; no CHANGELOG).
+- **Consuming projects** — npm package **`@cyberskill/design@1.0.0`** (see `docs/consuming.md`; written consumer grant still required — UNLICENSED). Or link **`styles.css`** from a clone/subtree (one file = everything), or copy a `templates/<slug>/` folder and edit one line in its `ds-base.js` (one-line rebind, validated end-to-end Jul 2026). Scope identity with `data-theme` · `data-cs-element` (+`data-cs-variant`) · `lang`. Release signal: tip SHA + `docs/release-notes.md` (VERSION stays **1.0.0**; no CHANGELOG).
 
 **Document map — consumers**
 
@@ -41,7 +41,7 @@ This is the **entrance document** for the CyberSkill Design System — pinned **
 
 | Doc | What it answers |
 |---|---|
-| `docs/decisions.md` | Recorded owner decisions + open maintainer tasks (Code Connect node IDs, npm grant/`NPM_TOKEN`, products registry) |
+| `docs/decisions.md` | Recorded owner decisions + open maintainer tasks (Code Connect deferred; npm consumer grant) |
 | `docs/ci-cd.md` | CI/CD automation — GitHub Actions workflow, headless gate runner, token-provenance pre-check, badge |
 | `docs/quality-gates.md` | Benchmark reference — every quality gate, what it asserts, pass criterion, where it runs |
 | `docs/sync.md` | Repo ↔ authoring-environment round-trip fidelity & two-way sync |

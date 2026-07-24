@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 /**
- * npm publish with Decision 1C soft-skip when NPM_TOKEN is absent.
+ * npm publish — Trusted Publishing (OIDC) on GitHub Actions; optional NPM_TOKEN fallback.
  *
  * Usage:
- *   node _audit/ci/npm-publish.mjs --dry-run   # pack inventory only (no token needed)
- *   node _audit/ci/npm-publish.mjs             # npm publish (needs NPM_TOKEN)
+ *   node _audit/ci/npm-publish.mjs --dry-run   # pack inventory only (no auth)
+ *   node _audit/ci/npm-publish.mjs             # npm publish --access public
+ *
+ * In GitHub Actions with id-token: write + npm Trusted Publisher configured,
+ * the CLI authenticates via OIDC (do not set NODE_AUTH_TOKEN).
+ * Locally / without OIDC: set NPM_TOKEN, or soft-skip when absent.
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -20,10 +24,18 @@ export function isSoftSkippableNpmError(err) {
   const msg = String(err?.message || err || '');
   return /ENEEDAUTH/i.test(msg)
     || /need auth/i.test(msg)
+    || /EOTP/i.test(msg)
+    || /one-time password/i.test(msg)
     || /404.*Not found/i.test(msg)
     || /402\b/.test(msg)
     || /403\b/.test(msg)
-    || /EPUBLISHCONFLICT/i.test(msg);
+    || /EPUBLISHCONFLICT/i.test(msg)
+    || /cannot publish over/i.test(msg);
+}
+
+export function preferOidcPublish(env = process.env) {
+  // GitHub Actions + no explicit token → rely on Trusted Publishing / OIDC.
+  return Boolean(env.GITHUB_ACTIONS) && !(env.NPM_TOKEN || '').trim();
 }
 
 function writeReport(payload) {
@@ -36,7 +48,7 @@ function softSkip(reason, detail) {
   console.error('');
   console.error(`SOFT SKIP — npm publish (${reason}).`);
   if (detail) console.error(detail);
-  console.error('Set repository secret NPM_TOKEN to publish. See docs/consuming.md.');
+  console.error('CI: configure npm Trusted Publisher for npm-publish.yml (OIDC). Local: set NPM_TOKEN or use --otp. See docs/ci-cd.md.');
   writeReport({ skipped: true, reason, message: detail || reason });
   process.exit(0);
 }
@@ -78,19 +90,27 @@ function main() {
     return;
   }
 
-  const token = process.env.NPM_TOKEN || '';
-  if (!token) {
-    softSkip('missing_secrets', 'NPM_TOKEN empty — no publish attempted.');
+  const token = (process.env.NPM_TOKEN || '').trim();
+  const oidc = preferOidcPublish(process.env);
+
+  if (!oidc && !token) {
+    softSkip('missing_secrets', 'Not on GitHub Actions OIDC and NPM_TOKEN empty — no publish attempted.');
   }
 
-  const env = {
-    ...process.env,
-    NODE_AUTH_TOKEN: token,
-    NPM_TOKEN: token,
-  };
+  // For OIDC: do not inject NODE_AUTH_TOKEN (forces classic auth / EOTP).
+  // For token fallback: pass NODE_AUTH_TOKEN only.
+  const env = { ...process.env };
+  if (oidc) {
+    delete env.NODE_AUTH_TOKEN;
+    delete env.NPM_TOKEN;
+    console.log('Auth mode: Trusted Publishing (OIDC) — no NPM_TOKEN');
+  } else {
+    env.NODE_AUTH_TOKEN = token;
+    env.NPM_TOKEN = token;
+    console.log('Auth mode: NPM_TOKEN fallback');
+  }
 
-  // Prefer .npmrc in the runner (workflow writes it); also support env auth.
-  const pub = spawnSync('npm', ['publish', '--access', 'restricted'], {
+  const pub = spawnSync('npm', ['publish', '--access', 'public'], {
     cwd: root,
     encoding: 'utf8',
     env,
@@ -102,11 +122,18 @@ function main() {
       softSkip('npm_registry_unavailable', combined.slice(0, 800));
     }
     console.error(combined);
-    writeReport({ skipped: false, ok: false, message: combined.slice(0, 800) });
+    writeReport({ skipped: false, ok: false, message: combined.slice(0, 800), auth: oidc ? 'oidc' : 'token' });
     process.exit(pub.status || 1);
   }
   console.log(pub.stdout);
-  writeReport({ skipped: false, ok: true, published: true, name: pkg.name, version: pkg.version });
+  writeReport({
+    skipped: false,
+    ok: true,
+    published: true,
+    name: pkg.name,
+    version: pkg.version,
+    auth: oidc ? 'oidc' : 'token',
+  });
 }
 
 const invoked = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;

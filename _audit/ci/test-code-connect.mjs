@@ -11,7 +11,7 @@ import {
   resolveToken,
   isSoftSkippableCodeConnectError,
 } from './code-connect-publish.mjs';
-import { isSoftSkippableNpmError } from './npm-publish.mjs';
+import { isSoftSkippableNpmError, preferOidcPublish } from './npm-publish.mjs';
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -49,7 +49,11 @@ assert(isSoftSkippableCodeConnectError('429 Rate limit'), '429 soft');
 assert(!isSoftSkippableCodeConnectError('syntax error in parser'), 'syntax not soft');
 
 assert(isSoftSkippableNpmError('npm ERR! code ENEEDAUTH'), 'npm auth soft');
+assert(isSoftSkippableNpmError('npm error code EOTP'), 'EOTP soft');
 assert(!isSoftSkippableNpmError('ENOTFOUND weird'), 'ENOTFOUND alone not soft unless matched');
+assert(preferOidcPublish({ GITHUB_ACTIONS: 'true' }), 'OIDC when GHA and no token');
+assert(!preferOidcPublish({ GITHUB_ACTIONS: 'true', NPM_TOKEN: 'x' }), 'token wins over OIDC prefer');
+assert(!preferOidcPublish({}), 'no OIDC locally without GHA');
 
 // committed artifacts
 assert(existsSync(join(root, 'figma.config.json')), 'figma.config.json');

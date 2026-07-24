@@ -11,7 +11,7 @@ Cách mọi project — do người hoặc agent điều khiển — áp dụng 
 | **Claude Code** | `SKILL.md` → `README.md` → `styles.css` + `_esm/cs.mjs` / `_ds_bundle.js` (resolve theo prefix) | Mạnh — rules, components, prompts; gates qua full clone | Hardcode hậu tố bundle; coi Storybook host là hợp đồng portable |
 | **Google Stitch** | `DESIGN.md` → `llms.txt` → `tokens/tokens.dtcg.json` | Mạnh cho doctrine + tokens + HTML tĩnh `.cs-*` | Coi `templates/**/*.dc.html` là SoT — không có tweaks / `__dcSetProps` / DC compiler |
 | **Claude Design** | Full repo + DC compiler | Full fidelity (tweaks, `x-import`, template bilingual) | Bỏ qua vòng sync trong `docs/sync.md` |
-| **npm** | `@cyberskill/design` | Hình dạng package đã gate; dry-run luôn | Giả định cài public đã duyệt — cần grant owner + `NPM_TOKEN` (soft-skip cho đến khi đó) |
+| **npm** | `@cyberskill/design` | **1.0.0** trên registry; CI Trusted Publishing | Cài mà không có grant consumer viết tay (UNLICENSED) |
 
 **Quy tắc DC cho Stitch:** Stitch (và mọi tool non-DC) **không** được tiêu thụ `*.dc.html` như nguồn chân lý. Dùng pattern export tĩnh, `templates/kitchen-sink.html`, `examples/static-hello/`, và class `.cs-*` từ `styles.css`.
 
@@ -38,18 +38,17 @@ Cách mọi project — do người hoặc agent điều khiển — áp dụng 
 
 ## Adopt qua npm (tùy chọn)
 
-Package có thể publish (`private: false`, phiên bản cố định **1.0.0**). License vẫn **UNLICENSED** — cài từ registry (hoặc tarball đã pack) **không** tự cấp quyền redistribution. Đến khi owner chọn license mở, **consumer cần grant tường minh** từ CyberSkill để dùng package trong sản phẩm. Org `@cyberskill` và `NPM_TOKEN` trên repo đã sẵn sàng vận hành; chạy **Actions → npm-publish** một lần để `@cyberskill/design` lên registry. Thiếu `NPM_TOKEN` thì workflow **soft-skip** (exit 0 + report) — đó là trung thực, không phải release registry thành công. Xem `docs/decisions.md` và `docs/quality-gates.md`.
+Package có thể publish (`private: false`, phiên bản cố định **1.0.0**). License vẫn **UNLICENSED** — cài từ registry **không** tự cấp quyền redistribution. **`@cyberskill/design@1.0.0` đã publish.** CI republish qua **npm Trusted Publishing (OIDC)** trên workflow `npm-publish.yml` (không cần token publish dài hạn). Consumer vẫn cần **grant tường minh** từ CyberSkill để dùng package trong sản phẩm. Xem `docs/decisions.md` và `docs/ci-cd.md`.
 
 **Grant consumer (chính sách owner — không phải secret).** Với mỗi team được duyệt, ghi lại kiểu: *CyberSkill cấp cho [Team/Org] quyền không độc quyền dùng `@cyberskill/design` trong [sản phẩm đã nêu]. Package vẫn UNLICENSED; redistribution ngoài các sản phẩm đó cần grant viết thêm.* Giữ văn bản grant nội bộ trừ khi muốn công khai.
 
 ```bash
-# sau khi workflow npm-publish chạy thành công (hoặc từ tarball đã pack)
 npm install @cyberskill/design@1.0.0
 ```
 
 Rồi link styles và import từ entry package (`_esm/cs.mjs` qua `exports["."]`) , hoặc tiếp tục dùng đường cây tĩnh bên dưới. Tarball đã publish là **cả cây portable** (styles, tokens, components, templates, guidelines, docs, UI kits) — không phải subset “chỉ lib” tối thiểu. Tooling chỉ-host (Storybook, `_audit/`) không nằm trong `files[]`.
 
-**Đường publish (maintainer):** `prepublishOnly` chạy `build:bundle` + `build:design-md --check`. Workflow `.github/workflows/npm-publish.yml` trên `workflow_dispatch` / tag `v*`; publish cần `NPM_TOKEN` (`node _audit/ci/npm-publish.mjs --dry-run` luôn liệt kê tarball). Xem `docs/ci-cd.md` và `docs/decisions.md`.
+**Đường publish (maintainer):** `prepublishOnly` chạy `build:bundle` + `build:design-md --check`. Workflow `.github/workflows/npm-publish.yml` trên `workflow_dispatch` / tag `v*` dùng **Trusted Publishing** (`permissions.id-token: write`; không đặt `NODE_AUTH_TOKEN` trên bước publish). `node _audit/ci/npm-publish.mjs --dry-run` luôn liệt kê tarball. Xem `docs/ci-cd.md` và `docs/decisions.md`.
 
 ## Adopt (hai đường, cộng shortcut module)
 
