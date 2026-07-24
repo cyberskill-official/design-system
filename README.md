@@ -15,7 +15,7 @@ This is the **entrance document** for the CyberSkill Design System — pinned **
 
 - **Google Stitch** — start at **`DESIGN.md`** (generated open-spec) → `llms.txt` → `tokens/tokens.dtcg.json`. Build **static** UI with `styles.css` + `.cs-*` / kitchen-sink / `examples/static-hello/`. **Do not** treat `templates/**/*.dc.html` as source of truth.
 
-- **Consuming projects** — npm package **`@cyberskill/design@1.0.0`** (see `docs/consuming.md`; written consumer grant still required — UNLICENSED). Or link **`styles.css`** from a clone/subtree (one file = everything), or copy a `templates/<slug>/` folder and edit one line in its `ds-base.js` (one-line rebind, validated end-to-end Jul 2026). Scope identity with `data-theme` · `data-cs-element` (+`data-cs-variant`) · `lang`. Release signal: tip SHA + `docs/release-notes.md` (VERSION stays **1.0.0**; no CHANGELOG).
+- **Consuming projects** — npm package **`@cyberskill/design@1.0.0`** (see `docs/consuming.md`; grant in `docs/consumer-grant.md` — still UNLICENSED). Or link **`styles.css`** from a clone/subtree (one file = everything), or copy a `templates/<slug>/` folder and edit one line in its `ds-base.js` (one-line rebind, validated end-to-end Jul 2026). Scope identity with `data-theme` · `data-cs-element` (+`data-cs-variant`) · `lang`. Release signal: tip SHA + `docs/release-notes.md` (VERSION stays **1.0.0**; no CHANGELOG).
 
 **Document map — consumers**
 
@@ -25,6 +25,7 @@ This is the **entrance document** for the CyberSkill Design System — pinned **
 | `DESIGN.md` | **This repo's** generated open-spec surface (Stitch-style) — doctrine + every token value + inventory, from DTCG; regenerate via `npm run build:design-md`. Do not hand-edit. |
 | `SKILL.md` | Agent entry — hard rules + fast orientation |
 | `docs/consuming.md` | Adopting & upgrading — Claude Code vs Stitch dual path, npm package name, axes, upgrade + extend |
+| `docs/consumer-grant.md` | Written npm consumer grant (CyberSkill portfolio; UNLICENSED + named products) |
 | `docs/conventions.md` | How to extend the system (naming grammar, checklists, the three axes) |
 | `docs/release-notes.md` | Curated product highlights (not a changelog) |
 | `docs/design-styles.md` | The live styling axes (Theme × Element × Language) and the fixed liquid-glass treatment |
@@ -41,7 +42,7 @@ This is the **entrance document** for the CyberSkill Design System — pinned **
 
 | Doc | What it answers |
 |---|---|
-| `docs/decisions.md` | Recorded owner decisions + open maintainer tasks (Code Connect deferred; npm consumer grant) |
+| `docs/decisions.md` | Recorded owner decisions + open maintainer tasks (Code Connect deferred) |
 | `docs/ci-cd.md` | CI/CD automation — GitHub Actions workflow, headless gate runner, token-provenance pre-check, badge |
 | `docs/quality-gates.md` | Benchmark reference — every quality gate, what it asserts, pass criterion, where it runs |
 | `docs/sync.md` | Repo ↔ authoring-environment round-trip fidelity & two-way sync |

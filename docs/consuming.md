@@ -11,7 +11,7 @@ How any project — human-driven or agent-driven — adopts this HTML-first desi
 | **Claude Code** | `SKILL.md` → `README.md` → `styles.css` + `_esm/cs.mjs` / `_ds_bundle.js` (prefix resolve) | Strong — rules, components, prompts; gates via full clone | Hardcode the bundle suffix; treat Storybook host as the portable contract |
 | **Google Stitch** | `DESIGN.md` → `llms.txt` → `tokens/tokens.dtcg.json` | Strong for doctrine + tokens + static `.cs-*` HTML | Treat `templates/**/*.dc.html` as SoT — no tweaks / `__dcSetProps` / DC compiler |
 | **Claude Design** | Full repo + DC compiler | Full fidelity (tweaks, `x-import`, bilingual templates) | Skip the sync loop in `docs/sync.md` |
-| **npm** | `@cyberskill/design` | **1.0.0** on registry; CI Trusted Publishing | Install without a written consumer grant (UNLICENSED) |
+| **npm** | `@cyberskill/design` | **1.0.0** on registry; CI Trusted Publishing; grant in `docs/consumer-grant.md` | Treat registry install as a public license (still UNLICENSED) |
 
 **Stitch DC rule:** Stitch (and any non-DC tool) must **not** consume `*.dc.html` as source of truth. Use static export patterns, `templates/kitchen-sink.html`, `examples/static-hello/`, and `.cs-*` classes from `styles.css`.
 
@@ -38,9 +38,9 @@ How any project — human-driven or agent-driven — adopts this HTML-first desi
 
 ## Adopt via npm (optional)
 
-The package is publishable (`private: false`, version pinned **1.0.0**). License remains **UNLICENSED** — installing from the registry does **not** grant redistribution rights by itself. **`@cyberskill/design@1.0.0` is published.** CI republishes via **npm Trusted Publishing (OIDC)** on workflow `npm-publish.yml` (no long-lived publish token required). Consumers still need an **explicit grant** from CyberSkill to use the package in a product. See `docs/decisions.md` and `docs/ci-cd.md`.
+The package is publishable (`private: false`, version pinned **1.0.0**). License remains **UNLICENSED** — installing from the registry does **not** grant redistribution rights by itself. **`@cyberskill/design@1.0.0` is published.** CI republishes via **npm Trusted Publishing (OIDC)** on workflow `npm-publish.yml` (no long-lived publish token required). Approved use is recorded in **`docs/consumer-grant.md`** (CyberSkill portfolio products from `docs/products.md`). See `docs/decisions.md` and `docs/ci-cd.md`.
 
-**Consumer grant (owner policy — not a secret).** For each approved team, record something like: *CyberSkill grants [Team/Org] a non-exclusive right to use `@cyberskill/design` in [named products]. The package remains UNLICENSED; redistribution outside those products needs a further written grant.* Keep grant text internal unless you want it public.
+**Consumer grant (owner policy — not a secret).** Written and in force at `docs/consumer-grant.md` (+ `docs/vi/consumer-grant.md`). External teams need a dated stanza appended there; redistribution outside granted products needs a further written grant.
 
 ```bash
 npm install @cyberskill/design@1.0.0

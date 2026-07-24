@@ -11,7 +11,7 @@ Cách mọi project — do người hoặc agent điều khiển — áp dụng 
 | **Claude Code** | `SKILL.md` → `README.md` → `styles.css` + `_esm/cs.mjs` / `_ds_bundle.js` (resolve theo prefix) | Mạnh — rules, components, prompts; gates qua full clone | Hardcode hậu tố bundle; coi Storybook host là hợp đồng portable |
 | **Google Stitch** | `DESIGN.md` → `llms.txt` → `tokens/tokens.dtcg.json` | Mạnh cho doctrine + tokens + HTML tĩnh `.cs-*` | Coi `templates/**/*.dc.html` là SoT — không có tweaks / `__dcSetProps` / DC compiler |
 | **Claude Design** | Full repo + DC compiler | Full fidelity (tweaks, `x-import`, template bilingual) | Bỏ qua vòng sync trong `docs/sync.md` |
-| **npm** | `@cyberskill/design` | **1.0.0** trên registry; CI Trusted Publishing | Cài mà không có grant consumer viết tay (UNLICENSED) |
+| **npm** | `@cyberskill/design` | **1.0.0** trên registry; CI Trusted Publishing; grant tại `docs/consumer-grant.md` | Coi cài từ registry như license công khai (vẫn UNLICENSED) |
 
 **Quy tắc DC cho Stitch:** Stitch (và mọi tool non-DC) **không** được tiêu thụ `*.dc.html` như nguồn chân lý. Dùng pattern export tĩnh, `templates/kitchen-sink.html`, `examples/static-hello/`, và class `.cs-*` từ `styles.css`.
 
@@ -38,9 +38,9 @@ Cách mọi project — do người hoặc agent điều khiển — áp dụng 
 
 ## Adopt qua npm (tùy chọn)
 
-Package có thể publish (`private: false`, phiên bản cố định **1.0.0**). License vẫn **UNLICENSED** — cài từ registry **không** tự cấp quyền redistribution. **`@cyberskill/design@1.0.0` đã publish.** CI republish qua **npm Trusted Publishing (OIDC)** trên workflow `npm-publish.yml` (không cần token publish dài hạn). Consumer vẫn cần **grant tường minh** từ CyberSkill để dùng package trong sản phẩm. Xem `docs/decisions.md` và `docs/ci-cd.md`.
+Package có thể publish (`private: false`, phiên bản cố định **1.0.0**). License vẫn **UNLICENSED** — cài từ registry **không** tự cấp quyền redistribution. **`@cyberskill/design@1.0.0` đã publish.** CI republish qua **npm Trusted Publishing (OIDC)** trên workflow `npm-publish.yml` (không cần token publish dài hạn). Dùng đã duyệt ghi tại **`docs/consumer-grant.md`** (sản phẩm portfolio CyberSkill từ `docs/products.md`). Xem `docs/decisions.md` và `docs/ci-cd.md`.
 
-**Grant consumer (chính sách owner — không phải secret).** Với mỗi team được duyệt, ghi lại kiểu: *CyberSkill cấp cho [Team/Org] quyền không độc quyền dùng `@cyberskill/design` trong [sản phẩm đã nêu]. Package vẫn UNLICENSED; redistribution ngoài các sản phẩm đó cần grant viết thêm.* Giữ văn bản grant nội bộ trừ khi muốn công khai.
+**Grant consumer (chính sách owner — không phải secret).** Đã viết và có hiệu lực tại `docs/consumer-grant.md` (+ `docs/vi/consumer-grant.md`). Team bên ngoài cần stanza có ngày thêm vào đó; redistribution ngoài sản phẩm đã grant cần grant viết thêm.
 
 ```bash
 npm install @cyberskill/design@1.0.0
