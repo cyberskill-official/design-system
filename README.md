@@ -15,7 +15,7 @@ This is the **entrance document** for the CyberSkill Design System — pinned **
 
 - **Google Stitch** — start at **`DESIGN.md`** (generated open-spec) → `llms.txt` → `tokens/tokens.dtcg.json`. Build **static** UI with `styles.css` + `.cs-*` / kitchen-sink / `examples/static-hello/`. **Do not** treat `templates/**/*.dc.html` as source of truth.
 
-- **Consuming projects** — npm package **`@cyberskill/design@1.0.0`** (see `docs/consuming.md`; grant in `docs/consumer-grant.md` — still UNLICENSED). Or link **`styles.css`** from a clone/subtree (one file = everything), or copy a `templates/<slug>/` folder and edit one line in its `ds-base.js` (one-line rebind, validated end-to-end Jul 2026). Scope identity with `data-theme` · `data-cs-element` (+`data-cs-variant`) · `lang`. Release signal: tip SHA + `docs/release-notes.md` (VERSION stays **1.0.0**; no CHANGELOG).
+- **Consuming projects** — npm package **`@cyberskill/design@1.0.0`** (see `docs/consuming.md`; grant in `docs/consumer-grant.md` — still UNLICENSED). First copy-paste install: **`examples/npm-hello/`** (Lumi · Hỏa · plasma). Or link **`styles.css`** from a clone/subtree (one file = everything), or copy a `templates/<slug>/` folder and edit one line in its `ds-base.js` (one-line rebind, validated end-to-end Jul 2026). Scope identity with `data-theme` · `data-cs-element` (+`data-cs-variant`) · `lang`. Release signal: tip SHA + `docs/release-notes.md` (VERSION stays **1.0.0**; no CHANGELOG).
 
 **Document map — consumers**
 

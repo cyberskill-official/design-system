@@ -36,8 +36,9 @@ The portable contract (styles.css · `_esm/cs.mjs` · bundle · tokens) works ev
 
 ## Docs — consumers
 
-- [docs/consuming.md](docs/consuming.md): adopting & upgrading, Claude Code vs Stitch dual path, package name `@cyberskill/design`
-- [docs/release-notes.md](docs/release-notes.md): curated product highlights (not a changelog)
+- [docs/consuming.md](docs/consuming.md): adopting & upgrading, Claude Code vs Stitch dual path, package name `@cyberskill/design`; first registry install at [examples/npm-hello/](examples/npm-hello/) (Lumi · Hỏa · plasma)
+- [docs/release-notes.md](docs/release-notes.md): curated product highlights (not a changelog) — includes `@cyberskill/design@1.0.0` Trusted Publishing / grant pointer
+- [docs/consumer-grant.md](docs/consumer-grant.md): written npm grant (CyberSkill portfolio; UNLICENSED)
 - [docs/conventions.md](docs/conventions.md): authoring rules (naming grammar, the three axes)
 - [docs/design-styles.md](docs/design-styles.md): the live styling axes and the fixed liquid-glass treatment
 - [docs/products.md](docs/products.md): product → element registry (**locked**)

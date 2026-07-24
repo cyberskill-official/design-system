@@ -89,6 +89,8 @@ Operational follow-ups — not product marketing, not a backlog surface:
 
 ~~3. Finalize products registry~~ — **done** (Jul 2026): see decision §9; `docs/products.md` is locked.
 
+~~4. First registry consumer path~~ — **done** (Jul 2026): `examples/npm-hello/` installs `@cyberskill/design@1.0.0` for locked **Lumi** identity; documented in `docs/consuming.md` (+ VI) and `docs/release-notes.md`.
+
 Schema sidecars and Storybook `FullMatrix` continue to grow **opportunistically** when a primary already qualifies (today only Button has FullMatrix under the contract) — not as a mass-add pass. See `docs/quality-gates.md`.
 
 ## How to change a decision
