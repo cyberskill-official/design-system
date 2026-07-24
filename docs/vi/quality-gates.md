@@ -73,13 +73,13 @@ Suite `test:unit` được nối vào CI workflow như một phần của harden
 
 ## Job sync / phân phối (soft-skip)
 
-Soft-skip nghĩa là job exit 0 kèm report khi secret/plan/API không hoàn tất write thật — **không** có nghĩa npm, Code Connect, hay Figma Variables đang live. Coi soft-skip là trung thực tạm thời đến khi các việc maintainer còn lại trong `docs/decisions.md` xong (Code Connect node ID; grant npm / `NPM_TOKEN`). Schema sidecar và Storybook `FullMatrix` lớn theo cơ hội khi primary đã đủ điều kiện — không phải đợt mass-add.
+Soft-skip nghĩa là job exit 0 kèm report khi secret/plan/API không hoàn tất write thật — **không** có nghĩa Code Connect hay Figma Variables đang live. npm CI publish dùng Trusted Publishing; soft-skip là trung thực auth/conflict. Coi việc maintainer còn lại trong `docs/decisions.md` là danh sách mở (Code Connect hoãn; grant consumer npm). Schema sidecar và Storybook `FullMatrix` lớn theo cơ hội khi primary đã đủ điều kiện — không phải đợt mass-add.
 
 | Job | Script / workflow | Assert gì | Soft-skip khi | Chạy ở đâu |
 |---|---|---|---|---|
 | Figma Variables | `_audit/ci/push-figma-variables.mjs` + job `figma-variables-push` | Secret mở được file; write Variables tùy chọn | Non-Enterprise / thiếu scope `file_variables:*` / API 403 | Push `main` + thủ công |
 | Code Connect | `_audit/ci/code-connect-publish.mjs` + job `code-connect` | Config + 99 mapping; publish tùy chọn | Thiếu `FIGMA_TOKEN`/`FIGMA_FILE_KEY` hoặc API 403/404/429 | PR + `main` + thủ công |
-| npm publish | `_audit/ci/npm-publish.mjs` + `npm-publish.yml` | `files`/`exports` pack-safe; `npm publish` tùy chọn | Thiếu `NPM_TOKEN` hoặc registry auth/404/403 | `workflow_dispatch` / tag `v*` |
+| npm publish | `_audit/ci/npm-publish.mjs` + `npm-publish.yml` | `files`/`exports` pack-safe; `npm publish` tùy chọn qua OIDC Trusted Publishing | Auth / 403 / 404 / EOTP / conflict phiên bản | `workflow_dispatch` / tag `v*` |
 | Native store | `_audit/ci/native-store-dry-run.mjs` + `native-store.yml` | Scaffold Fastlane + metadata; kiểm secret signed-release | Thiếu `ASC_*` / `PLAY_SERVICE_ACCOUNT_JSON` (submit luôn tắt) | PR + `main` (paths) + thủ công |
 
 ## Hardening Th7 2026 — đã giao

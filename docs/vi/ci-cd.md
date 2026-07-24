@@ -20,7 +20,7 @@
 8. **`code-connect`** — trên PR + `main` + thủ công. Quyết định 1C: dry-run luôn (config + 99 mapping); publish soft-skip khi thiếu `FIGMA_TOKEN` / `FIGMA_FILE_KEY` hoặc API 403/404/429. Xem `docs/figma.md`.
 9. **`regenerate-tokens`** — path-filtered trên push/PR (`tokens.dtcg.json`, natives, generator, `VERSION`); luôn có trên schedule/manual. Output native deterministic; push với `contents: write` (hoặc `DS_PUSH_TOKEN`).
 
-Workflow riêng **`npm-publish`** (`.github/workflows/npm-publish.yml`): `workflow_dispatch` + tag `v*`; pack dry-run luôn; publish soft-skip khi thiếu `NPM_TOKEN`. Phiên bản giữ **1.0.0**; license **UNLICENSED**.
+Workflow riêng **`npm-publish`** (`.github/workflows/npm-publish.yml`): `workflow_dispatch` + tag `v*`; pack dry-run luôn; publish qua **npm Trusted Publishing (OIDC)** (`id-token: write`, không `NPM_TOKEN` trên bước publish). Soft-skip khi auth / 403 / 404 / EOTP / conflict phiên bản. Phiên bản giữ **1.0.0**; license **UNLICENSED**. Trusted Publisher trên npmjs phải khớp filename workflow `npm-publish.yml`.
 
 Workflow riêng **`native-store`** (`.github/workflows/native-store.yml`): PR + `main` (path-filtered) + `workflow_dispatch`; dry-run scaffold luôn; kiểm signed-release soft-skip khi thiếu `ASC_KEY_ID` / `ASC_ISSUER_ID` / `ASC_KEY_P8` / `PLAY_SERVICE_ACCOUNT_JSON`. **Không bao giờ submit** lên App Store / Play — sample vẫn là sample. Xem `examples/native/README.md`.
 
@@ -69,7 +69,7 @@ node _audit/ci/generate-native-tokens.mjs
 - **Hàng visual / component baseline side-by-side** — chỉ advisory (drift đánh giá bằng mắt). So sánh `%` pixel Playwright là gate **hard** (job `pixel-diff` + hàng Pixel CI trên board).
 - **Figma Variables write trên non-Enterprise** — soft-skip kèm report artifact.
 - **Code Connect publish** — soft-skip khi thiếu secret hoặc API 403/404/429 (Quyết định 1C).
-- **npm publish** — soft-skip khi thiếu `NPM_TOKEN` (Quyết định 1C).
+- **npm publish** — Trusted Publishing (OIDC) trên `npm-publish.yml`; soft-skip khi auth / conflict (Quyết định 1C).
 - **Native store signed release** — soft-skip khi thiếu `ASC_*` / `PLAY_SERVICE_ACCOUNT_JSON` (Quyết định 1C); submit store vẫn tắt.
 
 ## Soft-skip dry-run (local)
@@ -77,8 +77,8 @@ node _audit/ci/generate-native-tokens.mjs
 ```bash
 npm run code-connect:dry-run          # config + ≥99 mapping; không secret
 node _audit/ci/code-connect-publish.mjs   # thiếu secret → SOFT SKIP missing_secrets
-npm run npm:pack-dry-run              # inventory tarball; không NPM_TOKEN
-node _audit/ci/npm-publish.mjs        # thiếu NPM_TOKEN → SOFT SKIP missing_secrets
+npm run npm:pack-dry-run              # inventory tarball; không auth
+node _audit/ci/npm-publish.mjs        # GHA OIDC hoặc NPM_TOKEN; không thì SOFT SKIP
 npm run native:store-dry-run          # scaffold Fastlane + metadata; không ASC_*/Play JSON
 node _audit/ci/native-store-dry-run.mjs   # thiếu secret → SOFT SKIP missing_secrets
 ```

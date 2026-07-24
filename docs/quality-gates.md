@@ -73,13 +73,13 @@ The `test:unit` suite is wired into the CI workflow as part of the July 2026 har
 
 ## Sync / distribution jobs (soft-skip)
 
-Soft-skip means the job exits 0 with a report when secrets/plan/API cannot complete the real write — **not** that npm, Code Connect, or Figma Variables are live. Treat soft-skip as provisional honesty until the remaining maintainer tasks in `docs/decisions.md` land (Code Connect node IDs; npm grant / `NPM_TOKEN`). Schema sidecars and Storybook `FullMatrix` grow opportunistically when a primary already qualifies — not as a mass-add pass.
+Soft-skip means the job exits 0 with a report when secrets/plan/API cannot complete the real write — **not** that Code Connect or Figma Variables are live. npm CI publish uses Trusted Publishing; soft-skip covers auth/conflict honesty. Treat remaining maintainer tasks in `docs/decisions.md` as the open list (Code Connect deferred; npm consumer grant). Schema sidecars and Storybook `FullMatrix` grow opportunistically when a primary already qualifies — not as a mass-add pass.
 
 | Job | Script / workflow | What it asserts | Soft-skip when | Where it runs |
 |---|---|---|---|---|
 | Figma Variables | `_audit/ci/push-figma-variables.mjs` + `figma-variables-push` job | Secrets open the file; optional Variables write | Non-Enterprise / missing `file_variables:*` scopes / API 403 | `main` push + manual |
 | Code Connect | `_audit/ci/code-connect-publish.mjs` + `code-connect` job | Config + 99 mappings; optional publish | Missing `FIGMA_TOKEN`/`FIGMA_FILE_KEY` or API 403/404/429 | PR + `main` + manual |
-| npm publish | `_audit/ci/npm-publish.mjs` + `npm-publish.yml` | Pack-safe `files`/`exports`; optional `npm publish` | Missing `NPM_TOKEN` or registry auth/404/403 | `workflow_dispatch` / `v*` tags |
+| npm publish | `_audit/ci/npm-publish.mjs` + `npm-publish.yml` | Pack-safe `files`/`exports`; optional `npm publish` via OIDC Trusted Publishing | Auth / 403 / 404 / EOTP / version conflict | `workflow_dispatch` / `v*` tags |
 | Native store | `_audit/ci/native-store-dry-run.mjs` + `native-store.yml` | Fastlane scaffolds + metadata; signed-release secrets check | Missing `ASC_*` / `PLAY_SERVICE_ACCOUNT_JSON` (submit always disabled) | PR + `main` (paths) + manual |
 
 ## July 2026 hardening — delivered
